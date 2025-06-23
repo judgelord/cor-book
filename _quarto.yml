@@ -1,0 +1,45 @@
+project:
+  type: book
+
+book:
+  title: "Unequal Invisible Representation"
+  #author: "Jane Doe"
+  #date: "8/18/2021"
+  cover-image: cover.png
+  chapters:
+     - index.md
+     - docs/Chapter 1 - Intro.md
+     - docs/Chapter 2 - Theory.md
+     - docs/Chapter 3 - Meta Empirics.md
+     - docs/Chapter 4 - Individual Constituency Service.md
+     - docs/Chapter 5 - Corporate Constituency Service.md
+     - docs/Chapter 6 - Nonprofit and Local Government Constituency Service.md
+     - docs/Chapter 7 - General Policy.md
+     - docs/Chapter 8 - Corporate Policy.md
+     - docs/Chapter 9 - Conclusion.md
+     - docs/references.qmd
+  appendices:
+     - docs/Appendix A - Data and Methods.md
+  search: true
+  repo-url: https://github.com/judgelor/cor-book
+  downloads: [pdf, epub]
+
+number-depth: 3
+
+bibliography: assets/congress.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+    number-depth: 2
+    include-in-header:
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+    include-after-body:
+      text: |
+        \printindex
+  # epub:
+  #   cover-image: cover.png
