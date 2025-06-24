@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Unequal Invisible Representation"
@@ -8,21 +9,21 @@ book:
   cover-image: cover.png
   chapters:
      - index.md
-     - docs/Chapter 1 - Intro.md
-     - docs/Chapter 2 - Theory.md
-     - docs/Chapter 3 - Meta Empirics.md
-     - docs/Chapter 4 - Individual Constituency Service.md
-     - docs/Chapter 5 - Corporate Constituency Service.md
-     - docs/Chapter 6 - Nonprofit and Local Government Constituency Service.md
-     - docs/Chapter 7 - General Policy.md
-     - docs/Chapter 8 - Corporate Policy.md
-     - docs/Chapter 9 - Conclusion.md
-     - docs/references.qmd
+     - Chapter 1 - Intro.md
+     - Chapter 2 - Theory.md
+     - Chapter 3 - Meta Empirics.md
+     - Chapter 4 - Individual Constituency Service.md
+     - Chapter 5 - Corporate Constituency Service.md
+     - Chapter 6 - Nonprofit and Local Government Constituency Service.md
+     - Chapter 7 - General Policy.md
+     - Chapter 8 - Corporate Policy.md
+     - Chapter 9 - Conclusion.md
+     - references.qmd
   appendices:
-     - docs/Appendix A - Data and Methods.md
+     - Appendix A - Data and Methods.md
   search: true
-  repo-url: https://github.com/judgelor/cor-book
-  downloads: [pdf, epub]
+  #repo-url: https://github.com/judgelord/cor-book
+  downloads: pdf # [pdf, epub]
 
 number-depth: 3
 
@@ -41,5 +42,5 @@ format:
     include-after-body:
       text: |
         \printindex
-  # epub:
-  #   cover-image: cover.png
+  epub:
+     cover-image: cover.png
