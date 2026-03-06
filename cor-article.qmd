@@ -1,0 +1,95 @@
+---
+title: Unequal Interbranch Representation
+subtitle: How Members of Congress work with the bureaucracy and why some do much more than others
+runningtitle: Unequal Interbranch Representation
+runningauthor: Judge-Lord, Powell, & Snyder
+author:
+  - name: Devin Judge-Lord
+    affiliations:
+      - name: University of Michigan
+    #department: Ford School of Public Policy
+    email: "judgelor@umich.edu"
+    attributes:
+      corresponding: true
+  - name: Eleanor Neff Powell
+    affiliations:
+      - name: University of Wisconsin-Madison
+    #department: Department of Political Science
+  - name: Rochelle Snycer 
+    affiliations:
+      - name: Coe College
+    #department: Department of Political Science
+date: today
+
+abstract: "`r readLines('google_drive/abstract.md')`"
+thanks: |
+  We welcome any comments: <judgelor@umich.edu>. 
+  `r readLines('google_drive/acknowledgements.md')`
+# doi: 
+# dataverse: ""
+format: pdf
+toc: true
+toc-depth: 1
+linestretch: 1.5
+number-sections: true
+number-depth: 2
+indent: true
+cap-location: top
+bibliography: "assets/cor.bib" # from cor.bib google doc
+journal:
+  blinded: false
+# wordcount: 9938
+execute:
+ echo: false
+ cache: false
+ message: false
+ warning: false
+---
+
+```{r knit-options}
+# to update chapter content, you need to provide an email and authorize google drive access
+email = "devin.jl@gmail.com"
+update = T
+
+# get chapters from google drive and render the book
+if(update){source("code/get_chapters.R")} 
+
+# inline numbers round to 2, comma at thousands
+knitr::knit_hooks$set(inline = function(x) {
+  if (is.na(as.numeric(x))) {
+    return (x)
+    } else
+        return (as.numeric(x) |> 
+                 round(2) |>
+                 format(big.mark=",") 
+        )
+})
+
+library(scales)
+library(here)
+```
+
+\clearpage 
+
+{{< include "google_drive/Chapter 1 - Intro.md" >}}
+
+{{< include "google_drive/Chapter 2 - Theories of Interbranch Representation.md" >}}
+
+{{< include "google_drive/Chapter 3 - Measuring (Invisible) Interbranch Representation.md" >}}
+
+{{< include "google_drive/Chapter 4 - Unequal Interbranch Representation.md" >}}
+
+{{< include "google_drive/Chapter 10 - Conclusion.md" >}}
+
+{{< include "references.qmd" >}}
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+{{< include "google_drive/Appendix.md" >}}

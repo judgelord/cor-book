@@ -2,25 +2,28 @@ project:
   type: book
   output-dir: docs
 
+book-content: true
+
 book:
   title: "Unequal Invisible Representation"
-  #author: "Jane Doe"
-  #date: "8/18/2021"
+  author: "Devin Judge-Lord, Eleanor Powell, Rochelle Snyder"
+  date: today
   cover-image: cover.png
   chapters:
      - index.md
-     - Chapter 1 - Intro.md
-     - Chapter 2 - Theory.md
-     - Chapter 3 - Meta Empirics.md
-     - Chapter 4 - Individual Constituency Service.md
-     - Chapter 5 - Corporate Constituency Service.md
-     - Chapter 6 - Nonprofit and Local Government Constituency Service.md
-     - Chapter 7 - General Policy.md
-     - Chapter 8 - Corporate Policy.md
-     - Chapter 9 - Conclusion.md
+     - google_drive/Chapter 1 - Intro.md
+     - google_drive/Chapter 2 - Theories of Interbranch Representation.md
+     - google_drive/Chapter 3 - Measuring (Invisible) Interbranch Representation.md
+     - google_drive/Chapter 4 - Unequal Interbranch Representation.md
+     - google_drive/Chapter 5 - Representing Individual Constituents.md
+     - google_drive/Chapter 6 - Representing Businesses.md
+     - google_drive/Chapter 7 - Representing Nonprofits and Local Governments.md
+     - google_drive/Chapter 8 - General Policy Work.md
+     - google_drive/Chapter 9 - Policy Work on Behalf of Business.md
+     - google_drive/Chapter 10 - Conclusion.md
      - references.qmd
   appendices:
-     - Appendix A - Data and Methods.md
+     - google_drive/Appendix.md
   search: true
   #repo-url: https://github.com/judgelord/cor-book
   downloads: pdf # [pdf, epub]

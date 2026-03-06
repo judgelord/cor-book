@@ -6,3 +6,13 @@ cor-book.Rproj
 /.quarto/
 Correspondence Book Frame Options.md
 Book Proposal - Unequal Invisible Representation.md
+**/*.quarto_ipynb
+.DS_Store
+Icon
+cor-article_files
+cor-article.pdf
+Icon
+data
+feedback
+/google_drive/
+models
