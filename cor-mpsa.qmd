@@ -1,0 +1,265 @@
+---
+title: Unequal Interbranch Representation
+subtitle: How Members of Congress work with the bureaucracy and why some do much more than others
+runningtitle: Unequal Interbranch Representation
+runningauthor: Judge-Lord, Powell, & Snyder
+author:
+  - name: Devin Judge-Lord
+    affiliations:
+      - name: University of Michigan
+    #department: Ford School of Public Policy
+    email: "judgelor@umich.edu"
+    attributes:
+      corresponding: true
+  - name: Eleanor Neff Powell
+    affiliations:
+      - name: University of Wisconsin-Madison
+    #department: Department of Political Science
+  - name: Rochelle Snyder 
+    affiliations:
+      - name: Coe College
+    #department: Department of Political Science
+date: today
+abstract: |
+  How well do Members of Congress represent their constituents? This seemingly simple question is one that political scientists return to again and again. We argue that contemporary understanding of congressional representation has been limited by a myopic focus on legislative work. In so doing, scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. In this paper, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, non-profits, and businesses as well as communicating with agencies about executive-branch policymaking and implementation. \textbf{Summarize results.}
+thanks: |
+  We welcome any comments: <judgelor@umich.edu>. 
+format:
+  pdf:
+    include-in-header:
+      text: |
+        \newtheorem{hypothesis}{Hypothesis}
+        \newtheorem{subhypothesis}{Hypothesis}[hypothesis]
+        \renewcommand{\thesubhypothesis}{\thehypothesis\alph{subhypothesis}}
+toc: false
+toc-depth: 1
+linestretch: 1.5
+number-sections: true
+number-depth: 2
+indent: true
+cap-location: top
+bibliography: "assets/cor.bib" # from cor.bib google doc
+execute:
+  echo: false
+  cache: false
+  message: false
+  warning: false
+---
+
+```{r knit-options}
+# inline numbers round to 2, comma at thousands
+knitr::knit_hooks$set(inline = function(x) {
+  if (is.na(as.numeric(x))) {
+    return (x)
+    } else
+        return (as.numeric(x) |> 
+                 round(2) |>
+                 format(big.mark=",") 
+        )
+})
+
+library(scales)
+library(here)
+```
+
+\clearpage 
+
+# Introduction
+
+How well do Members of Congress represent their constituents? This seemingly simple question is one that political scientists return to again and again. We argue that contemporary understanding of congressional representation has been limited by a myopic focus on legislative work. In so doing, scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. In this project, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, non-profits, and businesses as well as communicating with agencies about executive-branch policymaking and implementation. 
+
+By refocusing attention on the bulk of the actual work done in legislators’ offices, our book revisits core questions of political science: How should we understand the representative functions of Members of Congress? Empirically, what do they do in the office? How do we assess the quality of representation? How do the legislative and executive branches interact? Has it changed in recent years? We answer these questions by leveraging new data on interbranch representation, including over half a million hand-coded requests from Members of Congress to federal agencies from 2007 to 2025. This painstakingly collected new dataset allows us to systematically measure representation in a new way. We show, for the first time, that Members of Congress make over a hundred thousand requests a year directly to executive-branch officials. Unconstrained by legislative agendas and party discipline, interbranch representation allows all Members of Congress to directly shape the workings of government. 
+
+However, that work is highly unequal – some members engage in extensive interbranch representation, and others do almost none. Overall, we find that these differences in representation are best explained by differences in capacity, such as staff resources and institutional knowledge that comes with experience in the office. In certain contexts, unequal representation is also driven by legislators’ policy priorities, partisan dynamics, and campaign donations. It does not appear to be the result of differing electoral pressures. Understanding this variation and its causes provides insight into how Congress is and isn’t functioning, the causes of inequalities in representation, and how this largely nonpartisan activity of interbranch representation could be improved. 
+
+We conceptualize interbranch representation as varying along two dimensions: the constituency represented (individuals, businesses, non-profits, or local governments) and the type of representational activity undertaken (constituency service or policy work). In this paper, we focus on the total interbranch representation (the sum of both types of representational activities on behalf of all types of constituencies).
+
+\textbf{Add a paragraph about what we do in the paper here.}
+
+
+We find that \textbf{Add paragraph here about our findings}.
+
+
+
+
+
+
+# Existing Theories of Interbranch Representation
+
+To date, constituency service, oversight, and representation have largely been considered by separate literatures. Constituency service has mostly been explored as reelection-oriented behavior. Oversight scholarship is dominated by principal-agent models of control. Representation has mostly been studied with respect to demographics, votes on bills, and, at times, speeches. The concept of interbranch representation that we introduce in this book unifies constituency service, oversight, and other behaviors within a broader conceptual and empirical framework. We conceptualize all interactions with the bureaucracy as a decision to allocate effort (staff and time) to different priorities representing different constituencies, constrained by capacity. This framework offers a way to study representation as a function of one’s constituencies, priorities, and institutional capacity.
+
+Unlike other, more visible forms of congressional representation that have been the subject of substantial scholarly inquiry (roll-call votes, legislative speech, and bill sponsorship), interbranch representation is largely invisible and difficult to study systematically. Congress has refused to disclose data on this aspect of its work. In recent years, however, scholars have begun to obtain snapshots of this work from federal agencies that are (unlike Congress) subject to the Freedom of Information Act (FOIA) disclosure requirements. This work has yielded important findings on distributive politics [@MillsKalafHughes2015], descriptive representation [@LowandeRitchieLauterbach2019], agency policymaking [@Ritchie2018, and @Ritchie2023], legislative effectiveness [@KalafHughes2023], and money in politics [@PowellJudgeLordGrimmer2023]. However, the lack of systematic data across all agencies has
+necessarily limited the range of questions that could be explored with these data. 
+
+## Constituency service
+Constituency service is one of the oldest forms of representation, dating back to the earliest congresses when constituents sought assistance with Revolutionary War pensions [@Eckman2025]. It has been discussed as an important form of representation in canonical studies of Congress [@Fenno1978] and plays a central role in theories of the incumbency advantage [@King1991]. Yet it remains one of the least understood congressional activities. Indeed, nearly forty years ago, @CainFerejohnFiorina1987 began their seminal book \textit{The Personal Vote: Constituency Service and Electoral Independence}, lamenting the lack of attention to constituency service in the empirical literature. Much of what we know empirically about constituency service still comes from their survey of legislators, legislative staff, and constituents, which is now more than 40 years old. We are able to provide quantitative tests of the effect of patterns documented by Fenno 50 years ago, such as legislators inheriting offices from their predecessors.
+
+## Interbranch dynamics and Congressional oversight 
+In recent decades, scholarship on the interaction between the legislative and executive branches has revolved around the concepts of strategic delegation of policymaking authority and appropriation of funds on the front end [@Arnold1979; @EpsteinOHalloran1999; @KiewietMcCubbins1991] and oversight on the back end [@McCubbinsSchwartz1984]. As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship also focuses on principal-agent relationships, but also includes some work on descriptive representation [@Minta2011]. 
+
+Interbranch representation is not about acts of delegation and appropriation, but there are parallels and overlaps. Delegation and appropriation occur through voting, and scholars have shown significant inequalities in who is represented in legislative voting [@Bartels2008; @Carnes2016; @Gilens2012]. Studies of delegation of policymaking authority focus on asymmetric incentives and information across institutions [@EpsteinOHalloran1999; @Fiorina1982;  @McCubbinsSchwartz1984]. Interbranch representation is often aimed at improving legislator information and attempting to shape policy post-delegation in ways that were not possible within the legislative process [@Ritchie2018; and @Ritchie2023]. Other classic studies of the relationship between Members of Congress and federal agencies focus on appropriations [@Arnold1979; @KiewietMcCubbins1991]. This includes the presidential pork [@BerryBurdenHowell2010] and earmarking. Whereas earmarks are a feature of (in theory) annual appropriations legislation, a parallel dynamic of Members of Congress making requests for their district occurs on a daily basis through interbranch representation. Indeed, when legislative earmarks are banned, legislators likely turn to activities we call interbranch representation, such as "lettermarking" [@MillsKalafHughes2015]. As with earmarking in appropriations, we show that institutional power contributes to inequalities in interbranch representation. 
+
+While interbranch representation encompasses many forms of oversight, it is broader than activities traditionally considered oversight (e.g., hearings, investigations, sanctions). A small share of congressional interactions with bureaucrats concern issues that rise to the level of hearings and investigations. The vast majority are interventions in the agency's day-to-day operations [see, e.g., @Lowande2018APSR; @LowandePotter2021]. Agencies are constantly engaged in maintaining their political coalitions and reputations [@Carpenter2001; @Carpenter2014], by, for example, tagging all incoming requests from members of Congress as "VIP" and implementing protocols for rapid responses. An interbranch representation perspective broadens the concept of oversight to encompass not only daily requests for information and implementation instructions, but also less frequent hearings and oversight reports prompted by crises and scandals. 
+
+## Representation 
+Given the difficulties inherent in studying constituency service, representation has long been studied by assessing the congruence between legislators’ roll-call votes and constituents’ policy preferences [@MillerStokes1963; @Clinton2006; @AnsolabehereJones2010]. Research on descriptive representation has likewise focused on who is or is not being represented, as well as assessing potential trade-offs between descriptive and substantive representation [e.g., @Canon1999], though more recent work has studied how descriptive representation affects legislators’ other activities, including interbranch representation [@LowandeRitchieLauterbach2019]. Some of this research focuses on distortions to folk theories of representation. For example, scholars of inequality focus on how legislators represent donors over constituents [@Gilens2012].
+
+Over the last few decades, scholars have begun to evaluate other forms of representation, ranging from legislators’ speech [@Grimmer2013; @GrimmerWestwoodMessing2014] to evaluating legislative effectiveness and quality of representation [@VoldenWiseman2014; @CasasDennyWilderson2019]. Only recently has quantitative scholarship begun to view constituency service as a form of representation [@Snyder2024]. A large number of field experiments have uncovered distortions in legislators’ responsiveness to constituents for the sharing of policy opinions [@ButlerDynes2016; @HendersonHertelFernandezMildenbergerStokes2023], requests for meetings with legislators [@KallaBroockman2016], and requests for constituency service [@ButlerBroockman2011; @Lajevardi2020; @GarciaSadhwani2023]. We build on and complement this nascent expanded representational literature by documenting and explaining inequalities in interbranch representation. 
+
+## The "Folk Theory" of Model Representation
+
+We seek to explain inequalities in interbranch representation by contrasting a "folk theory" of model representation with theories that account for legislators’ \textbf{strategic motivations and capacity}. Constituency service is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. In this view, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. The intuition here is that staff understand their job to be responding to all constituent requests. This is what we call the \textbf{Strong Form of the Folk Theory}: 
+
+\begin{hypothesis}[Strong Version of Folk Theory]
+\label{hyp:strongfolk}
+No variation in interbranch representation. 
+\end{hypothesis}
+
+Importantly, the model representatives envisioned by this "Strong Version of the Folk Theory" would be assumed to have similar levels of institutional capacity with which to serve their constituents and engage in interbranch representation. In practice, however, members of Congress differ when it comes to the resources and staff at their disposal to support this work. 
+
+A more relaxed, or weaker form of the Folk Theory, might take the same basic premise that staff are responding to constituent requests, but allow for variation caused by either constituent demand across districts and/or variation in staff capacity. Any inequalities in interbranch representation would thus be attributable primarily to differences in constituent demand for service. And while changes in legislator capacity may allow legislators to engage in more interbranch representation, this folk theory grounded in the logic of appropriateness would dictate that legislators would merely do more of the same kinds of activities. 
+
+\begin{hypothesis}[Weak Version of Folk Theory]
+\label{hyp:weakfolk}
+Staff respond to all constituent requests, so expect little variation, though demand-driven and capacity-diven variation possible. Shouldn’t observe variation when district characteristics and capacity held constant.  
+\end{hypothesis}
+
+Existing research, however, suggests that such a view of legislative behavior as non-strategic (and in the strong form unconstrained) may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve re-election [e.g. @Mayhew1974;  @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973)]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security, with less electorally secure legislators engaging in more contact with the bureaucracy.
+
+Because this "folk theory" of model representatives explains only the provision of constituency service, it is also inadequate for explaining inequalities in interbranch representation involving policy. Here, too, legislators’ goals and strategic efforts are likely to be important. 
+
+## Our Theory: Capacity and Stragic Motivations
+
+\textbf{Note: We need to incorporate citations into this section!}
+
+The "Folk Theory" of model representatives is unable to explain variation and inequality in interbranch representation. If we observe variation in interbranch representation--particularly after controlling for demand and capacity factors, we need an alternative explanation. Here we present a Capacity and Strategic Motivation Theory of Interbranch Representation.  
+
+### Capacity Theory
+
+How much interbranch representation legislators engage in should vary by the capacity of the legislator's office. 
+
+
+\begin{hypothesis}[Capacity]
+\label{hyp:capacity}
+Legislators office with more capacity will be associated with higher levels of interbranch representation. 
+\end{hypothesis}
+
+\begin{subhypothesis}[Capacity: Legislator Experience]
+Legislators with more experience will be associated with higher amounts of interbranch representation
+\end{subhypothesis}
+
+\begin{subhypothesis}[Capacity: Staff Quantity]
+Legislators with more staff will be associated with higher amounts of interbranch representation. 
+\end{subhypothesis}
+
+\begin{subhypothesis}[Capacity: Staff Quality]
+Legislators with higher quality staff will be associated with higher amounts of interbranch representation. 
+\end{subhypothesis}
+
+\begin{subhypothesis}[Capacity: Competitive Election Selected Higher Quality ]
+Competitive elections select higher quality legislators, therefore legislators who won competitive elections will be associated with higher amounts of interbranch representation. 
+\end{subhypothesis}
+
+2. Capacity
+    - Intuition: Response should vary by office capacity
+    - Empirical Implication: Should vary by capacity
+    - Capacity varies by:
+        - Gained quality - Legislator Experience
+        - Staff quantity - Comm Leadership (More staff) 
+        - Staff quality - Inherited Staff from previous MC - We can use proxy of was MC of same party
+        - Selected quality: Selecting Higher Performers: 
+            - Did you Survive a Close Election in prior time period
+            - Did you survive an election
+            
+### Strategic Motivation Theory
+
+How much interbranch representation legislators engage in should vary by the strategic motivation of the legislator. 
+
+
+\begin{hypothesis}[Strategic Motivation]
+\label{hyp:motivation}
+Legislators have different motivations: How much energy and effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.).
+\end{hypothesis}
+
+\begin{subhypothesis}[Motivation: Re-election]
+Legislators worried about re-election (from more vulnerable districts) will be associated with higher amounts of interbranch representation
+\end{subhypothesis}
+
+\begin{subhypothesis}[Motivation: Majority Status in Chamber More Interbranch]
+Legislators from the majority party will be associated with higher amounts of interbranch representation.  
+\end{subhypothesis}
+
+\begin{subhypothesis}[Motivation: Majority Status in Chamber Less Interbranch]
+Legislators from the majority party will be associated with higher amounts of interbranch representation.  
+\end{subhypothesis}
+
+\begin{subhypothesis}[Motivation: President's Party More Interbranch]
+Legislators from the President's party will be associated with higher amounts of interbranch representation.
+\end{subhypothesis}
+
+\begin{subhypothesis}[Motivation: President's Party Less Interbranch]
+Legislators from the President's party will be associated with lower amounts of interbranch representation.
+\end{subhypothesis}
+    - Intuition: How much effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.). 
+    - Empirical Implication: Difficult to measure motivation, but institutional position lets us capture certain types of motivation. 
+    - Motivation varies by: 
+        - Re-election Goal (electoral vulnerability): Is your district risky? If so, do stuff to try to get re-elected. 
+        - Majority Status in Chamber (Ritchie) – more likely to invest in interbranch representation b/c legislative efforts less likely to succeed. 
+        - Minority Status in Chamber (Ritchie) – more likely to invest in interbranch representation b/c legislative efforts less likely to succeed. 
+        - President’s Party Version 1 (Berry, Burden & Howell): more likely to invest in interbranch representation when same party b/c more likely to get cooperation from executive branch officials. 
+        - President’s Party Version 1(oversight story competing with BBH): more likely to invest in interbranch representation when different party b/c greater incentives to investigate/push/prod/annoy the executive branch. 
+
+# Research Design
+
+## Overall Design
+
+Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
+
+
+
+
+
+## Measuring Interbranch Representation
+
+For 9 years, we have been filing FOIA requests with all federal agencies and subagencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. 
+
+We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy. 
+
+Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics [@MillsKalafHughes2015], the policy strategies of cross-pressured legislators [@Ritchie2018; @Ritchie2023], the role of ideology in congressional oversight [@Lowande2019], descriptive representation [@LowandeRitchieLauterbach2019], and money in politics [@PowellJudgeLordGrimmer2023]. With a near census of agencies, we are able to study, for the first time [except for @JudgeLordPowellGrimmer2026], patterns across all members and policy areas.
+
+We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts. 
+
+## Other variables
+
+## Statistical Model
+
+# Results
+
+1. Knock Down Folk Theory. Document the Inequality. 
+2. Show the results for capacity and strategic behavior. 
+
+# Discussion and Conclusion
+
+\textbf{Add paragraphs here discussing our results, uncertainty, and implications.}
+
+
+A focus on interbranch representation adds important nuance to modern narratives about a broken Congress. Although Congress may be broken in many ways, one under-appreciated way in which Congress still works is through interbranch representation (at least for some districts). The First Amendment to the U.S. Constitution guarantees the right "to petition the Government for a redress of grievances." In practice, citizens’ most direct experience with the federal government is with federal agencies. When citizens have grievances or simply need help navigating the federal bureaucracy, they petition their elected representatives for help. Legislators, in turn, petition the government for redress, facilitating responsiveness from agencies.
+
+Examining interbranch representation reshapes our understanding of how the legislative and executive interact. Our models of interbranch relations (both in public discourse and formal theory) are largely based on a formal, constitutionally prescribed division of legislative and executive functions. Thus, political scientists have focused on legislative bargaining, delegation of policymaking authority, and oversight hearings. This focus neglects the primary way legislators interact with the executive branch. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms, relationships, and softer forms of legitimacy. From an interbranch representation perspective, "separation of powers" is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy on a daily basis. There are a few executive branch activities that Members of Congress do not involve themselves in, and any lack of involvement is likely due to a lack of capacity rather than any formal separation of powers on paper. 
+
+
+
+{{< include "references.qmd" >}}
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+<!--
+{{< include "google_drive/Appendix.md" >}}
+--> 

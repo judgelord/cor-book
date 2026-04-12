@@ -48,10 +48,12 @@ file.copy(from = here::here("google_drive", "abstract.md"),
           to = here::here("index.md"),
           overwrite = T)
 
-
+# Ellie edited this on 4-11, so the local version is ahead of the google doc
+if(F){
 file.copy(from = here::here("cor.bib.md"),
           to = here::here("assets", "cor.bib"),
           overwrite = T)
+}
 
 # list files to paste into quarto.yml (only required when we change google doc names)
   paste0("   - ", list.files(here::here("google_drive"))) |> knitr::kable(format = "simple")
