@@ -52,6 +52,21 @@ load(here::here("data", "member_data.Rdata"))
 # same party 
 load(here::here("data", "same_party_crosswalk.rda"))
 
+### 
+# TRANSFORMATIONS WITH MEMBERS 
+
+# ELECTION competitive 
+members %<>% mutate(
+  competitive = ifelse(dpres > 45 & dpres < 55,
+                       1,
+                       0),
+  competitive_primary = PRVYEcompetitivereceipts_575
+)
+
+# members %>% filter(is.na(competitive_primary))
+
+
+# Make clean name 
 member_data <- member_data |> 
   mutate(
     member = bioname |>
@@ -140,6 +155,11 @@ d <- d |>
 
 
 dcounts <- d |> left_join(member_data)
+
+
+### 
+# TRANSFORMATIONS WITH MEMBERS 
+
 ```
 
 
