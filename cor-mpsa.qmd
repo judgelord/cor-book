@@ -109,60 +109,51 @@ Over the last few decades, scholars have begun to evaluate other forms of repres
 
 ## The "Folk Theory" of Model Representation
 
-We seek to explain inequalities in interbranch representation by contrasting a "folk theory" of model representation with theories that account for legislators’ \textbf{strategic motivations and capacity}. Constituency service is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. In this view, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. The intuition here is that staff understand their job to be responding to all constituent requests. This is what we call the \textbf{Strong Form of the Folk Theory}: 
+We seek to explain inequalities in interbranch representation by contrasting a "folk theory" of model representation with theories that account for legislators’ \textbf{strategic motivations and capacity}. One of the central elements of interbranch representation --constituency service--is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. In this view, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. The intuition here is that staff understand their job to be responding to all constituent requests. This is what we call the \textbf{Naive Folk Theory}: 
 
 \begin{hypothesis}[Naive Folk Theory: Proportional Representation]
-\label{hyp:strongfolk}
-No variation in interbranch representation. Interbranch representation proportional to district population. 
+\label{hyp:naivefolk}
+House: no variation in interbranch representation. \\ Senate: Interbranch representation proportional to state population. 
 \end{hypothesis}
 
-\ref{hyp:strongfolk}
+This naive folk theory would expect no variation in interbranch representation in the House, where all legislators represent roughly the same number of constituents. In the Senate, however, it would expect interbranch representation proportional to the number of constituents a Senator represents. In this naive folk theory world, legislators are simply responding to all consistituents in an even and apolitical manner. Existing research, however, suggests that such a view of legislative behavior as non-strategic (and in the strong form unconstrained) may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve reelection [e.g., @Mayhew1974;  @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security, with less electorally secure legislators engaging in more contact with the bureaucracy.
 
-Importantly, the model representatives envisioned by this "Strong Version of the Folk Theory" would be assumed to have similar levels of institutional capacity with which to serve their constituents and engage in interbranch representation. In practice, however, members of Congress differ when it comes to the resources and staff at their disposal to support this work. 
+Two additional features of the "Naive Folk Theory" are also unrealistic. First, the model representatives envisioned by this "Naive Folk Theory" would be assumed to have similar levels of institutional capacity with which to serve their constituents and engage in interbranch representation. In practice, however, members of Congress differ when it comes to the resources and staff at their disposal to support this work. Similarly, in this "Naive Folk Theory" world, the model representatives would also represent constituents with similar demands of their representatives. Yet in the real world, we might expect constituent demands to vary across districts. 
 
-A more relaxed or weaker form of the Folk Theory might take the same basic premise that staff are responding to constituent requests, but allow for variation caused by constituent demand across districts. Any inequalities in interbranch representation would thus be attributable primarily to differences in constituent demand for service.
+## Our Theory: Unequal Demand, Unequal Capacity and Strategic Motivations
 
-\begin{hypothesis}[Sophisticated Folk Theory with Variation In Constituent Demand]
-\label{hyp:weakfolk}
-Staff responds to all constituent requests, so expect little variation, though demand-driven variation is possible. Shouldn’t observe variation when district characteristics are held constant.  
-\end{hypothesis}
+The "Naive Folk Theory" of model representatives is insufficient to explain variation and inequality in interbranch representation. If we observe variation in interbranch representation in the House, and variation in interbranch reprentation after controlling for state population in the Senate, we need an alternative explanation. Here we build on existing research to introduce an \textbf{Unequal Demand, Unequal Capacity and Strategic Motivation Theory of Interbranch Representation}.  This theory builds on the "Naive Folk Theory" of \ref{hyp:naivefolk}, by considering unequal demand, but adds consideration of unequal capacity, and varying strategic motivations. 
 
-Existing research, however, suggests that such a view of legislative behavior as non-strategic (and in the strong form unconstrained) may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve reelection [e.g., @Mayhew1974;  @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security, with less electorally secure legislators engaging in more contact with the bureaucracy.
+### Unequal Demand
 
-Because this "folk theory" of model representatives explains only the provision of constituency service, it is also inadequate for explaining inequalities in interbranch representation involving policy. Here, too, legislators’ goals and strategic efforts are likely to be important. 
+In this paper, we're limiting our consideration of unequal demand to the varying number of constituents that legislators represent, with a particular focus on the Senate with the wide range of state populations that senators represent. Conceptually, we might imagine that constituent demand could vary for reasons other than population. Some constituents might have greater need for help from the federal government. Many constituents may not know that they could seek help from the Members of Congress. Further complicating this picture is that legislators appear to use capacity to generate demand through advertising and informing their constituents about ways they can help--either for strategic reasons or just becasues they believe normatively it is the right thing for them to do.
 
-## Our Theory: Capacity and Strategic Motivations
+### Unequal Capacity Theory
 
-\textbf{Note: We need to incorporate citations into this section!}
+We turn next to the \textbf{Capacity} component of our theory. We argue that how much interbranch representation legislators engage in is likely to be positively associated with the capacity of the legislator's office. The intuition here is that how much interbranch representation a legislator's office can provide is likely to vary by the amount of capacity a legislator's office has. Offices with greater capacity have the potential to provide more interbranch representation, and vice versa. We are buiding on four existing steams of capacity literature: 1) formal theory voter screening models that predict that as a legislator's capacity increases, they will increase their level of constituency service [@AshworthBuenodeMesquita2006], 2) empirical research that suggests low congressional capacity serves as a major constraint on Congress's work [@LaPiraDrutmanKosar2020], 3) empirical research that shows legislator capacity impacts back-channel (backdoor) policy-making--when legislators contact executive agencies attempting to influence policy [@Ritchie2018; @Ritchie2023] and 4) our prior resarch that shows that increases in congressional capacity can offset shifts in legislator priorities between policy-making and constituency service [@JudgeLordPowellGrimmer2026].
 
-The "Folk Theory" of model representatives is unable to explain variation and inequality in interbranch representation. If we observe variation in interbranch representation--particularly after controlling for demand and capacity factors-- we need an alternative explanation. Here we build on existing research to introduce a \textbf{Capacity and Strategic Motivation Theory of Interbranch Representation}.  
-
-### Capacity Theory
-
-We turn first to the \textbf{Capacity} component of our theory. We argue that how much interbranch representation legislators engage in is likely to be positively associated with the capacity of the legislator's office. The intuition here is that how much interbranch representation a legislator's office can provide is likely to vary by the amount of capacity a legislator's office has. Offices with greater capacity have the potential to provide more interbranch representation, and vice versa. We are buiding on three existing steams of capacity literature: 1) formal theory voter screening models that predict that as a legislator's capacity increases, they will increase their level of constituency service [@AshworthBuenodeMesquita2006], 2) empirical research that suggests low congressional capacity serves as a major constraint on Congress's work [@LaPiraDrutmanKosar2020], and 3) our prior resarch that shows that increases in congressional capacity can offset shifts in legislator priorities [@JudgeLordPowellGrimmer2026].
-
-\begin{hypothesis}[Capacity]
+\begin{hypothesis}[Unequal Capacity]
 \label{hyp:capacity}
 Legislators office with more capacity will be associated with higher levels of interbranch representation. 
 \end{hypothesis}
 
 There are, however, several different aspects of capacity to consider. We've thus developed subhypotheses that capture these different components of Congressional capacity. 
 
-**Capacity gained from legislator experience.** Like anyone starting a new job, legislators face start-up costs such as how to organize their office, develop efficient routines, and make connections. Thus, as they 
+**Capacity gained from legislator experience.** Like anyone starting a new job, legislators face start-up costs such as how to organize their office, develop efficient routines, and make connections. Empirical research on both policy work with executive agencies [@Ritchie2018; @Ritchie2023; @JudgeLordPowellGrimmer2026] and constituency service work with executive agencies [@JudgeLordPowellGrimmer2026] has shown capacity gained from legislator experience is correlated with higher levels of interbranch representation. Thus, 
 
 \begin{subhypothesis}[Capacity: Legislator Experience]
 \label{hyp:capacity-experience}
 Legislators with more experience will be associated with higher amounts of interbranch representation
 \end{subhypothesis}
 
-**Staff quantity.** Committee chairs direct committee staff. @JudgeLordPowellGrimmer2026 show that this additional staff capacity increases both policy work and constituency service. 
+**Staff quantity.** Committee chairs direct committee staff in addition to their own personal staff. Empirical research shows that this additional staff capacity increases both policy work [@Ritchie2018; @Ritchie2023; @JudgeLordPowellGrimmer2026] and constituency service [@JudgeLordPowellGrimmer2026]. 
 
 \begin{subhypothesis}[Capacity: Staff Quantity]
 \label{hyp:capacity-staff}
 Legislators with more staff will be associated with higher amounts of interbranch representation. 
 \end{subhypothesis}
 
-**Staff quality.** @Cottle2022 finds that staff experience affects the productivity of legislative committees. Similarly, we might expect that members who inherit experienced staff from the previous representative of that state or district will have more capacity for interbranch representation. Because staff are much more likely to stay when the new representative of the same party, we can use whether the former representative was of the same party as a proxi for staff quality. We expect this effect to be especially strong in offsetting the startup costs of new members in their first two years, so we allow it to vary by legislator experience. 
+**Staff quality.** @Cottle2022 finds that staff experience affects the productivity of legislative committees. Similarly, we might expect that members who inherit experienced staff from the previous representative of that state or district will have more capacity for interbranch representation. Because staff are much more likely to stay when the new representative of the same party, we use whether the former representative was of the same party as a proxi for staff quality. We expect this effect to be especially strong in offsetting the startup costs of new members in their first two years, so we allow it to vary by legislator experience.
 
 \begin{subhypothesis}[Capacity: Staff Quality]
 \label{hyp:capacity-staff-quality}
@@ -182,56 +173,63 @@ Competitive elections select higher-quality legislators. Therefore, legislators 
 
 ### Strategic Motivation Theory
 
-How much interbranch representation legislators engage in should vary by the strategic motivation of the legislator. 
-
+How much do energy and staff time do legislators want to devote to interbranch representation as opposed to other tasks (legislating, communicating, etc.)? It may depend on what they are trying to accomplish. Beginning with @Fenno1973 and @Mayhew1974, a substantial body of legislative politics literature has explored the strategic motivations of members of Congress. We begin with a general hypothesis that legislators with different strategic motivations will be associated with different levels of interbranch representation. These varying stragic motivations could shape members' desire to engage in both the constituency service and policy components of interbranch representation. Importantly the "naive folk theory" of model representatives (to the extent that it holds) is only capable of speaking to the constituency service component of interbranch representation. It is also inadequate for explaining inequalities in interbranch representation involving policy. Here, too, legislators’ goals and strategic efforts are likely to be important.  
 
 \begin{hypothesis}[Strategic Motivation]
 \label{hyp:motivation}
 Legislators have different motivations: How much energy and effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.).
 \end{hypothesis}
 
+**Re-election Motivation.** While it is difficult to directly measure a legislator's motivation, we can identify situations in which legislators are likely to prioritize certain goals or motivations. Perhaps the most widely recognized strategic motivation of legislators is re-election [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in \textit{Congress: The Electoral Connection}, "[Re-election] has to be the \textit{proximate} goal of everyone, the goal that must be achieved over and over if other ends are to be entertained,"[@Mayhew1974]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to re-elect the legislator [@SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012 ]. This expectation, however, is contrary to Ritchie's findings in \textit{Backdoor Lawmaking}, which showed no consistent relationship between electoral vulnerability and policy-work with federal agencies [@Ritchie2023]. 
+
 \begin{subhypothesis}[Motivation: Re-election]
 \label{hyp:motivation-election}
 Legislators worried about reelection (from more vulnerable districts) will be associated with higher amounts of interbranch representation
 \end{subhypothesis}
 
-\begin{subhypothesis}[Motivation: Majority Status in Chamber More Interbranch]
-\label{hyp:motivation-majority-more}
-Legislators from the majority party will be associated with higher amounts of interbranch representation.  
-\end{subhypothesis}
+**Majority Status in Chamber Motivation Decreasing Interbranch Representation.** In her research on backdoor policy-making with federal agencies, Ritchie argues that legislators are most likely to turn to back-channel lawmaking by appealing directly to federal agencies when they face obstacles in the legislative process [@Ritchie2023]. Majority legislators encounter a much friendlier legislative environment, and are thus less likely than minority legislators to turn to back-channel policy-appeals to bureaucratic agencies. 
 
 \begin{subhypothesis}[Motivation: Majority Status in Chamber Less Interbranch]
-\label{hyp:motivation-majority-less}
-Legislators from the majority party will be associated with higher amounts of interbranch representation.  
+\label{hyp:motivation-majority-more}
+Legislators from the majority party will be associated with lower amounts of interbranch representation.  
 \end{subhypothesis}
+
+**President's Party Increasing Interbranch Representation.** Building on @BerryBurdenHowell2010's finding that Members of the President's party receive more federal spending in their districts, we hypothesize that Members of the president's party may engage in higher levels of interbranch representation. Our reasoning here is that as the name implies interbranch representation is at the nexus of the executive and legislative branches. While the behavior we're documenting in this paper is the legislative portion of that relationship (legislators reaching out to executive branch agencies), to actually be able to deliver results to their constituents, they need cooperation from the executive branch agencies. If legislators of the president's party think they are more likely to receive higher levels of cooperation from executive branch agencies, they may be motivated to attempt interbranch representation at higher rates. 
 
 \begin{subhypothesis}[Motivation: President's Party More Interbranch]
 \label{hyp:motivation-president-more}
 Legislators from the President's party will be associated with higher amounts of interbranch representation.
 \end{subhypothesis}
 
+**President's Party Decreasing Interbranch Representation.** The othersize of the coin, however, is that while members of the president's party might anticipate a friendlier reception from executive branch agencies controlled by a same-party president, members of the opposition party might have greater incentives to engage in oversight of an executive branch controlled by an opposing party's president[Cite something on minority doing oversight here]. Similarly, we might anticipate constituents of opposition party legislators having more concerns or problems with agencies controlled by a president of a different party who might prioritize diffferent types of constituents or policies less hospitable to opposition party constituents. Lastly, Ritchie's argument that legislators turn to backdoor policy-making when they confront obstacles in the legislative process applies here too. Faced with a president unlikely to support the legislative proposals of opposition legislators, Ritchie found that legislators were more likely to turn to backchannel policy-making [@Ritchie2023].
+
 \begin{subhypothesis}[Motivation: President's Party Less Interbranch]
 \label{hyp:motivation-president-less}
 Legislators from the President's party will be associated with lower amounts of interbranch representation.
 \end{subhypothesis}
 
-  - Intuition: How much effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.). 
-    - Empirical Implication: Difficult to measure motivation, but institutional position lets us capture certain types of motivation. 
-    - Motivation varies by: 
-        - Reelection Goal (electoral vulnerability): Is your district risky? If so, do stuff to try to get reelected. 
-        - Majority Status in Chamber (Ritchie) – more likely to invest in interbranch representation b/c legislative efforts are less likely to succeed. 
-        - Minority Status in Chamber (Ritchie) – more likely to invest in interbranch representation b/c legislative efforts are less likely to succeed. 
-        - President’s Party Version 1 (Berry, Burden & Howell): more likely to invest in interbranch representation when same party b/c more likely to get cooperation from executive branch officials. 
-        - President’s Party Version 1(oversight story competing with BBH): more likely to invest in interbranch representation when different party b/c greater incentives to investigate/push/prod/annoy the executive branch. 
 
 # Research Design
 
-## Overall Design
+Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. To understand highly unequal levels of interbrnach representation, we look both descriptively at cross-section differences across legislators and more rigorously at within-legislator and within-district differences-in-differences specifications for causal leverage. While in an ideal world we'd be able to look at our more rigorous specifications in all circumstances, some of our hypotheses can only be examined descriptively. Table \ref{tbl-hypotheses} below summarizes the hypotheses and whether they can be examined with each design type. 
 
-Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
+```{r}
+#| label: tbl-hypotheses
+#| tbl-cap: "Hypotheses and Research Design"
+#| out-width: 100%
+#| echo: false
+library(knitr)
 
+hypotheses <- data.frame(
+  Hypothesis = c("H1: Naive Folk Theory: Proportional Representation","H2A: Capacity - Legislator Experience", "H2b: Capacity - Staff Quantity", "H2c: Capacity - Staff Quality", "H3a: Motivation - Re-election", "H3b: Motivation - Majority Status in Chamber More Interbranch", "H3c: Motivation - President's Party More Interbranch", "H3d: Motivation - President's Party Less Interbranch"),
+  Direction = c("Positive", "Positive", "Positive", "Positive", "Positive", "Negative", "Positive", "Negative"),
+  `Within Member` = c("Not Supported", "Supported", "Supported", "Supported", "Not Supported", "Supported", "Supported", "Supported"),
+  `Across Member` = c("Supported", "Supported", "Supported", "Supported", "Supported", "Supported", "Supported", "Supported"),
+  check.names = FALSE
+)
 
-
+kable(hypotheses, align = c("l", "l", "l", "l"))
+```
 
 
 ## Measuring Interbranch Representation
@@ -252,24 +250,21 @@ Because our outcome is a count, we use negative binomial regression with agency-
 
 # Results
 
-1. Knock Down Folk Theory. Document the Inequality. 
-2. Show the results for capacity and strategic behavior. 
-
 ## Demand and Capacity
 
-[DEVIN WILL MAKE A FIGURE SHOWING HOW PREDICTED CONTACTS INCREASE WITH POPULATION]
 
 
-Models 1, 3, and 5 (columns 1, 3, and 5 of @tbl-models-total-capacity) show differences across legislators. 
+
+Models 1, 3, and 5 (columns 1, 3, and 5 of @tbl-models-total) show differences across legislators. 
 Estimating the effect of constituent demand is difficult, primarily because demand is directly affected by both the capacity and strategic behavior of legislator offices when they advertise constituency services. 
 Second, the population in the house districts is the same, so there is no variation to exploit in the number of constituents per representative. 
-However, budgets for staff are determined by the population of the state
-Under these conditions, failing to find a significant relationship between state population would be surprising evidence against both constituent demand and congressional capacity as drivers of interbranch representation. 
+However, budgets for staff are determined by the population of the state.
+Under these conditions, failing to find a significant relationship between state population and senators would be surprising evidence against both constituent demand and congressional capacity as drivers of interbranch representation. 
 
-Unsurprisingly, the first row of @tbl-models-total-capacity shows a relationship between state population and the amount of interbranch representation that Senators have. Because state populations do not change relative to each other, we are only able to estimate this for the cross-sectional model (column 5 in @tbl-models-total-capacity).
+Unsurprisingly, the first row of @tbl-models-total shows a relationship between state population and the amount of interbranch representation that Senators have. Because state populations do not change relative to each other, we are only able to estimate this for the cross-sectional model (column 5 in @tbl-models-total). Using the coefficients and fixed effects from this model, @fig-pop-effect shows the predicted average levels of interbranch representation per year per senator compared to a counterfactual where we re estimate levels for a counterfactual scenario where all states had the population of Wyoming (and thus all Senators had equal staff budgets equal to those of Wyoming). 
 
 ```{r}
-#| label: tbl-models-total-capacity
+#| label: tbl-models-total
 #| tbl-cap: "The effect of capacity on total requests to federal agencies"
 #| out-width: 100%
 
@@ -280,13 +275,22 @@ modelsummary(models_total,
                           "This table shows estimates of the effect of legislator capacity (chair and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
 ```
 
+
+```{r}
+#| label: fig-pop-effect
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
+#| out-width: 50%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-senate-effect-1.png"))
+```
+
 ## Capacity 
 
 Legislators with more institutional capacity make more requests. Model 1 shows that committee chairs, ranking members, members of oversight committees, and members of prestige committees all provide more interbranch representation than other legislators. Except for prestige committee membership, these hold significance just within the House (model 3). Among senators (Model 5), only ranking members and oversight committee members are significantly more representation.  Because we estimate the effects of becoming a committee chair and being a member of a prestige committee in the same model, these effects are additive: prestige committee chairs may make more requests than non-prestige committee chairs, who make more requests than non-chairs.
 
 @fig-effect shows how differing levels of capacity among legislators affect the total predicted level of inequality in interbranch representation estimated in model 1. First, we predict the number of requests per legislator per year per agency for all legislator-year-agency observations in the data using all model parameters, including legislator fixed effects. Then we estimate counterfactual levels without one or more effects. @fig-effect (a) shows the counterfactual where no legislators have the capacity that comes with a committee chair position. Differences in this counterfactual are concentrated on legislators in the top percentiles because committee chairs tend to do the most interbranch representation. @fig-effect (b) shows the counterfactual where no legislators have the capacity that comes with a ranking minority position. @fig-effect (c) shows the counterfactual where no legislators have the capacity that comes with more than two years in office. @fig-effect (d) shows the sum of these capacity effects, a counterfactual where no legislators have the capacity that comes with a chair, ranking minority position, or more than two years of experience. This represents a world where all members turn over every congress and committees have no staff.
 
-Overall, elements of legislator capacity modeled in @tbl-models-total-capacity explain a significant level of inequality in interbranch representation. These differences are both statistically significant and substantively large relative to other causes of variation that are captured in the legislator fixed effects, explaining over 10% of total inequality predicted by the model. 
+Overall, elements of legislator capacity modeled in @tbl-models-total explain a significant level of inequality in interbranch representation. These differences are both statistically significant and substantively large relative to other causes of variation that are captured in the legislator fixed effects, explaining over 10% of total inequality predicted by the model. 
 
 ```{r}
 #| label: fig-effect
@@ -327,7 +331,6 @@ To test whether retaining staff from the prior representative impacts interbranc
 ```{r}
 #| label: tbl-models-district
 #| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-#| out-width: 100%
 
 load(here::here("models", "models_district.Rdata"))
 
@@ -341,10 +344,29 @@ modelsummary(models_district,
 
 ## Strategic Behavior
 
-To assess strategic behavior, we return to legislator-level models in tbl-models-elect and tbl-models-ideo-total.
+To assess strategic behavior, we return to legislator-level models, first returning to the motivation-related variables @tbl-models-total and then including variables for electoral competition in @tbl-models-elect and for voting behavior and perceived ideology in @tbl-models-ideo-total.
+
+### Stratigic responses to institutional postion
+
+One well-established driver of interbranch representation is partisan institutional control. When members of the minority party are blocked from agenda control or cross-pressured, they use interbranch representation to serve their district in ways other than legislating [@Ritchie2018; @Ritchie2023]. To estimate how large a role minority party status plays in overal levels and inequality in of interbranch representation, @fig-partisan-effect (a) compares 
+
+
+```{r}
+#| label: fig-partisan-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-7.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-7.png"))
+```
+
+
 
 ### Electoral security 
-
 
 @tbl-models-elect shows inconsistent support for the theory that interbranch representation is reelection motivated [@King1991]. Cross-sectionally, we find differences across legislators whose prior election was competitive or not (model 1), including when we subset to legislators who were reelected (model 3). However, the within-member design (models 2 and 4) does not show a difference in behavior when a member had recently faced a competitive election and when they had not. 
 
@@ -357,11 +379,23 @@ load(here::here("models", "models_elect_total.Rdata"))
 
 modelsummary(models_elect_total,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of institutional power on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data."))  
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data."))  
 
 ```
 
-# Ideology 
+@fig-elect-effect shows the predicted levels of interbranch representation from @tbl-models-elect, model 1, compared to a counterfactual where no member's prior general election had been competitive. The estimated difference between competitive and non-competitive districts, is spread across the distribution of representatives who provide higher and lower levels of interbranch representation, and thus, has little impact on the inequality across districts. 
+
+```{r}
+#| label: fig-elect-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
+#| out-width: 50%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-effect-1.png"))
+```
+
+
+
+# Ideology and Oversight
 
 ```{r}
 #| label: tbl-models-ideo-total
@@ -375,6 +409,19 @@ modelsummary(models_ideo_total,
                           "This table shows estimates of the effect of ideological distance on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
 
 ```
+
+While potentially evidence of strategic behavior, legislators engaging more with agencies that they oversee or those perceived as ideologically distant is about *which* agencies representatives target, rather than *how much* they do. However, some agencies receive much more attention than others and thus, some oversight committees are much more active than others. This uneven distribution of attention leads both oversight committee membership and perceived ideological distance to alter the overall level of inequality, but in different directions. Including the additional requests that members of oversight committees make significantly increases the Gini coefficient (compared to a counterfactual where legislators behaved as if they did not have and oversight committee position). Compared to a counterfactual where all members had NOMINATE scores of 0, predicted levels of interbranch representation are lower and slighty less unequal. 
+
+```{r}
+#| label: fig-ideo-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
+#| out-width: 50%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-4.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-effect-1.png"))
+```
+
+
 
 # Discussion and Conclusion
 
