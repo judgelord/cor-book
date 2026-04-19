@@ -6,7 +6,7 @@
 # VOTEVIEW HOUSE AND SENATE
 members_raw <- read_csv(here::here("data", "HSall_members.csv"))
 
-members <- members_raw %>%
+member_data <- members_raw %>%
   select(icpsr, bioname, congress, chamber, party_code, state_abbrev, district_code) %>%
   filter(congress > 100, congress < 117) %>%
   mutate(
@@ -17,8 +17,29 @@ members <- members_raw %>%
       F ~ NA
     ) )
 
+member_data %>% filter(party =="(I)" ) %>% distinct(bioname)
 
-members %>% filter(party =="(I)" ) %>% distinct(bioname)
+#################
+#### COMMITTEES GO FIRST BECAUSE OF CORRECTIONS
+here::here("code", "merge_committees.R") |> source()
+
+# confirm no duplicates in member_data post merge
+member_data <- distinct(member_data)
+dim(member_data)
+member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
+
+#################
+#### PRESTIGE (MUST HAPPEN AFTER COMMITTEES)
+here::here("code", "merge_prestige.R") |> source()
+
+# INSPECT PRESTIGE
+member_data |> drop_na(prestige) |> count(prestige) |> kable()
+
+# confirm no duplicates in member_data post merge
+member_data <- distinct(member_data)
+dim(member_data)
+member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
+
 
 # independents
 # who caucus with Dems
@@ -33,7 +54,7 @@ rs <- c("GOODE, Virgil H., Jr.")
 # as far as I can tell, Amash stopped caucusing with GOP, but sort of moot
 is <-  c("AMASH, Justin")
 
-members %<>%
+member_data %<>%
   mutate(party_caucus =
            case_when(
              party == "(I)" & bioname %in% ds ~ "(D)",
@@ -41,10 +62,10 @@ members %<>%
              party == "(I)" & bioname %in% is ~ "(I)",
              TRUE ~ party ))
 
-presidents <- members %>% filter(chamber == "President") %>%
+presidents <- member_data %>% filter(chamber == "President") %>%
   select(congress, party_of_president = party) %>% arrange(-congress)
 
-members %<>%
+member_data %<>%
   left_join(presidents) %>%
   mutate(presidents_party = as.numeric(party_caucus == party_of_president ) ) %>%
   filter(chamber != "President")
@@ -78,7 +99,7 @@ party_size %<>%
     )
   ) %>% select(-party_code)
 
-members %<>%
+member_data %<>%
   left_join(party_size) %>%
   mutate(
     party_size = n_members,
@@ -95,9 +116,9 @@ member_data <- distinct(member_data)
 member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 
-members %>% distinct(congress, party, chamber, majority) %>% filter(party !="(I)")
+member_data %>% count(congress, party, chamber, majority) %>% filter(party !="(I)")
 
-completeness <- members %>%
+completeness <- member_data %>%
   filter(chamber != "President") %>%
   count(party, party_caucus, party_size, chamber, majority, presidents_party, party_of_president, congress) %>% arrange(-congress)
 
@@ -105,20 +126,11 @@ completeness <- members %>%
 completeness %>%
   filter(!party == "(I)") %>%
   group_by(congress, chamber) %>%
-  summarise(sum(party_size)) %>% arrange(-congress)
+  summarise(sum(party_size)) %>% arrange(chamber, -congress) %>%
+  kable()
 
-
-member_data <- members %>%
+member_data %<>%
   ungroup() %>%
-  distinct( congress, chamber,
-            bioname, #last_name,
-            icpsr, #cqlabel,
-            district_code,
-            state_abbrev, #state,
-            district_code, #pop2010,
-            # committees, chair, ranking_minority,
-            majority, presidents_party, party#, yearelected
-  ) %>%
   group_by(bioname) %>%
   # first year
   mutate(first_cong = min(congress),
@@ -127,422 +139,51 @@ member_data <- members %>%
   # filter(congress > 109, congress < 117) %>%
   ungroup()
 
+# confirm no duplicates in member_data post merge
+member_data <- distinct(member_data)
+dim(member_data)
+member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
+member_data |> count(state_abbrev) |> kable()
 
-
-# merge in district population
-states <- read_csv(here::here("data", "states.csv")) %>% select(state, pop2010)
-
-stateFromLower <-function(x) {
-  #read 52 state codes into local variable [includes DC (Washington D.C. and PR (Puerto Rico)]
-  st.codes<-data.frame(
-    state=as.factor(c("AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
-                      "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME",
-                      "MI", "MN", "MO", "MS",  "MT", "NC", "ND", "NE", "NH", "NJ", "NM",
-                      "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN",
-                      "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY")),
-    full=as.factor(c("alaska","alabama","arkansas","arizona","california","colorado",
-                     "connecticut","district of columbia","delaware","florida","georgia",
-                     "hawaii","iowa","idaho","illinois","indiana","kansas","kentucky",
-                     "louisiana","massachusetts","maryland","maine","michigan","minnesota",
-                     "missouri","mississippi","montana","north carolina","north dakota",
-                     "nebraska","new hampshire","new jersey","new mexico","nevada",
-                     "new york","ohio","oklahoma","oregon","pennsylvania","puerto rico",
-                     "rhode island","south carolina","south dakota","tennessee","texas",
-                     "utah","virginia","vermont","washington","wisconsin",
-                     "west virginia","wyoming"))
-  )
-  #create an nx1 data.frame of state codes from source column
-  st.x<-data.frame(state=x)
-  #match source codes with codes from 'st.codes' local variable and use to return the full state name
-  refac.x<-st.codes$full[match(st.x$state,st.codes$state)]
-  #return the full state names in the same order in which they appeared in the original source
-  return(refac.x)
-}
-
-member_data %<>% mutate(state =stateFromLower(state_abbrev)) %<>%
-  left_join(states)
+member_data |> count(state) |> kable()
+################
+# STATE DATA
+here::here("code", "merge_state_data.R") |> source()
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
+dim(member_data)
 member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
-
-# SAME PARTY
-member_data %<>%
-  group_by(icpsr, congress, chamber) %>%
-  mutate(years = congress %>%
-           congress_years() %>%
-           paste(collapse = ""),
-         new_member = str_detect(years, as.character(first_year)) )
-
-member_data |>
-  distinct(congress, years, first_year, new_member) |>
-  arrange(-first_year)
-
-member_data$new_member |> sum()
-
-
-# 2010 redistricting cycle for 2012 election of the 113th congreess (APPROX)
-#FIXME
-member_data %<>%
-  # just for post 2000 data for now
-  #filter(congress > 106) %>%
-  mutate(decade = case_when(
-    congress < 113  ~ '0',
-    congress > 112 ~ '1'))
-
-
-member_data %<>% mutate(state_dist = case_when(
-  chamber=='Senate'~ paste(state,district_code,  sep='_' ),
-  chamber =='House'~ paste(paste(state, district_code, sep='_'), decade, sep='_')
-))
-
-member_data |> filter(is.na(state_dist))
-
-
-# make a variable for the prior seat holder party
-same_party_crosswalk <- member_data  %>%
-  ungroup() %>%
-  group_by(state_dist, chamber, congress) %>%
-  # combine ICPSR IDS for senators to get the senate delegation to know if it changed
-  arrange(icpsr) %>%
-  # Make sure they are in the same order
-  mutate(icpsrs = unique(icpsr) %>% # collapse senate ICPSR
-           paste(collapse = ";"),
-         parties = unique(party) %>% # collapse senat party
-           paste(collapse = ";")
-  ) %>%
-  ungroup() %>%
-  distinct(state_dist, congress, icpsrs, parties, chamber) %>%
-  group_by(state_dist) %>%
-  arrange(state_dist, congress) %>%
-  mutate(lag_icpsrs = dplyr::lag(icpsrs),
-         lag_parties = dplyr::lag(parties),
-         # create lag party var and fill it in for that member's tenure
-         new_member2 = icpsrs != lag_icpsrs,
-         new_party = parties != lag_parties)
-
-same_party_crosswalk %<>%
-  full_join(member_data) %>%
-  #drop_na(district_code)
-  mutate(
-    same_party =
-      case_when(# correction for senators who are not the new member
-        new_member & party == lag_parties ~ T,
-        new_member & !str_detect(parties, party) ~ F,
-        new_member & !new_party ~ T ,
-                new_member & new_party ~ F
-                )
-  ) %>%
-  select(chamber, congress, state_dist, icpsr, new_member, new_party, same_party, party, parties, lag_parties) %>%
-  group_by(state_dist, icpsr) %>%
-  arrange(state_dist, icpsr, congress) %>%
-tidyr::fill(same_party, .direction = "down")  %>%
-  ungroup() %>%
-  arrange(state_dist, congress)
-
-member_data %<>%
-  left_join(same_party_crosswalk %>%
-              # note: important to include chamber to avoide dupicates for chamber switchers
-              distinct(state_dist, congress, chamber, icpsr, same_party))
-
-# confirm no duplicates in member_data post merge
-member_data <- distinct(member_data)
-member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
-
-###########################################
-
-# merge in committee data for the 106th-115th
-load(here::here("data", "members_committees_106-115th.rda"))
-
-members_committees
-
-members_committees$positions %>% str_split(";") %>% unlist() %>% unique()
-
-member_data %<>%  left_join(members_committees)
-
-# confirm no duplicates in member_data post merge
-member_data <- distinct(member_data)
-member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
-
-# look at missingness
-member_data |> ungroup() |>  count(congress, committees, sort = T)
-
-# merge in new committee data for the 116th 2019-2020
-load(here::here("data", "members_committees_116th.rda"))
-members_committees_116th <- members_committees_116th
-
-members_committees_116th$titles %>% str_split(";") %>% unlist() %>% unique()
-
-members_committees_116th %<>%
-  select(name,
-         icpsr = icpsr_id,
-         titles,
-         committees2 = committees) %>%
-  mutate(congress = 116) %>%
-  group_by(name) %>%
-  fill(icpsr, .direction = "updown") %>%
-  ungroup()
-
-member_data %<>%  left_join(members_committees_116th) %>%
-  mutate(
-    # because these come from two different datasets, need to replace NAs to avoide ifelse below yielding NA
-    titles = replace_na(titles, ""),
-    positions = replace_na(positions, ""),
-    chair = ifelse( str_detect(titles, "^Chair|;Chair|;Chairman|;Cochairman") | str_detect(positions, "Chair"),
-                    1, 0 ),
-    ranking_minority = ifelse( str_detect(titles, "Ranking Member")  | str_detect(positions, "Ranking Minority"),
-                               1, 0 )
-  ) %>%
-  mutate(committees = coalesce(committees, committees2)) %>%
-  distinct()
-
-# NO LONGER NEEDED
-# hack <- tibble(
-#   congress = c(116, 116, 116, 116),
-#   majority2 = c(1,0, 0, 1),
-#   #party = c("(D)", "(D)","(R)","(R)"),
-#   presidents_party = c(1,1,0,0),
-#   chamber = c("House", "Senate", "House", "Senate")
-# )
-#
-# member_data <-member_data %>% left_join(hack)
-#member_data %<>% mutate(majority = coalesce(majority, majority2))
-
-# corrections to committee data
-corrections <- read_csv(here::here("data", "committee_corrections_116th.csv"))
-corrections
-
-corrections %<>% select(-notes, -`...4`)
-
-# add in committee data corrections
-member_data <- member_data %>%
-  filter(!icpsr %in% corrections$icpsr | congress != 116) %>%
-  full_join(corrections)  %>%
-  ungroup()
-
-# look for missing committee data
-missing <- member_data %>% filter(congress == 116, is.na(committees))
-
-missing <- member_data %>% filter(bioname %in% missing$bioname, congress==116) %>% arrange(bioname)
-
-missing %>%
-  write_csv(here::here("data", "missing_committees_116th.csv"))
-
-
-
-## OVERSIGHT
-
-load(here::here("data", "oversight_committee_data.rda"))
-
-d1 <- oversight_committee_data |> select(
-  committees = `Reporting Committees`,
-  department_agency_acronym) |>
-  drop_na(committees ) |>
-  mutate(committees = str_to_upper(committees))# |>
-# mutate(committee = str_split(committee, ";") |>
-#          str_to_upper() )
-# |>  unnest(committee)
-d1
-
-member_data$committees %<>% str_replace_all("\\|", ";")
-
-# CAUTION! THIS WAS WRITTEN WITH "|" rather than ";", causeing errors, I am changing it but it may cause other errors if we are loading thorugh data with "|"
-member_data$committees  <- member_data$committees |>
-  str_replace_all("TURAL RESOURCES", ";NATURAL RESOURCES") |>
-  str_replace_all(";NA;", ";" )  |>
-  str_remove_all(";NA$|^NA;") |>
-  str_replace_na()
-
-
-m <-  member_data$committees |>
-  str_split("\\;") |>
-  unlist() |>
-  str_squish() |>
-  unique()
-
-m <- m[!m %in% c("0", "NA", NA)]
-m
-
-#
-# match <- function(x,y) {
-#   z = ifelse(str_detect(x, y), y, NA)
-# }
-#
-# match2 <- function(y){
-#   map_chr(.x = m, )
-# }
-#
-# map_chr(.x = d1$committee, .f = match2 )
-
-mc <- m |> paste(sep = "|", collapse = "|")
-
-d1$committees |> str_extract_all(mc)
-
-crosswalk <- d1 |> mutate(
-  committees = committees |> str_extract_all(mc)) |>
-  unnest(committees) |>
-  distinct()
-
-members <- member_data |>
-  mutate(committees = str_split(committees, ";|\\|")) |>
-  unnest(committees) |>
-  distinct() |>
-  left_join(crosswalk) |>
-  group_by(icpsr,congress, chamber) |>
-  mutate(committees = str_c( unique(committees), collapse = ";")  |>
-           str_remove_all("^NA;|;NA$|^NA$") |>
-           str_replace(";NA;", ";"),
-         #oversight = str_c( unique(department_agency_acronym), collapse = ";"),
-         oversight = list(department_agency_acronym)  |>
-           unlist() |> paste(collapse  = ";") |>
-           str_remove_all("^NA;|;NA$|^NA$") |>
-           str_replace(";NA;", ";")
-  ) |>
-  select(-department_agency_acronym) |>
-  distinct()
-
-members$committees
-
-members$oversight
-
-member_data <- members
-
-
-## NOTES ON SOME OF THE MISSING COMMITTEE DATA THAT WAS MISSING
-# AMASH switched parties
-
-# Duffy resigned
-# CUMMINGS, Elijah Eugene died
-
-# ? CLYBURN, James Enos
-# ? MCCARTHY, Kevin
-
-
-# BISHOP, Dan came in after
-# GARCIA, Mike - 2020 special election
-# HILL, Katie - resigned
 
 
 ################
 # ELECTIONS DATSA
+here::here("code", "merge_same_party.R") |> source()
 
-library(haven)
-
-earlymoneydata <- read_dta(here::here("data", "earlymoneydata_primary.dta"))
-
-earlymoneydata %>%
-  mutate(party = ifelse(rep == 1,
-                        "Repubican",
-                        "Democratic")
-  ) %>%
-  ggplot() +
-  aes(x = year,
-      y = paste(state, district),
-      color = party, label = district) +
-  geom_text(size = 0.5, alpha = .5) +
-  geom_point(size = 0.01, alpha = .5) +
-  facet_wrap("party") +
-  theme(legend.position = "none",
-        axis.text.y = element_text(size = 1))
-
-emd <- distinct(earlymoneydata,
-                year_of_prior_election = year, state_abbrev = state, district_code = district, rep,
-                special,
-                #blanket, safe, competitive, hopeless, # OTHER THINGS WE MGHT WANT
-                PRVYEreceipts_toptwo20, PRVYEcompetitivereceipts_575, dpres)
-
-# RENAME TO MATCH VOTEVIEW MEMBERS DATA
-emd %<>% mutate(congress = as.numeric(round((year_of_prior_election - 2001.1)/2)) + 107,
-                congress = congress + 1, # lag congress
-                chamber = "House",
-                party_name = ifelse(rep == 1,
-                                    "Repubican Party",
-                                    "Democratic Party")
-)
-
-# LOOK FOR DUPLICATES
-emd %<>% add_count(chamber, congress, state_abbrev, district_code, party_name, dpres,
-                   #PRVYEreceipts_toptwo20, PRVYEcompetitivereceipts_575,
-                   sort = T) %>%  select(n, everything())
-
-early_money_duplicates <- emd |> filter(n>1)
-
-save(early_money_duplicates, file =  here::here("data", "early_money_duplicates.rda"))
-# of these, most of them are not related to people who won, but tx-28 is
-# TX 28 in 2020 had two dem primaries? Or was one a third party?
-emd |> filter(congress == 110, state_abbrev == "TX", district_code == 28)
-earlymoneydata |> filter(year == 2006, state == "TX", district == 28)
-
-
-# DROP SPECIAL ELECTIONS WHERE THERE IS A NON-SPECIAL ELECTION IN THE SAME CONGRESS
-emd %<>% filter(!(n > 1 & special == 1))
-
-# LOOK AGAIN FOR DUPLICATES
-emd %>% count(chamber, congress, state_abbrev, district_code, dpres, party_name,
-              #PRVYEreceipts_toptwo20, PRVYEcompetitivereceipts_575,
-              sort = T) |> select(n, everything())
-
-# WITHOUT PARTY, THERE ARE DUPLICATES, I GUEST BECAUSE CANDIDATES RUN IN BOTH PRIMARIES?
-# THUS IT IS IMPORTANT TO INCLUDE PARTY NAME IN members_data
-# LOOK AGAIN FOR DUPLICATES
-emd %>% count(chamber, congress, state_abbrev, district_code, dpres,
-              #PRVYEreceipts_toptwo20, PRVYEcompetitivereceipts_575,
-              sort = T) |> select(n, everything())
-
-emd %<>% mutate(party_name = str_replace(party_name, "Repubican Party", "Republican Party"))
-
-member_data %<>%
-  mutate(party_name = case_when(
-    party == "(D)" ~ "Democratic Party",
-    party == "(R)" ~ "Republican Party",
-    party == "(I)" ~ "Independent"
-  ))
-
-# confirm no duplicates in member_data prior to merge
+# confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
+dim(member_data)
 member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
-# check for multiple people in a district in a congress
-member_data |> count(chamber, congress, state_abbrev, district_code, party, sort = T) |> filter(n > 1)
 
+################
+# ELECTIONS DATSA
+here::here("code", "merge_electoral.R") |> source()
 
-# test merge
-member_data %>%
-  left_join(emd |>
-              distinct(chamber,
-                       congress,
-                       state_abbrev,
-                       district_code,
-                       party_name, # important
-                       dpres) ) |>
-  count(icpsr, chamber, congress, party,
-        dpres, #PRVYEreceipts_toptwo20, PRVYEcompetitivereceipts_575,
-        sort = T)
-
-# actual merge
-member_data %<>%
-  left_join(emd |>
-              distinct(chamber,
-                       congress,
-                       state_abbrev,
-                       district_code,
-                       party_name, # important
-                       PRVYEcompetitivereceipts_575,
-                       year_of_prior_election,
-                       dpres) )
-
-
-member_data %>% count(is.na(year_of_prior_election))
-
+# confirm no duplicates in member_data post merge
+member_data <- distinct(member_data)
+dim(member_data)
+member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 
 # MORE VARIABLES FROM RAW VOTEVIEW DATA
-members <- members_raw %>%
-  distinct(icpsr, bioname, congress, chamber, nominate_dim1, nominate_dim2)
-
-member_data %<>% left_join(members)
+member_data %<>%
+  left_join(
+    members_raw %>%
+      distinct(icpsr, bioname, congress, chamber, nominate_dim1, nominate_dim2)
+    )
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
@@ -550,7 +191,24 @@ member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 member_data %<>% ungroup()
 
-count(member_data, is.na(dpres), congress, chamber, party) |> kable()
+# TRANSFORMATIONS (NOT NEEDED FOR MINIMAL REPLICATION DATA)
+# Make clean name
+member_data <- member_data |>
+  mutate(
+    member = bioname |>
+      str_remove(", .*") |>
+      str_to_title() |>
+      str_replace("cc", "cC"),
+    member_state = paste(member, state_abbrev, sep = " (") |>
+      paste0(")"),
+    cqlabel = paste0("(",
+                     state_abbrev,
+                     "-",
+                     district_code,
+                     ")") |>
+      str_remove("-0")
+  )
+
 
 count(member_data, congress)
 
@@ -558,3 +216,4 @@ save(member_data,
      file = here::here("data", "member_data.Rdata"))
 
 head(member_data)
+

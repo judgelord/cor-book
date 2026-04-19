@@ -88,21 +88,21 @@ knitr::knit_hooks$set(inline = inline)
 # plot defaults
 library(ggplot2); theme_set(
   theme_minimal() +
-    theme(# FOR AJPS
-      panel.grid = element_blank(),
-      legend.position = "bottom",
-      # make text black, not grey
-      axis.text = element_text(color="black"),
-      axis.ticks = element_line(color = "black"),
-      # add space between labels and text
-      axis.title.x = element_text(margin = unit(c(5, 0, 0, 0), "mm")),
-      axis.title.y = element_text(margin = unit(c(0, 5, 0, 0), "mm")),
-      plot.title = element_text(vjust = 1,
-                                lineheight = 0,
-                                margin = margin(0, 0, 0, 0)), # Margins (t, r, b, l)
-      # END FOR AJPS
-      panel.border  = element_blank(),
-      panel.grid.major.x = element_blank())
+    theme(
+      # # FOR AJPS
+      # panel.grid = element_blank(),
+      # legend.position = "bottom",
+      # # make text black, not grey
+      # axis.text = element_text(color="black"),
+      # axis.ticks = element_line(color = "black"),
+      # # add space between labels and text
+      # axis.title.x = element_text(margin = unit(c(5, 0, 0, 0), "mm")),
+      # axis.title.y = element_text(margin = unit(c(0, 5, 0, 0), "mm")),
+      # plot.title = element_text(vjust = 1,
+      #                           lineheight = 0,
+      #                           margin = margin(0, 0, 0, 0)), # Margins (t, r, b, l)
+      # # END FOR AJPS
+      panel.border  = element_blank() )
 )
 options(
   ggplot2.continuous.color = "cividis",

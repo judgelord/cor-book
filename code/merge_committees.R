@@ -23,14 +23,10 @@ members_committees_116th <- members_committees_116th
 members_committees_116th$titles %>% str_split(";") %>% unlist() %>% unique()
 
 members_committees_116th %<>%
-  select(name,
-         icpsr = icpsr_id,
+  select(icpsr = icpsr_id,
          titles,
          committees2 = committees) %>%
-  mutate(congress = 116) %>%
-  group_by(name) %>%
-  fill(icpsr, .direction = "updown") %>%
-  ungroup()
+  mutate(congress = 116)
 
 member_data %<>%  left_join(members_committees_116th) %>%
   mutate(
@@ -43,6 +39,7 @@ member_data %<>%  left_join(members_committees_116th) %>%
                                1, 0 )
   ) %>%
   mutate(committees = coalesce(committees, committees2)) %>%
+  select(-committees2) %>%
   distinct()
 
 # NO LONGER NEEDED

@@ -1,0 +1,772 @@
+---
+title: "Replication Code and Robustness Checks"
+subtitle: ""
+author: Devin Judge-Lord
+format: 
+  #pdf: 
+  html:
+      self-contained: true
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
+---
+
+Packages: 
+  
+  - `tidyverse` and `magrittr`, for data wrangling
+- `scales` for plot scales 
+- `ggrepel` for plot labels
+- `here` for file paths 
+- `knitr` for document formatting 
+- `kableExtra` for table formatting 
+- `modelsummary` for regression tables 
+- `marginaleffects` for predictions 
+- `fixest` --- statistical package for fixed effects estimation 
+- `ineq` to calculate GINI coefficients
+
+
+```{r global.options, include=FALSE, purl=FALSE}
+testing = F
+verification = T
+here::here("code", "qmd_global_options.R") |> source() 
+
+# plotting functions 
+here::here("code", "ggcompetitive.R") |> source() 
+here::here("code", "ggchair.R") |> source() 
+here::here("code", "ggtenure.R") |> source() 
+
+# coef map
+here::here("code", "cm.R") |> source() 
+here::here("code")
+
+```
+
+
+
+
+# Descriptive
+
+## Data 
+```{r}
+d <- d %>% 
+  ungroup() %>% 
+  mutate(Type = case_when(
+    TYPE %in% c(1,2,3) ~ "Constituency\nService", 
+    TYPE %in% c(4,5) ~ "Policy"), 
+         type = case_when(
+            TYPE == 1 ~ "Constituent (individual)",
+            TYPE == 2 ~ "Constituent (corporate)",
+            TYPE == 3 ~ "Constituent (501c3 or local\n government)",
+            TYPE == 4 ~ "Policy (corporate)",
+            TYPE == 5 ~ "Policy (general)"
+         )) 
+```
+
+
+```{r descriptive-helpers}
+percent <- function(x){
+  y <- x*100 
+  y %<>% round() 
+  return(y)}
+
+type <- d %>% 
+  group_by(Type) %>% 
+  summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>% 
+  ungroup()
+```
+
+
+We hand-coded data on `r as.integer(sum(type$n))` instances of members of Congress contacting federal agencies.
+
+## Types of Legislator Requests
+
+
+`r percent(type$n[1]/(type$n[1]+type$n[2]) )`% of the average legislators' contacts with agencies are about constituency service.
+
+`r percent(type$n[2]/(type$n[1]+type$n[2]))`% of the average legislators' contacts with agencies are about policy work.
+
+---
+
+### Percents by Type
+
+We classify legislator requests into five overall types.
+
+
+```{r}
+#| label: data_by_type
+#| fig-width: 5.5
+#| fig-height: 3.5
+
+# paper figure 
+type_totals <- d %>% 
+  tidyr::drop_na(Type) %>%  
+  mutate(total = sum(per_icpsr_chamber_year_agency_type)) %>% 
+  group_by(total, Type, type) %>% 
+  summarise(nT =  sum(per_icpsr_chamber_year_agency_type)) %>% 
+  mutate(percent = paste0(nT, " = ", 100*round(nT/total, 2), "%"),
+         type = str_c(type, "\n    ", percent)) %>% 
+  ungroup() %>% 
+  group_by(Type) %>% 
+  mutate(nt = sum(nT),
+         percent_t = paste0(100*round(nt/total, 2), "%"))
+
+type_totals %<>% mutate(type = type %>% 
+                          # FOR AJPS - remove N and percent 
+                          str_remove_all("\n    .*") %>% 
+                        # END FOR AJPS 
+                          str_replace_all("\\)", "") %>% 
+                          str_replace_all(" \\(", ",\n") 
+                          
+                        ) %>% 
+  ungroup()
+
+N <- type_totals$total |> unique()
+
+
+# horizontal
+type_totals %>% 
+  ungroup() %>% 
+  ggplot() + 
+  geom_col(alpha = .7,
+           aes(x = type, fill = Type, y = nT) ) + 
+  scale_y_continuous(breaks = seq.int(0,500000, by = 100000), 
+                     limits = c(0,400000), 
+                     labels = scales::label_comma() ) + 
+  labs(x = "",
+       fill = "",
+       y = paste("Number of contacts"),
+       title = "") +
+  #geom_text(aes(label = Type, x = Type,y = nT) ) + 
+  theme(panel.border = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.ticks = element_blank(),
+        #axis.text.x.top = element_text(),
+        legend.position ="none") + 
+  ggpubr::geom_bracket(label.size = 3, # FOR AJPS
+    xmin = type_totals$type[1], 
+    xmax = type_totals$type[3], 
+    y.position = 380000,
+    label = paste(type_totals$percent_t[1], "Constituency service" ),
+    #hjust = 1,
+    vjust = -1
+  ) + 
+  ggpubr::geom_bracket(label.size = 3, # FOR AJPS
+    xmin = type_totals$type[4], xmax = type_totals$type[5], 
+    y.position = 85000,
+    label = paste(type_totals$percent_t[5], "Policy work"),
+    #hjust = 1,
+    vjust = -1
+  )+ 
+  scale_fill_viridis_d(option = "cividis", end = .8, direction = -1)
+```
+
+:::{.callout-important collapse="true"}
+```{r echo=verification, eval=verification}
+type_totals |> select(type, percent, percent_t)
+```
+:::
+
+### Percents by chair status 
+
+```{r}
+#| label: data_by_type_chair
+#| fig-width: 5.5
+#| fig-height: 3.5
+
+# extra figure 
+type_totals <- d %>% 
+  tidyr::drop_na(Type) %>%  
+  left_join(member_data |> distinct(icpsr, congress, chair)) %>% 
+  group_by(chair) %>% 
+  mutate(total = sum(per_icpsr_chamber_year_agency_type)) %>% 
+  group_by(total, Type, type, chair) %>% 
+  summarise(nT =  sum(per_icpsr_chamber_year_agency_type)) %>% 
+  mutate(percent = paste0(nT, " = ", 100*round(nT/total, 2), "%"),
+         type = str_c(type, "\n    ", percent)) %>% 
+  ungroup() %>% 
+  group_by(Type, chair) %>% 
+  mutate(nt = sum(nT),
+         percent_t = paste0(100*round(nt/total, 2), "%"))
+
+type_totals %<>% mutate(type = type %>% 
+                          # FOR AJPS - remove N and percent 
+                          str_remove_all("\n    .*") %>% 
+                        # END FOR AJPS 
+                          str_replace_all("\\)", "") %>% 
+                          str_replace_all(" \\(", ",\n") 
+                          
+                        ) %>% 
+  ungroup()
+
+
+# chair
+type_totals %>% 
+  ungroup() %>% 
+  filter(chair == 1) %>% 
+  ggplot() + 
+  geom_col(alpha = .7,
+           aes(x = type, fill = Type, y = nT) ) + 
+  scale_y_continuous(breaks = seq.int(0,500000, by = 100000), 
+                     limits = c(0,400000), 
+                     labels = scales::label_comma() ) + 
+  labs(x = "",
+       fill = "",
+       y = paste("Number of contacts"),
+       title = "Chairs only") +
+  #geom_text(aes(label = Type, x = Type,y = nT) ) + 
+  theme(panel.border = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.ticks = element_blank(),
+        #axis.text.x.top = element_text(),
+        legend.position ="none") + 
+  ggpubr::geom_bracket(label.size = 3, # FOR AJPS
+    xmin = type_totals$type[1], 
+    xmax = type_totals$type[3], 
+    y.position = 380000,
+    label = paste(type_totals$percent_t[1], "Constituency service" ),
+    #hjust = 1,
+    vjust = -1
+  ) + 
+  ggpubr::geom_bracket(label.size = 3, # FOR AJPS
+    xmin = type_totals$type[4], xmax = type_totals$type[5], 
+    y.position = 85000,
+    label = paste(type_totals$percent_t[5], "Policy work"),
+    #hjust = 1,
+    vjust = -1
+  )+ 
+  scale_fill_viridis_d(option = "cividis", end = .8, direction = -1) 
+
+
+
+# non-chair 
+type_totals %>% 
+  ungroup() %>% 
+  filter(chair == 0) %>% 
+  ggplot() + 
+  geom_col(alpha = .7,
+           aes(x = type, fill = Type, y = nT) ) + 
+  scale_y_continuous(breaks = seq.int(0,500000, by = 100000), 
+                     limits = c(0,400000), 
+                     labels = scales::label_comma() ) + 
+  labs(x = "",
+       fill = "",
+       y = paste("Number of contacts"),
+       title = "Non-chairs only") +
+  #geom_text(aes(label = Type, x = Type,y = nT) ) + 
+  theme(panel.border = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.ticks = element_blank(),
+        #axis.text.x.top = element_text(),
+        legend.position ="none") + 
+  ggpubr::geom_bracket(label.size = 3, # FOR AJPS
+    xmin = type_totals$type[1], 
+    xmax = type_totals$type[3], 
+    y.position = 380000,
+    label = paste(type_totals$percent_t[6], "Constituency service" ),
+    #hjust = 1,
+    vjust = -1
+  ) + 
+  ggpubr::geom_bracket(label.size = 3, # FOR AJPS
+    xmin = type_totals$type[4], xmax = type_totals$type[5], 
+    y.position = 85000,
+    label = paste(type_totals$percent_t[9], "Policy work"),
+    #hjust = 1,
+    vjust = -1
+  )+ 
+  scale_fill_viridis_d(option = "cividis", end = .8, direction = -1) 
+```
+
+:::{.callout-important collapse="true"}
+```{r echo=verification, eval=verification}
+type_totals |> distinct(chair, Type, percent_t)
+```
+:::
+
+## Requests by Percentile
+
+```{r}
+#| label: percentiles
+#| fig-height: 3.4
+#| fig-width: 6
+#| cache: false
+
+percentiles <- dcounts %>% 
+  dplyr::filter(year > 2006, year < 2021) %>% 
+  dplyr::group_by(member_state, chamber, year) %>% 
+  dplyr::summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>%
+  dplyr::group_by(member_state, chamber) %>% 
+  dplyr::summarise(mean = mean(n)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::group_by(chamber) %>% 
+  dplyr::mutate(Percentile = dplyr::ntile(mean, 100),
+         rank = dplyr::dense_rank(-mean)) %>% 
+  dplyr::arrange(-Percentile) %>% 
+  dplyr::select(member_state, Percentile, mean, chamber, rank) %>% 
+  dplyr::distinct() 
+
+
+percentiles |>
+  arrange(rank) |>
+  kablebox()
+
+
+
+# percentiles %>%
+#     ggplot() +
+#     geom_col(aes(x = Percentile, y = mean),
+#              color = "grey",
+#              width = .000001,
+#              fill = "black",
+#              position = "dodge") +
+#   geom_point(aes(x = Percentile, y = mean), color = "light blue") +
+#   geom_text(aes(x = Percentile, y = mean,
+#                 label = ifelse(rank <24 | Percentile < 50,
+#                                member_state, "")),
+#             check_overlap = T,
+#                   size = 3,
+#                   hjust = "inward") +
+#   labs(#title = "Average Legislator Requests per Year by Percentile",
+#        x = "Percentile within chamber",
+#        y = "Average requests per year") +
+#   facet_grid(. ~ chamber , scales = "free_y")
+```
+
+:::{.callout-important collapse="true"}
+```{r echo=verification, eval=verification}
+percentiles |>
+  group_by(chamber) |>
+  summarise(chamber_average = mean(mean)) 
+```
+:::
+  
+:::{.callout-important collapse="true"}
+```{r echo=verification, eval=verification}
+percentiles |> arrange(rank) |> head()
+```
+:::
+
+
+```{r}
+#| label: percentiles-chamber
+#| fig-height: 3.4
+#| fig-width: 3
+#| cache: false
+#| 
+percentiles %>% 
+    filter(chamber == "Senate") %>% 
+    ggplot() + 
+    geom_col(aes(x = Percentile, y = mean), 
+             color = "grey", 
+             width = .000001,
+             fill = "black",
+             position = "dodge") + 
+  geom_point(aes(x = Percentile, 
+                 y = mean), 
+             color = "light blue") + 
+  geom_text(aes(x = Percentile, 
+                y = mean, 
+                label = ifelse(rank <24 | Percentile < 50,
+                               member_state, ""
+                               )
+                ), 
+            check_overlap = T, 
+                  size = 3,
+                  hjust = "inward") + 
+  # theme_minimal() + 
+  labs(#title = "Average Legislator Requests per Year by Percentile",
+       x = "Percentile in the Senate",
+       y = "Average requests per year") 
+
+percentiles %>% 
+  filter(chamber == "House") %>% 
+    ggplot() + 
+    geom_col(aes(x = Percentile, y = mean), 
+             color = "grey", 
+             width = .000001,
+             fill = "black",
+             position = "dodge") + 
+  geom_point(aes(x = Percentile, y = mean), color = "light blue") + 
+  geom_text(aes(x = Percentile, y = mean, 
+                label = ifelse(rank <24 | Percentile < 50,
+                               member_state, "")), 
+            check_overlap = T, 
+                  size = 3,
+                  hjust = "inward") + 
+  # theme_minimal() + 
+  labs(#title = "Average Legislator Requests per Year by Percentile",
+       x = "\nPercentile in the House",
+       y = "Average requests per year") 
+```
+
+\clearpage 
+
+
+
+## Requests by Year
+
+```{r counts-per-year, fig.height=3, fig.width=5.7, cache=TRUE, eval=TRUE}
+#counts-per-year
+
+dcounts_per_legislator <- dcounts  %>% 
+  group_by(bioname, year) %>% 
+  mutate(per_bioname_year = sum(per_icpsr_chamber_year_agency_type)) %>%
+  ungroup() 
+
+schumer2013 <- dcounts_per_legislator %>% filter(bioname == "SCHUMER, Charles Ellis (Chuck)",
+                   year == 2013) %>% .$per_bioname_year %>% unique()
+
+cruz2013 <- dcounts_per_legislator %>% filter(bioname == "CRUZ, Rafael Edward (Ted)",
+                   year == 2013) %>% .$per_bioname_year %>% unique()
+
+mcconnell2013 <- dcounts_per_legislator %>% filter(bioname == "McCONNELL, Addison Mitchell (Mitch)",
+                   year == 2013) %>% .$per_bioname_year %>% unique()
+
+# plot a line for all legislator-year counts in the data (this is a lot of data points and thus takes a long time to render)
+p <- dcounts_per_legislator %>% 
+  filter(year > 2006, year <2018) %>%
+  distinct(bioname, per_bioname_year, year, chamber) %>% 
+  filter(per_bioname_year > 0) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, 
+                y = per_bioname_year, 
+                group = bioname, 
+                color = chamber), 
+            alpha = .1) +
+  geom_line(aes(x = year, 
+                group = bioname, 
+                color = chamber,
+                y = ifelse(bioname == "SCHUMER, Charles Ellis (Chuck)", per_bioname_year, NA))) + 
+  geom_label(x = 2013, 
+             y = schumer2013, 
+             label = "Chuck Schumer") +
+  geom_line(aes(x = year, group = bioname, color = chamber,
+                y = ifelse(bioname == "CRUZ, Rafael Edward (Ted)", per_bioname_year, NA))) + 
+  geom_label(x = 2013, 
+             y = cruz2013, 
+             label = "Ted Cruz") +
+  geom_line(aes(x = year, group = bioname, color = chamber,
+                y = ifelse(bioname == "McCONNELL, Addison Mitchell (Mitch)", per_bioname_year, NA))) + 
+  geom_label(x = 2013, 
+             y = mcconnell2013, 
+             label = "Mitch McConnell") +
+  labs(x = "",
+       color = " ",
+       y = paste("Requests per legislator per year"),
+       title = "") +
+  scale_x_continuous(breaks = unique(dcounts$year)) + 
+  scale_color_viridis_d(begin = 0, end = .6, option = "cividis", direction = -1) 
+
+# Non-AJPS formatting 
+# p + 
+  # theme_minimal() + 
+  # theme(axis.text.x = element_text(angle = 30, vjust = 0) ) 
+
+
+# FOR AJPS 
+p +
+  theme(panel.background = element_blank(), 
+        legend.position = "inside",
+        #FIXME NOTE: legend justification requires ggplot2 v3.5 or higher https://stackoverflow.com/questions/78212838/error-when-running-code-examples-from-usmap-r-package
+        legend.justification.inside = c(1, 1), 
+        #legend.position.inside = c(1, 1),
+        axis.ticks = element_blank()
+        ) 
+```   
+
+
+\clearpage
+
+##  Example
+
+Rep. Barbara Comstock worked in Rep. Frank Wolf's congressional office for five years, described him as a "longtime mentor," and claimed that Wolf first urged her to run for office. He endorsed and campaigned with her. 
+
+Notice several patterns
+- dip in constituency service when Wolf is no longer running for re-election
+- further dip with transition
+- quick rebound as Comstock gets her office in order
+- inheriting a highly effective office, Comstock is far above average House member
+
+:::{.callout-important collapse="true"}
+
+```{r comestock}
+dcounts %>% 
+  filter(bioname == "COMSTOCK, Barbara J.", year %in% c(2015, 2016)) |> 
+  group_by(year) %>% 
+  summarise(n = sum(per_icpsr_chamber_year_agency_type))
+```
+:::
+
+```{r case-study-function}
+case_study <- function(cq){
+
+  CHAMBER <- filter(member_data, cqlabel == cq) %>% 
+    .$chamber %>% .[1]
+
+dcounts %>% 
+  group_by(member_state, year, chamber, cqlabel) %>% summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>% 
+  ungroup() %>% 
+  group_by(chamber) %>% 
+  mutate(mean_per_chamber = mean(n) %>% round(0)) %>% 
+  filter(cqlabel == cq, year > 2007, year <2017) %>% 
+  ggplot() +
+  aes(x = year, 
+      y = n, 
+      fill = member_state %>% str_replace("-.*", "\\)")) + 
+  geom_col(alpha = .5, position = "dodge") +
+  geom_hline(aes(yintercept = mean_per_chamber), linetype = 2) + 
+  geom_text(aes(y = mean_per_chamber), 
+            x = 2007.5, 
+            label = "Chamber average", check_overlap = T,
+            size = 3, vjust = 1.3, hjust = 0) + 
+  scale_x_continuous(breaks = seq(2008, 2016, 1)) +
+  labs(x = "",
+       y = "Number of requests", 
+       fill = "") +  # str_c(CHAMBER, "-", cq) %>% str_remove_all("\\(|\\)|NA") ) +
+  theme(panel.grid.major.x =  element_blank(),         
+        legend.position = "bottom",
+        axis.title.x = element_text(margin = unit(c(-5, 0, 0, 0), "mm")),
+        # # FOR AJPS
+        # axis.text.x = element_text(angle = 45), 
+        # # END AJPS 
+        panel.grid.minor.x =  element_blank() )+
+    scale_fill_viridis_d(begin = 0, end = .6, option = "cividis", direction = -1) 
+  
+} 
+```
+
+
+
+```{r cases}
+#| fig-width: 5.7
+#| fig-height: 2.5
+#| out-width: "100%"
+
+
+# plot for WI for paper
+case_study("(WI)")
+
+case_study("(WI-7)")
+
+# Wolf --> Comstock example 
+case_study("(VA-10)")
+
+
+# 
+# case_study("(NY-07)")
+# 
+# case_study("(NY-14)")
+
+# plot all 
+# cases <- unique(member_data$cqlabel) #%>% head()
+
+# map(cases, case_study )
+
+```
+
+
+
+## Requests by State Population
+
+
+```{r pop, fig.width=6, fig.height=4}
+dcounts %>% 
+  filter(chamber == "Senate") %>% 
+    group_by(member_state, year, pop2010) %>% 
+  summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>% 
+    group_by(member_state, pop2010) %>%
+  summarise(mean = mean(n)) %>% ungroup() %>% 
+    ggplot() + 
+    geom_point(aes(x = pop2010, y = mean), color = "light blue") + 
+    geom_smooth(aes(x = pop2010, y = mean)) + 
+  geom_text_repel(
+    aes(
+    x = pop2010,
+    y = mean, 
+    label = ifelse(mean > 390 | log(pop2010) > 17.0 | mean < 100,# & (log(pop2010) > 27 | log(pop2010) < 14), 
+                   member_state  ,
+                   "")), 
+            seed = 44,
+            check_overlap = T, 
+            min.segment.length = 0,
+            size = 3) + 
+  labs(#title = "",
+       x = "State population (log scale)",
+       y = "Average number of requests per year") +
+  scale_x_log10(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma, limits = c(0,500) ) 
+```   
+
+
+
+
+
+## Defining Prestige Committees
+
+All of these findings replicate with various interpretations of "prestige" committees. To measure committee prestige, we use a revealed preference
+    approach--what do members think is most valuable--using party
+    rules/norms that limit members to serving on only one of a small
+    number of desirable committees. For House members, the "exclusive"
+    committees are: Appropriations, Energy & Commerce, Financial
+    Services, Rules, and Ways & Means (CRS 2022). For Senators, the
+    exclusive (also called "Super A") Committees are: Appropriations,
+    Armed Services, Finance, and Foreign Relations (CRS 2024).
+
+
+
+## Count Means
+
+```{r count-means}
+# check N
+dcounts_tenure %>% tally(perYear, name = "Member-Level Observations") |> kable()
+# dcounts_ratio %>% tally(perCon) |> kable()
+# dcounts_ratio %>% tally(perPol) |> kable()
+dcounts_per_district %>% ungroup %>%  tally(perYear, name = "District-Level Observations") |> kable()
+
+# check n per year 
+dcounts_tenure %>% filter(year > 2006) %>%  group_by(year) %>% tally(perYear) |> kablebox_long()
+
+# average per member
+dcounts_tenure %>% left_join(member_data %>% distinct(bioname, icpsr)) %>%
+  group_by(bioname, year) %>% 
+  summarise(perYear = sum(perYear)) %>% 
+  group_by(bioname) %>% 
+  summarise(average_per_year = mean(perYear), average_per_year) |> 
+  arrange(-average_per_year) |> 
+  kablebox()
+
+# average per member per agency 
+dcounts_tenure %>% left_join(member_data %>% select(bioname, icpsr)) %>%
+  group_by(bioname) %>% 
+  summarise(average_per_year_per_agency = mean(perYear)) |> arrange(-average_per_year_per_agency) |> 
+  kablebox()
+
+
+# per member per agency 
+dcounts_tenure %>% left_join(member_data %>% distinct(bioname, icpsr)) %>%
+  group_by(bioname, agency) %>% 
+  summarise(per_year_per_agency = perYear) |> arrange(-per_year_per_agency) |> 
+  kablebox()
+
+
+
+# mean 
+perYear_mean1 <- dcounts_tenure$perYear |> mean()
+perYear_mean_total <- dcounts_tenure |> 
+  group_by(icpsr, year) |> 
+  transmute(perYearTotal = sum(perYear))
+perYear_mean_total <- mean(perYear_mean_total$perYearTotal) |> round()
+
+perYear_mean_policy <- dcounts_tenure |> 
+  group_by(icpsr, year) |> 
+  transmute(perYear = sum(perYear_policy))
+perYear_mean_policy <- mean(perYear_mean_policy$perYear) |> round()
+
+perYear_mean_con <- dcounts_tenure |> 
+  group_by(icpsr, year) |> 
+  transmute(perYear = sum(perYear_con))
+perYear_mean_con <- mean(perYear_mean_con$perYear) |> round()
+
+# Better variable names for tables
+dcounts_tenure %<>% 
+  mutate(Legislator = icpsr,
+         Legislator_x_Agency = icpsr_agency,
+         Year_x_Agency = agency_year)
+
+# total per agency
+dcounts_tenure %>% group_by(agency) %>% summarise(n = perYear %>% sum()) %>% arrange(-n) %>% kablebox()
+
+# total per legislator-agency pair 
+dcounts_tenure %>% group_by(Legislator_x_Agency) %>% summarise(n = perYear %>% sum()) %>% arrange(-n) %>% kablebox()
+```
+
+
+
+
+
+### Gini coefficients 
+
+```{r gini}
+gini <- dcounts_tenure |> 
+  ungroup() |> 
+  group_by(year, icpsr) |> 
+  summarize(perYear = sum(perYear)) |> 
+  ungroup() |> 
+group_by(year) |> 
+  summarise(gini = round(ineq::Gini(perYear),2)) |>
+  arrange(- year) |> 
+  filter(year > 2006) 
+
+gini|> 
+  kablebox()
+
+gini |> 
+  ggplot() +
+  aes( x = year, y = gini) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+gini_min <- min(gini$gini)
+gini_max <- max(gini$gini)
+
+
+gini2 <- dcounts_tenure |> 
+  ungroup() |> 
+  group_by(year, chamber, icpsr) |> 
+  summarize(perYear = sum(perYear)) |> 
+  ungroup() |> 
+group_by(year, chamber) |> 
+  summarise(gini = round(ineq::Gini(perYear),2)) |>
+  arrange(- year) |> 
+  filter(year > 2006) 
+
+gini2|> 
+  kablebox()
+
+gini2 |> 
+  ggplot() +
+  aes( x = year, y = gini, color = chamber) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+
+```
+
+
+:::{.callout-important collapse="true"}
+```{r echo=verification, eval=verification}
+gini %<>% filter(year > 2017)
+
+min(gini$gini)
+max(gini$gini)
+```
+:::
+
+
+
+In 2023, Colombia had the highest income inequality Gini coefficient at .54. 
+
+https://ourworldindata.org/what-is-the-gini-coefficient
+
+Top 10 Gini Coefficients in 2023
+
+1. Colombia	0.54
+1. Brazil	0.52	
+1. Zambia	0.51
+1. Angola	0.51				
+1. Mozambique	0.50	
+1. Zimbabwe	0.50
+1. Kosovo	0.49
+1. Panama	0.49
+1. Honduras	0.47	
+1. Costa Rica	0.47
+
+<!--(The Gini coefficient for House campaign spending in 2016 was .29).  --> 
+
+
+---
+
+\clearpage
