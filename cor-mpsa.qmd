@@ -23,7 +23,7 @@ date: today
 abstract: |
   How well do Members of Congress represent their constituents? This seemingly simple question is one that political scientists return to again and again. We argue that a myopic focus on legislative work has limited contemporary understanding of congressional representation. In so doing, scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. In this paper, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, non-profits, and businesses, as well as communicating with agencies about executive-branch policymaking and implementation. We find massive levels of inequality in interbranch representation. A large share of this inequality can be explained by legislator capacity, especially staff resources and experience. We find mixed results for strategic behavior, with strong evidence that legislators work with ideologically proximate agencies and those whose committees they oversee. We find some evidence for theories that interbranch representation is reelection-motivated and a substitute for legislating when one's party is out of power. 
 thanks: |
-  We welcome any comments: <judgelor@umich.edu>. 
+  We welcome any comments: <judgelor@umich.edu>. This is very much a working paper. Please see [the current version](https://judgelord.github.io/cor-book/interbranch.pdf).
 format:
   pdf:
     include-in-header:
