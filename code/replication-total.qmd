@@ -122,6 +122,83 @@ plot_data(d = dcounts_total |> filter(chamber == "House"))
 ```
 
 
+### Gini coefficients 
+
+```{r gini}
+gini <- dcounts_total |> 
+  ungroup() |> 
+  group_by(year, icpsr) |> 
+  summarize(perYear = sum(perYear)) |> 
+  ungroup() |> 
+group_by(year) |> 
+  summarise(gini = round(ineq::Gini(perYear),2)) |>
+  arrange(- year) |> 
+  filter(year > 2006) 
+
+gini|> 
+  kablebox()
+
+gini |> 
+  ggplot() +
+  aes( x = year, y = gini) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+gini_min <- min(gini$gini)
+gini_max <- max(gini$gini)
+
+
+gini2 <- dcounts_total |> 
+  ungroup() |> 
+  group_by(year, chamber, icpsr) |> 
+  summarize(perYear = sum(perYear)) |> 
+  ungroup() |> 
+group_by(year, chamber) |> 
+  summarise(gini = round(ineq::Gini(perYear),2)) |>
+  arrange(- year) |> 
+  filter(year > 2006) 
+
+gini2|> 
+  kablebox()
+
+gini2 |> 
+  ggplot() +
+  aes( x = year,
+       y = gini, 
+       color = chamber) + 
+  geom_point() 
+  #geom_smooth(method = "lm")
+  
+
+gini %<>% filter(year > 2017)
+
+min(gini$gini)
+max(gini$gini)
+```
+
+
+
+
+In 2023, Colombia had the highest income inequality Gini coefficient at .54. 
+
+https://ourworldindata.org/what-is-the-gini-coefficient
+
+Top 10 Gini Coefficients in 2023
+
+1. Colombia	0.54
+1. Brazil	0.52	
+1. Zambia	0.51
+1. Angola	0.51				
+1. Mozambique	0.50	
+1. Zimbabwe	0.50
+1. Kosovo	0.49
+1. Panama	0.49
+1. Honduras	0.47	
+1. Costa Rica	0.47
+
+<!--(The Gini coefficient for House campaign spending in 2016 was .29).  --> 
+
+
 ## Values for Predictions
 
 The most frequent legislator agency pair: McCain x VA with 2159 letters!
@@ -1398,11 +1475,19 @@ data = dcounts_total |> filter(year > 2007,  year < 2019)
 
 plot_effect(
   newdata = data |>  
-    mutate(nominate_dim1 = 0) |>  
+    mutate(nominate_dim1 = 0) |>
     mutate(distance = abs(nominate_dim1 - agency_ideo)),
-  effect = "Ideological distance"
+    # mutate(distance == 0), 
+  effect = "Legislator ideology"
   )
 
+plot_effect(
+  newdata = data |>  
+    # mutate(distance == 0), 
+    mutate(agency_ideo = 0) |>  
+    mutate(distance = abs(nominate_dim1 - agency_ideo)),
+  effect = "Perceived agency ideology"
+  )
 ```
 
 # Model Results: Per District

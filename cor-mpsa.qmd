@@ -69,19 +69,20 @@ library(here)
 
 # Introduction
 
-How well do Members of Congress represent their constituents? This seemingly simple question is one that political scientists return to again and again. We argue that a myopic focus on legislative work has limited contemporary understanding of congressional representation. In so doing, scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. In this project, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, non-profits, and businesses as well as communicating with agencies about executive-branch policymaking and implementation.^[As we note below, parts of this broader concept have been studied under labels including "congressional oversight," "constituency service" [@Fenno1978], "lettermarking" in the context of spending [@MillsKalafHughes2015], "lobbying," "backchannel representation," "backdoor lawmaking," or "policy representation" in the context of agency policymaking [@Ritchie2018; @Ritchie2023; @RitchieYou2019; @LauterbachRitchie2025], "legislator advocacy" in the context of both constituent and donor service [@PowellJudgeLordGrimmer2023], "interbranch representation" in the context of legislators advising agency working groups [@USDepartmentofJustice2016], and "interbranch representation of protected groups" in the context of descriptive representation in contacts to the bureaucracy [@LowandeRitchieLauterbach2019], or simply "representation" in the context of all types of requests to the bureaucracy [@JudgeLordPowellGrimmer2026]. We adopt "interbranch representation" as a general umbrella concept to describe all of these kinds of representational activities, not only working group participation or contacts on behalf of descriptive identities, but also work on behalf of any other constituency, donor, business, industry, or district opinion on policy issues.] 
+How well do Members of Congress represent their constituents? This seemingly simple question is one that political scientists return to again and again. We argue that a myopic focus on legislative work has limited contemporary understanding of congressional representation. In so doing, scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. In this paper, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, non-profits, and businesses as well as communicating with agencies about executive-branch policymaking and implementation.^[As we note below, parts of this broader concept have been studied under labels including "congressional oversight," "constituency service" [@Fenno1978], "lettermarking" in the context of spending [@MillsKalafHughes2015], "lobbying," "backchannel representation," "backdoor lawmaking," or "policy representation" in the context of agency policymaking [@Ritchie2018; @Ritchie2023; @RitchieYou2019; @LauterbachRitchie2025], "legislator advocacy" in the context of both constituent and donor service [@PowellJudgeLordGrimmer2023], "interbranch representation" in the context of legislators advising agency working groups [@USDepartmentofJustice2016], and "interbranch representation of protected groups" in the context of descriptive representation in contacts to the bureaucracy [@LowandeRitchieLauterbach2019], or simply "representation" in the context of all types of requests to the bureaucracy [@JudgeLordPowellGrimmer2026]. We adopt "interbranch representation" as a general umbrella concept to describe all of these kinds of representational activities, not only working group participation or contacts on behalf of descriptive identities, but also work on behalf of any other constituency, donor, business, industry, or district opinion on policy issues.] 
 
-By refocusing attention on the bulk of the actual work done in legislators’ offices,^[Recent data on congressional office staffing suggest that approximately 40\% are dedicated to constituency service. A significant share of the other 60\% are also engaged in interbranch representation, such as oversight investigations, hearings, and working with agencies, executive-branch policymaking, or administrative support for both interbranch representation and legislating. Given that most federal policymaking today is made through agency rulemaking, it is reasonable to estimate that at least 10\% of legislators’ policy-focused staff time is engaged in inter-branch representation.] We revisit core questions of political science: How should we understand the representative functions of Members of Congress? Empirically, what do they do in the office? How do we assess the quality of representation? How do the legislative and executive branches interact? Has it changed in recent years? We answer these questions by leveraging new data on interbranch representation, including over half a million hand-coded requests from Members of Congress to federal agencies from 2007 to 2025. This painstakingly collected new dataset allows us to systematically measure representation in a new way. We show, for the first time, that Members of Congress make over a hundred thousand requests a year directly to executive-branch officials. Unconstrained by legislative agendas and party discipline, interbranch representation allows all Members of Congress to directly shape the workings of government. 
+By refocusing attention on the bulk of the actual work done in legislators’ offices,^[Recent data on congressional office staffing [@CrossonFurnasLapiraBurgat2021; @CrossonKaslovsky2024data] suggest that approximately 40% are dedicated to constituency service. A significant share of the other 60% are also engaged in interbranch representation, such as oversight investigations, hearings, and working with agencies, executive-branch policymaking, or administrative support for both interbranch representation and legislating. Given that most federal policymaking today is made through agency rulemaking, it is reasonable to estimate that at least 10% of legislators’ policy-focused staff time is engaged in inter-branch representation.] We revisit core questions of political science: How should we understand the representative functions of Members of Congress? Empirically, what drives differences in representation? <!--How do we assess the quality of representation? How do the legislative and executive branches interact? Has it changed in recent years?-->  We answer these questions by leveraging new data on interbranch representation, including over half a million hand-coded requests from Members of Congress to federal agencies from 2007 to 2025. This painstakingly collected new dataset allows us to systematically measure representation in a new way. We show, for the first time, that Members of Congress make over a hundred thousand requests a year directly to executive-branch officials. 
 
-However, that work is highly unequal – some members engage in extensive interbranch representation, and others do almost none. Overall, we find that these differences in representation are best explained by differences in capacity, such as staff resources and institutional knowledge that comes with experience in the office. In certain contexts, unequal representation is also driven by legislators’ policy priorities, partisan dynamics, and campaign donations. It does not appear to be the result of differing electoral pressures. Understanding this variation and its causes provides insight into how Congress is and isn’t functioning, the causes of inequalities in representation, and how this largely nonpartisan activity of interbranch representation could be improved. 
+Unconstrained by legislative agendas and party discipline [@Ritchie2023], interbranch representation allows all Members of Congress to directly shape the workings of government. 
+However, we find that work is highly unequal – some members engage in extensive interbranch representation, and others do almost none. Overall, we find that these differences in representation are best explained by differences in capacity, such as staff resources and institutional knowledge that comes with experience in the office. To a much lesser extent, unequal representation may also driven by partisan dynamics and <!--campaign donations. It does not appear to be the result of--> differing electoral pressures, but these effects are less robust across model specifications. Understanding this variation and its causes provides insight into how Congress is and isn’t functioning, the causes of inequalities in representation, and how this largely nonpartisan activity of interbranch representation could be improved. 
 
 We conceptualize interbranch representation as varying along two dimensions: the constituency represented (individuals, businesses, non-profits, or local governments) and the type of representational activity undertaken (constituency service or policy work). In this paper, we focus on the total interbranch representation (the sum of both types of representational activities on behalf of all types of constituencies). 
 
-We document strikingly high levels of inequality in the amount of interbranch representation legislators engage in, and our goal in this paper is to understand that variation. A naive "folk theory" of model representation in which legislators simply provide service to their constituents in an apolitical manner by responding to constituent requests is unable to explain the inequality we observe. While some amount of the inequality in senatorial representation can be explained by varying state populations, substantial inequality in senatorial interbranch representation remains. Moreover, population-based constituent demand explanations are unable to explain inequality in interbranch representation in the U.S. House. We build on existing research to introduce an *Unequal Demand, Unequal Capacity, and Strategic Motivation Theory of Interbranch Representation*. 
+We document strikingly high levels of inequality in the amount of interbranch representation legislators engage in. Our goal in this paper is to understand that variation. A naive "folk theory" of model representation in which legislators simply provide service to their constituents in an apolitical manner by responding to constituent requests is unable to explain the inequality we observe. While some amount of the inequality in senatorial representation can be explained by varying state populations, substantial inequality in senatorial interbranch representation remains. Moreover, population-based constituent demand explanations are unable to explain inequality in interbranch representation in the U.S. House. We build on existing research to test theories that focus on (1) Unequal Demand, (2) unequal capacity, and (3) strategic motivation explanations for interbranch representation. Importantly, our comprehensive data allow us to put these various explanations side by side with respect to the *relative* impact they have on overall interbranch representation. 
 
-Consistent with prior research on the central role of congressional capacity in explaining aspects of legislative behavior [@AshworthBuenodeMesquita2006; @Ritchie2018; @LaPiraDrutmanKosar2020; @Ritchie2023; @JudgeLordPowellGrimmer2026], we find that a large share of the inequality in interbranch representation can be explained by legislator capacity, especially staff resources and experience. Legislators with access to staff resources, including Chairs and ranking minority members of committees and senators from larger states, do significantly more interbranch representation. 
+Consistent with prior research on the significant role of congressional capacity in explaining aspects of legislative behavior [@AshworthBuenodeMesquita2006; @Ritchie2018; @LaPiraDrutmanKosar2020; @Ritchie2023; @JudgeLordPowellGrimmer2026], we find that a large share of the inequality in interbranch representation can be explained by legislator capacity, especially staff resources and experience. Legislators with access to staff resources, including Chairs and ranking minority members of committees and senators from larger states, do significantly more interbranch representation. 
 
-We find mixed results for strategic behavior. Legislators work significantly more with agencies perceived as ideologically proximate and those that their committees oversee. Joining an oversight committee membership could affect behavior for both normative reasons (they perceive interbranch engagement with those agencies as their job) and strategic reasons (they are particularly interested in particular agencies or better able to influence executive branch behavior). We find some evidence for theories that interbranch representation is reelection-motivated [@King1991] and a substitute for legislating when one's party is out of power [@Ritchie2018, @Ritchie2023]. Previous studies show convincingly that backchannel policy-making representation shapes behavior with certain agencies. Our near census of interbranch representation allows us to assess the magnitude of these important effects in explaining overall behavior. While the effect of co-partisan president is consistently in the direction predicted by theories of interbranch representation that focus on the president allocating resources to co-partisans, presidential partisanship is not consistently a significant predictor of interbranch representation. 
+We find mixed results for strategic behavior. Legislators work significantly more with agencies perceived as ideologically proximate and those that their committees oversee. Joining an oversight committee membership could affect behavior for both normative reasons (they perceive interbranch engagement with those agencies as their job) and strategic reasons (they are particularly interested in particular agencies or better able to influence executive branch behavior). We find some evidence for theories that interbranch representation is reelection-motivated [@King1991] and a substitute for legislating when one's party is out of power [@Ritchie2018; @Ritchie2023]. <!--TODO We also find evidence that ideology ... TODO CITE KENNY AND RCL --->   Previous studies show convincingly that backchannel policy-making representation shapes behavior with certain agencies. Our near census of interbranch representation allows us to assess the magnitude of these important effects in explaining overall behavior. While the effect of co-partisan president is consistently in the direction predicted by theories of interbranch representation that focus on the president allocating resources to co-partisans [@BerryBurdenHowell2010], presidential partisanship is not consistently a significant predictor of interbranch representation. 
 
 
 
@@ -92,7 +93,8 @@ To date, constituency service, oversight, and representation have largely been c
 Unlike other, more visible forms of congressional representation that have been the subject of substantial scholarly inquiry (roll-call votes, legislative speech, and bill sponsorship), interbranch representation is largely invisible and difficult to study systematically. Congress has refused to disclose data on this aspect of its work. In recent years, however, scholars have begun to obtain snapshots of this work from federal agencies that are (unlike Congress) subject to the Freedom of Information Act (FOIA) disclosure requirements. This work has yielded important findings on distributive politics [@MillsKalafHughes2015], descriptive representation [@LowandeRitchieLauterbach2019], agency policymaking [@Ritchie2018, and @Ritchie2023], legislative effectiveness [@KalafHughes2023], and money in politics [@PowellJudgeLordGrimmer2023]. However, the lack of systematic data across all agencies has necessarily limited the range of questions that could be explored with these data. 
 
 ## Constituency service
-Constituency service is one of the oldest forms of representation, dating back to the earliest congresses when constituents sought assistance with Revolutionary War pensions [@Eckman2025]. It has been discussed as an important form of representation in canonical studies of Congress [@Fenno1978] and plays a central role in theories of the incumbency advantage [@King1991]. Yet it remains one of the least understood congressional activities. Indeed, nearly forty years ago, @CainFerejohnFiorina1987 began their seminal book *The Personal Vote: Constituency Service and Electoral Independence*, lamenting the lack of attention to constituency service in the empirical literature. Much of what we know empirically about constituency service still comes from their survey of legislators, legislative staff, and constituents, which is now more than 40 years old. We are able to provide quantitative tests of the effect of patterns documented by Fenno 50 years ago, such as legislators inheriting offices from their predecessors [@Fenno1978].
+
+Constituency service is one of the oldest forms of representation, dating back to the earliest congresses when constituents sought assistance with Revolutionary War pensions [@Eckman2025]. It has been discussed as an important form of representation in canonical studies of Congress [@Fenno1978] and plays a central role in theories of the incumbency advantage [@King1991]. Yet it remains one of the least understood congressional activities. @CainFerejohnFiorina1987 began their seminal book *The Personal Vote: Constituency Service and Electoral Independence*, lamenting the lack of attention to constituency service in the empirical literature. Much of what we know empirically about constituency service still comes from their survey of legislators, legislative staff, and constituents, which is now more than 40 years old. For example, we have found no quantitative test of the assertion in @King1991 that constituency service is related to the incumbency advantage or of patterns documented by Fenno 50 years ago, such as the effect of legislators inheriting offices from their predecessors [@Fenno1978].
 
 ## Interbranch dynamics and Congressional oversight 
 In recent decades, scholarship on the interaction between the legislative and executive branches has revolved around the concepts of strategic delegation of policymaking authority and appropriation of funds on the front end [@Arnold1979; @EpsteinOHalloran1999; @KiewietMcCubbins1991] and oversight on the back end [@McCubbinsSchwartz1984]. As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship also focuses on principal-agent relationships, but also includes some work on descriptive representation [@Minta2011]. 
@@ -179,7 +181,7 @@ How much energy and staff time do legislators want to devote to interbranch repr
 Legislators have different motivations: How much energy and effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.).
 \end{hypothesis}
 
-**Reelection Motivation.** While it is difficult to directly measure a legislator's motivation, we can identify situations in which legislators are likely to prioritize certain goals or motivations. Perhaps the most widely recognized strategic motivation of legislators is reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in \textit{Congress: The Electoral Connection}, "[Reelection] has to be the \textit{proximate} goal of everyone, the goal that must be achieved over and over if other ends are to be entertained,"[@Mayhew1974]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to re-elect the legislator [@SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012 ]. This expectation, however, is contrary to Ritchie's findings in \textit{Backdoor Lawmaking}, which showed no consistent relationship between electoral vulnerability and policy-work with federal agencies [@Ritchie2023]. 
+**Reelection Motivation.** While it is difficult to directly measure a legislator's motivation, we can identify situations in which legislators are likely to prioritize certain goals or motivations. Perhaps the most widely recognized strategic motivation of legislators is reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in \textit{Congress: The Electoral Connection}, "[Reelection] has to be the \textit{proximate} goal of everyone, the goal that must be achieved over and over if other ends are to be entertained,"[@Mayhew1974]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to reelect the legislator [@SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012 ]. This expectation, however, is contrary to Ritchie's findings in \textit{Backdoor Lawmaking}, which showed no consistent relationship between electoral vulnerability and policy-work with federal agencies [@Ritchie2023]. 
 
 \begin{subhypothesis}[Motivation: Re-election]
 \label{hyp:motivation-election}
@@ -254,17 +256,31 @@ kable(hypotheses, align = c("l", "l", "l", "l"))
 
 ## Measuring Interbranch Representation
 
-For 9 years, we have been filing FOIA requests with all federal agencies and sub-agencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. 
+For 9 years, we have been filing FOIA requests with all federal agencies and sub-agencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. 
+<!--
+We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.-->
 
-We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy. 
-
-Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics [@MillsKalafHughes2015], the policy strategies of cross-pressured legislators [@Ritchie2018; @Ritchie2023], the role of ideology in congressional oversight [@Lowande2019], descriptive representation [@LowandeRitchieLauterbach2019], and money in politics [@PowellJudgeLordGrimmer2023]. With a near census of agencies, we are able to study, for the first time [except for @JudgeLordPowellGrimmer2026], patterns across all members and policy areas.
-
-We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. <!--Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts. --> 
+Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request.  We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. Understandably, therefore, recent studies have focused on records from a limited number of agencies. Those studies have yielded important findings regarding distributive politics [@MillsKalafHughes2015], the policy strategies of cross-pressured legislators [@Ritchie2018; @Ritchie2023], the role of ideology in congressional oversight [@Lowande2019], descriptive representation [@LowandeRitchieLauterbach2019], and money in politics [@PowellJudgeLordGrimmer2023]. With a near census of agencies, we are able to study patterns across all members and policy areas. This allows us to ask more general questions, test existing explanations out of sample, and compare the magnitude of effects documented in previous studies. 
 
 <!--
+We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. <!--Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts. --> 
+
+
 ## Other variables
---> 
+
+We augment our data on legislator requests to agencies with data from other scholars.
+
+Several of these variables capture features of the legislator-agency relationship.
+To assess whether holding an oversight role for an agency affects interbranch representation to that agency, we use data from @unitedstates on committee membership and @LewisSelin2012, who document committees' formal jurisdictions. 
+To assess the ideological similarity between members of Congress and specific federal agencies, we compare members’ first-dimension
+DW-NOMINATE scores [@dwnominate2024] with measurements of federal
+agencies' perceived ideological leanings [@RichardsonClintonLewis2018].
+To measure the ideological *distance* between members of Congress and
+federal agencies, we subtract each member’s first-dimension DW-NOMINATE
+score from the ideology score of each agency. We also use other legislator-level variables from @dwnominate2024, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president's party. As @JudgeLordPowellGrimmer2026 documented that much of the start-up costs (especially for constituency service) occur in the first two years, we model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. We also adopt the definition of prestige committee assignments from @replication. 
+
+Other variables are at the legislator or district level.
+For data on electoral competitiveness, we use data from @Thomsen2023 on vote share in primary and general elections, adopting her definition of whether an election was competitive. 
 
 
 
@@ -273,14 +289,42 @@ We are contributing to that growing field of scholarship with a painstakingly co
 Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate cross-sectional differences. For within-legislator differences, we also include legislator-agency fixed effects, so coefficients represent the change in the number of requests per legislator per agency per year. 
 
 Our analysis is generally at the legislator-agency-year level.
-In @tbl-hypotheses, we set out expectations for differences across members and within-member variation. We thus estimate both cross-sectional and difference-in-differences regressions, similar to
-the specifications in @BerryFowler2016. Our most stringent
-specifications test for differences within legislator-agency pairs
-(@eq-diff1).^[We drop ten member-year level observations where members switched chambers mid-congress.] However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent, we must rely on cross-sectional estimates. 
+In @tbl-hypotheses, we set out expectations for differences across members and within-member variation.^[We drop ten member-year level observations where members switched chambers mid-congress.] 
+We thus estimate both cross-sectional and difference-in-differences regressions, similar to the specifications in @BerryFowler2016. 
+Tests for differences within legislator-agency pairs take a form similar to @eq-diff1 (with additional variables, such as those relating to elections, that decrease the number of observations included only in some specifications). However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent, we must rely on cross-sectional estimates (@eq-diff1 without $\gamma_{ij}$). 
 
 $$
 \begin{aligned}
-Y_{ijt} & = & \beta_1 \text{Committee Position}_{it}  + \beta_2  \text{Experience}_{it} + \gamma_{ij} + \delta_{jt} + m_{it} + p_{it} + \epsilon_{ijt} 
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  &\beta_1 \text{Committee Leadership Position}_{it}\\
+  &\beta_1 \text{Oversight Committee Position}_{itj}\\
++ & \beta_2 \text{Experience in Office}_{it}\\
++ & \beta_3 \text{Majority Party}_{it}\\
++ & \beta_4 \text{President's Party}_{it} \\
+  &...\\
++& \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-diff1}
+
+
+$Y_{ijt}$ is the number of requests legislator $i$ makes to agency $j$ in year $t$. We estimate a negative binomial count model with conditional mean $\mu_{ijt}$ and overdispersion parameter $\alpha$. The conditional mean is linked to covariates via the log link, $\log(\mu_{ijt})$: a one-unit increase in a covariate multiplies the expected count by $\exp(\beta)$, holding other terms fixed.
+
+$\gamma_{ij}$ denotes a *legislator--agency* fixed effect that is estimated using a true conditional fixed-effects approach (i.e., conditioned out rather than included as a full set of dummy variables). This fixed effect controls for time-invariant legislator characteristics and time-invariant legislator--agency-specific factors, including persistent constituent demand for assistance from a given agency and stable state or district attributes (population, demographics, local industries) that shape demand for particular agencies.
+
+$\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific shocks over time that may affect the level of requests received from legislators in the periods for which data are available from each agency.
+
+
+<!--- OLD LINEAR MODEL 
+
+$$
+\begin{aligned}
+Y_{ijt} = & 
+\beta_1 \text{Committee Position}_{it}  + \\
+&\beta_2  \text{Experience in office}_{it} + \\
+&\beta_3  \text{Majority}_{it} + \\
+&\beta_4  \text{President's party}_{it} + \\
+&\gamma_{ij} + \delta_{jt} + m_{it} 
 \end{aligned}
 $$ {#eq-diff1}
 
@@ -295,17 +339,17 @@ our results. It also accounts for **state and district characteristics**,
 including population, demographics, and local industries that might be
 particularly likely to request help from specific agencies. 
 $\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific
-shocks that may affect legislator requests and the different
+shocks that may affect legislator requests at the different
 periods for which data were available from each agency.
 This difference-in-difference design ensures that the coefficients
 $\boldsymbol{\beta}$ capture variation related to changes in
 institutional power, not other factors that may vary across districts,
 legislators, or agencies. 
-
+---> 
 
 # Results
 
-The simple descriptive result in figure @fig-percent immediately puts to rest the naive theory of proportional representation. The Gini coefficient of inequality for the House, where all members represent a similar number of constituents, is similar to that of the Senate. The rest of this section investigates explanations for this inequality. 
+The simple descriptive result in figure @fig-percent immediately puts to rest the naive theory of proportional representation. The Gini coefficient of inequality for the House, where all members represent a similar number of constituents, is similar to that of the Senate. The rest of this section investigates explanations for this inequality. However, it is important to note that not all models explain the levels of inequality, much less the variation seen in the data. Gini coefficients for inequality in interbranch representation have increased from .37 in the Senate and .40 in the House in 2007 (a range that maps to Gini coefficients for income inequality in countries like Kenya and Philippines) to .47 in the Senate and .54 in the house in 2020 (a range that maps to Gini coefficients for income inequality in the top 10 most unequal countries, including Honduras at .47 and Zimbabwe at .50), with an average of .49 for both chambers. The regression models below never predict Gini coefficients for interbranch representation greater than .34 (comparable to income inequality in Italy and Latvia), the lowest level observed in either chamber in any year in our data.
 
 ```{r}
 #| label: fig-percent
@@ -463,14 +507,20 @@ modelsummary(models_elect_total,
 
 ```
 
-@fig-elect-effect shows the predicted levels of interbranch representation from @tbl-models-elect, model 1, compared to a counterfactual where no member's prior general election had been competitive. The estimated difference between competitive and non-competitive districts is spread across the distribution of representatives who provide higher and lower levels of interbranch representation, and thus, has little impact on the inequality across districts. 
+@fig-elect-effect shows the predicted levels of interbranch representation from @tbl-models-elect compared to a counterfactual where no member's prior general election had been competitive. Because differences in general election competition are only statistically different across members (not within), @fig-elect-effect (a) shows cross-sectional differences (@tbl-models-elect, model 1). Because differences in primary election competition are only statistically different within members, @fig-elect-effect (b) shows difference-in-differences (@tbl-models-elect, model 2). The estimated difference between competitive and non-competitive districts is spread across the distribution of representatives who provide higher and lower levels of interbranch representation, and thus, has little impact on the inequality across districts. 
 
 ```{r}
 #| label: fig-elect-effect
 #| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
-#| out-width: 50%
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
 
 knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-effect-1.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-did-effect-1.png"))
+
 ```
 
 \clearpage
@@ -492,15 +542,20 @@ modelsummary(models_ideo_total,
 
 ```
 
-While potentially evidence of strategic behavior, legislators engaging more with agencies that they oversee or those perceived as ideologically similar or distant is about *which* agencies representatives target, rather than *how much* they do.^[To measure agency ideology, we rely on @RichardsonEtAl2018's measure of elite perceptions of agency ideology.] However, some agencies receive much more attention than others, and thus, some oversight committees are much more active than others. This uneven distribution of attention leads both oversight committee membership and perceived ideological distance to alter the overall level of inequality, but in different directions. Including the additional requests that members of oversight committees make significantly increases the Gini coefficient (compared to a counterfactual where legislators behaved as if they did not have an oversight committee position). Compared to a counterfactual where all members had NOMINATE scores of 0, predicted levels of interbranch representation are lower and slightly less unequal. 
+While potentially evidence of strategic behavior, legislators engaging more with agencies that they oversee or those perceived as ideologically similar or distant is about *which* agencies representatives target, rather than *how much* they do.^[To measure agency ideology, we rely on @RichardsonEtAl2018's measure of elite perceptions of agency ideology.] However, some agencies receive much more attention than others, and thus, some oversight committees are much more active than others. This uneven distribution of attention leads both oversight committee membership and perceived ideological distance to alter the overall level of inequality, but in different directions. Including the additional requests that members of oversight committees make significantly increases the Gini coefficient (compared to a counterfactual where legislators behaved as if they did not have an oversight committee position). Compared to a counterfactual where all members had NOMINATE scores of 0 (subfigure a), predicted levels of interbranch representation are lower and slightly less unequal. Compared to a counterfactual where all agencies had ideology scores of 0 (subfigure b), predicted levels of interbranch representation are higher and slightly more unequal. 
+
 
 ```{r}
 #| label: fig-ideo-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
-#| out-width: 50%
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
 
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-4.png"))
-knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-effect-1.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-1.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-2.png"))
 ```
 
 \clearpage
