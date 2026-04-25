@@ -246,7 +246,7 @@ $\delta_{jt}$ is an **agency--year** fixed effect
 
 . . . 
 
-$\gamma_{ij}$ **legislator--agency** fixed effect^[Unless otherwise noted all results are significant at the p<.05 level in the same direction in cross sectional and difference in difference designs.]
+$\gamma_{ij}$ **legislator--agency** fixed effect^[Unless otherwise noted all results are significant at the p<.05 level in the same direction in cross sectional and difference in differences designs.]
 
 - time-invariant legislator characteristics
 - legislator--agency factors, including stable state or district attributes (population, demographics, local industries) that shape demand.
@@ -255,7 +255,7 @@ $\gamma_{ij}$ **legislator--agency** fixed effect^[Unless otherwise noted all re
 Important here are
 fixed effects for agency-year pairs, which covers shocks to agencies like scandals and censoring in our data 
 in all models 
-We also estimate differences-in-differences with fixed effects for the legislator-agency pair, so those models are just about within-legislator variation over time. 
+We also estimate difference-in-differences with fixed effects for the legislator-agency pair, so those models are just about within-legislator variation over time. 
 
 Unless otherwise noted, all results are significant at the p<.05 level in the same direction in cross-sectional and difference designs.
 I'm happy to click over to the regression table slides in Q&A, but 
