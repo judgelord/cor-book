@@ -52,15 +52,8 @@ library(scales)
 library(here)
 ```
 
-::: {.notes}
-I'm Devin Judge-Lord, presenting work with Ellie Powell and Rochelle Snyder. 
-
-As I will get into in a minute, we are building on work that has studied interbranch representation -- 
-Kenny Lowande, Molly Ritchie, & Erinn Lauterbach, and the Department of Justice, both use these exact words to describe somewhat narrower subsets of what we consider interbranch representation. 
-So, I just want to flag that we are positing this as a more capacious concept that we think well describes a wide range of ways that legislator offices interact with agencies, especially in the American system, where they play this ombudsman role in helping various constituents deal with federal agencies.
-
-So this is a paper about legislator offices, especially, as you will see, offices of powerhouse legislators like Robert Byrd's, whose office is in the background here. 
-:::
+<!--I'm Devin Judge-Lord, presenting work with Ellie Powell and Rochelle Snyder. 
+-->
 
 ## Interbranch Representation 
 
@@ -75,6 +68,12 @@ So this is a paper about legislator offices, especially, as you will see, office
 ($\approx$ all substantive representation not through legislation)
 
 ::: {.notes}
+As I will get into in a minute, we are building on work that has studied interbranch representation -- 
+Kenny Lowande, Molly Ritchie, & Erinn Lauterbach, and the Department of Justice, both use these exact words to describe somewhat narrower subsets of what we consider interbranch representation. 
+So, I just want to flag that we are positing this as a more capacious concept that we think well describes a wide range of ways that legislator offices interact with agencies.
+
+So this is a paper about legislator offices, especially, as you will see, offices of powerhouse legislators like Robert Byrd's, whose office is in the background here. 
+
 [Read slide] 
 :::
 
@@ -90,16 +89,16 @@ Members of Congress contact agencies to represent
 
 This varies by 
 
-- institutional position <small>[@Lowande2018APSR; @LowandePotter2021; @JudgeLordPowellGrimmer2026]</small>
-- experience <small>[@Ritchie2018; @Ritchie2023; @Lowande2018APSR; @JudgeLordPowellGrimmer2026]</small>
-- party status <small>[@Ritchie2018; @Ritchie2023]</small>
-- partisan/ideological alignment <small>[@Lowande2019; @PowellJudgeLordGrimmer2023; @Lowande2018APSR;  @LauterbachRitchie2025]</small>
-- legislative effectiveness <small>[@KalafHughes2023]</small>
+- institutional position <small>[@Lowande2018APSR; @LowandePotter2021; @LauterbachRitchie2025; @JudgeLordPowellGrimmer2026]</small>
+- experience <small>[@Ritchie2018; @Ritchie2023; @Lowande2018APSR; @JudgeLordPowellGrimmer2026]</small> & effectiveness <small>[@KalafHughes2023]</small>
+- party status <small>[@Lowande2019; @Ritchie2018; @Ritchie2023; @LauterbachRitchie2025]</small>
+- partisan alignment <small>[@Lowande2019; @PowellJudgeLordGrimmer2023; @Lowande2018APSR;  @LauterbachRitchie2025]</small>
+- ideological alignment
 
 Maybe also electoral competition <small>[@Fiorina1977; @King1991]</small>, but maybe not <small>[@Ritchie2018; @Ritchie2023]</small>
 
 ::: {.notes}
-When we started this project, it was old work by Fenno and Fiorina, and a cool new paper that Russ Mills and Nicky Kala Hughes presented 10 years ago at MPSA. Since then, we've learned a number of things. 
+When we started this project, it was old work by Fenno and Fiorina, and a cool new paper that Russ Mills and Nicky Kalaf-Hughes presented 10 years ago at MPSA. Since then, we've learned a number of things. 
 To sum up all of this very briefly
 [READ SLIDE]
 So we have good evidence that all of these factors (except elections) matter on the margins. 
@@ -361,7 +360,7 @@ here::here("code",
 
 ## Motivation - Reelection 
 
-- `general`✔️ (cross) & `primary`✔️(diff in diff)
+- `general`✔️ (cross-sectional) & `primary`✔️(diff in diff)
 - no impact on inequality
 
 ```{r}
@@ -410,7 +409,7 @@ knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-7.
 
 ## Motivation - Policy interests 
 
-- `oversight positions`✔️ & `voting behavior`✔️ (cross) reflect **distribution** of interests
+- `oversight positions`✔️ & `voting behavior`✔️ (cross-sectional) reflect **distribution** of interests
 - some impact on inequality
 
 ```{r}
@@ -431,8 +430,8 @@ knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-2
 Demand & capacity
 
 - Senators representing more people with more staff 
-- Access to committee staff 
-- Experience
+- Unequal access to committee staff 
+- Unequal experience
 
 Strategic motivations explain attention allocation and volume, but not inequality.
 
