@@ -1,5 +1,6 @@
 percentiles <- function(a){
-  a %>%
+  a %>% #filter(is.na(estimate))
+    #drop_na(estimate) %>%
     ungroup() %>%
     group_by(member_state, year) %>%
     summarise(n = sum(estimate, na.rm = T) ) %>%
@@ -22,7 +23,7 @@ percentiles <- function(a){
 plot_effect <- function(m = model, d = data, newdata, effect){
 
   a <- m |>
-    predictions(newdata = newdata) |>
+    marginaleffects::predictions(newdata = newdata) |>
     percentiles() |>
     mutate(effect = "Without effect")
 
@@ -39,9 +40,25 @@ total_b <- sum(b$mean)
 # align member rankings by the unmodified data predictions
   a$Percentile <- b$Percentile
 
+  # testing
+  if(F){
+a$member_state == b$member_state
+
+a[which(a$mean > b$mean),]
+
+  a <- a |> select(-Percentile) |>
+    left_join(
+      select(b, Percentile, member_state)
+    )
+  }
+
   x <- full_join(a, b)
 
+  x |> filter(mean == 0)
+
   p <- x |>
+    #FIXME why are some 0
+    filter(mean>0) |>
     ggplot() +
     # geom_col(aes(x = Percentile,
     #              y = mean),
@@ -56,10 +73,9 @@ total_b <- sum(b$mean)
     annotate(x = 50, y =  max(x$mean)-.1*max(x$mean),
              geom = "text",
              size = 3.5,
-             label = paste(effect, "effect:",
-                           "\n+", round(total_b-total_a) |> format(big.mark=",")  , "requests per year\n",
-                           round(gini_b-gini_a, 2),
-                           "change in Gini coefficient"
+             label = paste(effect, "effect:\n",
+                           ifelse(total_b-total_a > 0, "+", ""), round(total_b-total_a) |> format(big.mark=",")  , "requests per year\n",
+                           ifelse(gini_b-gini_a > 0, "+", ""), round(gini_b-gini_a, 2), "change in Gini coefficient"
                            #", from", gini_a, "to", gini_b,
                            # paste0(min(d$year), "-", max(d$year))
                            ),

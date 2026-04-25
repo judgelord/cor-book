@@ -114,8 +114,8 @@ dcounts_total  |>  summarise_all(sum_na) |> pivot_longer(everything()) |> arrang
 #|   - "2"
 #| out-width: "100%"
 #| fig-show: "hold"
-#| 
-source(here::here("code", "percentile_plot.R"))
+
+here::here("code", "percentile_plot.R") |> source()
 
 plot_data(d = dcounts_total |> filter(chamber == "Senate"))
 plot_data(d = dcounts_total |> filter(chamber == "House"))
@@ -627,46 +627,46 @@ ggtenure() +
 model <- m_total_cross
 data = dcounts_total |> filter(year > 2007,  year < 2019)
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0),
+plot_effect( 
+  newdata = mutate(data, chair = 0),
   effect = "Chair"
   )
 
-plot_effect(
-  newdata = data |>  mutate(ranking_minority = 0),
+plot_effect( 
+  newdata = mutate(data, ranking_minority = 0),
   effect = "Ranking Minority"
   )
 
-plot_effect(
-  newdata = data |>  mutate(prestige = 0),
+plot_effect( 
+  newdata = mutate(data, prestige = 0),
   effect = "Prestige Committee"
   )
 
-plot_effect(
-  newdata = data |>  mutate(oversight = 0),
+plot_effect( 
+  newdata = mutate(data, oversight = 0),
   effect = "Oversight Committee"
   )
 
-plot_effect(
-  newdata = data |>  mutate(experience = 0),
+plot_effect( 
+  newdata = mutate(data, experience = 0),
   effect = "3+ years in office"
   )
 
-plot_effect(
-  newdata = data |>  mutate(majority = 0),
+plot_effect( 
+  newdata = mutate(data, majority = 0),
   effect = "Majority"
   )
 
-plot_effect(
-  newdata = data |>  mutate(presidents_party = 0),
+plot_effect( 
+  newdata = mutate(data, presidents_party = 0),
   effect = "President's party"
   )
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0,
+plot_effect( 
+  newdata = mutate(data, chair = 0,
                             ranking_minority = 0,
                             # oversight = 0,
-                            # prestige = 0,
+                            #prestige = 0,
                             experience = 0),
   effect = "Total capacity"
   )
@@ -692,43 +692,43 @@ plot_effect(
 model <- m_total_did
 data = dcounts_total |> filter(year > 2007,  year < 2019)
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0),
+plot_effect( 
+  newdata = mutate(data, chair = 0),
   effect = "Chair (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(ranking_minority = 0),
+plot_effect( 
+  newdata = mutate(data, ranking_minority = 0),
   effect = "Ranking minority (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(prestige = 0),
+plot_effect( 
+  newdata = mutate(data, prestige = 0),
   effect = "Prestige committee (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(oversight = 0),
+plot_effect( 
+  newdata = mutate(data, oversight = 0),
   effect = "Oversight committee (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(experience = 0),
+plot_effect( 
+  newdata = mutate(data, experience = 0),
   effect = "3+ years in office (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(majority = 0),
+plot_effect( 
+  newdata = mutate(data, majority = 0),
   effect = "Majority (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(presidents_party = 0),
+plot_effect( 
+  newdata = mutate(data, presidents_party = 0),
   effect = "President's party (diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0,
+plot_effect( 
+  newdata = mutate(data, chair = 0,
                             ranking_minority = 0,
                             # oversight = 0,
                             # prestige = 0,
@@ -834,43 +834,43 @@ coefplot(m_total_2nd_house, horiz = T, drop = ".theta")
 model <- m_total_cross_house
 data = dcounts_total |> filter(year > 2007,  year < 2019)
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0),
+plot_effect( 
+  newdata = mutate(data, chair = 0),
   effect = "Chair"
   )
 
-plot_effect(
-  newdata = data |>  mutate(ranking_minority = 0),
+plot_effect( 
+  newdata = mutate(data, ranking_minority = 0),
   effect = "Ranking Minority"
   )
 
-plot_effect(
-  newdata = data |>  mutate(prestige = 0),
+plot_effect( 
+  newdata = mutate(data, prestige = 0),
   effect = "Prestige Committee"
   )
 
-plot_effect(
-  newdata = data |>  mutate(oversight = 0),
+plot_effect( 
+  newdata = mutate(data, oversight = 0),
   effect = "Oversight Committee"
   )
 
-plot_effect(
-  newdata = data |>  mutate(experience = 0),
+plot_effect( 
+  newdata = mutate(data, experience = 0),
   effect = "3+ years in office"
   )
 
-plot_effect(
-  newdata = data |>  mutate(majority = 0),
+plot_effect( 
+  newdata = mutate(data, majority = 0),
   effect = "Majority"
   )
 
-plot_effect(
-  newdata = data |>  mutate(presidents_party = 0),
+plot_effect( 
+  newdata = mutate(data, presidents_party = 0),
   effect = "President's party"
   )
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0,
+plot_effect( 
+  newdata = mutate(data, chair = 0,
                             ranking_minority = 0,
                             # oversight = 0,
                             # prestige = 0,
@@ -975,48 +975,48 @@ negbin-m-total-senate
 model <- m_total_cross_senate
 data = dcounts_total |> filter(chamber=="Senate") |> filter(year > 2007,  year < 2019)
 
-plot_effect(
-  newdata = data |>  mutate(pop2010m = min(dcounts_total$pop2010m) ),
+plot_effect( 
+  newdata = mutate(data, pop2010m = min(dcounts_total$pop2010m) ),
   effect = "State population"
   )
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0),
+plot_effect( 
+  newdata = mutate(data, chair = 0),
   effect = "Chair"
   )
 
-plot_effect(
-  newdata = data |>  mutate(ranking_minority = 0),
+plot_effect( 
+  newdata = mutate(data, ranking_minority = 0),
   effect = "Ranking minority"
   )
 
-plot_effect(
-  newdata = data |>  mutate(prestige = 0),
+plot_effect( 
+  newdata = mutate(data, prestige = 0),
   effect = "Prestige committee"
   )
 
-plot_effect(
-  newdata = data |>  mutate(oversight = 0),
+plot_effect( 
+  newdata = mutate(data, oversight = 0),
   effect = "Oversight committee"
   )
 
-plot_effect(
-  newdata = data |>  mutate(experience = 0),
+plot_effect( 
+  newdata = mutate(data, experience = 0),
   effect = "3+ years in office"
   )
 
-plot_effect(
-  newdata = data |>  mutate(majority = 0),
+plot_effect( 
+  newdata = mutate(data, majority = 0),
   effect = "Majority"
   )
 
-plot_effect(
-  newdata = data |>  mutate(presidents_party = 0),
+plot_effect( 
+  newdata = mutate(data, presidents_party = 0),
   effect = "President's party"
   )
 
-plot_effect(
-  newdata = data |>  mutate(chair = 0,
+plot_effect( 
+  newdata = mutate(data, chair = 0,
                             ranking_minority = 0,
                             # oversight = 0,
                             # prestige = 0,
@@ -1235,18 +1235,18 @@ ggtenure() +
 model <- m_elect_total_cross
 data = dcounts_total |> filter(year > 2007,  year < 2019)
 
-plot_effect(
-  newdata = data |>  mutate(competitive = 0),
+plot_effect( 
+  newdata = mutate(data, competitive = 0),
   effect = "Competitive general election"
   )
 
-plot_effect(
-  newdata = data |>  mutate(competitive_primary = 0),
+plot_effect( 
+  newdata = mutate(data, competitive_primary = 0),
   effect = "Competitive primary election"
   )
 
-plot_effect(
-  newdata = data |>  mutate(competitive = 0,
+plot_effect( 
+  newdata = mutate(data, competitive = 0,
                             # oversight = 0,
                             # prestige = 0,
                             competitive_primary = 0),
@@ -1273,18 +1273,18 @@ plot_effect(
 model <- m_elect_total_did
 data = dcounts_total #|> filter(year > 2007,  year < 2019)
 
-plot_effect(
-  newdata = data |>  mutate(competitive = 0),
+plot_effect( 
+  newdata = mutate(data, competitive = 0),
   effect = "Competitive general election\n(diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(competitive_primary = 0),
+plot_effect( 
+  newdata = mutate(data, competitive_primary = 0),
   effect = "Competitive primary election\n(diff in diff)"
   )
 
-plot_effect(
-  newdata = data |>  mutate(competitive = 0,
+plot_effect( 
+  newdata = mutate(data, competitive = 0,
                             # oversight = 0,
                             # prestige = 0,
                             competitive_primary = 0),
@@ -1298,12 +1298,14 @@ plot_effect(
 
 ```{r m-ideo-total,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Total Letters Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
 
+#FIXME Move to top
+dcounts_total %<>% mutate(abs_nominate_dim1 = abs(nominate_dim1))
 
 # cross-sectional 
 m_ideo_total_cross <- fenegbin (perYear ~ 
                          chair + ranking_minority + prestige + oversight +  
                     experience + 
-                    majority + distance*presidents_party | Year_x_Agency,
+                    majority + abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
            data = dcounts_total)
 
@@ -1317,12 +1319,11 @@ coefplot(m_ideo_total_cross, horiz = T, drop = "(Intercept)")
 m_ideo_total_did <-feglm (perYear ~ 
                         chair + ranking_minority + prestige + oversight + 
                     experience + 
-                    majority  + distance*presidents_party | Year_x_Agency + Legislator_x_Agency, 
+                    majority  + abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = dcounts_total)
 
-a <- m_ideo_total_did |> predict()
 
 if(testing){modelsummary(m_ideo_total_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
@@ -1332,8 +1333,9 @@ coefplot(m_ideo_total_did, horiz = T, drop = ".theta")
 # 3
 m_ideo_total_2nd_cross <-fenegbin (perYear ~ 
                         chair + ranking_minority + prestige + oversight +  
-                    experience + 
-                    majority + distance*presidents_party | Year_x_Agency, 
+                    #experience + 
+                    majority +
+                      abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = dcounts_total %>% filter(survive == 1))
 
@@ -1342,17 +1344,16 @@ coefplot(m_ideo_total_2nd_cross, horiz = T, drop = ".theta")
 
 
 # # 4
-# m_ideo_logtotal_did <-fenegbin (log(perYear + 1) ~ 
-#                           distance + chair + ranking_minority + prestige + oversight +  
-#                     experience + 
-#                       competitive+ 
-#                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
-#                     cluster = "Legislator", 
-#            data = dcounts_total)
+# m_ideo_total_2nd_did <-fenegbin (perYear ~
+#                           distance + chair + ranking_minority + prestige + oversight +
+#                       abs_nominate_dim1*presidents_party +  distance*presidents_party + 
+#                     majority | Year_x_Agency + Legislator_x_Agency,
+#                     cluster = "Legislator",
+#            data = dcounts_total %>% filter(survive == 1))
 # 
 # if(testing){modelsummary(m_ideo_logtotal_did, gof_omit = "R.*", coef_omit = coef_omit)}
 # 
-# coefplot(m_ideo_logtotal_did, horiz = T, drop = ".theta") 
+# coefplot(m_ideo_logtotal_did, horiz = T, drop = ".theta")
 ```
 
 
@@ -1362,8 +1363,7 @@ coefplot(m_ideo_total_2nd_cross, horiz = T, drop = ".theta")
 models_ideo_total <- list(
   "(1)" = m_ideo_total_cross,
   "(2)" = m_ideo_total_did,
-  "(3)" =  m_ideo_total_2nd_cross#,
- # "(4)" = m_ideo_logtotal_did
+  "(3)" =  m_ideo_total_2nd_cross
 )
 
 rows <- tibble(
@@ -1374,8 +1374,7 @@ rows <- tibble(
            "Served At Least 2nd Term"),
   `(1)` = c("Count", "X", "X", "X", ""),
   `(2)` =c("Count", "X", "X", "X", ""),
-  `(3)` = c("Count", "X","X","", "X")#,
-  #`(4)` = c("Log(Count+1)","X","X", "X", "") 
+  `(3)` = c("Count", "X","X","", "X")
 )
 
 rows <- tibble(
@@ -1389,9 +1388,6 @@ rows <- tibble(
   `(3)` = c("Count","", "X")#,
   #`(4)` = c("Log(Count+1)", "X", "") 
 )
-
-# subset
-attr(rows, 'position') <- c(0, 20,21,22,23)
 
 # call coefs
 attr(rows, 'position') <- c(0)
@@ -1470,20 +1466,18 @@ TODO
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_ideo_total_cross
+model <- m_ideo_total_cross 
 data = dcounts_total |> filter(year > 2007,  year < 2019)
 
-plot_effect(
+plot_effect( 
   newdata = data |>  
     mutate(nominate_dim1 = 0) |>
     mutate(distance = abs(nominate_dim1 - agency_ideo)),
-    # mutate(distance == 0), 
   effect = "Legislator ideology"
   )
 
 plot_effect(
   newdata = data |>  
-    # mutate(distance == 0), 
     mutate(agency_ideo = 0) |>  
     mutate(distance = abs(nominate_dim1 - agency_ideo)),
   effect = "Perceived agency ideology"
@@ -1846,7 +1840,7 @@ ggdistrict() +
 model <-m_district_cross_party
 data = dcounts_district |> filter(year > 2007,  year < 2019)
 
-plot_effect(
+plot_effect( 
   newdata = data |>  
     mutate(same_party = 0),
   effect = "Same party"
@@ -1856,7 +1850,7 @@ plot_effect(
 model <-m_district_did_party
 data = dcounts_district |> filter(year > 2007,  year < 2019)
 
-plot_effect(
+plot_effect( 
   newdata = data |>  
     mutate(same_party = 0),
   effect = "Same party (diff-in-diff)"
@@ -2278,13 +2272,14 @@ save(models_elect_total, rows, cm, gm,  beta_cross, beta_did, se_cross, se_did,
 ```{r}
 models_ideo_total <- list(
   "(1)" = m_ideo_total_cross,
-  "(2)" = m_ideo_total_did
+  "(2)" = m_ideo_total_2nd_cross
 )
 
 rows <- tibble(
   term = c("Dependent variable"),
   `(1)` = c("Count"),
-`(2)` = c("Count"))
+  `(2)` = c("Count")
+)
 
 attr(rows, 'position') <- c(0)
 
