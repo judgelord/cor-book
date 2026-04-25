@@ -52,6 +52,16 @@ library(scales)
 library(here)
 ```
 
+::: {.notes}
+I'm Devin Judge-Lord, presenting work with Ellie Powell and Rochelle Snyder. 
+
+As I will get into in a minute, we are building on work that has studied interbranch representation -- 
+Kenny Lowande, Molly Ritchie, & Erinn Lauterbach, and the Department of Justice, both use these exact words to describe somewhat narrower subsets of what we consider interbranch representation. 
+So, I just want to flag that we are positing this as a more capacious concept that we think well describes a wide range of ways that legislator offices interact with agencies, especially in the American system, where they play this ombudsman role in helping various constituents deal with federal agencies.
+
+So this is a paper about legislator offices, especially, as you will see, offices of powerhouse legislators like Robert Byrd's, whose office is in the background here. 
+:::
+
 ## Interbranch Representation 
 
 - Constituency service/casework
@@ -65,13 +75,7 @@ library(here)
 ($\approx$ all substantive representation not through legislation)
 
 ::: {.notes}
-I'm Devin Judge-Lord, presenting work with Ellie Powell and Rochelle Snyder. 
-
-As I will get into in a minute, we are building on work that has studied interbranch representation -- 
-Kenny Lowande, Molly Ritchie, & Erinn Lauterbach, and the Department of Justice, both use these exact words to describe somewhat narrower subsets of what we consider interbranch representation. 
-So, I just want to flag that we are positing this as a more capacious concept that we think well describes a wide range of ways that legislator offices interact with the bureaucracy, especially in the American system, where they play this obscurantist role in helping various constituents deal with federal agencies.
-
-So this is a paper about legislator offices, especially, as you will see, offices of powerhouse legislators like Robert Byrd's, whose office is in the background here. 
+[Read slide] 
 :::
 
 ## What we know {.smaller}
@@ -243,7 +247,7 @@ $\delta_{jt}$ is an **agency--year** fixed effect
 
 . . . 
 
-$\gamma_{ij}$ **legislator--agency** fixed effect^[Unless otherwise noted all results are significant at the p<.05 level in the same direction in cross sectional and difference and difference designs.]
+$\gamma_{ij}$ **legislator--agency** fixed effect^[Unless otherwise noted all results are significant at the p<.05 level in the same direction in cross sectional and difference in difference designs.]
 
 - time-invariant legislator characteristics
 - legislator--agency factors, including stable state or district attributes (population, demographics, local industries) that shape demand.
@@ -357,7 +361,7 @@ here::here("code",
 
 ## Motivation - Reelection 
 
-- `general election`✔️ (cross) & `primary election`✔️(diff in diff)
+- `general`✔️ (cross) & `primary`✔️(diff in diff)
 - no impact on inequality
 
 ```{r}
@@ -394,7 +398,7 @@ knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-did-eff
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-6.png"))
+# knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-6.png"))
 knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-6.png"))
 knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-7.png"))
 knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-7.png"))
@@ -432,7 +436,7 @@ Demand & capacity
 
 Strategic motivations explain attention allocation and volume, but not inequality.
 
-- Smaller net effects, spread across high and low performers $\rightarrow$ no impact on inequality 
+- Effects spread across high and low performers $\rightarrow$ no impact on inequality 
 
 
 Implications for the effects of staffing & term limits
