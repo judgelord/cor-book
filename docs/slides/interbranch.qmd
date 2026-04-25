@@ -1,0 +1,529 @@
+---
+title: Unequal Interbranch Representation
+subtitle: How Members of Congress work with the bureaucracy and why some do much more than others
+footer: Judge-Lord, Powell, & Snyder "Unequal Interbranch Representation"
+image: https://github.com/judgelord/correspondence/blob/master/FERC.png
+image-alt: Letter from a member of Congress to FERC
+format:
+ revealjs:
+   scrollable: true
+   title-slide-attributes:
+    data-background-image: https://www.byrdcenter.org/uploads/6/7/8/7/67873389/403958_orig.jpg?592
+    data-background-opacity: "0.2"
+   theme: [../../michigan.scss]
+author:
+  - name: Devin Judge-Lord
+    affiliations:
+      - name: University of Michigan
+    #department: Ford School of Public Policy
+    #email: "judgelor@umich.edu"
+    attributes:
+      corresponding: true
+  - name: Eleanor Powell
+    affiliations:
+      - name: University of Wisconsin-Madison
+    #department: Department of Political Science
+  - name: Rochelle Snyder 
+    affiliations:
+      - name: Coe College
+    #department: Department of Political Science
+#date: today
+cap-location: bottom
+bibliography: "../../assets/cor.bib" 
+self-contained: true
+---
+
+```{r knit-options}
+here::here("code", "modelsummary_formatting.R") |> source()
+load(here::here("data", "means.Rdata"))
+
+# inline numbers round to 2, comma at thousands
+knitr::knit_hooks$set(inline = function(x) {
+  if (is.na(as.numeric(x))) {
+    return (x)
+    } else
+        return (as.numeric(x) |> 
+                 round(2) |>
+                 format(big.mark=",") 
+        )
+})
+
+library(scales)
+library(here)
+```
+
+## Interbranch Representation 
+
+- Constituency service/casework
+  - residents 
+  - nonprofits, businesses, local governments 
+  - identity groups
+- Policy work 
+  - oversight 
+  - advising agencies
+
+($\approx$ all substantive representation not through legislation)
+
+::: {.notes}
+I'm Devin Judge-Lord, presenting work with Ellie Powell and Rochelle Snyder. 
+
+As I will get into in a minute, we are building on work that has studied interbranch representation -- 
+Kenny Lowande, Molly Ritchie, & Erinn Lauterbach, and the Department of Justice, both use these exact words to describe somewhat narrower subsets of what we consider interbranch representation. 
+So, I just want to flag that we are positing this as a more capacious concept that we think well describes a wide range of ways that legislator offices interact with the bureaucracy, especially in the American system, where they play this obscurantist role in helping various constituents deal with federal agencies.
+
+So this is a paper about legislator offices, especially, as you will see, offices of powerhouse legislators like Robert Byrd's, whose office is in the background here. 
+:::
+
+## What we know {.smaller}
+
+Members of Congress contact agencies to represent 
+
+- constituents' needs <small>[@Fiorina1977; @Fenno1978; @MillsKalafHughes2015; @PowellJudgeLordGrimmer2023; @SnyderJudgeLordPowellGrimmer2025]</small>
+- constituents' policy preferences <small>[@Ritchie2018; @Ritchie2023]</small>
+- shared identity groups <small>[@LowandeRitchieLauterbach2019]</small>
+- corporate donors <small>[@PowellJudgeLordGrimmer2023]</small>
+<!-- the institution of congress <small>[@USDepartmentofJustice2016]</small> -->
+
+This varies by 
+
+- institutional position <small>[@Lowande2018APSR; @LowandePotter2021; @JudgeLordPowellGrimmer2026]</small>
+- experience <small>[@Ritchie2018; @Ritchie2023; @Lowande2018APSR; @JudgeLordPowellGrimmer2026]</small>
+- party status <small>[@Ritchie2018; @Ritchie2023]</small>
+- partisan/ideological alignment <small>[@Lowande2019; @PowellJudgeLordGrimmer2023; @Lowande2018APSR;  @LauterbachRitchie2025]</small>
+- legislative effectiveness <small>[@KalafHughes2023]</small>
+
+Maybe also electoral competition <small>[@Fiorina1977; @King1991]</small>, but maybe not <small>[@Ritchie2018; @Ritchie2023]</small>
+
+::: {.notes}
+When we started this project, it was old work by Fenno and Fiorina, and a cool new paper that Russ Mills and Nicky Kala Hughes presented 10 years ago at MPSA. Since then, we've learned a number of things. 
+To sum up all of this very briefly
+[READ SLIDE]
+So we have good evidence that all of these factors (except elections) matter on the margins. 
+This paper aims to build on and scaffold around this work. 
+We organize it into three broad causes of variation that likely drive different kinds of representation, and then we ask big-pictured questions about how important each cause is in aggregate for different outcomes.
+:::
+
+## A unified framework {.smaller}
+
+Demand 
+
+- more or more-demanding `constituents` = **more** demand
+- `constituent needs` affects **distributions** over agencies
+
+Capacity
+
+- more `staff`, `experience`, `power` = **more** supply
+
+Motivation 
+
+- `Reelection` & `Partisanship` = incentives to do **more** in certain contexts
+- `Oversight positions` & `voting behavior` ("ideology") reflect **distribution** of interests
+
+::: {.notes}
+This 3-part organization is similar to how Ritchie has organized these causes, 
+except perhaps that we put oversight more in the "strategic motivations" bucket, as Lowande's 2018 paper does.
+Though it is probably both, the fact that we see members paying special attention to agencies in advance of joining that agency's oversight committee makes us think that motivation is a relatively better interpretation of the oversight committee's effects.  
+[READ SLIDE]
+:::
+
+## This paper {.smaller}
+
+Demand 
+
+- more ~~or more-demanding~~ `constituents` = **more** demand
+- ~~`constituent needs` affects **distributions** over agencies~~ <small>[see @SnyderJudgeLordPowellGrimmer2025; @MunsonSnyderJudgeLordPowell]</small>
+
+Capacity
+
+- more `staff`,  `experience`, `power` = **more** supply
+
+Motivation 
+
+- `Reelection` & `Partisanship` = incentives to do **more** in certain contexts
+- `Oversight positions` & `voting behavior` ("ideology") reflect **distribution** of interests
+
+### Question: Why are levels of interbranch representation so unequal? 
+
+::: {.notes}
+In this paper, we try to put almost all of these together. We have not yet incorporated measures of having more demanding (for example, higher-income) constituents.
+
+We are also not focusing on predictors of allocation across agencies. That was the topic of our last year's MPSA papers. 
+
+In this paper, we ask how much each of these factors drives inequality in how much interbranch representation different districts receive. 
+:::
+
+## Unequal representation 
+
+```{r}
+#| label: fig-percent
+#| fig-cap: "Observed levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code",  "figs", "percentile-1.png"))
+knitr::include_graphics(here::here("code",  "figs", "percentile-2.png"))
+```
+
+::: {.notes}
+This matters because there is huge inequality in interbranch representation.
+
+Here we have the average number of requests each legislator makes to federal agencies on the y-axis and organized by their percentile in the distribution in their chamber. 
+
+ With the top decile in both the Senate and House doing 5 x the amount that the median legislator does. And 10 x the lower quarterly.
+
+You've probably heard of Gini Coefficients as a measure of inequality being used to describe income inequality. 
+top 10 most unequal countries, including Honduras at .47 and Zimbabwe at .50
+
+So this is what we want to explain---how we are doing this. 
+:::
+
+## Data & Design {.smaller}
+
+430,000 legislator-agency-year counts (630,000+ requests to 100+ agencies, 2007-2020, 430+ FOIA requests) 
+
+. . . 
+
+Committees [@unitedstates], oversight [@LewisSelin2012], electoral competitiveness [@Thomsen2023], legislator ideology [@dwnominate2024], agency perceived ideology [@RichardsonClintonLewis2018]
+
+
+. . . 
+
+
+$$
+\tiny
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\delta_{jt}, \gamma_{ij}  
+  &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  &\beta_1 \text{District Population}_{it}\\
++ &\beta_2 \text{Committee Leadership Position}_{it}\\
++ &\beta_3 \text{Oversight Committee Position}_{ijt}\\
++ & \beta_4 \text{Experience in Office}_{it}\\
++ & \beta_5 \text{Majority Party}_{it}\\
++ & \beta_6 \text{President's Party}_{it} \\
++ & \beta_7 \text{Competitive General Election}_{it} \\
++ & \beta_8 \text{Competitive Primary Election}_{it} \\
++ & \beta_9 \text{Perceived Ideological Distance from Agency}_{ijt} \\
++ & ... + \delta_{jt} + \gamma_{ij}
+& \text{Errors clustered at the legislator level.}
+\end{aligned}
+$$ {#eq-diff1}
+
+
+::: {.notes}
+We now have data from over 100 agencies, including all departments except for the Department of State. It has now been 9 years since I filed that request. To be fair, State originally told us it would take 6 years, so they are only 3 years behind scheduled. 
+
+This has taken a ton of work, negotiation, threatening lawsuits, and data cleaning, which I will not go into for the sake of time. 
+
+We are only using 2007-2020 for now, but we'll be adding two more congresses shortly. 
+
+We tally up the number of requests per legislator, per agency, per year, 
+yielding 430,000 legislator-agency-year observations
+
+These are counts, so fit a negative binomial count model, with indicators for 
+demand, like the number of people in the state  
+capacity, like committee chair positions and years in office, and 
+motivation, like oversight committee membership, majority party status, whether you have a copartisan presidential electoral vulnerability, and 
+ideological distance from the agency, which we get by subtracting nominate scores from richardson clinton lewis scores. 
+and other things
+Errors are clustered at the legislator level. 
+:::
+
+
+## Data & Design {.not-scrollable}
+
+$Y_{ijt}$ = requests legislator $i$ makes to agency $j$ in year $t$
+
+. . . 
+
+$\delta_{jt}$ is an **agency--year** fixed effect
+
+. . . 
+
+$\gamma_{ij}$ **legislator--agency** fixed effect^[Unless otherwise noted all results are significant at the p<.05 level in the same direction in cross sectional and difference and difference designs.]
+
+- time-invariant legislator characteristics
+- legislator--agency factors, including stable state or district attributes (population, demographics, local industries) that shape demand.
+
+::: {.notes}
+Important here are
+fixed effects for agency-year pairs, which covers shocks to agencies like scandals and censoring in our data 
+in all models 
+We also estimate differences-in-differences with fixed effects for the legislator-agency pair, so those models are just about within-legislator variation over time. 
+
+Unless otherwise noted, all results are significant at the p<.05 level in the same direction in cross-sectional and difference designs.
+I'm happy to click over to the regression table slides in Q&A, but 
+We have a large sample, so we get to focus on the magnitude of effects. 
+:::
+
+## Demand 
+
+::: {layout="[[1,1]]"}
+
+- more `constituents`✔️
+
+
+high impact on inequality
+
+
+```{r}
+#| label: fig-pop-effect
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year"
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-senate-effect-1.png"))
+```
+
+<br>
+<br>
+<br>
+<inv>predictions</inv> compared to a `counterfactual` of equal state population
+:::
+
+::: {.notes}
+So I'm going to show you a bunch of counterfactuals and compare them to predictions using the real values in the data to assess the aggregate impact. 
+
+As with the first plot, average requests per year are on the Y-axis.
+But now, the dots are predicted values for each legislator, arranged by the predicted values for our data, the dark blue dots
+compared to predictions for those senators, with the population and budget of a senator from Wyoming. 
+
+The first counterfactual is equal state population and, by implication, equal staff budgets for Senators. Population thus represents both demand and capacity and explains a large share of variation in the Senate, but not all of it, about 20% of the overall inequality in interbranch representation in the Senate. 
+:::
+
+## Capacity 
+
+- more `staff`✔️, `experience`✔️, `power`✔️
+- high impact on inequality
+
+
+```{r}
+#| label: fig-effect
+#| fig-cap: "Predicted levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(
+here::here("code", 
+           "figs", 
+           paste0("negbin-m-total-effect-",
+                  c(1,5,2), 
+                  ".png"
+                  ) 
+           ))
+```
+
+::: {.notes}
+
+:::
+
+## Capacity 
+
+- more [`staff` + `experience` + `power`]✔️
+- high impact on inequality
+
+
+```{r}
+#| label: fig-effect-total
+#| fig-cap: "Predicted levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(
+here::here("code", 
+           "figs", 
+           paste0("negbin-m-total-effect-",
+                  c(8), 
+                  ".png"
+                  ) 
+           ))
+```
+
+::: {.notes}
+
+:::
+
+## Motivation - Reelection 
+
+- `general election`✔️ (cross) & `primary election`✔️(diff in diff)
+- no impact on inequality
+
+```{r}
+#| label: fig-elect-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-effect-1.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-did-effect-2.png"))
+
+```
+
+::: {.notes}
+
+:::
+
+## Motivation - Partisan opportunity 
+
+- `minority party`✔️ (diff-in-diff) `president's party`✔️
+- no impact on inequality
+
+```{r}
+#| label: fig-partisan-effect
+#| fig-cap: "Predicted levels of interbranch representation"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-6.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-6.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-7.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-7.png"))
+```
+
+::: {.notes}
+
+:::
+
+## Motivation - Policy interests 
+
+- `oversight positions`✔️ & `voting behavior`✔️ (cross) reflect **distribution** of interests
+- some impact on inequality
+
+```{r}
+#| label: fig-ideo-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-1.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-2.png"))
+```
+
+## To sum up: Why so unequal? {.incremental background-image=-"https://www.byrdcenter.org/uploads/6/7/8/7/67873389/403958_orig.jpg?592"}
+
+Demand & capacity
+
+- Senators representing more people with more staff 
+- Access to committee staff 
+- Experience
+
+Strategic motivations explain attention allocation and volume, but not inequality.
+
+- Smaller net effects, spread across high and low performers $\rightarrow$ no impact on inequality 
+
+
+Implications for the effects of staffing & term limits
+
+::: {.notes}
+
+:::
+
+# Thank you 
+
+
+# Extra 
+
+
+## Motivation - Policy interests 
+
+- `oversight positions`✔️ reflect **distribution** of interests
+- large effect on inequality?
+
+```{r}
+#| label: fig-oversight-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no oversight"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-4.png"))
+knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-4.png"))
+```
+
+## Table - Capacity & Partisanship  {.smaller}
+
+```{r}
+#| label: tbl-models-total
+#| tbl-cap: "The effect of capacity on total requests to federal agencies"
+#| out-width: 100%
+
+load(here::here("models", "models_total.Rdata"))
+
+modelsummary(models_total,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (chair and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
+```
+
+
+## Table - District & Same party {.smaller}
+
+```{r}
+#| label: tbl-models-district
+#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
+
+load(here::here("models", "models_district.Rdata"))
+
+modelsummary(models_district,
+             notes = list("Robust standard errors in parentheses, clustered by district",
+                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per district, per year effects are simply these coefficients times the number of agencies in the data.")) 
+```
+
+
+## Table - Electoral Competition {.smaller}
+
+```{r}
+#| label: tbl-models-elect
+#| tbl-cap: "The effect of electoral security on total requests to federal agencies"
+#| out-width: 60%
+
+load(here::here("models", "models_elect_total.Rdata"))
+
+modelsummary(models_elect_total,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data."))  
+
+```
+
+## Table - Ideology {.smaller}
+
+```{r}
+#| label: tbl-models-ideo-total
+#| tbl-cap: "The effect of ideology on total requests to federal agencies"
+#| out-width: 100%
+#| cache: false
+
+load(here::here("models", "models_ideo_total.Rdata"))
+
+modelsummary(models_ideo_total,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of ideological distance on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
+
+```
+
+## Refrences 
+
