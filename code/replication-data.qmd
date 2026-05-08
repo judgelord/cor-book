@@ -1,0 +1,208 @@
+---
+title: "Replication Code and Robustness Checks"
+subtitle: ""
+author: Devin Judge-Lord
+format: 
+  #pdf: 
+  html:
+      self-contained: true
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
+---
+
+Packages: 
+  
+  - `tidyverse` and `magrittr`, for data wrangling
+- `scales` for plot scales 
+- `ggrepel` for plot labels
+- `here` for file paths 
+- `knitr` for document formatting 
+- `kableExtra` for table formatting 
+- `modelsummary` for regression tables 
+- `marginaleffects` for predictions 
+- `fixest` --- statistical package for fixed effects estimation 
+- `ineq` to calculate GINI coefficients
+
+
+```{r global.options, include=FALSE, purl=FALSE, cache=FALSE}
+testing = F
+verification = F
+here::here("code", "qmd_global_options.R") |> source() 
+
+# plotting functions 
+here::here("code", "ggcompetitive.R") |> source() 
+here::here("code", "ggchair.R") |> source() 
+here::here("code", "ggtenure.R") |> source() 
+
+# coef map
+here::here("code", "cm.R") |> source() 
+here::here("code", "modelsummary_formatting.R") |> source() 
+
+
+# functions 
+here::here("code", "post_merge_transformations.r") |> source()
+```
+
+
+# Replication Data
+
+```{r member-data, cache=FALSE}
+# New member data 
+load(here::here("data", "member_data.Rdata"))
+
+# INSPECT
+member_data |> drop_na(prestige) |> count(prestige) |> kable()
+```
+
+## Counts
+```{r count-data, cache=FALSE}
+# COUNT DATA 
+load(here::here("data", "corr_counts.Rdata"))
+
+## just in case it was saved as grouped data 
+corr_counts %<>% ungroup()
+
+# subset to 2007-2020
+corr_counts  %<>% filter(year > 2006, year < 2021)
+
+
+####################
+# TRANSFORMATIONS #  
+###################
+# two-way fixed effects 
+d <- corr_counts |> 
+  ungroup() |> 
+  mutate(
+    icpsr_agency = paste(agency, icpsr, sep='_'),
+    agency_year = paste(agency, year, sep='_')
+  )
+
+
+# CONGRESS VAR 
+year_congress<- function(year){
+  return(floor((year - 1787)/2))
+}
+
+d %<>% mutate(congress = year_congress(year))
+```
+
+
+
+
+
+## Drop chamber switchers 
+
+```{r drop-chamber-switchers, cache=FALSE}
+#FIXME THIS SHOULD BE AT TOP 
+# make icpsr year variable 
+d %<>% mutate( icpsr_year = paste(icpsr, year, sep='_') )
+
+## chamber switchers  in original data (party switchers are not an issue because they net new ICPSR ids)
+chamber_switchers  <- d |> 
+  distinct(icpsr_year, agency, chamber) |>
+  add_count(icpsr_year, agency,  #party, 
+            name = "n") |>
+  filter(n > 1) |> 
+  distinct(icpsr_year, chamber) |> 
+  arrange(icpsr_year)
+
+# DROP CHAMBER SWITCHERS
+d %<>% filter(!icpsr_year %in% chamber_switchers$icpsr_year)
+```
+
+## Total counts 
+
+```{r data-transformations, cache=FALSE}
+# This chunk takes the minimal count data and creates legislator-level and district-level yearly count and ratio data
+# These are then used to estimate the models
+# the key DVs are
+# - perYear = counts per year (member level and district level)
+# - ratio = ratio of policy work to constituency service
+
+##creating the member-level aggregate count variables
+
+# TOTAL counts 
+dcounts_total <- d |>
+  group_by(agency, icpsr, chamber, year, congress) |>
+  summarise(perYear = sum(per_icpsr_chamber_year_agency_type)) |> 
+  ungroup() |> 
+  left_join(member_data) |>
+  post_merge_transformations() |> 
+  ungroup() |> 
+  distinct() 
+
+# DISTRICT counts 
+dcounts_district <- dcounts_total   |>
+  ungroup() |> 
+  group_by(agency, state_dist, chamber, year, congress) |>
+  summarise(perYear = sum(perYear) ) |>
+            #perYear_con = sum(perYear_con),
+            #perYear_policy = sum(perYear_policy),
+  ungroup() |> 
+  left_join(member_data) |>
+  post_merge_transformations() |> 
+  ungroup() |> 
+  distinct()
+
+# rename first year as "new_member" 
+dcounts_total$new_member <- dcounts_total$first
+
+save(dcounts_total, file =  here::here("data", "dcounts_total.rda"))
+save(dcounts_district, file =  here::here("data", "dcounts_district.rda"))
+
+if(testing){
+# CHECK MISSINGNESS
+sum_na <- function(x){is.na(x) |> sum() }
+
+dcounts_total  |>  summarise_all(sum_na) |> pivot_longer(everything()) |> arrange(-value) |> filter(value>0 ) |> kable()
+} 
+
+## Means for paper
+mean_total <- mean(dcounts_total$perYear)
+
+# mean per year 
+perYear_mean_total <- dcounts_total |> 
+  group_by(icpsr, year) |> 
+  transmute(perYearTotal = sum(perYear))
+perYear_mean_total <- mean(perYear_mean_total$perYearTotal) |> round()
+
+## Ns
+n2007_2020 <- dcounts_total$perYear |> sum()
+n_agency <- dcounts_total$agency |> unique() |> length()
+
+save(mean_total,# mean_con, mean_pol, 
+     perYear_mean_total,
+     n_agency, n2007_2020, # n2007_2020coded, 
+     modelsummary_AJPS,
+     file = here::here("data", "means.Rdata"))
+```
+
+:::{.callout-important collapse="true"}
+```{r echo=verification, eval=verification, cache=FALSE}
+n_agency
+n2007_2020
+n2007_2020coded
+```
+:::
+
+
+```{r testing, cache=FALSE}
+
+############################
+if(testing){
+# inspect duplicates 
+d <- d |> 
+  ungroup() |>
+  distinct() |>
+  add_count(icpsr, year, agency,  #party, 
+            name = "n") 
+
+
+d |>filter(n > 1) |> distinct(icpsr, year) 
+} 
+```

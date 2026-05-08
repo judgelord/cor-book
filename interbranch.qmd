@@ -45,6 +45,9 @@ execute:
 ---
 
 ```{r knit-options}
+# copy to docs
+file.copy(from = "interbranch.pdf", to = here::here("docs", "interbranch.pdf"), overwrite = T)
+
 here::here("code", "modelsummary_formatting.R") |> source()
 load(here::here("data", "means.Rdata"))
 
