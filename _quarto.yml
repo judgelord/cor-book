@@ -30,7 +30,7 @@ book:
 
 number-depth: 3
 
-bibliography: assets/congress.bib
+bibliography: assets/cor.bib
 
 format:
   html:
