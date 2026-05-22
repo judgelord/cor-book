@@ -1,6 +1,20 @@
+# inline numbers round to 2, comma at thousands
+knitr::knit_hooks$set(inline = function(x) {
+  if (is.na(as.numeric(x))) {
+    return (x)
+  } else
+    return (as.numeric(x) |>
+              round(2) |>
+              format(big.mark=",")
+    )
+})
+
+library(scales)
+library(here)
+
 library(magrittr)
-library(kableExtra)
-library(tinytable)
+#library(kableExtra) # no longer in development
+library(tinytable) # replacment for kableExtra
 
 # Regression table formatting for AJPS
 modelsummary_AJPS <- function(models, notes = "", center_rows = 1, ...){
@@ -13,9 +27,9 @@ modelsummary_AJPS <- function(models, notes = "", center_rows = 1, ...){
                              coef_map = cm,
                              gof_map = gm,
                              output = "tinytable",
-                             notes = notes) # |>
+                             notes = notes)  |>
     # bold header, hline bottom, aligned center
-    # tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+     tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") #|>
     # stats aligned center
    #  tinytable::style_tt(i = center_rows, align = "c") |>
     # row labels left

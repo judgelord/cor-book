@@ -212,6 +212,21 @@ member_data <- member_data |>
 
 count(member_data, congress)
 
+load(here::here("data", "Staff", "staff.rds"))
+
+member_data <- left_join(member_data, staff)
+
+member_data %<>% mutate(est_total_legis_spending = est_total_legis_spending/1000000,
+                          est_total_pol_spending = est_total_pol_spending/1000000,
+                          est_total_comm_spending = est_total_comm_spending/1000000,
+                          est_total_off_spending = est_total_off_spending/1000000,
+                          est_total_constit_spending = est_total_constit_spending/1000000)
+
+# confirm no duplicates in member_data post merge
+member_data <- distinct(member_data)
+member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
+
+
 save(member_data,
      file = here::here("data", "member_data.Rdata"))
 

@@ -1,6 +1,10 @@
 project:
   type: book
   output-dir: docs
+  render:
+    - "!interbranch.qmd"
+    - "!google_drive/"
+    - "!code/"
 
 book-content: true
 

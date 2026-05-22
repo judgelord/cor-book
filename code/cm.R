@@ -1,3 +1,5 @@
+library(stringr)
+
 # Coef Map
 cm = c("pop2010m"= "State Population (Millions)",
        "competitive" = "Competitive General",
@@ -41,7 +43,33 @@ cm = c("pop2010m"= "State Population (Millions)",
        "presidents_party" = "President's party",
        "Legislator" = "Legislator",
        "Agency" = "Agency",
-       "Num.Obs." = "Observations"
+       "Num.Obs." = "Observations",
+       # staff
+       "pct_MRA_spending" = "Percent MRA",
+       "pct_MRA_legis_spending"   = "Percent MRA",
+       "pct_MRA_pol_spending"   = "Percent MRA",
+       "pct_MRA_comm_spending"  = "Percent MRA",
+       "pct_MRA_off_spending"   = "Percent MRA",
+       "pct_MRA_constit_spending" = "Percent MRA",
+       "prop_legis_spending"  = "Percent Leg. Spending",
+       "prop_pol_spending" = "Percent Pol. Spending",
+       "prop_comm_spending" = "Percent Comm. Spending",
+       "prop_off_spending" = "Percent Office Spending",
+       "prop_constit_spending" = "Percent Const. Spending",
+       "est_avg_office_size" = "Office Size",
+       "est_legis_staff_size" = "Leg. Staff Size",
+       "est_pol_staff_size"     = "Pol. Staff Size",
+       "est_comm_staff_size" = "Comm. Staff Size",
+       "est_off_staff_size" = "Office Staff Size",
+       "est_constit_staff_size" = "Const. Staff Size",
+       "est_total_spending" = "Total Spending",
+       "est_total_legis_spending" = "Leg. Spending",
+       "est_total_pol_spending" = "Pol. Spending",
+       "est_total_comm_spending" = "Comm. Spending",
+       "est_total_off_spending" = "Office Spending",
+       "est_total_constit_spending" = "Const. Spending",
+       "style" = "Style",
+       "mean_MRA" = "MRA"
 )
 
 # FORMATTING FOR AJPS
@@ -51,7 +79,6 @@ cm <- cmAJPS
 # END FORMATTING FOR AJPS
 
 # set fixed effects mapping
-setFixest_dict(cm)
 
 format_n <- function(x) format(round(x, 3), big.mark=",") # this works
 f <- function(x) stringr::str_replace(x, "[A-z]", "✓") #FIXME not sure why this is not working
@@ -73,7 +100,6 @@ gm <- list(
 coef_omit = "(Intercept)|majority|presidents_party"
 coef_omit = "none"
 
-setFixest_dict(cm)
 
 gof_omit = "R.*|AIC|BIC|Log.*|Std.*"
 
