@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Unequal Invisible Representation</title>
+<title>3&nbsp; Measuring (Invisible) Interbranch Representation – Unequal Invisible Representation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -52,8 +52,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Appendix.html" rel="next">
-<link href="./Chapter 10 - Conclusion.html" rel="prev">
+<link href="./Chapter 4 - Unequal Interbranch Representation.html" rel="next">
+<link href="./Chapter 2 - Theories of Interbranch Representation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -92,6 +92,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -104,7 +133,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter 3 - Measuring (Invisible) Interbranch Representation.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Measuring (Invisible) Interbranch Representation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,7 +181,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter 3 - Measuring (Invisible) Interbranch Representation.html" class="sidebar-item-text sidebar-link">
+  <a href="./Chapter 3 - Measuring (Invisible) Interbranch Representation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Measuring (Invisible) Interbranch Representation</span></span></a>
   </div>
 </li>
@@ -200,7 +229,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -226,15 +255,25 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#new-data" id="toc-new-data" class="nav-link active" data-scroll-target="#new-data"><span class="header-section-number">3.1</span> New Data</a></li>
+  <li><a href="#data-collection-process" id="toc-data-collection-process" class="nav-link" data-scroll-target="#data-collection-process"><span class="header-section-number">3.2</span> Data Collection Process</a></li>
+  <li><a href="#measuring-interbranch-representation" id="toc-measuring-interbranch-representation" class="nav-link" data-scroll-target="#measuring-interbranch-representation"><span class="header-section-number">3.3</span> Measuring Interbranch Representation</a></li>
+  <li><a href="#other-variables" id="toc-other-variables" class="nav-link" data-scroll-target="#other-variables"><span class="header-section-number">3.4</span> Other variables</a></li>
+  <li><a href="#statistical-model" id="toc-statistical-model" class="nav-link" data-scroll-target="#statistical-model"><span class="header-section-number">3.5</span> Statistical Model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Measuring (Invisible) Interbranch Representation</span></h1>
 </div>
 
 
@@ -251,369 +290,147 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-AnsolabehereJones2010" class="csl-entry" role="listitem">
-Ansolabehere, Stephen, and Philip Edward Jones. 2010. <span>“<span class="nocase">Constituents’ Responses to Congressional Roll-Call
-Voting</span>.”</span> <em>American Journal of Political Science</em> 54
-(3): 583–97.
-</div>
-<div id="ref-Arnold1979" class="csl-entry" role="listitem">
-Arnold, R. Douglas. 1979. <em>Congress and the Bureaucracy: A Theory of
-Influence</em>. Yale University Press.
-</div>
-<div id="ref-AshworthBuenodeMesquita2006" class="csl-entry" role="listitem">
-Ashworth, Scott, and Ethan Bueno de Mesquita. 2006. <span>“Delivering
-the Goods: Legislative Particularism in Different Electoral and
-Institutional Settings.”</span> <em>Journal of Politics</em> 68: 168–79.
-</div>
-<div id="ref-Bartels2008" class="csl-entry" role="listitem">
-Bartels, Larry M. 2008. <em>Unequal Democracy: The Political Economy of
-the New Gilded Age</em>. Princeton University Press.
-</div>
-<div id="ref-BerryBurdenHowell2010" class="csl-entry" role="listitem">
-Berry, Christopher, Barry Burden, and William Howell. 2010. <span>“The
-President and the Distribution of Federal Spending.”</span> <em>American
-Political Science Review</em> 104: 783–99.
-</div>
+<blockquote class="blockquote">
+<p>ABSTRACT: We discuss how, up to this point, interbranch representation has been largely invisible to voters, journalists, and scholars, which has consequences for democratic accountability. We describe how we measure interbranch representation, our data collection process, and the methods we use to analyze the data. This chapter briefly describes our approach to measuring and collecting data on interbranch representation, and the methods we use (full details are in Appendix A). We describe the process of translating congressional correspondence logs from many different agencies into aggregate data on representation activity. We then detail our coding process for determining who was being represented in each case. Finally, we present descriptive tables and figures, documenting staggering levels of inequality in the provision of interbranch representation across legislators (and districts) that motivate the rest of the book.</p>
+</blockquote>
+<p>Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators’ distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.</p>
+<section id="new-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="new-data"><span class="header-section-number">3.1</span> New Data</h2>
+<p>For 9 years, we have been filing FOIA requests with all federal agencies and subagencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process.</p>
+<p>We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences.</p>
+<p>From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.</p>
+<p>Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics (Mills and Kalaf-Hughes 2015), the policy strategies of cross-pressured legislators (Ritchie 2018, 2023), the role of ideology in congressional oversight (Lowande 2019), descriptive representation (Lowande et al 2019), and money in politics (Powell et al 2023). With a near census of agencies, we are able to study, for the first time (except for Judgelord et al 2026), patterns across all members and policy areas.</p>
+<p>We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts.</p>
+</section>
+<section id="data-collection-process" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-collection-process"><span class="header-section-number">3.2</span> Data Collection Process</h2>
+<p>What are we actually able to measure with this data?</p>
+<p>Patterns of Inequality in Constituency Service</p>
+</section>
+<section id="measuring-interbranch-representation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="measuring-interbranch-representation"><span class="header-section-number">3.3</span> Measuring Interbranch Representation</h2>
+<p>For 9 years, we have been filing FOIA requests with all federal agencies and sub-agencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. <!--
+We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.--></p>
+<p>Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. Understandably, therefore, recent studies have focused on records from a limited number of agencies. Those studies have yielded important findings regarding distributive politics <span class="citation" data-cites="MillsKalafHughes2015">(<a href="references.html#ref-MillsKalafHughes2015" role="doc-biblioref">Mills and Kalaf-Hughes 2015</a>)</span>, the policy strategies of cross-pressured legislators <span class="citation" data-cites="Ritchie2018 Ritchie2023">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>, the role of ideology in congressional oversight <span class="citation" data-cites="Lowande2019">(<a href="references.html#ref-Lowande2019" role="doc-biblioref">Lowande 2019</a>)</span>, descriptive representation <span class="citation" data-cites="LowandeRitchieLauterbach2019">(<a href="references.html#ref-LowandeRitchieLauterbach2019" role="doc-biblioref">Lowande et al. 2019</a>)</span>, and money in politics <span class="citation" data-cites="PowellJudgeLordGrimmer2023">(<a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">Powell et al. 2023</a>)</span>. With a near census of agencies, we are able to study patterns across all members and policy areas. This allows us to ask more general questions, test existing explanations out of sample, and compare the magnitude of effects documented in previous studies.</p>
+<!--
+We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. <!--Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts. -->
+</section>
+<section id="other-variables" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="other-variables"><span class="header-section-number">3.4</span> Other variables</h2>
+<p>We augment our data on legislator requests to agencies with data from other scholars.</p>
+<p>Several of these variables capture features of the legislator-agency relationship. To assess whether holding an oversight role for an agency affects interbranch representation to that agency, we use data from <span class="citation" data-cites="unitedstates"><span class="nocase">@unitedstates-project</span> (<a href="references.html#ref-unitedstates" role="doc-biblioref">2025</a>)</span> on committee membership and <span class="citation" data-cites="LewisSelin2012">Lewis and Selin (<a href="references.html#ref-LewisSelin2012" role="doc-biblioref">2012</a>)</span>, who document committees’ formal jurisdictions. We use staff allocation data for members of the House from <span class="citation" data-cites="CrossonFurnasLapiraBurgat2021">Crosson et al. (<a href="references.html#ref-CrossonFurnasLapiraBurgat2021" role="doc-biblioref">2021</a>)</span> via the replication files for <span class="citation" data-cites="CrossonKaslovsky2024">Crosson and Kaslovsky (<a href="references.html#ref-CrossonKaslovsky2024" role="doc-biblioref">2024</a>)</span>. To assess the ideological similarity between members of Congress and specific federal agencies, we subtract a member’s first dimension DW-NOMINATE scores <span class="citation" data-cites="dwnominate2024">(<a href="references.html#ref-dwnominate2024" role="doc-biblioref">Lewis et al. 2024</a>)</span> with measurements of federal agencies’ perceived ideological leanings <span class="citation" data-cites="RichardsonClintonLewis2018">(<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">Richardson et al. 2018</a>)</span>. To measure the ideological <em>distance</em> between members of Congress and federal agencies, we subtract each member’s first-dimension DW-NOMINATE score from the ideology score of each agency. We also use other legislator-level variables from <span class="citation" data-cites="dwnominate2024">Lewis et al. (<a href="references.html#ref-dwnominate2024" role="doc-biblioref">2024</a>)</span>, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president’s party. As <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord et al. (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span> documented that much of the start-up costs (especially for constituency service) occur in the first two years, we model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. We also adopt the definition of prestige committee assignments from <span class="citation" data-cites="replication">Devin Judge-Lord and Eleanor Neff Powell and Justin Grimmer (<a href="references.html#ref-replication" role="doc-biblioref">2025</a>)</span>.</p>
+<p>Other variables are at the legislator or district level. For data on electoral competitiveness, we use data from <span class="citation" data-cites="Thomsen2023">Thomsen (<a href="references.html#ref-Thomsen2023" role="doc-biblioref">2023</a>)</span> on vote share in primary and general elections, adopting her definition of whether an election was competitive.</p>
+</section>
+<section id="statistical-model" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="statistical-model"><span class="header-section-number">3.5</span> Statistical Model</h2>
+<p>Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate cross-sectional differences. For within-legislator differences, we also include legislator-agency fixed effects, so coefficients represent the change in the number of requests per legislator per agency per year.</p>
+<p>Our analysis is generally at the legislator-agency-year level. In <a href="Chapter 2 - Theories of Interbranch Representation.html#tbl-hypotheses" class="quarto-xref">Table&nbsp;<span>2.1</span></a>, we set out expectations for differences across members and within-member variation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We thus estimate both cross-sectional and difference-in-differences regressions, similar to the specifications in <span class="citation" data-cites="BerryFowler2016">Berry and Fowler (<a href="references.html#ref-BerryFowler2016" role="doc-biblioref">2016</a>)</span>. Tests for differences within legislator-agency pairs take a form similar to <a href="#eq-diff1" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> (with additional variables, such as those relating to elections, that decrease the number of observations included only in some specifications). However, to assess how much each factor contributes to the observed differences across members shown in <a href="Chapter 9 - Policy Work on Behalf of Business.html#fig-percent" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, we must rely on cross-sectional estimates (<a href="#eq-diff1" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> without <span class="math inline">\(\gamma_{ij}\)</span>).</p>
+<p><span id="eq-diff1"><span class="math display">\[
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &amp;\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) =
+  &amp;\beta_1 \text{Committee Leadership Position}_{it}\\
+  &amp;\beta_1 \text{Oversight Committee Position}_{itj}\\
++ &amp; \beta_2 \text{Experience in Office}_{it}\\
++ &amp; \beta_3 \text{Majority Party}_{it}\\
++ &amp; \beta_4 \text{President's Party}_{it} \\
+  &amp;...\\
++&amp; \gamma_{ij} + \delta_{jt}
+\end{aligned}
+\tag{3.1}\]</span></span></p>
+<p><span class="math inline">\(Y_{ijt}\)</span> is the number of requests legislator <span class="math inline">\(i\)</span> makes to agency <span class="math inline">\(j\)</span> in year <span class="math inline">\(t\)</span>. We estimate a negative binomial count model with conditional mean <span class="math inline">\(\mu_{ijt}\)</span> and overdispersion parameter <span class="math inline">\(\alpha\)</span>. The conditional mean is linked to covariates via the log link, <span class="math inline">\(\log(\mu_{ijt})\)</span>: a one-unit increase in a covariate multiplies the expected count by <span class="math inline">\(\exp(\beta)\)</span>, holding other terms fixed.</p>
+<p><span class="math inline">\(\gamma_{ij}\)</span> denotes a <em>legislator–agency</em> fixed effect that is estimated using a true conditional fixed-effects approach (i.e., conditioned out rather than included as a full set of dummy variables). This fixed effect controls for time-invariant legislator characteristics and time-invariant legislator–agency-specific factors, including persistent constituent demand for assistance from a given agency and stable state or district attributes (population, demographics, local industries) that shape demand for particular agencies.</p>
+<p><span class="math inline">\(\delta_{jt}\)</span> is an agency-year fixed effect that accounts for agency-specific shocks over time that may affect the level of requests received from legislators in the periods for which data are available from each agency.</p>
+<!--- OLD LINEAR MODEL 
+
+$$
+\begin{aligned}
+Y_{ijt} = & 
+\beta_1 \text{Committee Position}_{it}  + \\
+&\beta_2  \text{Experience in office}_{it} + \\
+&\beta_3  \text{Majority}_{it} + \\
+&\beta_4  \text{President's party}_{it} + \\
+&\gamma_{ij} + \delta_{jt} + m_{it} 
+\end{aligned}
+$$ {#eq-diff1}
+
+$Y_{ijt}$ is the number of requests legislator $i$ makes to agency $j$
+in year $t$. $\gamma_{ij}$ is a fixed effect for the legislator-agency
+pair. This fixed effect controls for **legislator characteristics**, such
+as legislators who are more skillful at responding to constituency service
+requests than others. Critically for our research design, this fixed
+effect also accounts for **time-invariant constituent demand**, ensuring
+that differences in constituent requests across legislators do not drive
+our results. It also accounts for **state and district characteristics**,
+including population, demographics, and local industries that might be
+particularly likely to request help from specific agencies. 
+$\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific
+shocks that may affect legislator requests at the different
+periods for which data were available from each agency.
+This difference-in-difference design ensures that the coefficients
+$\boldsymbol{\beta}$ capture variation related to changes in
+institutional power, not other factors that may vary across districts,
+legislators, or agencies. 
+--->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-BerryFowler2016" class="csl-entry" role="listitem">
-Berry, Christopher., and James H. Fowler. 2016. <span>“<span class="nocase">Cardinals or Clerics? Congressional Committees and the
-Distribution of Pork</span>.”</span> <em>American Journal of Political
-Science</em> 60 (3): 692–708.
-</div>
-<div id="ref-BowenClark2014" class="csl-entry" role="listitem">
-Bowen, Daniel C., and Christopher J. Clark. 2014. <span>“Revising
-Descriptive Representation in Congress: Assessing the Effect of Race on
-the Constituent-Legislator Relationship.”</span> <em>Political Research
-Quarterly</em> 67 (3): 695–707.
-</div>
-<div id="ref-ButlerBroockman2011" class="csl-entry" role="listitem">
-Butler, Daniel M., and David E. Broockman. 2011. <span>“<span class="nocase">Do Politicians Racially Discriminate Against
-Constituents? A Field Experiment on State Legislators</span>.”</span>
-<em>American Journal of Political Science</em> 55 (3): 463–77.
-</div>
-<div id="ref-ButlerDynes2016" class="csl-entry" role="listitem">
-Butler, Daniel M., and Adam M. Dynes. 2016. <span>“<span class="nocase">How politicians Discount the Opinions of Constituents
-with Whom They Disagree</span>.”</span> <em>American Journal of
-Political Science</em> 60 (4): 975–89.
-</div>
-<div id="ref-CainFerejohnFiorina1987" class="csl-entry" role="listitem">
-Cain, Bruce, John Ferejohn, and Morris Fiorina. 1987. <em>The Personal
-Vote: Constituency Service and Electoral Independence</em>. Harvard
-University Press.
-</div>
-<div id="ref-Canon1999" class="csl-entry" role="listitem">
-Canon, David T. 1999. <em>Race, Redistricting, and Representation: The
-Unintended Consequences of Black Majority Districts</em>. University of
-Chicago Press.
-</div>
-<div id="ref-Carnes2016" class="csl-entry" role="listitem">
-Carnes, Nicholas. 2016. <span>“Who Votes for Inequality.”</span> In
-<em>Congress and Policy Making in the 21st Century</em>, edited by
-Jeffrey A. Jenkins and Eric M. Patashnik. Cambridge University Press.
-</div>
-<div id="ref-Carpenter2001" class="csl-entry" role="listitem">
-Carpenter, Daniel. 2001. <em>The Forging of Bureaucratic Autonomy:
-Reputations, Networks, and Policy Innovation in Executive Agencies,
-1862-1928</em>. Princeton University Press.
-</div>
-<div id="ref-Carpenter2014" class="csl-entry" role="listitem">
-Carpenter, Daniel. 2014. <em>Reputation and Power: Organizational Image
-and Pharmaceutical Regulation at the FDA</em>. Princeton University
-Press.
-</div>
-<div id="ref-CasasDennyWilderson2019" class="csl-entry" role="listitem">
-Casas, Andreu, Matthew J. Denny, and John Wilkerson. 2019. <span>“<span class="nocase">More Effective Than We Thought: Accounting for
-Legislative Hitchhikers Reveals a More Inclusive and Productive
-Lawmaking Process</span>.”</span> <em>American Journal of Political
-Science</em> 64 (1): 5–18.
-</div>
-<div id="ref-Clinton2006" class="csl-entry" role="listitem">
-Clinton, Joshua. 2006. <span>“Representation in Congress: Constituents
-and Roll Calls in the 106th House.”</span> <em>The Journal of
-Politics</em> 68 (2): 397–409.
-</div>
-<div id="ref-Cottle2022" class="csl-entry" role="listitem">
-Cottle, Emily. 2022. <span>“The Institution’s Knowledge: Congressional
-Staff Turnover and Committee Productivity.”</span> Junior americanist
-workshop series.
+Berry, Christopher., and James H. Fowler. 2016. <span>“<span class="nocase">Cardinals or Clerics? Congressional Committees and the Distribution of Pork</span>.”</span> <em>American Journal of Political Science</em> 60 (3): 692–708.
 </div>
 <div id="ref-CrossonFurnasLapiraBurgat2021" class="csl-entry" role="listitem">
-Crosson, Jesse M., Alexander C. Furnas, Timothy LaPira, and Casey
-Burgat. 2021. <span>“Partisan Competition and the Decline in Legislative
-Capacity Among Congressional Offices.”</span> <em>Legislative Studies
-Quarterly</em> 46 (3): 745–89.
+Crosson, Jesse M., Alexander C. Furnas, Timothy LaPira, and Casey Burgat. 2021. <span>“Partisan Competition and the Decline in Legislative Capacity Among Congressional Offices.”</span> <em>Legislative Studies Quarterly</em> 46 (3): 745–89.
 </div>
 <div id="ref-CrossonKaslovsky2024" class="csl-entry" role="listitem">
-Crosson, Jesse M., and Jaclyn Kaslovsky. 2024. <span>“Do Local Roots
-Impact Washington Behaviors? District Connections and Representation in
-the <span>U.S.</span> Congress.”</span> <em>American Political Science
-Review</em>, 1–18. <a href="https://doi.org/10.1017/S000305542400056X">https://doi.org/10.1017/S000305542400056X</a>.
-</div>
-<div id="ref-CrossonKaslovsky2024data" class="csl-entry" role="listitem">
-Crosson, Jesse, and Jaclyn Kaslovsky. 2024. <span>“Replication Data for:
-<span class="nocase">Do Local Roots Impact Washington Behaviors?
-District Connections and Representation in the U.S.
-Congress</span>.”</span> Version 1.0. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/KEWY2U">https://doi.org/10.7910/DVN/KEWY2U</a>.
+Crosson, Jesse M., and Jaclyn Kaslovsky. 2024. <span>“Do Local Roots Impact Washington Behaviors? District Connections and Representation in the <span>U.S.</span> Congress.”</span> <em>American Political Science Review</em>, 1–18. <a href="https://doi.org/10.1017/S000305542400056X">https://doi.org/10.1017/S000305542400056X</a>.
 </div>
 <div id="ref-replication" class="csl-entry" role="listitem">
-Devin Judge-Lord and Eleanor Neff Powell and Justin Grimmer. 2025.
-<span>“The Effects of Shifting Priorities and Capacity on Elected
-Officials’ Policy Work and Constituency Service: Evidence from a Census
-of Legislator Requests to u.s. Federal Agencies, Replication
-Data.”</span> In <em>American Journal of Political Science</em>. Harvard
-Dataverse Network, at: <a href="https://doi.org/10.7910/DVN/LWOCW" class="uri">https://doi.org/10.7910/DVN/LWOCW</a>.
-</div>
-<div id="ref-DroppPeskowitz2012" class="csl-entry" role="listitem">
-Dropp, Kyle, and Zachary Peskowitz. 2012. <span>“Electoral Security and
-the Provision of Constituency Service.”</span> <em>Journal of
-Politics</em> 74 (1): 220–34.
-</div>
-<div id="ref-Eckman2025" class="csl-entry" role="listitem">
-Eckman, Sarah J. 2025. <em>Constituent Services: Overview and
-Resources</em>. Congressional Research Service. <a href="https://www.congress.gov/crs-product/R44726" class="uri">https://www.congress.gov/crs-product/R44726</a>. Date
-Accessed: January 16, 2026.
-</div>
-<div id="ref-EpsteinOHalloran1999" class="csl-entry" role="listitem">
-Epstein, David, and Sharyn O’Halloran. 1999. <em>Delegating Powers: A
-Transaction Cost Politics Approach to Policy Making Under Separate
-Powers</em>. Cambridge University Press.
-</div>
-<div id="ref-Fenno1973" class="csl-entry" role="listitem">
-Fenno, Richard F. 1973. <em><span class="nocase">Congressmen in
-Committees</span></em>. Little Brown; Company.
-</div>
-<div id="ref-Fenno1978" class="csl-entry" role="listitem">
-Fenno, Richard F. 1978. <em><span class="nocase">Home Style: House
-Members in their Districts</span></em>. Addison Wesley.
-</div>
-<div id="ref-Fiorina1977" class="csl-entry" role="listitem">
-Fiorina, Morris P. 1977. <em>Congress: Keystone of the Washington
-Establishment</em>. Yale University Press.
-</div>
-<div id="ref-Fiorina1982" class="csl-entry" role="listitem">
-Fiorina, Morris P. 1982. <span>“<span class="nocase">Legislative Choice
-of Regulatory Forms: Legal Process or Administrative
-Process?</span>”</span> <em>American Political Science Review</em> 39
-(1): 33–66.
-</div>
-<div id="ref-GarciaSadhwani2023" class="csl-entry" role="listitem">
-Garcia, Matthew Mendez, and Sara Sadhwani. 2023. <span>“<span class="nocase">¿Quién Importa? State Legislators and Their
-Responsiveness to Undocumented Immigrants</span>.”</span> <em>Political
-Research Quarterly</em> 76 (3): 1357–70.
-</div>
-<div id="ref-Gilens2012" class="csl-entry" role="listitem">
-Gilens, Martin. 2012. <em>Affluence &amp; Influence: Economic Inequality
-and Political Power in America</em>. Princeton University Press.
-</div>
-<div id="ref-Grimmer2013" class="csl-entry" role="listitem">
-Grimmer, Justin. 2013. <em>Representational Style in Congress: What
-Legislators Say and Why It Matters</em>. Cambridge University Press.
-</div>
-<div id="ref-GrimmerWestwoodMessing2014" class="csl-entry" role="listitem">
-Grimmer, Justin, Sean J. Westwood, and Solomon Messing. 2014. <em>The
-Impression of Influence: Legislator Communication, Representation, and
-Democratic Accountability</em>. Princeton University Press.
-</div>
-<div id="ref-HendersonHertelFernandezMildenbergerStokes2023" class="csl-entry" role="listitem">
-Henderson, Geoffrey, Alexander Hertel-Fernandez, Matto Mildenberger, and
-Leah C. Stokes. 2023. <span>“<span class="nocase">Conducting the
-Heavenly Chorus: Constituent Contact and Provoked Petitioning in
-Congress</span>.”</span> <em>Perspectives on Politics</em> 21 (1):
-191–208.
+Devin Judge-Lord and Eleanor Neff Powell and Justin Grimmer. 2025. <span>“The Effects of Shifting Priorities and Capacity on Elected Officials’ Policy Work and Constituency Service: Evidence from a Census of Legislator Requests to u.s. Federal Agencies, Replication Data.”</span> In <em>American Journal of Political Science</em>. Harvard Dataverse Network, at: <a href="https://doi.org/10.7910/DVN/LWOCW" class="uri">https://doi.org/10.7910/DVN/LWOCW</a>.
 </div>
 <div id="ref-JudgeLordPowellGrimmer2026" class="csl-entry" role="listitem">
-Judge-Lord, Devin, Eleanor Neff Powell, and Justin Grimmer. 2026.
-<span>“<span class="nocase">How shifting priorities and capacity affect
-policy work and constituency service: Evidence from a census of
-legislator requests to U.S. federal agencies</span>.”</span>
-<em>American Journal of Political Science</em> n/a (n/a): 1–19.
-https://doi.org/<a href="https://doi.org/10.1111/ajps.70031">https://doi.org/10.1111/ajps.70031</a>.
-</div>
-<div id="ref-KalafHughes2023" class="csl-entry" role="listitem">
-Kalaf-Hughes, Nicole. 2023. <em><span class="nocase">Policymaking
-Effectiveness and Inter-Branch Communications in the US House; Some
-Legislators are Objectively Better than Others</span></em>. Center for
-Effective Lawmaking Working Paper 2023-04. <a href="https://thelawmakers.org/wp-content/uploads/2023/06/K-H_FullPaper_CEL_5.3.23.pdf " class="uri">https://thelawmakers.org/wp-content/uploads/2023/06/K-H_FullPaper_CEL_5.3.23.pdf
-</a>. Date Accessed: February 6 2026.
-</div>
-<div id="ref-KallaBroockman2016" class="csl-entry" role="listitem">
-Kalla, Joshua L., and David E. Broockman. 2016. <span>“Campaign
-Contributions Facilitate Access to Congressional Officials: A Randomized
-Field Experiment.”</span> <em>American Journal of Political Science</em>
-60 (3): 545–58.
-</div>
-<div id="ref-KiewietMcCubbins1991" class="csl-entry" role="listitem">
-Kiewiet, D. Roderick, and Mathew D. McCubbins. 1991. <em>The Logic of
-Delegation: Congressional Parties and the Appropriations Process</em>.
-University of Chicago Press.
-</div>
-<div id="ref-King1991" class="csl-entry" role="listitem">
-King, Gary. 1991. <span>“Constituency Service and the Incumbency
-Advantage.”</span> <em>British Journal of Politics</em> 21 (1): 119–28.
-</div>
-<div id="ref-Lajevardi2020" class="csl-entry" role="listitem">
-Lajevardi, Nazita. 2020. <span>“<span class="nocase">Access denied:
-Exploring Muslim American representation and exclusion by state
-legislators</span>.”</span> <em>Politics, Groups, and Identities</em> 8
-(5): 957–85.
-</div>
-<div id="ref-LaPiraDrutmanKosar2020" class="csl-entry" role="listitem">
-LaPira, Timothy M., Lee Drutman, and Kevin R. Kosar. 2020. <em>Congress
-Overwhelmed: The Decline in Congressional Capacity and Prospects for
-Reform</em>. University of Chicago Press.
-</div>
-<div id="ref-LauterbachRitchie2025" class="csl-entry" role="listitem">
-Lauterbach, Erinn, and Melinda N. Ritchie. 2025. <span>“Strategies of
-Control: Members of Congress and Policy Outcomes.”</span>
-<em>Legislative Studies Quarterly</em> 50 (4): e70009.
-https://doi.org/<a href="https://doi.org/10.1111/lsq.70009">https://doi.org/10.1111/lsq.70009</a>.
+Judge-Lord, Devin, Eleanor Neff Powell, and Justin Grimmer. 2026. <span>“<span class="nocase">How shifting priorities and capacity affect policy work and constituency service: Evidence from a census of legislator requests to U.S. federal agencies</span>.”</span> <em>American Journal of Political Science</em> n/a (n/a): 1–19. https://doi.org/<a href="https://doi.org/10.1111/ajps.70031">https://doi.org/10.1111/ajps.70031</a>.
 </div>
 <div id="ref-LewisSelin2012" class="csl-entry" role="listitem">
-Lewis, David E., and Jennifer L. Selin. 2012. <em><span class="nocase">ACUS Sourcebook of United States Executive
-Agencies</span></em>. Administrative Conference of the United States.
+Lewis, David E., and Jennifer L. Selin. 2012. <em><span class="nocase">ACUS Sourcebook of United States Executive Agencies</span></em>. Administrative Conference of the United States.
 </div>
 <div id="ref-dwnominate2024" class="csl-entry" role="listitem">
-Lewis, Jeffrey B., Keith Poole, Howard Rosenthal, Adam Boche, Aaron
-Rudkin, and Luke Sonnet. 2024. <em><span>Voteview: Congressional
-Roll-Call Votes Database</span></em>. <a href="https://voteview.com" class="uri">Https://voteview.com</a>. <a href="https://voteview.com">https://voteview.com</a>.
-</div>
-<div id="ref-Lowande2018APSR" class="csl-entry" role="listitem">
-Lowande, Kenneth. 2018. <span>“<span class="nocase">Who Polices the
-Administrative State? Evidence from 20,000 Private
-Communications</span>.”</span> <em>American Political Science
-Review</em> 112 (4): 874–90.
+Lewis, Jeffrey B., Keith Poole, Howard Rosenthal, Adam Boche, Aaron Rudkin, and Luke Sonnet. 2024. <em><span>Voteview: Congressional Roll-Call Votes Database</span></em>. <a href="https://voteview.com" class="uri">Https://voteview.com</a>. <a href="https://voteview.com">https://voteview.com</a>.
 </div>
 <div id="ref-Lowande2019" class="csl-entry" role="listitem">
-Lowande, Kenneth. 2019. <span>“<span class="nocase">Politicization and
-Responsiveness in Executive Agencies</span>.”</span> <em>Journal of
-Politics</em> 81 (1): 33–48.
-</div>
-<div id="ref-LowandePotter2021" class="csl-entry" role="listitem">
-Lowande, Kenneth, and Rachel Potter. 2019. <span>“<span class="nocase">Congressional Oversight Revisited: Politics and Procedure
-in Agency Rulemaking</span>.”</span> <em>The Journal of Politics</em> 83
-(1): 401–8.
+Lowande, Kenneth. 2019. <span>“<span class="nocase">Politicization and Responsiveness in Executive Agencies</span>.”</span> <em>Journal of Politics</em> 81 (1): 33–48.
 </div>
 <div id="ref-LowandeRitchieLauterbach2019" class="csl-entry" role="listitem">
-Lowande, Kenneth, Melinda Ritchie, and Erinn Lauterbach. 2019.
-<span>“<span class="nocase">Descriptive and Substantive Representation
-in Congress: Evidence from 80,000 Congressional
-Inquiries</span>.”</span> <em>American Journal of Political Science</em>
-63 (3): 644–59.
-</div>
-<div id="ref-mann2006bbc" class="csl-entry" role="listitem">
-Mann, Thomas E., and Norman J. Ornstein. 2006. <em><span class="nocase">The Broken Branch: How Congress is Failing America and
-How to Get it Back on Track</span></em>. Oxford University Press.
-</div>
-<div id="ref-Mayhew1974" class="csl-entry" role="listitem">
-Mayhew, David. 1974. <em>Congress: The Electoral Connection</em>. Yale
-University Press.
-</div>
-<div id="ref-McCubbinsSchwartz1984" class="csl-entry" role="listitem">
-McCubbins, Mathew D., and Thomas Schwartz. 1984. <span>“<span class="nocase">Congressional Oversight Overlooked: Police Patrols versus
-Fire Alarms</span>.”</span> <em>American Political Science Review</em>
-28 (1): 165–79.
-</div>
-<div id="ref-Miler2010" class="csl-entry" role="listitem">
-Miler, Kristina C. 2010. <em><span class="nocase">Constituency
-Representation in Congress: The View from Capitol Hill</span></em>.
-Cambridge University Press.
-</div>
-<div id="ref-Miler2018" class="csl-entry" role="listitem">
-Miler, Kristina C. 2018. <em><span class="nocase">Poor Representation:
-Congress and the Politics of Poverty in the United States</span></em>.
-Cambridge University Press.
-</div>
-<div id="ref-MillerStokes1963" class="csl-entry" role="listitem">
-Miller, Warren E., and Donald E. Stokes. 1963. <span>“Constituency
-Influence in Congress.”</span> <em>The American Political Science
-Review</em> 57 (1): pp. 45–56. <a href="http://www.jstor.org/stable/1952717">http://www.jstor.org/stable/1952717</a>.
+Lowande, Kenneth, Melinda Ritchie, and Erinn Lauterbach. 2019. <span>“<span class="nocase">Descriptive and Substantive Representation in Congress: Evidence from 80,000 Congressional Inquiries</span>.”</span> <em>American Journal of Political Science</em> 63 (3): 644–59.
 </div>
 <div id="ref-MillsKalafHughes2015" class="csl-entry" role="listitem">
-Mills, Russell, and Nicole Kalaf-Hughes. 2015. <span>“<span class="nocase">The Evolution of Distributive Benefits: The Rise of
-Letter-Marking in the United States Congress</span>.”</span> <em>The
-Journal of Economics and Politics</em> 22: 35–58.
-</div>
-<div id="ref-Minta2011" class="csl-entry" role="listitem">
-Minta, Michael D. 2011. <em>Oversight: Representing the Interests of
-Blacks and Latinos in Congress</em>. Princeton University Press.
+Mills, Russell, and Nicole Kalaf-Hughes. 2015. <span>“<span class="nocase">The Evolution of Distributive Benefits: The Rise of Letter-Marking in the United States Congress</span>.”</span> <em>The Journal of Economics and Politics</em> 22: 35–58.
 </div>
 <div id="ref-PowellJudgeLordGrimmer2023" class="csl-entry" role="listitem">
-Powell, Eleanor Neff, Devin Judge-Lord, and Justin Grimmer. 2023.
-<span>“Legislator Advocacy on Behalf of Constituents and Corporate
-Donors: A Case Study of the Federal Energy Regulatory
-Commission.”</span> In <em>Accountability Reconsidered: Voters,
-Interests, and Information in US Policymaking</em>, edited by Charles M.
-Cameron, Brandeis Canes-Wrone, and Gregory A. Huber. Cambridge
-University Press.
+Powell, Eleanor Neff, Devin Judge-Lord, and Justin Grimmer. 2023. <span>“Legislator Advocacy on Behalf of Constituents and Corporate Donors: A Case Study of the Federal Energy Regulatory Commission.”</span> In <em>Accountability Reconsidered: Voters, Interests, and Information in US Policymaking</em>, edited by Charles M. Cameron, Brandeis Canes-Wrone, and Gregory A. Huber. Cambridge University Press.
 </div>
 <div id="ref-RichardsonClintonLewis2018" class="csl-entry" role="listitem">
-Richardson, Mark D., Joshua D. Clinton, and David E. Lewis. 2018a.
-<span>“<span class="nocase">Elite Perceptions of Agency Ideology and
-Workforce Skill</span>.”</span> <em>The Journal of Politics</em> 80 (1):
-303–8.
-</div>
-<div id="ref-RichardsonEtAl2018" class="csl-entry" role="listitem">
-Richardson, Mark D., Joshua D. Clinton, and David E. Lewis. 2018b.
-<span>“Elite Perceptions of Agency Ideology and Workforce Skill.”</span>
-<em>The Journal of Politics</em> 80 (1): 303–8.
+Richardson, Mark D., Joshua D. Clinton, and David E. Lewis. 2018. <span>“<span class="nocase">Elite Perceptions of Agency Ideology and Workforce Skill</span>.”</span> <em>The Journal of Politics</em> 80 (1): 303–8.
 </div>
 <div id="ref-Ritchie2018" class="csl-entry" role="listitem">
-Ritchie, Melinda N. 2018. <span>“<span class="nocase">Back-Channel
-Representation: A Study of the Strategic Communication of Senators with
-the US Department of Labor</span>.”</span> <em>Journal of Politics</em>
-80: 240--253.
+Ritchie, Melinda N. 2018. <span>“<span class="nocase">Back-Channel Representation: A Study of the Strategic Communication of Senators with the US Department of Labor</span>.”</span> <em>Journal of Politics</em> 80: 240--253.
 </div>
 <div id="ref-Ritchie2023" class="csl-entry" role="listitem">
-Ritchie, Melinda N. 2023. <em><span class="nocase">Backdoor Lawmaking:
-Evading Obstacles in the U.S. Congress</span></em>. Oxford University
-Press.
-</div>
-<div id="ref-RitchieYou2019" class="csl-entry" role="listitem">
-Ritchie, Melinda N., and Hye Young You. 2019. <span>“<span class="nocase">Legislators as Lobbyists</span>.”</span> <em>Legislative
-Studies Quarterly</em> 44 (1): 65–95. <a href="https://doi.org/10.1111/lsq.12221">https://doi.org/10.1111/lsq.12221</a>.
-</div>
-<div id="ref-SerraCover1992" class="csl-entry" role="listitem">
-Serra, George, and Albert D. Cover. 1992. <span>“<span class="nocase">The Electoral Consequences of Perquisite Use: The
-Casework Case</span>.”</span> <em>Legislative Studies Quarterly</em> 17
-(2): 233–46.
-</div>
-<div id="ref-SerraMoon1994" class="csl-entry" role="listitem">
-Serra, George, and David Moon. 1994. <span>“<span class="nocase">Casework, Issue Positions, and Voting in Congressional
-Elections: A District Analysis</span>.”</span> <em>The Journal of
-Politics</em> 56 (1): 200–213.
-</div>
-<div id="ref-Snyder2024" class="csl-entry" role="listitem">
-Snyder, Rochelle. 2024. <span>“Constitutive Voices: Constituent Service
-and Representation in the United States Congress.”</span> PhD thesis,
-University of Wisconsin-Madison.
-</div>
-<div id="ref-SnyderJudgeLordPowellGrimmer2025" class="csl-entry" role="listitem">
-Snyder, Rochelle, Devin Judge-Lord, Eleanor Neff Powell, and Justin
-Grimmer. 2025. <em><span>Who Gets Constituent Service?</span></em>
+Ritchie, Melinda N. 2023. <em><span class="nocase">Backdoor Lawmaking: Evading Obstacles in the U.S. Congress</span></em>. Oxford University Press.
 </div>
 <div id="ref-Thomsen2023" class="csl-entry" role="listitem">
-Thomsen, Danielle M. 2023. <span>“Competition in Congressional
-Elections: Money Versus Votes.”</span> <em>American Political Science
-Review</em> 117 (2): 675–91. <a href="https://doi.org/10.1017/S0003055422000764">https://doi.org/10.1017/S0003055422000764</a>.
+Thomsen, Danielle M. 2023. <span>“Competition in Congressional Elections: Money Versus Votes.”</span> <em>American Political Science Review</em> 117 (2): 675–91. <a href="https://doi.org/10.1017/S0003055422000764">https://doi.org/10.1017/S0003055422000764</a>.
 </div>
 <div id="ref-unitedstates" class="csl-entry" role="listitem">
-<span class="nocase">@unitedstates-project, the</span>. 2025.
-<em>Unitedstates/Congress-Legislators</em>. <a href="https://unitedstates.github.io/" class="uri">Https://unitedstates.github.io/</a> <a href="https://github.com/unitedstates/congress-legislators" class="uri">https://github.com/unitedstates/congress-legislators</a>.
-Date Accessed: March 18, 2025.
-</div>
-<div id="ref-USDepartmentofJustice2016" class="csl-entry" role="listitem">
-U.S. Department of Justice, Bureau of Justice Assistance. 2016.
-<em>Justice Reinvestment Initiative Funding Opportunity</em>.
-BJA-2016-8975. <a href="https://www.grants.gov/search-results-detail/281428" class="uri">https://www.grants.gov/search-results-detail/281428</a>.
-</div>
-<div id="ref-VoldenWiseman2014" class="csl-entry" role="listitem">
-Volden, Craig, and Alan E. Wiseman. 2014. <em>Legislative Effectiveness
-in the United States Congress: The Lawmakers</em>. Cambridge University
-Press.
+<span class="nocase">@unitedstates-project, the</span>. 2025. <em>Unitedstates/Congress-Legislators</em>. <a href="https://unitedstates.github.io/" class="uri">Https://unitedstates.github.io/</a> <a href="https://github.com/unitedstates/congress-legislators" class="uri">https://github.com/unitedstates/congress-legislators</a>. Date Accessed: March 18, 2025.
 </div>
 </div>
-
-
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>We drop ten member-year level observations where members switched chambers mid-congress.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1018,13 +835,13 @@ Press.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Chapter 10 - Conclusion.html" class="pagination-link" aria-label="Conclusion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion</span></span>
+      <a href="./Chapter 2 - Theories of Interbranch Representation.html" class="pagination-link" aria-label="Theories of Interbranch Representation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theories of Interbranch Representation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Appendix.html" class="pagination-link" aria-label="Data and Methods">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Data and Methods</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Chapter 4 - Unequal Interbranch Representation.html" class="pagination-link" aria-label="Explaining Unequal Interbranch Representation">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Explaining Unequal Interbranch Representation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -9,11 +9,11 @@ abstract: |
  *Abstract:* A focus on legislative work has limited contemporary understanding of congressional representation.  In this paper, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, nonprofits, and businesses, as well as communicating with agencies about executive-branch policymaking and implementation. We document substantial inequality in interbranch representation. To explain it, we introduce a unified framework of Demand, Capacity, and Motivation, which integrates and extends theories rooted in unequal legislator capacity to deliver service, varying strategic motivations to invest time and energy in interbranch representation rather than other activities, and disparate demand for interbranch representation. A large share of the inequality can be explained by legislator capacity, particularly staff resources and experience. We find evidence of strategic behavior --- legislators work with ideologically proximate agencies and those that their committees oversee --- but this behavior does not explain inequality. We also find modest evidence for other types of strategic behavior in the form of reelection-motivated interbranch representation and as a substitute for legislating when one's party is out of power, but these effects are small and likewise do not explain inequality. 
   
 thanks: |
-  This is a working paper, and part of a larger book project. Please see [the latest version of the working paper](https://judgelord.github.io/cor-book/interbranch.pdf).
+  This is a working paper, and part of a larger book project. Please see [the latest version of the working paper](https://judgelord.github.io/cor-book/interbranch.pdf). We are greatful for helpful comments from Kathy Cramer, Barry Burden, Liz Gerber, Maria Silfa, Molly Ritchie, Geoff Lorenz and participants in Annual Forum on American Institutional Renewal.
 format:
   pdf:
     pdf-author: "Devin Judge-Lord, Eleanor Neff Powell, Rochelle Snyder"
-    keep-tex: true
+    keep-tex: false
     include-in-header:
        - header.tex
 linestretch: 1.5
@@ -33,12 +33,12 @@ execute:
 
 ```{r knit-options, include=FALSE}
 # copy to docs
-file.copy(from = "interbranch.pdf", to = here::here("docs", "interbranch.pdf"), overwrite = T)
+file.move(from = "article-version.pdf", to = here::here("docs", "interbranch.pdf"), overwrite = T)
 
-here::here("code", "modelsummary_formatting.R") |> source()
-load(here::here("data", "means.Rdata"))
+here::here("code", "formatting.R") |> source()
 
-
+type = "total"
+load(here::here("data", type, "means.Rdata"))
 ```
 
 \clearpage 
@@ -431,8 +431,8 @@ The simple descriptive result in figure @fig-percent immediately puts to rest th
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("code",  "figs", "percentile-1.png"))
-knitr::include_graphics(here::here("code",  "figs", "percentile-2.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 ```
 
@@ -468,7 +468,7 @@ Unsurprisingly, the first row of @tbl-models-total shows a relationship between 
 #| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
 #| out-width: 50%
 
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-senate-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-senate-effect-1.png"))
 ```
 
 ### Capacity 
@@ -491,9 +491,8 @@ Overall, elements of legislator capacity modeled in @tbl-models-total explain a 
 #| out-width: 100%
 
 knitr::include_graphics(
-here::here("code", 
-           "figs", 
-           paste0("negbin-m-total-effect-",
+here::here("figs", type,
+           paste0("m-effect-",
                   c(1:2,5,8), 
                   ".png"
                   ) 
@@ -541,9 +540,8 @@ Overall, elements of legislator staff allocation modeled in @tbl-models-staff ex
 #| out-width: 100%
 
 knitr::include_graphics(
-here::here("code", 
-           "figs", 
-           paste0("negbin-m-staff_spending-total-effect-",
+here::here("figs", type,
+           paste0("m-staff_spending-effect-",
                   c(1:2), 
                   ".png"
                   ) 
@@ -603,10 +601,10 @@ One well-established driver of interbranch representation is partisan institutio
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-6.png"))
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-6.png"))
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-effect-7.png"))
-knitr::include_graphics(here::here("code", "figs", "negbin-m-total-did-effect-7.png"))
+knitr::include_graphics(here::here("figs", type, "m-effect-6.png"))
+knitr::include_graphics(here::here("figs", type, "m-did-effect-6.png"))
+knitr::include_graphics(here::here("figs", type, "m-effect-7.png"))
+knitr::include_graphics(here::here("figs", type, "m-did-effect-7.png"))
 ```
 
 
@@ -639,8 +637,8 @@ modelsummary(models_elect_total,
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-effect-1.png"))
-knitr::include_graphics(here::here("code", "figs", "negbin-m-elect-total-did-effect-2.png"))
+knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
 
 ```
 
@@ -675,8 +673,8 @@ While potentially evidence of strategic behavior, legislators engaging more with
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-1.png"))
-knitr::include_graphics(here::here("code", "figs", "negbin-m-ideo-total-effect-2.png"))
+knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
 ```
 
 \clearpage
@@ -692,7 +690,7 @@ Examining interbranch representation reshapes our understanding of how the legis
 
 \singlespacing
 
-{{< include "references.qmd" >}}
+{{< include "references.md" >}}
 
 \setcounter{section}{0}
 \renewcommand{\thesection}{\Alph{section}}
@@ -704,5 +702,5 @@ Examining interbranch representation reshapes our understanding of how the legis
 \renewcommand{\thefigure}{A\arabic{figure}}
 
 <!--
-{{< include "google_drive/Appendix.md" >}}
+{{< include "Appendix.qmd" >}}
 --> 

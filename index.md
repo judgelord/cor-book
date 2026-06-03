@@ -1,1 +1,3 @@
-{{< include "google_drive/abstract.qmd" >}}
+# Abstract {-}
+
+{{< include abstract.md >}}

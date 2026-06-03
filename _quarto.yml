@@ -3,8 +3,11 @@ project:
   output-dir: docs
   render:
     - "!interbranch.qmd"
-    - "!google_drive/"
     - "!code/"
+    - "!replication-total"
+    - "!archive/"
+    - "!feedback/"
+    - "!README"
 
 book-content: true
 
@@ -12,22 +15,22 @@ book:
   title: "Unequal Invisible Representation"
   author: "Devin Judge-Lord, Eleanor Powell, Rochelle Snyder"
   date: today
-  cover-image: cover.png
+  cover-image: assets/cover.png
   chapters:
      - index.md
-     - google_drive/Chapter 1 - Intro.md
-     - google_drive/Chapter 2 - Theories of Interbranch Representation.md
-     - google_drive/Chapter 3 - Measuring (Invisible) Interbranch Representation.md
-     - google_drive/Chapter 4 - Unequal Interbranch Representation.md
-     - google_drive/Chapter 5 - Representing Individual Constituents.md
-     - google_drive/Chapter 6 - Representing Businesses.md
-     - google_drive/Chapter 7 - Representing Nonprofits and Local Governments.md
-     - google_drive/Chapter 8 - General Policy Work.md
-     - google_drive/Chapter 9 - Policy Work on Behalf of Business.md
-     - google_drive/Chapter 10 - Conclusion.md
-     - references.qmd
+     - Chapter 1 - Intro.md
+     - Chapter 2 - Theories of Interbranch Representation.qmd
+     - Chapter 3 - Measuring (Invisible) Interbranch Representation.qmd
+     - Chapter 4 - Unequal Interbranch Representation.qmd
+     - Chapter 5 - Representing Individual Constituents.qmd
+     - Chapter 6 - Representing Businesses.qmd
+     - Chapter 7 - Representing Nonprofits and Local Governments.qmd
+     - Chapter 8 - General Policy Work.qmd
+     - Chapter 9 - Policy Work on Behalf of Business.qmd
+     - Chapter 10 - Conclusion.md
+     - references.md
   appendices:
-     - google_drive/Appendix.md
+     - Appendix.qmd
   search: true
   #repo-url: https://github.com/judgelord/cor-book
   downloads: pdf # [pdf, epub]
@@ -50,4 +53,10 @@ format:
       text: |
         \printindex
   epub:
-     cover-image: cover.png
+     cover-image: assets/cover.png
+
+execute:
+  echo: false
+  cache: true
+  message: false
+  warning: false

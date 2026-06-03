@@ -1,0 +1,14 @@
+
+# Data and Methods {.appendix}
+
+
+We provide more details on how we measure interbranch representation, our data collection process, and the methods with which we analyze the data.
+
+
+## Limitations
+
+
+### Agency record keeping
+
+
+> "We have no responsive records between April 13, 2016, and May 16, 2017. It is impossible to say for certain why there is this gap; however, it is likely the changes in staffing leading up to and following the change in Administration contributed."

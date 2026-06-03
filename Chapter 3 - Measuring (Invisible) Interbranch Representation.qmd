@@ -1,0 +1,138 @@
+# Measuring (Invisible) Interbranch Representation
+
+
+::: {.content-hidden unless-meta="book-content"}
+
+> ABSTRACT: We discuss how, up to this point, interbranch representation has been largely invisible to voters, journalists, and scholars, which has consequences for democratic accountability. We describe how we measure interbranch representation, our data collection process, and the methods we use to analyze the data. This chapter briefly describes our approach to measuring and collecting data on interbranch representation, and the methods we use (full details are in Appendix A). We describe the process of translating congressional correspondence logs from many different agencies into aggregate data on representation activity. We then detail our coding process for determining who was being represented in each case. Finally, we present descriptive tables and figures, documenting staggering levels of inequality in the provision of interbranch representation across legislators (and districts) that motivate the rest of the book.
+
+:::
+
+
+Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
+
+
+## New Data
+
+
+For 9 years, we have been filing FOIA requests with all federal agencies and subagencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process.
+
+
+We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences.
+
+
+From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.
+
+
+Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics (Mills and Kalaf-Hughes 2015), the policy strategies of cross-pressured legislators (Ritchie 2018, 2023), the role of ideology in congressional oversight (Lowande 2019), descriptive representation (Lowande et al 2019), and money in politics (Powell et al 2023). With a near census of agencies, we are able to study, for the first time (except for Judgelord et al 2026), patterns across all members and policy areas.
+
+
+We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts.
+
+
+## Data Collection Process
+
+
+What are we actually able to measure with this data?
+
+
+
+
+
+
+Patterns of Inequality in Constituency Service
+
+
+
+## Measuring Interbranch Representation
+
+For 9 years, we have been filing FOIA requests with all federal agencies and sub-agencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. 
+<!--
+We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.-->
+
+Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request.  We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. Understandably, therefore, recent studies have focused on records from a limited number of agencies. Those studies have yielded important findings regarding distributive politics [@MillsKalafHughes2015], the policy strategies of cross-pressured legislators [@Ritchie2018; @Ritchie2023], the role of ideology in congressional oversight [@Lowande2019], descriptive representation [@LowandeRitchieLauterbach2019], and money in politics [@PowellJudgeLordGrimmer2023]. With a near census of agencies, we are able to study patterns across all members and policy areas. This allows us to ask more general questions, test existing explanations out of sample, and compare the magnitude of effects documented in previous studies. 
+
+<!--
+We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. <!--Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts. --> 
+
+
+## Other variables
+
+We augment our data on legislator requests to agencies with data from other scholars.
+
+Several of these variables capture features of the legislator-agency relationship.
+To assess whether holding an oversight role for an agency affects interbranch representation to that agency, we use data from @unitedstates on committee membership and @LewisSelin2012, who document committees' formal jurisdictions. 
+We use staff allocation data for members of the House from @CrossonFurnasLapiraBurgat2021 via the replication files for @CrossonKaslovsky2024.
+To assess the ideological similarity between members of Congress and specific federal agencies, we subtract a member’s first dimension
+DW-NOMINATE scores [@dwnominate2024] with measurements of federal
+agencies' perceived ideological leanings [@RichardsonClintonLewis2018].
+To measure the ideological *distance* between members of Congress and
+federal agencies, we subtract each member’s first-dimension DW-NOMINATE
+score from the ideology score of each agency. We also use other legislator-level variables from @dwnominate2024, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president's party. As @JudgeLordPowellGrimmer2026 documented that much of the start-up costs (especially for constituency service) occur in the first two years, we model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. We also adopt the definition of prestige committee assignments from @replication. 
+
+Other variables are at the legislator or district level.
+For data on electoral competitiveness, we use data from @Thomsen2023 on vote share in primary and general elections, adopting her definition of whether an election was competitive. 
+
+
+
+## Statistical Model
+
+Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate cross-sectional differences. For within-legislator differences, we also include legislator-agency fixed effects, so coefficients represent the change in the number of requests per legislator per agency per year. 
+
+Our analysis is generally at the legislator-agency-year level.
+In @tbl-hypotheses, we set out expectations for differences across members and within-member variation.^[We drop ten member-year level observations where members switched chambers mid-congress.] 
+We thus estimate both cross-sectional and difference-in-differences regressions, similar to the specifications in @BerryFowler2016. 
+Tests for differences within legislator-agency pairs take a form similar to @eq-diff1 (with additional variables, such as those relating to elections, that decrease the number of observations included only in some specifications). However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent, we must rely on cross-sectional estimates (@eq-diff1 without $\gamma_{ij}$). 
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  &\beta_1 \text{Committee Leadership Position}_{it}\\
+  &\beta_1 \text{Oversight Committee Position}_{itj}\\
++ & \beta_2 \text{Experience in Office}_{it}\\
++ & \beta_3 \text{Majority Party}_{it}\\
++ & \beta_4 \text{President's Party}_{it} \\
+  &...\\
++& \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-diff1}
+
+
+$Y_{ijt}$ is the number of requests legislator $i$ makes to agency $j$ in year $t$. We estimate a negative binomial count model with conditional mean $\mu_{ijt}$ and overdispersion parameter $\alpha$. The conditional mean is linked to covariates via the log link, $\log(\mu_{ijt})$: a one-unit increase in a covariate multiplies the expected count by $\exp(\beta)$, holding other terms fixed.
+
+$\gamma_{ij}$ denotes a *legislator--agency* fixed effect that is estimated using a true conditional fixed-effects approach (i.e., conditioned out rather than included as a full set of dummy variables). This fixed effect controls for time-invariant legislator characteristics and time-invariant legislator--agency-specific factors, including persistent constituent demand for assistance from a given agency and stable state or district attributes (population, demographics, local industries) that shape demand for particular agencies.
+
+$\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific shocks over time that may affect the level of requests received from legislators in the periods for which data are available from each agency.
+
+
+<!--- OLD LINEAR MODEL 
+
+$$
+\begin{aligned}
+Y_{ijt} = & 
+\beta_1 \text{Committee Position}_{it}  + \\
+&\beta_2  \text{Experience in office}_{it} + \\
+&\beta_3  \text{Majority}_{it} + \\
+&\beta_4  \text{President's party}_{it} + \\
+&\gamma_{ij} + \delta_{jt} + m_{it} 
+\end{aligned}
+$$ {#eq-diff1}
+
+$Y_{ijt}$ is the number of requests legislator $i$ makes to agency $j$
+in year $t$. $\gamma_{ij}$ is a fixed effect for the legislator-agency
+pair. This fixed effect controls for **legislator characteristics**, such
+as legislators who are more skillful at responding to constituency service
+requests than others. Critically for our research design, this fixed
+effect also accounts for **time-invariant constituent demand**, ensuring
+that differences in constituent requests across legislators do not drive
+our results. It also accounts for **state and district characteristics**,
+including population, demographics, and local industries that might be
+particularly likely to request help from specific agencies. 
+$\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific
+shocks that may affect legislator requests at the different
+periods for which data were available from each agency.
+This difference-in-difference design ensures that the coefficients
+$\boldsymbol{\beta}$ capture variation related to changes in
+institutional power, not other factors that may vary across districts,
+legislators, or agencies. 
+---> 
