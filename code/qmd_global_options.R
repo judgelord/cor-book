@@ -59,18 +59,42 @@ library(ineq)
 library(kableExtra)
 library(ggrepel)
 library(scales)
+library(here)
+library(fs)
 
-knitr::opts_chunk$set(echo = T, # code is folded
-                      cache = T, # CACHE
-                      fig.width = 4.5,
-                      fig.height = 3.5,
-                      split = T,
-                      fig.align = 'center',
-                      fig.path='figs/',
-                      fig.retina = 6,
-                      out.width = "100%",
-                      warning = F,
-                      message = F)
+
+
+# project_root <- fs::path_abs(here::here())
+#
+# doc_file <- knitr::current_input(dir = TRUE)
+# doc_dir <- fs::path_dir(fs::path_abs(doc_file))
+#
+# base_url <- fs::path_rel(project_root, start = doc_dir)
+# base_url <- as.character(base_url)
+# base_url <- gsub("\\\\", "/", base_url)  # make Windows paths URL-like
+#
+# if (base_url == ".") {
+#   base_url <- ""
+# } else {
+#   base_url <- paste0(base_url, "/")
+# }
+
+knitr::opts_knit$set(
+  #base.dir = project_root,
+  #base.url = base_url,
+  #base.dir = here::here(),  # filesystem base: project root
+  #base.url = "../",          # browser URL base from report.html back to project root
+  echo = T, # code is folded
+  cache = T, # CACHE
+  fig.width = 4.5,
+  fig.height = 3.5,
+  split = T,
+  fig.align = 'center',
+  fig.path='figs/',
+  fig.retina = 6,
+  out.width = "100%",
+  warning = F,
+  message = F)
 
 # inline numbers round to 2, comma at thousands
 inline <- function(x) {

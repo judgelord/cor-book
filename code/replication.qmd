@@ -1,32 +1,4 @@
----
-title: "Replication Code and Robustness Checks"
-subtitle: ""
-author: Devin Judge-Lord
-format: 
-  #pdf: 
-  html:
-      self-contained: true
-      toc: true
-      code-fold: true
-editor_options: 
-  chunk_output_type: console
----
-
-```{r}
-testing = T
-type = "all"
-```
-
-```{r global.options, include=FALSE, purl=FALSE, cache=FALSE}
-# defaults 
-here::here("code", "qmd_global_options.R") |> source() 
-
-knitr::opts_chunk$set(cache = !testing, # CACHE IF NOT TESTING 
-                      fig.path= here::here("figs", type),
-                      fig.retina = ifelse(testing, 1, 6) )
-```
-
-Packages: 
+Required Packages: 
   
 - `tidyverse` and `magrittr`, for data wrangling
 - `scales` for plot scales 
@@ -39,29 +11,51 @@ Packages:
 - `fixest` --- a statistical package for fixed effects estimation 
 - `ineq` to calculate GINI coefficients
 
+```{r functions, cache=FALSE}
+# plotting functions 
+here::here("code", "ggcompetitive.R") |> source() 
+here::here("code", "ggchair.R") |> source() 
+here::here("code", "ggtenure.R") |> source() 
+here::here("code", "ggdistrict.R") |> source() 
+here::here("code", "plot_effect.R") |> source() 
+
+# coef map
+here::here("code", "cm.R") |> source() 
+here::here("code", "modelsummary_formatting.R") |> source()
+```
+
+```{r global.options, message=FALSE,warning=FALSE, purl=FALSE, cache=FALSE}
+# load r packages and qmd render defaults 
+here::here("code", "qmd_global_options.R") |> source() 
+
+# directory for figures from this analysis
+dir.create(here::here("figs", type))
+dir.create(here::here("models", type))
+dir.create(here::here("tables", type))
+
+knitr::opts_chunk$set(
+  fig.path = paste0("figs/", type, "/"),
+  # CACHE IF NOT TESTING 
+  cache = !testing )
+```
+
+Figures at `r paste0("figs/", type, "/")`
+Tables at `r paste0("tables/", type, "/")`
+Models at `r paste0("models/", type, "/")`
+Data at `r paste0("data/", type, "/")`
 
 # Data
 
 ```{r data, cache=FALSE}
-load(here::here("data", "dcounts_total.rda"))
-data_member <- dcounts_total
-
-load(here::here("data", "dcounts_district.rda"))
-data_district <- dcounts_district
-
+load(here::here("data", type, "dcounts.rds"))
+load(here::here("data", type, "dcounts_district.rds"))
+load(here::here("data", type, "means.Rdata"))
 load(here::here("data", "member_data.Rdata"))
-load(here::here("data", "means.Rdata"))
+```
 
-if(testing){
-# CHECK MISSINGNESS
-sum_na <- function(x){is.na(x) |> sum() }
-
-data_member  |>  summarise_all(sum_na) |> 
-  pivot_longer(everything()) |> 
-  arrange(-value) |> 
-  filter(value>0 ) |> 
-  kable()
-} 
+```{r transformations}
+data_member <- dcounts
+data_district <- dcounts_district
 
 rename_vars <- function(data){
   data <- data |> 
@@ -86,22 +80,10 @@ data_member <- rename_vars(data_member)
 data_district <- rename_vars(data_district)
 ```
 
-```{r functions, cache=FALSE}
-# plotting functions 
-here::here("code", "ggcompetitive.R") |> source() 
-here::here("code", "ggchair.R") |> source() 
-here::here("code", "ggtenure.R") |> source() 
-here::here("code", "ggdistrict.R") |> source() 
-here::here("code", "plot_effect.R") |> source() 
-
-# coef map
-here::here("code", "cm.R") |> source() 
-here::here("code", "modelsummary_formatting.R") |> source()
-```
 
 ```{r}
 #| label: "percentile"
-#| fig-cap: "code/figs/percentile-[1:2].png"
+#| fig-cap: "figs/[TYPE]/percentile-[1:2].png"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -199,8 +181,8 @@ Top 10 Gini Coefficients in 2023
 
 The most frequent legislator agency pair: McCain x VA with 2159 letters!
 
-The average is  `r perYear_mean_total` letters per legislator per year, `r mean_total` letters per agency per year.
-For predictions, we need an average member-year-agency triad. The first table below shows the members who averaged  `r perYear_mean_total`, entered Congress between 2007 and 2011, were observed in our data for at least seven years, and most often submitted exactly one letter to an agency (the closest integer  `r perYear_mean_total` ). For realism, this person would ideally become a chair at some point in our data. 
+The average is  `r perYear_mean` letters per legislator per year, `r mean` letters per agency per year.
+For predictions, we need an average member-year-agency triad. The first table below shows the members who averaged  `r perYear_mean`, entered Congress between 2007 and 2011, were observed in our data for at least seven years, and most often submitted exactly one letter to an agency (the closest integer  `r perYear_mean` ). For realism, this person would ideally become a chair at some point in our data. 
 
 :::{.callout-warning}
 In the figures below, uncertainty intervals around predictions do not include uncertainty in the estimates of the fixed effects. This is because the standard errors returned by marginaleffects::predictions() do not reflect uncertainty in the fixed effect estimation. Since we are just using predictions to illustrate the effects of interest, not make any claims about particular years, legislators, or agencies (the fixed effects), the uncertainty in the fixed effect estimates is not relevant for our use case (illustrating main effects, for which we do have estimates of uncertainty). However, we wish to alert users of these code that they should not use the predictions to make such claims. 
@@ -243,7 +225,7 @@ modal <- data_member %>%
   mutate(Chair = sum(chair, na.rm = T) >1) %>% 
   group_by(icpsr, year) %>%
   mutate(perLeg = sum(perYear)) %>% 
-  filter(perYear == 1, perLeg == perYear_mean_total  ) %>% 
+  filter(perYear == 1, perLeg == perYear_mean  ) %>% 
   select(perAgency = perYear, 
          congress,
          perLeg, 
@@ -253,7 +235,8 @@ modal <- data_member %>%
                         Legislator,
                         Year, first_year, max_year, Chair) %>% 
   distinct() %>% 
-  ungroup() %>% left_join(member_data %>% select(bioname, icpsr, congress))
+  ungroup() %>% 
+  left_join(member_data %>% select(bioname, icpsr, congress))
 
 
 modal %>%
@@ -275,17 +258,17 @@ modal %>%
 
 data_member %>% 
   group_by(icpsr, year) %>% 
-  mutate(perYearTotal = sum(perYear)) %>%
+  mutate(perYearleg = sum(perYear)) %>%
   #mutate (perLegislator = sum(perYear)) %>% 
   ungroup() %>% 
-  mutate(meanLeg = mean(perYearTotal),
+  mutate(meanLeg = mean(perYearleg),
          meanYear = mean(perYear)) %>%
-  filter( abs(perYearTotal - perYear_mean_total) < 10,   
+  filter( abs(perYearleg - perYear_mean) < 10,   
           perYear < 10 )  %>% 
   drop_na(agency_ideo) %>% 
   ggplot() +
   aes(x = perYear, 
-      y = perYearTotal) + 
+      y = perYearleg) + 
   geom_jitter(alpha = .5) + 
   geom_vline(aes(xintercept = meanYear), color = "blue") + 
   geom_hline(aes(yintercept = meanLeg), color = "blue") + 
@@ -380,15 +363,15 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 
 ---
 
-## Total Letters 
+## Letters 
 
 ### Member-level Coefficient Plots
 
-- Figures: `code/figs/negbin-m-total-[1:4].png`
+- Figures: `figs/[TYPE]/m-[1:4].png`
 
 ```{r}
-#| label: "negbin-m-total"
-#| fig-cap: "code/figs/negbin-m-total-[1:4].png"
+#| label: "m"
+#| fig-cap: "figs/[TYPE]/m-[1:4].png"
 #| layout-ncol: 2
 #| fig-height: 4.5
 #| fig-subcap: 
@@ -401,7 +384,7 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 
 
 # cross-sectional 
-m_total_cross <-fenegbin (perYear ~ 
+m_cross <-fenegbin (perYear ~ 
                          chair + ranking_minority + prestige + oversight +
                     experience + 
                     majority + presidents_party | Year_x_Agency,
@@ -409,14 +392,14 @@ m_total_cross <-fenegbin (perYear ~
            data = data_member)
 
 
-if(testing){modelsummary::modelsummary(m_total_cross)}
+if(testing){modelsummary::modelsummary(m_cross)}
 
-coefplot(m_total_cross, horiz = T, drop = "(Intercept)|.theta") 
+coefplot(m_cross, horiz = T, drop = "(Intercept)|.theta") 
 
 
 
 # 2
-m_total_did <-fenegbin (perYear ~ 
+m_did <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -424,49 +407,49 @@ m_total_did <-fenegbin (perYear ~
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member)
 
-if(testing){modelsummary::modelsummary(m_total_did)}
+if(testing){modelsummary::modelsummary(m_did)}
 
-coefplot(m_total_did, horiz = T, drop = ".theta") 
+coefplot(m_did, horiz = T, drop = ".theta") 
 
 
 # 3
-m_total_2nd <-fenegbin (perYear ~ 
+m_2nd <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary::modelsummary(m_total_2nd)}
-coefplot(m_total_2nd, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_2nd)}
+coefplot(m_2nd, horiz = T, drop = ".theta") 
 
 
 # # 4
-# m_logtotal_did <-fenegbin (log(perYear + 1) ~ 
+# m_log_did <-fenegbin (log(perYear + 1) ~ 
 #                           chair + ranking_minority + prestige + oversight +  
 #                     experience + 
 #                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
 #                     cluster = "Legislator", 
 #            data = data_member)
 # 
-# if(testing){modelsummary::modelsummary(m_logtotal_did)}
+# if(testing){modelsummary::modelsummary(m_log_did)}
 # 
-# coefplot(m_logtotal_did, horiz = T, drop = ".theta") 
+# coefplot(m_log_did, horiz = T, drop = ".theta") 
 
 
 ```
 
-### Total Letters Table 
+###  Table 
 
-- Models: `models/models_total_negbin.Rdata` 
+- Models: `models/models_negbin.Rdata` 
 
 
-```{r models_total}
-models_total <- list(
-  "(1)" = m_total_cross,
-  "(2)" = m_total_did,
-  "(3)" =  m_total_2nd#,
-  #"(4)" = m_logtotal_did
+```{r models}
+models <- list(
+  "(1)" = m_cross,
+  "(2)" = m_did,
+  "(3)" =  m_2nd#,
+  #"(4)" = m_log_did
 )
 
 rows <- tibble(
@@ -499,7 +482,7 @@ attr(rows, 'position') <- c(0)
 
 
 # HTML
-modelsummary(models_total)
+modelsummary(models)
 
 
 if(testing){
@@ -514,21 +497,21 @@ rows <- tibble(
 attr(rows, 'position') <- c(0)
 
 
-modelsummary::modelsummary(models_total,  
+modelsummary::modelsummary(models,  
              add_rows = rows,     
              notes = "") 
 }
 ```
 
 
-### Total Letters Predictions 
+###  Predictions 
 
-- Figures: `code/figs/negbin-m-total-predicted-[1:4].png`
+- Figures: `figs/[TYPE]/m-predicted-[1:4].png`
 
 
 ```{r}
-#| label: "negbin-m-total-predicted"
-#| fig-cap: "code/figs/negbin-m-total-predicted"
+#| label: "m-predicted"
+#| fig-cap: "figs/[TYPE]/m-predicted"
 #| layout-ncol: 2
 #| fig-height: 3
 #| fig-subcap: 
@@ -539,7 +522,7 @@ modelsummary::modelsummary(models_total,
 #| out-width: "100%"
 #| fig-show: "hold"
 
-predicted <- predictions(m_total_cross,
+predicted <- predictions(m_cross,
                          newdata = values)
 
 # Cross-sectional predictions
@@ -547,22 +530,22 @@ predicted %>%
     mutate(estimate = estimate*n_agency, 
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  
   ggchair() + 
-  labs(title =  "", # "Predicted total letters per year",        subtitle = "(cross-sectional)",
+  labs(title =  "", # "Predicted  per year",        subtitle = "(cross-sectional)",
        x = "",
-       y = "Predicted total letters per year",
+       y = "Predicted per year",
        fill = "",
        color = "",
        shape = "") 
 
 # by tenure
-predicted <- predictions(m_total_cross,
+predicted <- predictions(m_cross,
                          newdata = values_tenure)
 
 predicted %>%
     mutate(estimate = estimate*n_agency, 
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>% 
 ggtenure() +
-  labs(title =  "", # "Predicted total letters per year",        subtitle = "(cross-sectional)",
+  labs(title =  "", # "Predicted per year",        subtitle = "(cross-sectional)",
        x = "Years serving in Congress",
        y = "      Predicted letters per year",
        fill = "",
@@ -571,7 +554,7 @@ ggtenure() +
 
 
 # diff in diff 
-predicted <- predictions(m_total_did,
+predicted <- predictions(m_did,
                          newdata = values)
 
 
@@ -580,7 +563,7 @@ predicted %>%
     mutate(estimate = estimate*n_agency, #predicted*n_agency,
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>% # std.error = std.error*n_agency)) %>%
   ggchair() + 
-  labs(title =  "", # "Predicted total letters per year\nDifference in Differences (Within-Legislator)",
+  labs(title =  "", # "Predicted per year\nDifference in Differences (Within-Legislator)",
        x = "",
        y = "  Predicted letters per year",
        fill = "",
@@ -588,7 +571,7 @@ predicted %>%
        shape = "") 
 
 # by tenure
-predicted2 <- predictions(m_total_did,
+predicted2 <- predictions(m_did,
                          newdata = values_tenure)
 
 predicted2 %>%
@@ -596,7 +579,7 @@ predicted2 %>%
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
 ggtenure() +
     #geom_line(aes(x = as.numeric(year_in_congress %>% str_sub(1,1) %>% str_replace("N", "1")))) + 
-  labs(title =  "", # "Predicted total letters per year\nDifference in Differences (Within-Legislator)",
+  labs(title =  "", # "Predicted per year\nDifference in Differences (Within-Legislator)",
        x = "Years serving in Congress",
        y = "  Predicted letters per year",
        fill = "",
@@ -607,8 +590,8 @@ ggtenure() +
 ### Modeled Effects 
 
 ```{r}
-#| label: "negbin-m-total-effect"
-#| fig-cap: "code/figs/negbin-m-total-effect"
+#| label: "m-effect"
+#| fig-cap: "figs/[TYPE]/m-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -620,7 +603,7 @@ ggtenure() +
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_total_cross
+model <- m_cross
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -672,8 +655,8 @@ plot_effect(
 ### Modeled Effects - diff in diff
 
 ```{r}
-#| label: "negbin-m-total-did-effect"
-#| fig-cap: "code/figs/negbin-m-total-did-effect"
+#| label: "m-did-effect"
+#| fig-cap: "figs/[TYPE]/m-did-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -685,7 +668,7 @@ plot_effect(
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_total_did
+model <- m_did
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -736,15 +719,15 @@ plot_effect(
 
 ---
 
-## Total Letters - House
+## - House
 
 ### Member-level Coefficient Plots - House
 
-- Figures: `code/figs/negbin-m-total-house-[1:4].png`
+- Figures: `figs/[TYPE]/m-house-[1:4].png`
 
 ```{r}
-#| label: "negbin-m-total-house"
-#| fig-cap: "code/figs/negbin-m-total-house-[1:4].png"
+#| label: "m-house"
+#| fig-cap: "figs/[TYPE]/m-house-[1:4].png"
 #| layout-ncol: 2
 #| fig-height: 4.5
 #| fig-subcap: 
@@ -756,21 +739,21 @@ plot_effect(
 #| fig-show: "hold"
 
 # cross-sectional 
-m_total_cross_house <-fenegbin (perYear ~ 
+m_cross_house <-fenegbin (perYear ~ 
                          chair + ranking_minority + prestige + oversight +  
                     experience + # first + second + third + fourth + fifth + sixth  + 
                     majority + presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
            data = data_member |> filter(chamber=="House"))
 
-if(testing){modelsummary::modelsummary(m_total_cross_house)}
+if(testing){modelsummary::modelsummary(m_cross_house)}
 
-coefplot(m_total_cross_house, horiz = T, drop = "(Intercept)|.theta") 
+coefplot(m_cross_house, horiz = T, drop = "(Intercept)|.theta") 
 
 
 
 # Model 2
-m_total_did_house <-fenegbin (perYear ~ 
+m_did_house <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -778,34 +761,34 @@ m_total_did_house <-fenegbin (perYear ~
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member |> filter(chamber=="House"))
 
-if(testing){modelsummary::modelsummary(m_total_did_house)}
+if(testing){modelsummary::modelsummary(m_did_house)}
 
-coefplot(m_total_did_house, horiz = T, drop = ".theta") 
+coefplot(m_did_house, horiz = T, drop = ".theta") 
 
 
 # 3
-m_total_2nd_house <-fenegbin (perYear ~ 
+m_2nd_house <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency , 
                     cluster = "Legislator", 
            data = data_member |> filter(survive == 1)  |> filter(chamber=="House"))
 
-if(testing){modelsummary::modelsummary(m_total_2nd_house)}
-coefplot(m_total_2nd_house, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_2nd_house)}
+coefplot(m_2nd_house, horiz = T, drop = ".theta") 
 
 
 # # 4
-# m_logtotal_did_house <-fenegbin (log(perYear + 1) ~ 
+# m_log_did_house <-fenegbin (log(perYear + 1) ~ 
 #                           chair + ranking_minority + prestige + oversight +  
 #                     experience + 
 #                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
 #                     cluster = "Legislator", 
 #            data = data_member |> filter(chamber=="House"))
 # 
-# if(testing){modelsummary::modelsummary(m_logtotal_did_house)}
+# if(testing){modelsummary::modelsummary(m_log_did_house)}
 # 
-# coefplot(m_logtotal_did_house, horiz = T, drop = ".theta") 
+# coefplot(m_log_did_house, horiz = T, drop = ".theta") 
 
 
 ```
@@ -814,8 +797,8 @@ coefplot(m_total_2nd_house, horiz = T, drop = ".theta")
 ### Modeled Effects - House
 
 ```{r}
-#| label: "negbin-m-total-house-effect"
-#| fig-cap: "code/figs/negbin-m-total-house-effect"
+#| label: "m-house-effect"
+#| fig-cap: "figs/[TYPE]/m-house-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -827,7 +810,7 @@ coefplot(m_total_2nd_house, horiz = T, drop = ".theta")
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_total_cross_house
+model <- m_cross_house
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -876,15 +859,15 @@ plot_effect(
 ```
 
 
-## Total Letters - Senate
+## - Senate
 
 ### Member-level Coefficient Plots - Senate
 
-- Figures: `code/figs/negbin-m-total-senate-[1:4].png`
+- Figures: `figs/[TYPE]/m-senate-[1:4].png`
 
-```{r cache=FALSE}
-#| label: "negbin-m-total-senate"
-#| fig-cap: "code/figs/negbin-m-total-senate-[1:4].png"
+```{r}
+#| label: "m-senate"
+#| fig-cap: "figs/[TYPE]/m-senate-[1:4].png"
 #| layout-ncol: 2
 #| fig-height: 4.5
 #| fig-subcap: 
@@ -896,21 +879,21 @@ plot_effect(
 #| fig-show: "hold"
 
 # cross-sectional 
-m_total_cross_senate <-fenegbin (perYear ~ pop2010m + 
+m_cross_senate <-fenegbin (perYear ~ pop2010m + 
                          chair + ranking_minority + prestige + oversight +  
                     experience + # first + second + third + fourth + fifth + sixth  + 
                     majority + presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
            data = data_member |> filter(chamber=="Senate"))
 
-if(testing){modelsummary::modelsummary(m_total_cross_senate)}
+if(testing){modelsummary::modelsummary(m_cross_senate)}
 
-coefplot(m_total_cross_senate, horiz = T, drop = "(Intercept)|.theta") 
+coefplot(m_cross_senate, horiz = T, drop = "(Intercept)|.theta") 
 
 
 
 # Model 2
-m_total_did_senate <-fenegbin (perYear ~ 
+m_did_senate <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -918,45 +901,45 @@ m_total_did_senate <-fenegbin (perYear ~
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member |> filter(chamber=="Senate"))
 
-if(testing){modelsummary::modelsummary(m_total_did_senate)}
+if(testing){modelsummary::modelsummary(m_did_senate)}
 
-coefplot(m_total_did_senate, horiz = T, drop = ".theta") 
+coefplot(m_did_senate, horiz = T, drop = ".theta") 
 
 
 # 3
-m_total_2nd_senate <-fenegbin (perYear ~
+m_2nd_senate <-fenegbin (perYear ~
                        chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency , 
                     cluster = "Legislator", 
            data = data_member |> filter(survive == 1)  |> filter(chamber=="Senate"))
 
-if(testing){modelsummary::modelsummary(m_total_2nd_senate)}
-coefplot(m_total_2nd_senate, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_2nd_senate)}
+coefplot(m_2nd_senate, horiz = T, drop = ".theta") 
 
 
 # # 4
-# m_logtotal_did_senate <-fenegbin (log(perYear + 1) ~ 
+# m_log_did_senate <-fenegbin (log(perYear + 1) ~ 
 #                           chair + ranking_minority + prestige + oversight +  
 #                     experience + 
 #                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
 #                     cluster = "Legislator", 
 #            data = data_member |> filter(chamber=="Senate"))
 # 
-# if(testing){modelsummary::modelsummary(m_logtotal_did_senate)}
+# if(testing){modelsummary::modelsummary(m_log_did_senate)}
 # 
-# coefplot(m_logtotal_did_senate, horiz = T, drop = ".theta") 
+# coefplot(m_log_did_senate, horiz = T, drop = ".theta") 
 
 
 ```
 
 ### Modeled Effects - Senate 
 
-negbin-m-total-senate
+m-senate
 
 ```{r}
-#| label: "negbin-m-total-senate-effect"
-#| fig-cap: "code/figs/negbin-m-total-senate-effect"
+#| label: "m-senate-effect"
+#| fig-cap: "figs/[TYPE]/m-senate-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -968,7 +951,7 @@ negbin-m-total-senate
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_total_cross_senate
+model <- m_cross_senate
 data = data_member |> filter(chamber=="Senate") |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1025,15 +1008,15 @@ plot_effect(
 
 \clearpage
 
-## Total Letters - House Staff %
+## - House Staff %
 
-- Figures: `code/figs/m-staff-total-[1:4].png`
+- Figures: `figs/[TYPE]/m-staff-[1:4].png`
 
-```{r m-staff-total}
+```{r m-staff}
 #| fig-show: "hold"
 #| out-width: "50%"
 #| fig-height: 4.5
-#| fig-cap: "Total Letters Per Year"
+#| fig-cap: "Per Year"
 #| fig-subcap: 
 #|   - "Model 1: Cross Sectional"
 #|   - "Model 2: Diff in Diff"
@@ -1043,7 +1026,7 @@ plot_effect(
 
 
 # cross-sectional 
-m_staff_total_cross <- fenegbin (perYear ~ 
+m_staff_cross <- fenegbin (perYear ~ 
                          prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending + prop_constit_spending +
                            chair + ranking_minority + prestige + oversight +  
                     experience + 
@@ -1051,14 +1034,14 @@ m_staff_total_cross <- fenegbin (perYear ~
                     cluster = "Legislator", 
            data = data_member)
 
-if(testing){modelsummary(m_staff_total_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_staff_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_staff_total_cross, horiz = T, drop = "(Intercept)") 
+coefplot(m_staff_cross, horiz = T, drop = "(Intercept)") 
 
 
 
 # 2
-m_staff_total_did <-fenegbin (perYear ~ 
+m_staff_did <-fenegbin (perYear ~ 
 prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending + prop_constit_spending +
                          chair + ranking_minority + prestige + oversight +  oversight +
                     experience + 
@@ -1068,13 +1051,13 @@ prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member)
 
-if(testing){modelsummary(m_staff_total_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_staff_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_staff_total_did, horiz = T, drop = ".theta") 
+coefplot(m_staff_did, horiz = T, drop = ".theta") 
 
 
 # 3
-m_staff_total_2nd_cross <-fenegbin (perYear ~ 
+m_staff_2nd_cross <-fenegbin (perYear ~ 
 prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending + prop_constit_spending + 
                          chair + ranking_minority + prestige + oversight +  
                     experience + 
@@ -1082,12 +1065,12 @@ prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_staff_total_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
-coefplot(m_staff_total_2nd_cross, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_staff_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_staff_2nd_cross, horiz = T, drop = ".theta") 
 
 
 # 4
-m_staff_total_2nd_did <-fenegbin (perYear ~
+m_staff_2nd_did <-fenegbin (perYear ~
    prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending + prop_constit_spending + 
                             chair + ranking_minority + prestige + oversight +
                     experience +
@@ -1095,20 +1078,20 @@ m_staff_total_2nd_did <-fenegbin (perYear ~
                     cluster = "Legislator",
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_staff_logtotal_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_staff_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_staff_total_2nd_did, horiz = T, drop = ".theta")
+coefplot(m_staff_2nd_did, horiz = T, drop = ".theta")
 ```
 
 
-### Total Letters Table - Staff %
+### Table - Staff %
 
-```{r m-staff-models_total}
-models_staff_total <- list(
-  "(1)" = m_staff_total_cross,
-  "(2)" = m_staff_total_did,
-  "(3)" =  m_staff_total_2nd_cross,
- "(4)" = m_staff_total_2nd_did
+```{r m-staff-models}
+models_staff <- list(
+  "(1)" = m_staff_cross,
+  "(2)" = m_staff_did,
+  "(3)" =  m_staff_2nd_cross,
+ "(4)" = m_staff_2nd_did
 )
 
 rows <- tibble(
@@ -1133,27 +1116,27 @@ options(modelsummary_factory_default = 'kableExtra')
 
 
 # HTML
-modelsummary(models_staff_total, 
+modelsummary(models_staff, 
              title = "The Effect of Experience and District Competitiveness on Legislator Contacts", 
              notes = list("Robust standard errors in parentheses, clustered by legislator."))
 
-beta_cross <- betas(m_staff_total_cross)
-se_cross <- standard_errors(m_staff_total_cross)
-beta_did <- betas(m_staff_total_did)
-se_did <- standard_errors(m_staff_total_did)
+beta_cross <- betas(m_staff_cross)
+se_cross <- standard_errors(m_staff_cross)
+beta_did <- betas(m_staff_did)
+se_did <- standard_errors(m_staff_did)
 ```
 
 
-### Total Letters Narrative - Staff %
+### Narrative - Staff %
 
 TODO
 
 
 ### Modeled Effects - Staff % - cross sectional 
 
-```{r, cache=FALSE}
-#| label: "negbin-m-staff-total-effect"
-#| fig-cap: "code/figs/negbin-m-staff-total-effect"
+```{r}
+#| label: "m-staff-effect"
+#| fig-cap: "figs/[TYPE]/m-staff-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1163,7 +1146,7 @@ TODO
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_staff_total_cross
+model <- m_staff_cross
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1179,9 +1162,9 @@ plot_effect(
 
 ### Modeled Effects - staff % - diff in diff
 
-```{r, cache=FALSE}
-#| label: "negbin-m-staff-total-did-effect"
-#| fig-cap: "code/figs/negbin-m-staff-total-did-effect"
+```{r}
+#| label: "m-staff-did-effect"
+#| fig-cap: "figs/[TYPE]/m-staff-did-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1190,7 +1173,7 @@ plot_effect(
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_staff_total_did
+model <- m_staff_did
 data = data_member #|> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1202,17 +1185,17 @@ plot_effect(
 
 \clearpage
 
-## Total Letters - House Staff Spending
+## - House Staff Spending
 
 Spending in Millions 
 
-- Figures: `code/figs/m-staff_spending-total-[1:4].png`
+- Figures: `figs/[TYPE]/m-staff_spending-[1:4].png`
 
-```{r m-staff_spending-total}
+```{r m-staff_spending}
 #| fig-show: "hold"
 #| out-width: "50%"
 #| fig-height: 4.5
-#| fig-cap: "Total Letters Per Year"
+#| fig-cap: "Per Year"
 #| fig-subcap: 
 #|   - "Model 1: Cross Sectional"
 #|   - "Model 2: Diff in Diff"
@@ -1222,23 +1205,23 @@ Spending in Millions
 
 
 # cross-sectional 
-m_staff_spending_total_cross <- fenegbin (perYear ~ 
-                         est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending +
+m_staff_spending_cross <- fenegbin (perYear ~ 
+                         est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending +
                            chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
            data = data_member)
 
-if(testing){modelsummary(m_staff_spending_total_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_staff_spending_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_staff_spending_total_cross, horiz = T, drop = "(Intercept)") 
+coefplot(m_staff_spending_cross, horiz = T, drop = "(Intercept)") 
 
 
 
 # 2
-m_staff_spending_total_did <-fenegbin (perYear ~ 
-est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending +
+m_staff_spending_did <-fenegbin (perYear ~ 
+est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending +
                          chair + ranking_minority + prestige + oversight +  oversight +
                     experience + 
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -1246,47 +1229,47 @@ est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + es
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member)
 
-if(testing){modelsummary(m_staff_spending_total_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_staff_spending_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_staff_spending_total_did, horiz = T, drop = ".theta") 
+coefplot(m_staff_spending_did, horiz = T, drop = ".theta") 
 
 
 # 3
-m_staff_spending_total_2nd_cross <-fenegbin (perYear ~ 
-est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending + 
+m_staff_spending_2nd_cross <-fenegbin (perYear ~ 
+est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending + 
                          chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_staff_spending_total_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
-coefplot(m_staff_spending_total_2nd_cross, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_staff_spending_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_staff_spending_2nd_cross, horiz = T, drop = ".theta") 
 
 
 # 4
-m_staff_spending_total_2nd_did <-fenegbin (perYear ~
-   est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending + 
+m_staff_spending_2nd_did <-fenegbin (perYear ~
+   est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending + 
                             chair + ranking_minority + prestige + oversight +
                     experience +
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_staff_spending_logtotal_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_staff_spending_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_staff_spending_total_2nd_did, horiz = T, drop = ".theta")
+coefplot(m_staff_spending_2nd_did, horiz = T, drop = ".theta")
 ```
 
 
-### Total Letters Table - staff_spending
+### Table - staff_spending
 
-```{r m-staff_spending-models_total}
-models_staff_spending_total <- list(
-  "(1)" = m_staff_spending_total_cross,
-  "(2)" = m_staff_spending_total_did,
-  "(3)" =  m_staff_spending_total_2nd_cross,
- "(4)" = m_staff_spending_total_2nd_did
+```{r m-staff_spending-models}
+models_staff_spending <- list(
+  "(1)" = m_staff_spending_cross,
+  "(2)" = m_staff_spending_did,
+  "(3)" =  m_staff_spending_2nd_cross,
+ "(4)" = m_staff_spending_2nd_did
 )
 
 rows <- tibble(
@@ -1311,31 +1294,31 @@ options(modelsummary_factory_default = 'kableExtra')
 
 
 # HTML
-modelsummary(models_staff_spending_total, 
+modelsummary(models_staff_spending, 
              title = "The Effect of Experience and District Competitiveness on Legislator Contacts", 
              notes = list("Robust standard errors in parentheses, clustered by legislator."))
 
-beta_cross <- betas(m_staff_spending_total_cross)
-se_cross <- standard_errors(m_staff_spending_total_cross)
-beta_did <- betas(m_staff_spending_total_did)
-se_did <- standard_errors(m_staff_spending_total_did)
+beta_cross <- betas(m_staff_spending_cross)
+se_cross <- standard_errors(m_staff_spending_cross)
+beta_did <- betas(m_staff_spending_did)
+se_did <- standard_errors(m_staff_spending_did)
 
 
-save(models_staff_spending_total, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
-     file = here::here("models", "models_staff_spending_total.Rdata"))
+save(models_staff_spending, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_staff_spending.Rdata"))
 ```
 
 
-### Total Letters Narrative - staff_spending
+### Narrative - staff_spending
 
 TODO
 
 
 ### Modeled Effects - staff_spending - cross sectional 
 
-```{r, cache=FALSE}
-#| label: "negbin-m-staff_spending-total-effect"
-#| fig-cap: "code/figs/negbin-m-staff_spending-total-effect"
+```{r}
+#| label: "m-staff_spending-effect"
+#| fig-cap: "figs/[TYPE]/m-staff_spending-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1345,25 +1328,25 @@ TODO
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_staff_spending_total_cross
+model <- m_staff_spending_cross
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
-  newdata = mutate(data, est_total_constit_spending = 0),
+  newdata = mutate(data, est_constit_spending = 0),
   effect = "Constit. Serv. Budget"
   )
 
 plot_effect( 
-  newdata = mutate(data, est_total_comm_spending = 0),
+  newdata = mutate(data, est_comm_spending = 0),
   effect = "Comms Budget"
   )
 ```
 
 ### Modeled Effects - staff_spending - diff in diff
 
-```{r, cache=FALSE}
-#| label: "negbin-m-staff_spending-total-did-effect"
-#| fig-cap: "code/figs/negbin-m-staff_spending-total-did-effect"
+```{r}
+#| label: "m-staff_spending-did-effect"
+#| fig-cap: "figs/[TYPE]/m-staff_spending-did-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1372,11 +1355,11 @@ plot_effect(
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_staff_spending_total_did
+model <- m_staff_spending_did
 data = data_member #|> filter(year > 2007,  year < 2019)
 
 plot_effect( 
-  newdata = mutate(data, est_total_constit_spending = 0),
+  newdata = mutate(data, est_constit_spending = 0),
   effect = "Constit. Serv. Budget\n(diff in diff)"
   )
 ```
@@ -1384,14 +1367,14 @@ plot_effect(
 \clearpage
 
 
-## Total Letters - Electoral Competitiveness
+## - Electoral Competitiveness
 
-- Figures: `code/figs/m-elect-total-[1:4].png`
+- Figures: `figs/[TYPE]/m-elect-[1:4].png`
 
-```{r m-elect-total,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Total Letters Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
+```{r m-elect,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
 
 # cross-sectional 
-m_elect_total_cross <- fenegbin (perYear ~ 
+m_elect_cross <- fenegbin (perYear ~ 
                          competitive + competitive_primary +
                            chair + ranking_minority + prestige + oversight +  
                     experience + 
@@ -1399,14 +1382,14 @@ m_elect_total_cross <- fenegbin (perYear ~
                     cluster = "Legislator", 
            data = data_member)
 
-if(testing){modelsummary(m_elect_total_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_elect_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_elect_total_cross, horiz = T, drop = "(Intercept)") 
+coefplot(m_elect_cross, horiz = T, drop = "(Intercept)") 
 
 
 
 # 2
-m_elect_total_did <-fenegbin (perYear ~ 
+m_elect_did <-fenegbin (perYear ~ 
                        competitive + competitive_primary +
                          chair + ranking_minority + prestige + oversight +  oversight +
                     experience + 
@@ -1415,13 +1398,13 @@ m_elect_total_did <-fenegbin (perYear ~
                     # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member)
 
-if(testing){modelsummary(m_elect_total_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_elect_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_elect_total_did, horiz = T, drop = ".theta") 
+coefplot(m_elect_did, horiz = T, drop = ".theta") 
 
 
 # 3
-m_elect_total_2nd_cross <-fenegbin (perYear ~ 
+m_elect_2nd_cross <-fenegbin (perYear ~ 
                        competitive + competitive_primary + 
                          chair + ranking_minority + prestige + oversight +  
                     experience + 
@@ -1429,12 +1412,12 @@ m_elect_total_2nd_cross <-fenegbin (perYear ~
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_elect_total_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
-coefplot(m_elect_total_2nd_cross, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_elect_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_elect_2nd_cross, horiz = T, drop = ".theta") 
 
 
 # 4
-m_elect_total_2nd_did <-fenegbin (perYear ~
+m_elect_2nd_did <-fenegbin (perYear ~
                           competitive + competitive_primary + 
                             chair + ranking_minority + prestige + oversight +
                     experience +
@@ -1442,20 +1425,20 @@ m_elect_total_2nd_did <-fenegbin (perYear ~
                     cluster = "Legislator",
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_elect_logtotal_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_elect_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_elect_total_2nd_did, horiz = T, drop = ".theta")
+coefplot(m_elect_2nd_did, horiz = T, drop = ".theta")
 ```
 
 
-### Total Letters Table - Electoral 
+### Table - Electoral 
 
-```{r m-elect-models_total}
-models_elect_total <- list(
-  "(1)" = m_elect_total_cross,
-  "(2)" = m_elect_total_did,
-  "(3)" =  m_elect_total_2nd_cross,
- "(4)" = m_elect_total_2nd_did
+```{r m-elect-models}
+models_elect <- list(
+  "(1)" = m_elect_cross,
+  "(2)" = m_elect_did,
+  "(3)" =  m_elect_2nd_cross,
+ "(4)" = m_elect_2nd_did
 )
 
 rows <- tibble(
@@ -1480,30 +1463,30 @@ options(modelsummary_factory_default = 'kableExtra')
 
 
 # HTML
-modelsummary(models_elect_total, 
+modelsummary(models_elect, 
              title = "The Effect of Experience and District Competitiveness on Legislator Contacts", 
              notes = list("Robust standard errors in parentheses, clustered by legislator."))
 
-beta_cross <- betas(m_elect_total_cross)
-se_cross <- standard_errors(m_elect_total_cross)
-beta_did <- betas(m_elect_total_did)
-se_did <- standard_errors(m_elect_total_did)
+beta_cross <- betas(m_elect_cross)
+se_cross <- standard_errors(m_elect_cross)
+beta_did <- betas(m_elect_did)
+se_did <- standard_errors(m_elect_did)
 ```
 
 
-### Total Letters Narrative
+### Narrative
 
-To address potential confounding in across-legislator comparisons, the estimates from Model 2 (Column 2 of Table `\ref{tab:models_total}`) provide the estimated effects from the difference-in-differences specification in Equation `\ref{e:diff1}`.  Consider first the effect of being in a competitive district. We estimate that a district becoming competitive causes an increase of `r beta_did$competitive`  requests `\textit{per agency}` (95-percent confidence interval [`r beta_did$competitive - se_did$competitive*1.96`, `r beta_did$competitive + se_did$competitive*1.96`]). Across all `r n_agency` agencies, this represents an increase of approximately `r (beta_did$competitive*n_agency) %>% round(0)` additional requests per year, `r (beta_did$competitive / mean(data_member$perYear) ) %>% round(3)*100 ``\%` of the average requests per year in our data. There is a smaller increase for individuals who become ranking members and those who join a Prestige Committee, though the increase is statistically significant for the prestige committee. Becoming a ranking member of a committee causes an increase of `r beta_did$ranking_minority` contacts per agency, while joining a prestige committee causes a `r beta_did$prestige` per agency increase in the number of contacts a member of Congress makes.
-
-
-
-### Total Letters Predictions 
-
-- Figures: `code/figs/m-elect-total-predicted-[1:4].png`
+To address potential confounding in across-legislator comparisons, the estimates from Model 2 (Column 2 of Table `\ref{tab:models}`) provide the estimated effects from the difference-in-differences specification in Equation `\ref{e:diff1}`.  Consider first the effect of being in a competitive district. We estimate that a district becoming competitive causes an increase of `r beta_did$competitive`  requests `\textit{per agency}` (95-percent confidence interval [`r beta_did$competitive - se_did$competitive*1.96`, `r beta_did$competitive + se_did$competitive*1.96`]). Across all `r n_agency` agencies, this represents an increase of approximately `r (beta_did$competitive*n_agency) %>% round(0)` additional requests per year, `r (beta_did$competitive / mean(data_member$perYear) ) %>% round(3)*100 ``\%` of the average requests per year in our data. There is a smaller increase for individuals who become ranking members and those who join a Prestige Committee, though the increase is statistically significant for the prestige committee. Becoming a ranking member of a committee causes an increase of `r beta_did$ranking_minority` contacts per agency, while joining a prestige committee causes a `r beta_did$prestige` per agency increase in the number of contacts a member of Congress makes.
 
 
-```{r m-elect-total-predicted,  fig.show="hold", out.width="50%", fig.cap= "Total",  fig.subcap= c("Model 1: Cross Sectional","Model 1: Cross Sectional", "Model 2: Diff in Diff","Model 2: Diff in Diff")}
-predicted <- predictions(m_elect_total_cross,
+
+### Predictions 
+
+- Figures: `figs/[TYPE]/m-elect-predicted-[1:4].png`
+
+
+```{r m-elect-predicted,  fig.show="hold", out.width="50%", fig.cap= "",  fig.subcap= c("Model 1: Cross Sectional","Model 1: Cross Sectional", "Model 2: Diff in Diff","Model 2: Diff in Diff")}
+predicted <- predictions(m_elect_cross,
                          newdata = values)
 
 # Cross-sectional predictions
@@ -1511,22 +1494,22 @@ predicted %>%
     mutate(estimate = estimate*n_agency, #predicted*n_agency,
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
   ggcompetitive() + 
-  labs(title = "Predicted Total Letters per Year",        subtitle = "(Cross-Sectional)",
+  labs(title = "Predicted per Year",        subtitle = "(Cross-Sectional)",
        x = "",
-       y = "Predicted Total Letters Per Year",
+       y = "Predicted Per Year",
        fill = "",
        color = "",
        shape = "") 
 
 # by tenure
-predicted <- predictions(m_elect_total_cross,
+predicted <- predictions(m_elect_cross,
                          newdata = values_tenure)
 
 predicted %>%
     mutate(estimate = estimate*n_agency, #predicted*n_agency,
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
 ggtenure() +
-  labs(title = "Predicted Total Letters Per Year",        subtitle = "(Cross-Sectional)",
+  labs(title = "Predicted Per Year",        subtitle = "(Cross-Sectional)",
        x = "Years Serving in Congress",
        y = "Predicted Letters Per Year",
        fill = "",
@@ -1535,7 +1518,7 @@ ggtenure() +
 
 
 # diff in diff 
-predicted <- predictions(m_elect_total_did,
+predicted <- predictions(m_elect_did,
                          newdata = values)
 
 
@@ -1544,7 +1527,7 @@ predicted %>%
     mutate(estimate = estimate*n_agency, #predicted*n_agency,
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>% # std.error = std.error*n_agency)) %>%
   ggcompetitive() + 
-  labs(title = "Predicted Total Letters per Year\nDifference in Differences (Within-Legislator)",
+  labs(title = "Predicted per Year\nDifference in Differences (Within-Legislator)",
        x = "",
        y = "Predicted Letters Per Year",
        fill = "",
@@ -1552,7 +1535,7 @@ predicted %>%
        shape = "") 
 
 # by tenure
-predicted <- predictions(m_elect_total_did,
+predicted <- predictions(m_elect_did,
                          newdata = values_tenure)
 
 predicted %>%
@@ -1560,7 +1543,7 @@ predicted %>%
          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
 ggtenure() +
     #geom_line(aes(x = as.numeric(year_in_congress %>% str_sub(1,1)))) + 
-  labs(title = "Predicted Total Letters Per Year",
+  labs(title = "Predicted Per Year",
        subtitle = "Difference in Differences (Within-Legislator)",
        x = "Years Serving in Congress",
        y = "Predicted Letters Per Year",
@@ -1573,8 +1556,8 @@ ggtenure() +
 ### Modeled Effects - electoral - cross sectional 
 
 ```{r}
-#| label: "negbin-m-elect-total-effect"
-#| fig-cap: "code/figs/negbin-m-elect-total-effect"
+#| label: "m-elect-effect"
+#| fig-cap: "figs/[TYPE]/m-elect-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1586,7 +1569,7 @@ ggtenure() +
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_elect_total_cross
+model <- m_elect_cross
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1611,8 +1594,8 @@ plot_effect(
 ### Modeled Effects - electoral - diff in diff
 
 ```{r}
-#| label: "negbin-m-elect-total-did-effect"
-#| fig-cap: "code/figs/negbin-m-elect-total-did-effect"
+#| label: "m-elect-did-effect"
+#| fig-cap: "figs/[TYPE]/m-elect-did-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1624,7 +1607,7 @@ plot_effect(
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_elect_total_did
+model <- m_elect_did
 data = data_member #|> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1652,31 +1635,31 @@ plot_effect(
 
 \clearpage
 
-## Total Letters - Ideology
+## - Ideology
 
-- Figures: `code/figs/m-ideo-total-[1:4].png`
+- Figures: `figs/[TYPE]/m-ideo-[1:4].png`
 
-```{r m-ideo-total,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Total Letters Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
+```{r m-ideo,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
 
 #FIXME Move to top
 data_member %<>% mutate(abs_nominate_dim1 = abs(nominate_dim1))
 
 # cross-sectional 
-m_ideo_total_cross <- fenegbin (perYear ~ 
+m_ideo_cross <- fenegbin (perYear ~ 
                          chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
            data = data_member)
 
-if(testing){modelsummary(m_ideo_total_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_ideo_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_ideo_total_cross, horiz = T, drop = "(Intercept)") 
+coefplot(m_ideo_cross, horiz = T, drop = "(Intercept)") 
 
 
 
 # 2
-m_ideo_total_did <-feglm (perYear ~ 
+m_ideo_did <-feglm (perYear ~ 
                         chair + ranking_minority + prestige + oversight + 
                     experience + 
                     majority  + abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -1685,13 +1668,13 @@ m_ideo_total_did <-feglm (perYear ~
            data = data_member)
 
 
-if(testing){modelsummary(m_ideo_total_did, gof_omit = "R.*", coef_omit = coef_omit)}
+if(testing){modelsummary::modelsummary(m_ideo_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
-coefplot(m_ideo_total_did, horiz = T, drop = ".theta") 
+coefplot(m_ideo_did, horiz = T, drop = ".theta") 
 
 
 # 3
-m_ideo_total_2nd_cross <-fenegbin (perYear ~ 
+m_ideo_2nd_cross <-fenegbin (perYear ~ 
                         chair + ranking_minority + prestige + oversight +  
                     #experience + 
                     majority +
@@ -1699,31 +1682,31 @@ m_ideo_total_2nd_cross <-fenegbin (perYear ~
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
 
-if(testing){modelsummary(m_ideo_total_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
-coefplot(m_ideo_total_2nd_cross, horiz = T, drop = ".theta") 
+if(testing){modelsummary::modelsummary(m_ideo_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_ideo_2nd_cross, horiz = T, drop = ".theta") 
 
 
 # # 4
-# m_ideo_total_2nd_did <-fenegbin (perYear ~
+# m_ideo_2nd_did <-fenegbin (perYear ~
 #                           distance + chair + ranking_minority + prestige + oversight +
 #                       abs_nominate_dim1*presidents_party +  distance*presidents_party + 
 #                     majority | Year_x_Agency + Legislator_x_Agency,
 #                     cluster = "Legislator",
 #            data = data_member %>% filter(survive == 1))
 # 
-# if(testing){modelsummary(m_ideo_logtotal_did, gof_omit = "R.*", coef_omit = coef_omit)}
+# if(testing){modelsummary::modelsummary(m_ideo_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
 # 
-# coefplot(m_ideo_logtotal_did, horiz = T, drop = ".theta")
+# coefplot(m_ideo_2nd_did, horiz = T, drop = ".theta")
 ```
 
 
-### Total Letters Table - Ideology 
+### Table - Ideology 
 
-```{r m-ideo-models_total}
-models_ideo_total <- list(
-  "(1)" = m_ideo_total_cross,
-  "(2)" = m_ideo_total_did,
-  "(3)" =  m_ideo_total_2nd_cross
+```{r m-ideo-models}
+models_ideo <- list(
+  "(1)" = m_ideo_cross,
+  "(2)" = m_ideo_did,
+  "(3)" =  m_ideo_2nd_cross
 )
 
 rows <- tibble(
@@ -1756,28 +1739,28 @@ options(modelsummary_factory_default = 'kableExtra')
 
 
 # HTML
-modelsummary(models_ideo_total,
+modelsummary(models_ideo,
              title = "The Effect of Experience and District Competitiveness on Legislator Contacts", 
              notes = list("Robust standard errors in parentheses, clustered by legislator."))
 
-beta_cross <- betas(m_ideo_total_cross)
-se_cross <- standard_errors(m_ideo_total_cross)
+beta_cross <- betas(m_ideo_cross)
+se_cross <- standard_errors(m_ideo_cross)
 ```
 
 
-### Total Letters Narrative - Ideology
+### Narrative - Ideology
 
 TODO 
 
 
 
-### Total Letters Predictions - Ideology
+### Predictions - Ideology
 
-- Figures: `code/figs/m-total-predicted-[1:4].png`
+- Figures: `figs/[TYPE]/m-predicted-[1:4].png`
 
 
-```{r m-ideo-total-predicted,  fig.show="hold", out.width="50%", fig.cap= "Total",  fig.subcap= c("Model 1: Cross Sectional","Model 1: Cross Sectional", "Model 2: Diff in Diff","Model 2: Diff in Diff")}
-# predicted <- predictions(m_ideo_total_cross,
+```{r m-ideo-predicted,  fig.show="hold", out.width="50%", fig.cap= "",  fig.subcap= c("Model 1: Cross Sectional","Model 1: Cross Sectional", "Model 2: Diff in Diff","Model 2: Diff in Diff")}
+# predicted <- predictions(m_ideo_cross,
 #                          newdata = values)
 # 
 # # Cross-sectional predictions
@@ -1785,22 +1768,22 @@ TODO
 #     mutate(estimate = estimate*n_agency, #predicted*n_agency,
 #          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
 #   ggcompetitive() + 
-#   labs(title = "Predicted Total Letters per Year",        subtitle = "(Cross-Sectional)",
+#   labs(title = "Predicted per Year",        subtitle = "(Cross-Sectional)",
 #        x = "",
-#        y = "Predicted Total Letters Per Year",
+#        y = "Predicted Per Year",
 #        fill = "",
 #        color = "",
 #        shape = "") 
 # 
 # # by tenure
-# predicted <- predictions(m_ideo_total_cross,
+# predicted <- predictions(m_ideo_cross,
 #                          newdata = values_tenure)
 # 
 # predicted %>%
 #     mutate(estimate = estimate*n_agency, #predicted*n_agency,
 #          conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
 # ggtenure() +
-#   labs(title = "Predicted Total Letters Per Year",        subtitle = "(Cross-Sectional)",
+#   labs(title = "Predicted Per Year",        subtitle = "(Cross-Sectional)",
 #        x = "Years Serving in Congress",
 #        y = "Predicted Letters Per Year",
 #        fill = "",
@@ -1813,8 +1796,8 @@ TODO
 ### Modeled Effects - ideology
 
 ```{r}
-#| label: "negbin-m-ideo-total-effect"
-#| fig-cap: "code/figs/negbin-m-ideo-total-effect"
+#| label: "m-ideo-effect"
+#| fig-cap: "figs/[TYPE]/m-ideo-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -1826,7 +1809,7 @@ TODO
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_ideo_total_cross 
+model <- m_ideo_cross 
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1873,15 +1856,15 @@ data_district %<>% mutate(same_party = as.numeric(same_party))
 ```
 
 
-## Total Letters per District
+## per District
 
 The main results showing that replacing a more experienced legislator with a new legislator yields a substantial decrease in service to the district are robust to interacting all variables with the `same_party` variable. 
 Cross-sectional effects get larger but more uncertain when data are subset to district years after turnover (as required for the `same_party` variable). Within-district effects become more uncertain, likely due to the much smaller number of observations where `same_party` can be observed. 
 
 
-### Total District-level Coefficient Plots
+### District-level Coefficient Plots
 
-Figures: `code/figs/negbin-m-district-[1:4].png`
+Figures: `figs/[TYPE]/m-district-[1:4].png`
 
 1. cross-sectional 
 2. cross-sectional with same-party variable 
@@ -1891,14 +1874,14 @@ Figures: `code/figs/negbin-m-district-[1:4].png`
 ```{r}
 #| layout-ncol: 2
 #| fig-height: 4.5
-#| fig-cap: "code/figs/negbin-m-district-[1:4].png"
+#| fig-cap: "figs/[TYPE]/m-district-[1:4].png"
 #| fig-subcap: 
 #|   - "1"
 #|   - "2"
 #|   - "3"
 #|   - "4"
 #| out-width: "100%"
-#| label: "negbin-m-district"
+#| label: "m-district"
 #| fig-show: "hold"
 
 
@@ -1976,7 +1959,7 @@ data = data_district |> filter(chamber == "Senate"))
 
 ```
 
-### Total Per District Tables
+### Per District Tables
 
 - Models: `models/models_district_negbin.Rdata` 
 
@@ -2072,21 +2055,21 @@ modelsummary(models_district_party)
 ```
 
 
-### Total Per District Predictions (House only)
+### Per District Predictions (House only)
 
-- Figures: `code/figs/negbin-m-district-predicted-house-[1:2].png`
+- Figures: `figs/[TYPE]/m-district-predicted-house-[1:2].png`
 
 ```{r}
 #| layout-ncol: 2
 #| fig-height: 3
-#| fig-cap: "code/figs/negbin-m-district-predicted-house-[1:2].png"
+#| fig-cap: "figs/[TYPE]/m-district-predicted-house-[1:2].png"
 #| fig-subcap: 
 #|   - "1"
 #|   - "2"
 #|   - "3"
 #|   - "4"
 #| out-width: "100%"
-#| label: "negbin-m-district-predicted-house"
+#| label: "m-district-predicted-house"
 #| fig-show: "hold"
 
 
@@ -2130,21 +2113,21 @@ ggdistrict() +
 
 
 
-### Total Per District Predictions (Senate only)
+### Per District Predictions (Senate only)
 
-- Figures: `code/figs/negbin-m-district-predicted-senate-[1:2].png`
+- Figures: `figs/[TYPE]/m-district-predicted-senate-[1:2].png`
 
 ```{r}
 #| layout-ncol: 2
 #| fig-height: 3
-#| fig-cap: "code/figs/negbin-m-district-predicted-senate-[1:2].png"
+#| fig-cap: "figs/[TYPE]/m-district-predicted-senate-[1:2].png"
 #| fig-subcap: 
 #|   - "1"
 #|   - "2"
 #|   - "3"
 #|   - "4"
 #| out-width: "100%"
-#| label: "negbin-m-district-predicted-senate"
+#| label: "m-district-predicted-senate"
 #| fig-show: "hold"
 
 
@@ -2187,8 +2170,8 @@ ggdistrict() +
 ### Modeled Effects - district
 
 ```{r}
-#| label: "negbin-m-distirct-total-effect"
-#| fig-cap: "code/figs/negbin-m-district-total-effect"
+#| label: "m-distirct-effect"
+#| fig-cap: "figs/[TYPE]/m-district-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
 #| fig-width: 3.5
@@ -2266,25 +2249,25 @@ dcounts_spillover %<>%   filter(new_member == 0)
 <!-- NOT WORTH PLOTTING 
 ### Spillover Coefficient Plots
 
-Figures: `code/figs/negbin-m-spillover-[1:3].png`
+Figures: `figs/[TYPE]/m-spillover-[1:3].png`
 
 1. diff-in-diff, at least one **new Senator** in the delegation effect
 2. diff-in-diff, **proportion** of new legislators in the delegation effect **on Senators**
 3. diff-in-diff, at least one **new legislator** in the delegation effect **on Senators**
 --> 
 
-### Spillover Effect: Total
+### Spillover Effect:
 
 ```{r}
 #| layout-ncol: 2
 #| fig-height: 4.5
-#| fig-cap: "code/figs/negbin-m-spillover-[1:3].png"
+#| fig-cap: "figs/[TYPE]/m-spillover-[1:3].png"
 #| fig-subcap: 
 #|   - "1"
 #|   - "2"
 #|   - "3"
 #| out-width: "100%"
-#| label: "negbin-m-spillover"
+#| label: "m-spillover"
 #| fig-show: "hold"
 
 m_spillover <- fenegbin(perYear ~
@@ -2345,167 +2328,8 @@ attr(rows, 'position') <- c(0)
 modelsummary(models_spillover ) 
 
 save(models_spillover, rows, cm, gm,  # beta_cross, beta_did, se_cross, se_did,
-     file = here::here("models", "models_spillover_negbin.Rdata"))
+     file = here::here("models", type, "models_spillover.Rdata"))
 ```
-
-# Inequality 
-
-```{r}
-
-percentiles <- data_member %>% 
-  dplyr::group_by(member_state, chamber) %>% 
-  dplyr::summarise(mean = mean(n)) %>% 
-  dplyr::ungroup() %>% 
-  dplyr::group_by(chamber) %>% 
-  dplyr::mutate(Percentile = dplyr::ntile(mean, 100),
-         rank = dplyr::dense_rank(-mean)) %>% 
-  dplyr::arrange(-Percentile) %>% 
-  dplyr::select(member_state, Percentile, mean, chamber, rank) %>% 
-  dplyr::distinct() 
-
-
-avg_effect_house <- m_total_cross_house |> # m_total_did_house |>
-  avg_comparisons(
-    variables = c("chair")) 
-
-avg_effect_senate <- m_total_cross_senate |> # m_total_did_senate |>
-  avg_comparisons(
-    variables = c("chair")) 
-
-percentiles_chair <- member_data |>
-  ungroup() |> 
-  filter(congress == 116) |>
-  select(chamber, chair) |> 
-  mutate(
-    chair = ifelse(chamber=="Senate", # if senate 
-                   chair*avg_effect_senate$estimate*n_agency, #senate chair effect
-                   chair*avg_effect_house$estimate*n_agency # otherwise, house chair effect 
-                   )
-  ) |> 
-  dplyr::group_by(chamber)  |> 
-  dplyr::mutate(Percentile = dplyr::ntile(chair, 100) ) |> 
-  dplyr::arrange(-Percentile)  |> 
-  dplyr::distinct(Percentile, chamber, chair) 
-
-percentiles_chair
-
-percentiles %<>% left_join(percentiles_chair) %>% 
-# hacky fix 
-  group_by(member_state) %>% 
-  #slice_head(n = 1) %>% 
-  ungroup()
-
-tibble(chair = c(0,1))
-
-```
-
-
-```{r}
-#| label: percentiles-chamber-chair
-#| fig-height: 3.4
-#| fig-width: 3
-#| cache: false
-#| 
-percentiles %>% 
-    filter(chamber == "Senate") %>% 
-  mutate(Chair = ifelse(chair > 0, "Chair", "") ) %>%
-    ggplot() + 
-  # observed 
-    geom_col(aes(x = Percentile, y = mean), 
-             color = "grey", 
-             width = .000001,
-             fill = "black",
-             position = "dodge") + 
-  geom_point(aes(x = Percentile, 
-                 y = mean), 
-             color = "light blue") + 
-    # geom_text(aes(x = Percentile, 
-    #             y = mean, 
-    #             label = ifelse(rank <24 | Percentile < 50,
-    #                            member_state, ""
-    #                            )
-    #             ), 
-    #         check_overlap = T, 
-    #               size = 3,
-    #               hjust = "inward") + 
-    # estimated chair effect 
-      geom_col(aes(x = Percentile, y = chair, fill = Chair), 
-             #width = 1,
-                          alpha =.5,
-             position = "dodge") + 
-      geom_point(aes(x = Percentile, y = chair, color = Chair) ) + 
-  geom_text(aes(x = Percentile, 
-                y = chair, 
-                label = ifelse(Percentile ==100,
-                               paste("+", round(chair), "requests"), 
-                               ""
-                               )
-                ), 
-            check_overlap = T, 
-                  size = 3,
-            vjust = -1,
-                  hjust = "inward") + 
-  theme_minimal() + 
-  scale_color_viridis_d(direction = -1) + 
-  labs(title = "Observed vs. Explained (Senate)",
-       x = "Percentile in the Senate",
-       y = "Average requests per year",
-       color = "Avg. Effect",
-       fill = "Avg. Effect") 
-
-
-# HOUSE 
-percentiles %>% 
-  filter(chamber == "House") %>% 
-  mutate(Chair = ifelse(chair > 0, "Chair", "") ) %>%
-    ggplot() + 
-  # observed 
-    geom_col(aes(x = Percentile, y = mean), 
-             color = "grey", 
-             width = .000001,
-             fill = "black",
-             position = "dodge") + 
-
-  geom_point(aes(x = Percentile, 
-                 y = mean), 
-             color = "light blue") + 
-    # geom_text(aes(x = Percentile, 
-    #             y = mean, 
-    #             label = ifelse(rank <24 | Percentile < 50,
-    #                            member_state, ""
-    #                            )
-    #             ), 
-    #         check_overlap = T, 
-    #               size = 3,
-    #               hjust = "inward") + 
-    # estimated chair effect 
-      geom_col(aes(x = Percentile, y = chair, fill = Chair), 
-             #width = 1,
-             alpha =.1,
-             position = "dodge") + 
-      geom_point(aes(x = Percentile, y = chair, color = Chair) ) + 
-  geom_text(aes(x = Percentile, 
-                y = chair, 
-                label = ifelse(Percentile ==100,
-                               paste("+", round(chair), "requests"), 
-                               ""
-                               )
-                ), 
-            check_overlap = T, 
-                  size = 3,
-            vjust = -1,
-                  hjust = "inward") + 
-  theme_minimal() + 
-  scale_color_viridis_d(direction = -1) + 
-  labs(title = "Observed vs. Explained (House)",
-       x = "Percentile in the House",
-       y = "Average requests per year",
-       color = "Avg. Effect",
-       fill = "Avg. Effect") 
-
-```
-
-
 
 
 
@@ -2514,16 +2338,16 @@ percentiles %>%
 
 ## Table 1: Overall + House and Senate
 
-"models_total.Rdata"
+"models.Rdata"
 
-```{r paper-models, cache=FALSE}
-models_total <- list(
-  "(1)" = m_total_cross,
-  "(2)" = m_total_did,
-  "(3)" =  m_total_cross_house,
-  "(4)" = m_total_did_house,
-   "(5)" =  m_total_cross_senate,
-  "(6)" = m_total_did_senate
+```{r paper-models}
+models <- list(
+  "(1)" = m_cross,
+  "(2)" = m_did,
+  "(3)" =  m_cross_house,
+  "(4)" = m_did_house,
+   "(5)" =  m_cross_senate,
+  "(6)" = m_did_senate
 )
 
 rows <- tibble(
@@ -2541,15 +2365,15 @@ rows <- tibble(
 
 attr(rows, 'position') <- c(0)
 
-modelsummary(models_total) 
+modelsummary(models) 
 
-beta_did <- betas(m_total_did)
-se_did <- standard_errors(m_total_did)
-beta_cross <- betas(m_total_cross)
-se_cross <- standard_errors(m_total_cross)
+beta_did <- betas(m_did)
+se_did <- standard_errors(m_did)
+beta_cross <- betas(m_cross)
+se_cross <- standard_errors(m_cross)
 
-save(models_total, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
-     file = here::here("models", "models_total.Rdata"))
+save(models, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models.Rdata"))
 ```
 
 ## Table 2: District + Same Party 
@@ -2582,21 +2406,21 @@ beta_cross <- betas(m_district_cross)
 se_cross <- standard_errors(m_district_cross)
 
 save(models_district, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
-     file = here::here("models", "models_district.Rdata"))
+     file = here::here("models", type, "models_district.Rdata"))
 ```
 
 ## Table 3: Electoral motivations 
 
-"models_elect_total.Rdata"
+"models_elect.Rdata"
 
 ```{r}
-models_elect_total <- list(
-  "(1)" = m_elect_total_cross,
-  "(2)" = m_elect_total_did,
-   "(3)" =  m_elect_total_2nd_cross,
-   "(4)" = m_elect_total_2nd_did
-  #  "(3)" =  m_elect_total_cross_senate,
-  # "(4)" = m_elect_total_did_senate
+models_elect <- list(
+  "(1)" = m_elect_cross,
+  "(2)" = m_elect_did,
+   "(3)" =  m_elect_2nd_cross,
+   "(4)" = m_elect_2nd_did
+  #  "(3)" =  m_elect_cross_senate,
+  # "(4)" = m_elect_did_senate
 )
 
 rows <- tibble(
@@ -2614,28 +2438,28 @@ attr(rows, 'position') <- c(0)
 
 
 # HTML
-modelsummary(models_elect_total,
+modelsummary(models_elect,
              notes = list("Robust standard errors in parentheses, clustered by legislator.") ) 
 
-beta_cross <- betas(m_elect_total_cross)
-se_cross <- standard_errors(m_total_cross)
-beta_did <- betas(m_elect_total_did)
-se_did <- standard_errors(m_total_did)
+beta_cross <- betas(m_elect_cross)
+se_cross <- standard_errors(m_cross)
+beta_did <- betas(m_elect_did)
+se_did <- standard_errors(m_did)
 
 
-save(models_elect_total, rows, cm, gm,  beta_cross, beta_did, se_cross, se_did,
-     file = here::here("models", "models_elect_total.Rdata"))
+save(models_elect, rows, cm, gm,  beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_elect.Rdata"))
 ```
 
 
 ## Table 4: Ideological motivations 
 
- "models_ideo_total.Rdata"
+ "models_ideo.Rdata"
 
 ```{r}
-models_ideo_total <- list(
-  "(1)" = m_ideo_total_cross,
-  "(2)" = m_ideo_total_2nd_cross
+models_ideo <- list(
+  "(1)" = m_ideo_cross,
+  "(2)" = m_ideo_2nd_cross
 )
 
 rows <- tibble(
@@ -2646,13 +2470,12 @@ rows <- tibble(
 
 attr(rows, 'position') <- c(0)
 
-modelsummary(models_ideo_total) 
+modelsummary(models_ideo) 
 
-beta_cross <- betas(m_ideo_total_cross)
-se_cross <- standard_errors(m_ideo_total_cross)
+beta_cross <- betas(m_ideo_cross)
+se_cross <- standard_errors(m_ideo_cross)
 
-save(models_ideo_total, rows, cm, gm,   beta_cross, se_cross,
-     file = here::here("models", "models_ideo_total.Rdata"))
+save(models_ideo, rows, cm, gm,   beta_cross, se_cross,
+     file = here::here("models", type, "models_ideo.Rdata"))
 ```
-
 

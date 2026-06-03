@@ -37,8 +37,31 @@ modelsummary_AJPS <- function(models, notes = "", center_rows = 1, ...){
    #  tinytable::style_tt(fontsize = .7)
 }
 
+# overwrite modelsummary::modelsummary with custom version above
 modelsummary <- modelsummary_AJPS
 
+
+#FIXME Why are the tables not formatting well?
+if(F){
+load(here::here("models", "total", "models.Rdata"))
+
+test <-modelsummary:: modelsummary(models_total)
+# config_modelsummary(factory_default = "tinytable")
+
+# if(packageVersion("modelsummary") != "2.0"){
+#   remove.packages("modelsummary")
+#   packageurl <- "https://cran.r-project.org/src/contrib/Archive/modelsummary/modelsummary_2.0.0.tar.gz"
+#   install.packages(packageurl, repos=NULL, type="source")
+# }
+
+packageVersion("modelsummary")
+modelsummary::config_modelsummary()
+t <- modelsummary::modelsummary(lm(speed ~ dist, cars), output = "tinytable")
+class(t)
+t |>
+  tinytable::style_tt(i = 0:1, bold = T)
+
+}
 
 betas <- . %>% .$coefficients %>%
   round(3) %>%

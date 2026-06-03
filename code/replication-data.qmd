@@ -34,16 +34,6 @@ testing = F
 verification = F
 here::here("code", "qmd_global_options.R") |> source() 
 
-# plotting functions 
-here::here("code", "ggcompetitive.R") |> source() 
-here::here("code", "ggchair.R") |> source() 
-here::here("code", "ggtenure.R") |> source() 
-
-# coef map
-here::here("code", "cm.R") |> source() 
-here::here("code", "modelsummary_formatting.R") |> source() 
-
-
 # functions 
 here::here("code", "post_merge_transformations.r") |> source()
 ```
@@ -115,7 +105,7 @@ chamber_switchers  <- d |>
 d %<>% filter(!icpsr_year %in% chamber_switchers$icpsr_year)
 ```
 
-## Total counts 
+## Counts by Type 
 
 ```{r data-transformations, cache=FALSE}
 # This chunk takes the minimal count data and creates legislator-level and district-level yearly count and ratio data
@@ -124,71 +114,68 @@ d %<>% filter(!icpsr_year %in% chamber_switchers$icpsr_year)
 # - perYear = counts per year (member level and district level)
 # - ratio = ratio of policy work to constituency service
 
-##creating the member-level aggregate count variables
-
-# TOTAL counts 
-dcounts_total <- d |>
+# a function creating the member-level aggregate count data
+make_dcounts <- function(d, type){
+  
+# directory to store model objects
+if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))}
+  
+  dcounts <- d |>
+  filter(TYPE == type | type == "total") |>
   group_by(agency, icpsr, chamber, year, congress) |>
-  summarise(perYear = sum(per_icpsr_chamber_year_agency_type)) |> 
-  ungroup() |> 
+  summarise(perYear = sum(per_icpsr_chamber_year_agency_type)) |>
+  ungroup() |>
   left_join(member_data) |>
-  post_merge_transformations() |> 
-  ungroup() |> 
-  distinct() 
-
-# DISTRICT counts 
-dcounts_district <- dcounts_total   |>
-  ungroup() |> 
-  group_by(agency, state_dist, chamber, year, congress) |>
-  summarise(perYear = sum(perYear) ) |>
-            #perYear_con = sum(perYear_con),
-            #perYear_policy = sum(perYear_policy),
-  ungroup() |> 
-  left_join(member_data) |>
-  post_merge_transformations() |> 
-  ungroup() |> 
+  post_merge_transformations() |>
+    mutate(new_member = first) |> # FIXME REDUNDENT BUT ARE BOTH USED IN ANALYSIS? 
+  ungroup() |>
   distinct()
 
-# rename first year as "new_member" 
-dcounts_total$new_member <- dcounts_total$first
+  save(dcounts, file =  here::here("data", type, "dcounts.rds"))
 
-save(dcounts_total, file =  here::here("data", "dcounts_total.rda"))
-save(dcounts_district, file =  here::here("data", "dcounts_district.rda"))
+# DISTRICT counts
+dcounts_district <- dcounts   |>
+  ungroup() |>
+  group_by(agency, state_dist, chamber, year, congress) |>
+  summarise(perYear = sum(perYear) ) |>
+  ungroup() |>
+  left_join(member_data) |>
+  post_merge_transformations() |>
+  ungroup() |>
+  distinct()
 
-if(testing){
-# CHECK MISSINGNESS
-sum_na <- function(x){is.na(x) |> sum() }
-
-dcounts_total  |>  summarise_all(sum_na) |> pivot_longer(everything()) |> arrange(-value) |> filter(value>0 ) |> kable()
-} 
-
-## Means for paper
-mean_total <- mean(dcounts_total$perYear)
+  save(dcounts_district, file =  here::here("data", type, "dcounts_district.rds"))
+  
+  ## Means for chapter
+mean <- mean(dcounts$perYear)
 
 # mean per year 
-perYear_mean_total <- dcounts_total |> 
+perYear_mean <- dcounts |> 
   group_by(icpsr, year) |> 
   transmute(perYearTotal = sum(perYear))
-perYear_mean_total <- mean(perYear_mean_total$perYearTotal) |> round()
+perYear_mean <- mean(perYear_mean$perYearTotal) |> round()
 
 ## Ns
-n2007_2020 <- dcounts_total$perYear |> sum()
-n_agency <- dcounts_total$agency |> unique() |> length()
+n2007_2020 <- dcounts$perYear |> sum()
+n_agency <- dcounts$agency |> unique() |> length()
 
-save(mean_total,# mean_con, mean_pol, 
-     perYear_mean_total,
-     n_agency, n2007_2020, # n2007_2020coded, 
-     modelsummary_AJPS,
-     file = here::here("data", "means.Rdata"))
+save(mean,
+     perYear_mean,
+     n_agency, 
+     n2007_2020, 
+     # n2007_2020coded,  
+     file = here::here("data", type, "means.Rdata"))
+}
+
+make_dcounts(d, type = "total")
+make_dcounts(d, type = 1)
+make_dcounts(d, type = 2)
+make_dcounts(d, type = 3)
+make_dcounts(d, type = 4)
+make_dcounts(d, type = 5)
+
 ```
 
-:::{.callout-important collapse="true"}
-```{r echo=verification, eval=verification, cache=FALSE}
-n_agency
-n2007_2020
-n2007_2020coded
-```
-:::
 
 
 ```{r testing, cache=FALSE}

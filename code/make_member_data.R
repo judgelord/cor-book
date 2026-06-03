@@ -216,11 +216,18 @@ load(here::here("data", "Staff", "staff.rds"))
 
 member_data <- left_join(member_data, staff)
 
-member_data %<>% mutate(est_total_legis_spending = est_total_legis_spending/1000000,
-                          est_total_pol_spending = est_total_pol_spending/1000000,
-                          est_total_comm_spending = est_total_comm_spending/1000000,
-                          est_total_off_spending = est_total_off_spending/1000000,
-                          est_total_constit_spending = est_total_constit_spending/1000000)
+# transform spending to be spending in millions
+member_data %<>% mutate(est_legis_spending = est_total_legis_spending/1000000,
+                          est_pol_spending = est_total_pol_spending/1000000,
+                          est_comm_spending = est_total_comm_spending/1000000,
+                          est_off_spending = est_total_off_spending/1000000,
+                          est_constit_spending = est_total_constit_spending/1000000)
+
+member_data %<>% select(-votepct_sq)
+# STAFF DATA SEEM TO HAVE TWO DUPLICATES FOR THIS VARIABLE, SO I'M DROPPING IT
+# icpsr chamber congress
+# 1 20343 House        108
+# 2 20349 House        110
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)

@@ -1,0 +1,21 @@
+---
+title: "Replication Code and Robustness Checks"
+author: Devin Judge-Lord
+format: 
+  #pdf: 
+  html:
+      self-contained: false
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+type = 2
+testing = F
+```
+
+# Type = `r type`
+
+{{< include code/replication.qmd >}}
