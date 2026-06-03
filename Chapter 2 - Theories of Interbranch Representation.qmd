@@ -18,446 +18,52 @@ load(here::here("data", type, "means.Rdata"))
 here::here("code", "formatting.R") |> source()
 ```
 
-To date, constituency service, oversight, and representation have largely been considered by separate literatures. Constituency service has mostly been explored as reelection-oriented behavior. Oversight scholarship is dominated by principal-agent models of control. Representation has mostly been studied with respect to demographics, votes on bills, and, at times, speeches. The concept of interbranch representation that we introduce in this book unifies constituency service, oversight, and other behaviors within a broader conceptual and empirical framework. We conceptualize all interactions with the bureaucracy as a decision to allocate effort (staff and time) to different priorities representing different constituencies, constrained by capacity. This framework offers a way to study representation as a function of one’s constituencies, priorities, and institutional capacity.
+## Forging a new concept of representation from disparate scholarship 
 
+To date, constituency service, oversight, and representation have been addressed by separate literatures. Constituency service has mostly been explored as reelection-oriented behavior. Oversight scholarship is dominated by principal-agent models of control. Representation has mostly been studied with respect to demographics, votes on bills, and, at times, speeches. The concept of interbranch representation that we advance in this paper unifies constituency service, oversight, and other behaviors within a broader conceptual and empirical framework. We conceptualize all interactions with the bureaucracy as a decision to allocate effort (staff and time) to different priorities representing different constituencies, constrained by capacity. This framework offers a way to study this form of representation systematically as a function of one’s constituencies, capacity, and priorities.
 
-Unlike other, more visible forms of congressional representation that have been the subject of substantial scholarly inquiry (roll-call votes, legislative speech, and bill sponsorship), interbranch representation is largely invisible and difficult to study systematically. Congress has refused to disclose data on this aspect of its work. In recent years, however, scholars have begun to obtain snapshots of this work from federal agencies that are (unlike Congress) subject to the Freedom of Information Act (FOIA) disclosure requirements. This work has yielded important findings on distributive politics (Mills & Kalaf-Hughes 2015), descriptive representation (Lowande et al 2019), agency policymaking (Ritchie 2018; 2023), legislative effectiveness (Kalaf-Hughes 2023), and money in politics (Powell et al 2023). However, the lack of systematic data across all agencies has necessarily limited the range of questions that could be explored with these data.
+Unlike other, more visible forms of congressional representation that have been the subject of substantial scholarly inquiry (roll-call votes, legislative speech, and bill sponsorship), interbranch representation is largely invisible and more difficult to study. Congress has refused to disclose data on this aspect of its work. In recent years, however, scholars have begun to obtain snapshots of this work from federal agencies that are (unlike Congress) subject to the Freedom of Information Act (FOIA) disclosure requirements. Acquiring these data is difficult, but doing so has yielded important findings on distributive politics [@MillsKalafHughes2015], descriptive representation [@LowandeRitchieLauterbach2019], agency policymaking [@Ritchie2018, and @Ritchie2023], legislative effectiveness [@KalafHughes2023], and money in politics [@PowellJudgeLordGrimmer2023]. However, the lack of systematic data across all agencies has necessarily limited the range of questions that could be explored with these data. 
 
-### Constituency service
+## Constituency service
 
-Constituency service is one of the oldest forms of representation, dating back to the earliest congresses when constituents sought assistance with Revolutionary War pensions (Eckman 2025). It has been discussed as an important form of representation in canonical studies of Congress (Fenno 1978) and plays a central role in theories of the incumbency advantage (King 1991). Yet it remains one of the least understood congressional activities. Indeed, nearly forty years ago, Cain, Ferejohn, and Fiorina (1987) began their seminal book The Personal Vote: Constituency Service and Electoral Independence, lamenting the lack of attention to constituency service in the empirical literature. Much of what we know empirically about constituency service still comes from their survey of legislators, legislative staff, and constituents, which is now more than 40 years old. We are able to provide quantitative tests of the effect of patterns documented by Fenno 50 years ago, such as legislators inheriting offices from their predecessors.
+Constituency service is one of the oldest forms of representation, dating back to the earliest congresses when constituents sought assistance with Revolutionary War pensions [@Eckman2025]. It has been discussed as an important form of representation in canonical studies of Congress [@Fenno1978]. Yet it remains one of the least understood congressional activities. @CainFerejohnFiorina1987 began their seminal book *The Personal Vote: Constituency Service and Electoral Independence*, lamenting the lack of attention to constituency service in the empirical literature. Much of what we know empirically about constituency service still comes from their survey of legislators, legislative staff, and constituents, which is now more than 40 years old. For example, we have found no quantitative test of the assertion in @King1991 that constituency service is related to the incumbency advantage or of patterns documented by Fenno 50 years ago, such as the effect of legislators inheriting offices from their predecessors [@Fenno1978].
 
+## Interbranch Dynamics and Congressional Oversight 
 
-### Interbranch dynamics and Congressional oversight
+In recent decades, scholarship on the interaction between the legislative and executive branches has revolved around the concepts of strategic delegation of policymaking authority and appropriation of funds on the front end [@Arnold1979; @EpsteinOHalloran1999; @KiewietMcCubbins1991] and oversight on the back end [@McCubbinsSchwartz1984]. As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship also focuses on principal-agent relationships, with some recent work on descriptive representation [@Minta2011]. <!--TODO MORE ON OVERSIGHT LIT--> 
 
-In recent decades, scholarship on the interaction between the legislative and executive branches has revolved around the concepts of strategic delegation of policymaking authority and appropriation of funds on the front end (Arnold 1979; Epstein and O’Halloran 1999; Kiewiet and McCubbins, 1991) and oversight on the back end (McCubbins and Schwartz, 1984). As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship also focuses on principal-agent relationships, but also includes some work on descriptive representation (Minta 2011).
+Interbranch representation is not about acts of delegation and appropriation, but there are parallels and overlaps. Delegation and appropriation occur through voting, and scholars have shown significant inequalities in who is represented in legislative voting [@Bartels2008; @Carnes2016; @Gilens2012]. Studies of delegation of policymaking authority focus on asymmetric incentives and information across institutions [@EpsteinOHalloran1999; @Fiorina1982;  @McCubbinsSchwartz1984]. Interbranch representation is often aimed at improving legislator information and attempting to shape policy post-delegation in ways that were not possible within the legislative process [@Ritchie2018; and @Ritchie2023]. Other classic studies of the relationship between Members of Congress and federal agencies focus on appropriations [@Arnold1979; @KiewietMcCubbins1991]. This includes the presidential pork [@BerryBurdenHowell2010] and earmarking. Whereas earmarks are (in theory) a feature of annual appropriations legislation, a parallel dynamic of Members of Congress making requests for their district occurs on a daily basis through interbranch representation. Indeed, when legislative earmarks were banned, legislators likely turned to interbranch representation activities, such as "lettermarking" [@MillsKalafHughes2015]. 
 
+While interbranch representation encompasses many forms of oversight, it is broader than activities traditionally considered oversight (e.g., hearings, investigations, sanctions). A small share of congressional interactions with bureaucrats concern issues that rise to the level of hearings and investigations. The vast majority are interventions in the agency's day-to-day operations [see, e.g., @Lowande2018APSR; @LowandePotter2021]. Agencies are constantly engaged in maintaining their political coalitions and reputations [@Carpenter2001; @Carpenter2014], by, for example, tagging all incoming requests from members of Congress as "VIP" and implementing protocols for rapid responses. An interbranch representation perspective broadens the concept of oversight to encompass not only occasional hearings and oversight reports prompted by crises and scandals but also daily requests for information and comments on implementation.
 
-Interbranch representation is not about acts of delegation and appropriation, but there are parallels and overlaps. Delegation and appropriation occur through voting, and scholars have shown significant inequalities in who is represented in legislative voting (Bartels 2009; Carnes et al 2016; Gilens 2012). Studies of delegation of policymaking authority focus on asymmetric incentives and information across institutions (Epstein and O’Halloran 1999; Fiorina 1982; McCubbins and Schwartz, 1984). Interbranch representation is often aimed at improving legislator information and attempting to shape policy post-delegation in ways that were not possible within the legislative process (Ritchie 2018; 2023). Other classic studies of the relationship between Members of Congress and federal agencies focus on appropriations (Arnold 1979; Kiewiet and McCubbins, 1991). This includes the presidential pork (Berry et al 2010) and earmarking. Whereas earmarks are a feature of (in theory) annual appropriations legislation, a parallel dynamic of Members of Congress making requests for their district occurs on a daily basis through interbranch representation. Indeed, when legislative earmarks are banned, legislators likely turn to activities we call interbranch representation, such as "lettermarking" (Mills and Kalaf-Hughes 2015). As with earmarking in appropriations, we show that institutional power contributes to inequalities in interbranch representation.
+## Representation 
 
+Representation is most often studied as the congruence between legislators’ roll-call votes and constituents’ policy preferences [e.g., @MillerStokes1963; @Clinton2006; @AnsolabehereJones2010], with congruence constituting normatively "good" representation and suggesting that legislators are responsive to their constituents’ preferences. Studies of other forms of representation also assess congruence between constituents and legislators. 
+<!--TODO rephrase--> 
+Work on descriptive representation has assessed responsiveness on the basis of key identities [e.g., @BowenClark2014; @Canon1999], including responsiveness through interbranch representation [@LowandeRitchieLauterbach2019].  Scholarship on representation and inequality has found that legislators are more responsive to donors [@Gilens2012] and less responsive to less influential constituency groups [@Miler2010] and the poor [@Miler2018]. For these commonly studied forms of representation, public voting records make it possible for scholars to measure congruence or responsiveness.
 
-While interbranch representation encompasses many forms of oversight, it is broader than activities traditionally considered oversight (e.g., hearings, investigations, sanctions). A small share of congressional interactions with bureaucrats concern issues that rise to the level of hearings and investigations. The vast majority are interventions in the agency's day-to-day operations (see, e.g., Lowande 2018; Lowande and Potter 2018). Agencies are constantly engaged in maintaining their political coalitions and reputations (Carpenter 2001, 2014), by, for example, tagging all incoming requests from members of Congress as “VIP” and implementing protocols for rapid responses. An interbranch representation perspective broadens the concept of oversight to encompass not only daily requests for information and implementation instructions, but also less frequent hearings and oversight reports prompted by crises and scandals.
+Over the last few decades, scholars have begun to evaluate other forms of representation, ranging from legislators’ speech [@Grimmer2013; @GrimmerWestwoodMessing2014] to evaluating legislative effectiveness as a measure of the "quality of representation" [@VoldenWiseman2014; @CasasDennyWilderson2019]. Constituency service, on the other hand, has been studied primarily as a means for legislators to win reelection [@Fiorina1977]. In this view, legislators’ responsiveness to constituent requests is not a form of representation but an electoral activity that also serves legislators. Only recently has quantitative scholarship begun to view constituency service as a form of representation [@Snyder2024]. A large number of field experiments have uncovered distortions in legislators’ responsiveness to constituents for the sharing of policy opinions [@ButlerDynes2016; @HendersonHertelFernandezMildenbergerStokes2023], requests for meetings with legislators [@KallaBroockman2016], and requests for constituency service [@ButlerBroockman2011; @Lajevardi2020; @GarciaSadhwani2023]. Most of these studies, however, have been conducted on state legislators, and their results may not be generalizable to Members of Congress. Moreover, writing back to a constituent may not be the same as taking more substantive actions, such as intervening with a federal agency, on their behalf. 
 
+We build on and complement this literature on representation and responsiveness by documenting and explaining inequalities in interbranch representation, broadly construed, across all members of Congress, across all federal agencies, and across all forms of interbranch representation. 
 
-### Representation
+<!-- MOVE TO INTRO OR CONCLUSION 
+Studying constituency service alongside other forms of interbranch representation can allow us to better understand what trade-offs, if any, legislators may face when providing representation to constituents. 
 
-Given the difficulties inherent in studying constituency service, representation has long been studied by assessing the congruence between legislators’ roll-call votes and constituents’ policy preferences (Miller and Stokes 1963; Clinton 2006; Ansolabehere and Jones 2010). Research on descriptive representation has likewise focused on who is or is not being represented, as well as assessing potential trade-offs between descriptive and substantive representation (e.g., Canon, 1999), though more recent work has studied how descriptive representation affects legislators’ other activities, including interbranch representation (Lowande et al 2019). Some of this research focuses on distortions to folk theories of representation. For example, scholars of inequality focus on how legislators represent donors over constituents (Gilens 2012).
+<!--
+## The "Folk Theory" of Model Representation
 
+We seek to explain inequalities in interbranch representation by contrasting a "folk theory" of model representation with theories that account for legislators’ \textbf{strategic motivations and capacity}. One of the central elements of interbranch representation-- constituency service--is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. In this view, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. The intuition here is that staff understand their job to be responding to all constituent requests. This is what we call the \textbf{Naive Folk Theory}: 
 
-Over the last few decades, scholars have begun to evaluate other forms of representation, ranging from legislators’ speech (Grimmer 2013; Grimmer et al 2014) to evaluating legislative effectiveness and quality of representation (Volden and Wiseman 2014, Casas et al 2019). Only recently has quantitative scholarship begun to view constituency service as a form of representation (Snyder 2024). A large number of field experiments have uncovered distortions in legislators’ responsiveness to constituents for the sharing of policy opinions (Butler and Dynes 2016; Henderson et al. 2021), requests for meetings with legislators (Kalla and Broockman 2016), and requests for constituency service (Butler and Broockman 2011; Lajevardi 2020; Garcia and Sadhwani 2023).
+\begin{hypothesis}[Naive Folk Theory: Proportional Representation]
+\label{hyp:naivefolk} Interbranch representation is proportional to district population. 
+House: no variation in interbranch representation. Senate: Interbranch representation proportional to state population. 
+\end{hypothesis}
 
+This naive folk theory would expect no variation in interbranch representation in the House, where all legislators represent roughly the same number of constituents. In the Senate, however, it would expect interbranch representation proportional to the number of constituents a Senator represents. In this naive folk theory world, legislators are simply responding to all constituents in an even and apolitical manner. Existing research, however, suggests that such a view of legislative behavior as non-strategic (and in the strong form unconstrained) may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve reelection [e.g., @Mayhew1974;  @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security, with less electorally secure legislators engaging in more contact with the bureaucracy.
 
-We build on and complement this nascent expanded representational literature by documenting and explaining inequalities in interbranch representation. Our book is the first comprehensive effort to explain interbranch representation broadly construed–across all members of Congress, across all federal agencies, and across all forms of interbranch representation.
+Two additional features of the "Naive Folk Theory" are also unrealistic. First, the model representatives envisioned by this "Naive Folk Theory" would be assumed to have similar levels of institutional capacity with which to serve their constituents and engage in interbranch representation. In practice, however, members of Congress differ when it comes to the resources and staff at their disposal to support this work. Similarly, in this "Naive Folk Theory" world, the model representatives would also represent constituents with similar demands to their representatives. Yet in the real world, we might expect constituent demands to vary across districts. 
 
-
-## Explaining inequalities in interbranch representation
-
-We seek to explain inequalities in interbranch representation by contrasting a “folk theory” of model representation with theories that account for legislators’ strategic and ideological incentives. Constituency service is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the “logic of appropriateness” that characterizes bureaucracies (March and Olsen 1989). In this view, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. Any inequalities in interbranch representation would thus be attributable primarily to differences in constituent demand for service. And while changes in legislator capacity may allow legislators to engage in more interbranch representation, this folk theory grounded in the logic of appropriateness would dictate that legislators would merely do more of the same kinds of activities.
-
-
-Existing research, however, suggests that such a view of constituency service may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve re-election (e.g. Mayhew 1974; Cain, Ferejohn, and Fiorina 1987; Fiorina 1977; Fenno 1973). Other research dating from the 1970s and 1980s has largely supported this claim (Serra and Cover 1992; Serra and Moon 1994), and more recent work suggests that legislators behave as though constituency service has electoral benefits (Dropp and Peskowitz 2012), just as senators tailor their communications based on their electoral concerns (Grimmer 2013). We therefore expect that legislators’ interbranch representation activities will vary according to their electoral security, with less electorally secure legislators engaging in more contact with the bureaucracy.
-
-
-Importantly, the model representatives envisioned by this “folk theory” would be assumed to have similar levels of institutional capacity with which to serve their constituents and engage in interbranch representation. In practice, however, members of Congress differ when it comes to the resources and staff at their disposal to support this work.
-
-
-Because this “folk theory” of model representatives explains only the provision of constituency service, it is also inadequate for explaining inequalities in interbranch representation involving policy. Here, too, legislators’ goals and strategic efforts are likely to be important.
-
-
-
-
-::: {.content-hidden unless-meta="book-content”}
-
-
-Electoral Security
-Staff Capacity
-District Need
-Other Legislator Factors
-Other Institutional Factors (e.g., majority, president)
-Specific Agencies for Case Studies
-Individual constituency service (1)
-Yes–but logic of this depends on visibility of constituent service (or at least recipients of service telling others about it), so if this form of representation isn’t “visible,” then maybe not
-
-
-This problem might not be as bad if we’re not emphasizing the “invisible” nature of the representation as much (though it does still take place behind the scenes)
-
-
-Yes: populations (veterans, immigrants, seniors)
-Yes: descriptive representation (race, gender, veteran status)
-
-
-VA, USCIS
-Corporate constituency service (2)
-Yes (donors)
-
-
-
-
-
-
-The President’s party may be able to secure contracts
-
-
-Nonprofit/local government service (3)
-
-
-
-
-Yes: universities, local govt. needs; organized interests may also play a role
-
-
-The President’s party may be able to secure grants
-Some DOT subagencies mention specific local governments applying for grants
-Corporate policy (4)
-Yes (donors)
-
-
-
-
-
-
-Minority backchannel
-
-
-Policy (5)
-
-
-Would probably matter for all of these? Would depend on the makeup of each legislator’s staff - do we have a way to measure this?
-
-
-Lowande et al. (2019) look at contacts without differentiating them by type as we do, so descriptive representation may matter for policy as well (and based on other literature)
-Yes: minority party legislators may be more likely to exert influence over policy through the bureaucracy since their ability to do so legislatively is limited
-
-
-Party of the president may also matter: opposite-party legislators may do more monitoring of the executive branch by contacting the bureaucracy
-
-
-
-
-
-
-Chapter 2: Theory
-
-
-[do more to explain why we are looking at distinct and sometimes-overlapping explanations for each type of invisible representation: need to explain that these are fundamentally different activities but, for many reasons, not mutually exclusive: e.g. given the appropriate staffing capacity, electoral concerns, and district needs, a legislator could do both a lot of constituent service and policy contact–maybe mostly because these are done by different parts of their offices and are just designed to serve different purposes?]
-* Fenno and other research on representational/staffing/etc. “styles”: like these other behaviors, the representational behaviors that we are studying can be idiosyncratic and dependent upon a number of different factors
-
-
-The activities that we have described as “invisible representation” can serve a number of functions for members of Congress. Contact with the bureaucracy on behalf of individuals for the purpose of constituency service allows legislators to monitor the functioning of the bureaucracy, as occurred in 2020 when constituents reported delays involving the U.S. Postal Service and members of Congress wrote to USPS demanding answers for their constituents. [maybe also mention something about the 2014 VA scandal here to illustrate the importance of the bureaucracy functioning properly?] And while legislators often make these contacts public through their constituent communications [cite the paper with Jessie and/or Jessie’s research here], this “invisible representation” also affords legislators opportunities to engage in work that is more difficult for the public to scrutinize. Beyond advocating for constituents, which is seen as a core component of legislators’ jobs, legislators may also advocate on behalf of donors or push for policies out of direct view of the public eye.
-
-
-What explains these inequalities in invisible representation? Our theory highlights electoral security, staff capacity, and district demand as the main potential drivers of legislators’ contacts with the bureaucracy for various purposes, as well as the idiosyncrasies of individual legislators as a potential alternative explanation. However, in contrast to previous research that has examined how these and other factors motivate legislators’ public-facing activities, we identify the unique ways in which these factors may also motivate behind-the-scenes representational work. The nature of our data also allows us to examine the relationship between Congress and the bureaucracy in a less common light—namely, how individual legislators seek to influence the bureaucracy, as opposed to how Congress as an institution interacts with the bureaucracy.
-
-
-[could almost frame this as a contrast to other studies that look at legislators’ motivations for engaging in public-facing activities like floor speeches or constituent communications - e.g. Maltzman and Sigelman 1996, Grimmer 2013, others]
-
-
-1. Constituent service is both a way for legislators to monitor the functioning of the bureaucracy and to gain support from constituents. Legislators might do more policy work in areas in which they also do more constituent service because of high constituent demand, problems within the bureaucracy, or personal interest in that policy area. Could also do this for electoral reasons, but if constituent service works that way already (evidence is mixed), more policy work might not be necessary (especially if we use policy-related letters as the measure - that's more behind-the-scenes work).
-2. Electoral/party fundraising concerns would be the main factor on the donor side. Legislators might do more policy work in areas in which they also write more to agencies on behalf of donors to signal their investment in these policy areas.
-
-
-Congress, the Bureaucracy, and Interbranch Representation
-
-
-Our data on legislators’ communications with federal agencies allow us to depart from previous studies that have primarily examined how Congress as an institution affects the bureaucracy, particularly the implementation of policy (e.g. Acs 2019; Clinton, Lewis, and Selin 2014; MacDonald 2013), and instead examine how individual legislators pursue a broader array of goals through this work. An emerging literature has focused on communications between individual legislators and the bureaucracy, showing that these contacts can be a vehicle for descriptive representation (Lowande, Ritchie, and Lauterbach 2019) and distributive benefits or “letter-marking” (Mills and Kalaf-Hughes 2015; Mills, Kalaf-Hughes, and MacDonald 2016).
-
-
-
-
-1. Previous work has explored how Congress as an institution can influence the actions of the bureaucracy:
-1. Congress has less influence over bureaucratic policy when a greater number of committees is involved in the process (Clinton, Lewis, and Selin 2014) (but this research is mostly at the committee level [focuses on the structure of the committee system] and does not consider individual legislators’ attempts to influence bureaucratic policy)
-1. Congress exerts influence over bureaucratic policy through limitation riders, particularly under divided government (MacDonald 2013)
-2. Congress can also influence bureaucratic policy through legislative vetoes, also under divided government (Acs 2019)
-
-
-[also mention other studies that have looked at contacts between individual legislators and the bureaucracy: Lowande, Ritchie, and Lauterbach (2019), Mills and Kalaf-Hughes, others]
-
-
-What Explains Inequalities in Invisible Representation?
-
-
-
-
-Existing research suggests a number of factors that are likely to affect how legislators represent constituents, advocate on behalf of their donors, and work to advance policy goals through their contact with the bureaucracy. Some are factors specific to individual legislators like electoral concerns, personal characteristics, and district need, while others, like staff capacity or majority/minority party status, are more closely tied to Congress as an institution.
-Electoral Security
-Building on Mayhew’s (1974) argument that legislators pursue re-election as a goal through credit-claiming and position-taking, as well as allocating money to their districts, scholarship has explored re-election as an explanation for various types of legislative behavior. Constituency service has long been assumed to be a key part of the “personal vote” that helps legislators gain support from constituents in a way that is less closely related to policy (Cain, Ferejohn, and Fiorina 1987; Fiorina 1977). Early research supports the idea that providing constituency service has electoral benefits for legislators (e.g. Serra and Cover 1992; Serra and Moon 1994), and more recent work shows that, regardless of whether constituents may still respond to constituency service in this way, legislators behave as though constituency service has electoral benefits (Dropp and Peskowitz 2012), just as senators tailor their constituency communications based on their electoral security (Grimmer 2013). However, there is also some contemporary evidence that greater electoral security is associated with greater constituency service responsiveness (Butler, Karpowitz, and Pope 2012).
-
-
-[something about how the behind-the-scenes nature of our data may affect legislators’ strategically responding to constituency service requests - while everything our data captures is an actual response to an inquiry from a constituent, it may also include repeated contacts in ways that can capture the complexity of a single case and the amount of time and resources that the legislator and their staff are dedicating to constituency service? Maybe also bring in Butler and Broockman (2011) here and discuss their finding that legislators are not strategically discriminating in their responses]
-
-
-Fewer studies have examined how these forms of representation may work together, but Harden (2013) argues that legislators emphasize policy, service, allocation, and descriptive representation according to their electoral needs. Butler, Karpowitz, and Pope (2012) find that, in general, legislators are more responsive to service-related requests from constituents than they are to policy-related requests, with this pattern being particularly pronounced among Democrats in Congress.
-Staff Capacity
-As we have established, congressional staff play a major role in the provision of constituency service. For this reason, staff capacity is likely to be particularly important for legislators’ communications with the bureaucracy on behalf of both individuals and other constituents, like nonprofit organizations and local governments, whose requests may require specialized knowledge among congressional staff.
-
-
-2. Crosson et al. (2021) show that legislative capacity, as measured using congressional staff, has withered over time among legislators of both parties; correspondingly, constituency service staff capacity has increased. They attribute this decline in legislative capacity to “centralized legislative power in an era of insecure majorities” (747).
-1. [this may be more useful in setting up why constituency service matters?]
-
-
-Existing work suggests that staff capacity is also likely to matter for legislators’ policy-related communications with the bureaucracy.
-3. Experience among senior committee staff matters for committees’ legislative productivity (Ommundsen 2023), suggesting that individual legislators with similarly experienced staff may also be more productive in a variety of ways. [what are the implications of this finding for our data? Would more experience among senior policy staff make legislators more or less likely to contact the bureaucracy about policy matters? Would this work in the same way for constituent service?]
-4. Butler, Karpowitz, and Pope (2012) find that the structure of legislative offices affects their responsiveness to constituency service and policy inquiries (interns remarked that supervisor approval was often required for responses to policy letters)
-
-
-District Need
-
-
-
-
-Other Legislator-Related Factors
-
-
-Other Institutional Factors
-
-
-
-
-
-
-5. Why would some legislators do more of these activities than other legislators? What explains inequality in representation?
-1. Gender and race:
-1. Ban and Kaslovsky (2024)
-2. Eatough and Preece (2024) find that traditional measures of legislative effectiveness, which focus on bill sponsorship and passage alone, undervalue the work of women legislators and Black legislators, whose work in the legislative process involves less visible tactics such as cosponsorship and amendments.
-2. Ideology:
-1. Alexander, Berry, and Howell (2016) - greater ideological extremity = less federal money
-3. Majority/minority party status (especially for policy)
-1. Majority party status is a key determinant of legislative effectiveness, defined as a legislator’s ability to move bills through the legislative process (Volden and Wiseman 2014). As a result, minority party legislators may be more likely to use back-channel means of advancing their policy and representational goals.
-4. District need/demand (for individual, corporate, and nonprofit/local government constituency service)
-2. Constituency service:
-1. District demand
-2. Staff structure?
-3. Electoral concerns (though evidence that constituency service helps with re-election is mixed)
-3. 501c3/local government service:
-1. District need
-2. Cooperation within state delegations? [would we expect these actions to be coordinated? Do we actually see such coordination in our data?]
-3. Electoral concerns
-1. Kaslovsky and Stone (2024)
-2. Leah Rosenstiel’s paper from our MPSA panel will help with this (even if we can’t cite it yet)
-4. Organized interests? Lowry and Potoski (2004)
-1. For nonprofits and local governments, district need may also appear in the form of organized interests that are active in legislators’ districts or as part of their donor base.
-5. Type of agency? Anderson and Potoski (2016) (although the breadth of our data across agencies may make this point unnecessary)
-6. Chamber differences - Lee (2004) finds that senators have an easier time claiming credit for grants than House members (more useful for House members to pursue earmarks)
-1. Also Bertelli and McCann (2018)
-4. Corporate constituency service and policy:
-1. Electoral/party fundraising concerns
-5. Policy:
-1. Partisan control of the presidency (see above)
-2. Congressional gridlock - non-legislative solutions more likely (Bolton 2022)
-3. Lowande and Potter (2019)
-4. Guenther and Searle (2019) find a trade-off between policy work and earmarks (not sure where this would fit in our theory)
-6.
-
-Something at some point about constituency service as a party-building activity from the late 19th century “machine politics” era in the U.S. and in other countries more recently?
-
-
-Beyond the basic provision of individual constituency service as a strategy for shoring up electoral support, legislators may also engage in other specific forms of interbranch representation for different electoral reasons. Members of Congress may pay particular attention to the interests of their donors and other core constituencies when taking actions on behalf of corporations and nonprofit organizations. While there is little evidence legislators trade corporate campaign donations for votes on legislation, there is research showing that legislators are responsive to their donors in other ways, including speech.
-
-
-Other literature to cite:
-* Crosson and Kaslovsky (2025): members of Congress with local ties do more constituency work and less policy and party-related work (shows that legislators make decisions and trade-offs about how to allocate their time between these kinds of activities–especially for reasons other than electoral ones)
-*
-
-*
-
-
-
-
-
-
-
-Electoral security
-Staff capacity
-District demand
-Other legislator factors
-Folk theory
-Would not matter
-Would matter (legislators would do more because they are able to do more) but, frankly, not usually considered.
-Would matter (primary driver if this comes down to responsiveness)
-
-
-Policy interests: probably not if legislators are trying to be responsive. Constituents’ policy interests might be captured in district demand (if we broaden our measure).
-Legislators’ goals
-Would matter (re-election)
-
-
-May be differentially responsive.
-Policy interests: would matter (pursuing goal of making good public policy)
-
-
-
-
-
-
-
-
-Folk theory (responsive to aggregated district demand, constrained by capacity)
-reelection
-Partisanship/Ideology
-Influence of Money/Donors
-Policy interests beyond those of the district
-overall
-District population x capacity explains volume - distribution may depend on will work with agencies that they
-May do more in close races (higher quality and/or working harder)
-Co-Partisan President affects volume. Perceived ideology of agency affects distribution.
-More time fundraising takes overall capacity = less work overall
-Will work with agencies they care about ahead of joining the committee
-Will work with agencies they talk about more in speeches?
-Indiv const
-District population x capacity explains volume - distribution may depend on will work with agencies that they
-May do more in close races (higher quality and/or working harder)
-Valorized/stigmatized x Partisan effects
--prioritizing co-partisans; certain types of constituents
-
-
-Small-dollar fundraisers will do more than big-dollar fundraisers, all else equal
-
-
--
-Corp const
-By industry
-Will do more for donors
-Will do more for party donors/ideological allies
-Will do more for donors
--
-nonprofit
-Varies only with the number in district seeking help (e.g., grant applications
-
-
-
-
-
-
--
-Corp policy
-Varies only with share of industry in district
-Will do more for donor industries
-Will do more for donors/allies
-Will do more for donor industries
-Unequal
-Policy-General
-Depends on committee chairship / staff
-Shift away from policy in tight races
-Will do more for party aligned industries / ideological allies
-
-
-Will work with agencies they care about ahead of joining the committee
-
-
-:::
-Notes
-::: {.content-hidden}
-
-
-Maybe we can just kind of take these components of interbranch representation–the interbranch part, the representation part, and the relative invisibility–and carry that structure over into the measurement chapter and talk about those three components as they relate to measurement, rather than the theoretical underpinnings and expectations (as we might do in the theory chapter)? And we can preview the theory & measurement dimensions of each of these components in the intro chapter.
-
-
-Here we break down our concept of interbranch representation into its three key components–its interbranch function, and its role in representation, and its behind-the-scenes nature–and explain how each of these elements influences our theory about inequalities in interbranch representation.
-
-
-Interbranch Activities
-
-
-
-
-
-
-Representation and Interbranch Activities
-
-
-
-
-
-
-The Relative Invisibility of Interbranch Representation
-
-
-General outline:
-* What is interbranch representation?
-* Interbranch component
-* Activities involving more than one branch of government are a necessary part of the American constitutional system of checks and balances. The shared lawmaking, war, appointment, and treaty powers of Congress and the president are the hallmarks of a system that Richard Neustadt (1960, PAGE NUMBER) described as “separated institutions sharing powers.” Scholarship on the relationship between Congress and the president and Congress and the bureaucracy has long explored the tensions that arise from such a system.
-* How other studies have looked at interbranch activities and why it matters:
-* Oversight (but often involves hearings, which are more public and politicized)
-* Constituency service as an interbranch activity (Fiorina - allows Congress to monitor and address the bureaucracy’s shortcomings)
-* Influencing policy outside of the regular channels (Ritchie)
-* Most other studies (excluding Ritchie) examine only one type of interbranch activity at a time. [Studies with similar data either did not disaggregate the communications into different types of interbranch activities (Lowande et al. 2019) or examined only interbranch activities related to policy (Ritchie).]
-* Theoretically, what does putting all of these different types of interbranch activities under one umbrella do?
-* We are looking at requests that members of Congress make of the bureaucracy (more through the lens of a particular action than the lens of a specific purpose, like oversight, which can take forms beyond that of the communication that we are studying here). Communication with the bureaucracy is one type of action through which legislators can engage in interbranch activities for a number of different purposes. In Chapter 3, we will discuss each of these purposes and how they exist in our data in more detail.
-* The activity we’re looking at is obviously interbranch because it involves members of Congress contacting the bureaucracy and attempting to influence either bureaucratic processes or policy on behalf of their constituents.
-* Not fully oversight (though there is some of that in there)
-* Not really cooperation - legislators are asking bureaucrats to address their constituents’ concerns (often because constituents have not been able to get a resolution to a problem directly from the agency), and legislators do technically have their control of the agency’s budget as leverage [but probably more likely that bureaucrats respond to to “logic of appropriateness” within the agency]
-* Discuss principal-agent problem
-* Compared to these very public interbranch activities, interbranch representation likely offers fewer opportunities for legislators to grandstand, claim credit, or otherwise share their work with their constituents and the rest of the public.
-* Representation component:
-* Why is this representation?
-* Straightforward for types 1-4, but slightly tricker for type 5. Two options:
-* We argue that legislators are providing general policy representation to their constituencies through this work (consistent with the findings of the AJPS article). [This puts us in the potentially sticky situation of having to figure out what it is that legislators’ constituents want in terms of policy.]
-* We argue that interbranch policy work is a different channel through which legislators can engage in legislative(-ish) work–essentially, we’d be looking at inequalities in a different activity done through the same channels as the representation work. (This seems to be consistent with the theory of the AJPS paper, which positions constituency service and policy work oppositionally.)
-* Argument for types 1-4: it captures legislators’ being responsive to constituent requests (cite responsiveness literature).
-* Argument for type 5: it involves legislators’ taking an active role in shaping policy, which will presumably affect their constituents in some way.
-* How is this different from other forms of representation? How does it overlap with other forms of representation?
-* What does normatively “good” interbranch representation look like?
-* Some assumption that a greater volume of interbranch representation is inherently normatively good–it means that Congress is working to represent constituents and affect policy (countering narratives of a broken institution).
-* But not all interbranch representation is going to be good for constituents (e.g. Allyson Schwartz asking ICE to investigate constituents) - maybe pull out a few examples (here or throughout?) of things like this. Complicates the concept of representation: is it about a means (responding to constituent requests) or an end (pursuing outcomes that you want)?
-* Addressing Molly’s comments:
-* Need to hammer the point that more interbranch representation means that Congress is working
-* Doing more behind-the-scenes work (especially constituent service, which naturally happens behind the scenes) does not necessarily mean that legislators are doing less visible work–we are not making any claims about that. Significant contrast with Ritchie (2018), where she shows that legislators are engaging in back-channel policymaking to avoid scrutiny for actions that could be politically problematic. Legislators are doing constituency service anyway–it just takes place behind the scenes.
-* Point about the bureaucracy not working well if members of Congress need to do more constituency service? Maybe, but the bureaucracy is never going to be perfect, and interbranch representation does suggest that the bureaucracy works eventually. We’re also not really trying to make any claims about how the bureaucracy works per se–we’re just looking at how members of Congress interact with it in this specific way.
-* Could maybe make the point that it matters that Congress (as an elected branch) is doing this work to resolve constituents’ problems, rather than the bureaucracy, because Congress is supposed to be closer to the people. Constituents are deeply grateful for this kind of assistance; this has the potential to improve people’s trust in government (cite some stuff other than my dissertation here).
-* Behind-the-scenes component:
-* The primary characteristic of interbranch representation that sets it apart from other interbranch activities and other forms of representation is its largely invisible nature. Although legislators do sometimes claim credit for constituency service and communicate publicly about letters they send to federal agencies, the routinized and near-constant quality of this work is hidden from public view. Congress has refused to disclose data on this aspect of its work, which would involve making itself subject to the Freedom of Information Act (FOIA) as most federal agencies are.
-* Most other studies of representation rely on legislators’ actions being visible in some way so that constituents can react to them (cite lots of studies here). How does the largely invisible nature of this work change how we think about this activity as representation?
-* Legislators’ motivations may be more important than the potential rewards they could reap from this? [I feel like this is in line with both our theory and our findings.]
-* Representation is unknown in other contexts (trustee model, surrogate representation)
-* What explains inequalities in interbranch representation?
-* Demand
-* Capacity
-* Motivation
-
-
-
-
-Theory - Capacity + Priorities (motivations/goals)
-
-
-In the AJPS paper we look at capacity and priorities. Priorities in the AJPS paper is a tradeoff between policy-work and constituency service. We look at what happens when a legislator gains power, resulting in a simultaneous shift in capacity and priorities.
-
-
-
-
-
-
-We introduce a new theory of Capacity and Motivation to explain interbranch representation.
-
-
-Elements of Capacity: experience, leadership position, & staff allocation.
-* Capacity limits how much a member can do.
-
-
-Priorities:
-1. Policy
-2. Constituency Service
-3. Electoral
-
-
-
-
-For MPSA paper: We’re looking at electoral vulnerability. Oversight relationship. Partisanship, Same part of president. Presidential pork. Ideology effects.
-
-
-Prediction of backchannel – people in minority should be doing a lot more of this. Does that also apply to broader measure beyond the policy stuff that ritchie looked at?
-
-
-Table that shows to what domains do different theories apply.
-
-
-Do we want a separate theory for the MPSA paper and for the book? How connect?
-
-
-:::
-Should we fold ideological alignment with agency into this bucket?
-could pull apart with diff in diff where districts become more competitive. how much inequality is in the member fixed effect, district fixed effect, or change in electoral competition
-
+--> 
 
 
 ## A Unified Framework: Unequal Demand, Unequal Capacity, and Strategic Motivations
