@@ -1,0 +1,33 @@
+\makeatletter
+\AtBeginDocument{%
+  \renewcommand{\author}[1]{}%
+  \def\@author{%
+    Devin Judge-Lord\thanks{Assistant Professor, Ford School of Public Policy, University of Michigan. Corresponding author: \href{mailto:judgelor@umich.edu}{judgelor@umich.edu}} \and
+    Eleanor Neff Powell\thanks{Associate Professor and Letters \& Science Nancy Obin Sukenik Chair, Department of Political Science, University of Wisconsin-Madison} \and
+    Rochelle Snyder\thanks{Assistant Professor, Department of Political Science, Coe College}%
+  }%
+}
+\makeatother
+\usepackage{changepage}
+\usepackage{amsthm}
+
+\newtheoremstyle{indented}
+  {0em}{1.5em}{\itshape}{0em}{\bfseries}{.}{ }%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{- \bfseries#3}}
+\theoremstyle{indented}
+
+\newtheorem{innerhypothesis}{Hypothesis}
+\newtheorem{innersubhypothesis}{Hypothesis}[innerhypothesis]
+\renewcommand{\theinnersubhypothesis}{\theinnerhypothesis\alph{innersubhypothesis}}
+
+\newenvironment{hypothesis}[1][]%
+  {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innerhypothesis}[#1]}%
+  {\end{innerhypothesis}\end{adjustwidth}}
+
+\newenvironment{subhypothesis}[1][]%
+  {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innersubhypothesis}[#1]}%
+  {\end{innersubhypothesis}\end{adjustwidth}}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{setspace}
+

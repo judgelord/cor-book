@@ -18,7 +18,8 @@ book:
   cover-image: assets/cover.png
   chapters:
      - index.md
-     - Chapter 1 - Intro.md
+     - acknowledgements.md
+     - Chapter 1 - Intro.qmd
      - Chapter 2 - Theories of Interbranch Representation.qmd
      - Chapter 3 - Measuring (Invisible) Interbranch Representation.qmd
      - Chapter 4 - Unequal Interbranch Representation.qmd
@@ -27,7 +28,7 @@ book:
      - Chapter 7 - Representing Nonprofits and Local Governments.qmd
      - Chapter 8 - General Policy Work.qmd
      - Chapter 9 - Policy Work on Behalf of Business.qmd
-     - Chapter 10 - Conclusion.md
+     - Chapter 10 - Conclusion.qmd
      - references.md
   appendices:
      - Appendix.qmd

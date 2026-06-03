@@ -15,7 +15,7 @@ format:
     pdf-author: "Devin Judge-Lord, Eleanor Neff Powell, Rochelle Snyder"
     keep-tex: false
     include-in-header:
-       - header.tex
+       - assets/header.tex
 linestretch: 1.5
 number-sections: true
 number-depth: 2
@@ -33,7 +33,7 @@ execute:
 
 ```{r knit-options, include=FALSE}
 # copy to docs
-file.move(from = "article-version.pdf", to = here::here("docs", "interbranch.pdf"), overwrite = T)
+file.copy(from = "article-version.pdf", to = here::here("docs", "interbranch.pdf"), overwrite = T)
 
 here::here("code", "formatting.R") |> source()
 
