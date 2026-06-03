@@ -79,7 +79,7 @@ For data on electoral competitiveness, we use data from @Thomsen2023 on vote sha
 Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate cross-sectional differences. For within-legislator differences, we also include legislator-agency fixed effects, so coefficients represent the change in the number of requests per legislator per agency per year. 
 
 Our analysis is generally at the legislator-agency-year level.
-In @tbl-hypotheses, we set out expectations for differences across members and within-member variation.^[We drop ten member-year level observations where members switched chambers mid-congress.] 
+In our hypotheses, we set out expectations for differences across members and within-member variation.^[We drop ten member-year level observations where members switched chambers mid-congress.] 
 We thus estimate both cross-sectional and difference-in-differences regressions, similar to the specifications in @BerryFowler2016. 
 Tests for differences within legislator-agency pairs take a form similar to @eq-diff1 (with additional variables, such as those relating to elections, that decrease the number of observations included only in some specifications). However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent, we must rely on cross-sectional estimates (@eq-diff1 without $\gamma_{ij}$). 
 

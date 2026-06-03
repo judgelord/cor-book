@@ -1,16 +1,18 @@
-# General Policy Work
+# Policy Work on Behalf of Business
 
 
 ::: {.content-hidden unless-meta="book-content"}
 
-> ABSTRACT: Stark differences in the amount of policy work legislators do is driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+> ABSTRACT: Policy work on behalf of businesses, in some ways, looks like other policy work (chairs, ranking members, and oversight committee members do more). In other ways, it is distinctly more partisan; having a co-partisan president is a much stronger predictor.
 
 :::
 
+```{r knit-options, include=FALSE}
+type = 4
+load(here::here("data", type, "means.Rdata"))
 
-
-
-
+here::here("code", "formatting.R") |> source()
+```
 
 ## Results
 
@@ -281,8 +283,3 @@ knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
 ```
 
 
-
-
-
-
-Following the overall pattern, but perhaps more surprising, LES scores are weakly correlated with policy work that legislators do in terms of contacting federal agencies for information and following up on policy implementation (e.g., through rulemaking).

@@ -8,7 +8,12 @@
 :::
 
 
+```{r knit-options, include=FALSE}
+type = 2
+load(here::here("data", type, "means.Rdata"))
 
+here::here("code", "formatting.R") |> source()
+```
 
 Work on behalf of individual businesses is often on behalf of businesses in the legislators’ districts, but it may also include out-of-district campaign donors. Similar to the overall pattern, corporate service is correlated with bill sponsorship and the other components of LES scores, but this correlation is driven by the top 10% of legislators who advocate on behalf of corporate constituents.
 
