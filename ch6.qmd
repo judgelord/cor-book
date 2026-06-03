@@ -1,19 +1,16 @@
 # Representing Businesses
 
-
-::: {.content-hidden unless-meta="book-content"}
-
-> ABSTRACT: What explains unequal levels of constituency service on behalf of businesses? We find that how members represent corporate constituents is consistent with theories of committee assignments as an electoral subsidy (Grimmer and Powell 2013) and the role of committee positions in distributive politics. Legislators provide more particularistic service to businesses on behalf of agencies that their committees oversee. Also consistent with theories of distributive politics and presidential pork (Berry et al 2009), when a co-partisan comes into the White House, members appear to write more to executive-branch agencies. We plan to explore the role of corporate campaign contributions in explaining business representation.
-
-:::
-
-
 ```{r knit-options, include=FALSE}
 type = 2
 load(here::here("data", type, "means.Rdata"))
 
 here::here("code", "formatting.R") |> source()
 ```
+
+::: {.content-hidden unless-meta="book-content"}
+
+> ABSTRACT: What explains unequal levels of constituency service on behalf of businesses? We find that how members represent corporate constituents is consistent with theories of committee assignments as an electoral subsidy (Grimmer and Powell 2013) and the role of committee positions in distributive politics. Legislators provide more particularistic service to businesses on behalf of agencies that their committees oversee. Also consistent with theories of distributive politics and presidential pork (Berry et al 2009), when a co-partisan comes into the White House, members appear to write more to executive-branch agencies. We plan to explore the role of corporate campaign contributions in explaining business representation.
+:::
 
 Work on behalf of individual businesses is often on behalf of businesses in the legislators’ districts, but it may also include out-of-district campaign donors. Similar to the overall pattern, corporate service is correlated with bill sponsorship and the other components of LES scores, but this correlation is driven by the top 10% of legislators who advocate on behalf of corporate constituents.
 
@@ -64,14 +61,6 @@ Do we want to look at corporate PAC contributions? Do we want to look at contrib
 
 ## Results
 
-```{r, include=FALSE}
-# Totals and means for this chapter at top of document
-type = "total"
-load(here::here("data", type, "means.Rdata"))
-
-# formatting for tables and numbers
-here::here("code", "formatting.R") |> source()
-```
 
 The simple descriptive result in figure @fig-percent immediately puts to rest the naive theory of proportional representation. The Gini coefficient of inequality for the House, where all members represent a similar number of constituents, is similar to that of the Senate. The rest of this section investigates explanations for this inequality. However, it is important to note that not all models explain the levels of inequality, much less the variation seen in the data. Gini coefficients for inequality in interbranch representation have increased from .37 in the Senate and .40 in the House in 2007 (a range that maps to Gini coefficients for income inequality in countries like Kenya and Philippines) to .47 in the Senate and .54 in the house in 2020 (a range that maps to Gini coefficients for income inequality in the top 10 most unequal countries, including Honduras at .47 and Zimbabwe at .50), with an average of .49 for both chambers. The regression models below never predict Gini coefficients for interbranch representation greater than .34 (comparable to income inequality in Italy and Latvia), the lowest level observed in either chamber in any year in our data.
 

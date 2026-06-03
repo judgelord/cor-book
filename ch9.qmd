@@ -1,5 +1,11 @@
 # Policy Work on Behalf of Business
 
+```{r knit-options, include=FALSE}
+type = 4
+load(here::here("data", type, "means.Rdata"))
+
+here::here("code", "formatting.R") |> source()
+```
 
 ::: {.content-hidden unless-meta="book-content"}
 
@@ -7,12 +13,6 @@
 
 :::
 
-```{r knit-options, include=FALSE}
-type = 4
-load(here::here("data", type, "means.Rdata"))
-
-here::here("code", "formatting.R") |> source()
-```
 
 ## Results
 
