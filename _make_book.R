@@ -9,6 +9,7 @@ if(F){
   system(command = "git add docs")
   system(command = "git restore --staged docs/interbranch.pdf")
   system(command = "git restore --staged docs/slides/interbranch.html")
+  system(command = "git restore --staged docs/Unequal-Invisible-Representation.pdf") # only sometimes push pdf
   system(command = 'git commit -m "Publish site to docs/"')
   system(command = "git push")
 }
