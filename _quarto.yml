@@ -1,3 +1,9 @@
+execute:
+  cache: true
+  echo: false
+  message: false
+  warning: false
+
 project:
   type: book
   output-dir: docs
@@ -54,9 +60,3 @@ format:
         \printindex
   epub:
      cover-image: assets/cover.png
-
-execute:
-  echo: false
-  cache: false
-  message: false
-  warning: false

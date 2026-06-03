@@ -16,7 +16,7 @@ here::here("code", "formatting.R") |> source()
 ```
 
 
-# Introduction
+## Introduction
 
 How well do Members of Congress represent their constituents? This seemingly simple question is one that political scientists return to again and again. We argue that a myopic focus on legislative work has limited contemporary understanding of congressional representation. In so doing, scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. 
 
