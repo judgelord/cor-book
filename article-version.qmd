@@ -2,11 +2,24 @@
 title: Unequal Interbranch Representation
 subtitle: How Members of Congress work with the bureaucracy and why some do much more than others
 runningtitle: Unequal Interbranch Representation
-author: " "
+author:
+  - name: Devin Judge-Lord
+    affiliations:
+      - name: University of Michigan
+    email: "judgelor@umich.edu"
+    attributes:
+      corresponding: true
+  - name: Eleanor Neff Powell
+    affiliations:
+      - name: University of Wisconsin-Madison
+  - name: Rochelle Snyder 
+    affiliations:
+      - name: Coe College
 date: today
 date-format: long
+url: https://judgelord.github.io/cor-book/interbranch.pdf
 abstract: |
- *Abstract:* A focus on legislative work has limited contemporary understanding of congressional representation.  In this paper, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, nonprofits, and businesses, as well as communicating with agencies about executive-branch policymaking and implementation. We document substantial inequality in interbranch representation. To explain it, we introduce a unified framework of Demand, Capacity, and Motivation, which integrates and extends theories rooted in unequal legislator capacity to deliver service, varying strategic motivations to invest time and energy in interbranch representation rather than other activities, and disparate demand for interbranch representation. A large share of the inequality can be explained by legislator capacity, particularly staff resources and experience. We find evidence of strategic behavior --- legislators work with ideologically proximate agencies and those that their committees oversee --- but this behavior does not explain inequality. We also find modest evidence for other types of strategic behavior in the form of reelection-motivated interbranch representation and as a substitute for legislating when one's party is out of power, but these effects are small and likewise do not explain inequality. 
+ A focus on legislative work has limited contemporary understanding of congressional representation.  In this paper, we advance and measure the concept of interbranch representation – how Members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, nonprofits, and businesses, as well as communicating with agencies about executive-branch policymaking and implementation. We document substantial inequality in interbranch representation. To explain it, we introduce a unified framework of Demand, Capacity, and Motivation, which integrates and extends theories rooted in unequal legislator capacity to deliver service, varying strategic motivations to invest time and energy in interbranch representation rather than other activities, and disparate demand for interbranch representation. A large share of the inequality can be explained by legislator capacity, particularly staff resources and experience. We find evidence of strategic behavior --- legislators work with ideologically proximate agencies and those that their committees oversee --- but this behavior does not explain inequality. We also find modest evidence for other types of strategic behavior in the form of reelection-motivated interbranch representation and as a substitute for legislating when one's party is out of power, but these effects are small and likewise do not explain inequality. 
   
 thanks: |
   This is a working paper, and part of a larger book project. Please see [the latest version of the working paper](https://judgelord.github.io/cor-book/interbranch.pdf). We are greatful for helpful comments from Kathy Cramer, Barry Burden, Liz Gerber, Maria Silfa, Molly Ritchie, Geoff Lorenz and participants in Annual Forum on American Institutional Renewal.
@@ -16,6 +29,13 @@ format:
     keep-tex: false
     include-in-header:
        - assets/header.tex
+    template-partials:
+       - _extensions/partials/title.tex
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=1in
+      - right=1in
 linestretch: 1.5
 number-sections: true
 number-depth: 2
