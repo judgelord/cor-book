@@ -2,10 +2,12 @@ library(tidyverse)
 library(magrittr)
 
 # The minimal count data
-load(here::here("data", "dcounts_min.Rdata"))
-names(dcounts_min)
+here::here("data", "dcounts-min.rda") |>
+  str_replace("cor-book", "correspondence_data") |> load()
 
-corr_counts <- dcounts_min %>% distinct(icpsr, chamber,
+names(dcounts)
+
+corr_counts <- dcounts %>% distinct(icpsr, chamber,
                                         agency, year,
                                         TYPE, per_icpsr_chamber_year_agency_type) #%>% filter(TYPE %in% c(1,2,3,4,5))
 

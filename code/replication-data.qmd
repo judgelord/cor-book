@@ -57,8 +57,8 @@ load(here::here("data", "corr_counts.Rdata"))
 ## just in case it was saved as grouped data 
 corr_counts %<>% ungroup()
 
-# subset to 2007-2020
-corr_counts  %<>% filter(year > 2006, year < 2021)
+# previously, I subset to 2007-2020. No need to do that now. 
+corr_counts  %<>% filter(year > 1999, year < 2025)
 
 
 ####################
@@ -125,7 +125,9 @@ if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))
   group_by(agency, icpsr, chamber, year, congress) |>
   summarise(perYear = sum(per_icpsr_chamber_year_agency_type)) |>
   ungroup() |>
-  left_join(member_data) |>
+  left_join(member_data) 
+  
+  dcounts <- dcounts |>
   post_merge_transformations() |>
     mutate(new_member = first) |> # FIXME REDUNDENT BUT ARE BOTH USED IN ANALYSIS? 
   ungroup() |>
