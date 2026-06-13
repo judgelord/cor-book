@@ -415,7 +415,7 @@ coefplot(m_did, horiz = T, drop = ".theta")
 # 3
 m_2nd <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
-                    experience + 
+                    #experience + 
                     majority + presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
@@ -669,6 +669,7 @@ plot_effect(
 #| fig-show: "hold"
 
 model <- m_did
+
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -769,7 +770,7 @@ coefplot(m_did_house, horiz = T, drop = ".theta")
 # 3
 m_2nd_house <-fenegbin (perYear ~ 
                        chair + ranking_minority + prestige + oversight +  
-                    experience + 
+                    # experience + 
                     majority + presidents_party | Year_x_Agency , 
                     cluster = "Legislator", 
            data = data_member |> filter(survive == 1)  |> filter(chamber=="House"))
@@ -909,7 +910,7 @@ coefplot(m_did_senate, horiz = T, drop = ".theta")
 # 3
 m_2nd_senate <-fenegbin (perYear ~
                        chair + ranking_minority + prestige + oversight +  
-                    experience + 
+                    #experience + 
                     majority + presidents_party | Year_x_Agency , 
                     cluster = "Legislator", 
            data = data_member |> filter(survive == 1)  |> filter(chamber=="Senate"))
@@ -1060,7 +1061,7 @@ coefplot(m_staff_did, horiz = T, drop = ".theta")
 m_staff_2nd_cross <-fenegbin (perYear ~ 
 prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending + prop_constit_spending + 
                          chair + ranking_minority + prestige + oversight +  
-                    experience + 
+                    #experience + 
                     majority + presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
@@ -1073,7 +1074,7 @@ coefplot(m_staff_2nd_cross, horiz = T, drop = ".theta")
 m_staff_2nd_did <-fenegbin (perYear ~
    prop_legis_spending + prop_pol_spending + prop_comm_spending + prop_off_spending + prop_constit_spending + 
                             chair + ranking_minority + prestige + oversight +
-                    experience +
+                    #experience +
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
            data = data_member %>% filter(survive == 1))
@@ -1238,7 +1239,7 @@ coefplot(m_staff_spending_did, horiz = T, drop = ".theta")
 m_staff_spending_2nd_cross <-fenegbin (perYear ~ 
 est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending + 
                          chair + ranking_minority + prestige + oversight +  
-                    experience + 
+                    #experience + 
                     majority + presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
@@ -1251,7 +1252,7 @@ coefplot(m_staff_spending_2nd_cross, horiz = T, drop = ".theta")
 m_staff_spending_2nd_did <-fenegbin (perYear ~
    est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending + 
                             chair + ranking_minority + prestige + oversight +
-                    experience +
+                    #experience +
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
            data = data_member %>% filter(survive == 1))
@@ -1407,7 +1408,7 @@ coefplot(m_elect_did, horiz = T, drop = ".theta")
 m_elect_2nd_cross <-fenegbin (perYear ~ 
                        competitive + competitive_primary + 
                          chair + ranking_minority + prestige + oversight +  
-                    experience + 
+                    #experience + 
                     majority + presidents_party | Year_x_Agency, 
                     cluster = "Legislator", 
            data = data_member %>% filter(survive == 1))
@@ -1420,7 +1421,7 @@ coefplot(m_elect_2nd_cross, horiz = T, drop = ".theta")
 m_elect_2nd_did <-fenegbin (perYear ~
                           competitive + competitive_primary + 
                             chair + ranking_minority + prestige + oversight +
-                    experience +
+                    #experience +
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
            data = data_member %>% filter(survive == 1))
