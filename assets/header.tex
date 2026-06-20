@@ -1,17 +1,6 @@
 \usepackage{makeidx}
 \makeindex
 
-% \makeatletter
-% \AtBeginDocument{%
-%   \renewcommand{\author}[1]{}%
-%   \def\@author{%
-%     Devin Judge-Lord\thanks{Assistant Professor, Ford School of Public Policy, University of Michigan. Corresponding author: \href{mailto:judgelor@umich.edu}{judgelor@umich.edu}} \and
-%     Eleanor Neff Powell\thanks{Associate Professor and Letters \& Science Nancy Obin Sukenik Chair, Department of Political Science, University of Wisconsin-Madison} \and
-%     Rochelle Snyder\thanks{Assistant Professor, Department of Political Science, Coe College}%
-%   }%
-% }
-% \makeatother
-
 \usepackage{amssymb}
 \usepackage{pifont} % Pi fonts (Dingbats, Symbol, etc.)
 \usepackage{setspace}
@@ -20,11 +9,12 @@
 
 % we need this so our tiny tables compile properly with the pdf
 \usepackage{tabularray}
+\usepackage{arydshln}
 \usepackage{siunitx}
 \UseTblrLibrary{siunitx}
-\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
-\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
-\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+%\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+%\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+% \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
 
 % THEOREM -- CAN WE USED PANDOC/QUARTO NATIVE (MAY REQUIRE NOT DOING SUB-THEOREMS)
 \newtheoremstyle{indented}
@@ -43,5 +33,3 @@
 \newenvironment{subhypothesis}[1][]%
   {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innersubhypothesis}[#1]}%
   {\end{innersubhypothesis}\end{adjustwidth}}
-
-
