@@ -6,9 +6,11 @@
 # VOTEVIEW HOUSE AND SENATE
 members_raw <- read_csv(here::here("data", "HSall_members.csv"))
 
+members_raw <- read_csv("https://voteview.com/static/data/out/members/HSall_members.csv")
+
 member_data <- members_raw %>%
   select(icpsr, bioname, congress, chamber, party_code, state_abbrev, district_code) %>%
-  filter(congress > 100, congress < 117) %>%
+  filter(congress > 102) %>% # NOTE SUBSETTING TO 102th
   mutate(
     party = case_when(
       party_code == 100 ~ "(D)",
@@ -17,11 +19,20 @@ member_data <- members_raw %>%
       F ~ NA
     ) )
 
-member_data %>% filter(party =="(I)" ) %>% distinct(bioname)
+# make presidents data
+presidents_party <- member_data %>% filter(chamber == "President") %>%
+  filter(!(bioname == "TRUMP, Donald John" & congress == 117)) %>%
+  select(congress, party_of_president = party) %>% arrange(-congress) %>%
+  ungroup()
+
+# and then delete so they don't pop up in de-bugging
+member_data %<>% filter(chamber != "President")
 
 #################
-#### COMMITTEES GO FIRST BECAUSE OF CORRECTIONS
+#### COMMITTEES MUST GO FIRST BECAUSE OF CORRECTIONS
 here::here("code", "merge_committees.R") |> source()
+
+look <- member_data |> count(oversight, committees) |> head(100)
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
@@ -42,14 +53,23 @@ member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 
 # independents
+member_data %>%
+  filter(party =="(I)",
+         congress > 104) %>%
+  distinct(bioname)
+
 # who caucus with Dems
 ds <- c(        "JEFFORDS, James Merrill",
                 "BARKLEY, Dean",
                 "SANDERS, Bernard",
-                "KING, Angus Stanley, Jr.")
+                "KING, Angus Stanley, Jr.",
+                "SINEMA, Kyrsten",
+                "MANCHIN, Joe, III")
 
 # who caucus with GOP
-rs <- c("GOODE, Virgil H., Jr.")
+rs <- c("GOODE, Virgil H., Jr.",
+        "MITCHELL, Paul",
+        "KILEY, Kevin")
 
 # as far as I can tell, Amash stopped caucusing with GOP, but sort of moot
 is <-  c("AMASH, Justin")
@@ -62,13 +82,12 @@ member_data %<>%
              party == "(I)" & bioname %in% is ~ "(I)",
              TRUE ~ party ))
 
-presidents <- member_data %>% filter(chamber == "President") %>%
-  select(congress, party_of_president = party) %>% arrange(-congress)
+member_data|> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 member_data %<>%
-  left_join(presidents) %>%
-  mutate(presidents_party = as.numeric(party_caucus == party_of_president ) ) %>%
-  filter(chamber != "President")
+  ungroup() %>%
+  left_join(presidents_party) %>%
+  mutate(presidents_party = as.numeric(party_caucus == party_of_president ) )
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
@@ -81,7 +100,9 @@ parties <- read_csv(here::here("data", "HSall_parties.csv"))
 party_size <- parties %>% distinct(party_code, n_members, chamber, congress) %>% arrange(-congress) %>%
   filter(chamber != "President") %>%
   group_by(congress, chamber) %>%
-  mutate(chamber_size = sum(n_members))
+  mutate(chamber_size = sum(n_members)) %>%
+  ungroup()
+
 
 # fix error (this is the only one that will affect our variables)
 party_size %<>%
@@ -146,10 +167,12 @@ member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 member_data |> count(state_abbrev) |> kable()
 
-member_data |> count(state) |> kable()
 ################
 # STATE DATA
 here::here("code", "merge_state_data.R") |> source()
+
+member_data |> count(state) |> kable()
+
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
@@ -238,4 +261,7 @@ save(member_data,
      file = here::here("data", "member_data.Rdata"))
 
 head(member_data)
+
+count(member_data, committees, oversight, chair, sort = T)
+count(member_data, presidents_party, sort = T)
 

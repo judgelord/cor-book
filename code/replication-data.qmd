@@ -110,7 +110,7 @@ d %<>% filter(!icpsr_year %in% chamber_switchers$icpsr_year)
 ```{r data-transformations, cache=FALSE}
 # This chunk takes the minimal count data and creates legislator-level and district-level yearly count and ratio data
 # These are then used to estimate the models
-# the key DVs are
+# the key DVs aretp
 # - perYear = counts per year (member level and district level)
 # - ratio = ratio of policy work to constituency service
 
@@ -120,14 +120,14 @@ make_dcounts <- function(d, type){
 # directory to store model objects
 if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))}
   
-  dcounts <- d |>
+  d<- d |>
   filter(TYPE == type | type == "total") |>
   group_by(agency, icpsr, chamber, year, congress) |>
   summarise(perYear = sum(per_icpsr_chamber_year_agency_type)) |>
   ungroup() |>
   left_join(member_data) 
   
-  dcounts <- dcounts |>
+  dcounts <- d |>
   post_merge_transformations() |>
     mutate(new_member = first) |> # FIXME REDUNDENT BUT ARE BOTH USED IN ANALYSIS? 
   ungroup() |>

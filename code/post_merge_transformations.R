@@ -41,12 +41,40 @@ d <- d |>
 # d$oversight_agencies |> unique()
 # d$agency |> unique()
 
+
+#TODO THIS IS LOOKING FOR THE AGENCY IN THE LIST OF COMMITTEES; WE COULD DO THE REVERSE, but need to be careful about NAs and blanks (which are not in agency)
+# UPDATE I THINK THIS IS THE WAY WE SHOULD BE DOING IT. SEE FOIAagenices in ACUS, we should have 100% coverage
 d <- d |>
   mutate(
     oversight_agencies = str_replace_all(oversight, ";","|") |>
       replace_na("404"),
-    oversight = str_detect(agency, oversight_agencies) |> as.numeric()
+    oversight = str_detect(oversight_agencies, agency |> str_remove("_.*")) |> as.numeric(),
+    oversight = ifelse(is.na(committees), NA, oversight)
   )
+
+
+# confirm that NAs propegated
+d$committees |> is.na() |> sum()
+d$oversight |> is.na() |> sum()
+
+# inspect
+count(d, oversight, oversight_agencies, agency)
+
+# inspect matches
+count(d, oversight, oversight_agencies, agency) |> filter(oversight ==1)
+
+ACUSagencies <- d$oversight_agencies |> str_split("\\|") |> unlist() |> unique()
+FOIAagencies <- d$agency |> unique()
+
+# FOIAagencies agencies in ACUS
+FOIAagencies[str_detect(FOIAagencies, ACUSagencies |> str_c(collapse = "|")) ]
+
+# FOIAagencies AGENCIES missing from ACUS
+FOIAagencies[!str_detect(FOIAagencies, ACUSagencies |> str_c(collapse = "|")) ]
+
+
+#############################
+# IDEOLOGY
 
 d <- d |> left_join(rcl) # |> drop_na(agency_ideo) |>  count(agency, agency_ideo)
 
