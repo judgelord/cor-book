@@ -24,7 +24,7 @@ There are many other answered, in this chapter, we expand on the three-part fram
 This chapter maps existing theories onto our concept of interbranch representation. Some have implications for interbranch representation as a whole. Most focus on only one of its component parts, and very few talk about engaging with the executive branch as a form of representation. 
 
 
-```{r, include=FALSE}
+```{r, include=FALSE, cache=FALSE}
 # Totals and means for this chapter at the top of the document
 type = "total"
 load(here::here("data", type, "means.Rdata"))
@@ -123,13 +123,77 @@ Two additional features of the "Naive Folk Theory" are also unrealistic. First, 
 --> 
 
 
-## A Unified Framework: Unequal Demand, Unequal Capacity, and Strategic Motivations
+## A Unified Framework: Demand, Capacity, Political Environment and Strategic Choices
 
 <!--The "Naive Folk Theory" of model representatives is insufficient to explain variation and inequality in interbranch representation. If we observe variation in interbranch representation in the House and variation in interbranch representation after controlling for state population in the Senate, we need an alternative explanation. Here, we build on existing research to introduce an \textbf{Unequal Demand, Unequal Capacity and Strategic Motivation Theory of Interbranch Representation}.  <!--This theory builds on the "Naive Folk Theory" of \ref{hyp:naivefolk}, by considering unequal demand, but adds consideration of unequal capacity, and varying strategic motivations. --> 
 
-We introduce a framework of Demand, Capacity, and Strategic Motivations to extend and unify theoretical ideas from disparate strands of scholarship on Congress and the Bureaucracy. Demand and capacity-related explanations focus on legislator offices as bureaucracies. Strategic explanations focus on legislators as politicians. In the following sections, we elaborate on each of these components of our framework. 
+We introduce a framework of Demand, Capacity, Political Environment, and Strategic Choices to extend and unify theoretical ideas from disparate strands of scholarship on Congress and the Bureaucracy. Demand and capacity-related explanations focus on legislator offices as bureaucracies. Political environment and strategic choices focus on legislators as politicians. 
 
-### Unequal Demand
+```{mermaid}
+%%| label: fig-causal
+%%| fig-cap: "How constituent demand, capacity, political environment, and member's strategic choices shape interbranch representation activities"
+flowchart TD
+    subgraph demand_g ["Demand"]
+        CD["Constituent<br/>Demand"]
+    end
+    subgraph capacity_g ["Capacity"]
+        IR["Institutional Resource<br/>Allocation"]
+        SC["Member's Staff<br/>Capacity"]
+        MK["Member's<br/>Experience"]
+    end
+    subgraph env_g ["Environment"]
+        PE["Political<br/>Environment"]
+    end
+    subgraph strategic_g ["Strategic Choices"]
+        G["Member's Strategic<br/>Choices"]
+        SA["Staff<br/>Allocation"]
+    end
+    subgraph output_g ["Outputs"]
+        W["Work Done by<br/>Congressional Office"]
+        L["Legislation"]
+        A["Interbranch Representation"]
+        C["Communications"]
+    end
+
+    CD --> W
+    PE --> G
+    IR --> SC
+    SC --> SA
+    G --> W
+    G -.-> SA
+    MK --> W
+    SA -.-> W
+    W --> L
+    W --> A
+    W --> C
+    C -.-> CD
+
+    classDef output fill:#E69F00,stroke:#8A5F00,color:#1A1200;
+    classDef demand fill:#56B4E9,stroke:#27607F,color:#04222F;
+    classDef capacity fill:#009E73,stroke:#005A42,color:#00150F;
+    classDef environment fill:#CC79A7,stroke:#7A4664,color:#2B0E1F;
+    classDef strategic fill:#F0E442,stroke:#8A8020,color:#2B2800;
+    class W,L,A,C output;
+    class CD demand;
+    class IR,SC,MK capacity;
+    class PE environment;
+    class G,SA strategic;
+
+    style demand_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style capacity_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style env_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style strategic_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style output_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+```
+
+
+In the following sections, we elaborate on each of these components of our framework. 
+
+
+
+
+
+### Demand
 
 One of the central elements of interbranch representation—constituency service–is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies (March and Olsen 1989). Extending this idea to the realm of interbranch representation, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. The intuition here is that staff understand their job to be responding to all constituent requests. 
 
@@ -140,7 +204,30 @@ In this paper, we limit our consideration of unequal demand to the varying numbe
 Legislators who represent more constituents will be associated with higher levels of interbranch representation. 
 \end{hypothesis}
 
-### Unequal Capacity 
+
+```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "demand.csv"))
+#| label: tbl-demand
+#| tbl-cap: "Demand Hypotheses"
+library(tinytable)
+
+here::here("tables", "demand.csv") |> 
+  readr::read_csv() |> 
+  dplyr::mutate(
+    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
+    ) |> 
+  tt(width = c(2, 3, 1, 3) ) |>
+  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here  
+  style_tt(i = 0, bold = TRUE) |>              # table/column headings
+  style_tt(j = 1, align = "l") |>
+  style_tt(j = 2:4, align = "c")
+```
+
+
+
+
+### Capacity 
 
 We turn next to the \textbf{Capacity} component of our theory. We argue that how much interbranch representation legislators engage in is likely to be positively associated with the capacity of the legislator's office. Offices with greater capacity have the potential to provide more interbranch representation, and vice versa. We are building on four existing streams of capacity literature: 1) formal theory voter screening models that predict that as a legislator's capacity increases, they will increase their level of constituency service [@AshworthBuenodeMesquita2006], 2) empirical research that suggests low congressional capacity serves as a major constraint on Congress's work [@LaPiraDrutmanKosar2020], 3) empirical research that shows legislator capacity impacts backchannel (backdoor) policymaking--when legislators contact executive agencies attempting to influence policy [@Ritchie2018; @Ritchie2023] and 4) our prior research that shows that increases in congressional capacity can offset shifts in legislator priorities between policymaking and constituency service [@JudgeLordPowellGrimmer2026].
 
@@ -186,16 +273,26 @@ Selected quality: Selecting Higher Performers: Did you Survive a Close Election 
 Competitive elections select higher-quality legislators. Therefore, legislators who won competitive elections will be associated with higher amounts of interbranch representation. 
 \end{subhypothesis}
 ---> 
+```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "capacity.csv"))
+#| label: tbl-capacity
+#| tbl-cap: "Capacity Hypotheses"
+library(tinytable)
 
+here::here("tables", "capacity.csv") |> 
+  readr::read_csv() |> 
+  dplyr::mutate(
+    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
+    ) |> 
+  tt(width = c(2, 3, 1, 3) ) |>
+  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here
+  style_tt(i = 0, bold = TRUE) |>              # table/column headings
+  style_tt(j = 1, align = "l") |>
+  style_tt(j = 2:4, align = "c")
+```
 
-### Strategic Motivation Theory
-
-How much energy and staff time do legislators want to devote to interbranch representation as opposed to other tasks (legislating, communicating, etc.)? It may depend on what they are trying to accomplish. Beginning with @Fenno1973 and @Mayhew1974, a substantial body of legislative politics literature has explored the strategic motivations of members of Congress. We begin with a general hypothesis that legislators with different strategic motivations will be associated with different levels of interbranch representation. These varying strategic motivations could shape members' desire to engage in both the constituency service and policy components of interbranch representation. <!--Importantly, the "naive folk theory" of model representatives (to the extent that it holds) is only capable of speaking to the constituency service component of interbranch representation. It is also inadequate for explaining inequalities in interbranch representation involving policy. Here, too, legislators’ goals and strategic efforts are likely to be important.  --> 
-
-\begin{hypothesis}[Strategic Motivation]
-\label{hyp:motivation}
-Legislators have different motivations: How much energy and effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.).
-\end{hypothesis}
+### Political Environment
 
 **Reelection Motivation.** While it is difficult to directly measure a legislator's motivation, we can identify situations in which legislators are likely to prioritize certain goals or motivations. Perhaps the most widely recognized strategic motivation of legislators is reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in \textit{Congress: The Electoral Connection}, "[Reelection] has to be the \textit{proximate} goal of everyone, the goal that must be achieved over and over if other ends are to be entertained,"[@Mayhew1974]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to re-elect the legislator [@SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012 ]. This expectation, however, is contrary to Ritchie's findings in \textit{Backdoor Lawmaking}, which showed no consistent relationship between electoral vulnerability and policy work with federal agencies [@Ritchie2023]. 
 
@@ -225,6 +322,37 @@ Legislators from the President's party will be associated with higher amounts of
 Legislators from the President's party will be associated with lower amounts of interbranch representation.
 \end{subhypothesis}
 
+
+```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "environment.csv"))
+#| label: tbl-environment
+#| tbl-cap: "Political Environment Hypotheses"
+library(tinytable)
+
+here::here("tables", "environment.csv") |> 
+  readr::read_csv() |> 
+  dplyr::mutate(
+    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
+    ) |> 
+  tt(width = c(2, 3, 1, 3) ) |>
+  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here
+  style_tt(i = 0, bold = TRUE) |>              # table/column headings
+  style_tt(j = 1, align = "l") |>
+  style_tt(j = 2:4, align = "c")
+```
+
+
+### Strategic Choices
+
+How much energy and staff time do legislators want to devote to interbranch representation as opposed to other tasks (legislating, communicating, etc.)? It may depend on what they are trying to accomplish. Beginning with @Fenno1973 and @Mayhew1974, a substantial body of legislative politics literature has explored the strategic motivations of members of Congress. We begin with a general hypothesis that legislators with different strategic motivations will be associated with different levels of interbranch representation. These varying strategic motivations could shape members' desire to engage in both the constituency service and policy components of interbranch representation. <!--Importantly, the "naive folk theory" of model representatives (to the extent that it holds) is only capable of speaking to the constituency service component of interbranch representation. It is also inadequate for explaining inequalities in interbranch representation involving policy. Here, too, legislators’ goals and strategic efforts are likely to be important.  --> 
+
+\begin{hypothesis}[Strategic Motivation]
+\label{hyp:motivation}
+Legislators have different motivations: How much energy and effort the legislator wants to invest in interbranch representation as opposed to other tasks (legislating, fundraising, etc.).
+\end{hypothesis}
+
+
 **Committee Oversight.** Interbranch representation includes many forms of agency oversight. Only a small proportion of congressional-agency interactions rise to the levels of hearings and investigations. Instead, as @Lowande2018APSR and @LowandePotter2021 demonstrate, most legislative interventions happen in direct communication between legislators and agencies. Legislators who sit on congressional committees overseeing an agency are likely to engage in higher levels of interbranch representation with that agency. We think this relationship is likely to exist for two reasons. First, legislators are likely to be substantively interested in that policy area to have received a seat on that committee. Second, their responsibility as committee members may also lead them to engage in more interbranch representation with agencies under the committee's jurisdiction.  
 
 \begin{subhypothesis}[Motivation: Committee Oversight]
@@ -246,4 +374,30 @@ Legislators who are ideologically aligned with an agency will engage in higher a
 \label{hyp:ideologicallydistant}
 Legislators who are ideologically distant from an agency will engage in higher amounts of interbranch representation with that agency.
 \end{subhypothesis}
+
+
+
+```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "strategiccombined.csv"))
+#| label: tbl-strategiccombined
+#| tbl-cap: "Strategy Hypotheses"
+library(tinytable)
+
+here::here("tables", "strategiccombined.csv") |> 
+  readr::read_csv() |> 
+  dplyr::mutate(
+    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
+    ) |> 
+  tt(width = c(2, 3,3, 3) ) |>
+  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here
+  style_tt(i = 0, bold = TRUE) |>              # table/column headings
+  style_tt(j = 1, align = "l") |>
+  style_tt(j = 2:4, align = "c")
+```
+
+### From Theoretical Framework to Research Design
+[Transition to next chapter]
+
+
 
