@@ -7,6 +7,16 @@
 
 :::
 
+```{r, include=FALSE, cache=FALSE}
+# Totals and means for this chapter at the top of the document
+type = "total"
+load(here::here("data", type, "means.Rdata"))
+
+# formatting for tables and numbers
+here::here("code", "formatting.R") |> source()
+```
+
+
 
 Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
 

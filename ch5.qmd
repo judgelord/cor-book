@@ -1,6 +1,6 @@
 # Representing Individual Constituents
 
-```{r, include=FALSE}
+```{r knit-options, include=FALSE, cache=FALSE}
 type = 1
 load(here::here("data", type, "means.Rdata"))
 
@@ -24,7 +24,10 @@ Unlike other types of contacts with federal agencies, constituency service is hi
 
 
 
+
+
 ## Results
+
 
 The simple descriptive result in figure @fig-percent immediately puts to rest the naive theory of proportional representation. The Gini coefficient of inequality for the House, where all members represent a similar number of constituents, is similar to that of the Senate. The rest of this section investigates explanations for this inequality. However, it is important to note that not all models explain the levels of inequality, much less the variation seen in the data. Gini coefficients for inequality in interbranch representation have increased from .37 in the Senate and .40 in the House in 2007 (a range that maps to Gini coefficients for income inequality in countries like Kenya and Philippines) to .47 in the Senate and .54 in the house in 2020 (a range that maps to Gini coefficients for income inequality in the top 10 most unequal countries, including Honduras at .47 and Zimbabwe at .50), with an average of .49 for both chambers. The regression models below never predict Gini coefficients for interbranch representation greater than .34 (comparable to income inequality in Italy and Latvia), the lowest level observed in either chamber in any year in our data.
 
@@ -58,9 +61,9 @@ Under these conditions, failing to find a significant relationship between state
 #| tbl-cap: "The effect of capacity on total requests to federal agencies"
 #| out-width: 100%
 
-load(here::here("models", "models_total.Rdata"))
+load(here::here("models", type,  "models.Rdata"))
 
-modelsummary(models_total,
+modelsummary(models,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
                           "This table shows estimates of the effect of legislator capacity (chair and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
 ```
@@ -125,9 +128,9 @@ Legislators who allocate more staff to constituency service make more requests; 
 #| tbl-cap: "The effect of staff allocation on total requests to federal agencies"
 #| out-width: 100%
 
-load(here::here("models", "models_staff_spending_total.Rdata"))
+load(here::here("models", type,  "models_staff_spending.Rdata"))
 
-modelsummary(models_staff_spending_total,
+modelsummary(models_staff_spending,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
                           "This table shows estimates of the effect of legislator capacity (chair and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
 ```
@@ -173,7 +176,7 @@ To test whether retaining staff from the prior representative impacts interbranc
 #| label: tbl-models-district
 #| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
 
-load(here::here("models", "models_district.Rdata"))
+load(here::here("models", type,  "models_district.Rdata"))
 
 modelsummary(models_district,
              notes = list("Robust standard errors in parentheses, clustered by district",
@@ -224,9 +227,9 @@ knitr::include_graphics(here::here("figs", type, "m-did-effect-7.png"))
 #| tbl-cap: "The effect of electoral security on total requests to federal agencies"
 #| out-width: 60%
 
-load(here::here("models", "models_elect_total.Rdata"))
+load(here::here("models", type,  "models_elect.Rdata"))
 
-modelsummary(models_elect_total,
+modelsummary(models_elect,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
                           "This table shows estimates of the effect of electoral competition on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data."))  
 
@@ -259,9 +262,9 @@ knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
 #| tbl-cap: "The effect of ideology on total requests to federal agencies"
 #| out-width: 100%
 
-load(here::here("models", "models_ideo_total.Rdata"))
+load(here::here("models", type,  "models_ideo.Rdata"))
 
-modelsummary(models_ideo_total,
+modelsummary(models_ideo,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
                           "This table shows estimates of the effect of ideological distance on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
 

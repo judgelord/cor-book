@@ -8,6 +8,8 @@ quarto::quarto_preview()
 # to stop the preview (required to run other code)
 quarto::quarto_preview_stop()
 
+quarto::quarto_render()
+
 # send to git (just Devin for now)
 if(F){
   system(command = "git add docs")

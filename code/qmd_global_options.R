@@ -1,3 +1,4 @@
+source(here::here("code", "formatting.R"))
 
 # directory to store model objects
 if (!dir.exists(here::here("models"))) {dir.create(here::here("models"))}
@@ -5,7 +6,23 @@ if (!dir.exists(here::here("models"))) {dir.create(here::here("models"))}
 # directory to store figures
 if (!dir.exists(here::here("figs"))) {dir.create(here::here("figs"))}
 
-options(knitr.duplicate.label = 'allow') # https://stackoverflow.com/questions/36868287/purl-within-knit-duplicate-label-error
+input_file <- knitr::current_input()
+
+doc_name <- tools::file_path_sans_ext(basename(input_file))
+
+knitr::opts_chunk$set(
+  cache.path = file.path(".cache", doc_name, ""),
+  echo = F, # code is folded
+  fig.width = 4.5,
+  fig.height = 3.5,
+  split = T,
+  fig.align = 'center',
+  fig.path='figs/',
+  fig.retina = 6,
+  out.width = "100%",
+  warning = F,
+  message = F)
+
 
 start_time <- Sys.time()
 
@@ -64,50 +81,16 @@ library(fs)
 
 
 
-# project_root <- fs::path_abs(here::here())
-#
-# doc_file <- knitr::current_input(dir = TRUE)
-# doc_dir <- fs::path_dir(fs::path_abs(doc_file))
-#
-# base_url <- fs::path_rel(project_root, start = doc_dir)
-# base_url <- as.character(base_url)
-# base_url <- gsub("\\\\", "/", base_url)  # make Windows paths URL-like
-#
-# if (base_url == ".") {
-#   base_url <- ""
-# } else {
-#   base_url <- paste0(base_url, "/")
-# }
+betas <- . %>% .$coefficients %>%
+  round(3) %>%
+  as_tibble(rownames = "beta") %>%
+  pivot_wider(names_from = beta)
 
-knitr::opts_knit$set(
-  #base.dir = project_root,
-  #base.url = base_url,
-  #base.dir = here::here(),  # filesystem base: project root
-  #base.url = "../",          # browser URL base from report.html back to project root
-  echo = T, # code is folded
-  cache = T, # CACHE
-  fig.width = 4.5,
-  fig.height = 3.5,
-  split = T,
-  fig.align = 'center',
-  fig.path='figs/',
-  fig.retina = 6,
-  out.width = "100%",
-  warning = F,
-  message = F)
 
-# inline numbers round to 2, comma at thousands
-inline <- function(x) {
-  if (is.na(as.numeric(x))) {
-    return (x)
-  } else
-    return (as.numeric(x) |>
-              round(2) |>
-              format(big.mark=",")
-    )
-}
+standard_errors <- . %>% .$se %>%
+  round(3) %>% as_tibble(rownames = "se") %>%
+  pivot_wider(names_from = se)
 
-knitr::knit_hooks$set(inline = inline)
 
 # plot defaults
 library(ggplot2); theme_set(
@@ -150,3 +133,8 @@ kablebox_long <- . %>%
   knitr::kable() %>%
   kableExtra::kable_styling() %>%
   kableExtra::scroll_box(height = "500px")
+
+
+options(knitr.duplicate.label = 'allow') # https://stackoverflow.com/questions/36868287/purl-within-knit-duplicate-label-error
+
+

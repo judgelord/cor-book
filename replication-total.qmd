@@ -1,6 +1,7 @@
 ---
 title: "Replication Code and Robustness Checks"
 author: Devin Judge-Lord
+date: today
 format: 
   #pdf: 
   html:
@@ -11,11 +12,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r}
+```{r include=FALSE, cache=FALSE, message=FALSE}
+here::here("code", "qmd_global_options.R") |> source() 
 type = "total"
-testing = F
 ```
-
-# Type = `r type`
 
 {{< include code/replication.qmd >}}

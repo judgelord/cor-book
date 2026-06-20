@@ -15,10 +15,8 @@ project:
     - "!feedback/"
     - "!README"
 
-book-content: true
-
 book:
-  title: "Unequal Invisible Representation"
+  title: "Unequal Interbranch Representation"
   author: "Devin Judge-Lord, Eleanor Powell, Rochelle Snyder"
   date: today
   cover-image: assets/cover.png
@@ -60,3 +58,5 @@ format:
         \printindex
   epub:
      cover-image: assets/cover.png
+
+book-content: true

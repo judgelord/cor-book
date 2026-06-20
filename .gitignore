@@ -25,3 +25,6 @@ slides/*.html
 archive
 Icon
 TODO text and notes for Ch 1-2.qmd
+.cache
+Icon
+cache

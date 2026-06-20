@@ -1,3 +1,5 @@
+# Type = `r type`
+
 Required Packages: 
   
 - `tidyverse` and `magrittr`, for data wrangling
@@ -12,6 +14,8 @@ Required Packages:
 - `ineq` to calculate GINI coefficients
 
 ```{r functions, cache=FALSE}
+here::here("code", "qmd_global_options.R") |> source() 
+
 # plotting functions 
 here::here("code", "ggcompetitive.R") |> source() 
 here::here("code", "ggchair.R") |> source() 
@@ -27,6 +31,7 @@ here::here("code", "modelsummary_formatting.R") |> source()
 ```{r global.options, message=FALSE,warning=FALSE, purl=FALSE, cache=FALSE}
 # load r packages and qmd render defaults 
 here::here("code", "qmd_global_options.R") |> source() 
+testing = F
 
 # directory for figures from this analysis
 dir.create(here::here("figs", type))
@@ -34,9 +39,8 @@ dir.create(here::here("models", type))
 dir.create(here::here("tables", type))
 
 knitr::opts_chunk$set(
-  fig.path = paste0("figs/", type, "/"),
-  # CACHE IF NOT TESTING 
-  cache = !testing )
+  fig.path = paste0("figs/", type, "/")
+  )
 ```
 
 Figures at `r paste0("figs/", type, "/")`
@@ -47,15 +51,21 @@ Data at `r paste0("data/", type, "/")`
 # Data
 
 ```{r data, cache=FALSE}
-load(here::here("data", type, "dcounts.rds"))
+load(here::here("data", type, "dcounts.rds")) 
 load(here::here("data", type, "dcounts_district.rds"))
 load(here::here("data", type, "means.Rdata"))
 load(here::here("data", "member_data.Rdata"))
+
+
+dcounts |> group_by(agency) |>
+  mutate(across(everything(), is.na)) |> 
+  summarise(across(everything(),  sum)) |> 
+  kablebox()
 ```
 
-```{r transformations}
-data_member <- dcounts
-data_district <- dcounts_district
+```{r transformations, cache=FALSE}
+data_member <- dcounts |> mutate(type = type)
+data_district <- dcounts_district |> mutate(type = type)
 
 rename_vars <- function(data){
   data <- data |> 
@@ -390,6 +400,8 @@ m_cross <-fenegbin (perYear ~
                     majority + presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
            data = data_member)
+
+# data_member |> count(is.na(presidents_party))
 
 
 if(testing){modelsummary::modelsummary(m_cross)}

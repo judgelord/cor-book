@@ -1,5 +1,26 @@
+library(scales)
+library(here)
+library(tinytable)
+
+source(here::here("code", "modelsummary_formatting.R"))
+
+# cach files in cache folder
+input_file <- knitr::current_input()
+
+doc_name <- tools::file_path_sans_ext(basename(input_file))
+
+input_file <- knitr::current_input()
+
+doc_name <- tools::file_path_sans_ext(basename(input_file))
+
+knitr::opts_chunk$set(
+  # cache = FALSE, # this is in _quarto.yml
+  cache.path = file.path("cache", doc_name, ""),
+  warning = F,
+  message = F)
+
 # inline numbers round to 2, comma at thousands
-knitr::knit_hooks$set(inline = function(x) {
+inline <- function(x) {
   if (is.na(as.numeric(x))) {
     return (x)
   } else
@@ -7,69 +28,7 @@ knitr::knit_hooks$set(inline = function(x) {
               round(2) |>
               format(big.mark=",")
     )
-})
-
-library(scales)
-library(here)
-
-library(magrittr)
-#library(kableExtra) # no longer in development
-library(tinytable) # replacment for kableExtra
-
-# Regression table formatting for AJPS
-modelsummary_AJPS <- function(models, notes = "", center_rows = 1, ...){
-  modelsummary::modelsummary(models,
-                             # Custom sig stars for AJPS
-                             stars = c('†' = .1, '*' = .05, '**' = .01),
-                             # Align coefficients by decimal for AJPS
-                             #align = paste0("l", paste0(rep("d", length(models)), collapse = "")),
-                             add_rows = rows,
-                             coef_map = cm,
-                             gof_map = gm,
-                             output = "tinytable",
-                             notes = notes)  |>
-    # bold header, hline bottom, aligned center
-     tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") #|>
-    # stats aligned center
-   #  tinytable::style_tt(i = center_rows, align = "c") |>
-    # row labels left
-    # tinytable::style_tt(j = 1, align = "l") |>
-   #  tinytable::style_tt(fontsize = .7)
 }
 
-# overwrite modelsummary::modelsummary with custom version above
-modelsummary <- modelsummary_AJPS
-
-
-#FIXME Why are the tables not formatting well?
-if(F){
-load(here::here("models", "total", "models.Rdata"))
-
-test <-modelsummary:: modelsummary(models_total)
-# config_modelsummary(factory_default = "tinytable")
-
-# if(packageVersion("modelsummary") != "2.0"){
-#   remove.packages("modelsummary")
-#   packageurl <- "https://cran.r-project.org/src/contrib/Archive/modelsummary/modelsummary_2.0.0.tar.gz"
-#   install.packages(packageurl, repos=NULL, type="source")
-# }
-
-packageVersion("modelsummary")
-modelsummary::config_modelsummary()
-t <- modelsummary::modelsummary(lm(speed ~ dist, cars), output = "tinytable")
-class(t)
-t |>
-  tinytable::style_tt(i = 0:1, bold = T)
-
-}
-
-betas <- . %>% .$coefficients %>%
-  round(3) %>%
-  as_tibble(rownames = "beta") %>%
-  pivot_wider(names_from = beta)
-
-
-standard_errors <- . %>% .$se %>%
-  round(3) %>% as_tibble(rownames = "se") %>%
-  pivot_wider(names_from = se)
+knitr::knit_hooks$set(inline = inline)
 
