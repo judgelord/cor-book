@@ -1,5 +1,6 @@
 # get data from correspondence-data repo
 here::here("code", "make_corr_counts_from_dcounts_min.R") |> source()
+here::here("code", "make_member_data.R") |> source()
 
 library(quarto)
 
