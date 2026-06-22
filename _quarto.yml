@@ -1,6 +1,6 @@
 execute:
   cache: true
-  freeze: true
+  freeze: false
   echo: false
   message: false
   warning: false
@@ -54,6 +54,8 @@ format:
     number-depth: 2
     include-in-header:
        - assets/header.tex
+    #pdf-engine: pdflatex
+
     # include-after-body:
     #   text: |
     #     \printindex

@@ -7,18 +7,10 @@ load(here::here("data", type, "means.Rdata"))
 here::here("code", "formatting.R") |> source()
 ```
 
-::: {.content-hidden unless-meta="book-content"}
-
 > ABSTRACT: Stark differences in the amount of policy work legislators do is driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
-
-:::
-
-
-
 
 
 ## What it looks like
-
 
 ```{r}
 #| label: fig-words

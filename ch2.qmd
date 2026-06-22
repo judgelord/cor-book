@@ -13,11 +13,11 @@ First, are the activities of legislator offices that we call interbranch represe
 
 Existing political science theory has much to say about both questions. 
 
-Several existing theories suggest that we should think of interbranch representation, in general, as "work" that some choose to do and others don't. For example, dividing legislators into "work horses" and "show horses" suggests that legislators have a type. We would expect one type to interbranch representation and the other to prioritize communications. 
+Several existing theories suggest that we should think of interbranch representation, in general, as "work" that some choose to do and others don't. For example, dividing legislators into "work horses" and "show horses" suggests that legislators have a type. We would expect one type to prioritize interbranch representation and the other to prioritize communications. 
 
-Others suggest that the more important thing is how priorities show up in the work. Fenno suggests that members of Congress shift from prioritizing constituency service to policy work as their career in Washington-- some prioritize constituency service, others prioritize policy work. In a world of limited resources, perhaps we should not expect everyone to do everything. And different people may opt to represent their constituents in different ways. 
+Others suggest that the more important thing is how priorities show up in the work. Fenno suggests that members of Congress shift from prioritizing constituency service to policy work as their career in Washington --- some prioritize constituency service, others prioritize policy work. In a world of limited resources, perhaps we should not expect everyone to do everything. And different people may opt to represent their constituents in different ways. 
 
-This theory of Fennos also provides one answer to the second question about the causes of variation---the longer one serves and the more deeply embedded in Washington DC, the more they prioritize Washington work over district service. 
+This theory of Fenno's also provides one answer to the second question about the causes of variation --- the longer one serves and the more deeply embedded in Washington DC, the more they prioritize Washington work over district service. 
 There are many other answered, in this chapter, we expand on the three-part framework of possible explanations for variation in interbranch representation: demand, capacity, and strategy. As we describe below, some explanations touch on more than one part of this framework. For example, a representative may seek to join the House Committee on Appropriations’ Subcommittee on Agriculture, Rural Development, Food and Drug Administration because they represent farmers, and feel pressure from them to get more involved in shaping grant criteria, farm subsidies (Demand), or because the representative thinks it is a smart way to shape farm policy or get reelected (strategic behavior). Joining a committee may also give you better access to the committee staff who conduct oversight of appropriations, and being on the committee may make some agencies take your requests more seriously (two forms of increased *capacity* to shape the workings of government). Indeed, some agencies, including the Food and Drug Administration, meticulously document which committees every legislator who contacts the agency sits on, even for requests unrelated to committee work. Thus, a member of an Agriculture Subcommittee may make more requests to food and agriculture agencies because they face active constituent *demand*, because their institutional position on the committee increases their *capacity* to make requests, and because they have made *strategic choices* about what kinds of policy to focus on and how to get reelected. And committee membership is just one potential cause of variation. 
 
 This chapter maps existing theories onto our concept of interbranch representation. Some have implications for interbranch representation as a whole. Most focus on only one of its component parts, and very few talk about engaging with the executive branch as a form of representation. 
@@ -128,11 +128,11 @@ Two additional features of the "Naive Folk Theory" are also unrealistic. First, 
 
 We introduce a framework of Demand, Capacity, Political Environment, and Strategic Choices to extend and unify theoretical ideas from disparate strands of scholarship on Congress and the Bureaucracy. Demand and capacity-related explanations focus on legislator offices as bureaucracies. Political environment and strategic choices focus on legislators as politicians. 
 
-```{mermaid, eval = FALSE, include = FALSE}
+```{mermaid}
 %%| label: fig-causal
 %%| fig-cap: "How constituent demand, capacity, political environment, and member's strategic choices shape interbranch representation activities"
-%%| fig-width: 7.5
-%%| fig-height: 10
+%%| fig-width: 6.5
+%%| fig-height: 6
 %%| out-width: "100%"
 
 flowchart TD
@@ -209,26 +209,39 @@ Legislators who represent more constituents will be associated with higher level
 
 
 ```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "demand.csv"))
 #| label: tbl-demand
 #| tbl-cap: "Demand Hypotheses"
-#| tbl-colwidths: [1, 3, 1, 2]
 #| results: asis
 
-tbl <- here::here("tables", "demand.csv") |> 
-  readr::read_csv(
-    col_types = readr::cols(.default = readr::col_character())
-  ) |> 
-  dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
-  ) 
+library(tinytable)
 
-tbl |>
-  knitr::kable(
-  format = "pipe",
-  escape = FALSE,
-  align = c("l", "l", "c", "c"),
-  col.names = paste0("**", names(tbl), "**")
+theory_table <- function(file){
+  tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character()) ) |> 
+  dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) 
+
+#   # OPTION 1 - citations don't seem to format, the the rest of the table is prettier
+# tbl |>
+#   tinytable::tt(width = c(0.18, 0.40, 0.15, 0.27)) |>
+#   format_tt(quarto = TRUE, markdown = TRUE, escape = FALSE, j = 4) |>
+#   style_tt(i = 0, bold = TRUE) |>
+#   style_tt(j = c(1:2,4), align = "l") |>
+#   style_tt(j = 3, align = "c")
+
+# OPTION 2 - citions work, but formatting could use work (must be done with array spacing in header.tex)
+# NOTE: THIS REQUIRES #| results: asis
+  tbl |>
+  pander::pandoc.table(
+  style = "multiline",
+  split.cells = c(18, 40, 15, 27),
+  split.table = Inf,
+  justify = c("left", "left", "center", "left"),
+  missing = ""
 )
+}
+
+here::here("tables", "demand.csv") |> theory_table()
 ```
 
 
@@ -280,29 +293,15 @@ Selected quality: Selecting Higher Performers: Did you Survive a Close Election 
 Competitive elections select higher-quality legislators. Therefore, legislators who won competitive elections will be associated with higher amounts of interbranch representation. 
 \end{subhypothesis}
 ---> 
+
 ```{r}
-#| cache: true
+#| cache: false
 #| cache.extra: !expr tools::md5sum(here::here("tables", "capacity.csv"))
 #| label: tbl-capacity
 #| tbl-cap: "Capacity Hypotheses"
-#| tbl-colwidths: [1, 3, 1, 2]
 #| results: asis
 
-tbl <- here::here("tables", "capacity.csv") |> 
-  readr::read_csv(
-    col_types = readr::cols(.default = readr::col_character())
-  ) |> 
-  dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
-  ) 
-
-tbl |>
-  knitr::kable(
-  format = "pipe",
-  escape = FALSE,
-  align = c("l", "l", "c", "c"),
-  col.names = paste0("**", names(tbl), "**")
-)
+here::here("tables", "capacity.csv")  |> theory_table()
 ```
 
 ### Political Environment
@@ -337,28 +336,13 @@ Legislators from the President's party will be associated with lower amounts of 
 
 
 ```{r}
-#| cache: true
+#| cache: false
 #| cache.extra: !expr tools::md5sum(here::here("tables", "environment.csv"))
 #| label: tbl-environment
 #| tbl-cap: "Political Environment Hypotheses"
-#| tbl-colwidths: [1, 3, 1, 2]
 #| results: asis
 
-tbl <- here::here("tables", "environment.csv") |> 
-  readr::read_csv(
-    col_types = readr::cols(.default = readr::col_character())
-  ) |> 
-  dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
-  ) 
-
-tbl |>
-  knitr::kable(
-  format = "pipe",
-  escape = FALSE,
-  align = c("l", "l", "c", "c"),
-  col.names = paste0("**", names(tbl), "**")
-)
+here::here("tables", "environment.csv")  |> theory_table()
 ```
 
 
@@ -397,28 +381,13 @@ Legislators who are ideologically distant from an agency will engage in higher a
 
 
 ```{r}
-#| cache: true
+#| cache: false
 #| cache.extra: !expr tools::md5sum(here::here("tables", "strategiccombined.csv"))
 #| label: tbl-strategiccombined
 #| tbl-cap: "Strategy Hypotheses"
-#| tbl-colwidths: [1, 3, 1, 2]
 #| results: asis
 
-tbl <- here::here("tables", "strategiccombined.csv") |> 
-  readr::read_csv(
-    col_types = readr::cols(.default = readr::col_character())
-  ) |> 
-  dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
-  ) 
-
-tbl |>
-  knitr::kable(
-  format = "pipe",
-  escape = FALSE,
-  align = c("l", "l", "c", "c"),
-  col.names = paste0("**", names(tbl), "**")
-)
+here::here("tables", "strategiccombined.csv")  |> theory_table()
 ```
 
 ### From Theoretical Framework to Research Design

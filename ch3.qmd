@@ -88,7 +88,9 @@ score from the ideology score of each agency. We also use other legislator-level
 Other variables are at the legislator or district level.
 For data on electoral competitiveness, we use data from @Thomsen2023 on vote share in primary and general elections, adopting her definition of whether an election was competitive. 
 
+## Oversight Relationships 
 
+TODO DEVIN 
 
 ## Statistical Model
 
