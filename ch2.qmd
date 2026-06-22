@@ -1,12 +1,11 @@
 
 # Theories of Interbranch Representation {#sec-theory}
 
-
-::: {.content-hidden unless-meta="book-content"}
-
 > ABSTRACT: Our theory explains unequal levels of interbranch representation by clarifying the implications of a “folk theory” of model representation as well as several strategic and ideology-driven behaviors. Under a “folk theory” of representation, only district characteristics and legislator capacity would explain inequalities. We also clarify how political science theories about reelection strategy, money in politics, partisanship, ideology, and policy interests produce additional explanations for unequal levels and distribution of interbranch representation.
 
-:::
+```{r knit-options, include=FALSE, cache=FALSE}
+here::here("code", "formatting.R") |> source()
+```
 
 This book takes up two related questions. The answers shape how we think about interbranch representation: 
 First, are the activities of legislator offices that we call interbranch representation a basket that belongs together conceptually and moves together empirically? That is, is interbranch representation the kind of thing to be discussed in terms of more or less? Or is it better to think of *styles* of interbranch representation like Fenno's *Home Style and Washington Work*---where the primary variation is in what kind of representation one prioritizes? Second, what are the causes of variation in interbranch representation? If some members are doing much more than others (they are), why? Do different kinds of interbranch representation have different causes? 
@@ -129,9 +128,13 @@ Two additional features of the "Naive Folk Theory" are also unrealistic. First, 
 
 We introduce a framework of Demand, Capacity, Political Environment, and Strategic Choices to extend and unify theoretical ideas from disparate strands of scholarship on Congress and the Bureaucracy. Demand and capacity-related explanations focus on legislator offices as bureaucracies. Political environment and strategic choices focus on legislators as politicians. 
 
-```{mermaid}
+```{mermaid, eval = FALSE, include = FALSE}
 %%| label: fig-causal
 %%| fig-cap: "How constituent demand, capacity, political environment, and member's strategic choices shape interbranch representation activities"
+%%| fig-width: 7.5
+%%| fig-height: 10
+%%| out-width: "100%"
+
 flowchart TD
     subgraph demand_g ["Demand"]
         CD["Constituent<br/>Demand"]
@@ -206,22 +209,26 @@ Legislators who represent more constituents will be associated with higher level
 
 
 ```{r}
-#| cache: true
-#| cache.extra: !expr tools::md5sum(here::here("tables", "demand.csv"))
 #| label: tbl-demand
 #| tbl-cap: "Demand Hypotheses"
-library(tinytable)
+#| tbl-colwidths: [1, 3, 1, 2]
+#| results: asis
 
-here::here("tables", "demand.csv") |> 
-  readr::read_csv() |> 
+tbl <- here::here("tables", "demand.csv") |> 
+  readr::read_csv(
+    col_types = readr::cols(.default = readr::col_character())
+  ) |> 
   dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
-    ) |> 
-  tt(width = c(2, 3, 1, 3) ) |>
-  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here  
-  style_tt(i = 0, bold = TRUE) |>              # table/column headings
-  style_tt(j = 1, align = "l") |>
-  style_tt(j = 2:4, align = "c")
+    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
+  ) 
+
+tbl |>
+  knitr::kable(
+  format = "pipe",
+  escape = FALSE,
+  align = c("l", "l", "c", "c"),
+  col.names = paste0("**", names(tbl), "**")
+)
 ```
 
 
@@ -278,18 +285,24 @@ Competitive elections select higher-quality legislators. Therefore, legislators 
 #| cache.extra: !expr tools::md5sum(here::here("tables", "capacity.csv"))
 #| label: tbl-capacity
 #| tbl-cap: "Capacity Hypotheses"
-library(tinytable)
+#| tbl-colwidths: [1, 3, 1, 2]
+#| results: asis
 
-here::here("tables", "capacity.csv") |> 
-  readr::read_csv() |> 
+tbl <- here::here("tables", "capacity.csv") |> 
+  readr::read_csv(
+    col_types = readr::cols(.default = readr::col_character())
+  ) |> 
   dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
-    ) |> 
-  tt(width = c(2, 3, 1, 3) ) |>
-  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here
-  style_tt(i = 0, bold = TRUE) |>              # table/column headings
-  style_tt(j = 1, align = "l") |>
-  style_tt(j = 2:4, align = "c")
+    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
+  ) 
+
+tbl |>
+  knitr::kable(
+  format = "pipe",
+  escape = FALSE,
+  align = c("l", "l", "c", "c"),
+  col.names = paste0("**", names(tbl), "**")
+)
 ```
 
 ### Political Environment
@@ -328,18 +341,24 @@ Legislators from the President's party will be associated with lower amounts of 
 #| cache.extra: !expr tools::md5sum(here::here("tables", "environment.csv"))
 #| label: tbl-environment
 #| tbl-cap: "Political Environment Hypotheses"
-library(tinytable)
+#| tbl-colwidths: [1, 3, 1, 2]
+#| results: asis
 
-here::here("tables", "environment.csv") |> 
-  readr::read_csv() |> 
+tbl <- here::here("tables", "environment.csv") |> 
+  readr::read_csv(
+    col_types = readr::cols(.default = readr::col_character())
+  ) |> 
   dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
-    ) |> 
-  tt(width = c(2, 3, 1, 3) ) |>
-  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here
-  style_tt(i = 0, bold = TRUE) |>              # table/column headings
-  style_tt(j = 1, align = "l") |>
-  style_tt(j = 2:4, align = "c")
+    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
+  ) 
+
+tbl |>
+  knitr::kable(
+  format = "pipe",
+  escape = FALSE,
+  align = c("l", "l", "c", "c"),
+  col.names = paste0("**", names(tbl), "**")
+)
 ```
 
 
@@ -382,21 +401,28 @@ Legislators who are ideologically distant from an agency will engage in higher a
 #| cache.extra: !expr tools::md5sum(here::here("tables", "strategiccombined.csv"))
 #| label: tbl-strategiccombined
 #| tbl-cap: "Strategy Hypotheses"
-library(tinytable)
+#| tbl-colwidths: [1, 3, 1, 2]
+#| results: asis
 
-here::here("tables", "strategiccombined.csv") |> 
-  readr::read_csv() |> 
+tbl <- here::here("tables", "strategiccombined.csv") |> 
+  readr::read_csv(
+    col_types = readr::cols(.default = readr::col_character())
+  ) |> 
   dplyr::mutate(
-    dplyr::across(everything(), ~ tidyr::replace_na(as.character(.x), ""))
-    ) |> 
-  tt(width = c(2, 3,3, 3) ) |>
-  format_tt(j = 4, quarto = TRUE) |>        # let Quarto resolve @citations here
-  style_tt(i = 0, bold = TRUE) |>              # table/column headings
-  style_tt(j = 1, align = "l") |>
-  style_tt(j = 2:4, align = "c")
+    dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))
+  ) 
+
+tbl |>
+  knitr::kable(
+  format = "pipe",
+  escape = FALSE,
+  align = c("l", "l", "c", "c"),
+  col.names = paste0("**", names(tbl), "**")
+)
 ```
 
 ### From Theoretical Framework to Research Design
+
 [Transition to next chapter]
 
 
