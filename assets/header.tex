@@ -1,5 +1,6 @@
-\usepackage{makeidx}
-\makeindex
+% WHY DO WE NEED THIS?
+% \usepackage{makeidx}
+% \makeindex
 
 \usepackage{amssymb}
 \usepackage{pifont} % Pi fonts (Dingbats, Symbol, etc.)
@@ -12,11 +13,13 @@
 \usepackage{arydshln}
 \usepackage{siunitx}
 \UseTblrLibrary{siunitx}
+
+% THIS WAS CAUSING ERRORS AND DOES NOT SEEM NECESSARY
 %\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
 %\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
 % \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
 
-% THEOREM -- CAN WE USED PANDOC/QUARTO NATIVE (MAY REQUIRE NOT DOING SUB-THEOREMS)
+% THEOREM -- CAN WE USED PANDOC/QUARTO NATIVE THEORM INSTEAD? (MAY REQUIRE NOT DOING SUB-THEOREMS)
 \newtheoremstyle{indented}
   {0em}{1.5em}{\itshape}{0em}{\bfseries}{.}{ }%
   {\thmname{#1}\thmnumber{ #2}\thmnote{- \bfseries#3}}

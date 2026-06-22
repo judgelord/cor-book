@@ -13,6 +13,7 @@ This repo contains all of the files needed to render the book, including replica
 - `models/`1 is a folder for saved model objects. The replication files put models in here, and the chapters pull models from here.
 - `tables/` is a folder for saved tables. The replication files put tables in here, and the chapters pull tables from here.
 - `slides/` is a folder for slide decks
+- `archive/` is old stuff 
 
 ## Files
 

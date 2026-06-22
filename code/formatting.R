@@ -1,21 +1,16 @@
 library(scales)
 library(here)
-library(tinytable)
 
+# table formatting
+library(tinytable)
 source(here::here("code", "modelsummary_formatting.R"))
 
-# cach files in cache folder
+# cache files in cache folder
 input_file <- knitr::current_input()
-
 doc_name <- tools::file_path_sans_ext(basename(input_file))
-
-input_file <- knitr::current_input()
-
-doc_name <- tools::file_path_sans_ext(basename(input_file))
-
 knitr::opts_chunk$set(
-  # cache = FALSE, # this is in _quarto.yml
-  cache.path = file.path("cache", doc_name, ""),
+  cache.path = file.path(".cache", doc_name, ""),
+  out.width = "100%",
   warning = F,
   message = F)
 

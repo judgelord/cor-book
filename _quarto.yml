@@ -1,5 +1,6 @@
 execute:
   cache: true
+  freeze: true
   echo: false
   message: false
   warning: false
@@ -46,17 +47,17 @@ bibliography: assets/cor.bib
 
 format:
   html:
-    theme: cosmo
+    # theme: cosmo
     self-contained: false # why does this make the files so large? (77MB!)
   pdf:
-    documentclass: scrreprt
+    #documentclass: scrreprt. # why this rather than book?
     number-depth: 2
     include-in-header:
        - assets/header.tex
-    include-after-body:
-      text: |
-        \printindex
-  epub:
-     cover-image: assets/cover.png
+    # include-after-body:
+    #   text: |
+    #     \printindex
+  # epub:
+  #    cover-image: assets/cover.png
 
 book-content: true
