@@ -1,9 +1,12 @@
----
-title: "wordclouds"
-format: html
----
 
-```{r data}
+
+```{r}
+# if not provided a type, type = total 
+if(!exists("type")){
+  type = "total"
+}
+
+
 # install.packages(c(
 #   "tidyverse", "tidytext", "ggwordcloud", "here", "fs", "scales"
 # ))
@@ -16,16 +19,46 @@ library(fs)
 library(scales)
 library(magrittr)
 
-# The minimal count data
+
 here::here("data", "all_contacts.rda") |>
   str_replace("cor-book", "correspondence_data") |> load()
 
-names(all_contacts)
+if(type != "total"){
+d <- all_contacts |> filter(TYPE == type)
+} 
 
 
-d <- all_contacts |> select(agency, year, SUBJECT, TYPE, party_name) |> filter(agency != "DHS_USCIS")
+d <- d |> 
+  select(agency, year, SUBJECT, TYPE, party_name) |> filter(agency != "DHS_USCIS")
 
-d
+#
+members <- legislators::members
+
+# years to include from data_list
+here::here("data_list.R") |> str_replace("cor-book", "correspondence_data") |> source() 
+
+agency_years_to_keep <- data_list %>%
+  select(agency, years_to_include) %>%
+  tidyr::unnest_longer(years_to_include, values_to = "year") %>%
+  tidyr::unnest_longer(year) %>% 
+  mutate(
+    agency = as.character(agency),
+    year = as.integer(year)
+  ) %>%
+  distinct(agency, year)
+
+d <- d %>%
+  mutate(
+    agency = as.character(agency),
+    year = as.integer(year)
+  ) %>%
+  semi_join(
+    agency_years_to_keep,
+    by = c("agency", "year")
+  )
+
+d %<>% 
+  mutate(SUBJECT = SUBJECT |> str_to_lower() |> str_replace("head start|Head Start", "Headstart"))
 ```
 
 
@@ -45,24 +78,26 @@ This converts `SUBJECT` into words, removes stop words, and counts words by `age
 
 ```{r}
 custom_stop <- c(
-  unique(d$agency) |> str_split("_") |> unlist(), "ferc", "ferc's", "fda's", "cdc", "cdc's", "dhs", "hhs", "cms", #"cder",
+  unique(d$agency) |> str_split("_") |> unlist(), "ferc", "ferc's", "fda's", "cdc", "cdc's", "dhs", "hhs", "cms", "ig's", "ita's", "doc's", "be'er", #"cder",
   "medicare", "health", "homeland", "security", "support", "america",
   unique(d$agency) |> str_split("_") |> unlist() |> str_to_lower(), 
   state.name,
   state.name |> str_to_lower() |> str_split(" |-") |> unlist(),
-  unique(members$last_name) |> str_split(" |-") |> unlist(),
+  unique(members$last_name) |> str_split(" |-") |> unlist(), "diaz", "gwen", "andr", "vel", "zquez", "chuy", "dina", "cortez", "rona", "jos", "jesus", "jacky",
   unique(members$first_name),
   unique(members$last_name) |> str_split(" |-") |> unlist() |> str_to_lower(),
-  unique(members$first_name)|> str_to_lower(),
+  unique(members$first_name)|> str_to_lower() ,
   # Add dataset-specific filler terms here if they dominate too much
   "request", "requests", "requesting", "requested", "forwards", "behalf", "letter", "email", # "question", "constituent", "case", "follow", "up",
   "writes", "write", "writing", "written", "submitted", "comments", "signers", "summary", "subject", "correspondence", "inquiry", "contact", "expressing", "express", "concern", "concerns", "ltr", "concerned", "encourages", "urges", "urging",
   "issue", "issues", "staff", "related", "official", "response", "inquiry", "director", "secretary", "congress", "federal","cosigner","cosigners", "lots", "feels", "cmsy", "info",
-  "prep", "sig", "closed", "owner", "recently", "multi", "called", "incoming", "communication", "sending", "letters", "wrote", "responder",
+  "prep", "sig", "closed", "owner", "recently", "multi", "called", "incoming", "communication", "sending", "letters", "wrote", "responder", "title", "copy", "ocasio",
   "department", "national", "u.s.", "u.s","office",  "dept", "americorps",
   "rep", "reps", "sens", "sen", "senator", "senators", "senate", "house", "agency", "position",
-  "honorable", "representative", "representatives", 
-  "congressman", "congressional", "cong", "committee", "cmte", "staffer", "potus", "secy",
+  "honorable", "representative", "representatives", "exec", "rec'd", "copy",
+  "congressman", "congressional", "cong", "committee", "cmte", "staffer", "potus", "secy", 
+  "5ecy", "cmsy", "xttfr", "spe4a6", "spm4a7", "dscr", "e610", 
+  "concern", "communication", "list", "misc"
 )
 
 subject_words <- d %>%
@@ -79,6 +114,7 @@ subject_words <- d %>%
     SUBJECT = str_replace_all(SUBJECT, "&amp;", " and "),
     SUBJECT = str_replace_all(SUBJECT, "&lt;", " "),
     SUBJECT = str_replace_all(SUBJECT, "&gt;", " "),
+    SUBJECT = str_replace_all(SUBJECT, "[0-9]", " "),
     SUBJECT = str_squish(SUBJECT)
   ) %>%
   tidytext::unnest_tokens(word, SUBJECT) %>%
@@ -91,6 +127,8 @@ subject_words <- d %>%
     !is.na(word),
     word != "",
     str_detect(word, "[a-z]"),
+    !str_detect(word, "'"),
+    !str_detect(word, "[0-9]"),
     !str_detect(word, "^\\d+$"),
     nchar(word) > 3,
     !word %in% custom_stop
@@ -100,13 +138,10 @@ subject_words <- d %>%
 
 # Optional but recommended so you do not need to retokenize each time
 fs::dir_create(here("data", "derived"))
-saveRDS(subject_words, here("data", "derived", "subject_word_counts.rds"))
+saveRDS(subject_words, here("data", "derived", type, "subject_word_counts.rds"))
 ```
 
-Load data   
-  ```{r}
-subject_words <- readRDS(here("data", "derived", "subject_word_counts.rds"))
-```
+
 
 ## 2. Helper functions for word-cloud panels
 
@@ -143,7 +178,7 @@ clean_wordcloud_label <- function(x) {
 
 # Then modify prep_cloud_df() so it creates a safe plotting label:
 prep_cloud_df <- function(counts, facet_cols = "year", max_words = 75,
-                          min_size = 5, max_size = 18) {
+                          min_size = 10, max_size = 18) {
   counts %>%
     mutate(
       word = as.character(word),
@@ -167,27 +202,28 @@ prep_cloud_df <- function(counts, facet_cols = "year", max_words = 75,
     ungroup()
 }
 
-panel_dims <- function(plot_df, facet_cols = "year", ncol = NULL) {
-  n_panels <- plot_df %>%
-    distinct(across(all_of(facet_cols))) %>%
-    nrow()
-
-  if (n_panels == 0) {
-    return(list(ncol = 1, width = 4, height = 3))
-  }
-
-  if (is.null(ncol)) {
-    ncol <- min(n_panels, ceiling(sqrt(n_panels)))
-  }
-
-  nrow <- ceiling(n_panels / ncol)
-
-  list(
-    ncol = ncol,
-    width = max(4, 2.2 * ncol),
-    height = max(3, 1.9 * nrow)
-  )
-}
+# panel_dims <- function(plot_df, facet_cols = "year", ncol = NULL,
+#                        panel_size = 1) {
+#   n_panels <- plot_df %>%
+#     distinct(across(all_of(facet_cols))) %>%
+#     nrow()
+# 
+#   if (n_panels == 0) {
+#     return(list(ncol = 1, width = panel_size, height = panel_size))
+#   }
+# 
+#   if (is.null(ncol)) {
+#     ncol <- min(n_panels, ceiling(sqrt(n_panels)))
+#   }
+# 
+#   nrow <- ceiling(n_panels / ncol)
+# 
+#   list(
+#     ncol = ncol,
+#     width = panel_size * ncol,
+#     height = panel_size * nrow
+#   )
+# }
 
 make_cloud_panel <- function(counts, title = NULL, facet_cols = "year",
                              max_words = 75, ncol = NULL) {
@@ -197,27 +233,26 @@ make_cloud_panel <- function(counts, title = NULL, facet_cols = "year",
     max_words = max_words
   )
 
-  dims <- panel_dims(plot_df, facet_cols = facet_cols, ncol = ncol)
-
-
   ggplot(
     plot_df,
-    aes(label = word_label, size = .size, color = log(n))
+    aes(label = word_label |> str_to_upper(), size = .size, color = log(n))
   ) +
     ggwordcloud::geom_text_wordcloud_area(
       rm_outside = TRUE,
-      eccentricity = 1,
-      grid_size = 1
+      eccentricity = 0.85,
+      grid_size = 2
     ) +
     facet_wrap(
-  vars(!!!rlang::syms(facet_cols)),
-  ncol = dims$ncol,
-  scales = "free") +
+      vars(!!!rlang::syms(facet_cols)),
+      ncol = ncol
+    ) +
     scale_size_identity() +
-    scale_color_viridis_c(option = "B", guide = "none", begin = 0, end = .7) +
-    scale_x_continuous(expand = expansion(mult = 0, add = 0)) +
-scale_y_continuous(expand = expansion(mult = 0, add = 0)) +
-    coord_cartesian(expand = FALSE, clip = "off") + 
+    scale_color_viridis_c(
+      option = "C",
+      guide = "none",
+      begin = 0,
+      end = 0.7
+    ) +
     labs(title = title) +
     theme_void(base_size = 12) +
     theme(
@@ -231,57 +266,54 @@ scale_y_continuous(expand = expansion(mult = 0, add = 0)) +
         size = 10,
         margin = margin(0, 0, 0, 0, unit = "pt")
       ),
-      strip.background = element_blank(),
+      # strip.background = element_blank(), # FIXME 
 
-      plot.title = element_text(
-        face = "bold",
-        hjust = 0.5,
-        margin = margin(0, 0, 2, 0, unit = "pt")
-      ),
-
+      plot.title = element_blank(),
       plot.background = element_rect(fill = "white", color = NA),
       panel.background = element_rect(fill = "white", color = NA)
     )
 }
 
+
+
+
 save_cloud_panel <- function(counts, path, title = NULL, facet_cols = "year",
-                             max_words = 75, ncol = NULL, dpi = 300,
-                             seed = 123) {
+                             max_words = 75, ncol = NULL,
+                             width = 10, height = 7,
+                             dpi = 300, seed = 123) {
   plot_df <- prep_cloud_df(
     counts = counts,
     facet_cols = facet_cols,
     max_words = max_words
   )
-  
+
   if (nrow(plot_df) == 0) {
     message("Skipping empty plot: ", path)
     return(invisible(NULL))
   }
-  
-  
-  
+
   p <- make_cloud_panel(
     counts = counts,
     title = title,
     facet_cols = facet_cols,
     max_words = max_words,
-    ncol = dims$ncol
+    ncol = ncol
   )
-  
+
   fs::dir_create(dirname(path))
-  
+
   set.seed(seed)
-  
+
   ggsave(
     filename = path,
     plot = p,
-    width = dims$width,
-    height = dims$height,
+    width = width,
+    height = height,
     dpi = dpi,
     bg = "white",
     limitsize = FALSE
   )
-  
+
   invisible(path)
 }
 ```
@@ -293,11 +325,12 @@ This creates one PNG with one panel per year.
 ```{r}
 overall_year_counts <- subject_words %>%
   group_by(year, word) %>%
-  summarize(n = sum(n), .groups = "drop")
+  summarize(n = sum(n), .groups = "drop") %>% 
+  filter(year >2003, year < 2024)
 
 save_cloud_panel(
   counts = overall_year_counts,
-  path = here("figs", "wordcloud", "overall_by_year.png"),
+  path = here("figs", "wordcloud", type, "overall_by_year.png"),
   #title = "SUBJECT word clouds by year",
   facet_cols = "year",
   max_words = 75
@@ -308,7 +341,7 @@ save_cloud_panel(
 
 This saves files like:
   
-  ```{r}
+```
 figs/wordcloud/by-agency/ABMC.png
 ```
 
@@ -349,16 +382,25 @@ for (ag in agencies) {
     filter(agency == ag) %>%
     select(year, word, n)
   
-  save_cloud_panel(
-    counts = dat_ag,
-    path = here(
-      "figs", "wordcloud", "by-agency",
-      paste0(safe_filename(ag), ".png")
-    ),
-    title = paste("SUBJECT word clouds by year:", ag),
-    facet_cols = "year",
-    max_words = 75
-  )
+  years <- dat_ag %>%
+  distinct(year) %>%
+  nrow()
+
+ncol_plot <- min(years, 5)
+nrow_plot <- ceiling(years / 5)
+
+save_cloud_panel(
+  counts = dat_ag,
+  ncol = ncol_plot,
+  width = ncol_plot * 2,
+  height = nrow_plot * 2,
+  path = here(
+    "figs", "wordcloud", type, "by-agency",
+    paste0(safe_filename(ag), ".png")
+  ),
+  facet_cols = "year",
+  max_words = 75
+)
 }
 ```
 
@@ -384,10 +426,20 @@ for (pt in parties) {
     filter(party_name == pt) %>%
     select(year, word, n)
   
+    years <- dat_ag %>%
+  distinct(year) %>%
+  nrow()
+
+ncol_plot <- min(years, 5)
+nrow_plot <- ceiling(years / 5)
+
   save_cloud_panel(
     counts = dat_pt,
+  ncol = ncol_plot,
+  width = ncol_plot * 2,
+  height = nrow_plot * 2,
     path = here(
-      "figs", "wordcloud", "by-party",
+      "figs", "wordcloud", type, "by-party",
       paste0(safe_filename(pt), ".png")
     ),
     title = paste("SUBJECT word clouds by year:", pt),
@@ -401,7 +453,7 @@ for (pt in parties) {
 
 This saves files like:
   
-  ```{r}
+```
 figs/wordcloud/by-agency-party/ABMC__Republican_Party.png
 figs/wordcloud/by-agency-party/ABMC__Democratic_Party.png
 ```
@@ -426,10 +478,20 @@ for (i in seq_len(nrow(agency_party_combos))) {
     filter(agency == ag, party_name == pt) %>%
     select(year, word, n)
   
+    years <- dat_ag_pt %>%
+  distinct(year) %>%
+  nrow()
+
+ncol_plot <- min(years, 5)
+nrow_plot <- ceiling(years / 5)
+
   save_cloud_panel(
     counts = dat_ag_pt,
+  ncol = ncol_plot,
+  width = ncol_plot * 2,
+  height = nrow_plot * 2,
     path = here(
-      "figs", "wordcloud", "by-agency-party",
+      "figs", "wordcloud", type, "by-agency-party",
       paste0(safe_filename(ag), "__", safe_filename(pt), ".png")
     ),
     title = paste("SUBJECT word clouds by year:", ag, "-", pt),
@@ -439,34 +501,4 @@ for (i in seq_len(nrow(agency_party_combos))) {
 }
 ```
 
-## Optional: save agency-party plots in folders by agency
 
-If you prefer this structure:
-  
-  ```{r}
-figs/wordcloud/by-agency-party/ABMC/Republican_Party.png
-figs/wordcloud/by-agency-party/ABMC/Democratic_Party.png
-```
-
-replace the `path = ...` line in the agency-party loop with:
-  
-  ```{r}
-path = here(
-  "figs", "wordcloud", "by-agency-party",
-  safe_filename(ag),
-  paste0(safe_filename(pt), ".png")
-)
-```
-
-## Useful tuning knobs
-
-The main one is:
-  
-  ```{r}
-max_words = 75
-```
-
-Try values like `50`, `100`, or `150`.
-
-
-Then rerun the tokenization/counting step.

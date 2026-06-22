@@ -1,0 +1,41 @@
+---
+title: "wordclounds"
+editor: source
+---
+
+```{r}
+type = 1
+```
+
+{{< include wordclouds.qmd >}}
+
+```{r}
+type = 2
+```
+
+{{< include wordclouds.qmd >}}
+
+```{r}
+type = 3
+```
+
+{{< include wordclouds.qmd >}}
+
+```{r}
+type = 4
+```
+
+{{< include wordclouds.qmd >}}
+
+```{r}
+type = 5
+```
+
+{{< include wordclouds.qmd >}}
+
+```{r}
+type = "total"
+```
+
+{{< include wordclouds.qmd >}}
+
