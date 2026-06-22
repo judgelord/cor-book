@@ -17,11 +17,15 @@ here::here("code", "formatting.R") |> source()
 ```
 
 
-
-Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
+The invisible nature of interbranch representation means that data on these activities were not readily available. In this chapter, we describe the process by which we collected, cleaned, coded, and analyzed the data that we use to measure interbranch representation. Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
 
 
 ## New Data
+
+To study interbranch representation, we rely on congressional correspondence logs from federal agencies. When members of Congress contact the bureaucracy, most federal agencies enter these contacts into a database or keep some other kind of record of the correspondence. (As we will discuss at greater length later, the specific record-keeping practices vary significantly by agency.) These congressional correspondence logs therefore allow us to determine the overall volume of interbranch representation for each member of Congress in our chosen time period, as well as the general purpose of the contact. At minimum, useful congressional correspondence logs contained the name(s) of the sender(s) (members of Congress), the date of the correspondence, and a summary of the subject of the correspondence. Importantly, we did not, in most cases, obtain the full text of the communications themselves, though the summaries of the subjects provided rich data on the content of each item of communication.
+
+Chapter 2 established that interbranch representation occurs behind the scenes, out of view from the public, journalists, and scholars. More specifically, these records of communications between members of Congress and federal agencies are, for the most part, not proactively disclosed to the public. We therefore obtained our data through a large number of Freedom of Information Act (FOIA) requests for federal agencies' congressional correspondence logs. (footnote here about how some agencies publish previously and/or frequently requested records in online reading rooms, obviating the need for us to make requests where those data were already available - but these instances were few)
+
 
 
 For 9 years, we have been filing FOIA requests with all federal agencies and subagencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process.
@@ -40,6 +44,8 @@ We are contributing to that growing field of scholarship with a painstakingly co
 
 
 ## Data Collection Process
+
+In October of 2017, we filed an initial round of FOIA requests with (WHICH AGENCIES?). (Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?) (When did we get the first batch of data?)
 
 
 What are we actually able to measure with this data?
