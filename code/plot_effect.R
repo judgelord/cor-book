@@ -70,7 +70,10 @@ a[which(a$mean > b$mean),]
                   y = mean), alpha = .5) +
     geom_point(aes(x = Percentile, y = mean,
                    color = effect), alpha = .5 ) +
-    annotate(x = 50, y =  max(x$mean)-.1*max(x$mean),
+    annotate(x = 0,
+             y =  max(x$mean),
+             hjust = "inward",
+             vjust = "inward",
              geom = "text",
              size = 3.5,
              label = paste(effect, "effect:\n",

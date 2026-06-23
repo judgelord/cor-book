@@ -5,6 +5,7 @@ library(here)
 library(tinytable)
 source(here::here("code", "modelsummary_formatting.R"))
 
+if (isTRUE(getOption("knitr.in.progress"))) {
 # cache files in cache folder
 input_file <- knitr::current_input()
 doc_name <- tools::file_path_sans_ext(basename(input_file))
@@ -13,6 +14,7 @@ knitr::opts_chunk$set(
   out.width = "100%",
   warning = F,
   message = F)
+}
 
 # inline numbers round to 2, comma at thousands
 inline <- function(x) {

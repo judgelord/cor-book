@@ -56,6 +56,11 @@ load(here::here("data", type, "dcounts_district.rds"))
 load(here::here("data", type, "means.Rdata"))
 load(here::here("data", "member_data.Rdata"))
 
+# Drop president and nonvoting members 
+#FIXME this should be done in replication-data.qmd 
+dcounts %<>% drop_na(state)
+dcounts_district %<>% drop_na(state)
+member_data %<>% drop_na(state)
 
 dcounts |> group_by(agency) |>
   mutate(across(everything(), is.na)) |> 
@@ -964,6 +969,8 @@ m-senate
 #| out-width: "100%"
 #| fig-show: "hold"
 
+data_member %<>% ungroup()
+
 model <- m_cross_senate
 data = data_member |> filter(chamber=="Senate") |> filter(year > 2007,  year < 2019)
 
@@ -1111,7 +1118,7 @@ rows <- tibble(
   term = c("Dependent Variable", 
            #"Majority",
            #"President's Party",
-           "All Legislators", 
+           "All Representatives", 
            "Served At Least 2nd Term"),
   `(1)` = c("Count", "X", ""),
   `(2)` =c("Count", "X", ""),
@@ -1219,7 +1226,7 @@ Spending in Millions
 
 # cross-sectional 
 m_staff_spending_cross <- fenegbin (perYear ~ 
-                         est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending +
+                         est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending +
                            chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + presidents_party | Year_x_Agency,
@@ -1234,7 +1241,7 @@ coefplot(m_staff_spending_cross, horiz = T, drop = "(Intercept)")
 
 # 2
 m_staff_spending_did <-fenegbin (perYear ~ 
-est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending +
+est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending +
                          chair + ranking_minority + prestige + oversight +  oversight +
                     experience + 
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -1249,7 +1256,7 @@ coefplot(m_staff_spending_did, horiz = T, drop = ".theta")
 
 # 3
 m_staff_spending_2nd_cross <-fenegbin (perYear ~ 
-est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending + 
+est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending + 
                          chair + ranking_minority + prestige + oversight +  
                     #experience + 
                     majority + presidents_party | Year_x_Agency, 
@@ -1262,7 +1269,7 @@ coefplot(m_staff_spending_2nd_cross, horiz = T, drop = ".theta")
 
 # 4
 m_staff_spending_2nd_did <-fenegbin (perYear ~
-   est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending + 
+   est_total_legis_spending + est_total_pol_spending + est_total_comm_spending + est_total_off_spending + est_total_constit_spending + 
                             chair + ranking_minority + prestige + oversight +
                     #experience +
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
@@ -1289,7 +1296,7 @@ rows <- tibble(
   term = c("Dependent Variable", 
            #"Majority",
            #"President's Party",
-           "All Legislators", 
+           "All Representatives", 
            "Served At Least 2nd Term"),
   `(1)` = c("Count", "X", ""),
   `(2)` =c("Count", "X", ""),
@@ -1345,12 +1352,12 @@ model <- m_staff_spending_cross
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
-  newdata = mutate(data, est_constit_spending = 0),
+  newdata = mutate(data, est_total_constit_spending = 0),
   effect = "Constit. Serv. Budget"
   )
 
 plot_effect( 
-  newdata = mutate(data, est_comm_spending = 0),
+  newdata = mutate(data, est_total_comm_spending = 0),
   effect = "Comms Budget"
   )
 ```
@@ -1372,7 +1379,7 @@ model <- m_staff_spending_did
 data = data_member #|> filter(year > 2007,  year < 2019)
 
 plot_effect( 
-  newdata = mutate(data, est_constit_spending = 0),
+  newdata = mutate(data, est_total_constit_spending = 0),
   effect = "Constit. Serv. Budget\n(diff in diff)"
   )
 ```

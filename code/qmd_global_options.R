@@ -6,13 +6,8 @@ if (!dir.exists(here::here("models"))) {dir.create(here::here("models"))}
 # directory to store figures
 if (!dir.exists(here::here("figs"))) {dir.create(here::here("figs"))}
 
-input_file <- knitr::current_input()
-
-doc_name <- tools::file_path_sans_ext(basename(input_file))
-
 knitr::opts_chunk$set(
-  cache.path = file.path(".cache", doc_name, ""),
-  echo = F, # code is folded
+  echo = T, # code is folded
   fig.width = 4.5,
   fig.height = 3.5,
   split = T,
