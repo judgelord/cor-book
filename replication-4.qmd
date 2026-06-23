@@ -5,7 +5,6 @@ date: today
 format: 
   #pdf: 
   html:
-      self-contained: false
       toc: true
       code-fold: true
 editor_options: 

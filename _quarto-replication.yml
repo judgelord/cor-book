@@ -1,0 +1,23 @@
+execute:
+ # cache: true
+  freeze: false
+  echo: true
+  message: false
+  warning: false
+
+project:
+  type: default
+  output-dir: ""
+  render:
+    - replication-1.qmd
+    - replication-2.qmd
+    - replication-3.qmd
+    - replication-4.qmd
+    - replication-5.qmd
+    - replication-total.qmd
+
+format:
+  html:
+      self-contained: true
+      toc: true
+      code-fold: true
