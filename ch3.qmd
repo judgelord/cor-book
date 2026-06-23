@@ -46,10 +46,14 @@ We are contributing to that growing field of scholarship with a painstakingly co
 
 ## Data Collection Process
 
-In October of 2017, we filed an initial round of FOIA requests with (WHICH AGENCIES?). (Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?) (When did we get the first batch of data?)
+We set out to collect data on congressional correspondence with all federal agencies between 2007 and the date of the request (2017 through 2025). Each federal agency and sub-agency has their own FOIA office, and separately, each agency keeps track of congressional correspondence differently. (this was something we had to figure out on kind of a case-by-case basis as we filed requests and received records)
+
+(talk about the language for the FOIA requests - how did we develop/modify this in the early months of the project?)
+
+In mid-February of 2017, we filed an initial round of FOIA requests with 27 sub-agencies within the U.S. Department of Agriculture (USDA). Several of these requests turned out to be redundant, as congressional correspondence logs for some sub-agencies were in fact held by other USDA components. By May 18, 2017, after just over three months, we had received records from 20 of the USDA sub-agencies. (Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?) 
 
 
-What are we actually able to measure with this data?
+What are we actually able to measure with this data? Not a measure of how many constituents legislators have helped, because some of the contacts are follow-ups for the same constituent request (which is why we think of this more as an expression of legislative offices' capacity)
 
 
 
