@@ -48,17 +48,17 @@ v22 |>
 ############################################################
 
 acs_variable_names <- c(
-  "B23006_023",
-  "B24081_008",
-  "B19058_002",
-  "B23006_001",
+  "B23006_023", # bachlor or higher
+  "B24081_008", # total federal government workers
+  "B19058_002", # Estimate!!Total:!!With cash public assistance or Food Stamps/SNAP
+  "B23006_001", # Total - 1 pop Educational Attainment by Employment Status for the Population 25 to 64 Years
   "B01003_001", # pop
   "C24060_001", # total employed
-  "C24070_043", # nonprofit employment
   "C24060_019", # non profit
   "C24060_013", # self employed
   "C24060_007", # private
-  "C24060_025" # gov employment
+  "C24060_025", # gov employment
+  "C24070_043" # nonprofit employment
 
 )
 
@@ -210,30 +210,6 @@ make_var_lookup_from_v22_metadata <- function(
   # 5. Pull ACS data for one year
   ############################################################
 
-  pull_congressional_districts_all_states <- function(
-    year,
-    variables,
-    survey = "acs5",
-    states = state.abb,
-    cache_table = TRUE,
-    ...
-  ) {
-    map_dfr(
-      states,
-      function(st) {
-        get_acs(
-          geography = "congressional district",
-          variables = variables,
-          year = year,
-          survey = survey,
-          state = st,
-          cache_table = cache_table,
-          ...
-        )
-      }
-    )
-  }
-
   pull_acs_one_year_option_b <- function(
     year,
     geography,
@@ -244,56 +220,35 @@ make_var_lookup_from_v22_metadata <- function(
     cache_table = TRUE,
     ...
   ) {
+    # Create lookup using only the user-supplied ACS variable names
+    # and the 2022 metadata labels.
     lookup <- make_var_lookup_from_v22_metadata(
       variable_names = variable_names,
       metadata_year = metadata_year,
       survey = survey
     )
 
-    year_metadata <- load_variables(
+    # Pull ACS data.
+    #
+    # Important:
+    # Do NOT use output = "long" here.
+    # For older ACS congressional district calls, output = "long"
+    # can trigger the internal tidycensus error:
+    #   object 'dat2' not found
+    #
+    # The default get_acs() output already has the structure we need:
+    #   GEOID, NAME, variable, estimate, moe
+    raw <- get_acs(
+      geography = geography,
+      variables = unique(lookup$variable),
       year = year,
-      dataset = survey
+      survey = survey,
+      cache_table = cache_table,
+      ...
     )
 
-    missing_for_year <- setdiff(variable_names, year_metadata$name)
-
-    if (length(missing_for_year) > 0) {
-      stop(
-        "The following variables are in the ",
-        metadata_year,
-        " metadata but are not available in the ",
-        year,
-        " ",
-        survey,
-        " API: ",
-        paste(missing_for_year, collapse = ", "),
-        "\n\n",
-        "This usually means the variable was introduced later, renamed, ",
-        "renumbered, or otherwise changed across ACS vintages. ",
-        "Use a later start year or create a year-specific variable crosswalk."
-      )
-    }
-
-    if (identical(geography, "congressional district")) {
-      raw <- pull_congressional_districts_all_states(
-        year = year,
-        variables = unique(lookup$variable),
-        survey = survey,
-        cache_table = cache_table,
-        ...
-      )
-    } else {
-      raw <- get_acs(
-        geography = geography,
-        variables = unique(lookup$variable),
-        year = year,
-        survey = survey,
-        cache_table = cache_table,
-        ...
-      )
-    }
-
-    out_longish <- raw |>
+    # Join metadata-derived labels/names back onto the ACS pull.
+    out_tidy <- raw |>
       left_join(lookup, by = "variable") |>
       mutate(
         year = year,
@@ -301,11 +256,14 @@ make_var_lookup_from_v22_metadata <- function(
         .before = 1
       )
 
+    # Return tidy/default tidycensus format if wide = FALSE.
     if (!wide) {
-      return(out_longish)
+      return(out_tidy)
     }
 
-    out_longish |>
+    # Pivot to wide format.
+    # Final columns are generated from the 2022 ACS label.
+    out_wide <- out_tidy |>
       select(
         year,
         geography_type,
@@ -320,7 +278,10 @@ make_var_lookup_from_v22_metadata <- function(
         values_from = c(estimate, moe),
         names_glue = "{stable_name}_{.value}"
       )
+
+    return(out_wide)
   }
+
 
   ############################################################
   # 6. Pull ACS data for multiple years
@@ -350,8 +311,6 @@ make_var_lookup_from_v22_metadata <- function(
       )
     )
   }
-
-
 
 ############################################################
 # 7. Optional: create a variable-label crosswalk
@@ -399,9 +358,23 @@ acs_senate <- pull_acs_years_option_b(
 
 census <- full_join(acs_house, acs_senate)
 
+names(census) <- names(census) |> stringr::str_remove("_estimate")
+
+census <- census |>
+  rename(total_measured_education = total,
+         total_population = total_2,
+         total_measured_occupation = total_3) |>
+  mutate(percent_bachelors_degree_or_higher = total_bachelors_degree_or_higher/total_measured_education,
+         percent_federal_government_workers = total_federal_government_workers/total_measured_occupation,
+         percent_with_cash_public_assistance_or_food_stamps_snap= total_with_cash_public_assistance_or_food_stamps_snap/total_population,
+         percent_private_not_for_profit_wage_and_salary_workers = total_private_not_for_profit_wage_and_salary_workers/total_measured_occupation,
+         percent_self_employed_in_own_incorporated_business_workers = total_self_employed_in_own_incorporated_business_workers/total_measured_occupation,
+         percent_employee_of_private_company_workers = total_employee_of_private_company_workers/total_measured_occupation,
+         percent_local_state_and_federal_government_workers = total_local_state_and_federal_government_workers/total_measured_occupation)
+
 census_variables <- acs_variable_label_crosswalk
 
-save(census, census_variables, here::here("data", "census.rda"))
+save(census, census_variables, file =  here::here("data", "census.rda"))
 
 ############################################################
 # 10. Quick checks
