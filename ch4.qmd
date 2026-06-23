@@ -16,7 +16,16 @@ here::here("code", "formatting.R") |> source()
 :::
 
 
-big picture things we know about congressional behavior, test what explains behavior and inequality.
+Using the data and methods described in the previous chapter, we now begin to put theories to the test. This chapter examines the extent to which various explanations explain interbranch representation overall. The remaining five chapters will repeat this analysis with respect to different types of interbranch representation. 
+
+For each explanation, four statistics help us interpret the relationships. 
+First, we investigate the extent to which various theories explain variation in the total volume of interbranch representation *across* members of congress (cross-sectional differences). 
+Second, we examine variation over time *within* each legislator's office. 
+Third, we aggregate the average impact of each statistically significant relationship on the total volume of interbranch representation provided by across all members of congress per year.
+Fourth, we estimate the impact of each each statistically significant relationship on the level of inequality in  interbranch representation that districts receive.
+
+
+We take this multi-pronged approach because we are interested in explanations of interbrach representation both at the level of both legislators and the U.S. goverment overall --- what conditions yeild more or less (and more or less equal) interbranch representation. In doing so, we test what explains behavior and inequality.
 
 
 ## Electoral connection
@@ -32,7 +41,7 @@ Importantly, there is no evidence that electoral vulnerability affects the *volu
 
 
 
-
+<!--
 #### General Elections
 
 
@@ -83,13 +92,13 @@ Cross-sectionally important, but not within-member.
 Writing letters to agencies is correlated with other behaviors, like bill sponsorship and others captured by Legislative Effectiveness Scores. However, this correlation is mostly driven by the top 10% of legislators in our data who have higher LES scores and (to a lesser extent) the bottom 10%, who rarely have high LES scores. In the middle 80% of legislators, there is little to no relationship.
 
 
-
+--> 
 
 
 
 ## Results
 
-
+<!-- MOVE TO INTRO 
 The simple descriptive result in figure @fig-percent immediately puts to rest the naive theory of proportional representation. The Gini coefficient of inequality for the House, where all members represent a similar number of constituents, is similar to that of the Senate. The rest of this section investigates explanations for this inequality. However, it is important to note that not all models explain the levels of inequality, much less the variation seen in the data. Gini coefficients for inequality in interbranch representation have increased from .37 in the Senate and .40 in the House in 2007 (a range that maps to Gini coefficients for income inequality in countries like Kenya and Philippines) to .47 in the Senate and .54 in the house in 2020 (a range that maps to Gini coefficients for income inequality in the top 10 most unequal countries, including Honduras at .47 and Zimbabwe at .50), with an average of .49 for both chambers. The regression models below never predict Gini coefficients for interbranch representation greater than .34 (comparable to income inequality in Italy and Latvia), the lowest level observed in either chamber in any year in our data.
 
 ```{r}
@@ -108,11 +117,14 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 \clearpage 
 
+---> 
+
 ### Demand and Capacity
 
 Models 1, 3, and 5 (columns 1, 3, and 5 of @tbl-models-total) show differences across legislators. 
 Estimating the effect of constituent demand is difficult, primarily because demand is directly affected by both the capacity and strategic behavior of legislator offices when they advertise constituency services. 
-Second, the population in the house districts is the same, so there is no variation to exploit in the number of constituents per representative. 
+Second, the population in the house districts is roughly the same, so there is no variation to exploit in the number of constituents per representative. 
+There is significant variation in the number of constituents per state.
 However, budgets for staff are determined by the population of the state.
 Under these conditions, failing to find a significant relationship between state population and senators would be surprising evidence against both constituent demand and congressional capacity as drivers of interbranch representation. 
 
@@ -143,11 +155,11 @@ knitr::include_graphics(here::here("figs", type, "m-senate-effect-1.png"))
 
 #### Capacity 
 
-Legislators with more institutional capacity make more requests. Model 1 shows that committee chairs, ranking members, members of oversight committees, and members of prestige committees all provide more interbranch representation than other legislators. Except for prestige committee membership, these hold significance just within the House (model 3). Among senators (Model 5), only ranking members and oversight committee members are significantly more representation.  Because we estimate the effects of becoming a committee chair and being a member of a prestige committee in the same model, these effects are additive: prestige committee chairs may make more requests than non-prestige committee chairs, who make more requests than non-chairs.
+Legislators with more institutional capacity make more requests. Model 1 shows that committee chairs, ranking members, and members of prestige committees all provide more interbranch representation than other legislators. Members of committees make more requests of agencies that report to them. Except for prestige committee membership, these hold significance when we subset to members of the House (model 3) or Senate (model 5). Because we estimate the effects of becoming a committee chair and being a member of a prestige committee in the same model, these effects are additive: we should expect prestige committee chairs may make more requests than non-prestige committee chairs, who make more requests than non-chairs. 
 
 @fig-effect shows how differing levels of capacity among legislators affect the total predicted level of inequality in interbranch representation estimated in model 1. First, we predict the number of requests per legislator per year per agency for all legislator-year-agency observations in the data using all model parameters, including legislator fixed effects. Then we estimate counterfactual levels without one or more effects. @fig-effect (a) shows the counterfactual where no legislators have the capacity that comes with a committee chair position. Differences in this counterfactual are concentrated on legislators in the top percentiles because committee chairs tend to do the most interbranch representation. @fig-effect (b) shows the counterfactual where no legislators have the capacity that comes with a ranking minority position. @fig-effect (c) shows the counterfactual where no legislators have the capacity that comes with more than two years in office. @fig-effect (d) shows the sum of these capacity effects, a counterfactual where no legislators have the capacity that comes with a chair, ranking minority position, or more than two years of experience. This represents a world where all members turn over every congress and committees have no staff.
 
-Overall, elements of legislator capacity modeled in @tbl-models-total explain a significant level of inequality in interbranch representation. These differences are both statistically significant and substantively large relative to other causes of variation that are captured in the legislator fixed effects, explaining over 10% of total inequality predicted by the model. 
+Overall, elements of legislator capacity modeled in @tbl-models-total explain a significant share of the inequality in interbranch representation. These differences are both statistically significant and substantively large relative to other causes of variation that are captured in the legislator fixed effects, explaining over 10% of total inequality predicted by the model. 
 
 ```{r}
 #| label: fig-effect
@@ -171,18 +183,16 @@ here::here("figs", type,
 
 
 
-However, these cross-sectional differences may be the result of other legislator
-characteristics. If party leaders assign legislators who are better at
-their jobs to more prestigious committee positions,
-then the estimates from model 1 confound legislators' overall ability
-with capacity that is the result of staff resources and experience. 
+While critical for explaining inequality --- *which* legislators do more or less interbranch representation --- cross-sectional differences may be *caused* by other characteristics of those groups of legislators that we did not measure. For example, if party leaders assign legislators who are better at
+their jobs to committee leadership positions,
+then the estimates from model 1 should be interpreted as more a result of legislators' (who happen to be committee leaders) perceived ability than capacity that is the result of staff resources. 
 To address potential confounding, model 2 in @tbl-models-total shows the difference-in-differences specification. 
-Our three capacity-related predictors are all significant predictors of within-legislator variation as well. 
-Gaining a chair position, a ranking member position, or more than two years of experience in office all cause legislators to engage in more interbranch representation.
+Capacity-related predictors (except prestige committee membership) are all significant predictors of within-legislator variation as well. 
+Gaining a chair position, a ranking member position, or more than two years of experience in office all cause a legislator to engage in more interbranch representation. Joining a committee with jurisdiction over an agency causes a legislator to make more requests to that agency. 
 
 ##### Staff Allocation
 
-Legislators who allocate more staff to constituency service make more requests; those who allocate more staff to communications make fewer. @tbl-models-staff model 1 shows that legislators who allocate more of their budget to constituency service staff provide more interbranch representation than other legislators. These hold significance just within the House (model 3). Because we estimate the effects of becoming a committee chair and staff allocation in the same model, these effects are additive: committee chairs who allocate more staff to constituency service and less to communications make more requests than other committee chairs, who make more requests than non-chairs. In terms of magnitude, a committee chair position is similar to spending 1 million more per year on constituency service staff. 
+Legislators who allocate more staff to constituency service make more requests; those who allocate more staff to communications make fewer. @tbl-models-staff model 1 shows that legislators who allocate more of their budget to constituency service staff provide more interbranch representation than other legislators. Again, because we estimate the effects of becoming a committee chair and staff allocation in the same model, these effects are additive: committee chairs who allocate more staff to constituency service and less to communications make more requests than other committee chairs, who make more requests than non-chairs. In terms of magnitude, a committee chair position is similar to spending 1 million more per year on constituency service staff. 
 
 ```{r}
 #| label: tbl-models-staff
