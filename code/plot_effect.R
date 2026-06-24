@@ -58,7 +58,7 @@ a[which(a$mean > b$mean),]
 
   p <- x |>
     #FIXME why are some 0
-    filter(mean>0) |>
+    #filter(mean>0) |>
     ggplot() +
     # geom_col(aes(x = Percentile,
     #              y = mean),

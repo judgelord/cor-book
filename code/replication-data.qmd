@@ -127,11 +127,20 @@ if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))
   ungroup() |>
   left_join(member_data) 
   
+# drop uncoded agencies
+  d %<>% group_by(agency) %>% 
+    mutate(total_per_agency = sum(perYear)) %>% 
+    filter(total_per_agency > 2) %>% 
+    ungroup() 
+  
   dcounts <- d |>
   post_merge_transformations() |>
     mutate(new_member = first) |> # FIXME REDUNDENT BUT ARE BOTH USED IN ANALYSIS? 
   ungroup() |>
   distinct()
+  
+  # Drop president and nonvoting members 
+  dcounts %<>% drop_na(state)
 
   save(dcounts, file =  here::here("data", type, "dcounts.rds"))
 
