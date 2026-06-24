@@ -93,7 +93,7 @@ One of the more striking features here is that on average over this period, the 
 
 
 
-<!--# What do we know about interbranch representation? A Review of Existing Scholarship -->
+# What do we know about interbranch representation? A Review of Existing Scholarship 
 
 <!-- 
 Do we want this section in the intro chapter or the theory chapter? I think theory, but keeping it here so we don't lose it.
@@ -157,15 +157,11 @@ For these and many other reasons, constituent demand for interbranch representat
 
 ## Reshaping Our Understanding of How Legislative and Executive Branches Interact
 
-In studying interactions between Congress and the executive branch, political scientists have focused on formal delegation, bargaining over legislation, and oversight hearings. While important, modern scholarship neglects the bulk of how legislators actually interact with the executive branch, which is much less based on formal legal authority and constitutionally prescribed roles that ground most models of interbranch relations. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms and softer forms of legitimacy. From an interbranch representation perspective, “separation of powers” is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy, but there is little separation. 
+Political scientists have focused on formal delegation, bargaining over legislation, and oversight hearings. While important, modern scholarship neglects the bulk of how legislators actually interact with the executive branch, which is much less based on formal legal authority and constitutionally prescribed roles that ground most models of interbranch relations. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms and softer forms of legitimacy. From an interbranch representation perspective, “separation of powers” is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy, but there is little separation. 
 
 Including but far beyond “fire alarm” oversight, legislators are involved at every level and stage of bureaucratic politics. There is constant communication between legislators and the bureaucracy, including requests tagged as “VIP” that expedite bureaucratic procedures and elevate decisions to higher layers of the federal agency in question. Members of Congress function as a complaint and appeals process for the allocation of benefits, grants, permits, and contracts. They function as powerful allies to advocacy and lobbying campaigns.
 
-Given these constant and close interactions between Congress and the bureaucracy, it is important to understand how well the two branches operate together. In other words, the functioning of one speaks to the functioning of the other. Congress, as we have established, appears dysfunctional in many ways, but it is important to note that the bureaucracy has not escaped poor public approval, particularly the perception that it is inefficient. The term "red tape" has come to characterize this bureaucratic inefficiency in a wide variety of contexts. 
 
-Originally (and literally) used by 16th-century Spanish officials to bind and identify the most important government documents, "red tape" continued to be used by first the British and then the U.S. governments for similar purposes. Red tape became associated with the burdens of bureaucracy after the Civil War, when U.S. officials used red ribbon to seal veterans' service records. The final step in accessing these records (after the veterans involved traveled to Washington) was physically cutting the ribbons that bound the documents. In the many decades since, "cutting through red tape" has became a well-worn metaphor for reducing bureaucratic inefficiencies. 
-
-(maybe this is where we could talk about the origins of "red tape" and the fact that the system works when viewed holistically, despite the assumption that congressional intervention in the bureaucracy means that something in the bureaucracy is broken)
 
 <!--Ellie's notes: [DO WE WANT TO TALK ABOUT HOW THIS IS PART OF THE SECRET CONGRESS -- THAT SORT OF FUNCTIONS?]
 
