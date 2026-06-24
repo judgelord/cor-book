@@ -5,6 +5,14 @@ if(F){
   here::here("code", "make_member_data.R") |> source()
   # make total and type 1-5 datasets
   here::here("code", "replication-data.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+  # run one replication file
+  here::here("replication-total.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+  here::here("replication-1.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+  here::here("replication-2.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+  here::here("replication-3.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+  here::here("replication-4.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+  here::here("replication-5.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
+
   # run all 6 replication files
   quarto::quarto_render(input = here::here(), profile = "replication", cache_refresh = TRUE)
 }

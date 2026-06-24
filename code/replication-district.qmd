@@ -1,0 +1,479 @@
+
+
+## per District
+
+The main results showing that replacing a more experienced legislator with a new legislator yields a substantial decrease in service to the district are robust to interacting all variables with the `same_party` variable. 
+Cross-sectional effects get larger but more uncertain when data are subset to district years after turnover (as required for the `same_party` variable). Within-district effects become more uncertain, likely due to the much smaller number of observations where `same_party` can be observed. 
+
+
+### District-level Coefficient Plots
+
+Figures: `figs/[TYPE]/m-district-[1:4].png`
+
+1. cross-sectional 
+2. cross-sectional with same-party variable 
+3. diff-in-diff
+4. diff-in-diff with same party variable
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4.5
+#| fig-cap: "figs/[TYPE]/m-district-[1:4].png"
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| label: "m-district"
+#| fig-show: "hold"
+
+
+m_district_cross <- fenegbin(perYear ~
+  new_member #+ second + third + fourth + fifth + sixth 
+  | Year_x_Agency,
+cluster = "District",
+data = data_district)
+
+if(testing){modelsummary::modelsummary(m_district_cross)}
+
+coefplot(m_district_cross, horiz = T, drop = "(Intercept)|.theta", sub = "Reference = A member serving >6 years") 
+
+
+m_district_cross_party <- fenegbin(perYear ~
+  new_member*same_party #+ second*same_party + third*same_party + fourth*same_party + fifth*same_party + sixth*same_party 
+  | Year_x_Agency,
+cluster = "District",
+data = data_district)
+
+if(testing){modelsummary::modelsummary(m_district_cross)}
+
+coefplot(m_district_cross_party, horiz = T, drop = "(Intercept)|.theta", sub = "Reference = A member serving >6 years") 
+
+
+# Diff in diff
+m_district_did <- fenegbin(perYear ~
+  new_member #+ same_party + second + third + fourth + fifth + sixth | 
+  | District + Year_x_Agency,
+cluster = "District",
+data = data_district )
+
+coefplot(m_district_did, horiz = T, drop = "(Intercept)|.theta", sub = "Reference = A member serving >6 years") 
+
+# Diff in diff
+m_district_did_party <- fenegbin(perYear ~
+  new_member*same_party #+ second*same_party + third*same_party + fourth*same_party + fifth*same_party + sixth*same_party 
+   | District + Year_x_Agency,
+cluster = "District",
+data = data_district )
+
+coefplot(m_district_did_party, horiz = T, drop = "(Intercept)|.theta", sub = "Reference = A member serving >6 years") 
+
+
+
+# Diff in diff
+m_district_did_house <- fenegbin(perYear ~
+  new_member #+ same_party + second + third + fourth + fifth + sixth 
+    | District + Year_x_Agency,
+cluster = "District",
+data = data_district |> filter(chamber == "House"))
+
+
+# Diff in diff + party change var 
+m_district_did_house_party <- fenegbin(perYear ~
+  new_member*same_party #+ second*same_party + third*same_party + fourth*same_party + fifth*same_party + sixth*
+ | District + Year_x_Agency,
+cluster = "District",
+data = data_district |> filter(chamber == "House"))
+
+# Diff in diff
+m_district_did_senate <- fenegbin(perYear ~
+  new_member #+ same_party + second + third + fourth + fifth + sixth 
+    | District + Year_x_Agency,
+cluster = "District",
+data = data_district |> filter(chamber == "Senate"))
+
+
+# Diff in diff + party change var 
+m_district_did_senate_party <- fenegbin(perYear ~
+  new_member*same_party # + second*same_party + third*same_party + fourth*same_party + fifth*same_party + sixth*same_party 
+    | District + Year_x_Agency,
+cluster = "District",
+data = data_district |> filter(chamber == "Senate"))
+
+```
+
+### Per District Tables
+
+- Models: `models/models_district_negbin.Rdata` 
+
+
+```{r models_district}
+models_district <- list(
+  "(1)" = m_district_cross,
+  "(2)" = m_district_did,
+  "(3)" = m_district_did_house,
+  "(4)" = m_district_did_senate
+)
+
+
+rows <- tibble(
+  term = c("Dependent variable", 
+           "All districts",
+           "House only",
+           "Senate only"),
+  `(1)` = c("Per year", 
+            "X", 
+            "", 
+            ""),
+  `(2)` =c("Per year", 
+           "X", 
+            "", 
+            ""),
+    `(3)` = c("Per year", 
+            "", 
+            "X", 
+            ""),
+  `(4)` =c("Per year", 
+           #"X", 
+           "", 
+            "", 
+            "X")
+)
+
+
+
+# Check marks for controls 
+attr(rows, 'position') <- c(0)
+
+
+
+modelsummary(models_district)
+```
+
+
+## Same party
+models_district_party
+
+```{r models_district_party}
+models_district_party <- list(
+  "(1)" = m_district_cross_party,
+  "(2)" = m_district_did_party,
+  "(3)" = m_district_did_house_party,
+  "(4)" = m_district_did_senate_party
+)
+
+
+rows <- tibble(
+  term = c("Dependent variable", 
+           "All districts",
+           "House only",
+           "Senate only"),
+  `(1)` = c("Per year", 
+            "X", 
+            "", 
+            ""),
+  `(2)` =c("Per year", 
+           "X", 
+            "", 
+            ""),
+    `(3)` = c("Per year", 
+            "", 
+            "X", 
+            ""),
+  `(4)` =c("Per year", 
+           #"X", 
+           "", 
+            "", 
+            "X")
+)
+
+
+
+# Check marks for controls 
+attr(rows, 'position') <- c(0)
+
+
+
+modelsummary(models_district_party)
+```
+
+
+### Per District Predictions (House only)
+
+- Figures: `figs/[TYPE]/m-district-predicted-house-[1:2].png`
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 3
+#| fig-cap: "figs/[TYPE]/m-district-predicted-house-[1:2].png"
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| label: "m-district-predicted-house"
+#| fig-show: "hold"
+
+
+# Values for HOUSE seats 
+values <- tidyr::expand(data_district,
+                        new_member = new_member,
+                        oversight = 0,
+                        distance = data_member$distance |> mean(na.rm = T),
+                        second = second,
+                        third = third,
+                        fourth = fourth,
+                        fifth = fifth, 
+                        sixth = sixth,
+                        Year = "2017",
+                        District = "alabama_1_1",
+                        Year_x_Agency = modal$Year_x_Agency[n],
+                        same_party = same_party
+                   ) %>% 
+  drop_na(same_party)
+
+# diff in diff plot
+
+predicted <- predictions(m_district_did_house,
+                         newdata = values) 
+
+
+predicted %>%
+ggdistrict() +
+        geom_line(aes(x = as.numeric(year_in_congress %>% str_replace(" N", "1") %>% str_sub(1,1) ))) + 
+  labs(title = "Letters per House district",        subtitle = "(difference-in-differences)",
+       x = "Years serving in Congress",
+       y = "    Predicted letters per year\nper House district\n(difference-in-differneces)",
+       fill = "",
+       color = "",
+       shape = "")
+
+
+```
+
+
+
+
+
+### Per District Predictions (Senate only)
+
+- Figures: `figs/[TYPE]/m-district-predicted-senate-[1:2].png`
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 3
+#| fig-cap: "figs/[TYPE]/m-district-predicted-senate-[1:2].png"
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| label: "m-district-predicted-senate"
+#| fig-show: "hold"
+
+
+# Values for Senate seats 
+values <- tidyr::expand(data_district,
+                        new_member = new_member,
+                        oversight = 0,
+                        distance = data_member$distance |> mean(na.rm = T),
+                        second = second,
+                        third = third,
+                        fourth = fourth,
+                        fifth = fifth, 
+                        sixth = sixth,
+                        Year = "2017",
+                        Year_x_Agency = modal$Year_x_Agency[n],
+                        District = "alabama_0",
+                        same_party = same_party
+                   ) %>% 
+  drop_na(same_party)
+
+# diff in diff plot
+
+predicted <- predictions(m_district_did_senate,
+                         newdata = values) 
+
+
+predicted %>%
+ggdistrict() +
+        geom_line(aes(x = as.numeric(year_in_congress %>% str_replace(" N", "1") %>% str_sub(1,1) ))) + 
+  labs(title = "Letters per senator",        subtitle = "(difference-in-differences)",
+       x = "Years serving in Congress",
+       y = "   Predicted letters per year\nper Senator\n(difference-in-differneces)",
+       fill = "",
+       color = "",
+       shape = "")
+```
+
+
+
+### Modeled Effects - district
+
+```{r}
+#| label: "m-distirct-effect"
+#| fig-cap: "figs/[TYPE]/m-district-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <-m_district_cross_party
+data = data_district |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = data |>  
+    mutate(same_party = 0),
+  effect = "Same party"
+  )
+
+
+model <-m_district_did_party
+data = data_district |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = data |>  
+    mutate(same_party = 0),
+  effect = "Same party (diff-in-diff)"
+  )
+```
+
+\clearpage
+
+# Model Results:  Spillover Effects Robustness Check
+
+This is a robustness check for an observable implication of demand-driven behavior. If variation in constituent demand drives variation in legislator behavior (specifically a preference for more senior members), then we should observe spillover effects on the rest of a delegation when an experienced member is replaced with a new member. That is, if people demand more from experienced members, people should redirect demand to the next most experienced member who represents them.
+
+```{r spillover-data}
+
+# new IVs: new_senator, new_proportion, new_one
+
+dcounts_spillover <- data_district %>% 
+  # FIRST, identify districts with new members 
+  group_by(state, Year) %>% 
+  # size of the delegation 
+  add_count(name = "n_delegation") %>% 
+  mutate(
+    # new IVs:
+    new_senator = ifelse(chamber == "Senate" & new_member == 1, 1, NA), 
+    new_proportion = sum(new_member)/n_delegation, 
+    new_one = ifelse(new_member == 1, 1, NA)
+  ) %>% 
+  fill(new_senator, .direction = "updown") %>% 
+  fill(new_one, .direction = "updown") %>% 
+  mutate(new_senator =   replace_na(new_senator, 0),
+         new_one = replace_na(new_one, 0) 
+  ) %>% 
+  group_by(state, Year, chamber) %>% 
+  arrange(year, state) 
+
+  # THEN WE DROP ALL OF THE NEW MEMBERS 
+dcounts_spillover %<>%   filter(new_member == 0)  
+
+
+# # inspect data 
+# dcounts_spillover |> select(Year, state, chamber, new_member, new_one, new_senator, new_proportion, perYear) |> ungroup() |>
+#   #filter(new_senator ==1) |>  
+#   #count(new_senator, new_member) |> 
+#   kablebox_long()
+#     
+
+```
+
+
+<!-- NOT WORTH PLOTTING 
+### Spillover Coefficient Plots
+
+Figures: `figs/[TYPE]/m-spillover-[1:3].png`
+
+1. diff-in-diff, at least one **new Senator** in the delegation effect
+2. diff-in-diff, **proportion** of new legislators in the delegation effect **on Senators**
+3. diff-in-diff, at least one **new legislator** in the delegation effect **on Senators**
+--> 
+
+### Spillover Effect:
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4.5
+#| fig-cap: "figs/[TYPE]/m-spillover-[1:3].png"
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#| out-width: "100%"
+#| label: "m-spillover"
+#| fig-show: "hold"
+
+m_spillover <- fenegbin(perYear ~
+  new_senator  | Year_x_Agency + District,
+cluster = "District",
+data = dcounts_spillover)
+
+# coefplot(m_spillover, horiz = T, drop = "(Intercept)|.theta", sub = "") 
+
+m_spillover_proportion <- fenegbin(perYear ~
+  new_proportion  | Year_x_Agency + District,
+cluster = "District",
+data = dcounts_spillover |> filter(chamber == "Senate"))
+
+# coefplot(m_spillover_proportion, horiz = T, drop = "(Intercept)|.theta", sub = "") 
+
+m_spillover_new_one <- fenegbin(perYear ~
+  new_one  | Year_x_Agency + District,
+cluster = "District",
+data = dcounts_spillover |> filter(chamber == "Senate"))
+
+# coefplot(m_spillover_new_one, horiz = T, drop = "(Intercept)|.theta", sub = "") 
+
+```
+
+
+- Models: `models/models_spillover_negbin.Rdata`
+
+```{r models_spillover}
+models_spillover <- list(
+  "(1)" = m_spillover,
+  "(2)" = m_spillover_proportion,
+  "(3)" = m_spillover_new_one
+)
+
+
+rows <- tibble(
+  term = c("Dependent variable", 
+           "All districts",
+           "Senate only"),
+  `(1)` = c("Per year", 
+            "X", 
+            ""),
+  `(2)` =c("Per year", 
+            "", 
+           "X"),
+    `(3)` = c("Per year", 
+            "", 
+            "X")
+)
+
+
+
+# Check marks for controls 
+attr(rows, 'position') <- c(0)
+
+
+modelsummary(models_spillover ) 
+
+save(models_spillover, rows, cm, gm,  # beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_spillover.Rdata"))
+```
+
+
+\clearpage
