@@ -22,15 +22,30 @@ percentiles <- function(a){
 
 plot_effect <- function(m = model, d = data, newdata, effect){
 
+  # NAs in predictions from observed values
+  NAs <- m |>
+    marginaleffects::predictions(newdata = d )  |>
+    group_by(member_state, year) |>
+    filter(is.na(estimate)) |>
+    ungroup() |>
+    distinct(member_state, agency,
+             year)
+
+  # counterfactual
   a <- m |>
-    marginaleffects::predictions(newdata = newdata) |>
+    marginaleffects::predictions(newdata = newdata)  |>
+    # drop NAs
+    anti_join(NAs) |>
     percentiles() |>
-    mutate(effect = "Without effect")
+    mutate(effect = "Counterfactual\n without effect")
+
 
   b <- m |>
-    predictions(newdata = d )  |>
+    marginaleffects::predictions(newdata = d )  |>
+    # drop NAs
+    anti_join(NAs) |>
     percentiles()|>
-    mutate(effect = "With effect")
+    mutate(effect = "Predictions\n with effect")
 
 gini_a <- unique(a$gini) |> round(2)
 gini_b <- unique(b$gini) |> round(2)
@@ -38,7 +53,8 @@ total_a <- sum(a$mean)
 total_b <- sum(b$mean)
 
 # align member rankings by the unmodified data predictions
-  a$Percentile <- b$Percentile
+# this allows
+ a$Percentile <- b$Percentile
 
   # testing
   if(F){
@@ -52,7 +68,16 @@ a[which(a$mean > b$mean),]
     )
   }
 
-  x <- full_join(a, b)
+  x <- full_join(a, b) |>
+    group_by(member_state) |>
+    mutate(diff = mean(mean) - mean ) |>
+    arrange(member_state) |>
+    ungroup()
+
+  x |> filter(diff != 0)
+
+  max_diff <- x |> slice_max(order_by = diff, n = 1, with_ties = F) # |> pull(member_state)
+  max_diff
 
   x |> filter(mean == 0)
 
@@ -60,12 +85,7 @@ a[which(a$mean > b$mean),]
     #FIXME why are some 0
     #filter(mean>0) |>
     ggplot() +
-    # geom_col(aes(x = Percentile,
-    #              y = mean),
-    #          color = "grey",
-    #          width = .000001,
-    #          fill = "black",
-    #          position = "dodge") +
+    # we can only have a line by member satae if we align member rankings by the unmodified data predictions above
     geom_line(aes(group = member_state, x = Percentile,
                   y = mean), alpha = .5) +
     geom_point(aes(x = Percentile, y = mean,
@@ -83,11 +103,13 @@ a[which(a$mean > b$mean),]
                            # paste0(min(d$year), "-", max(d$year))
                            ),
              check_overlap = T) +
+    # note the max diff member
+    # annotate(x = max_diff$Percentile, y = max_diff$mean, label = max_diff$member_state, geom = "text_repel", size = 3.5, max.overlaps = 2, ylim = c(15,20), xlim = c(50, 100) ) +
     labs(
       x = "Percentile",
       y = "Predicted average requests per year") +
     scale_color_viridis_d(option = "cividis", begin = .3, end = .7) +
-    theme(legend.position = c(.8, .10),
+    theme(legend.position = c(.2, .6),
           legend.title = element_blank(),
           #         legend.box.background = element_rect(),
           legend.box.margin = unit(c(0,0,0,0), "mm"),

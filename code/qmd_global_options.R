@@ -8,7 +8,7 @@ if (!dir.exists(here::here("figs"))) {dir.create(here::here("figs"))}
 
 knitr::opts_chunk$set(
   echo = T, # code is folded
-  fig.width = 4.5,
+  fig.width = 7.5,
   fig.height = 3.5,
   split = T,
   fig.align = 'center',
@@ -91,6 +91,25 @@ standard_errors <- . %>% .$se %>%
 library(ggplot2); theme_set(
   theme_minimal() +
     theme(
+ )
+)
+
+library(ggplot2)
+library(scales)
+
+options(
+  ggplot2.continuous.fill = NULL,
+  ggplot2.continuous.colour = NULL,
+  ggplot2.continuous.color = NULL
+)
+
+theme_set(
+  theme_minimal() +
+    theme(
+      palette.colour.continuous = scales::pal_viridis(option = "cividis"),
+      palette.fill.continuous   = scales::pal_viridis(option = "cividis"),
+      palette.colour.discrete   = scales::pal_viridis(option = "cividis", direction = -1),
+      palette.fill.discrete     = scales::pal_viridis(option = "cividis", direction = -1),
       # # FOR AJPS
       # panel.grid = element_blank(),
       # legend.position = "bottom",
@@ -104,17 +123,9 @@ library(ggplot2); theme_set(
       #                           lineheight = 0,
       #                           margin = margin(0, 0, 0, 0)), # Margins (t, r, b, l)
       # # END FOR AJPS
-      panel.border  = element_blank() )
+      panel.border  = element_blank()
+    )
 )
-options(
-  ggplot2.continuous.color = "cividis",
-  ggplot2.continuous.fill = "cividis"
-)
-scale_color_discrete <- function(...)
-  scale_color_viridis_d(..., direction = -1)
-scale_fill_discrete <- function(...)
-  scale_fill_viridis_d(..., direction = -1)
-
 
 # html table formatting
 kablebox <- . %>%
