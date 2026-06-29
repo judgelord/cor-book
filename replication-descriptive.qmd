@@ -1,5 +1,5 @@
 ---
-title: "Replication Code and Robustness Checks"
+title: "Descriptives"
 subtitle: ""
 author: Devin Judge-Lord
 format: 
@@ -39,10 +39,15 @@ here::here("code", "ggcompetitive.R") |> source()
 here::here("code", "ggchair.R") |> source() 
 here::here("code", "ggtenure.R") |> source() 
 
-# coef map
-here::here("code", "cm.R") |> source() 
-here::here("code")
+here::here("data", "member_data.Rdata")|> load()
 
+
+here::here("data", "all_contacts.rda") |> str_replace("cor-book", "correspondence_data") |> load()
+
+here::here("data", "dcounts-min.rda") |> str_replace("cor-book", "correspondence_data") |> load()
+
+
+d <- dcounts
 ```
 
 
@@ -74,7 +79,7 @@ percent <- function(x){
   return(y)}
 
 type <- d %>% 
-  group_by(Type) %>% 
+  group_by(type) %>% 
   summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>% 
   ungroup()
 ```
@@ -134,7 +139,7 @@ type_totals %>%
   geom_col(alpha = .7,
            aes(x = type, fill = Type, y = nT) ) + 
   scale_y_continuous(breaks = seq.int(0,500000, by = 100000), 
-                     limits = c(0,400000), 
+                     limits = c(0,600000), 
                      labels = scales::label_comma() ) + 
   labs(x = "",
        fill = "",
@@ -149,7 +154,7 @@ type_totals %>%
   ggpubr::geom_bracket(label.size = 3, # FOR AJPS
     xmin = type_totals$type[1], 
     xmax = type_totals$type[3], 
-    y.position = 380000,
+    y.position = 560000,
     label = paste(type_totals$percent_t[1], "Constituency service" ),
     #hjust = 1,
     vjust = -1
@@ -211,7 +216,7 @@ type_totals %>%
   geom_col(alpha = .7,
            aes(x = type, fill = Type, y = nT) ) + 
   scale_y_continuous(breaks = seq.int(0,500000, by = 100000), 
-                     limits = c(0,400000), 
+                     #limits = c(0,400000), 
                      labels = scales::label_comma() ) + 
   labs(x = "",
        fill = "",
@@ -272,7 +277,7 @@ type_totals %>%
   ) + 
   ggpubr::geom_bracket(label.size = 3, # FOR AJPS
     xmin = type_totals$type[4], xmax = type_totals$type[5], 
-    y.position = 85000,
+    y.position = 150000,
     label = paste(type_totals$percent_t[9], "Policy work"),
     #hjust = 1,
     vjust = -1
@@ -294,18 +299,26 @@ type_totals |> distinct(chair, Type, percent_t)
 #| fig-width: 6
 #| cache: false
 
+congress_from_year <- function(year) {
+  floor((year - 1789) / 2) + 1
+}
+
+ dcounts %<>% 
+  mutate(congress =  congress_from_year(year)) %>% #distinct(congress)
+  left_join(member_data |> select(member_state, bioname, icpsr, chamber, congress,cqlabel, pop2010, party))
+
 percentiles <- dcounts %>% 
   dplyr::filter(year > 2006, year < 2021) %>% 
-  dplyr::group_by(member_state, chamber, year) %>% 
+  dplyr::group_by(member_state, chamber, year, party) %>% 
   dplyr::summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>%
-  dplyr::group_by(member_state, chamber) %>% 
+  dplyr::group_by(member_state, chamber, party) %>% 
   dplyr::summarise(mean = mean(n)) %>% 
   dplyr::ungroup() %>% 
   dplyr::group_by(chamber) %>% 
   dplyr::mutate(Percentile = dplyr::ntile(mean, 100),
          rank = dplyr::dense_rank(-mean)) %>% 
   dplyr::arrange(-Percentile) %>% 
-  dplyr::select(member_state, Percentile, mean, chamber, rank) %>% 
+  dplyr::select(member_state, Percentile, mean, chamber, rank, party) %>% 
   dplyr::distinct() 
 
 
@@ -365,8 +378,8 @@ percentiles %>%
              fill = "black",
              position = "dodge") + 
   geom_point(aes(x = Percentile, 
-                 y = mean), 
-             color = "light blue") + 
+                 y = mean, 
+             color = party)) + 
   geom_text(aes(x = Percentile, 
                 y = mean, 
                 label = ifelse(rank <24 | Percentile < 50,
@@ -379,7 +392,8 @@ percentiles %>%
   # theme_minimal() + 
   labs(#title = "Average Legislator Requests per Year by Percentile",
        x = "Percentile in the Senate",
-       y = "Average requests per year") 
+       y = "Average requests per year") +
+  scale_color_viridis_d()
 
 percentiles %>% 
   filter(chamber == "House") %>% 
@@ -411,7 +425,7 @@ percentiles %>%
 ```{r counts-per-year, fig.height=3, fig.width=5.7, cache=TRUE, eval=TRUE}
 #counts-per-year
 
-dcounts_per_legislator <- dcounts  %>% 
+dcounts_per_legislator <- dcounts  %>% filter(agency != "DHS_USCIS") %>%
   group_by(bioname, year) %>% 
   mutate(per_bioname_year = sum(per_icpsr_chamber_year_agency_type)) %>%
   ungroup() 
@@ -440,18 +454,19 @@ p <- dcounts_per_legislator %>%
                 group = bioname, 
                 color = chamber,
                 y = ifelse(bioname == "SCHUMER, Charles Ellis (Chuck)", per_bioname_year, NA))) + 
-  geom_label(x = 2013, 
+  annotate(x = 2013, 
              y = schumer2013, 
+           geom = "label",
              label = "Chuck Schumer") +
   geom_line(aes(x = year, group = bioname, color = chamber,
                 y = ifelse(bioname == "CRUZ, Rafael Edward (Ted)", per_bioname_year, NA))) + 
-  geom_label(x = 2013, 
-             y = cruz2013, 
+  annotate(x = 2013, 
+             y = cruz2013, geom = "label",
              label = "Ted Cruz") +
   geom_line(aes(x = year, group = bioname, color = chamber,
                 y = ifelse(bioname == "McCONNELL, Addison Mitchell (Mitch)", per_bioname_year, NA))) + 
-  geom_label(x = 2013, 
-             y = mcconnell2013, 
+  annotate(x = 2013, 
+             y = mcconnell2013, geom = "label",
              label = "Mitch McConnell") +
   labs(x = "",
        color = " ",
@@ -507,6 +522,7 @@ case_study <- function(cq){
     .$chamber %>% .[1]
 
 dcounts %>% 
+  filter(agency != "DHS_USCIS") %>% 
   group_by(member_state, year, chamber, cqlabel) %>% summarise(n = sum(per_icpsr_chamber_year_agency_type)) %>% 
   ungroup() %>% 
   group_by(chamber) %>% 
@@ -535,6 +551,7 @@ dcounts %>%
         panel.grid.minor.x =  element_blank() )+
     scale_fill_viridis_d(begin = 0, end = .6, option = "cividis", direction = -1) 
   
+ggsave(here::here("figs", "districts", paste0(cq, ".png")), height = 2.5, width = 5.7)
 } 
 ```
 
@@ -552,7 +569,7 @@ case_study("(WI)")
 case_study("(WI-7)")
 
 # Wolf --> Comstock example 
-case_study("(VA-10)")
+case_study(cq = "(VA-10)")
 
 
 # 
@@ -561,7 +578,7 @@ case_study("(VA-10)")
 # case_study("(NY-14)")
 
 # plot all 
-# cases <- unique(member_data$cqlabel) #%>% head()
+# cases <- unique(member_data$cqlabel) %>% head()
 
 # map(cases, case_study )
 
@@ -615,158 +632,3 @@ All of these findings replicate with various interpretations of "prestige" commi
     exclusive (also called "Super A") Committees are: Appropriations,
     Armed Services, Finance, and Foreign Relations (CRS 2024).
 
-
-
-## Count Means
-
-```{r count-means}
-# check N
-dcounts_tenure %>% tally(perYear, name = "Member-Level Observations") |> kable()
-# dcounts_ratio %>% tally(perCon) |> kable()
-# dcounts_ratio %>% tally(perPol) |> kable()
-dcounts_per_district %>% ungroup %>%  tally(perYear, name = "District-Level Observations") |> kable()
-
-# check n per year 
-dcounts_tenure %>% filter(year > 2006) %>%  group_by(year) %>% tally(perYear) |> kablebox_long()
-
-# average per member
-dcounts_tenure %>% left_join(member_data %>% distinct(bioname, icpsr)) %>%
-  group_by(bioname, year) %>% 
-  summarise(perYear = sum(perYear)) %>% 
-  group_by(bioname) %>% 
-  summarise(average_per_year = mean(perYear), average_per_year) |> 
-  arrange(-average_per_year) |> 
-  kablebox()
-
-# average per member per agency 
-dcounts_tenure %>% left_join(member_data %>% select(bioname, icpsr)) %>%
-  group_by(bioname) %>% 
-  summarise(average_per_year_per_agency = mean(perYear)) |> arrange(-average_per_year_per_agency) |> 
-  kablebox()
-
-
-# per member per agency 
-dcounts_tenure %>% left_join(member_data %>% distinct(bioname, icpsr)) %>%
-  group_by(bioname, agency) %>% 
-  summarise(per_year_per_agency = perYear) |> arrange(-per_year_per_agency) |> 
-  kablebox()
-
-
-
-# mean 
-perYear_mean1 <- dcounts_tenure$perYear |> mean()
-perYear_mean_total <- dcounts_tenure |> 
-  group_by(icpsr, year) |> 
-  transmute(perYearTotal = sum(perYear))
-perYear_mean_total <- mean(perYear_mean_total$perYearTotal) |> round()
-
-perYear_mean_policy <- dcounts_tenure |> 
-  group_by(icpsr, year) |> 
-  transmute(perYear = sum(perYear_policy))
-perYear_mean_policy <- mean(perYear_mean_policy$perYear) |> round()
-
-perYear_mean_con <- dcounts_tenure |> 
-  group_by(icpsr, year) |> 
-  transmute(perYear = sum(perYear_con))
-perYear_mean_con <- mean(perYear_mean_con$perYear) |> round()
-
-# Better variable names for tables
-dcounts_tenure %<>% 
-  mutate(Legislator = icpsr,
-         Legislator_x_Agency = icpsr_agency,
-         Year_x_Agency = agency_year)
-
-# total per agency
-dcounts_tenure %>% group_by(agency) %>% summarise(n = perYear %>% sum()) %>% arrange(-n) %>% kablebox()
-
-# total per legislator-agency pair 
-dcounts_tenure %>% group_by(Legislator_x_Agency) %>% summarise(n = perYear %>% sum()) %>% arrange(-n) %>% kablebox()
-```
-
-
-
-
-
-### Gini coefficients 
-
-```{r gini}
-gini <- dcounts_tenure |> 
-  ungroup() |> 
-  group_by(year, icpsr) |> 
-  summarize(perYear = sum(perYear)) |> 
-  ungroup() |> 
-group_by(year) |> 
-  summarise(gini = round(ineq::Gini(perYear),2)) |>
-  arrange(- year) |> 
-  filter(year > 2006) 
-
-gini|> 
-  kablebox()
-
-gini |> 
-  ggplot() +
-  aes( x = year, y = gini) + 
-  geom_point() + 
-  geom_smooth(method = "lm")
-
-gini_min <- min(gini$gini)
-gini_max <- max(gini$gini)
-
-
-gini2 <- dcounts_tenure |> 
-  ungroup() |> 
-  group_by(year, chamber, icpsr) |> 
-  summarize(perYear = sum(perYear)) |> 
-  ungroup() |> 
-group_by(year, chamber) |> 
-  summarise(gini = round(ineq::Gini(perYear),2)) |>
-  arrange(- year) |> 
-  filter(year > 2006) 
-
-gini2|> 
-  kablebox()
-
-gini2 |> 
-  ggplot() +
-  aes( x = year, y = gini, color = chamber) + 
-  geom_point() + 
-  geom_smooth(method = "lm")
-
-
-```
-
-
-:::{.callout-important collapse="true"}
-```{r echo=verification, eval=verification}
-gini %<>% filter(year > 2017)
-
-min(gini$gini)
-max(gini$gini)
-```
-:::
-
-
-
-In 2023, Colombia had the highest income inequality Gini coefficient at .54. 
-
-https://ourworldindata.org/what-is-the-gini-coefficient
-
-Top 10 Gini Coefficients in 2023
-
-1. Colombia	0.54
-1. Brazil	0.52	
-1. Zambia	0.51
-1. Angola	0.51				
-1. Mozambique	0.50	
-1. Zimbabwe	0.50
-1. Kosovo	0.49
-1. Panama	0.49
-1. Honduras	0.47	
-1. Costa Rica	0.47
-
-<!--(The Gini coefficient for House campaign spending in 2016 was .29).  --> 
-
-
----
-
-\clearpage
