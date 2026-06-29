@@ -1,0 +1,88 @@
+
+
+## population - private workers % - House
+
+- Figures: `figs/[TYPE]/m-populationworkers_private-percent-House-[1:4].png`
+
+```{r m-populationworkers_private-percent-House}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: full Cross Sectional"
+
+
+
+# cross-sectional 
+m_population_percent_workers_private_House_cross <- fenegbin (
+  perYear ~ 
+    population_m + 
+    #percent_workers_federal + 
+    percent_workers_private_sector + 
+    #percent_workers_self_employed + 
+    #percent_#workers_nonprofit + 
+    percent_workers_government + 
+    percent_education_bachelor_or_higher +
+    percent_public_assistance_or_snap_households  | 
+    Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_population_percent_workers_private_House_cross, gof_omit = "R.*", starts = T, stars = T, coef_omit = coef_omit)}
+
+coefplot(m_population_percent_workers_private_House_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 3
+m_population_percent_workers_private_House_full_cross <-fenegbin (
+  perYear ~ 
+    population_m + 
+    #percent_workers_federal + 
+    percent_workers_private_sector + 
+    #percent_workers_self_employed + 
+    #percent_#workers_nonprofit + 
+    percent_workers_government + 
+    percent_education_bachelor_or_higher +
+    percent_public_assistance_or_snap_households + 
+    chair + 
+    ranking_minority + 
+    prestige + 
+    oversight +  
+    experience + 
+    majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_population_percent_workers_private_House_full_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_population_percent_workers_private_House_full_cross, horiz = T, drop = ".theta") 
+
+```
+
+
+### Table - population 
+
+```{r m-population_percentworkers_private-House-models}
+models_populationworkers_private <- list(
+  "(1)" = m_population_percent_workers_private_House_cross,
+  "(3)" =  m_population_percent_workers_private_House_full_cross)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(3)` = c("Count"))
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_populationworkers_private, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_population_percent_workers_private_House_cross)
+se_cross <- standard_errors(m_population_percent_workers_private_House_cross)
+```

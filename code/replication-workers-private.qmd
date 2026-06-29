@@ -1,0 +1,187 @@
+
+## - Private workers 
+
+- Figures: `figs/[TYPE]/m-workers-private-[1:4].png`
+
+```{r m-workers-private}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: full Cross Sectional"
+#|   - "Model 4: fill Diff in Diff"
+
+# cross-sectional 
+m_workers_private_cross <- fenegbin (
+  perYear ~ 
+    population_m + 
+    percent_education_bachelor_or_higher + 
+    percent_public_assistance_or_snap_households +
+    #percent_workers_nonprofit + 
+    percent_workers_self_employed + 
+    percent_workers_private_sector | 
+    # percent_workers_government  | 
+    Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_workers_private_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_workers_private_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 2
+m_workers_private_did <-fenegbin (
+  perYear ~ 
+    population_m + 
+    percent_education_bachelor_or_higher + 
+    percent_public_assistance_or_snap_households +
+    #percent_workers_nonprofit + 
+    # percent_workers_government + 
+    percent_workers_self_employed + 
+    percent_workers_private_sector   | Year_x_Agency + Legislator_x_Agency, 
+  cluster = "Legislator",
+  # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_workers_private_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_workers_private_did, horiz = T, drop = ".theta") 
+
+
+# 3
+m_workers_private_full_cross <-fenegbin (
+  perYear ~  
+    population_m + 
+    percent_education_bachelor_or_higher + 
+    percent_public_assistance_or_snap_households +
+    #percent_workers_nonprofit + 
+    percent_workers_self_employed + 
+    percent_workers_private_sector + 
+    #percent_workers_government + 
+    chair + 
+    ranking_minority + 
+    prestige + 
+    oversight +  
+    experience + party + 
+    majority + presidents_party | Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_workers_private_full_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_workers_private_full_cross, horiz = T, drop = ".theta") 
+
+
+# 4
+m_workers_private_full_did <-fenegbin (
+  perYear ~  
+    population_m + 
+    percent_education_bachelor_or_higher + 
+    percent_public_assistance_or_snap_households +       
+    #percent_workers_nonprofit + 
+    percent_workers_self_employed + 
+    percent_workers_private_sector + 
+    #percent_workers_government + 
+    chair + 
+    ranking_minority + 
+    prestige + 
+    oversight +  
+    experience + 
+    majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_workers_private_full_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_workers_private_full_did, horiz = T, drop = ".theta")
+```
+
+
+### Table - workers %
+
+```{r m-workers-models-private}
+models_workers_private <- list(
+  "(1)" = m_workers_private_cross,
+  "(2)" = m_workers_private_did,
+  "(3)" =  m_workers_private_full_cross,
+  "(4)" = m_workers_private_full_did
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(2)` =c("Count"),
+  `(3)` = c("Count"),
+  `(4)` = c("Count") 
+)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_workers_private, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_workers_private_cross)
+se_cross <- standard_errors(m_workers_private_cross)
+beta_did <- betas(m_workers_private_did)
+se_did <- standard_errors(m_workers_private_did)
+
+```
+
+
+### Narrative - workers %
+
+TODO
+
+
+### Modeled Effects - workers- cross sectional 
+
+```{r}
+#| label: "m-workers-effect-private"
+#| fig-cap: "figs/[TYPE]/m-workers-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_workers_private_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_self_employed = 0),
+  effect = "% Self Employment"
+)
+```
+
+### Modeled Effects - workers- diff in diff
+
+```{r}
+#| label: "m-workers-did-effect-private"
+#| fig-cap: "figs/[TYPE]/m-workers-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_workers_private_did
+data = data_member #|> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_self_employed = 0),
+  effect = "% Self Employment\n(diff in diff)"
+)
+```
+

@@ -26,7 +26,6 @@ m_elect_did <-fenegbin (perYear ~
                     experience + 
                     majority  | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",
-                    # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
            data = data_member)
 
 if(testing){modelsummary::modelsummary(m_elect_did, gof_omit = "R.*", coef_omit = coef_omit)}
@@ -90,7 +89,6 @@ attr(rows, 'position') <- c(0, 20,21,22,23)
 # call coefs
 attr(rows, 'position') <- c(0)
 
-options(modelsummary_factory_default = 'kableExtra')
 
 
 # HTML
@@ -104,84 +102,6 @@ beta_did <- betas(m_elect_did)
 se_did <- standard_errors(m_elect_did)
 ```
 
-
-### Narrative
-
-To address potential confounding in across-legislator comparisons, the estimates from Model 2 (Column 2 of Table `\ref{tab:models}`) provide the estimated effects from the difference-in-differences specification in Equation `\ref{e:diff1}`.  Consider first the effect of being in a competitive district. We estimate that a district becoming competitive causes an increase of `r beta_did$competitive`  requests `\textit{per agency}` (95-percent confidence interval [`r beta_did$competitive - se_did$competitive*1.96`, `r beta_did$competitive + se_did$competitive*1.96`]). Across all `r n_agency` agencies, this represents an increase of approximately `r (beta_did$competitive*n_agency) %>% round(0)` additional requests per year, `r (beta_did$competitive / mean(data_member$perYear) ) %>% round(3)*100 ``\%` of the average requests per year in our data. There is a smaller increase for individuals who become ranking members and those who join a Prestige Committee, though the increase is statistically significant for the prestige committee. Becoming a ranking member of a committee causes an increase of `r beta_did$ranking_minority` contacts per agency, while joining a prestige committee causes a `r beta_did$prestige` per agency increase in the number of contacts a member of Congress makes.
-
-
-
-### Predictions 
-
-- Figures: `figs/[TYPE]/m-elect-predicted-[1:4].png`
-
-
-```{r m-elect-predicted,  fig.show="hold", out.width="50%", fig.cap= "",  fig.subcap= c("Model 1: Cross Sectional","Model 1: Cross Sectional", "Model 2: Diff in Diff","Model 2: Diff in Diff")}
-predicted <- predictions(m_elect_cross,
-                         newdata = values)
-
-# Cross-sectional predictions
-predicted %>%
-    mutate(estimate = estimate*n_agency, #predicted*n_agency,
-         conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
-  ggcompetitive() + 
-  labs(title = "Predicted per Year",        subtitle = "(Cross-Sectional)",
-       x = "",
-       y = "Predicted Per Year",
-       fill = "",
-       color = "",
-       shape = "") 
-
-# by tenure
-predicted <- predictions(m_elect_cross,
-                         newdata = values_tenure)
-
-predicted %>%
-    mutate(estimate = estimate*n_agency, #predicted*n_agency,
-         conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
-ggtenure() +
-  labs(title = "Predicted Per Year",        subtitle = "(Cross-Sectional)",
-       x = "Years Serving in Congress",
-       y = "Predicted Letters Per Year",
-       fill = "",
-       color = "",
-       shape = "") 
-
-
-# diff in diff 
-predicted <- predictions(m_elect_did,
-                         newdata = values)
-
-
-# predictions by competitive and presidents' party
-predicted %>%
-    mutate(estimate = estimate*n_agency, #predicted*n_agency,
-         conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>% # std.error = std.error*n_agency)) %>%
-  ggcompetitive() + 
-  labs(title = "Predicted per Year\nDifference in Differences (Within-Legislator)",
-       x = "",
-       y = "Predicted Letters Per Year",
-       fill = "",
-       color = "",
-       shape = "") 
-
-# by tenure
-predicted <- predictions(m_elect_did,
-                         newdata = values_tenure)
-
-predicted %>%
-    mutate(estimate = estimate*n_agency, #predicted*n_agency,
-         conf.high = conf.high*n_agency, conf.low = conf.low*n_agency) %>%  # std.error = std.error*n_agency) %>%
-ggtenure() +
-    #geom_line(aes(x = as.numeric(year_in_congress %>% str_sub(1,1)))) + 
-  labs(title = "Predicted Per Year",
-       subtitle = "Difference in Differences (Within-Legislator)",
-       x = "Years Serving in Congress",
-       y = "Predicted Letters Per Year",
-       fill = "",
-       color = "",
-       shape = "") 
-```
 
 
 ### Modeled Effects - electoral - cross sectional 

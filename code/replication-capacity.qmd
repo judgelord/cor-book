@@ -1,0 +1,109 @@
+
+## Capacity - House and Senate
+
+- Figures: `figs/[TYPE]/m-capacity-[1:2].png`
+
+```{r m-capacity}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+
+
+# 1 - without state leg (because we drop observations)
+m_capacity_cross <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    #state_leg + 
+    prestige + 
+    oversight +  
+    experience | 
+    # est_staff_spending  + # no data for senate 
+    # majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member  )
+
+if(testing){modelsummary::modelsummary(m_capacity_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_capacity_cross, horiz = T, drop = ".theta") 
+
+# 1 - using the one with state leg becasue dropped obs don't seem to affect other results 
+m_capacity_cross <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    state_leg + 
+    prestige + 
+    oversight +  
+    experience |
+    # est_staff_spending  + # no data for senate 
+    #majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member  )
+
+if(testing){modelsummary::modelsummary(m_capacity_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_capacity_cross, horiz = T, drop = ".theta") 
+
+
+# 2 -
+m_capacity_did <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    # state_leg + 
+    prestige + 
+    oversight +  
+    experience | 
+    # est_staff_spending  + # no data for senate 
+    #majority + presidents_party | 
+    Year_x_Agency + Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member  )
+
+if(testing){modelsummary::modelsummary(m_capacity_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_capacity_did, horiz = T, drop = ".theta")
+
+```
+
+
+### Table - population 
+
+```{r m-capacity-models}
+models_capacity <- list(
+  "(1)" = m_capacity_cross,
+  "(2)" = m_capacity_did
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(2)` =c("Count")
+)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_capacity, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_capacity_cross)
+se_cross <- standard_errors(m_capacity_cross)
+beta_did <- betas(m_capacity_did)
+se_did <- standard_errors(m_capacity_did)
+```
+
+

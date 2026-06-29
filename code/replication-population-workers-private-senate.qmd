@@ -1,0 +1,97 @@
+
+
+## population - wokers % - Senate
+
+- Figures: `figs/[TYPE]/m-populationworkers_private-percent-Senate-[1:4].png`
+
+```{r m-populationworkers_private-percent-Senate}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: full Cross Sectional"
+#|   - "Model 4: fill Diff in Diff"
+
+
+
+# cross-sectional 
+m_population_percent_workers_private_Senate_cross <- fenegbin (
+  perYear ~ 
+    population_m + 
+    #percent_workers_federal + 
+    percent_workers_private_sector + 
+    #percent_workers_self_employed + 
+    #percent_#workers_nonprofit + 
+    percent_workers_government + 
+    percent_education_bachelor_or_higher +
+    percent_public_assistance_or_snap_households  | 
+    Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="Senate") )
+
+if(testing){modelsummary::modelsummary(m_population_percent_workers_private_Senate_cross, gof_omit = "R.*", starts = T, stars = T, coef_omit = coef_omit)}
+
+coefplot(m_population_percent_workers_private_Senate_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+
+# 3
+m_population_percent_workers_private_Senate_full_cross <-fenegbin (
+  perYear ~ 
+    population_m + 
+    #percent_workers_federal + 
+    percent_workers_private_sector + 
+    #percent_workers_self_employed + 
+    #percent_#workers_nonprofit + 
+    percent_workers_government + 
+    percent_education_bachelor_or_higher +
+    percent_public_assistance_or_snap_households + 
+    chair + 
+    ranking_minority + 
+    prestige + 
+    oversight +  
+    experience + 
+    majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="Senate") )
+
+if(testing){modelsummary::modelsummary(m_population_percent_workers_private_Senate_full_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_population_percent_workers_private_Senate_full_cross, horiz = T, drop = ".theta") 
+
+
+
+
+if(testing){modelsummary::modelsummary(m_population_percent_workers_private_Senate_full_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_population_percent_workers_private_Senate_full_did, horiz = T, drop = ".theta")
+```
+
+
+### Table - population 
+
+```{r m-population_percentworkers_private-Senate-models}
+models_populationworkers_private <- list(
+  "(1)" = m_population_percent_workers_private_Senate_cross,
+  "(3)" =  m_population_percent_workers_private_Senate_full_cross)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(3)` = c("Count"))
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_populationworkers_private, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_population_percent_workers_private_Senate_cross)
+se_cross <- standard_errors(m_population_percent_workers_private_Senate_cross)
+```

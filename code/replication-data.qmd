@@ -1,5 +1,5 @@
 ---
-title: "Replication Code and Robustness Checks"
+title: "Make Replication Data"
 subtitle: ""
 author: Devin Judge-Lord
 format: 
@@ -22,7 +22,7 @@ Packages:
 - `ggrepel` for plot labels
 - `here` for file paths 
 - `knitr` for document formatting 
-- `kableExtra` for table formatting 
+- `tinytable` for table formatting 
 - `modelsummary` for regression tables 
 - `marginaleffects` for predictions 
 - `fixest` --- statistical package for fixed effects estimation 
@@ -120,14 +120,21 @@ make_dcounts <- function(d, type){
 # directory to store model objects
 if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))}
   
-  d<- d |>
-  filter(TYPE == type | type == "total") |>
+  d <- d |>
+  filter(TYPE == type | type == "total",
+         chamber != "President") |>
   group_by(agency, icpsr, chamber, year, congress) |>
   summarise(perYear = sum(per_icpsr_chamber_year_agency_type)) |>
   ungroup() |>
   left_join(member_data) 
   
+  # check for NAs 
+  count(d, is.na(bioname))
+  # filter(d, is.na(bioname))
+  
 # drop uncoded agencies
+  #WHY DOES THIS GO DOWN  FOR TOTAL? 
+  # BECAUSE WE RETAINED DHS_USCIS_2016 as all 0s, it being counted with USCIS (though good to confirm and fix )
   d %<>% group_by(agency) %>% 
     mutate(total_per_agency = sum(perYear)) %>% 
     filter(total_per_agency > 2) %>% 

@@ -1,0 +1,167 @@
+## - General Election Competitiveness
+
+- Figures: `figs/[TYPE]/m-elect_general-[1:4].png`
+
+```{r}
+#| label: m-elect_general
+#| fig-show: hold
+#| out-width: 50%
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap:
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: restricted Diff in Diff"
+#|   - "Model 4: log Diff in Diff"
+
+# cross-sectional 
+m_elect_general_cross <- fenegbin (
+  perYear ~ 
+    abs(nominate_dim1)+ 
+    distance*presidents_party + 
+    competitive + #competitive_primary +
+    majority | Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_elect_general_cross, gof_omit = "R.*", stars = T, coef_omit = coef_omit)}
+
+coefplot(m_elect_general_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 2
+m_elect_general_did <-fenegbin (
+  perYear ~ 
+    competitive + #competitive_primary +
+    presidents_party + majority  | Year_x_Agency + Legislator_x_Agency, 
+  cluster = "Legislator",
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_elect_general_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_elect_general_did, horiz = T, drop = ".theta") 
+
+
+# 3
+m_elect_general_2nd_cross <-fenegbin (
+  perYear ~ 
+    abs(nominate_dim1)+ 
+    distance*presidents_party + 
+    competitive + #competitive_primary + 
+    majority | Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member %>% filter(survive == 1))
+
+if(testing){modelsummary::modelsummary(m_elect_general_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_elect_general_2nd_cross, horiz = T, drop = ".theta") 
+
+
+# 4
+m_elect_general_2nd_did <-fenegbin (
+  perYear ~
+    competitive + #competitive_primary +
+    majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member %>% filter(survive == 1))
+
+if(testing){modelsummary::modelsummary(m_elect_general_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_elect_general_2nd_did, horiz = T, drop = ".theta")
+```
+
+
+### Table 
+
+```{r m-elect_general-models}
+models_elect_general <- list(
+  "(1)" = m_elect_general_cross,
+  "(2)" = m_elect_general_did,
+  "(3)" =  m_elect_general_2nd_cross,
+  "(4)" = m_elect_general_2nd_did
+)
+
+rows <- tibble(
+  term = c("Dependent Variable", 
+           #"Majority",
+           #"President's Party",
+           "All House Reps.", 
+           "Served At Least 2nd Term"),
+  `(1)` = c("Count", "X", ""),
+  `(2)` =c("Count", "X", ""),
+  `(3)` = c("Count","", "X"),
+  `(4)` = c("Count", "", "X") 
+)
+
+# subset
+attr(rows, 'position') <- c(0, 20,21,22,23)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+
+# HTML
+modelsummary(models_elect_general, 
+             title = "The Effect of Experience and District Competitiveness on Legislator Contacts", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_elect_general_cross)
+se_cross <- standard_errors(m_elect_general_cross)
+beta_did <- betas(m_elect_general_did)
+se_did <- standard_errors(m_elect_general_did)
+```
+
+
+
+### Modeled Effects - cross sectional 
+
+```{r}
+#| label: "m-elect_general-effect"
+#| fig-cap: "figs/[TYPE]/m-elect_general-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_elect_general_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, competitive_general = 0),
+  effect = "Competitive general election"
+)
+
+```
+
+### Modeled Effects General Election - diff in diff
+
+```{r}
+#| label: "m-elect_general-did-effect"
+#| fig-cap: "figs/[TYPE]/m-elect_general-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_elect_general_did
+data = data_member #|> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, competitive_general = 0),
+  effect = "Competitive general election\n(diff in diff)"
+)
+
+```
+

@@ -30,6 +30,7 @@ Figures: `figs/[TYPE]/m-district-[1:4].png`
 
 
 m_district_cross <- fenegbin(perYear ~
+                               
   new_member #+ second + third + fourth + fifth + sixth 
   | Year_x_Agency,
 cluster = "District",
@@ -313,8 +314,8 @@ ggdistrict() +
 
 ### Modeled Effects - district
 
-```{r}
-#| label: "m-distirct-effect"
+```{r, eval=FALSE}
+#| label: "m-district-effect"
 #| fig-cap: "figs/[TYPE]/m-district-effect"
 #| layout-ncol: 2
 #| fig-height: 3.5
@@ -447,7 +448,6 @@ models_spillover <- list(
   "(3)" = m_spillover_new_one
 )
 
-
 rows <- tibble(
   term = c("Dependent variable", 
            "All districts",
@@ -463,11 +463,8 @@ rows <- tibble(
             "X")
 )
 
-
-
 # Check marks for controls 
 attr(rows, 'position') <- c(0)
-
 
 modelsummary(models_spillover ) 
 
@@ -475,5 +472,3 @@ save(models_spillover, rows, cm, gm,  # beta_cross, beta_did, se_cross, se_did,
      file = here::here("models", type, "models_spillover.Rdata"))
 ```
 
-
-\clearpage

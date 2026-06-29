@@ -1,0 +1,165 @@
+
+## population - House
+
+- Figures: `figs/[TYPE]/m-population-House-[1:4].png`
+
+```{r m-population-House}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: full Cross Sectional"
+#|   - "Model 4: fill Diff in Diff"
+
+
+
+# cross-sectional 
+m_population_House_cross <- fenegbin (perYear ~ 
+                               population_m  | 
+                               Year_x_Agency,
+                             cluster = "Legislator", 
+                             data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_population_House_cross, gof_omit = "R.*", starts = T, stars = T, coef_omit = coef_omit)}
+
+coefplot(m_population_House_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 2
+m_population_House_did <-fenegbin (perYear ~ 
+                               population_m  | Year_x_Agency + Legislator_x_Agency, 
+                    cluster = "Legislator",
+           data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_population_House_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_population_House_did, horiz = T, drop = ".theta") 
+
+
+# 3
+m_population_House_full_cross <-fenegbin (perYear ~ 
+                                population_m + 
+                              chair + 
+                             ranking_minority + 
+                             prestige + 
+                             oversight +  
+                    experience + 
+                    majority + presidents_party | Year_x_Agency, 
+                    cluster = "Legislator", 
+           data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_population_House_full_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_population_House_full_cross, horiz = T, drop = ".theta") 
+
+
+# 4
+m_population_House_full_did <-fenegbin (perYear ~ 
+                             population_m + 
+                              chair + 
+                             ranking_minority + 
+                             prestige + 
+                             oversight +  
+                    experience + 
+                    majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_population_House_full_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_population_House_full_did, horiz = T, drop = ".theta")
+```
+
+
+### Table - population 
+
+```{r m-population-House-models}
+models_population <- list(
+  "(1)" = m_population_House_cross,
+  "(2)" = m_population_House_did,
+  "(3)" =  m_population_House_full_cross,
+ "(4)" = m_population_House_full_did
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(2)` =c("Count"),
+  `(3)` = c("Count"),
+  `(4)` = c("Count") 
+)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_population, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_population_House_cross)
+se_cross <- standard_errors(m_population_House_cross)
+beta_did <- betas(m_population_House_did)
+se_did <- standard_errors(m_population_House_did)
+
+# marginaleffects::avg_predictions(m_population_House_cross, variables = "population_m") |> #kable()
+#   ggplot() +
+#   aes(x = population_m, y = estimate) + 
+#   geom_point() 
+
+```
+
+
+### Narrative - House population
+
+TODO
+
+
+### Modeled Effects - population-House cross sectional 
+
+```{r}
+#| label: "m-population-House-effect"
+#| fig-cap: "figs/[TYPE]/m-population-House-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_population_House_cross
+data = data_member |> filter(chamber=="House")  |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, population_m = min(population_m, na.rm = T)),
+  effect = "Population (House)"
+  )
+```
+
+### Modeled Effects - population-House diff in diff
+
+```{r}
+#| label: "m-population-House-did-effect"
+#| fig-cap: "figs/[TYPE]/m-population-House-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_population_House_did
+data = data_member |> filter(chamber=="House")  |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, population_m = min(population_m, na.rm = T)),
+  effect = "Population (House)\n(diff in diff)"
+  )
+```
+

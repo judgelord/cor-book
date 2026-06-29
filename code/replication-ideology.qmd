@@ -100,7 +100,6 @@ rows <- tibble(
 # call coefs
 attr(rows, 'position') <- c(0)
 
-options(modelsummary_factory_default = 'kableExtra')
 
 
 # HTML

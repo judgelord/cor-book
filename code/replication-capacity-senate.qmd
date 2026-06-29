@@ -1,0 +1,89 @@
+
+## Capacity - Senate
+
+- Figures: `figs/[TYPE]/m-capacity-Senate-[1:2].png`
+
+```{r m-capacity-Senate}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+
+
+# 1 - 
+m_capacity_Senate_cross <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    state_leg + 
+    prestige + 
+    oversight +  
+    experience | 
+    # est_staff_spending  + # no data for senate 
+    #majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="Senate") )
+
+if(testing){modelsummary::modelsummary(m_capacity_Senate_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_capacity_Senate_cross, horiz = T, drop = ".theta") 
+
+
+# 2 -
+m_capacity_Senate_did <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    # state_leg + 
+    prestige + 
+    oversight +  
+    experience | 
+    # est_staff_spending  + # no data for senate 
+    #majority + presidents_party | 
+    Year_x_Agency + Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member |> filter(chamber=="Senate") )
+
+if(testing){modelsummary::modelsummary(m_capacity_Senate_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_capacity_Senate_did, horiz = T, drop = ".theta")
+
+```
+
+
+### Table - population 
+
+```{r m-capacity-Senate-models}
+models_capacity <- list(
+  "(1)" = m_capacity_Senate_cross,
+  "(2)" = m_capacity_Senate_did
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(2)` =c("Count")
+)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_capacity, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_capacity_Senate_cross)
+se_cross <- standard_errors(m_capacity_Senate_cross)
+beta_did <- betas(m_capacity_Senate_did)
+se_did <- standard_errors(m_capacity_Senate_did)
+```
+
+

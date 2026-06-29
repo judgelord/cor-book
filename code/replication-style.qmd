@@ -1,0 +1,108 @@
+
+## Style
+
+- Figures: `figs/[TYPE]/m-style-[1:4].png`
+
+```{r}
+#| fig-show: "hold"
+#| label: m-style
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: full Cross Sectional"
+#|   - "Model 4: fill Diff in Diff"
+
+data_member$style |> unique()
+
+# cross-sectional 
+m_style_cross <- fenegbin (perYear ~ 
+                              style + 
+                               majority  + 
+                               presidents_party | 
+                               Year_x_Agency,
+                             cluster = "Legislator", 
+                             data = data_member)
+
+if(testing){modelsummary::modelsummary(m_style_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_style_cross, horiz = T, drop = "(Intercept)|theta") 
+
+
+
+
+
+# 3
+m_style_full_cross <-fenegbin (perYear ~ style +
+                              chair + 
+                             ranking_minority + 
+                             prestige + 
+                             oversight +  
+                    experience + 
+                    majority  + presidents_party | Year_x_Agency, 
+                    cluster = "Legislator", 
+           data = data_member)
+
+if(testing){modelsummary::modelsummary(m_style_full_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_style_full_cross, horiz = T, drop = ".theta") 
+
+```
+
+
+### Table - style %
+
+```{r m-style-models}
+models_style <- list(
+  "(1)" = m_style_cross,
+  "(2)" = m_style_full_cross
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(2)` =c("Count")
+)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_style, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_style_cross)
+se_cross <- standard_errors(m_style_cross)
+
+```
+
+
+### Narrative - style %
+
+TODO
+
+
+### Modeled Effects - style- cross sectional 
+
+```{r}
+#| label: "m-style-effect"
+#| fig-cap: "figs/[TYPE]/m-style-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_style_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+# plot_effect( 
+#   newdata = mutate(data, percent_education_bachelor_or_higher = 0),
+#   effect = "% College Grads"
+#   )
+```

@@ -1,0 +1,186 @@
+
+## Capacity - House
+
+- Figures: `figs/[TYPE]/m-capacity-House-[1:4].png`
+
+```{r m-capacity-House}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: Cross Sectional"
+#|   - "Model 4: Diff in Diff"
+
+# 1 - without staff because it is limited
+m_capacity_House_cross <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    state_leg + 
+    prestige + 
+    oversight +  
+    experience | 
+    #est_staff_spending  + 
+    #majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_capacity_House_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_capacity_House_cross, horiz = T, drop = ".theta") 
+
+
+# 2 - without staff because it is limited
+m_capacity_House_did <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    # state_leg + 
+    prestige + 
+    oversight +  
+    experience |
+    # est_staff_spending  + 
+    #majority + presidents_party | 
+    Year_x_Agency + Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_capacity_House_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_capacity_House_did, horiz = T, drop = ".theta")
+
+# 3 - with staff 
+m_staff_capacity_House_cross <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    state_leg + 
+    prestige + 
+    oversight +  
+    experience + 
+    est_staff_spending  | 
+    # pct_MRA_spending + # alternative measure of total spendning, percent of MRA spent, holds constant changing MRA, but this is not ideal, better to go with spanding that should translate into volume of work 
+    # majority + presidents_party | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_staff_capacity_House_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+coefplot(m_staff_capacity_House_cross, horiz = T, drop = ".theta") 
+
+
+# 4 - with staff 
+m_staff_capacity_House_did <-fenegbin (
+  perYear ~ 
+    #population_m + 
+    chair + 
+    ranking_minority + 
+    subchr + 
+    # state_leg + 
+    prestige + 
+    oversight +  
+    experience + 
+    est_staff_spending  | 
+    # majority + presidents_party | 
+    Year_x_Agency + Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member |> filter(chamber=="House") )
+
+if(testing){modelsummary::modelsummary(m_staff_capacity_House_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
+
+coefplot(m_staff_capacity_House_did, horiz = T, drop = ".theta")
+```
+
+
+### Table - population 
+
+```{r m-capacity-House-models}
+models_capacity <- list(
+  "(1)" = m_capacity_House_cross,
+  "(2)" = m_capacity_House_did,
+  "(3)" =  m_staff_capacity_House_cross,
+ "(4)" = m_staff_capacity_House_did
+)
+
+rows <- tibble(
+  term = c("Dependent Variable"),
+  `(1)` = c("Count"),
+  `(2)` =c("Count"),
+  `(3)` = c("Count"),
+  `(4)` = c("Count") 
+)
+
+# call coefs
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_capacity, 
+             title = "", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_capacity_House_cross)
+se_cross <- standard_errors(m_capacity_House_cross)
+beta_did <- betas(m_capacity_House_did)
+se_did <- standard_errors(m_capacity_House_did)
+```
+
+
+### Narrative - House population
+
+TODO
+
+
+### Modeled Effects - population-House cross sectional 
+
+```{r}
+#| label: "m-capacity-House-effect"
+#| fig-cap: "figs/[TYPE]/m-capacity-House-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_capacity_House_cross
+data = data_member |> filter(chamber=="House")  |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, population_m = min(population_m, na.rm = T)),
+  effect = "Population (House)"
+  )
+```
+
+### Modeled Effects - population-House diff in diff
+
+```{r}
+#| label: "m-capacity-House-did-effect"
+#| fig-cap: "figs/[TYPE]/m-capacity-House-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_capacity_House_did
+data = data_member |> filter(chamber=="House")  |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, population_m = min(population_m, na.rm = T)),
+  effect = "Population (House)\n(diff in diff)"
+  )
+```
+
