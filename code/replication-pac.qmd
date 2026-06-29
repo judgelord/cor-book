@@ -1,0 +1,274 @@
+
+
+
+
+- Figures: `figs/[TYPE]/m-pac-[1:4].png`
+
+```{r}
+#| label: "m-pac"
+#| fig-cap: "figs/[TYPE]/m-pac-[1:4].png"
+#| layout-ncol: 2
+#| fig-height: 4.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+
+# cross-sectional 
+m_pac_basic_cross <-fenegbin (
+  perYear ~ 
+    PACamount_m + 
+    majority + 
+    party + presidents_party | 
+    Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_pac_basic_cross)}
+
+coefplot(m_pac_basic_cross, horiz = T, drop = "(Intercept)|.theta") 
+
+
+# cross-sectional 
+m_pac_cross <-fenegbin (
+  perYear ~ 
+    PACamount_m + 
+    majority + 
+    party + abs(nominate_dim1) + distance*presidents_party | 
+    Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_pac_cross)}
+
+coefplot(m_pac_cross, horiz = T, drop = "(Intercept)|.theta") 
+
+
+
+# 2
+m_pac_did <-fenegbin (
+  perYear ~ 
+    PACamount_m + 
+    majority + 
+    presidents_party | 
+    Year_x_Agency + 
+    Legislator_x_Agency, 
+  cluster = "Legislator",
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_pac_did)}
+
+coefplot(m_pac_did, horiz = T, drop = ".theta") 
+
+
+# 3
+m_pac_full_cross <-fenegbin (
+  perYear ~ 
+    PACamount_m + 
+    chair + 
+    ranking_minority + 
+    prestige + 
+    oversight +  
+    experience + 
+    majority + 
+    party + abs(nominate_dim1) + distance*presidents_party |
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_pac_full_cross)}
+coefplot(m_pac_full_cross, horiz = T, drop = ".theta") 
+
+# 4
+m_pac_full_did <-fenegbin (
+  perYear ~ 
+    PACamount_m + 
+    chair + 
+    ranking_minority + 
+    prestige + 
+    oversight +  
+    experience + 
+    majority + 
+    presidents_party |
+    Year_x_Agency + 
+    Legislator_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_pac_full_did)}
+coefplot(m_pac_full_did, horiz = T, drop = ".theta") 
+```
+
+####  Table 
+
+
+
+```{r models-pac}
+models <- list(
+  "(1)" = m_pac_basic_cross,
+  "(2)" = m_pac_cross,
+  "(3)" = m_pac_did,
+  "(4)" = m_pac_full_cross,
+  "(5)" = m_pac_full_did
+)
+
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Count" ),
+  `(2)` =c("Count"),
+  `(3)` = c("Count"),
+  `(4)` = c("Count"),
+  `(5)` = c("Count")
+
+  
+)
+
+attr(rows, 'position') <- c(0)
+
+modelsummary(models, add_rows = rows,   notes = "") 
+```
+
+
+
+
+
+## Department of Energy Only
+
+```{r}
+data_member |>  filter(str_detect(agency, "DOE") ) |> 
+  group_by(type) |> 
+  summarise(n = sum(perYear))
+
+data_member |> filter(str_detect(agency, "DOE") ) |> 
+  group_by(agency) |> 
+  summarise(n = sum(perYear))
+
+data_member |> filter(str_detect(agency, "DOE") ) |> 
+  group_by(year) |> 
+  summarise(n = sum(perYear))
+```
+
+
+- Figures: `figs/[TYPE]/m-pac_pooled-[1:4].png`
+
+```{r}
+#| label: "m-pac_pooled"
+#| fig-cap: "figs/[TYPE]/m-pac_pooled-[1:4].png"
+#| layout-ncol: 2
+#| fig-height: 4.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+# cross-sectional 
+m_pac_basic_pooled_cross <-fenegbin (perYear ~ 
+                          PACamount_nonenergy_m + PACamount_energy_m + 
+                    majority + presidents_party | Year_x_Agency,
+                    cluster = "Legislator", 
+           data = data_member |> filter(str_detect(agency, "DOE")))
+
+if(testing){modelsummary::modelsummary(m_pac_basic_pooled_cross)}
+
+coefplot(m_pac_basic_pooled_cross, horiz = T, drop = "(Intercept)|.theta") 
+
+# cross-sectional 
+m_pac_pooled_cross <-fenegbin (perYear ~ 
+                          PACamount_nonenergy_m + PACamount_energy_m + 
+                    majority + party + abs(nominate_dim1) + distance*presidents_party | Year_x_Agency,
+                    cluster = "Legislator", 
+           data = data_member |> filter(str_detect(agency, "DOE")))
+
+if(testing){modelsummary::modelsummary(m_pac_pooled_cross)}
+
+coefplot(m_pac_pooled_cross, horiz = T, drop = "(Intercept)|.theta") 
+
+
+
+# 2
+m_pac_pooled_did <-fenegbin (perYear ~ 
+                               PACamount_nonenergy_m + PACamount_energy_m +
+                    majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
+                    cluster = "Legislator",
+           data = data_member |> filter(str_detect(agency, "DOE")))
+
+if(testing){modelsummary::modelsummary(m_pac_pooled_did)}
+
+coefplot(m_pac_pooled_did, horiz = T, drop = ".theta") 
+
+
+# 3
+m_pac_pooled_full_cross <-fenegbin (perYear ~ 
+                        PACamount_nonenergy_m + PACamount_energy_m +
+                       chair + 
+                         ranking_minority + 
+                         prestige + 
+                         oversight +  
+                    experience + 
+                    majority + 
+                      party + abs(nominate_dim1) + distance*presidents_party |
+                      Year_x_Agency, 
+                    cluster = "Legislator", 
+           data = data_member |> filter(str_detect(agency, "DOE")))
+
+if(testing){modelsummary::modelsummary(m_pac_full_cross)}
+coefplot(m_pac_full_cross, horiz = T, drop = ".theta") 
+
+# 4
+m_pac_pooled_full_did <-fenegbin (perYear ~ 
+                        PACamount_nonenergy_m + PACamount_energy_m +
+                       chair + 
+                         ranking_minority + 
+                         prestige + 
+                         oversight +  
+                    experience + 
+                    majority + 
+                      presidents_party |
+                      Year_x_Agency + 
+                        Legislator_x_Agency, 
+                    cluster = "Legislator", 
+           data = data_member |> filter(str_detect(agency, "DOE")))
+
+if(testing){modelsummary::modelsummary(m_pac_pooled_full_did)}
+coefplot(m_pac_full_did, horiz = T, drop = ".theta") 
+```
+
+####  Table 
+
+
+```{r}
+#| label: "models-pac_pooled"
+
+models <- list(
+  "(1)" = m_pac_basic_pooled_cross,
+  "(2)" = m_pac_pooled_cross,
+  "(3)" = m_pac_pooled_did,
+  "(4)" = m_pac_pooled_full_cross,
+  "(5)" = m_pac_pooled_full_did
+  )
+
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Count" ),
+  `(2)` =c("Count"),
+  `(3)` = c("Count"),
+   `(4)` = c("Count"),
+   `(5)` = c("Count")
+
+)
+
+attr(rows, 'position') <- c(0)
+
+
+modelsummary(models, add_rows = rows,   notes = "") 
+```
+
+
+
