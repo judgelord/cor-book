@@ -31,3 +31,9 @@ cache
 _freeze
 Appendix.html
 .secrets
+data-citations-and-documentation
+index.aux
+index.log
+index.pdf
+index.tex
+index.toc

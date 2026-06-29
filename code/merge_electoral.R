@@ -3,6 +3,7 @@ library(haven)
 
 earlymoneydata <- read_dta(here::here("data", "earlymoneydata_primary.dta"))
 
+if(F){
 earlymoneydata %>%
   mutate(party = ifelse(rep == 1,
                         "Repubican",
@@ -17,6 +18,9 @@ earlymoneydata %>%
   facet_wrap("party") +
   theme(legend.position = "none",
         axis.text.y = element_text(size = 1))
+
+ggsave(here::here("figs", "earlymoneydata-coverage.png"))
+}
 
 emd <- distinct(earlymoneydata,
                 year_of_prior_election = year, state_abbrev = state, district_code = district, rep,
@@ -75,6 +79,9 @@ member_data %<>%
 
 # confirm no duplicates in member_data prior to merge
 member_data <- distinct(member_data)
+
+
+if(F){
 member_data |> count(icpsr, chamber, congress, sort = T) |> filter(n>1)
 
 # check for multiple people in a district in a congress
@@ -93,6 +100,7 @@ member_data %>%
   count(icpsr, chamber, congress, party,
         dpres, #PRVYEreceipts_toptwo20, PRVYEcompetitivereceipts_575,
         sort = T)
+}
 
 # actual merge
 member_data %<>%
