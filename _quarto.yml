@@ -1,6 +1,6 @@
 execute:
   cache: true
-  freeze: false
+  # freeze: auto # once the results are locked in, turn this on so that we don't need to re-render
   echo: false
   message: false
   warning: false
@@ -9,9 +9,9 @@ project:
   type: book
   output-dir: docs
   render:
-    - "!interbranch.qmd"
+    - "!interbranch.qmd" # ! = things to not render
     - "!code/"
-    - "!replication-total"
+    - "!replication*"
     - "!archive/"
     - "!feedback/"
     - "!README"
@@ -43,18 +43,30 @@ book:
 
 number-depth: 3
 
+#crossref: ## Commenting this out to try just renaming the theorum function
+  # chapters: false # this removes chapter numbers ahead of all figures and tables, so we don't want to do this
+#  custom:
+#    - key: hyp
+#      kind: float
+#      reference-prefix: Hypothesis #TODO decide if we want to call this Hypothesis or Expectation
+#      caption-location: top
+#      latex-env: hypothesis # This is required for PDF format
+      # hyp-labels: "" # seems not possible to remove numbering in custom crossref floats
+language:
+  crossref-thm-title: "Hypothesis"
 bibliography: assets/cor.bib
 
 format:
   html:
     # theme: cosmo
     self-contained: false # why does this make the files so large? (77MB!)
+    #css: styles.css
   pdf:
     #documentclass: scrreprt. # why this rather than book?
     number-depth: 2
     include-in-header:
        - assets/header.tex
-    #pdf-engine: pdflatex
+    #pdf-engine: pdflatex. # pdflatex is faster, but perhaps not as good as lulatex
 
     # include-after-body:
     #   text: |
@@ -62,4 +74,4 @@ format:
   # epub:
   #    cover-image: assets/cover.png
 
-book-content: true
+book-content: true # we are not really using this and could delete this after removing all of the book content chunk fences

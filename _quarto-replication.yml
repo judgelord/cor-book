@@ -1,5 +1,5 @@
 execute:
- # cache: true
+  cache: true
   freeze: false
   echo: true
   message: false
