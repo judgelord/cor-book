@@ -9,38 +9,36 @@ modelsummary_AJPS <- function(models, notes = "", center_rows = 1, ...){
                              coef_map = cm,
                              gof_map = gm,
                              output = "tinytable",
-                             notes = notes)  #|>
+                             notes = notes)  |>
     # bold header, hline bottom, aligned center
-    #tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") #|>
+    tinytable::style_tt(j = 1, align = "l") |>
+    tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
   # stats aligned center
   #  tinytable::style_tt(i = center_rows, align = "c") |>
   # row labels left
-  # tinytable::style_tt(j = 1, align = "l") |>
-  #  tinytable::style_tt(fontsize = .7)
+   tinytable::style_tt(j = 1, align = "l") # |>  tinytable::style_tt(fontsize = .7)
 }
 
 # overwrite modelsummary::modelsummary with custom version above
 modelsummary <- modelsummary_AJPS
+
+modelsummary::config_modelsummary(
+  factory_default = "tinytable",
+  factory_html = "tinytable",
+  factory_latex = "tinytable",
+  factory_markdown = "tinytable"
+)
 
 
 #FIXME Why are the tables not formatting well?
 if(F){
   load(here::here("models", "total", "models.Rdata"))
 
-  test <-modelsummary:: modelsummary(models_total)
-  # config_modelsummary(factory_default = "tinytable")
+  test <-modelsummary:: modelsummary(models)
+  test
+  class(test)
 
-  # if(packageVersion("modelsummary") != "2.0"){
-  #   remove.packages("modelsummary")
-  #   packageurl <- "https://cran.r-project.org/src/contrib/Archive/modelsummary/modelsummary_2.0.0.tar.gz"
-  #   install.packages(packageurl, repos=NULL, type="source")
-  # }
-
-  packageVersion("modelsummary")
-  modelsummary::config_modelsummary()
-  t <- modelsummary::modelsummary(lm(speed ~ dist, cars), output = "tinytable")
-  class(t)
-  t |>
-    tinytable::style_tt(i = 0:1, bold = T)
-
+  test <- modelsummary(models)
+  class(test)
+  test
 }
