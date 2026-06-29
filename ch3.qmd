@@ -1,11 +1,8 @@
 # Measuring (Invisible) Interbranch Representation
 
 
-::: {.content-hidden unless-meta="book-content"}
-
 > ABSTRACT: We discuss how, up to this point, interbranch representation has been largely invisible to voters, journalists, and scholars, which has consequences for democratic accountability. We describe how we measure interbranch representation, our data collection process, and the methods we use to analyze the data. This chapter briefly describes our approach to measuring and collecting data on interbranch representation, and the methods we use (full details are in Appendix A). We describe the process of translating congressional correspondence logs from many different agencies into aggregate data on representation activity. We then detail our coding process for determining who was being represented in each case. Finally, we present descriptive tables and figures, documenting staggering levels of inequality in the provision of interbranch representation across legislators (and districts) that motivate the rest of the book.
 
-:::
 
 ```{r, include=FALSE, cache=FALSE}
 # Totals and means for this chapter at the top of the document
@@ -17,25 +14,25 @@ here::here("code", "formatting.R") |> source()
 ```
 
 
-The invisible nature of interbranch representation means that data on these activities were not readily available. In this chapter, we describe the extensive process by which we collected, cleaned, coded, and analyzed the data that we use to measure interbranch representation, which come from federal agencies' congressional correspondence logs. Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
+The invisible nature of interbranch representation means that data on these activities were not readily available. In this chapter, we describe the extensive process by which we collected, cleaned, coded, and analyzed the data that we use to measure interbranch representation, which come from federal agencies' congressional correspondence logs. 
+
+For 9 years, we have been filing FOIA requests with all federal agencies and subagencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.
+
+Our primary approach is empirical, relying on a nearly decade-long data collection effort and statistical analysis. We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
 
 
 ## New Data
 
-To study interbranch representation, we rely on congressional correspondence logs from federal agencies. When members of Congress contact the bureaucracy, most federal agencies enter these contacts into a database or keep some other kind of record of the correspondence. (As we will discuss at greater length later, the specific record-keeping practices vary significantly by agency.) These congressional correspondence logs therefore allow us to determine the overall volume of interbranch representation for each member of Congress in our chosen time period, as well as the general purpose of the contact. Importantly, we did not, in most cases, obtain the full text of the communications themselves, though the summaries of the subjects provided rich data on the content of each item of communication.
+To study interbranch representation, we rely on congressional correspondence logs from federal agencies. When members of Congress contact the bureaucracy, most federal agencies enter these contacts into a database or keep some other kind of record of the correspondence. These congressional correspondence logs therefore allow us to determine the overall volume of interbranch representation for each member of Congress in our chosen time period, as well as the general purpose of the contact. Importantly, we did not, in most cases, obtain the full text of the communications themselves, though the summaries of the subjects provided rich data on the content of each item of communication.
 
-Chapter 2 established that interbranch representation occurs behind the scenes, out of view from the public, journalists, and scholars. More specifically, these records of communications between members of Congress and federal agencies are, for the most part, not proactively disclosed to the public. We therefore obtained our data through a large number of Freedom of Information Act (FOIA) requests for federal agencies' congressional correspondence logs. (footnote here about how some agencies publish previously and/or frequently requested records in online reading rooms, obviating the need for us to make requests where those data were already available - but these instances were few)
+Chapter 2 established that interbranch representation occurs behind the scenes, out of view of the public, journalists, and scholars. More specifically, these records of communications between members of Congress and federal agencies are, for the most part, not proactively disclosed to the public. We therefore obtained our data through a large number of Freedom of Information Act (FOIA) requests for federal agencies' congressional correspondence logs.^[Some agencies publish previously and/or frequently requested records in online reading rooms on their FOIA websites. In such cases, we were able to obtain some data without making a new request. However, these instances were relatively rare.] 
 
-
-
-For 9 years, we have been filing FOIA requests with all federal agencies and subagencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process.
-
-No standard system or database across agencies for keeping track of congressional correspondence (and some agencies changed systems partway through our time series). At minimum, useful congressional correspondence logs contained the name(s) of the sender(s) (members of Congress), the date of the correspondence, and a summary of the subject of the correspondence. 
-
-We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences.
+No standard system or database across agencies for keeping track of congressional correspondence. Agencies vary in the sophistication of their tracking systems and in what these systems record. Some agencies changed tracking systems partway through our time series, ultimately giving us multiple sets of logs in slightly different formats from the same agency. At minimum, useful congressional correspondence logs contained the name(s) of the sender(s) (members of Congress), the date of the correspondence, and a summary of the subject of the correspondence. 
 
 
-From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded re-thinking our understanding of representation and the institutions of American democracy.
+
+
+
 
 
 Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics (Mills and Kalaf-Hughes 2015), the policy strategies of cross-pressured legislators (Ritchie 2018, 2023), the role of ideology in congressional oversight (Lowande 2019), descriptive representation (Lowande et al 2019), and money in politics (Powell et al 2023). With a near census of agencies, we are able to study, for the first time (except for Judgelord et al 2026), patterns across all members and policy areas.
@@ -46,25 +43,38 @@ We are contributing to that growing field of scholarship with a painstakingly co
 
 ## Data Collection Process
 
-We set out to collect data on congressional correspondence with all federal agencies between 2007 and the date of the request (2017 through 2025). Each federal agency and sub-agency has their own FOIA office, and separately, each agency keeps track of congressional correspondence differently. (this was something we had to figure out on kind of a case-by-case basis as we filed requests and received records)
+We set out to collect data on congressional correspondence with all federal agencies between 2007 and the date of the request (2017 through early 2025). Each federal agency and sub-agency has their own FOIA office, and separately, each agency keeps track of congressional correspondence differently. These differences became apparent to us as we filed requests and received records across agencies. However, to ensure that we received enough information for the logs to be useful for our purposes, we specified that the essential fields of data were the sender, date, and subject of the correspondence. The template language used in each of our FOIA requests can be found in Appendix A. 
 
-(talk about the language for the FOIA requests - how did we develop/modify this in the early months of the project?)
+In mid-February of 2017, we filed an initial round of FOIA requests with 27 sub-agencies within the U.S. Department of Agriculture (USDA). Several of these requests turned out to be redundant, as congressional correspondence logs for some sub-agencies were in fact held by other USDA components. By May 18, 2017, after just over three months, we had received records from 20 of the USDA sub-agencies. We received these correspondence logs in spreadsheet form, which made them easy to match with legislators' names (a process we discuss in more detail in the next section). (Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?) Many other agencies, including the Environmental Protection Agency (EPA), the Department of Commerce, the Department of Education, the Indian Health Service (IHS) and Substance Abuse and Mental Health Services Administration (SAMHSA) within the Department of Health and Human Services, and several components of the Department of Transportation like the Federal Aviation Administration (FAA) and Federal Highway Administration (FHWA), also provided records in matter of weeks or months. 
 
-In mid-February of 2017, we filed an initial round of FOIA requests with 27 sub-agencies within the U.S. Department of Agriculture (USDA). Several of these requests turned out to be redundant, as congressional correspondence logs for some sub-agencies were in fact held by other USDA components. By May 18, 2017, after just over three months, we had received records from 20 of the USDA sub-agencies. (Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?) 
+For many other agencies, the process of obtaining congressional correspondence logs was less straightforward. We waited for nearly a year to obtain records from the Department of Veterans Affairs, and some other agencies, including the Internal Revenue Service (IRS) in the Treasury Department, the Office of Congressional and Intergovernmental Affairs (OCIA) in the Department of Labor, the Bureau of Indian Affairs and the Office of the Solicitor within the Department of the Interior, took a year or more to release responsive records to us. Still other agencies, including the Centers for Disease Control and Prevention (CDC) in the Department of Health and Human Services, asked that we either narrow the scope of our request or accept a rolling release of the records (usually a year or two at a time). U.S. Citizenship and Immigration Services (USCIS) in the Department of Homeland Security asked that we do both, given the extraordinary volume of congressional correspondence that the agency receives. As such, we initially narrowed our request to cover only congressional correspondence logs from 2018, and we received these logs a year and a half after filing the request. Immediately upon receiving the 2018 data in August of 2020, we filed a second request for congressional correspondence logs from 2016, which we received over four and a half years later, in April of 2025. 
+
+The State Department, we have discovered, is notorious for its backlog of FOIA requests. We filed our initial request for all State Department congressional correspondence logs on May 18, 2018; as of June 2026, we have still not received the records. We have been in frequent communication with State Department FOIA officials over the last eight years to check on the status of our request. Most recently, they estimated that our request would be complete on May 29, 2026. A recent follow-up email for a new estimated completion date in June of 2026 has not yet been answered. 
+
+After receiving initial batches of logs (primarily covering 2007-2017) for a number of agencies, we then filed second requests with these agencies for their congressional correspondence logs covering early 2018 through the first months of 2019, depending on the particular date on which the second request was filed. Response times also varied for this second batch of requests, although they were shorter on average because most of these requests were directed to agencies that had already been responsive. In total, we have filed 434 FOIA requests over nearly nine and a half years.
+
+The formats in which we received the records also varied widely. Although we requested that records be sent to us "in the original, machine-readable format (i.e. if possible, not .pdf)," many agencies were only able to provide the data as PDFs because of the redactions of personal identifiable information (PII) that were required. In such situations, we converted the PDFs to spreadsheets. There was likewise a great deal of variation in the ease with which these conversions could be accomplished. Some PDFs were machine-readable and could neatly be converted to spreadsheets using PDF conversion software. Other PDFs required extensive reconstruction by hand after being converted to spreadsheets, mostly because redactions split individual observations. Still others were not machine-readable and had to be converted to spreadsheets entirely by hand - that is, by typing all content anew into a spreadsheet. 
+
+## Processing and Coding the Data
+
+After converting the agency-specific logs to spreadsheet form if necessary, we then turned to cleaning the data from each agency. Our goal was to identify all instances of correspondence in the agency logs that could be linked to a member of Congress during the time in which they were in office. As such, we required the name of the member of Congress and the date of the correspondence to appropriately match the observations with our list of member names and incorporate the observations into our merged dataset. Because of the variation in agencies' record-keeping practices, the necessary conversions of the logs from PDFs, and natural human error, the data required extensive cleaning. Member names failed to match for a variety of reasons, including typographical errors in agencies' logs, the use of aliases, nicknames, or maiden and middle names for legislators, and OCR errors that occurred in the process of converting the logs. (For example, in one instance, "Arlen Specter" had become "Alien Specter.") We also had to drop observations that were included in the logs but were not sent by members of Congress; this included communications from governors, state legislators, and other political officials, as well as outgoing correspondence from the agency to members of Congress. We completed this work primarily on an ongoing basis as we received new data, though we did complete a large portion of it with the help of several undergraduate research assistants in the summer of 2019. 
+
+Another concurrent task was coding the data to identify the purpose of the communication. We set out to identify five different types: (1) constituency service on behalf of individuals; (2) constituency service on behalf of businesses; (3) constituency service on behalf of nonprofits or local governments; (4) policy work on behalf of industries; and (5) general policy work. We also included a sixth category for "other" correspondence, which mostly included thank-you notes, congratulations, and other personal letters that rarely appeared in the data. We used the information contained in the summaries of the correspondence, usually found in a "Subject" column, to inform our coding decisions. The level of detail included in these summaries varied widely across agencies. For some agencies with sparser subjects, it was possible to auto-code for our types by identifying key words or phrases that were repeated throughout the logs. Some agencies tagged individual constituency service requests as "casework" or "constituent," which was useful for our purposes. Most of the data, however, required hand-coding to more carefully consider detailed and/or ambiguous subjects. 
+
+To facilitate hand-coding by a number of different research assistants over time (and to standardize and record our coding process), we created a detailed codebook that spells out the differences between our types. We defined personal/individual constituency service (type 1) as "individual, non-commercial constituent service"; examples included "help with a government form...visa, back pay, military honor...disability application, worker compensation, personal complaint," and other similar cases that were clearly on behalf of an individual with no business interests involved. We considered commercial service, or constituency service on behalf of businesses (type 2), to be "anything related to a specific individual case by a business (including business owners like farmers and consultants)." Examples included helping businesses with grants, loans, contracts, or fines. Service on behalf of government and non-profit entities (type 3) was similar, except this work was done on behalf of "municipal or state governments (including cities, counties, etc.) or non-business-oriented non-profit organizations." It also included assistance with (or support for) grant applications. In many cases, agencies' congressional correspondence logs named the specific government or nonprofit entity; for some organizations, it was necessary to conduct a web search to confirm their nonprofit status. 
+
+Our two remaining types of interbranch representation focused on policy work. Commercial policy (type 4) involved "anything applying to a class of commercial activity or businesses (e.g. shipping, airlines, agriculture)," including "legislation, bills, acts, appropriations, authorizations, etc." Some summaries of correspondence mentioned specific industries, which meant that these contacts were often fairly straightforward to code. Finally, we defined general policy work (type 5) as work that was not done in the service of any particular individual, business, or industry. General policy communications included legislators' requesting policy-relevant information; requests from legislators or committees related to hearing testimonies or reports; and requests for clarification on agency rules or lobbying regarding proposed agency rules. 
+
+To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type. Full details of our coding process and codebook can be found in Appendix A. 
 
 
-What are we actually able to measure with this data? Not a measure of how many constituents legislators have helped, because some of the contacts are follow-ups for the same constituent request (which is why we think of this more as an expression of legislative offices' capacity)
+## Patterns of Inequality in Constituency Service
 
-
-
-
-
-
-Patterns of Inequality in Constituency Service
-
-
+Compare with data from @Johannes1984: 37 Senate offices said that 73.2% of all cases they received came from individuals; 11.2% came from state and local governments; and the rest came from businesses, private organizations, and other groups. 144 House offices reported that 80% of their incoming cases came from individuals, while 8.9% came from government, and the remainder came from businesses and other organizations. 
 
 ## Measuring Interbranch Representation
+
+What are we actually able to measure with this data? Not a measure of how many constituents legislators have helped, because some of the contacts are follow-ups for the same constituent request (which is why we think of this more as an expression of legislative offices' capacity)
 
 For 9 years, we have been filing FOIA requests with all federal agencies and sub-agencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. 
 <!--
@@ -75,48 +85,86 @@ Obtaining records of legislators’ communications with federal agencies through
 <!--
 We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts with federal agencies from 2007 to 2020 that required 434 FOIA requests, over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. <!--Our data allows us to quantify the nature of the contact, but also includes rich data on the content of those contacts. --> 
 
+The following sections describe how we augment our data on legislator requests to agencies with data from other scholars.
 
-## Other variables
+### Measuring constituent demand  
 
-We augment our data on legislator requests to agencies with data from other scholars.
+To measure the number, neediness, and political savvy of constituents, we use demographic estimates from the U.S. Census bureau via @tidycensus, including the estimated population of sates and congressional districts. We divide the estimated number of people with a Bachelors degree or higher, the number of people receiving public assistance or SNAP by the totals in each sample to get the estimated percent of college graduates and percent of people receiving public assistance per district per year. Likewise, we divide the estimated numbers of people employed in the private, government, and nonprofit sectors by the totals provided by the census for percents of each type of employment. 
 
-Several of these variables capture features of the legislator-agency relationship.
-To assess whether holding an oversight role for an agency affects interbranch representation to that agency, we use data from @unitedstates on committee membership and @LewisSelin2012, who document committees' formal jurisdictions. 
-We use staff allocation data for members of the House from @CrossonFurnasLapiraBurgat2021 via the replication files for @CrossonKaslovsky2024.
+### Measuring legislator capacity
+
+#### Experience 
+
+Legislators may benefit from experience in office and prior to office. 
+As @JudgeLordPowellGrimmer2026 documented, much of the start-up costs (especially for constituency service) occur in the first two years. We thus model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. 
+As a measure of relevant experience prior to taking office, we use an indicator of whether the legislator was a state legislator provided by @VoldenWiseman2014 and @VoldenWiseman2018. About half of member of congress previously served as a state legislator.
+
+#### Institutional positions and oversight relationships 
+
+All executive-branch agencies "report" to one or more congressional committees charged with overseeing their work. Both chambers also has and "oversight" committee that focuses on a small number of investigations, usually of scandels other alleged wrongdoing. Reporting committees are different. They may investigate perceived problems with the agencies they oversee. Indeed, oversight hearings --- the classic example of congressional oversight --- are often conducted by reporting committees. However, these committees also provide coverage over nearly the entire executive branch, dividing the work of monitoring and developing policy targeting particular agencies. 
+Members of congress have an especially close relationship with the agencies that report to their committees. 
+
+To identify this link between agencies and legislators, we rely combine four sources of existing data and augement it with additional research into the committees members sit on. We combine snapshots from the version history of current committee assigment data maintained by @unitedstates. The result is a new dataset on committee assignments, including committee chair, ranking minority, subcommittee chair, and other leadership positions [updating @StewartWoon2017].^[Committee assignment and position data are available at <https://github.com/judgelord/committees>.] We cross-checked and augmented these data with chair and subcommittee chair indicators compiled by @VoldenWiseman2014 and @VoldenWiseman2018 from the Almanac of American Politics. We adopt the definition of prestige committee assignments from @replication.
+
+Finally, we crosswalk reporting committee assignments with committee jurisdictions using the ACUS Sourcebook of United States Executive Agencies (@LewisSelin2012). This gives us an indicator for each legislator-agency pair of whether the legislator sat on a reporting committee with oversight justification over that agency in each congress. As discussed in the previous chapter, we consider oversight relationships to be a measure of capacity (because legislators have special access to committee staff and information and may be more likley to get a response from the agenies that report to them) and strategic behavior (because legislators seek to join committees that oversee parts of the government they care about).
+
+
+#### Legislator office staffing levels 
+
+We use staff budget data for members of the House from @CrossonFurnasLapiraBurgat2021 via the replication files for @CrossonKaslovsky2024, specifically Members' Representational Allowance (MRA) and the portion of MRA each member spent. These data vary by congress 
+
+
+### Measuring strategic behavior and the political environment 
+
+
+#### Office staff allocation across priorities
+
+In addition to the overall staffing levels, @CrossonFurnasLapiraBurgat2021 measure the allocation by catagory. We use spending on constituency service, legislative, and communications staff to measure how legislators prioritize their office resources. 
+
+
+#### Partisanship and Ideological Distance
+
+We use partisanship and ideology data from @dwnominate2024. Specifically, we 
+
 To assess the ideological similarity between members of Congress and specific federal agencies, we subtract a member’s first dimension
 DW-NOMINATE scores [@dwnominate2024] with measurements of federal
 agencies' perceived ideological leanings [@RichardsonClintonLewis2018].
 To measure the ideological *distance* between members of Congress and
 federal agencies, we subtract each member’s first-dimension DW-NOMINATE
-score from the ideology score of each agency. We also use other legislator-level variables from @dwnominate2024, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president's party. As @JudgeLordPowellGrimmer2026 documented that much of the start-up costs (especially for constituency service) occur in the first two years, we model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. We also adopt the definition of prestige committee assignments from @replication. 
+score from the ideology score of each agency. We also use other legislator-level variables from @dwnominate2024, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president's party. 
 
-Other variables are at the legislator or district level.
-For data on electoral competitiveness, we use data from @Thomsen2023 on vote share in primary and general elections, adopting her definition of whether an election was competitive. 
 
-## Oversight Relationships 
 
-TODO DEVIN 
+#### Electoral Context 
 
-## Statistical Model
+For data on electoral competitiveness, we start with data from @Thomsen2023 on vote share in primary and general elections, adopting her definition of whether an election was competitive. For general election compeititvesness, we fill in gaps in the @Thomsen2023 data by applying a similar decision rule (whether the winner recieved less than 57.5% of the vote) to vote share data compiled by @VoldenWiseman2014 and @VoldenWiseman2018.
 
-Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate cross-sectional differences. For within-legislator differences, we also include legislator-agency fixed effects, so coefficients represent the change in the number of requests per legislator per agency per year. 
 
-Our analysis is generally at the legislator-agency-year level.
-In our hypotheses, we set out expectations for differences across members and within-member variation.^[We drop ten member-year level observations where members switched chambers mid-congress.] 
+## Statistical Models
+
+Our analysis is generally at the legislator-agency-year level, with a few models at the district-agency-year to examine changes in interbranch representation with electoral turnover. 
+Our hypotheses in @sec-theory set out expectations for differences across members and within-member variation.
 We thus estimate both cross-sectional and difference-in-differences regressions, similar to the specifications in @BerryFowler2016. 
-Tests for differences within legislator-agency pairs take a form similar to @eq-diff1 (with additional variables, such as those relating to elections, that decrease the number of observations included only in some specifications). However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent, we must rely on cross-sectional estimates (@eq-diff1 without $\gamma_{ij}$). 
+Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate differences in interbranch representation across members of Congress (cross-sectional differences). To estimate within-legislator differences over time, we add include legislator-agency fixed effects.^[We drop ten member-year level observations where members switched chambers mid-congress because the office resources of members of the House and Senate differ significantly and, thus, attributing their counts to either house or senate in those years is not quite right.] 
+Tests for differences within legislator-agency pairs take a form similar to @eq-diff1 (with additional variables, such as those relating to elections, that decrease the number of observations included only in some specifications). 
+However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent, we must rely on cross-sectional estimates (@eq-diff1 without $\gamma_{ij}$). 
+Most predictors are at the legislator-year level ($it$) while a few are at the legislator-agency-year level ($itj$). Predictors at the legislator level ($i$) like prior experience are not included in difference in differences models because there is no within-legislator variation. 
+
 
 $$
 \begin{aligned}
 Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
 \log(\mu_{ijt}) = 
-  &\beta_1 \text{Committee Leadership Position}_{it}\\
-  &\beta_1 \text{Oversight Committee Position}_{itj}\\
-+ & \beta_2 \text{Experience in Office}_{it}\\
-+ & \beta_3 \text{Majority Party}_{it}\\
-+ & \beta_4 \text{President's Party}_{it} \\
+  & \beta_1 \text{Committee Leadership Position}_{it}+\\
+  & \beta_1 \text{Oversight Committee Position}_{itj}+\\
+  & \beta_2 \text{Experience in Office}_{i}+\\
+  & \beta_2 \text{Experience as State Legislator}_{it}+\\
+  & \beta_3 \text{Majority Party}_{it}+\\
+  & \beta_4 \text{President's Party}_{it}+\\
+  & \beta_4 \text{Ideological Distance}_{itj}+\\
+  & \beta_4 \text{President's Party} \times \text{Ideological Distance}_{it}+\\
   &...\\
-+& \gamma_{ij} + \delta_{jt} 
+  & \gamma_{ij} + \delta_{jt} 
 \end{aligned}
 $$ {#eq-diff1}
 
@@ -127,35 +175,80 @@ $\gamma_{ij}$ denotes a *legislator--agency* fixed effect that is estimated usin
 
 $\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific shocks over time that may affect the level of requests received from legislators in the periods for which data are available from each agency.
 
+Because the different parts of our framework are causally sequential and some variables are co-linear, our preferred specifications focus on one part of the framework at a time. The appendix includes a "kitchen sink" model, but these results should be interpreted with caution. <!--The main purpose is to extract legislator fixed effects --- estimated per legislator after accounting for all modeled relationships. --> 
 
-<!--- OLD LINEAR MODEL 
+### Modeling Response to Constituency Demands
 
 $$
 \begin{aligned}
-Y_{ijt} = & 
-\beta_1 \text{Committee Position}_{it}  + \\
-&\beta_2  \text{Experience in office}_{it} + \\
-&\beta_3  \text{Majority}_{it} + \\
-&\beta_4  \text{President's party}_{it} + \\
-&\gamma_{ij} + \delta_{jt} + m_{it} 
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  & \beta_1 \text{District Population}_{it}+\\
+  & \beta_2 \text{Percent Goverment Workers}_{it}+\\
+  & \beta_3 \text{Percent with College Degree}_{it}+\\
+  & \beta_4 \text{Percent Receiving Public Assistance}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-demand}
+
+
+### Modeling Capacity Effects
+
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  & \beta_1 \text{Experience in Office}_{it}+\\
+  & \beta_2 \text{Experience as State Legislator}_{it}+\\
+  & \beta_3 \text{Staff Budget}_{it}+\\
+  & \beta_4 \text{Oversight Committee Position}_{itj}+\\
+  & \beta_5 \text{Committee Chair}_{it}+\\
+  & \beta_6 \text{Subcommittee Chair}_{it}+\\
+  & \beta_7 \text{Ranking Minority Committee Member}_{it}+\\
+  & \beta_8 \text{Prestige Committee Member}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-capacity}
+
+
+### Modeling the Effect of Electoral Turnover 
+
+In contrast to other models, this model estimates counts per district $d$ rather than legislator $i$. The main coefficients of interest are the average effect of a district electing a new person to Congress and whether new legislators are able to do more interbranch representation if they replace a member of the same party (because they are more likely to retain staff with experience serving the district).
+
+$$
+\begin{aligned}
+Y_{djt}\mid X_{djt},\gamma_{dj},\delta_{jt},m_{dt},p_{dt} &\sim \text{NegBin}(\mu_{djt},\alpha), \\
+\log(\mu_{djt}) = 
+  & \beta_1 \text{New Member}_{dt}+\\
+  & \beta_2 \text{Same Party as Prior Member}_{dt}+\\
+  &\beta_1 \text{New Member} \times \text{Same Party}_{dt}+\\
+
+  &...\\
+  & \gamma_{dj} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-capacity}
+
+
+### Modeling Strategic Responses to the Political Environment 
+
+When perceived ideological distance is included in models, we interact it with the indicator for whether the legislator has a co-partisan president (president's party) because legislators may interact differently with aligned and unaligned agencies depending on their alignment with the president. 
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  &\beta_1 \text{Committee Leadership Position}_{it}+\\
+  &\beta_1 \text{Oversight Committee Position}_{itj}+\\
+  & \beta_2 \text{Experience in Office}_{it}+\\
+  & \beta_2 \text{Experience as State Legislator}_{it}+\\
+  & \beta_3 \text{Majority Party}_{it}+\\
+  & \beta_4 \text{President's Party}_{it}+\\
+  & \beta_4 \text{Ideological distance}_{itj}+\\
+  & \beta_4 \text{President's Party} \times \text{Ideological distance}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
 \end{aligned}
 $$ {#eq-diff1}
-
-$Y_{ijt}$ is the number of requests legislator $i$ makes to agency $j$
-in year $t$. $\gamma_{ij}$ is a fixed effect for the legislator-agency
-pair. This fixed effect controls for **legislator characteristics**, such
-as legislators who are more skillful at responding to constituency service
-requests than others. Critically for our research design, this fixed
-effect also accounts for **time-invariant constituent demand**, ensuring
-that differences in constituent requests across legislators do not drive
-our results. It also accounts for **state and district characteristics**,
-including population, demographics, and local industries that might be
-particularly likely to request help from specific agencies. 
-$\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific
-shocks that may affect legislator requests at the different
-periods for which data were available from each agency.
-This difference-in-difference design ensures that the coefficients
-$\boldsymbol{\beta}$ capture variation related to changes in
-institutional power, not other factors that may vary across districts,
-legislators, or agencies. 
----> 

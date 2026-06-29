@@ -3,18 +3,17 @@
 ```{r knit-options, include=FALSE, cache=FALSE}
 type = 1
 load(here::here("data", type, "means.Rdata"))
-
-# formatting for tables and numbers
 here::here("code", "formatting.R") |> source()
 ```
 
-::: {.content-hidden unless-meta="book-content"}
 
 > ABSTRACT: We examine what explains the unequal levels of constituency service that legislators provide to individuals in their district. Folk theory explanations about district demand and, especially, legislator capacity explain a large share of the variation. We find that constituency service work is most prominently driven by legislators’ experience in office. However, constituency service is not free of partisan and ideological influences. Legislators also do more constituency service with agencies with which they are ideologically aligned or that fall under the oversight jurisdiction of their committee assignment. Interestingly, and unlike other types of contacts with federal agencies, constituency service is highly correlated with legislative effectiveness, not just at the top end of the distribution but also at the bottom. There is no trade-off between legislative effectiveness and constituency service (as suggested by theories supporting term limits); indeed, we find they are highly correlated.
 
-:::
+<!-- Ellie: Potential Block quote to include -->
 
-
+> An individual complaint or request for a favor may itself be trivial, except to the aggreived or hopeful citizen and his family. Responding to it may tax the energy and ingenuity of an over-worked member of Congress and his staff. No single request left unheeded is likely to rock the Republic. But the provision of millions of such miniscule services, in their totality, amount to a major function of modern American government. How well these services are performed goes a long way in determining the confidence of citizens in their representatives.
+>
+> --- @Olson1966, pg. 338.
 
 
 Legislators do more constituency service with agencies with whom they are ideologically aligned or sit on the oversight committee.
@@ -33,11 +32,14 @@ Unlike other types of contacts with federal agencies, constituency service is hi
 knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
 ```
 
+We conceptualize constituency service behalf of individuals as including groups of individuals; in few cases, large numbers of people. For example, Marco Rubio wrote about people across Florida receiving FEMA disaster aid. 
 
-## Causes of variation
+Given the large number of topics in which the federal bureaucracy is involved, constituency service on behalf of individuals involves legislators' contacting a number of different agencies for a vast array of purposes. Many of the most common will be familiar to scholars of congressional representation and constituency service. As evidenced by the word cloud in @fig-words, our data include a significant number of contacts between legislators and the Department of Veterans Affairs (VA) to ask about the status of claims that their veteran constituents had filed with the VA. Other common subjects of requests to the VA on behalf of individual constituents involved appeals, disability ratings, and changes in benefits. Interestingly, a fair number of VA letters were identified as follow-up requests, indicating that legislators' casework staff were repeatedly contacting the VA about the same constituent case. Determining whether this pattern speaks more to a particular unresponsiveness of the VA or exceptional persistence on the part of congressional staff (or exceptionally detailed record-keeping by the VA) is beyond the scope of our analysis, but it does accord with our theoretical expectation about the importance of capacity for interbranch representation.
 
+Similar communications appeared in the congressional correspondence logs from many sub-agencies in the Department of Labor (DOL). Several different DOL sub-agencies, including the Occupational Safety and Health Administration (OSHA), the Office of Workers' Compensation Programs (OWCP), and the Office of Congressional and Intergovernmental Affairs (OCIA), handled congressional requests involving on-the-job injuries, benefits claims, and workplace safety complaints. Also unsurprising is the number of communications with the Internal Revenue Service (IRS) in the Treasury Department on behalf of constituents dealing with issues involving their taxes, especially tax refunds. Though not evident in the word cloud because they were identified in the logs using the names of specific forms, a very large amount of individual constituency service requests involved immigration issues and were sent to U.S. Citizenship and Immigration Services (USCIS) within the Department of Homeland Security.
 
-The simple descriptive result in figure @fig-percent immediately puts to rest the naive theory of proportional representation. The Gini coefficient of inequality for the House, where all members represent a similar number of constituents, is similar to that of the Senate. The rest of this section investigates explanations for this inequality. However, it is important to note that not all models explain the levels of inequality, much less the variation seen in the data. Gini coefficients for inequality in interbranch representation have increased from .37 in the Senate and .40 in the House in 2007 (a range that maps to Gini coefficients for income inequality in countries like Kenya and Philippines) to .47 in the Senate and .54 in the house in 2020 (a range that maps to Gini coefficients for income inequality in the top 10 most unequal countries, including Honduras at .47 and Zimbabwe at .50), with an average of .49 for both chambers. The regression models below never predict Gini coefficients for interbranch representation greater than .34 (comparable to income inequality in Italy and Latvia), the lowest level observed in either chamber in any year in our data.
+Beyond these "classic" examples of individual constituency service, there are also many examples of correspondence on behalf of individuals that did not involve a problem with the federal bureaucracy (at least not in the sense that the bureaucracy had made an error or the constituent had experienced some injustice). The National Archives and Records Administration (NARA) received thousands of requests from legislators on behalf of constituents who were seeking copies of their family members' military records. Many legislators also forwarded constituent complaints and queries to the Food and Drug Administration (FDA) within the Department of Health and Human Services. Although these concerns were broadly related to the policy work of the FDA, they often did not suggest a specific bureaucratic failure on the part of the agency. For example, Senator Arlen Specter wrote to the FDA with a request to investigate the treatment that a constituent received at a VA hospital. The constituent had an adverse reaction to a drug that included joint pain, memory loss, sleep apnea, vision loss, and stomach difficulties. The symptoms abated after the patient stopped taking the drug, at the behest of the VA physician. At issue in this case was the drug, not the VA, as the physician seemed to recognize and respond to the problem. And although the FDA had the ability to investigate the issue, the constituent was not contacting Specter about a particular bureaucratic issue with the FDA. This example illustrates how problems can sometimes appear for constituents at the intersection of several agencies, which suggests that the expertise and capacity of legislators' offices matters for addressing these issues. Congressional staff need to have some sense of how contacting an agency may help to address a problem in a way that is appropriate for the constituent, and these ambiguous cases likely require deep knowledge of the federal bureaucracy. 
+
 
 ```{r}
 #| label: fig-percent
@@ -53,30 +55,25 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 ```
 
-\clearpage 
 
-### Demand and Capacity
+## Explaining Differences in Constituency Service  
 
-Models 1, 3, and 5 (columns 1, 3, and 5 of @tbl-models-total) show differences across legislators. 
-Estimating the effect of constituent demand is difficult, primarily because demand is directly affected by both the capacity and strategic behavior of legislator offices when they advertise constituency services. 
-Second, the population in the house districts is the same, so there is no variation to exploit in the number of constituents per representative. 
-However, budgets for staff are determined by the population of the state.
-Under these conditions, failing to find a significant relationship between state population and senators would be surprising evidence against both constituent demand and congressional capacity as drivers of interbranch representation. 
+Variation in constituency service is mainly driven by ... 
 
+### Demand
 
 ```{r}
-#| label: tbl-models-total
-#| tbl-cap: "The effect of capacity on total requests to federal agencies"
+#| label: tbl-models-demand
+#| tbl-cap: "The effect of demand on requests to federal agencies"
 #| out-width: 100%
 
-load(here::here("models", type,  "models.Rdata"))
+load(here::here("models", type,  "models_demand.Rdata"))
 
-modelsummary(models,
+modelsummary(models_demand,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (chair and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
 ```
 
-Unsurprisingly, the first row of @tbl-models-total shows a relationship between state population and the amount of interbranch representation that Senators have. Because state populations do not change relative to each other, we are only able to estimate this for the cross-sectional model (column 5 in @tbl-models-total). Using the coefficients and fixed effects from this model, @fig-pop-effect shows the predicted average levels of interbranch representation per year per senator compared to a counterfactual where we re-estimate levels for a counterfactual scenario where all states had the population of Wyoming (and thus all Senators had equal staff budgets equal to those of Wyoming). 
 
 
 
@@ -85,16 +82,29 @@ Unsurprisingly, the first row of @tbl-models-total shows a relationship between 
 #| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
 #| out-width: 50%
 
-knitr::include_graphics(here::here("figs", type, "m-senate-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
+
+#TOD college grads and government workers 
+
 ```
 
-#### Capacity 
 
-Legislators with more institutional capacity make more requests. Model 1 shows that committee chairs, ranking members, members of oversight committees, and members of prestige committees all provide more interbranch representation than other legislators. Except for prestige committee membership, these hold significance just within the House (model 3). Among senators (Model 5), only ranking members and oversight committee members are significantly more representation.  Because we estimate the effects of becoming a committee chair and being a member of a prestige committee in the same model, these effects are additive: prestige committee chairs may make more requests than non-prestige committee chairs, who make more requests than non-chairs.
+### Capacity
 
-@fig-effect shows how differing levels of capacity among legislators affect the total predicted level of inequality in interbranch representation estimated in model 1. First, we predict the number of requests per legislator per year per agency for all legislator-year-agency observations in the data using all model parameters, including legislator fixed effects. Then we estimate counterfactual levels without one or more effects. @fig-effect (a) shows the counterfactual where no legislators have the capacity that comes with a committee chair position. Differences in this counterfactual are concentrated on legislators in the top percentiles because committee chairs tend to do the most interbranch representation. @fig-effect (b) shows the counterfactual where no legislators have the capacity that comes with a ranking minority position. @fig-effect (c) shows the counterfactual where no legislators have the capacity that comes with more than two years in office. @fig-effect (d) shows the sum of these capacity effects, a counterfactual where no legislators have the capacity that comes with a chair, ranking minority position, or more than two years of experience. This represents a world where all members turn over every congress and committees have no staff.
+Columns 1, 3, and 5 of @tbl-models-demand) show differences across legislators with different capacity advantages. 
 
-Overall, elements of legislator capacity modeled in @tbl-models-total explain a significant level of inequality in interbranch representation. These differences are both statistically significant and substantively large relative to other causes of variation that are captured in the legislator fixed effects, explaining over 10% of total inequality predicted by the model. 
+```{r}
+#| label: tbl-models-capacity
+#| tbl-cap: "The effect of capacity on total requests to federal agencies"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
 
 ```{r}
 #| label: fig-effect
@@ -118,34 +128,113 @@ here::here("figs", type,
 
 
 
-However, these cross-sectional differences may be the result of other legislator
-characteristics. If party leaders assign legislators who are better at
-their jobs to more prestigious committee positions,
-then the estimates from model 1 confound legislators' overall ability
-with capacity that is the result of staff resources and experience. 
-To address potential confounding, model 2 in @tbl-models-total shows the difference-in-differences specification. 
-Our three capacity-related predictors are all significant predictors of within-legislator variation as well. 
-Gaining a chair position, a ranking member position, or more than two years of experience in office all cause legislators to engage in more interbranch representation.
 
-##### Staff Allocation
+##### Staff quality 
 
-Legislators who allocate more staff to constituency service make more requests; those who allocate more staff to communications make fewer. @tbl-models-staff model 1 shows that legislators who allocate more of their budget to constituency service staff provide more interbranch representation than other legislators. These hold significance just within the House (model 3). Because we estimate the effects of becoming a committee chair and staff allocation in the same model, these effects are additive: committee chairs who allocate more staff to constituency service and less to communications make more requests than other committee chairs, who make more requests than non-chairs. In terms of magnitude, a committee chair position is similar to spending 1 million more per year on constituency service staff. 
+```{r}
+#| label: tbl-models-district
+#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
+
+load(here::here("models", type,  "models_district.Rdata"))
+
+modelsummary(models_district,
+             notes = list("Robust standard errors in parentheses, clustered by district",
+                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
+```
+
+
+### Strategic Responses to the Environment
+
+
+#### Interbranch representation as electoral strategy
+
+
+```{r}
+#| label: tbl-models-elect
+#| tbl-cap: "The effect of electoral security on total requests to federal agencies"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
+
+```{r}
+#| label: fig-elect-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-elect-effect-2.png"))
+
+```
+
+
+
+#### Strategic responses to partisan institutions
+
+
+ 
+
+
+```{r}
+#| label: fig-ideo-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
+```
+
+
+
+
+```{r}
+#| label: fig-partisan-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactuals of no partisan effects"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-effect-6.png"))
+knitr::include_graphics(here::here("figs", type, "m-effect-7.png"))
+```
+
+
+
+
+#### Staff allocation reflects priories
+
 
 ```{r}
 #| label: tbl-models-staff
-#| tbl-cap: "The effect of staff allocation on total requests to federal agencies"
+#| tbl-cap: "The effect of staff budgeting on requests to federal agencies"
 #| out-width: 100%
 
 load(here::here("models", type,  "models_staff_spending.Rdata"))
 
 modelsummary(models_staff_spending,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (chair and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
+                          "This table shows estimates of the effect of legislator staff spending. ")) 
 ```
 
-Similar to @fig-effect, @fig-effect-staff shows how the differing allocation of staff spending among members of the House affects the total predicted level of inequality in interbranch representation estimated in model 1. @fig-effect-staff (a) shows the counterfactual where representatives allocate none of their budget to constituency service. Differences in this counterfactual are spread across the distribution because, despite significant variation, most legislators allocate a large share of their budget to constituency service staff. @fig-effect-staff (b) shows the counterfactual where all representatives allocate no resources to communications. 
 
-Overall, elements of legislator staff allocation modeled in @tbl-models-staff explain a significant amount of the volume of requests to federal agencies, but do not explain inequality in interbranch representation. 
 
 ```{r}
 #| label: fig-effect-staff
@@ -167,138 +256,17 @@ here::here("figs", type,
 
 
 
-However, these cross-sectional differences may be the result of other legislator
-characteristics. If members who allocate more staff to constituency service or communications also differ in unobserved ways,
-then the estimates from model 1 confound legislators' unobserved differences with capacity that is the result of staff allocation. 
-To address potential confounding, model 2 in @tbl-models-total shows the difference-in-differences specification. 
-Constituency service staffing is a significant predictor of within-legislator variation as well, but communications staffing is not. 
-A member allocating more of their staff budget to constituency service causes their office to provide more interbranch representation, but we lack causal evidence for communications staffing.
+#### Interbranch representation and campaign fundraising strategy
 
-
-##### Staff quality 
-
-To test whether retaining staff from the prior representative impacts interbranch representation, @tbl-models-district shows district-level models (estimating counts per district per year per agency with agency-year fixed effects). Consistent with the positive effect of legislator experience in the legislator-level models above, all specifications in @tbl-models-district show a strong negative effect of a district electing a new legislator. Contrary to the hypothesis that legislators replacing a member of the same party would increase capacity, we see that districts where a new representative was elected from the same party see less interbranch representation (model 1). However, this difference across districts could be the result of other district-level differences, and indeed, there appears to be no relationship in the within-district design (model 2).^[Two important notes: (1) We only observe whether a legislator is replaced by a member of the same party or a different party after a seat turns over *within a 10-year redistricting window*. (2) Regarding the difference in difference design, it is worth noting that the number of competitive districts that saw turnover both to a member of the same party *and* to a member of the other party within a 10-year redistricting period, so much of the inference in the difference-in-difference comes from the Senate.] It is possible that other measures of staff quality would yield different results. 
-
+[possibly only have this section in chapters 7 and 9]
 
 ```{r}
-#| label: tbl-models-district
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
+#| label: tbl-models-pac
+#| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
 
-load(here::here("models", type,  "models_district.Rdata"))
+load(here::here("models", type,  "models_pac.Rdata"))
 
-modelsummary(models_district,
+modelsummary(models_pac,
              notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per district, per year effects are simply these coefficients times the number of agencies in the data.")) 
+                          "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
 ```
-
-\normalsize
-
-\clearpage
-
-
-### Strategic Behavior
-
-To assess strategic behavior, we return to legislator-level models, first returning to the motivation-related variables @tbl-models-total and then including variables for electoral competition in @tbl-models-elect and for voting behavior and perceived ideology in @tbl-models-ideo-total.
-
-### Strategic responses to partisan institutions
-
-One well-established driver of interbranch representation is partisan institutional control. When members of the minority party are blocked from agenda control or cross-pressured, they use interbranch representation to serve their district in ways other than legislating [@Ritchie2018; @Ritchie2023]. To estimate how large a role minority party status plays in overall levels and inequality in interbranch representation, @fig-partisan-effect (a) compares predictions for observed values to a counterfactual where all members behave as if they are in the minority (based on cross-sectional differences in @tbl-models-ideo-total, model 1). Because this majority/minority party status is only statistically significant in difference-in-difference specifications, subfigure (b) shows the same counterfactual estimated with predictions from the @tbl-models-total model 2. Most of the variance is captured in legislator fixed effects; the aggregate differences are necessarily smaller for difference-in-difference predictions.
-
-@fig-partisan-effect (c) compares predictions for observed values to a counterfactual where all members behave as if the president is of the opposite party (based on cross-sectional differences in @tbl-models-ideo-total, model 1). Because this majority/minority party status is only statistically significant in difference-in-difference specifications, @fig-partisan-effect (d) shows the same counterfactual estimated with predictions from @tbl-models-total model 2. Legislators with co-partisan presidents do more interbranch representation. When a legislator gains a co-partisan president, that same legislator can also be expected to do more interbranch representation. However, because partisanship is not concentrated on one end of the distribution, these partisan has little effect on the level of inequality. 
-
-
-```{r}
-#| label: fig-partisan-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactuals of no partisan effects"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "m-effect-6.png"))
-knitr::include_graphics(here::here("figs", type, "m-did-effect-6.png"))
-knitr::include_graphics(here::here("figs", type, "m-effect-7.png"))
-knitr::include_graphics(here::here("figs", type, "m-did-effect-7.png"))
-```
-
-
-
-#### Electoral security 
-
-@tbl-models-elect shows inconsistent support for the theory that interbranch representation is reelection motivated [@King1991]. Cross-sectionally, we find differences across legislators whose prior election was competitive or not (model 1), including when we subset to legislators who were reelected (model 3). However, the within-member design (models 2 and 4) does not show a difference in behavior when a member had recently faced a competitive election and when they had not. 
-
-```{r}
-#| label: tbl-models-elect
-#| tbl-cap: "The effect of electoral security on total requests to federal agencies"
-#| out-width: 60%
-
-load(here::here("models", type,  "models_elect.Rdata"))
-
-modelsummary(models_elect,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data."))  
-
-```
-
-@fig-elect-effect shows the predicted levels of interbranch representation from @tbl-models-elect compared to a counterfactual where no member's prior general election had been competitive. Because differences in general election competition are only statistically different across members (not within), @fig-elect-effect (a) shows cross-sectional differences (@tbl-models-elect, model 1). Because differences in primary election competition are only statistically different within members, @fig-elect-effect (b) shows difference-in-differences (@tbl-models-elect, model 2). The estimated difference between competitive and non-competitive districts is spread across the distribution of representatives who provide higher and lower levels of interbranch representation, and thus, has little impact on the inequality across districts. 
-
-```{r}
-#| label: fig-elect-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
-knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
-
-```
-
-\clearpage
-
-
-
-#### Ideology and Oversight
-
-```{r}
-#| label: tbl-models-ideo-total
-#| tbl-cap: "The effect of ideology on total requests to federal agencies"
-#| out-width: 100%
-
-load(here::here("models", type,  "models_ideo.Rdata"))
-
-modelsummary(models_ideo,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of ideological distance on levels of interbranch representation. All coefficients represent the average additional requests per year per agency; per legislator, per year effects are simply these coefficients times the number of agencies in the data.")) 
-
-```
-
-While potentially evidence of strategic behavior, legislators engaging more with agencies that they oversee or those perceived as ideologically similar or distant is about *which* agencies representatives target, rather than *how much* they do.^[To measure agency ideology, we rely on @RichardsonEtAl2018's measure of elite perceptions of agency ideology.] However, some agencies receive much more attention than others, and thus, some oversight committees are much more active than others. This uneven distribution of attention leads both oversight committee membership and perceived ideological distance to alter the overall level of inequality, but in different directions. Including the additional requests that members of oversight committees make significantly increases the Gini coefficient (compared to a counterfactual where legislators behaved as if they did not have an oversight committee position). Compared to a counterfactual where all members had NOMINATE scores of 0 (subfigure a), predicted levels of interbranch representation are lower and slightly less unequal. Compared to a counterfactual where all agencies had ideology scores of 0 (subfigure b), predicted levels of interbranch representation are higher and slightly more unequal. 
-
-
-```{r}
-#| label: fig-ideo-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
-knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
-```
-
-
-
-
-## Legislative Effectiveness
-
-
-
-With oversight, ideology, and LES (fewer observations)

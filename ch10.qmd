@@ -1,4 +1,6 @@
-# Conclusion
+# Conclusion: Effective Representatives or Styles of Representation 
+
+
 
 > ABSTRACT: We conclude by looking prospectively at the future of interbranch representation. This includes exploring the policy implications of our findings for how interbranch representation can be improved as well as discussing how interbranch representation seems to be changing during the second Trump administration.
 
@@ -7,3 +9,37 @@ We find high levels of inequality in interbranch representation. A large share o
 A focus on interbranch representation adds important nuance to modern narratives about a broken Congress. Although Congress may be broken in many ways, one under-appreciated way in which Congress still works is through interbranch representation (at least for some districts). The First Amendment to the U.S. Constitution guarantees the right "to petition the Government for a redress of grievances." In practice, citizens’ most direct experience with the federal government is with federal agencies. When citizens have grievances or simply need help navigating the federal bureaucracy, they petition their elected representatives for help. Legislators, in turn, petition the government for redress, facilitating responsiveness from agencies.
 
 Examining interbranch representation reshapes our understanding of how the legislative and executive interact. Our models of interbranch relations (both in public discourse and formal theory) are largely based on a formal, constitutionally prescribed division of legislative and executive functions. Thus, political scientists have focused on legislative bargaining, delegation of policymaking authority, and oversight hearings. This focus neglects the primary way legislators interact with the executive branch. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms, relationships, and softer forms of legitimacy. From an interbranch representation perspective, "separation of powers" is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy on a daily basis. There are a few executive branch activities that Members of Congress do not involve themselves in, and any lack of involvement is likely due to a lack of capacity rather than any formal separation of powers on paper. 
+
+## Conceptualizing and Measuring Effectiveness in Congress
+
+A major argument of this book is that despite significant levels of inequality in interbranch representation across members of Congress, the regular provision of interbranch representation is one way in which Congress, as an institution, is relatively functional. As discussed in chapter 1, Congress appears less functional by a number of other (primarily legislative) metrics. However, this discourse about the broken nature of Congress comes with a caveat, noted by David Mayhew: the oft-used metric of "bills passed" is incomplete. *More* legislation, Mayhew argues, is not the same as *landmark* legislation. And legislating, though an important function of Congress, is only one of its tasks.
+
+Separate from the question of what makes the *institution* of Congress effective is what makes an individual *member* of Congress effective. Scholars have done extensive work to answer this question by measuring the legislative effectiveness of individual legislators [@VoldenWiseman2014]. Since the introduction of Volden and Wiseman's Legislative Effectiveness Scores, many other scholars have sought to understand how and why this legislative effectiveness matters, including for (representation, elections, etc.).
+
+What, then, would we consider a truly "effective" Congress to be? Adding interbranch representation to our picture of what Congress does makes it clear that a more holistic understanding of Congress's activities is necessary to answer this question.  
+
+## Practical Implications of Interbranch Representation
+
+Another important conclusion to be drawn from our findings is the extent to which interbranch representation depends on the skill and initiative of congressional offices. Far from simply responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. 
+
+## Other measures of effective representation 
+
+### LES 
+
+### Fundrasing 
+
+
+## Other measures 
+
+## Changes Under the Trump Administration 
+
+In contrast to what we would expect if interbranch representation was mainly the result of seeking pork from co-partisan presidents [@Barry], we do not find the president's party being a strong or consistent predictor of legislators' work. 
+If the unitary executive increases control over agencies, especially over their interactions with legislators, we may expect that the impact of presidential partisanship to increase and every thing else to decrease in importance. 
+
+This would disempower members of Congress as representatives. When their constituents contact them, they may be, on average, in less of a position to help them.
+
+- see cases where Trump says you should elect republicans because he won't let agencies help dem districts 
+- see coverage of DOGE cut exemptions system only open to republicans 
+
+
+Controlling agencies interactions with members of Congress will both constrain and be constrained by the coalitional politics that @Carpenter2010 discusses as giving agencies autonomy. 

@@ -4,11 +4,55 @@
 
 We provide more details on how we measure interbranch representation, our data collection process, and the methods with which we analyze the data.
 
+## Committee Data from Stewart and Woon and the @UnitedStates Project 
+
+## Committee Oversight Jurisdiction Data From Lewis and Selin's ACUS Report
+
+
+
+## Staff Data From @CrossonFurnasLapiraBurgat2021
+
+
+@fig-staff-data-coverage shows that staff allocations vary across legislators and within legislators over time. These data are from @CrossonFurnasLapiraBurgat2021. 
+
+
+```{r}
+#| fig-cap: "Staff Data Coverage"
+#| label: fig-staff-data-coverage
+knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
+```
+
+
+## Political Action Committee Data From the Center For Responsive Politics
+
+## Electoral Competitiveness Data From 
+
+## District Demographics from U.S. Census Estimates 
+
+
+
 
 ## Limitations
+
 
 
 ### Agency record keeping
 
 
-> "We have no responsive records between April 13, 2016, and May 16, 2017. It is impossible to say for certain why there is this gap; however, it is likely the changes in staffing leading up to and following the change in Administration contributed."
+> "We have no responsive records between April 13, 2016, and May 16, 2017. It is impossible to say for certain why there is this gap; however, it is likely the changes in staffing leading up to and following the change in Administration contributed." - FOIA Officer 
+
+
+We included 0-counts for agency-member-months with no contacts of a particular type (indeed, it is mostly 0s). I included and excluded agencies by year, because we asked for data by year and generally got data by year. That said, an important caveat about censoring: 
+We include agency-year fixed effects in all of our models because record-keeping is not always consistent across years (e.g., several FOIA offices told me that they had no records for much of 2017 because no one in the Secretary's office knew (or cared) to write things down. This was probably not evenly distributed across months within 2017. Other shocks are similarly not evenly distributed.
+Relatedly, there is sometimes left and right censoring in the tails. 
+We have trimmed out some years in the tails where we know this happened, but it can be hard to know with the smaller subagencies that do not get much congressional attention. Is it because they did not include it in the request, a failure of record-keeping, or a true 0? It's often hard to tell.  
+
+@fig-data-coverage shows the coverage of agencies used in the data, including the relative density of the data per agency by month. 
+
+
+```{r}
+#| fig-cap: "Data Coverage by Agency"
+#| label: fig-data-coverage
+
+knitr::include_graphics(here::here("figs", "completeness-percent.png"))
+```
