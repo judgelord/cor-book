@@ -20,7 +20,7 @@
 
 # cross-sectional 
 m_pac_basic_cross <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber + 
     PACamount_m + 
     majority + 
     party + presidents_party | 
@@ -35,7 +35,7 @@ coefplot(m_pac_basic_cross, horiz = T, drop = "(Intercept)|.theta")
 
 # cross-sectional 
 m_pac_cross <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber + 
     PACamount_m + 
     majority + 
     party + abs(nominate_dim1) + distance*presidents_party | 
@@ -51,7 +51,7 @@ coefplot(m_pac_cross, horiz = T, drop = "(Intercept)|.theta")
 
 # 2
 m_pac_did <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber + 
     PACamount_m + 
     majority + 
     presidents_party | 
@@ -67,7 +67,7 @@ coefplot(m_pac_did, horiz = T, drop = ".theta")
 
 # 3
 m_pac_full_cross <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber + 
     PACamount_m + 
     chair + 
     ranking_minority + 
@@ -85,7 +85,7 @@ coefplot(m_pac_full_cross, horiz = T, drop = ".theta")
 
 # 4
 m_pac_full_did <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber + 
     PACamount_m + 
     chair + 
     ranking_minority + 
@@ -169,7 +169,7 @@ data_member |> filter(str_detect(agency, "DOE") ) |>
 #| fig-show: "hold"
 
 # cross-sectional 
-m_pac_basic_pooled_cross <-fenegbin (perYear ~ 
+m_pac_basic_pooled_cross <-fenegbin (perYear ~ chamber + 
                           PACamount_nonenergy_m + PACamount_energy_m + 
                     majority + presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
@@ -180,7 +180,7 @@ if(testing){modelsummary::modelsummary(m_pac_basic_pooled_cross)}
 coefplot(m_pac_basic_pooled_cross, horiz = T, drop = "(Intercept)|.theta") 
 
 # cross-sectional 
-m_pac_pooled_cross <-fenegbin (perYear ~ 
+m_pac_pooled_cross <-fenegbin (perYear ~ chamber + 
                           PACamount_nonenergy_m + PACamount_energy_m + 
                     majority + party + abs(nominate_dim1) + distance*presidents_party | Year_x_Agency,
                     cluster = "Legislator", 
@@ -193,7 +193,7 @@ coefplot(m_pac_pooled_cross, horiz = T, drop = "(Intercept)|.theta")
 
 
 # 2
-m_pac_pooled_did <-fenegbin (perYear ~ 
+m_pac_pooled_did <-fenegbin (perYear ~ chamber + 
                                PACamount_nonenergy_m + PACamount_energy_m +
                     majority + presidents_party | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",
@@ -205,7 +205,7 @@ coefplot(m_pac_pooled_did, horiz = T, drop = ".theta")
 
 
 # 3
-m_pac_pooled_full_cross <-fenegbin (perYear ~ 
+m_pac_pooled_full_cross <-fenegbin (perYear ~ chamber + 
                         PACamount_nonenergy_m + PACamount_energy_m +
                        chair + 
                          ranking_minority + 
@@ -222,7 +222,7 @@ if(testing){modelsummary::modelsummary(m_pac_full_cross)}
 coefplot(m_pac_full_cross, horiz = T, drop = ".theta") 
 
 # 4
-m_pac_pooled_full_did <-fenegbin (perYear ~ 
+m_pac_pooled_full_did <-fenegbin (perYear ~ chamber + 
                         PACamount_nonenergy_m + PACamount_energy_m +
                        chair + 
                          ranking_minority + 

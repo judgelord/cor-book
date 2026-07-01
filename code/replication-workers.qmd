@@ -33,7 +33,7 @@ data_member |>
 #|   - "Model 4: fill Diff in Diff"
 
 # cross-sectional 
-m_workers_cross <- fenegbin (perYear ~ 
+m_workers_cross <- fenegbin (perYear ~ chamber + 
                                population_m + 
                                percent_education_bachelor_or_higher + 
                                percent_public_assistance_or_snap_households +
@@ -52,7 +52,7 @@ coefplot(m_workers_cross, horiz = T, drop = "(Intercept)")
 
 
 # 2
-m_workers_did <-fenegbin (perYear ~ 
+m_workers_did <-fenegbin (perYear ~ chamber + 
                                population_m + 
                                percent_education_bachelor_or_higher + 
                                percent_public_assistance_or_snap_households +
@@ -70,7 +70,7 @@ coefplot(m_workers_did, horiz = T, drop = ".theta")
 
 
 # 3
-m_workers_full_cross <-fenegbin (perYear ~  
+m_workers_full_cross <-fenegbin (perYear ~ chamber +  
                                population_m + 
                                percent_education_bachelor_or_higher + 
                                percent_public_assistance_or_snap_households +
@@ -92,7 +92,7 @@ coefplot(m_workers_full_cross, horiz = T, drop = ".theta")
 
 
 # 4
-m_workers_full_did <-fenegbin (perYear ~  
+m_workers_full_did <-fenegbin (perYear ~ chamber +  
                                population_m + 
                                percent_education_bachelor_or_higher + 
                                percent_public_assistance_or_snap_households +
@@ -151,50 +151,3 @@ se_did <- standard_errors(m_workers_did)
 ### Narrative - workers %
 
 TODO
-
-
-### Modeled Effects - workers- cross sectional 
-
-```{r}
-#| label: "m-workers-effect"
-#| fig-cap: "figs/[TYPE]/m-workers-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#|   - "2"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_workers_cross
-data = data_member |> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = mutate(data, percent_workers_government = 0),
-  effect = "% Government Employment"
-  )
-```
-
-### Modeled Effects - workers- diff in diff
-
-```{r}
-#| label: "m-workers-did-effect"
-#| fig-cap: "figs/[TYPE]/m-workers-did-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_workers_did
-data = data_member #|> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = mutate(data, percent_workers_government = 0),
-  effect = "% Government Employment\n(diff in diff)"
-  )
-```
-

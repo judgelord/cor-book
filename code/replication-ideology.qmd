@@ -10,7 +10,7 @@
 data_member %<>% mutate(abs_nominate_dim1 = abs(nominate_dim1))
 
 # cross-sectional 
-m_ideo_cross <- fenegbin (perYear ~ 
+m_ideo_cross <- fenegbin (perYear ~ chamber +  
                          chair + ranking_minority + prestige + oversight +  
                     experience + 
                     majority + abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency,
@@ -24,7 +24,7 @@ coefplot(m_ideo_cross, horiz = T, drop = "(Intercept)")
 
 
 # 2
-m_ideo_did <-feglm (perYear ~ 
+m_ideo_did <-feglm (perYear ~ chamber +  
                         chair + ranking_minority + prestige + oversight + 
                     experience + 
                     majority  + abs_nominate_dim1*presidents_party +  distance*presidents_party | Year_x_Agency + Legislator_x_Agency, 
@@ -39,7 +39,7 @@ coefplot(m_ideo_did, horiz = T, drop = ".theta")
 
 
 # 3
-m_ideo_2nd_cross <-fenegbin (perYear ~ 
+m_ideo_2nd_cross <-fenegbin (perYear ~ chamber +  
                         chair + ranking_minority + prestige + oversight +  
                     #experience + 
                     majority +
@@ -52,7 +52,7 @@ coefplot(m_ideo_2nd_cross, horiz = T, drop = ".theta")
 
 
 # # 4
-# m_ideo_2nd_did <-fenegbin (perYear ~
+# m_ideo_2nd_did <-fenegbin (perYear ~ chamber + 
 #                           distance + chair + ranking_minority + prestige + oversight +
 #                       abs_nominate_dim1*presidents_party +  distance*presidents_party + 
 #                     majority | Year_x_Agency + Legislator_x_Agency,
@@ -155,38 +155,3 @@ TODO
 #        shape = "") 
 ```
 
-
-
-### Modeled Effects - ideology
-
-```{r}
-#| label: "m-ideo-effect"
-#| fig-cap: "figs/[TYPE]/m-ideo-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#|   - "2"
-#|   - "3"
-#|   - "4"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_ideo_cross 
-data = data_member |> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = data |>  
-    mutate(nominate_dim1 = 0) |>
-    mutate(distance = abs(nominate_dim1 - agency_ideo)),
-  effect = "Legislator ideology"
-  )
-
-plot_effect(
-  newdata = data |>  
-    mutate(agency_ideo = 0) |>  
-    mutate(distance = abs(nominate_dim1 - agency_ideo)),
-  effect = "Perceived agency ideology"
-  )
-```
