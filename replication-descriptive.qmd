@@ -17,12 +17,12 @@ execute:
 
 Packages: 
   
-  - `tidyverse` and `magrittr`, for data wrangling
+- `tidyverse` and `magrittr`, for data wrangling
 - `scales` for plot scales 
 - `ggrepel` for plot labels
 - `here` for file paths 
 - `knitr` for document formatting 
-- `kableExtra` for table formatting 
+- `tinytable` for table formatting 
 - `modelsummary` for regression tables 
 - `marginaleffects` for predictions 
 - `fixest` --- statistical package for fixed effects estimation 
