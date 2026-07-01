@@ -17,8 +17,10 @@
 
 % we need this so our tiny tables compile properly with the pdf
 \usepackage{tabularray}
-\usepackage{arydshln}
-\usepackage{siunitx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+\UseTblrLibrary{booktabs}
 \UseTblrLibrary{siunitx}
 
 % THIS WAS CAUSING ERRORS AND DOES NOT SEEM NECESSARY
@@ -26,7 +28,16 @@
 %\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
 % \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
 
+% DO WE NEED THIS? OR IS BOOKTABS GOING TO WORK?
+% \usepackage{longtable}
+
 % THEOREM -- CAN WE USED PANDOC/QUARTO NATIVE THEORM INSTEAD? (MAY REQUIRE NOT DOING SUB-THEOREMS)
+
+% all we need is this to remove chapter numbering:
+% \newtheorem{hypothesis}{Hypothesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% all of this can be deleted when we remove it from chapter 2
 \newtheoremstyle{indented}
   {0em}{1.5em}{\itshape}{0em}{\bfseries}{.}{ }%
   {\thmname{#1}\thmnumber{ #2}\thmnote{- \bfseries#3}}
