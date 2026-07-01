@@ -31,7 +31,7 @@ data_member |>
 #|   - "Model 4: fill Diff in Diff"
 
 # cross-sectional 
-m_demand_cross <- fenegbin (perYear ~ 
+m_demand_cross <- fenegbin (perYear ~ chamber + 
                               #  population_m + 
                               percent_public_assistance_or_snap_households + 
                                percent_education_bachelor_or_higher + 
@@ -49,7 +49,7 @@ coefplot(m_demand_cross, horiz = T, drop = "(Intercept)")
 
 
 # 2
-m_demand_did <-fenegbin (perYear ~ 
+m_demand_did <-fenegbin (perYear ~ chamber + 
                               # population_total_m + 
                            percent_public_assistance_or_snap_households + 
                                percent_education_bachelor_or_higher + 
@@ -65,7 +65,7 @@ coefplot(m_demand_did, horiz = T, drop = ".theta")
 
 
 # 3
-m_demand_full_cross <-fenegbin (perYear ~ 
+m_demand_full_cross <-fenegbin (perYear ~ chamber + 
                                  #population_m + 
                                percent_public_assistance_or_snap_households + 
                                percent_education_bachelor_or_higher + 
@@ -84,7 +84,7 @@ coefplot(m_demand_full_cross, horiz = T, drop = ".theta")
 
 
 # 4
-m_demand_full_did <-fenegbin (perYear ~ 
+m_demand_full_did <-fenegbin (perYear ~ chamber + 
                              #  population_total + 
                                 percent_public_assistance_or_snap_households + 
                                percent_education_bachelor_or_higher + 

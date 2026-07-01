@@ -1,4 +1,4 @@
-## - General Election Competitiveness
+## - Primary Election Competitiveness - House
 
 - Figures: `figs/[TYPE]/m-elect_primary-[1:4].png`
 

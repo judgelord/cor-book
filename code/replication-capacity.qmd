@@ -15,13 +15,13 @@
 
 # 1 - without state leg (because we drop observations)
 m_capacity_cross <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber +  
     #population_m + 
     chair + 
     ranking_minority + 
     subchr + 
     #state_leg + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience | 
     # est_staff_spending  + # no data for senate 
@@ -35,13 +35,13 @@ coefplot(m_capacity_cross, horiz = T, drop = ".theta")
 
 # 1 - using the one with state leg becasue dropped obs don't seem to affect other results 
 m_capacity_cross <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber +  
     #population_m + 
     chair + 
     ranking_minority + 
     subchr + 
     state_leg + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience |
     # est_staff_spending  + # no data for senate 
@@ -56,13 +56,13 @@ coefplot(m_capacity_cross, horiz = T, drop = ".theta")
 
 # 2 -
 m_capacity_did <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber +  
     #population_m + 
     chair + 
     ranking_minority + 
     subchr + 
     # state_leg + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience | 
     # est_staff_spending  + # no data for senate 
@@ -78,7 +78,7 @@ coefplot(m_capacity_did, horiz = T, drop = ".theta")
 ```
 
 
-### Table - population 
+### Table - capacity 
 
 ```{r m-capacity-models}
 models_capacity <- list(

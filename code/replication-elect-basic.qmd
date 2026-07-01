@@ -15,19 +15,19 @@
 #|   - "Model 4: log Diff in Diff"
 
 # cross-sectional 
-m_elect_basic_cross <- fenegbin (perYear ~competitive | Year_x_Agency,
+m_elect_basic_cross <- fenegbin (perYear ~ chamber + competitive | Year_x_Agency,
                     cluster = "Legislator", data = data_member)
 
 # did
-m_elect_basic_did <-fenegbin (perYear ~  competitive | Year_x_Agency + Legislator_x_Agency, 
+m_elect_basic_did <-fenegbin (perYear ~ chamber +   competitive | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",  data = data_member)
 
 # cross-sectional 
-m_elect_basic_primary_cross <- fenegbin (perYear ~competitive + competitive_primary | Year_x_Agency,
+m_elect_basic_primary_cross <- fenegbin (perYear ~ chamber + competitive + competitive_primary | Year_x_Agency,
                     cluster = "Legislator", data = data_member)
 
 # did
-m_elect_basic_primary_did <-fenegbin (perYear ~  competitive + competitive_primary | Year_x_Agency + Legislator_x_Agency, 
+m_elect_basic_primary_did <-fenegbin (perYear ~ chamber +   competitive + competitive_primary | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",  data = data_member)
 
 ```

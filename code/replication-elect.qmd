@@ -1,11 +1,12 @@
-## - Electoral Competitiveness
+## - Electoral Competitiveness - House 
 
 - Figures: `figs/[TYPE]/m-elect-[1:4].png`
 
 ```{r m-elect,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
 
 # cross-sectional 
-m_elect_cross <- fenegbin (perYear ~ 
+m_elect_cross <- fenegbin (
+  perYear ~ 
                          competitive + competitive_primary +
                            chair + ranking_minority + prestige + oversight +  
                     experience + 
@@ -100,83 +101,5 @@ beta_cross <- betas(m_elect_cross)
 se_cross <- standard_errors(m_elect_cross)
 beta_did <- betas(m_elect_did)
 se_did <- standard_errors(m_elect_did)
-```
-
-
-
-### Modeled Effects - electoral - cross sectional 
-
-```{r}
-#| label: "m-elect-effect"
-#| fig-cap: "figs/[TYPE]/m-elect-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#|   - "2"
-#|   - "3"
-#|   - "4"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_elect_cross
-data = data_member |> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = mutate(data, competitive = 0),
-  effect = "Competitive general election"
-  )
-
-plot_effect( 
-  newdata = mutate(data, competitive_primary = 0),
-  effect = "Competitive primary election"
-  )
-
-plot_effect( 
-  newdata = mutate(data, competitive = 0,
-                            # oversight = 0,
-                            # prestige = 0,
-                            competitive_primary = 0),
-  effect = "Total electoral competition effect"
-  )
-```
-
-### Modeled Effects - electoral - diff in diff
-
-```{r}
-#| label: "m-elect-did-effect"
-#| fig-cap: "figs/[TYPE]/m-elect-did-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#|   - "2"
-#|   - "3"
-#|   - "4"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_elect_did
-data = data_member #|> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = mutate(data, competitive = 0),
-  effect = "Competitive general election\n(diff in diff)"
-  )
-
-plot_effect( 
-  newdata = mutate(data, competitive_primary = 0),
-  effect = "Competitive primary election\n(diff in diff)"
-  )
-
-plot_effect( 
-  newdata = mutate(data, competitive = 0,
-                            # oversight = 0,
-                            # prestige = 0,
-                            competitive_primary = 0),
-  effect = "Total electoral competition\n(diff in diff)"
-  )
 ```
 

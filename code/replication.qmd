@@ -58,7 +58,7 @@ load(here::here("data", type, "means.Rdata"))
 load(here::here("data", "member_data.Rdata"))
 ```
 
-```{r transformations, cache=FALSE}
+```{r transformations}
 data_member <- dcounts |> mutate(type = type)
 data_district <- dcounts_district |> mutate(type = type)
 
@@ -249,15 +249,14 @@ Top 10 Gini Coefficients in 2023
 
 
 
-## Correlations 
+# Correlations 
 
-### member-agency-year correlation 
 
-### oversight (reporting) committee 
+## oversight (reporting) committee 
 
 
 ```{r}
-#| label: cor-member-agency-year
+#| label: cor-oversight
 
 d <- data_member
 
@@ -266,11 +265,10 @@ cor.test(d$perYear, d$oversight)
 cor.test(log(d$perYear + 1), d$oversight)
 ```
 
-
-### member-year level correlation 
+## LES correlation 
 
 ```{r}
-#| label: cor-member-year
+#| label: les
 
 d1 <- group_by(d, member_state, icpsr, year, lesclassic) %>% 
   summarise(
@@ -288,12 +286,9 @@ d1 %<>%
 # d1 |> filter(lesclassic == 0)
 ```
 
-
-### LES 
-
 ```{r}
-#| label: cor-member-year-les-decile 
-#| fig-cap: "figs/[TYPE]/cor-member-year-les-decile.png"
+#| label: cor-les-decile 
+#| fig-cap: "figs/[TYPE]/cor-les-decile.png"
 #| layout-ncol: 2
 #| fig-height: 4.5
 
@@ -313,14 +308,13 @@ d1  %>%
     scale_x_continuous( breaks = seq.int(1,10,1) ) + 
   labs(x = "Legislative Effectiveness Score Decile",
        y = "Interbranch Representation Decile") + 
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank()) 
 ```
 
 
-
 ```{r}
-#| label: cor-member-year-les
-#| fig-cap: "figs/[TYPE]/cor-member-year-les-[1:4].png"
+#| label: cor-les
+#| fig-cap: "figs/[TYPE]/cor-les-[1:4].png"
 #| layout-ncol: 2
 #| fig-height: 4.5
 #| fig-subcap: 
@@ -337,13 +331,13 @@ d1 |>
   ggplot() + 
   aes(x = lesclassic, 
       y = perYear,
-      color = year,
+            color = as.factor(year),
       label = member_state) + 
   geom_point(alpha = .2) + 
-  geom_smooth(method = "lm") +
+  geom_smooth(method = "lm", color = "black") +
   geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
-  scale_color_viridis_c(direction = -1, option = "E") + 
-  labs(x = "Legislative Effectiveness Score",
+  scale_color_viridis_d(direction = -1, option = "E") + 
+  labs(color = "",x = "Legislative Effectiveness Score",
        y = "Interbranch Representation (logged)") 
 
 # per year logged 
@@ -352,13 +346,14 @@ d1 |>
   ggplot() + 
   aes(x = lesclassic, 
       y = log(perYear),
-      color = year,
+            color = as.factor(year),
       label = member_state) + 
   geom_point(alpha = .2) + 
-  geom_smooth(method = "lm") +
+  geom_smooth(method = "lm", color = "black") +
   geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
-  scale_color_viridis_c(direction = -1, option = "E") + 
-  labs(x = "Legislative Effectiveness Score",
+  scale_color_viridis_d(direction = -1, option = "E") + 
+  labs(color = "",
+       x = "Legislative Effectiveness Score",
        y = "Interbranch Representation (logged)") 
 
 # average 
@@ -389,14 +384,14 @@ d1 |>
       y = log(perYear),
       label = member_state) + 
   geom_point(alpha = .2) + 
-  geom_smooth(method = "lm") +
+  geom_smooth(method = "lm", color = "black") +
   geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
-  scale_color_viridis_c(direction = -1, option = "E") + 
-  labs(x = "Average Legislative Effectiveness Score",
+  scale_color_viridis_d(direction = -1, option = "E") + 
+  labs(color = "",
+       x = "Average Legislative Effectiveness Score",
        y = "Average Interbranch Representation (logged)") 
 ```
 
-### LES member-year level correlation
 
 ```{r les-correlation}
 cor.test(d1$perYear, d1$lesclassic)
@@ -404,6 +399,138 @@ cor.test(log(d1$perYear + 1), d1$lesclassic)
 ```
 
 
+
+## PAC correlation 
+
+```{r}
+#| label: pac
+
+d1 <- group_by(d, member_state, icpsr, year, PACamount_m) %>% 
+  summarise(
+    perYear = sum(perYear)) %>% 
+  ungroup()
+
+d1 %<>% 
+  group_by(year) %>%
+  mutate( corr_decile = ntile(perYear, 10),
+          pac_decile = ntile(PACamount_m, 10)
+          ) %>% 
+  ungroup()
+```
+
+```{r}
+#| label: cor-pac-decile 
+#| fig-cap: "figs/[TYPE]/cor-pac-decile.png"
+#| layout-ncol: 2
+#| fig-height: 4.5
+
+d1  %>% 
+    filter(year >2007, year < 2018) %>% 
+  count(pac_decile, corr_decile) %>% 
+  ggplot() + 
+  aes(x = pac_decile, 
+      y = corr_decile,
+      fill = n) + 
+  geom_tile(color = "white",
+            lwd = 1.5,
+            linetype = 1) +
+  coord_fixed() + 
+  scale_fill_viridis_c() +
+  scale_y_continuous( breaks = seq.int(1,10,1)  ) + 
+    scale_x_continuous( breaks = seq.int(1,10,1) ) + 
+  labs(x = "Corporate Political Action Committee $ Decile",
+       y = "Interbranch Representation Decile") + 
+  theme(panel.grid = element_blank())
+```
+
+
+```{r}
+#| label: cor-pac
+#| fig-cap: "figs/[TYPE]/cor-pac-[1:4].png"
+#| layout-ncol: 2
+#| fig-height: 4.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+# per year  
+d1 |>
+  filter(year >2007, year < 2018) |>
+  ggplot() + 
+  aes(x = PACamount_m, 
+      y = perYear,
+            color = as.factor(year),
+      label = member_state) + 
+  geom_point(alpha = .2) + 
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
+  scale_color_viridis_d(direction = -1, option = "E") + 
+  labs(color = "",
+       x = "Corporate Political Action Committee $ (Millions)",
+       y = "Interbranch Representation (logged)") 
+
+# per year logged 
+d1 |>
+  filter(year >2007, year < 2018) |>
+  ungroup() |> 
+  ggplot() + 
+  aes(x = PACamount_m, 
+      y = log(perYear),
+      color = as.factor(year),
+      label = member_state) + 
+  geom_point(alpha = .2) + 
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
+  scale_color_viridis_d(direction = -1, option = "E") + 
+  labs(color = "",
+       x = "Corporate Political Action Committee $ (Millions)",
+       y = "Interbranch Representation (logged)") 
+
+# average 
+d1 |>
+  filter(year >2007, year < 2018) |>
+  group_by(member_state) |> 
+  summarise(PACamount_m = mean(PACamount_m),
+         perYear = mean(perYear)) |> 
+  ggplot() + 
+  aes(x = PACamount_m, 
+      y = perYear,
+      label = member_state) + 
+  geom_point(alpha = .2) + 
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
+  scale_color_viridis_d(direction = -1, option = "E") + 
+  labs(color = "",
+       x = "Average Corporate Political Action Committee $ (Millions)",
+       y = "Average Interbranch Representation") 
+
+# average logged
+d1 |>
+  filter(year >2007, year < 2018) |>
+  group_by(member_state) |> 
+  summarise(PACamount_m = mean(PACamount_m),
+         perYear = mean(perYear)) |> 
+  ggplot() + 
+  aes(x = PACamount_m, 
+      y = log(perYear),
+      label = member_state) + 
+  geom_point(alpha = .2) + 
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
+  scale_color_viridis_c(direction = -1, option = "E") + 
+  labs(x = "Corporate Political Action Committee $ (Millions)",
+       y = "Average Interbranch Representation (logged)") 
+```
+
+
+```{r pac-correlation}
+cor.test(d1$perYear, d1$PACamount_m)
+cor.test(log(d1$perYear + 1), d1$PACamount_m)
+```
 
 
 ## Values for Predictions
@@ -592,245 +719,712 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 
 ---
 
-# Fixed effects 
+# Full model 
 
-Kitchen sink diff in diff model (including experience, but not other (unchanging) member-level)
+{{< include code/replication-full.qmd >}}
 
-## Pooled House and Senate
+## Private Sector only (For Types 2 & 4)
 
-```{r fe}
+{{< include code/replication-full-private.qmd >}}
 
-# controlling for member - level 
-m_did <-fenegbin (
-  perYear ~ 
-    population_m + 
-    chamber + 
-    #workers_government +
-    #education_bachelor_or_higher + 
-    #public_assistance_or_snap_households + 
-    #workers_self_employed + 
-    # workers_private_sector + 
-    # workers_nonprofit + 
-     percent_workers_government + 
-     percent_education_bachelor_or_higher + 
-     percent_public_assistance_or_snap_households + 
-    # percent_workers_self_employed + 
-    # percent_workers_private_sector + 
-    # percent_workers_nonprofit + 
-    # electoral 
-    competitive + 
-    #PACamount_m + 
-    # institution
-    chair + 
-    subchr + 
-    ranking_minority + 
-    prestige + 
-    oversight +  
-    # member level 
-    # state_leg + 
-    experience + 
-    # abs(nominate_1)
-    # party + 
-    # distance*presidents_party + 
-    presidents_party + 
-    majority | Year_x_Agency + Legislator_x_Agency, 
-                    cluster = "Legislator",
-           data = data_member)
+## + Nonprofit Sector (For Type 3)
 
-if(testing){modelsummary::modelsummary(m_did, stars = T)}
+{{< include code/replication-full-nonprofit.qmd >}}
 
 
-fixedEffects <- fixef(m_did)
 
-fes <- tibble(
-  fe = fixedEffects$Legislator_x_Agency,
-  icpsr = names(fixedEffects$Legislator_x_Agency) |> str_remove(".*_") |> as.numeric()
-) |> 
-  group_by(icpsr) |> 
-  summarise(fe = sum(fe) |> round() ) |> 
-  left_join(member_data |> 
-              distinct(icpsr, member_state, district_code)) |> 
-  mutate(legislator = member_state |> 
-           str_replace(".$", paste0("-", district_code, ")")) |> 
-           str_replace("-0\\)", ")")
-         ) |> 
-  distinct(legislator, fe)
+## With Majority Status Rather than Committee Chair
 
-# top 
-fes |> 
-  arrange(-fe) |> 
-  kablebox()
+{{< include code/replication-full-majority.qmd >}}
 
-# bottom
-fes |> 
-  arrange(fe) |> 
-  kablebox()
+# Inequality figures based on full model 
 
-fes |> 
+## Demand
+
+### Population
+
+#### population-Senate cross sectional 
+
+Compared to counterfactual of all states having the population of Tennessee (the average) 
+
+
+```{r}
+#| label: "m-population-Senate-effect"
+#| fig-cap: "figs/[TYPE]/m-population-Senate-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_senate_cross
+data = data_member |> filter(chamber=="Senate")  |> filter(year > 2007,  year < 2019)
+mean_pop <- data |> group_by(state) |> 
+  summarise(pop = mean(population_m)) |> 
   ungroup() |> 
-  ggplot() + 
-  aes(
-    y = reorder(legislator, fe), 
-    x = fe,
-    label = legislator
-  ) + 
-  geom_point(color = "grey") +
-  geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
-  # geom_text_repel() + 
-  theme_minimal() + 
-  theme(axis.text.y = element_blank() ) + 
-  labs( x = "Fixed Effect",
-        y = "Legislator") 
+  mutate(mean = mean(pop),
+         diff = abs(pop - mean))  |> 
+  slice_min(diff)
+
+mean_pop
+
+plot_effect( 
+  newdata = mutate(data, population_m = mean_pop$pop),
+  effect = "Unequal state population"
+  )
 ```
 
-## House
 
-```{r fe-house}
-# controlling for expiernce 
-m_did <-fenegbin (
-  perYear ~ 
-    # lots of this does not vary ennought for the dif in diff 
-    #population_m + 
-    # chamber + 
-      percent_workers_government + # model failing to converge dropping 
-      percent_education_bachelor_or_higher + # model failing to converge dropping 
-      percent_public_assistance_or_snap_households +  # model failing to converge dropping 
-    # percent_workers_self_employed + 
-    # percent_workers_private_sector + 
-    # percent_workers_nonprofit + 
-    # electoral 
-     competitive + 
-    #PACamount_m + 
-    # institution
-    chair + 
-    subchr + 
-    ranking_minority + 
-    prestige + 
-    oversight +  
-    # member level 
-    # state_leg + 
-    experience + 
-    # abs(nominate_1)
-    # party + 
-    # distance*presidents_party + 
-    presidents_party + 
-    majority | Year_x_Agency + Legislator_x_Agency, 
-                    cluster = "Legislator",
-           data = data_member |> filter(chamber == "House") )
+```{r}
+#| label: "m-population-Senate-effect-min"
+#| fig-cap: "figs/[TYPE]/m-population-Senate-effect-min"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
 
-if(testing){modelsummary::modelsummary(m_did, stars = T)}
+model <- m_full_senate_cross
+data = data_member |> filter(chamber=="Senate")  |> filter(year > 2007,  year < 2019)
 
-
-fixedEffects <- fixef(m_did)
-
-fes <- tibble(
-  fe = fixedEffects$Legislator_x_Agency,
-  icpsr = names(fixedEffects$Legislator_x_Agency) |> str_remove(".*_") |> as.numeric()
-) |> 
-  group_by(icpsr) |> 
-  summarise(fe = sum(fe) |> round() ) |> 
-  left_join(member_data |> 
-              distinct(icpsr, member_state, district_code)) |> 
-  mutate(legislator = member_state |> 
-           str_replace(".$", paste0("-", district_code, ")")) |> 
-           str_replace("-0\\)", ")")
-         ) |> 
-  distinct(legislator, fe)
-
-# top 
-fes |> 
-  arrange(-fe) |> 
-  kablebox()
-
-# bottom
-fes |> 
-  arrange(fe) |> 
-  kablebox()
-
-# fes |> 
-#   ungroup() |> 
-#   ggplot() + 
-#   aes(
-#     y = reorder(legislator, fe), 
-#     x = fe,
-#     label = legislator
-#   ) + 
-#   geom_point(color = "grey") +
-#   geom_text(check_overlap = T, hjust = "inward", vjust = "inward") + 
-#   # geom_text_repel() + 
-#   theme_minimal() + 
-#   theme(axis.text.y = element_blank() ) + 
-#   labs( x = "Fixed Effect",
-#         y = "Legislator") 
+plot_effect( 
+  newdata = mutate(data, population_m = min(data$population_m)),
+  effect = "Unequal state population"
+  )
 ```
 
-## Senate 
+#### population-Senate diff in diff
 
-```{r fe-senate}
+Compared to counterfactual of all states having the population of Wyoming 
 
-# controlling for member - level 
-m_did <-fenegbin (
-  perYear ~ 
-    population_m + 
-    # chamber + 
-    #workers_government +
-    #education_bachelor_or_higher + 
-    #public_assistance_or_snap_households + 
-    #workers_self_employed + 
-    # workers_private_sector + 
-    # workers_nonprofit + 
-     percent_workers_government + 
-     percent_education_bachelor_or_higher + 
-     percent_public_assistance_or_snap_households + 
-    # percent_workers_self_employed + 
-    # percent_workers_private_sector + 
-    # percent_workers_nonprofit + 
-    # electoral 
-    competitive + 
-    #PACamount_m + 
-    # institution
-    chair + 
-    subchr + 
-    ranking_minority + 
-    prestige + 
-    oversight +  
-    # member level 
-    # state_leg + 
-    experience + 
-    # abs(nominate_1)
-    # party + 
-    # distance*presidents_party + 
-    presidents_party + 
-    majority | Year_x_Agency + Legislator_x_Agency, 
-                    cluster = "Legislator",
-           data = data_member |> filter(chamber == "Senate"))
+```{r}
+#| label: "m-population-Senate-did-effect-min"
+#| fig-cap: "figs/[TYPE]/m-population-Senate-did-effect-min"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
 
-if(testing){modelsummary::modelsummary(m_did, stars = T)}
+model <- m_full_senate_did
+data = data_member |> filter(chamber=="Senate")  |> filter(year > 2007,  year < 2019)
 
-
-fixedEffects <- fixef(m_did)
-
-fes <- tibble(
-  fe = fixedEffects$Legislator_x_Agency,
-  icpsr = names(fixedEffects$Legislator_x_Agency) |> str_remove(".*_") |> as.numeric()
-) |> 
-  group_by(icpsr) |> 
-  summarise(fe = sum(fe) |> round() ) |> 
-  left_join(member_data |> 
-              distinct(icpsr, member_state, district_code)) |> 
-  mutate(legislator = member_state) |> 
-  distinct(legislator, fe)
-
-# top 
-fes |> 
-  arrange(-fe) |> 
-  kablebox()
-
-# bottom
-fes |> 
-  arrange(fe) |> 
-  kablebox()
+plot_effect( 
+  newdata = mutate(data, population_m =min(data$population_m)),
+  effect = "Unequal state population \n(diff in diff)"
+  )
 ```
+
+
+### Workers 
+
+
+
+#### workers- cross sectional 
+
+```{r}
+#| label: "m-workers-effect"
+#| fig-cap: "figs/[TYPE]/m-workers-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_government = 0),
+  effect = "% Government Employment"
+  )
+```
+
+#### workers- diff in diff
+
+```{r}
+#| label: "m-workers-did-effect"
+#| fig-cap: "figs/[TYPE]/m-workers-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_did
+data = data_member #|> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_government = 0),
+  effect = "% Government Employment\n(diff in diff)"
+  )
+```
+
+
+
+#### workers-nonprofit - cross sectional 
+
+```{r}
+#| label: "m-workers-nonprofit-effect"
+#| fig-cap: "figs/[TYPE]/m-workers-nonprofit-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_nonprofit_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_nonprofit = 0),
+  effect = "% District Nonprofit Employment"
+  )
+```
+
+#### workers-nonprofit - diff in diff
+
+```{r}
+#| label: "m-workers-nonprofit-did-effect"
+#| fig-cap: "figs/[TYPE]/m-workers-nonprofit-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_nonprofit_did
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_nonprofit = 0),
+  effect = "% District Nonprofit Employment\n(diff in diff)"
+  )
+```
+
+
+
+
+#### workers-private - cross sectional 
+
+```{r}
+#| label: "m-workers-private-effect"
+#| fig-cap: "figs/[TYPE]/m-workers-private-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_private_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_private_sector = 0),
+  effect = "% Private Sector"
+)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_self_employed = 0),
+  effect = "% Self Employment"
+)
+```
+
+#### workers- diff in diff
+
+```{r}
+#| label: "m-workers-did-effect-private"
+#| fig-cap: "figs/[TYPE]/m-workers-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_workers_private_did
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_private_sector = 0),
+  effect = "% Private Sector\n(diff in diff)"
+)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_self_employed = 0),
+  effect = "% Self Employment\n(diff in diff)"
+)
+```
+
+
+
+### Education 
+
+
+
+#### education - cross sectional 
+
+```{r}
+#| label: "m-education-effect"
+#| fig-cap: "figs/[TYPE]/m-education-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_education_bachelor_or_higher = 0),
+  effect = "% College Grad"
+  )
+```
+
+#### education - diff in diff
+
+```{r}
+#| label: "m-education-did-effect"
+#| fig-cap: "figs/[TYPE]/m-education-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_did
+data = data_member #|> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_education_bachelor_or_higher = 0),
+  effect = "% College Grad\n(diff in diff)"
+  )
+```
+
+### Need 
+
+#### Need - cross sectional 
+
+```{r}
+#| label: "m-need-effect"
+#| fig-cap: "figs/[TYPE]/m-need-effect-[n]"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_public_assistance_or_snap_households = 0),
+  effect = "% Public Assistance"
+  )
+```
+
+#### Need - diff in diff
+
+```{r}
+#| label: "m-need-did-effect"
+#| fig-cap: "figs/[TYPE]/m-need-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_did
+data = data_member #|> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_public_assistance_or_snap_households = 0),
+  effect = "% Public Assistance\n(diff in diff)"
+  )
+```
+
+### Total Demand 
+
+#### Total Demand - cross sectional 
+
+m-total-demand-effect
+
+```{r}
+#| label: "m-total-demand-effect"
+#| fig-cap: "figs/[TYPE]/m-total-demand-effect-[n]"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1  = House"
+#|   - "2 = Senate "
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_house_cross
+data = data_member |> filter(year > 2007,  year < 2019, chamber == "House")  
+
+plot_effect( 
+  newdata = mutate(data, 
+                   percent_public_assistance_or_snap_households = 0,
+                   percent_education_bachelor_or_higher = 0,
+                   percent_workers_government = 0,
+                   population_m = min(data$population_m)),
+  effect = "Total Demand (House)"
+  )
+
+model <- m_full_senate_cross
+data = data_member |> filter(year > 2007,  year < 2019, chamber == "Senate")  
+
+plot_effect( 
+  newdata = mutate(data, 
+                   percent_public_assistance_or_snap_households = 0,
+                   percent_education_bachelor_or_higher = 0,
+                   percent_workers_government = 0,
+                   population_m = min(data$population_m)),
+  effect = "Total Demand (Senate)"
+  )
+```
+
+#### Total Demand - diff in diff
+
+```{r}
+#| label: "m-total-demand-did-effect"
+#| fig-cap: "figs/[TYPE]/m-total-demand-did-effect-[n]"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1 = House"
+#|   - "2 = Senate"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_house_did
+data = data_member |> filter(year > 2007,  year < 2019, chamber == "House")  
+
+plot_effect( 
+  newdata = mutate(data, 
+                   percent_public_assistance_or_snap_households = 0,
+                   percent_education_bachelor_or_higher = 0,
+                   percent_workers_government = 0,
+                   population_m = min(data$population_m)),
+  effect = "Total Demand (House)\n(diff in diff)"
+  )
+
+model <- m_full_senate_did
+data = data_member |> filter(year > 2007,  year < 2019, chamber == "Senate")  
+
+plot_effect( 
+  newdata = mutate(data, 
+                   percent_public_assistance_or_snap_households = 0,
+                   percent_education_bachelor_or_higher = 0,
+                   percent_workers_government = 0,
+                   population_m = min(data$population_m)),
+  effect = "Total Demand (Senate)"
+  )
+```
+
+
+## Capacity 
+
+m-effect-capacity 
+
+```{r}
+#| label: "m-capacity-effect"
+#| fig-cap: "figs/[TYPE]/m-capacity-effect"
+#| layout-ncol: 4
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#|   - "5"
+#|   - "6"
+#|   - "7"
+#|   - "8"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+# 1
+plot_effect( 
+  newdata = mutate(data, chair = 0),
+  effect = "Chair"
+  )
+#2
+plot_effect( 
+  newdata = mutate(data, subchr = 0),
+  effect = "Subcommittee Chair"
+  )
+
+#3
+plot_effect( 
+  newdata = mutate(data, ranking_minority = 0),
+  effect = "Ranking Minority"
+  )
+# #4
+# plot_effect(
+#   newdata = mutate(data, prestige = 0),
+#   effect = "Prestige Committee"
+#   )
+#4
+plot_effect( 
+  newdata = mutate(data, oversight = 0),
+  effect = "Oversight Committee"
+  )
+#5
+plot_effect( 
+  newdata = mutate(data, experience = 0),
+  effect = "3+ years in office"
+  )
+#6
+plot_effect( 
+  newdata = mutate(data, majority = 0),
+  effect = "Majority"
+  )
+#7
+plot_effect( 
+  newdata = mutate(data, presidents_party = 0),
+  effect = "President's party"
+  )
+#8
+plot_effect( 
+  newdata = mutate(data, 
+                   #chamber = "Senate",
+                   chair = 0,
+                   subchr = 0,
+                   ranking_minority = 0,
+                   oversight = 0,
+                   prestige = 0,
+                   experience = 0),
+  effect = "Total capacity"
+  )
+
+#9 chamber 
+plot_effect( 
+  newdata = mutate(data, 
+                   chamber = "Senate"),
+  effect = "Chamber (Senate)"
+  )
+
+#10 total, including chamber 
+plot_effect( 
+  newdata = mutate(data, 
+                   chamber = "Senate",
+                   chair = 0,
+                   subchr = 0,
+                   ranking_minority = 0,
+                   oversight = 0,
+                   prestige = 0,
+                   experience = 0),
+  effect = "Total capacity"
+  )
+```
+
+
+## Environment 
+
+### Elections 
+
+#### electoral - cross sectional 
+
+```{r}
+#| label: "m-elect-effect"
+#| fig-cap: "figs/[TYPE]/m-elect-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1 - House - general"
+#|   - "2 - House - primary"
+#|   - "3 - House - combined"
+#|   - "4 - Senate - general"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_house_cross
+data = data_member |> filter(chamber == "House", 
+                             year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, competitive = 0),
+  effect = "Competitive general election (House)"
+  )
+
+
+plot_effect( 
+  newdata = mutate(data, competitive_primary = 0),
+  effect = "Competitive primary election (House)"
+  )
+
+plot_effect( 
+  newdata = mutate(data, competitive = 0,
+                            competitive_primary = 0),
+  effect = "Total electoral competition (House)"
+  )
+
+
+# SENATE 
+model <- m_full_senate_cross
+data = data_member |> filter(chamber == "Senate", 
+                             year > 2007,  year < 2019)
+plot_effect( 
+  newdata = mutate(data, competitive = 0),
+  effect = "Competitive general election (Senate)"
+  )
+```
+
+#### electoral - diff in diff
+
+```{r}
+#| label: "m-elect-did-effect"
+#| fig-cap: "figs/[TYPE]/m-elect-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1 - House and Senate"
+#|   - "2 - House"
+#|   - "3 - House"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_did
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, competitive = 0),
+  effect = "Competitive general election\n(diff in diff)"
+  )
+
+
+model <- m_full_house_cross
+data = data_member |> filter(chamber == "House", 
+                             year > 2007,  year < 2019)
+plot_effect( 
+  newdata = mutate(data, competitive_primary = 0),
+  effect = "Competitive primary election\n(diff in diff)"
+  )
+
+plot_effect( 
+  newdata = mutate(data, competitive = 0,
+                            competitive_primary = 0),
+  effect = "Total electoral competition\n(diff in diff)"
+  )
+```
+
+
+### Ideology 
+
+
+m-ideo-effect
+
+```{r}
+#| label: "m-ideo-effect"
+#| fig-cap: "figs/[TYPE]/m-ideo-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_cross 
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = data |>  
+    mutate(nominate_dim1 = 0) |>
+    mutate(distance = abs(nominate_dim1 - agency_ideo)),
+  effect = "Legislator ideology"
+  )
+
+plot_effect(
+  newdata = data |>  
+    mutate(agency_ideo = 0) |>  
+    mutate(distance = abs(nominate_dim1 - agency_ideo)),
+  effect = "Perceived agency ideology"
+  )
+```
+
+### Partisanship 
+
+m-partisan- effect 
+
+```{r}
+#| label: "m-partisan-effect"
+#| fig-cap: "figs/[TYPE]/m-partisan-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#|   - "3"
+#|   - "4"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_full_cross 
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = data |>  mutate(presidents_party = 0),
+  effect = "Co-partisan president"
+  )
+
+model <- m_full_majority_cross 
+
+plot_effect(
+  newdata = data |> mutate(majority = 0) , 
+  effect = "Majority party"
+  )
+
+
+```
+
 
 
 # Replicating Ritchie
@@ -851,6 +1445,8 @@ fes |>
 {{< include code/replication-population-workers-senate.qmd >}}
 {{< include code/replication-population-workers-house.qmd >}}
 {{< include code/replication-population-workers-nonprofit-senate.qmd >}}
+{{< include code/replication-population-workers-nonprofit-house.qmd >}}
+{{< include code/replication-population-workers-private-senate.qmd >}}
 {{< include code/replication-population-workers-private-house.qmd >}}
 
 ## District Employment
@@ -868,7 +1464,7 @@ fes |>
 {{< include code/replication-capacity-house.qmd >}}
 {{< include code/replication-capacity-senate.qmd >}}
 
-## Staff quality 
+## Staff expierence 
 
 see Per District models below
 
@@ -978,69 +1574,17 @@ save(models_demand, rows, cm, gm, beta_cross, se_cross,
 
 
 
-#### Modeled Effects - population-Senate cross sectional 
-
-```{r}
-#| label: "m-population-Senate-effect"
-#| fig-cap: "figs/[TYPE]/m-population-Senate-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#|   - "2"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_population_Senate_cross
-data = data_member |> filter(chamber=="Senate")  |> filter(year > 2007,  year < 2019)
-mean_pop <- data |> group_by(state) |> 
-  summarise(pop = mean(population_m)) |> 
-  ungroup() |> 
-  mutate(mean = mean(pop),
-         diff = abs(pop - mean))  |> 
-  slice_min(diff)
-
-mean_pop
-
-plot_effect( 
-  newdata = mutate(data, population_m = mean_pop$pop),
-  effect = "Unequal state population"
-  )
-```
-
-#### Modeled Effects - population-Senate diff in diff
-
-```{r}
-#| label: "m-population-Senate-did-effect"
-#| fig-cap: "figs/[TYPE]/m-population-Senate-did-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_population_Senate_did
-data = data_member |> filter(chamber=="Senate")  |> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = mutate(data, population_m = mean_pop$pop ),
-  effect = "Unequal state population \n(diff in diff)"
-  )
-```
 
 
 ### Private  
 
 ```{r save-demand-private-models}
-models_demand <- list(
+models_demand_private <- list(
   "(1)" = m_population_House_cross,
   "(2)" = m_population_Senate_cross,
   # counts are  colinear with population, so just using % 
-  "(3)" = m_population_percent_workers_House_cross, 
-  "(4)" = m_population_percent_workers_Senate_cross,
+  "(3)" = m_population_percent_workers_private_House_cross, 
+  "(4)" = m_population_percent_workers_private_Senate_cross,
   "(5)" = m_workers_private_cross,
   "(6)" = m_workers_private_did
 )
@@ -1063,27 +1607,44 @@ rows <- tibble(
 attr(rows, 'position') <- c(0)
 
 # HTML
-modelsummary(models_demand, 
+modelsummary(models_demand_private, 
              title = "", 
              notes = list("Robust standard errors in parentheses, clustered by legislator."))
 
-beta_cross <- betas(m_demand_cross)
-se_cross <- standard_errors(m_demand_cross)
 
-save(models_demand, rows, cm, gm, beta_cross, se_cross,
+save(models_demand_private, rows, cm, gm, beta_cross, se_cross,
      file = here::here("models", type, "models_demand_private.Rdata"))
 ```
 
+```{r}
+#| label: "m-private-cross-effect"
+#| fig-cap: "figs/[TYPE]/m-private-cross-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_workers_private_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, percent_workers_private_sector = 0 ),
+  effect = "Percent private-sector"
+  )
+```
 
 ### Nonprofit  
 
 ```{r save-demand-nonprofit-models}
-models_demand <- list(
+models_demand_nonprofit <- list(
   "(1)" = m_population_House_cross,
   "(2)" = m_population_Senate_cross,
   # counts are  colinear with population, so just using % 
-  "(3)" = m_population_percent_workers_House_cross, 
-  "(4)" = m_population_percent_workers_Senate_cross,
+  "(3)" = m_population_percent_workers_nonprofit_House_cross, 
+  "(4)" = m_population_percent_workers_nonprofit_Senate_cross,
   "(5)" = m_workers_nonprofit_cross,
   "(6)" = m_workers_nonprofit_did
 )
@@ -1106,14 +1667,14 @@ rows <- tibble(
 attr(rows, 'position') <- c(0)
 
 # HTML
-modelsummary(models_demand, 
+modelsummary(models_demand_nonprofit, 
              title = "", 
              notes = list("Robust standard errors in parentheses, clustered by legislator."))
 
-beta_cross <- betas(m_demand_cross)
-se_cross <- standard_errors(m_demand_cross)
+beta_cross <- betas(m_workers_nonprofit_cross)
+se_cross <- standard_errors(m_workers_nonprofit_cross)
 
-save(models_demand, rows, cm, gm, beta_cross, se_cross,
+save(models_demand_nonprofit, rows, cm, gm, beta_cross, se_cross,
      file = here::here("models", type, "models_demand_nonprofit.Rdata"))
 ```
 
@@ -1154,77 +1715,6 @@ save(models_capacity, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
 ```
 
 
-m-effect-capacity 
-
-```{r}
-#| label: "m-capacity-effect"
-#| fig-cap: "figs/[TYPE]/m-capacity-effect"
-#| layout-ncol: 2
-#| fig-height: 3.5
-#| fig-width: 3.5
-#| fig-subcap: 
-#|   - "1"
-#|   - "2"
-#|   - "3"
-#|   - "4"
-#| out-width: "100%"
-#| fig-show: "hold"
-
-model <- m_capacity_cross
-data = data_member |> filter(year > 2007,  year < 2019)
-
-plot_effect( 
-  newdata = mutate(data, chair = 0),
-  effect = "Chair"
-  )
-
-plot_effect( 
-  newdata = mutate(data, subchr = 0),
-  effect = "Subcommittee Chair"
-  )
-
-
-plot_effect( 
-  newdata = mutate(data, ranking_minority = 0),
-  effect = "Ranking Minority"
-  )
-
-plot_effect( 
-  newdata = mutate(data, prestige = 0),
-  effect = "Prestige Committee"
-  )
-
-plot_effect( 
-  newdata = mutate(data, oversight = 0),
-  effect = "Oversight Committee"
-  )
-
-plot_effect( 
-  newdata = mutate(data, experience = 0),
-  effect = "3+ years in office"
-  )
-
-plot_effect( 
-  newdata = mutate(data, majority = 0),
-  effect = "Majority"
-  )
-
-plot_effect( 
-  newdata = mutate(data, presidents_party = 0),
-  effect = "President's party"
-  )
-
-plot_effect( 
-  newdata = mutate(data, 
-                   chair = 0,
-                   subchr = 0,
-                   ranking_minority = 0,
-                   oversight = 0,
-                   prestige = 0,
-                   experience = 0),
-  effect = "Total capacity"
-  )
-```
 
 ## Capacity Table 2: Staff Quality - District + Same Party 
 
@@ -1234,8 +1724,10 @@ plot_effect(
 models_district <- list(
   "(1)" = m_district_cross,
   "(2)" = m_district_did,
-  "(3)" =  m_district_cross_party,
-  "(4)" = m_district_did_party
+  "(3)" =  m_district_party_cross,
+  "(4)" = m_district_party_did,
+  "(5)" = m_district_full_cross,
+  "(6)" = m_district_full_did
 )
 
 rows <- tibble(
@@ -1243,7 +1735,9 @@ rows <- tibble(
   `(1)` = c("Count"),
   `(2)` =c("Count"),
   `(3)` = c("Count"),
-  `(4)` =c("Count")
+  `(4)` =c("Count"),
+  `(5)` = c("Count"),
+  `(6)` =c("Count")
   )
 
 attr(rows, 'position') <- c(0)
@@ -1303,6 +1797,13 @@ se_did <- standard_errors(m_elect_did)
 save(models_elect, rows, cm, gm,  beta_cross, beta_did, se_cross, se_did,
      file = here::here("models", type, "models_elect.Rdata"))
 ```
+
+
+
+
+
+
+
 
 ## Strategic Environment Table 2: Fundraising motivations 
 
@@ -1414,6 +1915,32 @@ se_cross <- standard_errors(m_staff_only_spending_cross)
 save(models_staff_spending, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
      file = here::here("models", type, "models_staff_spending.Rdata"))
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

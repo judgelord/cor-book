@@ -22,7 +22,7 @@ m_capacity_House_cross <-fenegbin (
     ranking_minority + 
     subchr + 
     state_leg + 
-    prestige + 
+    #prestige + 
     oversight +  
     experience | 
     #est_staff_spending  + 
@@ -43,7 +43,7 @@ m_capacity_House_did <-fenegbin (
     ranking_minority + 
     subchr + 
     # state_leg + 
-    prestige + 
+    #prestige + 
     oversight +  
     experience |
     # est_staff_spending  + 
@@ -64,7 +64,7 @@ m_staff_capacity_House_cross <-fenegbin (
     ranking_minority + 
     subchr + 
     state_leg + 
-    prestige + 
+    #prestige + 
     oversight +  
     experience + 
     est_staff_spending  | 
@@ -86,7 +86,7 @@ m_staff_capacity_House_did <-fenegbin (
     ranking_minority + 
     subchr + 
     # state_leg + 
-    prestige + 
+    #prestige + 
     oversight +  
     experience + 
     est_staff_spending  | 

@@ -21,7 +21,7 @@ m_capacity_Senate_cross <-fenegbin (
     ranking_minority + 
     subchr + 
     state_leg + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience | 
     # est_staff_spending  + # no data for senate 
@@ -42,7 +42,7 @@ m_capacity_Senate_did <-fenegbin (
     ranking_minority + 
     subchr + 
     # state_leg + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience | 
     # est_staff_spending  + # no data for senate 

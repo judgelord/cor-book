@@ -63,12 +63,6 @@ m_population_percent_workers_private_Senate_full_cross <-fenegbin (
 if(testing){modelsummary::modelsummary(m_population_percent_workers_private_Senate_full_cross, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
 coefplot(m_population_percent_workers_private_Senate_full_cross, horiz = T, drop = ".theta") 
 
-
-
-
-if(testing){modelsummary::modelsummary(m_population_percent_workers_private_Senate_full_did, gof_omit = "R.*", starts = T, coef_omit = coef_omit)}
-
-coefplot(m_population_percent_workers_private_Senate_full_did, horiz = T, drop = ".theta")
 ```
 
 

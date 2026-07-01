@@ -16,7 +16,7 @@
 
 # cross-sectional 
 m_elect_general_cross <- fenegbin (
-  perYear ~ 
+  perYear ~ chamber +  
     abs(nominate_dim1)+ 
     distance*presidents_party + 
     competitive + #competitive_primary +
@@ -32,7 +32,7 @@ coefplot(m_elect_general_cross, horiz = T, drop = "(Intercept)")
 
 # 2
 m_elect_general_did <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber +  
     competitive + #competitive_primary +
     presidents_party + majority  | Year_x_Agency + Legislator_x_Agency, 
   cluster = "Legislator",
@@ -45,7 +45,7 @@ coefplot(m_elect_general_did, horiz = T, drop = ".theta")
 
 # 3
 m_elect_general_2nd_cross <-fenegbin (
-  perYear ~ 
+  perYear ~ chamber +  
     abs(nominate_dim1)+ 
     distance*presidents_party + 
     competitive + #competitive_primary + 
@@ -59,7 +59,7 @@ coefplot(m_elect_general_2nd_cross, horiz = T, drop = ".theta")
 
 # 4
 m_elect_general_2nd_did <-fenegbin (
-  perYear ~
+  perYear ~ chamber + 
     competitive + #competitive_primary +
     majority + presidents_party | Year_x_Agency + Legislator_x_Agency,
   cluster = "Legislator",

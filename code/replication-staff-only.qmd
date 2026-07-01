@@ -202,10 +202,16 @@ Spending in Millions
 
 
 # cross-sectional 
-m_staff_only_spending_cross <- fenegbin (perYear ~ 
-                                           est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending  | Year_x_Agency,
-                                         cluster = "Legislator", 
-                                         data = data_member)
+m_staff_only_spending_cross <- fenegbin (
+  perYear ~ 
+    est_legis_spending + 
+    #est_pol_spending + 
+    est_comm_spending + 
+    #est_off_spending + 
+    est_constit_spending  | 
+    Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
 
 if(testing){modelsummary::modelsummary(m_staff_only_spending_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 
@@ -214,11 +220,17 @@ coefplot(m_staff_only_spending_cross, horiz = T, drop = "(Intercept)")
 
 
 # 2
-m_staff_only_spending_did <-fenegbin (perYear ~ 
-                                        est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending  | Year_x_Agency + Legislator_x_Agency, 
-                                      cluster = "Legislator",
-                                      # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
-                                      data = data_member)
+m_staff_only_spending_did <-fenegbin (
+  perYear ~ 
+    est_legis_spending + 
+    #est_pol_spending + 
+    est_comm_spending + 
+    #est_off_spending + 
+    est_constit_spending  | 
+    Year_x_Agency + Legislator_x_Agency, 
+  cluster = "Legislator",
+  # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
+  data = data_member)
 
 if(testing){modelsummary::modelsummary(m_staff_only_spending_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
@@ -226,26 +238,33 @@ coefplot(m_staff_only_spending_did, horiz = T, drop = ".theta")
 
 
 # 3
-m_staff_only_spending_2nd_cross <-fenegbin (perYear ~ 
-                                              est_legis_spending + est_pol_spending + est_comm_spending + est_off_spending + est_constit_spending  | Year_x_Agency, 
-                                            cluster = "Legislator", 
-                                            data = data_member %>% filter(survive == 1))
+m_staff_only_spending_2nd_cross <-fenegbin (
+  perYear ~ 
+    est_legis_spending + 
+    #est_pol_spending + 
+    est_comm_spending + 
+    #est_off_spending + 
+    est_constit_spending  | 
+    Year_x_Agency, 
+  cluster = "Legislator", 
+  data = data_member %>% filter(survive == 1))
 
 if(testing){modelsummary::modelsummary(m_staff_only_spending_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 coefplot(m_staff_only_spending_2nd_cross, horiz = T, drop = ".theta") 
 
 
 # 4
-m_staff_only_spending_2nd_did <-fenegbin (perYear ~
-                                            est_legis_spending + 
-                                            est_pol_spending + 
-                                            est_comm_spending + 
-                                            est_off_spending + 
-                                            est_constit_spending  | 
-                                            Year_x_Agency +
-                                            Legislator_x_Agency,
-                                          cluster = "Legislator",
-                                          data = data_member %>% filter(survive == 1))
+m_staff_only_spending_2nd_did <-fenegbin (
+  perYear ~
+    est_legis_spending + 
+    #est_pol_spending + 
+    est_comm_spending + 
+    #est_off_spending + 
+    est_constit_spending  | 
+    Year_x_Agency +
+    Legislator_x_Agency,
+  cluster = "Legislator",
+  data = data_member %>% filter(survive == 1))
 
 if(testing){modelsummary::modelsummary(m_staff_only_spending_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
 
