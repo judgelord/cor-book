@@ -113,12 +113,31 @@ d %<>% filter(!icpsr_year %in% chamber_switchers$icpsr_year)
 # the key DVs aretp
 # - perYear = counts per year (member level and district level)
 # - ratio = ratio of policy work to constituency service
+d %>% group_by(agency) %>% 
+    mutate(
+      coded = ifelse(TYPE %in% c(0:5), per_icpsr_chamber_year_agency_type, 0),
+      total_per_agency = sum(coded)) %>% 
+    filter(total_per_agency == 0) %>% 
+    distinct(agency) %>% 
+  kable(title = "Uncoded agencies being dropped")
+
 
 # a function creating the member-level aggregate count data
 make_dcounts <- function(d, type){
   
 # directory to store model objects
 if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))}
+  
+  
+  # drop uncoded agencies
+  #WHY DOES THIS GO DOWN  FOR TOTAL? 
+  # BECAUSE WE RETAINED DHS_USCIS_2016 as all 0s, it being counted with USCIS (though good to confirm and fix )
+  d %<>% group_by(agency) %>% 
+    mutate(
+      coded = ifelse(TYPE %in% c(0:5), per_icpsr_chamber_year_agency_type, 0),
+      total_per_agency = sum(coded)) %>% 
+    filter(total_per_agency > 0) %>% 
+    ungroup() 
   
   d <- d |>
   filter(TYPE == type | type == "total",
@@ -132,13 +151,7 @@ if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))
   count(d, is.na(bioname))
   # filter(d, is.na(bioname))
   
-# drop uncoded agencies
-  #WHY DOES THIS GO DOWN  FOR TOTAL? 
-  # BECAUSE WE RETAINED DHS_USCIS_2016 as all 0s, it being counted with USCIS (though good to confirm and fix )
-  d %<>% group_by(agency) %>% 
-    mutate(total_per_agency = sum(perYear)) %>% 
-    filter(total_per_agency > 2) %>% 
-    ungroup() 
+
   
   dcounts <- d |>
   post_merge_transformations() |>
