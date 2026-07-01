@@ -60,21 +60,54 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 Variation in constituency service is mainly driven by ... 
 
-### Demand
 
-```{r}
-#| label: tbl-models-demand
-#| tbl-cap: "The effect of demand on requests to federal agencies"
-#| out-width: 100%
+::: {.fake-xref-table-for-caption}
 
-load(here::here("models", type,  "models_demand.Rdata"))
-
-modelsummary(models_demand,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
 ```
 
+|   |
+|---|
+|   |
 
+: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full.Rdata"))
+
+modelsummary(models_full,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from teh agency, co-partisan president) on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    #"Political Environment + Capcacy" = 26,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+\clearpage
+
+
+### Demand
 
 
 ```{r}
@@ -91,23 +124,11 @@ knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.p
 
 ### Capacity
 
-Columns 1, 3, and 5 of @tbl-models-demand) show differences across legislators with different capacity advantages. 
-
-```{r}
-#| label: tbl-models-capacity
-#| tbl-cap: "The effect of capacity on total requests to federal agencies"
-#| out-width: 100%
-
-load(here::here("models", type,  "models_capacity.Rdata"))
-
-modelsummary(models_capacity,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
-```
+Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. 
 
 
 ```{r}
-#| label: fig-effect
+#| label: fig-capacity-effect
 #| fig-cap: "Predicted levels of interbranch representation per legislator per year compared to counterfactuals"
 #| fig-subcap: 
 #|   - ""
@@ -119,7 +140,7 @@ modelsummary(models_capacity,
 
 knitr::include_graphics(
 here::here("figs", type,
-           paste0("m-effect-",
+           paste0("m-capacity-effect-",
                   c(1:2,5,8), 
                   ".png"
                   ) 
@@ -149,18 +170,7 @@ modelsummary(models_district,
 #### Interbranch representation as electoral strategy
 
 
-```{r}
-#| label: tbl-models-elect
-#| tbl-cap: "The effect of electoral security on total requests to federal agencies"
-#| out-width: 60%
 
-load(here::here("models", type,  "models_elect.Rdata"))
-
-modelsummary(models_elect,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
-
-```
 
 
 ```{r}
@@ -173,7 +183,7 @@ modelsummary(models_elect,
 #| out-width: 100%
 
 knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
-knitr::include_graphics(here::here("figs", type, "m-elect-effect-2.png"))
+knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
 
 ```
 
@@ -212,8 +222,8 @@ knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("figs", type, "m-effect-6.png"))
-knitr::include_graphics(here::here("figs", type, "m-effect-7.png"))
+knitr::include_graphics(here::here("figs", type, "m-partisan-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-partisan-effect-2.png"))
 ```
 
 
@@ -255,18 +265,3 @@ here::here("figs", type,
 ```
 
 
-
-#### Interbranch representation and campaign fundraising strategy
-
-[possibly only have this section in chapters 7 and 9]
-
-```{r}
-#| label: tbl-models-pac
-#| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
-
-load(here::here("models", type,  "models_pac.Rdata"))
-
-modelsummary(models_pac,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
-```

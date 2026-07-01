@@ -1,4 +1,4 @@
-# Conclusion: Effective Representatives or Styles of Representation 
+# Conclusion: Effective Representatives or Styles of Representation? 
 
 
 
@@ -16,24 +16,92 @@ A major argument of this book is that despite significant levels of inequality i
 
 Separate from the question of what makes the *institution* of Congress effective is what makes an individual *member* of Congress effective. Scholars have done extensive work to answer this question by measuring the legislative effectiveness of individual legislators [@VoldenWiseman2014]. Since the introduction of Volden and Wiseman's Legislative Effectiveness Scores, many other scholars have sought to understand how and why this legislative effectiveness matters, including for (representation, elections, etc.).
 
-What, then, would we consider a truly "effective" Congress to be? Adding interbranch representation to our picture of what Congress does makes it clear that a more holistic understanding of Congress's activities is necessary to answer this question.  
-
-## Practical Implications of Interbranch Representation
-
-Another important conclusion to be drawn from our findings is the extent to which interbranch representation depends on the skill and initiative of congressional offices. Far from simply responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. 
-
-## Other measures of effective representation 
+What, then, would we consider a truly "effective" Congress to be? Adding interbranch representation to our picture of what Congress does makes it clear that a more holistic understanding of Congress's activities is necessary to answer this question. Studying interbranch representation also raises the question of how this work compares with the other work that individual legislators do, particularly legislating and fundraising. To explore this relationship, we present correlations between interbranch representation and two measures of individual legislators' productivity on other matters: Legislative Effectiveness Scores [@VoldenWiseman2014] and corporate PAC fundraising. 
 
 ### LES 
 
-### Fundrasing 
+The Pearson's product-moment correlation between annual Legislative Effectiveness Scores and total annual requests to federal agencies is  0.024 (p < .01). While we cannot necessarily infer from this correlation that more effective legislators are also consistently more effective at interbranch representation, @fig-les-decile does show that legislators with the lowest Legislative Effectiveness Scores also do the least interbranch representation. Some of this relationship, however, may be driven by congressional leaders, particularly the Speaker, exercising power and effectiveness through other channels that are not captured in these measures. 
 
+
+```{r}
+#| label: fig-les-decile
+#| fig-cap: "Correlation Between Legislative Effectiveness Scores and Interbranch Representation"
+#| out-width: 80%
+
+knitr::include_graphics(here::here("figs", "total", "cor-les-decile-1.png"))
+```
+
+The correlation between Legislative Effectiveness Scores and interbranch representation is, unsurprisingly, strongest for policy work. It is driven by the top and, especially, bottom deciles of the both distributions. 
+
+```{r}
+#| label: fig-les
+#| fig-cap: "Correlation With Legislative Effectiveness Scores by Type of Interbranch Representation"
+#| out-width: 100%
+#| fig-show: "hold"
+#| fig-subcap: 
+#|   - "Overall"
+#|   - "Indiv. Constituents"
+#|   - "Corporate Constituents"
+#|   - "Nonprofits and Local Governments"
+#|   - "Policy Work"
+#|   - "Policy Work on Behalf of Business"
+#| layout-ncol: 3
+
+knitr::include_graphics(here::here("figs", "total", "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 1, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 2, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 3, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 4, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 5, "cor-les-3.png"))
+```
+
+### Fundraising 
+
+As shown in @fig-pac-decile, the correlation between corporate PAC fundraising and interbranch representation is driven even more by the top and, especially, bottom deciles of both. 
+
+```{r}
+#| label: fig-pac-decile
+#| fig-cap: "Correlation Between Corporate Political Action Committee Donations and Interbranch Representation"
+#| out-width: 80%
+
+knitr::include_graphics(here::here("figs", "total", "cor-pac-decile-1.png"))
+```
+
+The correlation between annual corporate PAC contributions and total annual requests to federal agencies is 0.08 (p< .001), a slightly stronger correlation than that between LES and requests to federal agencies. The fact that some legislators do both more fundraising and more interbranch representation, also supported by our other findings throughout this book, presents a significant challenge to our understanding of how fundraising work fits in with legislators' other activities.  
+
+
+```{r}
+#| label: fig-pac
+#| fig-cap: "Correlation With Corporate Political Action Committee Donations by Type of Interbranch Representation"
+#| fig-subcap: 
+#|   - "Overall"
+#|   - "Indiv. Constituents"
+#|   - "Corporate Constituents"
+#|   - "Nonprofits and Local Governments"
+#|   - "Policy Work"
+#|   - "Policy Work on Behalf of Business"
+#| layout-ncol: 3
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", "total", "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 1, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 2, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 3, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 4, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 5, "cor-pac-3.png"))
+```
 
 ## Other measures 
 
+## Practical Implications of Interbranch Representation
+
+Another important conclusion to be drawn from our findings is the extent to which interbranch representation depends on the skill and initiative of congressional offices. Far from simply responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. As part of effectively serving constituents and pursuing the legislator's policy goals, congressional staff must possess knowledge about the workings of the bureaucracy and how it connects to constituency service and policy. 
+
+The inequality in interbranch representation that we have documented and explained in this book raises questions about how effectively congressional offices are handling this workload and what, if anything, can be done to improve how interbranch representation works. As constituency service has begun to gain more attention as an essential function of congressional offices, other groups more closely connected to the institution have made efforts to study and improve both casework and congressional communication with the bureaucracy. 
+
 ## Changes Under the Trump Administration 
 
-In contrast to what we would expect if interbranch representation was mainly the result of seeking pork from co-partisan presidents [@Barry], we do not find the president's party being a strong or consistent predictor of legislators' work. 
+Contrary to what we would expect if interbranch representation were mainly the result of seeking pork from co-partisan presidents [@Barry], we do not find the president's party being a strong or consistent predictor of legislators' work. 
 If the unitary executive increases control over agencies, especially over their interactions with legislators, we may expect that the impact of presidential partisanship to increase and every thing else to decrease in importance. 
 
 This would disempower members of Congress as representatives. When their constituents contact them, they may be, on average, in less of a position to help them.
@@ -42,4 +110,4 @@ This would disempower members of Congress as representatives. When their constit
 - see coverage of DOGE cut exemptions system only open to republicans 
 
 
-Controlling agencies interactions with members of Congress will both constrain and be constrained by the coalitional politics that @Carpenter2010 discusses as giving agencies autonomy. 
+Controlling agencies' interactions with members of Congress will both constrain and be constrained by the coalitional politics that @Carpenter2010 discusses as giving agencies autonomy. 

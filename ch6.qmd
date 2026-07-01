@@ -10,57 +10,38 @@ here::here("code", "formatting.R") |> source()
 > ABSTRACT: What explains unequal levels of constituency service on behalf of businesses? We find that how members represent corporate constituents is consistent with theories of committee assignments as an electoral subsidy (Grimmer and Powell 2013) and the role of committee positions in distributive politics. Legislators provide more particularistic service to businesses on behalf of agencies that their committees oversee. Also consistent with theories of distributive politics and presidential pork (Berry et al 2009), when a co-partisan comes into the White House, members appear to write more to executive-branch agencies. We plan to explore the role of corporate campaign contributions in explaining business representation.
 
 
-Work on behalf of individual businesses is often on behalf of businesses in the legislators’ districts, but it may also include out-of-district campaign donors. Similar to the overall pattern, corporate service is correlated with bill sponsorship and the other components of LES scores, but this correlation is driven by the top 10% of legislators who advocate on behalf of corporate constituents.
+<!---Ellie: I like the idea of this anecdote, but I think we want to pick an example from our data, and a case where someone who gets a lot of corporate money then takes an action on behalf of a corporation. I also think there's way too long a time period between the action and the fundraising. Also, I know this is my fault because I had it backwards in an earlier draft of the chapter, but the way we're looking at the money and representation story in this chapter, is that we're looking at donations predicting future actions. I've relabeled this as corporate advocacy on behalf of donors. ---> 
 
+## What is commercial constituency service? 
 
+ Constituency service on behalf of businesses, or commercial service, is a form of constituency service where the legislator is advocating on behalf of a business--including business owners like farmers. This work on behalf of individual businesses (or business owners) is often on behalf of businesses in the legislators’ districts, but is not necessarily geographically delimited. For example, legislators could be advocating on behalf of out-of-district campaign donors.
 
+These commercial constituency service requests span a range of issues, and agencies. A common form of request is asking an agency to expedite something--in essence to speed up whatever it is they are doing. For example, @fig-FERC below shows a letter Rep. Mac Thornberry (R-TX13) wrote to the Federal Energy Regulatory Commission (FERC) in 2013 on behalf of the Vice President of the Panhandle Producers and Royalty Owners Association and the President of Cambridge Production, Inc. In the letter, Rep. Thornberry is urging FERC to speed up its decision-making process, and includes letters from the named corporate leaders explaining their request.  
 
-This correlation is robust to controlling for other predictors cross-sectionally but is not statistically significant in the difference in difference model (possibly due to limited change in LES scores over time)
+```{r}
+#| label: fig-FERC
+#| fig-cap: "Letter from Rep. Mac Thornberry to Federal Energy Regulatory Commission Chairman."
 
+knitr::include_graphics(here::here("anecdotes","FERC.png"))
+```
 
-Also similar to the overall pattern, newly-elected legislators do less and senators do more.
+Members of Congress make thousands of such interventions every year. Given incentives on the part of companies, members of Congress, and agencies to keep such interventions out of the public eye, the records we obtained are a rare glimpse into legislatory advocacy on behalf of busness interests. 
 
+While it is impossible to obtain systematic data historically, scattered archival records indicate that Members of Congress advocating on behalf of business interests to federal agencies is not an entirely new phenomenon. In 1966, Senator Strom Thurmond sent a Western Union telegram to Lee White, Chair of the Federal Power Commission requesting expeditious processing of Duke Power Company's recent license application (@fig-telegram). This outreach took place before the passage of the Federal Election Campaign Act of 1971 and the advent of the modern campaign finance disclosure system, so there's no way to know whether Duke Energy was a campaign contribute to Senator Thurmond shortly before or in the years immediately following the outreach. Decades later campaign finance disclosure records indicate that the long-serving Senator Thurmond received campaign contributions from Duke Energy^[Duke Energy gave Thurmond $6,000 in 1998 and in 2000. <!---Ellie: We need a citation here for these campaign contribution numbers---> ].  
 
+```{r}
+#| label: fig-telegram
+#| fig-cap: "Telegram from Senator Thurmond to Chair of Federal Power Commission requesting the commission expedite the processing of Duke Power Company's recent application. Source: Federal Energy Regulatory Commission e-Library."
 
+knitr::include_graphics(here::here("anecdotes","thurmond-telegram.png"))
+```
+<!---Ellie: We need to include source information for this image and for the anecdote above. Is this from our data? The 1966 telegram seems way before our data.   ---> 
 
+In this chapter, we examine what constituency service on behalf of corporations looks like, document the inequality in corporate constituency service, and examine what explains corporate constituency service. 
 
+## What does constituency service on behalf of corporations look like? 
 
-
-
-
-
-
-Committee chairs and ranking minorities
-Interestingly, ranking minority members do more corporate service, but, unlike the overall pattern, committee chairs do not.
-Oversight committee membership
-
-
-Our findings on how members represent corporate constituents are consistent with theories of committee assignments as an electoral subsidy and the role of committee positions in distributive politics. Legislators provide more particularistic service to businesses on behalf of agencies that their committees oversee.
-
-
-However, not all of our specifications show a causal effect of joining a committee, suggesting that legislators may join committees that oversee agencies that they already contact frequently on behalf of corporate constituents.
-
-
-Majority status
-Members of the majority did more work on behalf of corporate constituents on average. However, this does not appear to be a causal effect. More likely it is the result of which party was in the majority and their different levels of service in our timeframe.
-
-
-Co-partisan presidents
-
-
-In contrast, there are no cross-sectional differences between members in terms of who writes to presidents, but when a co-partisan comes into the Whitehouse, members appear to write more to executive-branch agencies.
-
-
-
-
-Do we want to look at corporate PAC contributions? Do we want to look at contributions from the industry areas that the agency covers? Not sure how easy it would be to do that crosswalk.
-
-
-
-
-
-## What it looks like
-
+@fig-words below shows the most frequent words used corporate constituency service messages from legislators to federal agencies over time.^[In some cases these words are taken from the actual letters themselves, but more often they're from a summary in a log file the agency kept of contact with Members of Congress.] These word clouds reveal some of the types of assistance consistently sought through the prevelance of terms like pending, assistance, contracting, application, funding, and project, but they also reveal issues that suddenly become salient like covid and coronavirus appearing in the years following the outbreak of the coronavirus pandemic in 2020.  
 
 ```{r}
 #| label: fig-words
@@ -69,76 +50,154 @@ Do we want to look at corporate PAC contributions? Do we want to look at contrib
 knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
 ```
 
-Given that its mission is to support small businesses in the United States, the Small Business Administration is a locus of communications from members of Congress on behalf of businesses. Many of these involved requests for disaster assistance, as well as assistance with accessing capital and obtaining loans. Legislators also wrote on behalf of constituents seeking assistance with the 8(a) Business Development Program, which provides support to business owners who are presumed to be socially disadvantaged, including Black Americans, Hispanic Americans, Native Americans, and Asian Americans. Requests on behalf of small businesses appeared in many other agencies as well. Many legislators wrote on behalf of businesses that needed assistance with work visas and other documentation for foreign workers, and these communications appeared in a number of different agencies, including USCIS and several sub-agencies in the Department of Labor like the Employment and Training Administration (ETA) and the Office of the Solicitor. Other requests on behalf of businesses that legislators sent to DOL agencies involved disputes over fines that businesses received and help with Trade Adjustment Assistance (TAA) benefits for displaced workers. 
+Given that its mission is to support small businesses in the United States, the Small Business Administration is a locus of communications from members of Congress on behalf of businesses. Many of these involved requests for disaster assistance, as well as assistance with accessing capital and obtaining loans. Legislators also wrote on behalf of constituents seeking assistance with the 8(a) Business Development Program, which provides support to business owners who are presumed to be socially disadvantaged, including Black Americans, Hispanic Americans, Native Americans, and Asian Americans. Requests on behalf of small businesses appeared in many other agencies as well. 
 
-As with individual constituency service, there are examples of business-focused constituency service that are less obvious or focus less on bureaucratic problems and government benefits. For example, Senator Richard Lugar wrote to the FDA on behalf of a constituent who owned a produce company and was concerned about how the classification of watermelons in a high-risk food safety category would affect the productivity of his business, given the extra (and in his view, unnecessary) precautions that the company would have to take. Although the business owner was technically expressing an opinion about FDA policy in this communication with Lugar, the issue at hand had a clear and tangible impact upon his business operations, and the constituent presumably wanted the FDA to reconsider the policy to mitigate these effects. As another example, Representative Eddie Bernice Johnson wrote to the IRS on behalf of a constituent who had submitted an application to the IRS with an error that needed to be corrected (the constituent mistakenly wrote his PIN number instead of his PTIN number on the form). The constituent had contacted Johnson's office because the paperwork had still not been processed after he re-submitted a version with the correction, and he was concerned about "losing money in lost potential business." Both of these contacts show that legislators' advocacy on behalf of businesses is not necessarily about fixing bureaucratic problems or obtaining special treatment for businesses at the expense of the public good.
+Many legislators wrote on behalf of businesses that needed assistance with work visas and other documentation for foreign workers, and these communications appeared in a number of different agencies, including the U.S. Citizenship and Immigration Services (USCIS) and several sub-agencies in the Department of Labor like the Employment and Training Administration (ETA) and the Office of the Solicitor.^[Other requests on behalf of businesses that legislators sent to DOL agencies involved disputes over fines that businesses received and help with Trade Adjustment Assistance (TAA) benefits for displaced workers.] Some of the legislators we find doing the most work helping businesses wih work visas for their employees might run contrary to our stereotypes of corporate advocacy. For example, if we examine the legislators who wrote the most letters on behalf of business interests to USCIS in 2016, the list includes prominent progressive Democrats like Senator Elizabeth Warren (D-MA, 249 letters) and Rep. Jerry Nadler (D-NY, 211 letters), as well as, Rep. Brian Higgins (D-NY, 249 letters), Sen. Chuck Schumer (D-NY, 220 letters), Rep. Scott Riggell (R-VA, 215 letters), Sen. Kirsten Gilligrand (D-NY, 151 letters), Sen. Amy Klobuchar (D-NY, 146 letters), and Sen. Johnny Isakson (R-GA, 125 letters).^[A word of caution about drawing inferences from this 2016 case. We chose 2016 to use for this example, because it was one of the few years for which we have data from USCIS. We urge readers to remember that these letters during 2016 were written prior to President Trump's inauguration (January 2017), and thus were not in response to Trump-initiated immigration policy changes.]
+
+If we look at legislators who wrote the most corporate service letters to a single agency in a given year excluding USCIS, we see a less surprising list of names: Sen. David Vitter (R-LA, 64 letters in 2015 to SBA),
+Sen. Mark Warner (D-VA, 56 letters in 2014 to CMS), Sen. Richard Lugar (R-IN, 49 letters in 2009 to CMS), Rep. Eric Cantor (R-VA, 33 letters in 2011 to CMS), Marco Rubio (R-FL, 32 letters in 2016 to CMS) 
+Brad Sherman (D-CA, 31 letters in 2012 to CMS), and Jim Webb (D-VA, 28 letters in 2007 to DOL-ETA).^[As previously mentioned, SBA is the Small Business Administration--a common and natural place for corporate service, CMS is the Centers for Medicare and Medicaid Services--a plausible place after the passage of the Affordable Care Act, and the DOL-ETA is the Department of Labor's Employment and Training Administration.]
 
 
-## Explaining Differences in Representing Businesses  
+As with individual constituency service, there are examples of business-focused constituency service that are less obvious or focus less on bureaucratic problems and government benefits. For example, Senator Richard Lugar wrote to the Food and Drug Administration (FDA) on behalf of a constituent who owned a produce company and was concerned about how the classification of watermelons in a high-risk food safety category would affect the productivity of his business, given the extra (and in his view, unnecessary) precautions that the company would have to take. Although the business owner was technically expressing an opinion about FDA policy in this communication with Lugar, the issue at hand had a clear and tangible impact upon his business operations, and the constituent presumably wanted the FDA to reconsider the policy to mitigate these effects. 
 
-Variation in constituency service is mainly driven by ... 
+In some cases, legislators are writing on behalf of businesses seeking enforcement actions against their competitors. For example, Rep. Frank Kratovil (D-MD1) wrote to the FDA, "Red Bull that is made for Ireland is being mysteriously distributed in Maryland without an FDA approval noted on the package. Constituent, who is a distributer for Red Bull in Maryland, questions whether this practice is legal," (April 22, 2009). 
+
+As another example, Representative Eddie Bernice Johnson wrote to the IRS on behalf of a constituent who had submitted an application to the IRS with an error that needed to be corrected (the constituent mistakenly wrote his PIN number instead of his PTIN number on the form). The constituent had contacted Johnson's office because the paperwork had still not been processed after he re-submitted a version with the correction, and he was concerned about "losing money in lost potential business." Both of these contacts show that legislators' advocacy on behalf of businesses is not necessarily about fixing bureaucratic problems or obtaining special treatment for businesses at the expense of the public good.
+
+Lastly, a more traditional example of corporate constituency service is a legislator writing to an agency seeking to change policy to benefit his business. Rep. Ed Whitfield (R-KY) wrote to the FDA on April 27, 2010 on behalf of a constituent who owns a tobacco outlet and "wants FDA to modify the Tobacco Control and Prevention Act to allow individuals under the age of eighteen to enter stores with self service displays provided they are accompanied by an adult. The company owner does not want to make his store adult only, and believes the FDA's regulation will prevent families from entering the store, and will threaten the sale of other non-tobacco items."   
+
+## Inequality in Corporate Constituency Service
+
+@fig-percent-type2 below shows the inequality in corporate constituency work across legislators. These patterns again reveal high levels of inequality in how much work legislators do on behalf of business interests. We find that inequality in corporate service (Gini coefficient of .749 in the House and .789 in the Senate) is modestly larger than the inequality in overall interbranch representation (@fig-percent, Gini coefficient of 0.720 in House, and .732 in the Senate)  and somewhat smaller than the inequality in individual constituency service (@fig-percent-type1, .794 in the House and .814 in the Senate). 
+
+
+
+```{r}
+#| label: fig-percent-type2
+#| fig-cap: "Observed levels of corporate constituency service per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+
+```
+\clearpage
+
+## What Explains Differences in Representing Businesses?  
+
+@tbl-models-full below shows the full regression results across cross-section and difference-in-differences model specifications explaining corporate service. We find Demand, Capacity, and Strategic Choices all play a role in explaining variation in corporate service.  
+
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and strategic choices on requests to federal agencies {#tbl-models-full}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full.Rdata"))
+
+modelsummary(models_full,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislative office capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions, years in office, and reporting committee membership) and strategic choices in a given political environment (perceived ideological distance from the agency, co-partisan president) on levels of interbranch representation.")) |>
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Demand"= 2,
+    "Strategic Choice" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 43, line = "t", line_color = "black", line_width = 0.2) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+\clearpage
+
 
 ### Demand
 
-```{r}
-#| label: tbl-models-demand
-#| tbl-cap: "The effect of demand on requests to federal agencies"
-#| out-width: 100%
+We find evidence in @tbl-models-full consistent with both our @thm-demandmoreconstituents and @thm-demandmoredemanding across all cross-sectional model specifications (models 1, 3, 5).^[In evaluating our demand hypotheses, we're going to focus on the cross-sectional results, because the difference-in-difference model specifications that include both legislator-agency fixed effects and year-agency fixed effects effectively control for district demand characteristics, and thus it is largely consistent with expectations that the limited temporal variation in these variables hold little explanatory power.] Having more constituents, and more demanding constituents (college graduates in all cross-sectional specifications, and government workers in 2/3 cross-sectional specifications) are positively associated with more corporate service. Findings are, perhaps not surpringly, more mixed for a relationship between greater needs constituents (the percentage of the district on public assistance) and corporate service work with varying signs and significance across model specifications [@thm-demandgreaterneed]. 
 
-load(here::here("models", type,  "models_demand.Rdata"))
-
-modelsummary(models_demand,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
-```
-
-
+Using the coefficients from model 5 in @tbl-models-full, @fig-pop-effect shows the predicted average levels of interbranch representation per year per senator compared to a counterfactual scenario where all states had the same population (and staff budget corresponding to that population). The panel on the left shows a counterfactual in which all Senators had same population as Wyoming. The yellow dots represent the every Senator's actual provision of constituency service organized left to right from lowest providers to highest providers. The blue dots show the counterfactual prediction of population being equalized to the state of Wyoming. Since Wyoming is currently the least populous state (according to the 2020 census the population was approximately 577 thousand people), this would be a scenario that reduces demand in every state--high population states observe large estimated effects, while states with more modest populations experience smaller estimated effects. 
 
 
 ```{r}
 #| label: fig-pop-effect
-#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
-#| out-width: 50%
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to population counterfactuals"
+#| fig-show: hold
+#| fig-subcap: 
+#|   - "Wyoming Counterfactual"
+#|   - "Tennessee Counterfactual"
+#| layout-ncol: 2
+#| out-width: 100%
 
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-min-1.png"))
 knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
-
 #TOD college grads and government workers 
 
 ```
 
 
+The panel on the right (in @fig-pop-effect) shows a counterfactual in which all Senators have the same population as Tennessee--the 15th most populous state (according to the 2020 census the population was approximately 6.9 millions). This counterfactual simulates an increase in demand (and Senator's resources) for most states, while substantially decreasing pouplation (and Senator's resources) for the most populous states like California, Texas, and New York. The yellow dots representing each Senator's actual performance are identical across plots, but in the right most plot 
+
+While population in the form of demand is highly correlated with corporate service -- having more constituents is associated with substantially more constituency service, it has relatively little impact on inequality. In a counter-factual world in which states had the same population (not too dissimilar from the U.S. House), there would be a limited impact on reducing inequality in interbranch corporate service, because the impacts are spread across the distribution. The gini coefficient is estimated to change by 0.04 points, which suggests that the variation in corporate service associated with state population is responsible for approximately 5\% of the overall inequality in corporate service. 
+
+@fig-popcollege-effect shows a similar style of counterfactual for our @thm-demandmoreconstituents. In this case, we're comparing predicted levels of interbranch representation per Senator based on the actual education levels of their constituents (yellow dots) to a counterfactual in which no constituents had a college degree (blue dots). Reducing the number of more demanding constituents in a district, would be associated with a reduction in corporate service. If we sum up the predicted corporate service differences between the no education scenario and the actual district education across all legislators, the effect of the proportion of college educated constituents is estimated to be an average of 1,584 corporate service requests per year. Although increasing or decreasing a districts education level is estimated to change the amount of corporate service, equalizing education levels across district is estimated to have no change in the inequality across districts (gini coefficient). 
+
+```{r}
+#| label: fig-popcollege-effect
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to more demanding constituents (highly educated) counterfactual"
+#| fig-show: hold
+#| fig-subcap: 
+#|   - "No College Counterfactual"
+#| out-width: 50%
+knitr::include_graphics(here::here("figs", type, "m-demand-effect-1.png"))
+#TOD college grads and government workers 
+
+```
+ 
+
 ### Capacity
 
-Columns 1, 3, and 5 of @tbl-models-demand) show differences across legislators with different capacity advantages. 
+Turning from Demand, to Capacity, we find evidence in @tbl-models-full of some forms of capacity as always having strong positive relationships (legislator experience in Congress) across all model specifications, while other forms of capacity (Reporting committee assignment, and committee leadership positions) are positive and significant in some models, and lastly prior state legislative experience is insignificant across all model specifications. 
+
+
+
+<!---Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. --> 
+
+@fig-capacity-effect below shows a similar style of counterfactual scenarios estimating the impact of capacity changes on the performance of corporate constituency service. The top left panel shows the effect of legislator experience, the top right a Reporting Committee Relationship (sitting on the committee that has jurisdiction of that agency), and the bottom left panel shows a Total Capacity counterfactual effect.^[Total capacity effect includes counterfactuals for chair, sub-committee chair, ranking minority member, oversight, prestige committee assignment and legislator experience.]
 
 ```{r}
-#| label: tbl-models-capacity
-#| tbl-cap: "The effect of capacity on total requests to federal agencies"
-#| out-width: 100%
-
-load(here::here("models", type,  "models_capacity.Rdata"))
-
-modelsummary(models_capacity,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
-```
-
-
-```{r}
-#| label: fig-effect
-#| fig-cap: "Predicted levels of interbranch representation per legislator per year compared to counterfactuals"
+#| label: fig-capacity-effect
+#| fig-cap: "Predicted levels of interbranch representation per legislator per year compared to capacity counterfactuals"
 #| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
+#|   - "Legislator Experience"
+#|   - "Reporting Committee Relationship"
+#|   - "Total Capacity"
 #| layout-ncol: 2
 #| out-width: 100%
 
 knitr::include_graphics(
 here::here("figs", type,
-           paste0("m-effect-",
-                  c(1:2,5,8), 
+           paste0("m-capacity-effect-",
+                  c(5,4,8), 
                   ".png"
                   ) 
            ))
@@ -146,6 +205,7 @@ here::here("figs", type,
 
 
 
+Perhaps most intriguing is that the Reporting Committee capacity measure is only significant in cross-sectional models, not in difference-in-difference models, suggesting that Reporting Committee maybe capturing something important about the capacity of specific members who serve on those committees. 
 
 ##### Staff quality 
 
@@ -167,18 +227,7 @@ modelsummary(models_district,
 #### Interbranch representation as electoral strategy
 
 
-```{r}
-#| label: tbl-models-elect
-#| tbl-cap: "The effect of electoral security on total requests to federal agencies"
-#| out-width: 60%
 
-load(here::here("models", type,  "models_elect.Rdata"))
-
-modelsummary(models_elect,
-             notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
-
-```
 
 
 ```{r}
@@ -230,10 +279,8 @@ knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
 #| layout-ncol: 2
 #| out-width: 100%
 
-knitr::include_graphics(here::here("figs", type, "m-effect-6.png"))
-knitr::include_graphics(here::here("figs", type, "m-did-effect-6.png"))
-knitr::include_graphics(here::here("figs", type, "m-effect-7.png"))
-knitr::include_graphics(here::here("figs", type, "m-did-effect-7.png"))
+knitr::include_graphics(here::here("figs", type, "m-partisan-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-partisan-effect-2.png"))
 ```
 
 
@@ -276,6 +323,8 @@ here::here("figs", type,
 
 
 
+
+
 #### Interbranch representation and campaign fundraising strategy
 
 
@@ -289,3 +338,63 @@ modelsummary(models_pac,
              notes = list("Robust standard errors in parentheses, clustered by district",
                           "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
 ```
+
+#### Case Study: Energy PAC Campaign Contributions and Corporate Constituency Service to the Department of Energy
+
+Up to this point in the chapter, we've examined the relationship between our framework of demand, capacity, and strategic choice and corporate constituency service work with all federal agencies. Before concluding the chapter and moving onto the next form of interbranch representation, we're going to take a closer look at corporate constituency service directed toward the Department of Energy. By focusing on work with a single agency, we can look more specifically at campaign contributions the legislator received from the energy sector political action committees (as opposed to the total corporate PAC contributions we examined in the previous section and models).  @tbl-models-pac-energy uses a similar model specification as @tbl-models-pac, but changes the dependent variable to corporate constituency service to the Department of Energy. 
+
+```{r}
+#| label: tbl-models-pac-energy
+#| tbl-cap: "Corporate Constituency Service requests to the Department of Energy and Energy Sector Political Action Committee Contributions in the Prior Congress" 
+
+load(here::here("models", type,  "models_pac_energy.Rdata"))
+
+modelsummary(models_pac_energy,
+             notes = list("Robust standard errors in parentheses, clustered by district",
+                          "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
+```
+\clearpage 
+
+Just as with the aggregate data across all agencies (@tbl-models-pac), we find that prior contributions from the energy sector are positively correlated with corporate service in the cross sectional models, but not in the difference-in-difference models. This pattern of contributions mattering in cross-sectional models, but not differences in difference models would be consistent with a story of corporate donors giving to like-minded members, rather than contributions changing behavior. Other interpretations, of course, are possible given ambiguities of temporal sequencing and the limitations of what we can say with this research design. 
+
+<!---Ellie: How do we want to interpret that difference? My intuition: contributions given to members with pro-industry views, rather than contributions causing changes in behavior.  ---> 
+
+
+
+## Conclusion: Legislator Advocacy on Behalf of Corporations
+
+
+
+
+<!---Ellie: I moved these notes into a comment -- not sure whether they are updated based on our most recent findings, model specifications, etc. Similar to the overall pattern, corporate service is correlated with bill sponsorship and the other components of LES scores, but this correlation is driven by the top 10% of legislators who advocate on behalf of corporate constituents. 
+
+This correlation is robust to controlling for other predictors cross-sectionally but is not statistically significant in the difference in difference model (possibly due to limited change in LES scores over time)
+
+Similar to the overall pattern, newly-elected and legislators do less and senators do more.
+
+
+
+
+Committee chairs and ranking minorities
+Interestingly, ranking minority members do more corporate service, but, unlike the overall pattern, committee chairs do not.
+Oversight committee membership
+
+
+Our findings on how members represent corporate constituents are consistent with theories of committee assignments as an electoral subsidy and the role of committee positions in distributive politics. Legislators provide more particularistic service to businesses on behalf of agencies that their committees oversee.
+
+
+However, not all of our specifications show a causal effect of joining a committee, suggesting that legislators may join committees that oversee agencies that they already contact frequently on behalf of corporate constituents.
+
+
+Majority status
+Members of the majority did more work on behalf of corporate constituents on average. However, this does not appear to be a causal effect. More likely it is the result of which party was in the majority and their different levels of service in our timeframe.
+
+
+Co-partisan presidents
+
+
+In contrast, there are no cross-sectional differences between members in terms of who writes to presidents, but when a co-partisan comes into the Whitehouse, members appear to write more to executive-branch agencies.
+
+
+---> 
+
