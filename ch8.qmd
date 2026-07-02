@@ -6,7 +6,244 @@ load(here::here("data", type, "means.Rdata"))
 here::here("code", "formatting.R") |> source()
 ```
 
-> ABSTRACT: Stark differences in the amount of policy work legislators do is driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+> ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+
+## Genres of policy work 
+
+We can group policy work into three subtypes: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports, and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations. Sometimes policy work is clearly driven by legislators' policy interests. Other times it clearly stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). We address policy work on behalf of business interests in the following chapter.
+
+Within the subset of legislator requests that focus on policy rather than constituency service, most are comments on proposed agency rules implementing statutory authority (@fig-policy-subtypes). The next most frequent type of request is for assistance in drafting legislation. As it occurs before legislation, this is clearly not oversight. The third most common type of request relates to more traditional oversight actions like hearings and reports. Another, much smaller category of requests emerges of oversight that, unlike hearings and rulemaking comments, is largely unrelated to legislative tasks. For example, member of Congress frequently contact agencies about personnel decisions, upcoming lawsuits, and their response to disasters. When the nature of the congressional request relates to agency leadership, personnel policy (rather than a particular federal worker), how the agency should settle or make policy changes in response to a lawsuit, or how it should distribute disaster aid (in general, not to a particular group of constituents), we consider such requests to involve agency policy. 
+
+ 
+
+
+```{r}
+#| label: fig-policy-subtypes
+#| fig_cap: Types of policy work
+#| out_width: 80%
+
+# not broken out by type 
+#knitr::include_graphics(here::here("anecdotes", 5, "oversight-prepost-1.png"))
+knitr::include_graphics(here::here("anecdotes", 5, "oversight-drivers-prepost-1.png"))
+```
+
+
+The nature of interbranch representation varies by agency. This is true within subtypes of policywork as well. 
+While congressional attention focuses on rulemaking overall, contacts with Homeland Security focus on traditional oversight, and contacts with USDA are mostly about Farm Bills and related legislation (@fig-policy-type-by-agency).  
+
+```{r}
+#| label: fig-policy-type-by-agency
+#| fig_cap: Types of policy work with selected agencies.
+#| out_width: 80%
+knitr::include_graphics(here::here("anecdotes", 5, "oversight-data-agency-top-top-1.png"))
+```
+
+
+### Interbranch representation informs legislating
+
+[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.]
+
+Discussions of congressional oversight usually focus on hearings and investigations, both of companies and government agencies. Through hearings like those that Senator Levin conducted on U.S. Vulnerabilities to Money Laundering, Drugs, and Terrorist Financing, legislators shine a spotlight on problems that demand action from government, often federal agencies. 
+
+
+### Oversight investigations inform agency policy 
+
+@fig-levin-fincen shows a letter from Senator Levin in support of a proposed rule from the Treasury Financial Crimes  Enforcement Network, citing investigations and hearings.
+
+
+```{r}
+#| label: fig-levin-fincen
+#| fig_cap: Senator Levin Writes to the Treasury Department's Financial Crimes Enforcement Network (FinCEN) on the same topic of hearings
+#| out_width: 55%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "rulemaking-fincen.png"))
+# larger version 
+# knitr::include_graphics(here::here("anecdotes/5//levin/rulemaking-fincen-large.png"))
+```
+
+
+This was not the only agency policy informed by Levin's oversight investigations. @fig-levin-foreign shows a letter that Senator Levin wrote supporting an IRS rule, with a 1000-page hearing transcript entered into the record. 
+
+```{r}
+#| label: fig-levin-foreign
+#| fig_cap: Senator Levin writes to the IRS, entering a Committee Report and full 1000-page hearing transcript into the record supporting an IRS rule
+#| out_width: 95%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-rulemaking-investigation-foreign.png"))
+```
+
+
+Congressional attention is not all positive. In 2013, Senator Levin wrote, chastising five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading (@fig-levin-volcker).
+
+```{r}
+#| label: fig-levin-volcker
+#| fig_cap: Senator Levin writes to chastise five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading.
+#| out_width: 80%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-volcker.png"))
+```
+
+Legislators writing agencies about how they are implementing policy is much more common than questioning agencies about what they are doing in a hearing.
+
+
+###  Interbranch representation informs statutory interpretation and executive-branch policymaking
+
+Most legislator contacts address what scholars often call "implementation" of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect (laws passed by Congress, like executive branch executing, are mostly authorizations and requirements for bureaucrats to make rules. Very little legislation is self-executing.)
+@fig-levin-statutory shows Senator Levin taking issue with the Statutory interpretation that the Small Business Administration used in making policy. Agencies take this kind of intervention seriously. In response to Levin's letter, the Administrator of the Small Business Administration, Maria Contreras-Sweet, replied that they were taking the senator's perspective as they crafted the rules implementing the Dodd-Frank Act. 
+
+
+
+```{r}
+#| label: fig-levin-statutory
+#| fig_cap: Senator Levin takes issue with how the Small Business Administration interpreted a statute in making rules
+#| out_width: 80%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "statutory-interpretation.png"))
+#TODO Replace this second one with a transcribed block quote
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-dodd-frank.png"))
+```
+
+Interbranch representation goes beyond technical and legal opinions.
+Policy fights do not end when Congress passes a law; they merely shift to the executive branch, and members of Congress are actively engaged in this arena. 
+For example, in 2007, a group of 13 Republican legislators, including Mike Pence, wrote to Ben Bernanke and the Federal Reserve governors to "applaud [them] for not exempting any payment system from the regulations" and to oppose pressure from industry to delay rules implementing the 2006 Unlawful Internet Gambling Enforcement Act of 2006. <!--https://www.regulations.gov/comment/TREAS-DO-2007-0015-0112)--> 
+
+<!--
+```{r}
+#| label: fig-rulemaking-pence
+#| fig_caption: A bipartisan group of 13 members of Congress 
+#| 
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-0015-0112.png"))
+```
+--> 
+
+However, most agency rules are "implementing" legislation passed many decades ago [@CITE]
+
+
+```{r}
+#| label: fig-levin-ssa
+#| fig_cap: Senator Levin and others urge SSA to withdraw a proposed rule
+#| out_width: 80%
+
+
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-ssa.png"))
+```
+
+
+
+#### Appropriations 
+
+In addition to attempting to shape how the executive branch makes policy through rulemaking, members of Congress are active in attempting to shape the distribution of appropriated funds. This happens both for specific grant applications as discussed in @sec-type3 and in a more general sense. 
+
+<!--
+#### International Agreements 
+
+Human rights/labor also comes up a lot and we could look more into who is most involved in those concerns (see USTR 6893, 7026, etc.)
+
+"TPP trade secrets with USTR and DOJ" (3941, also 4785, 5974, 6469). It's hard to tell what the motivations are here. There's also some about news stories that could be potentially damaging (Politico, 4200).
+--> 
+
+## Policy work as interbranch representation 
+
+
+### Constituencies and partisanship 
+
+Partisan tensions between the policy agendas of members of Congress and the President drive a great deal of policy-related interbranch representation. An opposition party can only hold hearings when they are in the majority, but individual members can always contact an agency any time. For example, Democratic legislators wrote thousands of letters opposing Trump-era policy, such as those that allow certain nonprofits not to disclose their donor contributions, 
+<!-- https://www.regulations.gov/comment/IRS-2019-0039-8319 --> 
+environmental deregulation, and 
+The Consumer Financial Protection Bureau's 2019 rule that made it easier for debt collectors to harass consumers. 
+<!-- https://www.regulations.gov/comment/CFPB-2019-0022-12107 --> 
+77 Democratic members of the House and 23 Senators wrote to oppose a 2019 proposed rule by the Department of Labor's Wage and Hour Division that permitted employers to pay fewer employees overtime. 
+
+Democrat Tom Malinowski and other democrats who oppose the Trump-era CFPB rule that would deregulate payday lenders.
+
+> "The precipitues decline in the volume of enforcement actions during your tenure leads me to question whether the CFPB is indeed following through on its objective to protect consumers and aggressively enforce the law." 
+
+<!-- 
+https://www.regulations.gov/document/CFPB-2019-0006-39935
+https://www.regulations.gov/document?D=CFPB-2019-0006-0344
+--> 
+
+<!--
+During the Obama Administration, advocacy from the Senate Environment and Public Works committee in opposition to the Obama Administration's Clean Power Plan used similar language as an anonymous advocacy campaign identified with the website betterenergyfuture.org 
+--> 
+
+Members of Congress were more often than not supportive of industry when writing to the Department of the Interior's Bureau of Safety and Environmental Enforcement (as discussed in the next chapter). However, there is also a great deal of advocacy on behalf of broader interests. For example, many members of Congress from coastal states wrote to oppose the Trump administration's removal of safety rules on offshore oil drilling. Florida Republican Vern Buchanan went so far as to support the environmentalist group Center for Biological Diversity.
+
+```{r}
+#| label: fig-rulemaking-buchanan
+#| fig_caption: Florida Republican, Vern Buchanan, opposing a Trump-era rule rolling back regulations
+
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "BSEE-2017-0008-0473.png"))
+```
+<!--
+Senators from multiple states but all coastal https://www.regulations.gov/comment/BSEE-2018-0002-19026
+https://www.regulations.gov/comment/BSEE-2018-0002-20464
+Comments from the Florida State House: https://www.regulations.gov/comment/BSEE-2018-0002-0032
+--> 
+
+
+
+
+
+
+## Procedural politicking
+
+As documented by @LowandePotter2021 and @Potter2019, one form of proxy fight over policy is the timing of rules. Agencies may speed up or slow down rulemaking processes, for example by extending the comment periods or refusing to do so. Thus, legislators, like others, are often attempting to intervene procedurally, especially by attempting to extend study periods or comment periods. For example, on the same Federal Reserve rule that Mike Pence and other Republican Senators pushed back on substantive grounds, a different group of legislators made a procedural argument. The gambling industry groups were requesting state-by-state surveys of gambling laws. Legislators from the Subcommittee on Administrative Law called out this ploy for regulatory delay. 
+<!-- (https://www.regulations.gov/comment/TREAS-DO-2007-0015-0125) --> 
+
+<!--
+```{r, out.width = "100%"}
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-0015-0125.png"))
+```
+--> 
+
+From the other side of the aisle, Democratic members of Congress attempted to slow environmental deregulation under the Trump Administration was to ask that the Counsel On Environmental Quality and other agencies extend comment periods on their proposed rules. 
+
+> "That's why I am particularly disappointed that CEQ denied my---and more than 160 Members of the House and Senate---request for an extension of the comment period. Further, CEQ simply chose not to respond to our request for additional public hearings. CEQ has proposed a massive overhaul to a set of keystone environmental regulations that have stood in place — largely unchanged for almost half a century. By providing a mere 60-day comment period, and only two public hearings (in Colorado and Washington, DC), CEQ appears uninterested in obtaining broad-scale public input." - [Oregon Representative Peter DeFazio, Chairman of the Committee on Transportation and Infrastructure.](https://www.regulations.gov/comment/CEQ-2019-0003-169768)
+
+
+<!--
+
+
+
+[26 Republicans ask the Comptroller of the Currency for clarity on a 2020 proposed rule that increases regulations between banks and lenders, focusing on the rule's impact on companies.](https://www.regulations.gov/comment/OCC-2020-0026-0002)
+
+```{r}
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "OCC-2020-0026-0002.png"))
+```
+
+
+
+[Democrats opposing the same 2020 Comptroller of the Currency rule](https://www.regulations.gov/comment/OCC-2020-0026-0277)
+
+```{r, out.width = "100%"}
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "OCC-2020-0026-0277.png"))
+```
+
+These examples illustrate how "states' rights" rhetoric is used strategically depending on which side of the substantive issue one is on.
+Here, Democrats are advocating for states' rights, while Republicans want a federal standard that would preempt state policy.
+
+--> 
+
+### Legislator attention is often shaped by constituents & interest groups
+
+Interbranch representation does not occur in a political vacuum. All of the examples above are parts of broader policy fights that include interest groups. 
+In 2019, the Sierra Club advertised that "Last fall, 105 Members of Congress and 34 U.S. Senators sent letters to Trump's Department of the Interior to protest the harmful rollbacks" [@SierraClub2019].
+In his classic book **Bureaucracy**, @Wilson1989 describes the role of constituents and interest groups in activating interbranch representation when the Federal Trade Commission (FTC) began making rules about antitrust and fraud in the 1970s. The FTC proposed a Funeral Industry Practice rule requiring disclosure of the prices of components of funeral expenses and a Used Car Rule that required dealers to inspect each car offered for sale and post the results on the car's window. 
+
+> "Undertakers and used-car dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down" (Wilson 1989, 83).
+
+```{r}
+#| label: fig-levin-constituents
+#| fig_cap: Constituents 
+#| out_width: 80%
+# DEVIN: MOVE TO CHAPTER ON CONSTITUENTS? I THINK THIS WOULD BE CODED AS TYPE 5 THOUGH 
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-constituents.png"))
+```
+
+
+
+<!--RELATED 
+https://www.regulations.gov/comment/FWS-HQ-ES-2018-0006-53372
+
+https://www.epw.senate.gov/public/index.cfm/2018/9/senators-carper-and-udall-lead-democratic-senators-in-raising-concerns-over-trump-administration-s-attacks-on-landmark-endangered-species-act
+--> 
 
 
 ## What it looks like
@@ -22,7 +259,7 @@ As shown in the word cloud of frequently used words in @fig-words, members of Co
 
 Legislators' communications with federal agencies for the purpose of general policy work speak to Congress's role in conducting oversight of the bureaucracy. Senator Chuck Grassley (R-IA), the most prolific author of policy-related correspondence, sent a number of letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services that were tagged by the agency as "oversight." These letters covered topics such as budget sequestration, the implementation of the Sunshine Act, and various rules, including the Inpatient Prospective Payment System (IPPS) rule, the Medicare Hospital Value-Based Purchasing rule, and CMS's delay in drafting other regulations required by the Affordable Care Act. Grassley also co-authored a letter with two other unidentified legislators to request information about the Patient Safety and Medical Liability Reform Demonstration and Planning grants that CMS was funding. All of the examples discussed here occurred during the Obama administration. Overall, many of Grassley's communications with CMS seem to be focused on conducting oversight of an agency with which he was not ideologically aligned--a departure from the findings in our analysis, as we discuss in greater detail below. 
 
-The most frequent words used in congressional contacts with the Mine Health and Safety Administration, illustrates two important points (1) policy work often means involvement in executive-branch policymaking, and (2) policy work is often intimetly related to constituent service. 
+The most frequent words used in congressional contacts with the Mine Health and Safety Administration illustrate two important points: (1) policy work often means involvement in executive-branch policymaking, and (2) policy work is often intimately related to constituent service. 
 
 
 ```{r}
@@ -43,8 +280,20 @@ knitr::include_graphics(here::here("figs", "wordcloud", type, "by-agency", "DOL_
 
 knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
 knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
-
 ```
+
+
+## Policy work as representation 
+
+
+[](https://www.regulations.gov/document/CFPB-2016-0025-148844)
+
+```{r}
+#| fig_cap: "Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule."
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
+```
+
+
 
 ## Explaining Differences in Policy Work
 
@@ -187,7 +436,7 @@ knitr::include_graphics(here::here("figs", type, "m-elect-effect-2.png"))
 
 ```{r}
 #| label: fig-ideo-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)."
 #| fig-subcap: 
 #|   - ""
 #|   - ""
@@ -219,7 +468,7 @@ knitr::include_graphics(here::here("figs", type, "m-partisan-effect-2.png"))
 
 
 
-#### Staff allocation reflects priories
+#### Staff allocation reflects priorities
 
 
 ```{r}

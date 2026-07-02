@@ -1,19 +1,137 @@
 
-# Data and Methods {.appendix}
+# Methods {.appendix #sec-appendix-methods}
+
+This appendix provides more details on how we measure interbranch representation, our data collection process, and the methods with which we analyze the data.  
+
+## The data generating process 
+
+The data we received in response to our Freedom of Information Act requests include several filtering processes, leading to an under-count of true levels of interbranch representation. First, the agency had to make a record of the interaction. If a staffer from a congressional office talked to someone they know at an agency over the phone, they may not always make a record of it. However, they often do, because internal agency procedures often have precise guidance about recording interactions with members of congress, <!--cite proceedures manual-->  which often include minimum response times and signature levels. Nearly all agencies use a correspondence tracking system provided by a government contractor that standardizes information and tracks cases that need followup. Members of congress are generally tagged as "VIP" or "Priority" in these tracking systems. <!---We observed this in the data we received and it was confirmed in interview with former officials. Anything having to do with congress will be treated differently. Anything going out always goes way up the chain. For executive regulatory agencies (rather than the independent agencies) this means that every agency potentially involved as well as the White House sign off on anything sent to a member of Congress. DID OUR IRB COVER INTERVIEWS? THIS CAME FROM A CONVESATION I HAD WITH A INSTRUCTUR WHO WAS A RETIRED SES. ---> 
 
 
-We provide more details on how we measure interbranch representation, our data collection process, and the methods with which we analyze the data.
+## Coding Types of Interbranch Representation
 
+This section goes into more detail on how we coded types of interbranch representation. 
+
+To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type.
+
+<!--https://foia.blogs.archives.gov/2017/09/11/cheers-for-a-national-foia-portal/--> 
+
+<!--
+
+ANECDOTES ABOUT FOIA 
+
+Devin's Jul 25, 2019 email: DHS offered a slightly absurd bureaucratic explanation involving our appeal not having a tracking number and thus everyone ignoring us because it was not their job, but at least it is an explanation. (It does not really explain why they also ghosted the judge.)
+
+After hearing her explanations, my theory is that most of the "bad faith" actions can be attributed to our FOIA officer being an old hat with a lot of tricks to get requesters to go away (e.g. she claims not to know how to use Microsoft Excel, she repeatedly misquoted Rochelle and me to each other and others, and she keeps trying to cancel our request if we don't write back immediately). She does not have to deal with appeals or lawsuits, so if she can send a few screenshots and call her work done, she will. This does not make it right or legal or an efficient use of any of our time.
+
+Rochelle'sJul 26, 2019 email: DOJ-OIP claims to have found no records responsive to our request. I don't think that this is correct, as several other DOJ components specifically mentioned the electronic correspondence system of the Executive Secretariat in their earlier responses to us, and this was the system that I referenced in our request. (This system may be managed by the Justice Management Division, but they were the ones who directed us to OIP for this request.) We also did not receive any official correspondence from OIP about this response--I just noticed that the request was closed when I checked our FOIA Online account.
+
+
+Mar 1, 2019, EOP-OSTP  said that they have no congressional correspondence logs from the current administration
+
+ Several FOIA officers  asked us to prove our credentials as an "Educational Requester" with a letter on letterhead signed by the Department Chair.
+
+
+one intern said she got 3-5 a week and there were 6 interns.  So that would be 18-30 a week, or as many as 1,000 (or more) requests.  That sounds high to me, but (as I mentioned to Devin yesterday) an average of 20 for a House member does seem too low.
+
+Quotes from Ellie
+
+" Pulled together the pile of FOIA letters.  Feel free to swing by and grab them" - Feb 7, 2018, 
+
+"we can deal with a little delay" - February 18, 2018
+
+Quotes from Rochelle 
+
+Sounds good! I will let I&A and S&T know that we intend to appeal. I think Fran knows that this is an interim response, as Maura referred to it that way in her e-mail.
+
+<!--
 ## Committee Data from Stewart and Woon and the @UnitedStates Project 
 
 ## Committee Oversight Jurisdiction Data From Lewis and Selin's ACUS Report
+--> 
+
+# Data   {.appendix #sec-appendix-data}
+
+## Summary statistics
+
+```{r, eval=TRUE}
+#| tbl-cap: "Summary Statistics"
+#| label: tbl-data-coverage
+
+library(tidyverse)
+library(tinytable)
+
+vars <- c(
+  # DEMAND
+  "population_total",
+  "percent_workers_nonprofit",
+  "percent_workers_self_employed",
+  "percent_workers_private_sector",
+  "percent_workers_government",
+  "percent_education_bachelor_or_higher",
+  "percent_public_assistance_or_snap_households",
+  # CAPACITY
+  "state_leg",
+  "new_member",
+  "first_two",
+  "experience",
+  "chair",
+  "ranking_minority",
+  "subchr",
+  "same_party",
+  "oversight",
+  # ENV
+  "competitive",
+  "competitive_primary",
+  "est_total_spending",
+  "est_staff_spending",
+  "est_legis_spending",
+  "est_pol_spending",
+  "est_comm_spending",
+  "est_constit_spending",
+  "majority",
+  "presidents_party",
+  "party",
+  "agency_ideo",
+  "distance",
+  "abs_nominate_dim1",
+  # OTHER
+  "PACamount_m",
+  "lesclassic"
+  #"chamber",
+  #"year"
+)
+
+load(here::here("data", "total", "dcounts.rds"))
+
+library(modelsummary)
+dcounts |>
+  mutate(same_party = as.numeric(same_party),
+         first_two = as.numeric(first_two),
+         population_m = population_total/1000000,
+         est_total_spending = est_total_spending/1000000) |> 
+  ungroup() |> 
+  select(any_of(vars) ) |>
+  modelsummary::datasummary_skim(
+    fun_numeric = list(
+    `Missing Pct.` = PercentMissing,
+    Min = Min,
+    Mean = Mean,
+    Max = Max,
+    Histogram = function(x) "") )  |> 
+   # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0, bold = T, line = "b") |>
+  tinytable::style_tt(fontsize = .7)
+```
+
+\clearpage
 
 
+### Staff data from @CrossonFurnasLapiraBurgat2021
 
-## Staff Data From @CrossonFurnasLapiraBurgat2021
 
-
-@fig-staff-data-coverage shows that staff allocations vary across legislators and within legislators over time. These data are from @CrossonFurnasLapiraBurgat2021. 
+@fig-staff-data-coverage shows that staff allocations vary across legislators and within legislators over time. These data are from @CrossonFurnasLapiraBurgat2021. Each dot is a legislator-congress observation of the estimated money the office spent on each type of staff. Lines link legislative offices across congresses.
 
 
 ```{r}
@@ -22,6 +140,7 @@ We provide more details on how we measure interbranch representation, our data c
 knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
 ```
 
+<!-- TODO 
 
 ## Political Action Committee Data From the Center For Responsive Politics
 
@@ -30,7 +149,21 @@ knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
 ## District Demographics from U.S. Census Estimates 
 
 
+## Summary 
 
+```
+type = "total"
+load(here::here("data", type, "dcounts.rds")) 
+load(here::here("code", "cm.r")) 
+
+
+dcounts |> 
+ ungroup() |> 
+ select(any_of(cm)) |> 
+datasummary_skim()
+```
+
+--> 
 
 ## Limitations
 
@@ -56,3 +189,96 @@ We have trimmed out some years in the tails where we know this happened, but it 
 
 knitr::include_graphics(here::here("figs", "completeness-percent.png"))
 ```
+
+# Alternative Models {.appendix #sec-appendix-models}
+
+The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the political environment on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.
+
+## Modeling Response to Constituency Demands
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  & \beta_1 \text{District Population}_{it}+\\
+  & \beta_2 \text{Percent Goverment Workers}_{it}+\\
+  & \beta_3 \text{Percent with College Degree}_{it}+\\
+  & \beta_4 \text{Percent Receiving Public Assistance}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-demand}
+
+
+### Modeling Capacity Effects
+
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  & \beta_1 \text{Experience in Office}_{it}+\\
+  & \beta_2 \text{Experience as State Legislator}_{it}+\\
+  & \beta_3 \text{Staff Budget}_{it}+\\
+  & \beta_4 \text{Oversight Committee Position}_{itj}+\\
+  & \beta_5 \text{Committee Chair}_{it}+\\
+  & \beta_6 \text{Subcommittee Chair}_{it}+\\
+  & \beta_7 \text{Ranking Minority Committee Member}_{it}+\\
+  & \beta_8 \text{Prestige Committee Member}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-capacity}
+
+
+Additionally, each section includes a model where we exclude committee leadership positions that depend on majority status, in order to estimate the effect of majority status among all members (not just those without leadership positions, who are structurally more likely to be in the minority, or junior members of the majority). 
+
+## Total Interbranch Representation 
+
+```{r}
+type = "total"
+here::here("code", "formatting.R") |> source()
+
+```
+
+{{< include appendix-models.qmd >}}
+
+## Constituency Service
+
+```{r}
+type = "1"
+```
+
+{{< include appendix-models.qmd >}}
+
+## Helping Businesses
+
+```{r}
+type = "2"
+```
+
+{{< include appendix-models.qmd >}}
+
+## Helping Nonprofit and Local Government Representation
+
+```{r}
+type = "3"
+```
+
+{{< include appendix-models.qmd >}}
+
+## Policy Work
+
+```{r}
+type = "5"
+```
+
+{{< include appendix-models.qmd >}}
+
+## Policy Work on Behalf of Business 
+
+```{r}
+type = "4"
+```
+
+{{< include appendix-models.qmd >}}

@@ -22,66 +22,9 @@ Fourth, we estimate the impact of each statistically significant relationship on
 
 We take this multi-pronged approach because we are interested in explanations of interbranch representation both at the level of legislators and the U.S. government overall --- what conditions yield more or less (and more or less equal) interbranch representation. In doing so, we test what explains behavior and inequality.
 
-If you remain skeptical of our argument that interbranch representation is a coherent concept to be studied as a whole, you might think of the empirical results below as a noisy analysis of causes of constituency service that we focus on in the next chapter (because constituency service is the vast bulk of the data). For such skeptics, who want to see analysis broken out by type of activity in the following chapters, this chapter is best read as a presentation of our method of analysis---a test drive of the methods reviewed in the previous chapter. The following chapters will use the same approach with abbreviated explanations of the statistics. 
+If you remain skeptical of our argument that interbranch representation is a coherent concept to be studied as a whole, you might think of the empirical results below as a noisy analysis of causes of constituency service that we focus on in the next chapter (because constituency service is the vast bulk of the data). For a skeptic who wants to see analysis broken out by type of activity in the following chapters, this chapter is best read as a presentation of our method of analysis---a test drive of the methods reviewed in the previous chapter. The following chapters will use the same approach with abbreviated explanations of the statistics. 
 
-
-## Electoral connection
-
-
-### Electoral Vulnerability
-
-
-Differences in the amount of work legislators do with federal agencies are largely unrelated to differing electoral pressures. We find some evidence that legislators in competitive districts prioritize constituent service over policy work. However, legislators facing competitive primaries do not behave differently. Overall, electoral pressures seem to have little effect on interbranch representation.
-
-Importantly, there is no evidence that electoral vulnerability affects the *volume* of contacts with federal agencies. Neither constituency service nor policy work is affected by electoral pressures.
-
-
-
-
-<!--
-#### General Elections
-
-
-#### Primaries
-
-
-## Partisanship
-
-
-### Alignment with the president
-
-
-@BerryBurdenHowell2010
-
-### Majority status
-
-
-## Capacity
-
-
-### Experience
-
-
-## Committees Positions
-
-
-### Chairs and ranking members
-
-
-### Prestige committees
-
-
-### Oversight responsibilities
-
-
-Cross-sectionally important, but not within-member.
-
-
-
-
-
-
-
+<!-- MOVE TO CH 10 
 
 ## Legislator "quality"
 
@@ -95,7 +38,9 @@ Writing letters to agencies is correlated with other behaviors, like bill sponso
 
 \clearpage
 
-## Explaining Differences in Overall Levels of Interbranch Representation 
+## Explaining Differences in Overall Levels of Interbranch Representation
+
+@tbl-models-full presents the six main models we use, following @eq-full. 
 
 
 ::: {.fake-xref-table-for-caption}
@@ -224,7 +169,7 @@ To test whether retaining staff from the prior representative impacts interbranc
 
 ```{r}
 #| label: tbl-models-district
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
+#| tbl-cap: "The effect of legislator and staff turnover on total interbranch representation per district"
 
 load(here::here("models", type,  "models_district.Rdata"))
 
@@ -262,7 +207,6 @@ knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
 
 ```
 
-\clearpage
 
 
 #### Strategic responses to partisan institutions

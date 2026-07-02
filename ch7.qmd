@@ -1,4 +1,4 @@
-# Representing Nonprofits and Local Governments
+# Representing Nonprofits and Local Governments  {#sec-type3}
 
 ```{r knit-options, include=FALSE, cache=FALSE}
 type = 3
@@ -9,6 +9,7 @@ here::here("code", "formatting.R") |> source()
 > ABSTRACT: We examine what explains unequal levels of constituency service work on behalf of specific non-profits and local governments. We find that inequality in work on behalf of nonprofits and local governments is mostly a story of unequal capacity across legislators. However, partisanship and ideology play a larger role than with other types of constituency service. Legislators do much more for nonprofits and local governments when they have a co-partisan in the White House or they are ideologically aligned with the agency. This fits with research on distributive politics and presidential pork—a story in which nonprofits and local governments are disproportionately served by Democrats, who make requests of left-leaning agencies (like HUD) in Democratic administrations, and Republicans contact right-leaning organizations (like USDA) during Republican administrations.
 
 
+Yet, letter-marking may be less effective than earmarking [@MillsKalafHughes2015]
 
 
 ## What it looks like
@@ -21,7 +22,12 @@ here::here("code", "formatting.R") |> source()
 knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
 ```
 
-Many of legislators' requests on behalf of local governments and nonprofit organizations were in support of (or otherwise concerning) grants for which cities, counties, or other organizations had applied. These kinds of grants appeared across a number of different agencies for an array of purposes. For example, legislators wrote to the Department of Homeland Security (DHS) in support of local fire departments that had applied to FEMA's Assistance to Firefighters Grants Program, which provides funding for first respondents and emergency personnel. Many letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services involved legislators forwarding concerns from local health care entities about matters specific to Medicare and Medicaid, including overpayments and Graduate Medical Education (GME) affiliation agreements for teaching hospitals. Legislators also wrote to CMS on behalf of nonprofit health systems and local governments seeking to obtain grants as part of various CMS initiatives and programs, like the Pioneer Accountable Care Organization (ACO) Model and the Community-based Care Transitions Program (CCTP). 
+Many of legislators' requests on behalf of local governments and nonprofit organizations were in support of (or otherwise concerning) grants for which cities, counties, or other organizations had applied. These kinds of grants appeared across a number of different agencies for an array of purposes. For example, legislators wrote to the Department of Homeland Security (DHS) in support of local fire departments that had applied to FEMA's Assistance to Firefighters Grants Program, which provides funding for first respondents and emergency personnel. Legislators also wrote to CMS on behalf of nonprofit health systems and local governments seeking to obtain grants as part of various CMS initiatives and programs, like the Pioneer Accountable Care Organization (ACO) Model and the Community-based Care Transitions Program (CCTP). Other groups sought grants from the NIH.
+
+
+Many letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services involved legislators forwarding concerns from local health care entities about matters specific to Medicare and Medicaid, including overpayments and Graduate Medical Education (GME) affiliation agreements for teaching hospitals. 
+
+Requests on behalf of nonprofits also make up a large share of interbranch representation to the IRS. Legislators' offices inquire about why organizations have been audited, the processing time for 501c(3) tax-exempt status applications and the reasons for canceling of tax-exempt status. They help with nonprofit paperwork, most frequently reinstatement of nonprofit status and request that certain applications be expedited. 
 
 Letters on behalf of local governments appeared frequently in many subagencies within the Department of Transportation. For example, members of both the House and Senate from a number of different states wrote to the Federal Highway Administration (FHWA) in support of local transportation boards' applications for the Transportation Investment Generating Economic Recovery (TIGER) I and II Discretionary Grant programs. While it was not uncommon for several legislators from the same state delegation to join together in support of a locality's grant application, there are also examples of senators from different states co-authoring letters in support of grant applications submitted by multiple states. Bob Bennett (R-UT) and Barbara Boxer (D-CA) wrote jointly to the FHWA to support "the multi-state Phase II application submitted to DOT's Corridors of the Future program for the I-80 corridor," as Interstate 80 originates in California and passes through Utah. Overall, legislators' work on behalf of nonprofits and local governments as part of interbranch representation speaks to both demand from these organizations and congressional offices' capacity to respond to this demand.
 

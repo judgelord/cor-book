@@ -9,11 +9,23 @@ here::here("code", "formatting.R") |> source()
 
 > ABSTRACT: Policy work on behalf of businesses, in some ways, looks like other policy work (chairs, ranking members, and oversight committee members do more). In other ways, it is distinctly more partisan; having a co-partisan president is a much stronger predictor.
 
+## What is policy work on behalf of businesses? 
+
+We define commercial policy to include “anything applying to a class of commercial activity or businesses (e.g. shipping, airlines, agriculture),” including “legislation, bills, acts, appropriations, authorizations, etc.” In many cases agency log files that summarized the messages they received from legislators mentioned specific industries, which meant that these contacts were often fairly straightforward to code. For example, members of Congress regularly write to the US Trade Representative on topics including imports of Brazilian cotton, Argentinian beef, rare earth minerals, Boeing and Airbus contracts, lumber markets in Peru, and intellectual property and copyright. 
+
+In this chapter, we examine what policy-work on behalf of corporations and business-interests looks like, document the inequality in corporate policy-work, and examine what explains the provision of corporate policy representation. 
 
 
+<!-- EOP_USTR sheet 
+Sen. Murkowski and salmon/fishing - rows 2134 and 3011
+"Buy American" requirements. WI Sen. Johnson's letters about small businesses could be interesting to look into (see 7968).
+
+other key words: Brazil cotton, Japan whaling, rare earths, Airbus dispute, beef, Peru logging and softwood lumber Intellectual property and copyright 
+--> 
 
 ## What it looks like
 
+@fig-words below shows the most frequent words used in corporate policy related messages from legislators to federal agencies over time.^[In some cases these words are taken from the actual letters themselves, but more often they're from a summary in a log file the agency kept of contact with Members of Congress.] The prevelance of the terms "rule" and "proposed" suggests that legislators are often inquiring about rules and the rule-making process.  
 
 ```{r}
 #| label: fig-words
@@ -28,10 +40,31 @@ A number of legislators with a seafood industry presence in their district conta
 
 In addition to letters with multiple signatories from neighboring states or districts, many industry-focused letters came from entire committees. For example, Senator Tom Harkin (D-IA) and the Committee on Agriculture, Nutrition, and Forestry wrote to the FDA about a final rule prohibiting the use of brains and spinal cords from certain cows in animal feed. The committee asked that the FDA "immediately conduct meetings in Iowa and elsewhere" to hear the concerns of the rendering industry about their compliance with this rule. Several letters expressing similar sentiments were sent from other groups of legislators, including one letter from all six of Kentucky's House members supporting the FDA's 60-day delay of the implementation of the rule. While we have no record in our data of legislators' trying to stop or change the rule before it was about to take effect, the left-censoring of the data means that we cannot rule out the possibility that they did so at some point prior to 2007. Nevertheless, it is illuminating that legislators took these actions on behalf of a key industry at this particular stage of the policymaking process. 
 
-## Explaining Differences in Policy Work on Behalf of Business 
+## Inequality in Corporate Policy Work
 
-Variation in policy work on behalf of businesses is mainly driven by ... 
+@fig-percent-type4 below shows the inequality in corporate policy work across legislators with the Senate on the left, and the House on the right. These patterns again reveal high levels of inequality in how much work legislators do on behalf of business interests. We find that inequality in corporate policywork (Gini coefficient of 0.784 in the House and 0.85 in the Senate) is larger than any other form of interbranch representation.^[The Gini coefficient for corporate service is 0749 in the House and 0.789 in the Senate. The Gini coefficient for individual constituency service is 0.794 in the House and 0.814 in the Senate. The Gini coeficient for inequality in overall interbranch representation is inequality in overall interbranch representation 0.720 in House, and 0.732 in the Senate.]
 
+
+```{r}
+#| label: fig-percent-type4
+#| fig-cap: "Observed levels of corporate policywork per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+
+```
+\clearpage
+
+In addition to showing the inequality in corporate policy work, @fig-percent-type4 also sheds light on how much less common it is relative to other forms of interbranch representation. While 12\% of interbranch representation is policy-work, approximately 16\% of that is business-related. Combining those percentages, we see that less than 2\% of all interbranch representation is about corporate policy. Legislators average between 0-40 corporate policy contacts a year with the median Senator averaging around 5 corporate policy contacts a year, and the average House member around 2 per year. 
+
+## What Explains Differences in Policy Work on Behalf of Business 
+
+@tbl-models-full below shows the full regression results across cross-section and difference-in-differences model specifications explaining corporate policywork. We find Constituent Demand largely unrelated to corporate policywork, while Capacity and Strategic Choicesboth play a role in explaining variation in corporate policywork.  
 
 ::: {.fake-xref-table-for-caption}
 
@@ -43,7 +76,7 @@ Variation in policy work on behalf of businesses is mainly driven by ...
 |---|
 |   |
 
-: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full}
+: The effect of constituent demand, legislator capacity, and political environment on corporate policywork with federal agencies {#tbl-models-full}
 
 ```{=latex}
 \endgroup\vspace{-2\baselineskip}
@@ -56,7 +89,7 @@ load(here::here("models", type,  "models_full.Rdata"))
 modelsummary(models_full,
              notes = list(
                "Robust standard errors in parentheses, clustered by legislator.",
-               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from teh agency, co-partisan president) on levels of interbranch representation.")) |>
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
   # get rid of formatting to get rid of the extra line 
   theme_empty() |> 
   # bold header, hline bottom, aligned center
@@ -68,7 +101,6 @@ modelsummary(models_full,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    #"Political Environment + Capcacy" = 26,
     "Capacity" = 26
   )) |>
   style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
@@ -81,39 +113,33 @@ modelsummary(models_full,
 
 ### Demand
 
+We find little systematic evidence that constituent demand is related to corporate policywork, with the exception of state population. Across all of our measures of demand in @tbl-models-full, the only significant demand factor is population in the Senate, and the All Congress cross-sectional models. In those models it is significant and positive, while in the House models it is insigificant and negative. We believe that state population os likely to be correlated with the number of businesses that might want to seek help from their legislator, such that state population could be a rough proxy for business-related interests. 
 
-
-
-```{r}
-#| label: fig-pop-effect
-#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
-#| out-width: 50%
-
-knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
-
-#TOD college grads and government workers 
-
-```
-
+We find no evidence that our other types of demand (greater needs constituents and more demanding constituents) are correlated with the provision of corporate policywork. 
 
 ### Capacity
 
+Turning from Demand to Capacity, we see a similar pattern to what we observed in Chatper 6 regarding the provision of corporate constituency service. Legislator exerience is the strong predictor across all model specifications, while reporting committee seat (oversight relationship with the agency), and committee leadership positions are significant in some, but not all model specifications. There appears to be a somewhat stronger relationship between committee leadership positions and reporting committee relationships for corporate policy work relative to corporate constituency service, which would be consistent with the policy-focused nature of congressional committee work. 
+
+@fig-capacity-effect below shows the same style of counter factual scenarios we've used in previous chapters to estimate the impact of capacity changes on the performance of corporate policywork. The top left panel shows the effect of legislator experience, the top right a Reporting Committee Relationship (sitting on the committee that has jurisdiction of that agency), and the bottom left panel shows a Total Capacity counter factual effect.^[Total capacity effect includes counterfactuals for chair, sub-committee chair, ranking minority member, oversight, prestige committee assignment and legislator experience.]
 
 ```{r}
 #| label: fig-capacity-effect
-#| fig-cap: "Predicted levels of interbranch representation per legislator per year compared to counterfactuals"
+#| fig-cap: "Predicted levels of corporate policywork per legislator per year compared to capacity counterfactuals"
 #| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
+#|   - "Committee Chair"
+#|   - "Subcommittee Chair"
+#|   - "Ranking Member"
+#|   - "Legislator Experience"
+#|   - "Reporting Committee Relationship"
+#|   - "Total Capacity"
 #| layout-ncol: 2
 #| out-width: 100%
 
 knitr::include_graphics(
 here::here("figs", type,
            paste0("m-capacity-effect-",
-                  c(8), 
+                  c(1,2,3,5,4,8), 
                   ".png"
                   ) 
            ))

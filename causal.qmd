@@ -1,0 +1,68 @@
+---
+title: "mermaid-figure-1"
+format: pdf
+cache: true
+---
+
+This will render a figure in fig-causal-cache/latex called mermaid-figure-1.png. I just copied it to figs/, but that can be automated. 
+
+```{mermaid}
+%%| label: fig-causal
+%%| fig-cap: "How constituent demand, capacity, political environment, and member's strategic choices shape interbranch representation activities"
+%%| fig-width: 6.5
+%%| fig-height: 6
+%%| out-width: "100%"
+
+flowchart TD
+    subgraph demand_g ["Demand"]
+        CD["Constituent<br/>Demand"]
+    end
+    subgraph capacity_g ["Capacity"]
+        IR["Institutional Resource<br/>Allocation"]
+        SC["Member's Staff<br/>Capacity"]
+        MK["Member's<br/>Experience"]
+    end
+    subgraph env_g ["Environment"]
+        PE["Political<br/>Environment"]
+    end
+    subgraph strategic_g ["Strategic Choices"]
+        G["Member's Strategic<br/>Choices"]
+        SA["Member's <br/> Staff Allocation"]
+    end
+    subgraph output_g ["Outputs"]
+        W["Work Done by<br/>Congressional Office"]
+        L["Legislation"]
+        A["Interbranch Representation"]
+        C["Communications"]
+    end
+
+    CD --> W
+    PE --> G
+    IR --> SC
+    SC --> SA
+    G --> W
+    G -.-> SA
+    MK --> W
+    SA -.-> W
+    W --> L
+    W --> A
+    W --> C
+    C -.-> CD
+
+    classDef output fill:#E69F00,stroke:#8A5F00,color:#1A1200;
+    classDef demand fill:#56B4E9,stroke:#27607F,color:#04222F;
+    classDef capacity fill:#009E73,stroke:#005A42,color:#00150F;
+    classDef environment fill:#CC79A7,stroke:#7A4664,color:#2B0E1F;
+    classDef strategic fill:#F0E442,stroke:#8A8020,color:#2B2800;
+    class W,L,A,C output;
+    class CD demand;
+    class IR,SC,MK capacity;
+    class PE environment;
+    class G,SA strategic;
+
+    style demand_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style capacity_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style env_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style strategic_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+    style output_g fill:#FBFBF9,stroke:#888780,color:#2C2C2A;
+```
