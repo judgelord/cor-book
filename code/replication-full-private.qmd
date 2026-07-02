@@ -1,4 +1,4 @@
-## Pooled House and Senate
+### Pooled House and Senate
 
 m_full_private_cross
 
@@ -36,7 +36,7 @@ m_full_private_cross <-fenegbin (
 if(testing){modelsummary::modelsummary(m_full_private_cross, stars = T)}
 ```
 
-## House
+### House
 
 m_full_private_house_cross
 
@@ -74,7 +74,7 @@ m_full_private_house_cross <- fenegbin (
 if(testing){modelsummary::modelsummary(m_full_private_house_cross, stars = T)}
 ```
 
-## Senate 
+### Senate 
 
 m_full_private_senate_cross 
 
@@ -112,9 +112,9 @@ if(testing){modelsummary::modelsummary(m_full_private_senate_cross, stars = T)}
 ```
 
 
-# Full DID model for fixed effects 
+## Full DID model for fixed effects 
 
-## Pooled House and Senate
+### Pooled House and Senate
 
 m_full_private_did
 
@@ -154,7 +154,7 @@ if(testing){modelsummary::modelsummary(m_full_private_did, stars = T)}
 
 ```
 
-## House
+### House
 
 m_full_private_house_did
 
@@ -212,7 +212,7 @@ fes <- tibble(
 
 ```
 
-## Senate 
+### Senate 
 
 m_full_private_senate_did
 
@@ -260,7 +260,7 @@ if(testing){modelsummary::modelsummary(m_full_private_senate_did, stars = T)}
 ```
 
 
-## "models_full_private.Rdata"
+### "models_full_private.Rdata"
 
 ```{r models_full_private}
 models_full <- list(

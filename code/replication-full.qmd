@@ -115,9 +115,8 @@ if(testing){modelsummary::modelsummary(m_full_senate_cross, stars = T)}
 ```
 
 
-# Full DID model for fixed effects 
+## Full DID model for fixed effects 
 
-Kitchen sink diff in diff model (including experience, but not other (unchanging) member-level)
 
 ## Pooled House and Senate
 

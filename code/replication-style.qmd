@@ -19,9 +19,7 @@ data_member$style |> unique()
 
 # cross-sectional 
 m_style_cross <- fenegbin (perYear ~ 
-                              style + 
-                               majority  + 
-                               presidents_party | 
+                              style  | 
                                Year_x_Agency,
                              cluster = "Legislator", 
                              data = data_member)
@@ -31,14 +29,15 @@ if(testing){modelsummary::modelsummary(m_style_cross, gof_omit = "R.*", starts =
 coefplot(m_style_cross, horiz = T, drop = "(Intercept)|theta") 
 
 
+save(m_style_cross, file = here::here("models", type, "m_style_cross.rda") ) 
 
 
-
-# 3
-m_style_full_cross <-fenegbin (perYear ~ style +
-                              chair + 
-                             ranking_minority + 
-                             prestige + 
+# 2
+m_style_full_cross <-fenegbin (perYear ~ style + 
+                              #chair + 
+                               # subchr + 
+                            # ranking_minority + 
+                             # prestige + 
                              oversight +  
                     experience + 
                     majority  + presidents_party | Year_x_Agency, 
@@ -47,6 +46,9 @@ m_style_full_cross <-fenegbin (perYear ~ style +
 
 if(testing){modelsummary::modelsummary(m_style_full_cross, gof_omit = "R.*", coef_omit = coef_omit)}
 coefplot(m_style_full_cross, horiz = T, drop = ".theta") 
+
+
+save(m_style_full_cross, file = here::here("models", type, "m_style_full_cross.rda") ) 
 
 ```
 
@@ -75,6 +77,9 @@ modelsummary(models_style,
 
 beta_cross <- betas(m_style_cross)
 se_cross <- standard_errors(m_style_cross)
+
+save(models_style, rows, cm, gm,  beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_style.Rdata"))
 
 ```
 
@@ -105,4 +110,5 @@ data = data_member |> filter(year > 2007,  year < 2019)
 #   newdata = mutate(data, percent_education_bachelor_or_higher = 0),
 #   effect = "% College Grads"
 #   )
+
 ```

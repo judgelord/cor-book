@@ -56,6 +56,10 @@ load(here::here("data", type, "dcounts.rds"))
 load(here::here("data", type, "dcounts_district.rds"))
 load(here::here("data", type, "means.Rdata"))
 load(here::here("data", "member_data.Rdata"))
+
+# to confirming that all of the type count data are he same
+dim(dcounts)
+dcounts |> count(agency)
 ```
 
 ```{r transformations}
@@ -964,7 +968,7 @@ plot_effect(
 #| out-width: "100%"
 #| fig-show: "hold"
 
-model <- m_workers_private_did
+model <- m_full_private_did
 data = data_member |> filter(year > 2007,  year < 2019)
 
 plot_effect( 
@@ -1524,7 +1528,7 @@ data_district %<>% mutate(same_party = as.numeric(same_party))
 
 
 
-# Manuscript models 
+# Appendix models 
 
 
 
