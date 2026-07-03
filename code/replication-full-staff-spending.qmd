@@ -1,12 +1,12 @@
 
-## House MRA - cross 
+## House staff spending - cross 
 
-m_full_house_MRA_cross
+m_full_house_staff_spending_cross
 
-```{r m_full_house_MRA_cross}
+```{r m_full_house_staff_spending_cross}
 
-m_full_house_MRA_cross <- fenegbin (
-  perYear ~ pct_MRA_spending + 
+m_full_house_staff_spending_cross <- fenegbin (
+  perYear ~ est_staff_spending + 
     population_m + 
      percent_workers_government + 
      percent_education_bachelor_or_higher + 
@@ -34,20 +34,20 @@ m_full_house_MRA_cross <- fenegbin (
                     cluster = "Legislator",
            data = data_member |> filter(chamber == "House") )
 
-if(testing){modelsummary::modelsummary(m_full_house_MRA_cross, stars = T)}
+if(testing){modelsummary::modelsummary(m_full_house_staff_spending_cross, stars = T)}
 ```
 
 
 
 
-## House MRA did
+## House staff spending did
 
-m_full_house_MRA_did
+m_full_house_staff_spending_did
 
-```{r m_full_house_MRA_did}
+```{r m_full_house_staff_spending_did}
 # controlling for expiernce 
-m_full_house_MRA_did <-fenegbin (
-  perYear ~ pct_MRA_spending + 
+m_full_house_staff_spending_did <-fenegbin (
+  perYear ~ est_staff_spending + 
     # lots of this does not vary enough for the dif in diff 
     #population_m + 
       percent_workers_government + # model failing to converge dropping 
@@ -77,18 +77,18 @@ m_full_house_MRA_did <-fenegbin (
                     cluster = "Legislator",
            data = data_member |> filter(chamber == "House") )
 
-if(testing){modelsummary::modelsummary(m_full_house_MRA_did, stars = T)}
+if(testing){modelsummary::modelsummary(m_full_house_staff_spending_did, stars = T)}
 
 
 ```
 
 
-## "models_full_MRA.Rdata"
+## "models_full_staff_spending.Rdata"
 
-```{r models_full_MRA}
-models_full_MRA <- list(
-  "(3)" =  m_full_house_MRA_cross,
-  "(4)" = m_full_house_MRA_did
+```{r models_full_staff_spending}
+models_full_staff_spending <- list(
+  "(3)" =  m_full_house_staff_spending_cross,
+  "(4)" = m_full_house_staff_spending_did
 )
 
 rows <- tibble(
@@ -105,7 +105,7 @@ attr(rows, 'position') <- c(0)
 type 
 
 # load(here::here("models", type, "models_full.Rdata")))
-modelsummary(models_full_MRA) |> 
+modelsummary(models_full_staff_spending) |> 
   group_tt(i = list(
     "Demand"= 2,
     "Political Environment" = 10,
@@ -116,11 +116,11 @@ modelsummary(models_full_MRA) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 2)
 
-beta_did <- betas(m_full_house_MRA_did)
-se_did <- standard_errors(m_full_house_MRA_did)
-beta_cross <- betas(m_full_house_MRA_cross)
-se_cross <- standard_errors(m_full_house_MRA_cross)
+beta_did <- betas(m_full_house_staff_spending_did)
+se_did <- standard_errors(m_full_house_staff_spending_did)
+beta_cross <- betas(m_full_house_staff_spending_cross)
+se_cross <- standard_errors(m_full_house_staff_spending_cross)
 
-save(models_full_MRA, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
-     file = here::here("models", type, "models_full_MRA.Rdata"))
+save(models_full_staff_spending, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_full_staff_spending.Rdata"))
 ```
