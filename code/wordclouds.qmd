@@ -89,13 +89,13 @@ custom_stop <- c(
   unique(members$first_name)|> str_to_lower() ,
   # Add dataset-specific filler terms here if they dominate too much
   "request", "requests", "requesting", "requested", "forwards", "behalf", "letter", "email", # "question", "constituent", "case", "follow", "up",
-  "writes", "write", "writing", "written", "submitted", "comments", "signers", "summary", "subject", "correspondence", "inquiry", "contact", "expressing", "express", "concern", "concerns", "ltr", "concerned", "encourages", "urges", "urging",
+  "writes", "write", "writing", "written", "submitted", "comments", "signers", "signer", "signed", "summary", "folder", "subject", "correspondence", "inquiry", "contact", "expressing", "express", "concern", "concerns", "ltr", "concerned", "encourages", "urges", "urging",
   "issue", "issues", "staff", "related", "official", "response", "inquiry", "director", "secretary", "congress", "federal","cosigner","cosigners", "lots", "feels", "cmsy", "info",
-  "prep", "sig", "closed", "owner", "recently", "multi", "called", "incoming", "communication", "sending", "letters", "wrote", "responder", "title", "copy", "ocasio",
+  "prep", "sig", "closed", "owner", "recently", "multi", "called", "incoming", "communication", "sending", "letters", "wrote", "responder", "title", "copy", "ocasio", "abigal", 
   "department", "national", "u.s.", "u.s","office",  "dept", "americorps",
   "rep", "reps", "sens", "sen", "senator", "senators", "senate", "house", "agency", "position",
   "honorable", "representative", "representatives", "exec", "rec'd", "copy",
-  "congressman", "congressional", "cong", "committee", "cmte", "staffer", "potus", "secy", 
+  "congressman", "congressional", "cong", "committee", "cmte", "staffer", "potus", "secy", "chairman", 
   "5ecy", "cmsy", "xttfr", "spe4a6", "spm4a7", "dscr", "e610", 
   "concern", "communication", "list", "misc"
 )
