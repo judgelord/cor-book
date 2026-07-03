@@ -135,10 +135,33 @@ data_member |> group_by(year, icpsr, chamber) |>  mutate(sum = sum( percent_work
 
 ```
 
+
+# Top member average counts per year
+
+```{r}
+data_member |> 
+    group_by(bioname, year) |> 
+  summarise(n = sum(perYear)  )|> 
+  group_by(bioname) |> 
+  summarise(n = mean(n) |> round()  )|> 
+  arrange(-n) |> 
+  kablebox()
+```
+
+# Top member-year counts 
+
+```{r}
+data_member |> 
+  group_by(bioname, year) |> 
+  summarise(n = sum(perYear)  )|> 
+  arrange(-n) |> 
+  kablebox()
+```
+
 # Top member-agency-year counts 
 
 
-```{r leaderboard}
+```{r leaderboard-agency}
 data_member |> 
   arrange(-perYear) |> 
   kablebox()
@@ -740,6 +763,10 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 ## With Majority Status Rather than Committee Chair
 
 {{< include code/replication-full-majority.qmd >}}
+
+## With % MRA 
+
+{{< include code/replication-full-MRA.qmd >}}
 
 # Inequality figures based on full model 
 

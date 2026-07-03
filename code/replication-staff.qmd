@@ -366,7 +366,12 @@ plot_effect(
 
 plot_effect( 
   newdata = mutate(data, est_comm_spending = 0),
-  effect = "Comms Budget"
+  effect = "Comms Staff Budget"
+  )
+
+plot_effect( 
+  newdata = mutate(data, est_legis_spending = 0),
+  effect = "Legislative Staff Budget"
   )
 ```
 
@@ -389,6 +394,18 @@ data = data_member #|> filter(year > 2007,  year < 2019)
 plot_effect( 
   newdata = mutate(data, est_constit_spending = 0),
   effect = "Constit. Serv. Budget\n(diff in diff)"
+  )
+
+
+plot_effect( 
+  newdata = mutate(data, est_comm_spending = 0),
+  effect = "Comms Staff Budget\n(diff in diff)"
+  )
+
+
+plot_effect( 
+  newdata = mutate(data, est_legis_spending = 0),
+  effect = "Legislative Staff Budget\n(diff in diff)"
   )
 ```
 

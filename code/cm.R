@@ -100,8 +100,8 @@ cm = c(
   "presidents_party:distance" = "Distance x President's Party",
   "abs(agency_ideo)" = "Agency Percieved as Ideological",
   "abs_nominate_dim1:presidents_party" = "abs(NOMINATE) x President's Party",
-  "abs_nominate_dim1" = "|DW-NOMINATE-1|",
-  "abs(nominate_dim1)" = "|DW-NOMINATE-1|",
+  "abs_nominate_dim1" = "| 1st Dim. DW-NOMINATE |",
+  "abs(nominate_dim1)" = "| 1st Dim. DW-NOMINATE |",
   #############################
   # Capacity
   #################################################
