@@ -37,14 +37,24 @@ theory_table <- function(file){
   dplyr::select(-Direction) |> 
   pander::pandoc.table(
   style = "multiline",
-  split.cells = c(20, 10, 10, 10, 50),
+  split.cells = c(10, 30, 10,  50),
   split.table = Inf,
   justify = c("left", "left", "left", "left"),
   missing = ""
 )
 }
 
-here::here("tables", "results.csv")  |> theory_table()
+here::here("tables", "results.csv")  |> 
+  readr::read_csv(col_types = readr::cols(.default = readr::col_character()) ) |> 
+  dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) |>
+  dplyr::select(-Direction, -Description) |> 
+  pander::pandoc.table(
+  style = "multiline",
+  split.cells = c(30, 15,  50),
+  split.table = Inf,
+  justify = c("left", "left", "left"),
+  missing = ""
+)
 
 ```
 

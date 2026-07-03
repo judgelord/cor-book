@@ -16,5 +16,5 @@ This and other drivers operate similarly for constituency service and policy, bu
 We find inconsistent evidence for other types of strategic behavior, such as reelection-motivated constituency service and interbranch policy work as a substitute for legislating when one's party is out of power.
 Where present, partisan and election-related drivers of interbranch representation do not explain inequality.
 
-In sum, partisanship and ideology affect choices about which agencies legislators contact and the specific representation of business interests.
+In sum, partisanship and ideology affect choices about which agencies legislators contact and the representation of business interests.
 But unequal interbranch representation is mostly a story of the unequal capacity of Congressional offices and committees, with unequal levels of constituent demand often a secondary cause. 

@@ -1,11 +1,12 @@
 
 library(tidyverse)
 library(googlesheets4)
+library(fs)
 
 gs4_auth(email = "correspondenceresearch@gmail.com")
 
 save_sheet_csv <- function(sheet_url, name, folder = "tables") {
-  dir_create(folder)
+  #dir_create(folder)
 
   if (!str_ends(name, "\\.csv")) {
     name <- str_c(name, ".csv")
