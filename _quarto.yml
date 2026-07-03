@@ -1,6 +1,6 @@
 execute:
   cache: true
-  # freeze: auto # once the results are locked in, turn this on so that we don't need to re-render
+  freeze: true # once the results are locked in, turn this on so that we don't need to re-render - it does require rendering each chapter seperatly as we update them
   echo: false
   message: false
   warning: false
@@ -36,12 +36,15 @@ book:
      - ch10.qmd
      - references.md
   appendices:
-     - Appendix.qmd
+     - appendix-a.qmd
+     - appendix-b.qmd
+     - appendix-c.qmd
+
   search: true
   #repo-url: https://github.com/judgelord/cor-book
   downloads: pdf # [pdf, epub]
 
-number-depth: 3
+number-depth: 2
 
 #crossref: ## Commenting this out to try just renaming the theorum function
   # chapters: false # this removes chapter numbers ahead of all figures and tables, so we don't want to do this
@@ -54,6 +57,7 @@ number-depth: 3
       # hyp-labels: "" # seems not possible to remove numbering in custom crossref floats
 language:
   crossref-thm-title: "Hypothesis"
+  crossref-thm-prefix: "Hypothesis"
 bibliography: assets/cor.bib
 
 format:
@@ -61,11 +65,18 @@ format:
     # theme: cosmo
     self-contained: false # why does this make the files so large? (77MB!)
     #css: styles.css
+    fig-cap-location: top
+    tbl-cap-location: top
+    include-after-body:
+      - assets/hypothesis-numbering-overide.html
   pdf:
     #documentclass: scrreprt. # why this rather than book?
     number-depth: 2
     include-in-header:
        - assets/header.tex
+    keep-tex: true
+    fig-cap-location: top
+    tbl-cap-location: top
     #pdf-engine: pdflatex. # pdflatex is faster, but perhaps not as good as lulatex
 
     # include-after-body:

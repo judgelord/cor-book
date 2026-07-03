@@ -1,0 +1,143 @@
+
+# Data   {#sec-appendix-data}
+
+## Summary statistics
+
+```{r, eval=TRUE}
+#| tbl-cap: "Summary Statistics"
+#| label: tbl-data-coverage
+
+here::here("code", "qmd_global_options.R") |> source() 
+library(tidyverse)
+library(tinytable)
+library(modelsummary)
+
+vars <- c(
+  # DEMAND
+  "population_m",
+  "percent_workers_nonprofit",
+  "percent_workers_self_employed",
+  "percent_workers_private_sector",
+  "percent_workers_government",
+  "percent_education_bachelor_or_higher",
+  "percent_public_assistance_or_snap_households",
+  # CAPACITY
+  "state_leg",
+  "new_member",
+  "first_two",
+  "experience",
+  "chair",
+  "ranking_minority",
+  "subchr",
+  "same_party",
+  "oversight",
+  # ENV
+  "competitive",
+  "competitive_primary",
+  "est_total_spending",
+  "est_staff_spending",
+  "est_legis_spending",
+  "est_pol_spending",
+  "est_comm_spending",
+  "est_constit_spending",
+  "majority",
+  "presidents_party",
+  "party",
+  "agency_ideo",
+  "distance",
+  "abs_nominate_dim1",
+  # OTHER
+  "PACamount_m",
+  "lesclassic"
+  #"chamber",
+  #"year"
+)
+
+load(here::here("data", "total", "dcounts.rds"))
+
+dcounts |>
+  mutate(distance = abs(nominate_dim1 - agency_ideo),
+         same_party = as.numeric(same_party),
+         first_two = as.numeric(first_two),
+         population_m = population_total/1000000,
+         est_total_spending = est_total_spending/1000000) |> 
+  ungroup() |> 
+  select(any_of(vars) ) |>
+  modelsummary::datasummary_skim(
+    fun_numeric = list(
+    `Pct. Missing` = PercentMissing,
+    Min = Min,
+    Mean = Mean,
+    Max = Max,
+    Histogram = function(x) "") )  |> 
+   # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0, bold = T, line = "b") |>
+  tinytable::style_tt(fontsize = .7)
+```
+
+\clearpage
+
+
+### Staff data from @CrossonFurnasLapiraBurgat2021
+
+
+@fig-staff-data-coverage shows that staff allocations vary across legislators and within legislators over time. These data are from @CrossonFurnasLapiraBurgat2021. Each dot is a legislator-congress observation of the estimated money the office spent on each type of staff. Lines link legislative offices across congresses.
+
+
+```{r}
+#| fig-cap: "Staff Data Coverage"
+#| label: fig-staff-data-coverage
+#| out_width: 100%
+knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
+```
+
+<!-- TODO 
+
+## Political Action Committee Data From the Center For Responsive Politics
+
+## Electoral Competitiveness Data From 
+
+## District Demographics from U.S. Census Estimates 
+
+
+## Summary 
+
+```
+type = "total"
+load(here::here("data", type, "dcounts.rds")) 
+load(here::here("code", "cm.r")) 
+
+
+dcounts |> 
+ ungroup() |> 
+ select(any_of(cm)) |> 
+datasummary_skim()
+```
+
+--> 
+
+## Limitations
+
+
+
+### Agency record keeping
+
+
+> "We have no responsive records between April 13, 2016, and May 16, 2017. It is impossible to say for certain why there is this gap; however, it is likely the changes in staffing leading up to and following the change in Administration contributed." - FOIA Officer 
+
+
+We included 0-counts for agency-member-months with no contacts of a particular type (indeed, it is mostly 0s). I included and excluded agencies by year, because we asked for data by year and generally got data by year. That said, an important caveat about censoring: 
+We include agency-year fixed effects in all of our models because record-keeping is not always consistent across years (e.g., several FOIA offices told me that they had no records for much of 2017 because no one in the Secretary's office knew (or cared) to write things down. This was probably not evenly distributed across months within 2017. Other shocks are similarly not evenly distributed.
+Relatedly, there is sometimes left and right censoring in the tails. 
+We have trimmed out some years in the tails where we know this happened, but it can be hard to know with the smaller subagencies that do not get much congressional attention. Is it because they did not include it in the request, a failure of record-keeping, or a true 0? It's often hard to tell.  
+
+@fig-data-coverage shows the coverage of agencies used in the data, including the relative density of the data per agency by month. 
+
+
+```{r}
+#| fig-cap: "Data Coverage by Agency"
+#| label: fig-data-coverage
+
+knitr::include_graphics(here::here("figs", "completeness-percent.png"))
+```

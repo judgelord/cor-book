@@ -71,26 +71,10 @@ here::here("figs", type,
            ))
 ```
 
-\clearpage
-
-
-##### Electoral turnover and staff prior experience representing the district
-
-```{r}
-##| label: tbl-models-district
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
-
 
 \clearpage
 
-### Strategic Responses to the Environment
+### Strategic Responses to the Political Environment
 
 #### Interbranch representation as electoral strategy
 

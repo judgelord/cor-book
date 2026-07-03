@@ -1,0 +1,762 @@
+
+# Alternative Models {#sec-appendix-models}
+
+The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the political environment on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.
+
+## Modeling Response to Constituency Demands
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  & \beta_1 \text{District Population}_{it}+\\
+  & \beta_2 \text{Percent Goverment Workers}_{it}+\\
+  & \beta_3 \text{Percent with College Degree}_{it}+\\
+  & \beta_4 \text{Percent Receiving Public Assistance}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-demand}
+
+
+### Modeling Capacity Effects
+
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha), \\
+\log(\mu_{ijt}) = 
+  & \beta_1 \text{Experience in Office}_{it}+\\
+  & \beta_2 \text{Experience as State Legislator}_{it}+\\
+  & \beta_3 \text{Staff Budget}_{it}+\\
+  & \beta_4 \text{Oversight Committee Position}_{itj}+\\
+  & \beta_5 \text{Committee Chair}_{it}+\\
+  & \beta_6 \text{Subcommittee Chair}_{it}+\\
+  & \beta_7 \text{Ranking Minority Committee Member}_{it}+\\
+  & \beta_8 \text{Prestige Committee Member}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-capacity}
+
+
+Additionally, each section includes a model where we exclude committee leadership positions that depend on majority status, in order to estimate the effect of majority status among all members (not just those without leadership positions, who are structurally more likely to be in the minority, or junior members of the majority). 
+
+## Total Interbranch Representation {#sec-appendix-models-total}
+
+```{r}
+type = "total"
+here::here("code", "formatting.R") |> source()
+
+```
+
+
+
+###  Total Interbranch Representation: Demand
+
+```{r}
+#| label: tbl-models-demand_tot
+#| tbl-cap: "The effect of demand on requests to federal agencies"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_demand.Rdata"))
+
+modelsummary(models_demand,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```
+
+\clearpage
+
+### Total Interbranch Representation: Capacity
+
+<!--
+Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
+--> 
+
+```{r}
+#| label: tbl-models-capacity-tot
+#| tbl-cap: "The effect of capacity on total requests to federal agencies"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
+
+\clearpage
+
+### Total Interbranch Representation: Strategic Responses to the Political Environment
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on corporate policy-work with federal agencies {#tbl-models-full-majority-tot}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+#### Total Interbranch Representation: Interbranch representation as electoral strategy
+
+```{r}
+#| label: tbl-models-elect_tot
+#| tbl-cap: "The effect of electoral security on total interbranch representation"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
+
+## Constituency Service {#sec-appendix-models-1}
+
+```{r}
+type = "1"
+```
+
+
+
+### Demand
+
+```{r}
+#| label: tbl-models-demand-ind
+#| tbl-cap: "The effect of demand on individual constituent service"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_demand.Rdata"))
+
+modelsummary(models_demand,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```
+
+\clearpage
+
+### Capacity
+
+<!--
+Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
+--> 
+
+```{r}
+#| label: tbl-models-capacity-ind
+#| tbl-cap: "The effect of capacity on individual constituent services"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
+```{r}
+#| label: fig-effect-ind
+#| fig-cap: "Predicted levels of individual constituent service per legislator per year compared to counterfactuals"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(
+here::here("figs", type,
+           paste0("m-effect-",
+                  c(1:2,5,8), 
+                  ".png"
+                  ) 
+           ))
+```
+
+
+\clearpage
+
+### Individual Constituent Service: Strategic Responses to the Political Environment
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on individual constituent service  {#tbl-models-full-majority-ind}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+#### Interbranch representation as electoral strategy
+
+```{r}
+#| label: tbl-models-elect-ind
+#| tbl-cap: "The effect of electoral security on individual constituent service"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
+
+## Corporate Service (Helping Businesses) {#sec-appendix-models-2}
+
+```{r}
+type = "2"
+```
+
+
+
+### Corporate Service : Demand
+
+```{r}
+#| label: tbl-models-demand-corser
+#| tbl-cap: "The effect of demand on corporate service"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_demand.Rdata"))
+
+modelsummary(models_demand,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```
+
+\clearpage
+
+### Corporate Service: Capacity
+
+<!--
+Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
+--> 
+
+```{r}
+#| label: tbl-models-capacity-corser
+#| tbl-cap: "The effect of capacity on corporate service"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
+```{r}
+#| label: fig-effect-corser
+#| fig-cap: "Predicted levels of corporate service per legislator per year compared to counterfactuals"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(
+here::here("figs", type,
+           paste0("m-effect-",
+                  c(1:2,5,8), 
+                  ".png"
+                  ) 
+           ))
+```
+
+
+\clearpage
+
+
+### Corporate Service: Strategic Responses to the Political Environment
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on corporate service with federal agencies {#tbl-models-full-majority-corser}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+#### Corporate Service as electoral strategy
+
+```{r}
+#| label: tbl-models-elect_cs
+#| tbl-cap: "The effect of electoral security on corporate service"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
+
+## Helping Nonprofit and Local Government Representation {#sec-appendix-models-3}
+
+```{r}
+type = "3"
+```
+
+
+
+### Helping Nonprofit and Local Government Representation: Demand
+
+```{r}
+#| label: tbl-models-demand-non
+#| tbl-cap: "The effect of demand on non-profit/local government service"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_demand.Rdata"))
+
+modelsummary(models_demand,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```
+
+\clearpage
+
+### Capacity
+
+<!--
+Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
+--> 
+
+```{r}
+#| label: tbl-models-capacity-non
+#| tbl-cap: "The effect of capacity on non-profit/local government service"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
+```{r}
+#| label: fig-effect-non
+#| fig-cap: "Predicted levels of on non-profit/local government service per legislator per year compared to counterfactuals"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(
+here::here("figs", type,
+           paste0("m-effect-",
+                  c(1:2,5,8), 
+                  ".png"
+                  ) 
+           ))
+```
+
+
+\clearpage
+
+### Non-profit/Local Government Service: Strategic Responses to the Political Environment
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+#### Interbranch representation as electoral strategy
+
+```{r}
+#| label: tbl-models-elect_non
+#| tbl-cap: "The effect of electoral security on non-profit/local government service"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
+
+## Policy Work {#sec-appendix-models-5}
+
+```{r}
+type = "5"
+```
+
+
+
+### Policy Work: Demand
+
+```{r}
+#| label: tbl-models-demand-pol
+#| tbl-cap: "The effect of demand on general policy work with federal agencies"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_demand.Rdata"))
+
+modelsummary(models_demand,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```
+
+\clearpage
+
+### Policy Work: Capacity
+
+<!--
+Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
+--> 
+
+```{r}
+#| label: tbl-models-capacity-pol
+#| tbl-cap: "The effect of capacity on general policy work with federal agencies"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
+```{r}
+#| label: fig-effect-pol
+#| fig-cap: "Predicted levels of on general policy work with federal agencies per legislator per year compared to counterfactuals"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(
+here::here("figs", type,
+           paste0("m-effect-",
+                  c(1:2,5,8), 
+                  ".png"
+                  ) 
+           ))
+```
+
+
+\clearpage
+
+### General Policywork: Strategic Responses to the Political Environment
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on general policy-work with federal agencies {#tbl-models-full-majority-pol}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+#### General Policy work as electoral strategy
+
+```{r}
+#| label: tbl-models-elect-pol
+#| tbl-cap: "The effect of electoral security on general policy work with federal agencies"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
+
+## Policy Work on Behalf of Business {#sec-appendix-models-4}
+
+```{r}
+type = "4"
+```
+
+
+
+### Policy Work on Behalf of Business: Demand
+
+```{r}
+#| label: tbl-models-demand-corpol
+#| tbl-cap: "The effect of demand on corporate policy work"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_demand.Rdata"))
+
+modelsummary(models_demand,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates the relationship between district demographics that may affect demand and levels of interbranch representation.")) 
+```
+
+\clearpage
+
+### Policy Work on Behalf of Business: Capacity
+
+<!--
+Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
+--> 
+
+```{r}
+#| label: tbl-models-capacity-corpol
+#| tbl-cap: "The effect of capacity on corporate policywork"
+#| out-width: 100%
+
+load(here::here("models", type,  "models_capacity.Rdata"))
+
+modelsummary(models_capacity,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+```
+
+
+\clearpage
+
+### Policy Work on Behalf of Business : Strategic Responses to the Political Environment
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on corporate policy-work with federal agencies {#tbl-models-full-majority}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+#### Policy Work on Behalf of Business as Electoral Strategy
+
+```{r}
+#| label: tbl-models-elect_corpol
+#| tbl-cap: "The effect of electoral security on corporate policywork"
+#| out-width: 60%
+
+load(here::here("models", type,  "models_elect.Rdata"))
+
+modelsummary(models_elect,
+             notes = list("Robust standard errors in parentheses, clustered by legislator.",
+                          "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
+
+```
+
