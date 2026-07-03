@@ -9,7 +9,9 @@ here::here("code", "formatting.R") |> source()
 > ABSTRACT: We examine what explains unequal levels of constituency service work on behalf of specific non-profits and local governments. We find that inequality in work on behalf of nonprofits and local governments is mostly a story of unequal capacity across legislators. However, partisanship and ideology play a larger role than with other types of constituency service. Legislators do much more for nonprofits and local governments when they have a co-partisan in the White House or they are ideologically aligned with the agency. This fits with research on distributive politics and presidential pork—a story in which nonprofits and local governments are disproportionately served by Democrats, who make requests of left-leaning agencies (like HUD) in Democratic administrations, and Republicans contact right-leaning organizations (like USDA) during Republican administrations.
 
 
-Yet, letter-marking may be less effective than earmarking [@MillsKalafHughes2015]
+In addition to providing constituency service to individuals and businesses in their districts, legislators provide similar types of service to nonprofit organizations and local governments. These entities often apply for competitive grants from the federal government; as part of this process, they may seek the support of their member of Congress, which involves the legislator writing to the relevant agency in support of the organization. Beyond working directly with federal agencies in this way, which is most directly relevant for our project, legislative offices also conduct grants workshops to provide resources to organizations that may wish to apply for these grants. By all accounts, this is a slightly more specialized form of constituency service that may benefit from additional knowledge and skill on the part of congressional staff. 
+
+Although our data show that letters in support of grants for local nonprofits and governments predate the congressional ban on earmarks that was instituted in 2011, we should acknowledge that legislators may be engaging in this activity as a substitute for appropriations activity, as @MillsKalafHughes2015 describe. However, @MillsKalafHughes2015 also find that "letter-marking," as they term this behavior, may be less effective than earmarking. 
 
 
 ## What it looks like
@@ -48,10 +50,14 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 ```
 
 
+\clearpage 
 
 ## Explaining Differences in Nonprofit and Government Service 
 
-Variation in legislators work on behalf nonprofit and local governments is mainly driven by ... 
+@fig-percent shows high levels of inequality across legislators in the amount of constituency service on behalf of nonprofits and local governments that legislators perform each year. Although the Gini coefficients for the Senate (left panel, 0.769) and the House (right panel, 0.775) are very similar, the distributions differ between chambers. Several very high-performing outliers, including Senators Schumer (D-NY), Gillibrand (D-NY), Nelson (D-FL), and Hagan (D-NC), are driving the inequality in the Senate, with Schumer writing an average of nearly 80 letters on behalf of nonprofits and local governments per year. That figure is nearly twice Gillibrand's yearly average of 45. In the House, on the other hand, the high-performing legislators are closer to the rest of the distribution, and the yearly averages are much lower, with Representatives Allen West (R-FL), Bruce Braley (D-IA), and Deborah Halvorson (D-IL) leading with averages of 11-12 letters per year.
+
+We now turn to models that seek to explain this variation using our theoretical framework of Demand, Capacity, and Strategic Responses to the Political Environment. The model specifications are the same as those that we have used in the previous chapters to examine overall interbranch representation, individual constituency service, and corporate constituency service. The results are shown in @tbl-models-full. Once again, we focus on the cross-sectional results in Models 1, 3, and 5.
+
 
 ::: {.fake-xref-table-for-caption}
 
@@ -101,6 +107,7 @@ modelsummary(models_full,
 
 ### Demand
 
+We begin by testing our hypotheses about demand for interbranch representation. Although district population in the pooled model (1) and the Senate-only model (5) is positively associated with more constituency service work on behalf of nonprofits and local governments, this relationship is negative in the House model (3), though it is statistically significant at only the 0.1 level. Thus, our expectations about the role of district population established in @thm-demandmoreconstituents receive only partial support. Because populations in House districts are likely to vary only with natural population shifts between reapportionment and redistricting cycles, the negative relationship between district population and this type of interbranch representation in the House suggests that legislators representing districts with less population *growth* are doing more service on behalf of nonprofits and local governments. More research is needed to parse this relationship carefully. 
 
 ```{r}
 #| label: fig-pop-effect
@@ -113,10 +120,17 @@ knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.p
 
 ```
 
+@fig-pop-effect visualizes the effect of unequal populations on this inequality across legislators. As with other similar figures throughout the book, the plot compares predicted amounts of constituency service on behalf of nonprofits and local governments (based on our model) with counterfactual amounts that would exist if every legislator represented a district of equal population. Differences in population, however, do not explain all of the inequality in this type of interbranch representation -- a fact that is also made apparent by the negative relationship between district population and advocacy for nonprofits and local governments in the House model. 
+
+Interestingly, our other measures of constituent demand are statistically significant across most relevant models, despite the competing expectations in @thm-demandmoredemanding and @thm-demandgreaterneed. Legislators who represent greater percentages of more knowledgeable constituents, operationalized by government sector employment and college graduation rates, generally do more constituency service on behalf of nonprofits and local governments, although these effects vary slightly across our models. Government sector employment is statistically significant only in two of the three cross-sectional models (pooled and House-only), and college graduate population is statistically significant at only the 0.1 level in the House-only model. Once again, these results suggest that House members' advocacy on behalf of nonprofits and local governments may be driven by slightly different factors than senators' advocacy.
+
+We find clear support for our expectations in @thm-demandgreaterneed that legislators representing greater-need constituents would do more interbranch representation. The coefficients on the variable measuring the percentage of constituents who receive public assistance are positive and statistically significant in all relevant models, and the effect is much larger in the Senate-only model. Thus, while the provision of constituency service to individuals seemed not to be tied to greater need in the district, the provision of constituency service to nonprofit organizations and local governments does. This finding suggests that this form of interbranch representation is one surprising way in which legislators can advocate for disadvantaged communities.
 
 ### Capacity
 
-Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. 
+Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. Most obvious here is the consistent effect of experience in office, as the coefficients on this variable (Three+ Years in Office) are positive and statistically significant in Models 1, 3, and 5. However, our other measure of experience, having served in a state legislature prior to Congress, is not related to this type of interbranch representation. These results lend some support to @thm-capacitylegexperience and are largely in line with the results in the previous two chapters for our two other types of constituency service: legislators benefit from gaining experience specific to the institution of Congress. 
+
+Other indicators of capacity, however, have little to no relationship with constituency service on behalf of nonprofits and local governments. Committee chairs do no more of this type of interbranch representation than non-chairs, and being a ranking member of a committee is statistically significant only in the pooled model (Model 1). Surprisingly, the relationship between holding a subcommittee chair position and this type of interbranch representation is negative (though not statistically significant) in Models 1, 3, and 5. Thus, we find no support for our hypothesis about institutional position (@thm-capacityinstitutionalposition).
 
 
 ```{r}
@@ -139,8 +153,9 @@ here::here("figs", type,
            ))
 ```
 
+@fig-capacity-effect illustrates the different effects of these different measures of capacity. Once again, each panel compares the predicted levels of interbranch representation (with the effect of the variable in question taken into account) with a counterfactual in which the effect is excluded. Given the minimal effects of committee and subcommittee chair positions on constituency service for nonprofits and local governments, most of the total capacity effect (shown in Panel (d)) comes from the effect of experience in office (shown in Panel (c)). 
 
-
+The last component of capacity that we test in the models in @tbl-models-full is whether a legislator sits on a committee with a reporting relationship with a particular agency. We hypothesized in @thm-capacityreporting that legislators would do more interbranch representation with agencies for which they serve on a reporting committee. This relationship is only positive and statistically significant in Models 1 and 3 (the pooled and House-only models), as was the case for constituency service on behalf of individuals. Therefore, we find only some evidence to support @thm-capacityreporting.
 
 ##### Staff quality 
 
@@ -155,15 +170,19 @@ modelsummary(models_district,
                           "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
 ```
 
+We next assess another component of capacity: the quality of legislators' staff. We established in @thm-capacitystaff that we expect legislators with more experienced staff to do more interbranch representation. Given the importance of congressional staff in providing constituency service, including constituency service on behalf of nonprofits and local governments, we might expect that staff quality would be particularly important here. As in previous chapters, we use a rough proxy for staff experience: whether a new legislator took over for another legislator of the same party. We assume that some staff retention would occur in such a situation, giving the new legislator the benefit of more experienced staff (despite having no experience in Congress themselves). 
+
+@tbl-models-district show the results of six models that estimate the effect of staff retention on this type of interbranch representation. Although the coefficients on "New Member" are negative and statistically significant in the base models, interaction models, and models with additional control variables, the interaction between "New Member" and "Same Party" is not statistically significant. Thus, as before, we find no support for @thm-capacitystaff using this measure of staff experience but do not rule out the possibility that a more precise measure would produce different results.   
 
 ### Strategic Responses to the Environment
 
+We turn now to tests of the final component of our theoretical framework: legislators' strategic responses to the political environment. Most of the results pertaining to these hypotheses are shown in the models in @tbl-models-full.
 
 #### Interbranch representation as electoral strategy
 
+We find no support for our expectations in @thm-strategic-election that legislators facing more competitive elections would do more interbranch representation. The coefficients for the variable capturing competitive general elections for legislators are negative in Models 1 and 3 and statistically significant only in Model 3 (Senate only). Contrary to our expectations, then, senators facing *less* competitive general elections do more constituency service on behalf of nonprofits and local governments. For House members, facing a competitive primary also has no relationship with this type of interbranch representation: the coefficient is negative and not statistically significant. 
 
-
-
+<!--
 
 ```{r}
 #| label: fig-elect-effect
@@ -179,29 +198,12 @@ knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
 
 ```
 
-
+-->
 
 #### Strategic responses to partisan institutions
 
-
+Consistent with our expectations in @thm-strategic-presidentmore, we find that legislators who share the president's party do more constituency service on behalf of nonprofit organizations and local governments. The rationale behind this hypothesis was that legislators might anticipate a greater likelihood of receiving a response from an agency that is part of a friendly presidential administration. Our competing hypothesis, @thm-strategic-presidentless, posited that legislators would likely do more interbranch representation when they do *not* share the president's party because they would have a partisan incentive to conduct oversight. For this specific type of interbranch representation, in which legislators are mostly writing in support of nonprofit organizations and local governments applying for grants from the federal government, finding support for @thm-strategic-presidentmore makes sense. It may also be the case that legislators are more likely to write in support of applications to grants that are part of programs they support. A co-partisan presidential administration would be more likely to implement such programs. Where possible, a more in-depth analysis of specific grants mentioned in the letters would shed light on this potential mechanism. Panel (a) in @fig-partisan-effect shows how sharing the president's party contributes to the inequality in this type of interbranch representation that we find across legislators.
  
-
-
-```{r}
-#| label: fig-ideo-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
-knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
-```
-
-
-
 
 ```{r}
 #| label: fig-partisan-effect
@@ -218,10 +220,25 @@ knitr::include_graphics(here::here("figs", type, "m-partisan-effect-1.png"))
 knitr::include_graphics(here::here("figs", type, "m-partisan-effect-2.png"))
 ```
 
+Our hypotheses regarding ideological distance between legislators and agencies followed similar logic. On one hand, we expected that legislators may do more interbranch representation with agencies to which they are ideologically proximate, the argument being that they support the agency's objectives (@thm-strategic-supportagency). On the other hand, we posited that legislators may do more interbranch representation with agencies from which they are ideologically distant, as they may actively oppose the agency's objectives (@thm-strategic-opposeagency). We find support for @thm-strategic-supportagency. Legislators do more constituency service on behalf of nonprofits and local governments with ideologically proximate agencies. Again, this pattern may speak to the fact that legislators support the overall policy objectives of the grants for which these constituent groups are applying, particularly because the analyses for individual and corporate constituency service in the previous two chapters do not support this hypothesis. It is also worth noting that Democrats do more of this type of interbranch representation than Republicans and Independents, consistent with Democrats' higher levels of support for government spending and other programs.  
 
 
+```{r}
+#| label: fig-ideo-effect
+#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+#| out-width: 100%
 
-#### Staff allocation reflects priories
+knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
+```
+
+Consistent with the results from previous chapters, however, is the effect of legislators' ideology on interbranch representation. More ideologically moderate legislators do more interbranch representation on behalf of nonprofits and local governments. @fig-ideo-effect shows the effect of ideological extremity on the inequality in this form of interbranch representation that we observe across legislators (Panel (a)), as well as the effect of agency ideology on this inequality (Panel (b)). As we can see from the comparisons between each effect with the counterfactuals in which these effects are not present, both of these factors impact inequality across legislators, though that impact is larger for legislators' ideology. 
+
+#### Staff allocation reflects priorities
 
 
 ```{r}
@@ -236,7 +253,9 @@ modelsummary(models_staff_spending,
                           "This table shows estimates of the effect of legislator staff spending. ")) 
 ```
 
+Next we consider how legislators' decisions about staff allocation might affect the amount of interbranch representation that they provide. @tbl-models-staff shows the results of models using legislators' staff budgets in three different categories--legislative staff, communications staff, and constituency service staff--as the main independent variables. Models 1 and 2 examine the effects of these variables on their own (with fixed effects), while Models 3 and 4 also control for elements of capacity and strategy. All models examine House members only. We focus on the cross-sectional results in Models 1 and 3. 
 
+In accordance with our expectations in @thm-strategic-staff, legislators who allocate more resources to constituency service staff do more constituency service on behalf of nonprofits and local governments. This relationship is slightly surprising given the lack of a relationship between constituency service staff and constituency service on behalf of both individuals and businesses. However, the slightly more specialized nature of constituency service work involving grants can help to explain this finding. Legislators often hire staff whose job it is to coordinate grants and help organizations through this process. This type of interbranch representation, then, is one for which capacity--and associated specialization--is most significant. Panel (a) of @fig-effect-staff makes clear the role that staff budget plays in explaining inequality in constituency service work on behalf of nonprofits and local governments. 
 
 ```{r}
 #| label: fig-effect-staff
@@ -256,4 +275,22 @@ here::here("figs", type,
            ))
 ```
 
+#### Strategic: Fundraising
+
+@thm-strategic-fundraising-distracts posited that fundraising distracts from constituency service, and thus legislators who engage in more corporate fundraising will do less interbranch representation of nonprofits and local governments. @tbl-models-pac shows a relationship in the opposite direction as theory predicted. Legislators who receive more money from corporate donors also do more interbranch representation for nonprofits and local governments. While we do not believe that these activities are causally linked, this finding does suggest that there is not necessarily a trade-off between fundraising and this type of interbranch representation. 
+
+```{r}
+#| label: tbl-models-pac
+#| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
+
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list("Robust standard errors in parentheses, clustered by district",
+                          "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
+```
+
+## A Unique Type of Constituency Service
+
+Advocating on behalf of nonprofit organizations and local governments, particularly those seeking support for grants, is a distinctive type of constituency service. That distinctiveness is apparent in our findings about what explains levels of (and inequalities in) service on behalf of nonprofits and local governments. Staff are important for this kind of work, as they are for both individual and corporate constituency service. Where this form of constituency service diverges from the other two that we have considered is in its closer relationship with policy. The grants for which these organizations apply are often a key part of policy implementation, which means that legislators' partisanship and ideology matter more for how they approach this kind of work. Legislators do more of this work on behalf of nonprofits and local governments when they share the party of the president and when they are ideologically closer to an agency, suggesting that they see these expressions of support as a means of controlling policy implementation. At the same time, these grants make a measurable difference in the lives of the communities that legislators represent, making them a key component of constituency service. 
 

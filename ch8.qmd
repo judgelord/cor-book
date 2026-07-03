@@ -1,4 +1,4 @@
-# General Policy Work
+# General Policy Work {#sec-type5}
 
 ```{r knit-options, include=FALSE, cache=FALSE}
 type = 5
@@ -7,6 +7,23 @@ here::here("code", "formatting.R") |> source()
 ```
 
 > ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+
+
+Policy work is highly unequal. 
+
+```{r}
+#| label: fig-percent
+#| fig-cap: "Observed levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+```
+
 
 ## Genres of policy work 
 
@@ -23,8 +40,8 @@ Within the subset of legislator requests that focus on policy rather than consti
 #| out_width: 80%
 
 # not broken out by type 
-#knitr::include_graphics(here::here("anecdotes", 5, "oversight-prepost-1.png"))
-knitr::include_graphics(here::here("anecdotes", 5, "oversight-drivers-prepost-1.png"))
+knitr::include_graphics(here::here("anecdotes", 5, "oversight-prepost-1.png"))
+#knitr::include_graphics(here::here("anecdotes", 5, "oversight-drivers-prepost-1.png"))
 ```
 
 
@@ -269,19 +286,6 @@ The most frequent words used in congressional contacts with the Mine Health and 
 knitr::include_graphics(here::here("figs", "wordcloud", type, "by-agency", "DOL_MSHA.png"))
 ```
 
-```{r}
-#| label: fig-percent
-#| fig-cap: "Observed levels of interbranch representation per legislator per year"
-#| fig-subcap: 
-#|   - "Senate"
-#|   - "House"
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
-knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
-```
-
 
 ## Policy work as representation 
 
@@ -293,7 +297,7 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
 ```
 
-
+\clearpage
 
 ## Explaining Differences in Policy Work
 
@@ -504,3 +508,17 @@ here::here("figs", type,
 ```
 
 
+#### Strategic: Fundraising and Policy Work
+
+Finally, @thm-strategic-fundraising-distracts suggests that  fundraising distracts from policy work; legislators who engaging in more corporate fundraising should be associated with lower levels of policy work. @tbl-models-pac shows a relationship in the opposite direction we predicted; the offices of legislators who receive corporate PAC contributions also do more policy. 
+
+```{r}
+#| label: tbl-models-pac
+#| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
+
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list("Robust standard errors in parentheses, clustered by district",
+                          "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
+```

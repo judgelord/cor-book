@@ -207,18 +207,23 @@ Legislators who represent *more demanding* constituents will be associated with 
 
 The last component of constituent demand in our framework is constituent needs. Some constituents might have a greater need for help from the federal government. While the previous section focused on constituents who in the @Verba95 framework have greater capacity to contact their legislators, in this section we focus on constituents who have greater motivation to contact them, because they have greater needs. Such constituents are those who might be struggling with major problems--lower income, food insecurity, housing insecurity, immigration status issues, and other issues with a strong presence in their daily lives. On the one hand, these constituents have the greatest needs, and in the Civic Voluntarism framework, they also have greater motivation to speak up. But on the other hand, these very traits are also correlated with potentially limiting their capacity and resources to speak up. These constituents with the greatest need might be the least likely to know where to appeal for help, and might be the least able to devote time and resources to seeking help [@Verba95]. For that reason, we could expect either a positive or negative relationship between representing more high need constituents and interbranch representation. 
 
-There is little direct evidence examining exactly this question on constituent demand. @Jones1977 found support for a "parabolic" model of constituent need in a local government context, in which individuals in the middle of the income distribution, who have both enough need and enough knowledge, were more likely to contact public officials for help. Other studies, however, have largely failed to replicate these results. @Johannes1984 examined the relationship between the median income in a district and constituency caseload requests for help, and found a weak and inconsistent positive relationship. Drawing on survey data from this same period, @Johannes1984 found no relationship between the respondent's self-reported economic hardship or income and contacting one's congressman for casework assistance. Drawing on similar survey data, @Yiannakis1981 found a positive relationship between the respondent's income and likelihood of contacting one's congressman for casework assistance, suggesting that not having the knowledge/resources to reach out may outweigh the need itself. 
+There is little direct evidence examining exactly this question on constituent demand. @Jones1977 found support for a "parabolic" model of constituent need in a local government context, in which individuals in the middle of the income distribution, who have both enough need and enough knowledge, were more likely to contact public officials for help. Other studies, however, have largely failed to replicate these results. @Johannes1984 examined the relationship between the median income in a district and constituency caseload requests for help, and found a weak and inconsistent positive relationship. Using survey data from this same period, @Johannes1984 found no relationship between the respondent's self-reported economic hardship or income and contacting one's member of congres for casework assistance. Drawing on similar survey data, @Yiannakis1981 found a positive relationship between the respondent's income and likelihood of contacting one's congressman for casework assistance, suggesting that not having the knowledge/resources to reach out may outweigh the need itself. 
 
 ::: {#thm-demandgreaterneed}
 ## Greater Need Constituents
-Legislators who represent constituents with greater needs could be associated with higher or lower levels of interbranch representation. 
+Legislators who represent constituents with greater needs do more interbranch representation for individuals, nonprofits, and local governments. 
+:::
+
+::: {#thm-demanddisempowered}
+## Disempowered Constituents
+Legislators who represent lower soci-economic status constituents do less interbranch representation. 
 :::
 
 #### Summarizing Demand Hypotheses
 
 @tbl-demand below summarizes our expectations for how various types of constituent-driven demand pressures impact the interbranch representation a member's office produces. 
 
-The three components of constituent demand we have discussed here are by no means comprehensive. Further complicating this picture is that legislators appear to use capacity to generate demand through advertising and informing their constituents about ways they can help [@Yiannakis1981; @Blackwood2026]--either for strategic reasons or just because they believe normatively it is the right thing for them to do. Thus, in our flow chart above [@fig-causal], we show a potential feedback loop between members' communications activities and constituent demand. 
+The three components of constituent demand we have discussed here are by no means comprehensive. Further complicating this picture is that legislators appear to use capacity to generate demand through advertising and informing their constituents about ways they can help [@Yiannakis1981; @Blackwood2026] -- either for strategic reasons or just because they believe normatively it is the right thing for them to do. Thus, in our flow chart above [@fig-causal], we show a potential feedback loop between members' communications activities and constituent demand. 
 
 ```{r}
 #| cache: true
@@ -232,17 +237,6 @@ library(tinytable)
 theory_table <- function(file){
   tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character()) ) |> 
   dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) 
-
-#   # OPTION 1 - citations don't seem to format, the the rest of the table is prettier
-# tbl |>
-#   tinytable::tt(width = c(0.18, 0.40, 0.15, 0.27)) |>
-#   format_tt(quarto = TRUE, markdown = TRUE, escape = FALSE, j = 4) |>
-#   style_tt(i = 0, bold = TRUE) |>
-#   style_tt(j = c(1:2,4), align = "l") |>
-#   style_tt(j = 3, align = "c")
-
-# OPTION 2 - citions work, but formatting could use work (must be done with array spacing in header.tex)
-# NOTE: THIS REQUIRES #| results: asis
   tbl |>
   pander::pandoc.table(
   style = "multiline",
@@ -322,12 +316,13 @@ Alternatively, a seat on a reporting committee could be considered a form of str
 
 #### Capacity: Staff 
 
-Unlike legislative work, where a legislator might choose to be more hands-on, the vast majority (if not all) of interbranch work in the contemporary period is carried out by congressional staff. While legislators played a much greater role in interbranch representation in earlier eras of congresisonal history [@Olson1966], today staff do most of the work. Research shows that other aspects of congressional work--legislative committee productivity and individual legislator effectiveness--are impacted by staff experience and staff budget allocation [@Cottle2022; @Ommundsen2025]. 
+Unlike legislative work, where a legislator might choose to be more hands-on, the vast majority (if not all) of interbranch work in the contemporary period is carried out by congressional staff. While legislators played a much greater role in interbranch representation in earlier eras of congresisonal history [@Olson1966], today staff do most of the work. Research shows that other aspects of congressional work---legislative committee productivity and individual legislator effectiveness--are impacted by staff experience and staff budget allocation [@Cottle2022; @Ommundsen2025]. 
 
 We argue that a larger staff and more experienced staff has the capacity to provide more interbranch representation. In this book we examine three aspects of congressional staffing that impact interbranch representation: staff experience, staff quantity, and staff budget.  
 
-
-<!--@Cottle2022 finds that staff experience affects the productivity of legislative committees. Similarly, we might expect that members who inherit experienced staff from the previous representative of that state or district will have more capacity for interbranch representation. Because staff are much more likely to stay when the new representative of the same party, we use whether the former representative was of the same party as a proxy for staff quality. We expect this effect to be especially strong in offsetting the start-up costs of new members in their first two years, so we allow it to vary by legislator experience.--> 
+<!--
+@Cottle2022 finds that staff experience affects the productivity of legislative committees. Similarly, we might expect that members who inherit experienced staff from the previous representative of that state or district will have more capacity for interbranch representation. Because staff are much more likely to stay when the new representative of the same party, we use whether the former representative was of the same party as a proxy for staff quality. We expect this effect to be especially strong in offsetting the start-up costs of new members in their first two years, so we allow it to vary by legislator experience.
+--> 
 
 ::: {#thm-capacitystaff}
 ## Capacity: Staff
@@ -411,7 +406,7 @@ Just as shared partisanship with a president could lead a legislator to engage i
 Legislators who share similar preferences with an agency (are ideologically proximate to the agency) might want to engage in more work with the agency. 
 :::
 
- A competing hypothesis would be that legislators who dislike what an agency does (are ideologically distant from the agency) would be likely to send more communications to the agency. The rationale here is analogous to seeking to oversee or investigate something a legislator dislikes. 
+ A competing hypothesis would be that legislators who dislike what an agency does (are ideologically distant from the agency) would be likely to do more oversight of that agency. If legislator interactions with the agencies take the form of police patrols or responding to "fire alarms" [@McCubbinsSchwartz1984], we may expect policing and attention to problems to focus on those institutions perceived to be distant. The rationale here is analogous to seeking to oversee or investigate something a legislator dislikes. 
 
 ::: {#thm-strategic-opposeagency}
 ## Strategic: Opposes Agency Objectives
@@ -424,12 +419,25 @@ Thus far, our hypotheses have focused on the total amount of interbranch represe
 
 A strategic choice legislators can make is thinking about on whose behalf to advocate. While a substantial body of research has documented the disproportionate influence of the elite [@Bartels2008; @Gilens2012; @Carnes2013; @GilensPage2014], the mechanisms of influence are substantially less clear. A large number of studies have concluded that, at least most of the time, campaign contributions do not buy roll call votes in Congress [AnsFigSny03]. However, as @PowellGrimmer2015 point out, the high profile visibility of roll call votes may make them one of the least desirable mechanisms of influence. Thus the very invisibility that hinders the public's knowledge of interbranch representation might make it a desirable pathway for the influence of money [@PowellJudgeLordGrimmer2023]. In a case study of the Federal Energy Regulatory Commission, @PowellJudgeLordGrimmer2023 found that legislators who received more corporate PAC contributions from energy companies were more likely to engage in interbranch advocacy on behalf of corporate interests. 
 
+
 ::: {#thm-strategic-corporate}
 ## Strategic: Advocate for Corporate Donors
 Legislators who engage in more corporate fundraising will be associated with higher levels of corporate interbranch representation (constituency service and policy).
 :::
 
-Of course, advocacy on behalf of corporate interests need not be driven by fundraising motives. The causality here could be more nuanced, where corporate donors are giving to legislators with more corporate-friendly ideological views. Thus, with our design, we will not be able to conclude that corporate contributions are driving interbranch representation of corporate interests. Instead, positive findings would merely suggest a correlation. 
+
+
+#### Strategic: Prioritizing Fundraising
+
+There is widespread conventional wisdom that the more time members of congress spend "dialing for dollars," the less time they spend on constituency service and policy work. 
+
+::: {#thm-strategic-fundraising-distracts}
+## Strategic: Allocate Time to Funderaising 
+Legislators who engage in more corporate fundraising will be associated with *lower* levels of constituency service and policy work not on behalf of corporations.
+:::
+
+
+
 
 #### Strategic Choices: Staff Allocation
 
@@ -451,15 +459,6 @@ theory_table <- function(file){
   tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character()) ) |> 
   dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) 
 
-#   # OPTION 1 - citations don't seem to format, the the rest of the table is prettier
-# tbl |>
-#   tinytable::tt(width = c(0.18, 0.40, 0.15, 0.27)) |>
-#   format_tt(quarto = TRUE, markdown = TRUE, escape = FALSE, j = 4) |>
-#   style_tt(i = 0, bold = TRUE) |>
-#   style_tt(j = c(1:2,4), align = "l") |>
-#   style_tt(j = 3, align = "c")
-
-# OPTION 2 - citions work, but formatting could use work (must be done with array spacing in header.tex)
 # NOTE: THIS REQUIRES #| results: asis
   tbl |>
   pander::pandoc.table(

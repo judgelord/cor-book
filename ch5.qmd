@@ -58,6 +58,7 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 ```
 
+\clearpage
 
 ## Explaining Differences in Constituency Service  
 
@@ -269,7 +270,7 @@ modelsummary(models_staff_spending,
                           "This table shows estimates of the effect of legislator staff spending. ")) 
 ```
 
-Finally, we consider our last strategy-related hypothesis, which involves the allocation of staff. We operationalize legislators' staff allocations using the amount of their budget that they spend on legislative staff, communications staff, and constituency service staff. As established in @thm-strategic-staff, we expect that legislators who allocate more staff resources to constituency service will do more individual constituency service. We present these results in separate models, shown in @tbl-models-staff, because decisions about staff allocation are necessarily a function of many other variables included in our main models. Thus, Models 1 and 2in @tbl-models-staff include only our measures of staff spending (along with fixed effects), and Models 3 and 4 control for many of these other capacity-related factors. 
+Finally, we consider our last strategy-related hypothesis, which involves the allocation of staff. We operationalize legislators' staff allocations using the amount of their budget that they spend on legislative staff, communications staff, and constituency service staff. As established in @thm-strategic-staff, we expect that legislators who allocate more staff resources to constituency service will do more individual constituency service. We present these results in separate models, shown in @tbl-models-staff, because decisions about staff allocation are necessarily a function of many other variables included in our main models. Thus, Models 1 and 2 in @tbl-models-staff include only our measures of staff spending (along with fixed effects), and Models 3 and 4 control for many of these other capacity-related factors. 
 
 
 ```{r}
@@ -295,4 +296,27 @@ Although the effects of staff budget allocation are not statistically significan
 
 It is possible, as discussed above, that the *quality* of legislators' staff, rather than the *quantity*, matters. Legislators who are high performers on individual constituency service might possess small (or larger but underpaid) but dedicated and talented teams of caseworkers who are adept at navigating the federal bureaucracy in ways that are not captured by our measures. 
 
-[similarities between these results and overall results? any differences suggest that other things are going on because so much of the overall data is constituency service - which is why, in the following chapters, we test our hypotheses for the other four types]
+## Individual Constituency Service in the Context of Interbranch Representation 
+
+Because individual constituency service is such a large portion of interbranch representation overall, many of the findings in this chapter are similar to those discussed in chapter 4. However, it is worth highlighting differences before proceeding to our analyses of the other four types of interbranch representation in the following chapters. These differences can illuminate factors that may be especially important for policy work or constituency service on behalf of businesses and nonprofits/local governments.
+
+Several measures of capacity that matter for interbranch representation overall have weaker or less consistent effects for individual constituency service, suggesting that (as hypothesized) institutional position matters more for other types of interbranch representation. Ideological distance between the legislator and the agency matters only in the overall models, implying that it will come into play for other types of interbranch representation as well. Interestingly, while spending on constituency service staff is not related to amounts of individual constituency service, it is related to interbranch representation overall. Another surprising difference involves particular measures of demand (government sector employees and college graduates), which matter more consistently in the models assessing interbranch representation generally than those assessing individual constituency service. The following chapters explore these factors further by testing our hypotheses for the other four types of interbranch representation, beginning with corporate constituency service.
+
+
+
+#### Strategic: Fundraising
+
+@thm-strategic-fundraising-distracts posited that fundraising distracts from constituency service, and thus legislators who engaging in more corporate fundraising will do less interbranch representation. @tbl-models-pac shows a relationship in the opposite direction as theory predicted. 
+
+```{r}
+#| label: tbl-models-pac
+#| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
+
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list("Robust standard errors in parentheses, clustered by district",
+                          "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
+```
+
+

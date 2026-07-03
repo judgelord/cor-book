@@ -197,11 +197,11 @@ knitr::include_graphics(here::here("figs", type, "m-demand-effect-1.png"))
 
 Turning from Demand, to Capacity, we find evidence in @tbl-models-full of some forms of capacity as always having strong positive relationships (legislator experience in Congress) across all model specifications, while other forms of capacity (Reporting committee assignment, and committee leadership positions) are positive and significant in some models, and lastly prior state legislative experience is insignificant across all model specifications. 
 
-
-
 <!---Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. --> 
 
 @fig-capacity-effect below shows a similar style of counter factual scenarios estimating the impact of capacity changes on the performance of corporate constituency service. The top left panel shows the effect of legislator experience, the top right a Reporting Committee Relationship (sitting on the committee that has jurisdiction of that agency), and the bottom left panel shows a Total Capacity counter factual effect.^[Total capacity effect includes counterfactuals for chair, sub-committee chair, ranking minority member, oversight, prestige committee assignment and legislator experience.]
+
+Consistent with our @thm-capacitylegexperience, and previous findings by @JudgeLordPowellGrimmer2026 and others, we see capacity in the form of legislator experience playing an important role in the provision of corporate constituency service. 
 
 ```{r}
 #| label: fig-capacity-effect
@@ -253,7 +253,7 @@ Lastly, we turn to evaluating the relationship between corporate service and the
 
 #### Corporate Service as Electoral Strategy
 
-Cross-section-ally (with just the year-agency fixed effects), we find that electorally vulnerable House members do more corporate service (statistically significant in the House only, and the all legislators model) [@tbl-models-full]. This is consistent with our expectations in the @tbl-models-full, though we note that we fail to find any effects for competitive primaries or in the fixed effects models. Figure @fig-elect-effect shows a set of counterfactuals in a similar style that compare actual electoral competitiveness to a no-competition scenario in both the general election (left panel), and primary election (right panel). As we observed in the regression table, primary competition is unrelated to corporate service. We do, however, see a modest relationship for general elections, in which legislators who are in a competitive general election environment seem to prioritize corporate service to a greater degree. 
+Cross-sectionally (with just the year-agency fixed effects), we find that electorally vulnerable House members do more corporate service (statistically significant in the House only, and the all legislators model) [@tbl-models-full]. This is consistent with our expectations in the @thm-strategic-election, though we note that we fail to find any effects for competitive primaries or in the fixed effects models. Figure @fig-elect-effect shows a set of counterfactuals in a similar style that compare actual electoral competitiveness to a no-competition scenario in both the general election (left panel), and primary election (right panel). As we observed in the regression table, primary competition is unrelated to corporate service. We do, however, see a modest relationship for general elections, in which legislators who are in a competitive general election environment seem to prioritize corporate service to a greater degree. 
 
 ```{r}
 #| label: fig-elect-effect

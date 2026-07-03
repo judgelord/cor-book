@@ -4,22 +4,69 @@
 
 > ABSTRACT: We conclude by looking prospectively at the future of interbranch representation. This includes exploring the policy implications of our findings for how interbranch representation can be improved as well as discussing how interbranch representation seems to be changing during the second Trump administration.
 
-We find high levels of inequality in interbranch representation. A large share of this inequality can be explained by legislator capacity, especially staff resources and experience. We find evidence of strategic behavior, with strong evidence that legislators work with ideologically proximate agencies and those whose committees they oversee, but this behavior does not explain inequality. We find some evidence for theories that interbranch representation is reelection-motivated and a substitute for legislating when one's party is out of power. Because legislator capacity drives so much of the inequality we observe, capacity-focused reforms — larger staffs, stronger training, and better retention of experienced personnel — may offer a promising lever for more equitable interbranch representation.
+We find high levels of inequality in interbranch representation, and all three parts of our framework play a role in explaining this inequality. Constituent population is a key component of demand that explains unequal amounts of interbranch representation. Capacity, particularly experience, also matters. We find evidence of strategic behavior, with fundraising, interestingly, being positively related to all five types of interbranch representation. Our analysis also reveals a number of other surprising findings, especially when examining differences in explanatory factors across types. Unexpectedly, ideologically moderate legislators do more of every type of interbranch representation except for general policy work. We also find little evidence that interbranch representation is electorally motivated, though in some circumstances, it can function as a substitute for legislating when one's party is out of power. Because legislator capacity drives so much of the inequality we observe, capacity-focused reforms — larger staffs, stronger training, and better retention of experienced personnel — may offer a promising lever for more equitable interbranch representation.
+
+
+
+```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "findings.csv"))
+#| label: tbl-results
+#| tbl-cap: "Results"
+#| results: asis
+
+theory_table <- function(file){
+  tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character()) ) |> 
+  dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) 
+
+# OPTION 2 - citions work, but formatting could use work (must be done with array spacing in header.tex)
+# NOTE: THIS REQUIRES #| results: asis
+  tbl |>
+  pander::pandoc.table(
+  style = "multiline",
+  #split.cells = c(10, 10, 10, 10, 5),
+  split.table = Inf,
+  justify = c("left", "left","left" ,"left", "left"),
+  missing = ""
+)
+}
+
+here::here("tables", "results.csv")  |> theory_table()
+
+```
+
 
 A focus on interbranch representation adds important nuance to modern narratives about a broken Congress. Although Congress may be broken in many ways, one under-appreciated way in which Congress still works is through interbranch representation (at least for some districts). The First Amendment to the U.S. Constitution guarantees the right "to petition the Government for a redress of grievances." In practice, citizens’ most direct experience with the federal government is with federal agencies. When citizens have grievances or simply need help navigating the federal bureaucracy, they petition their elected representatives for help. Legislators, in turn, petition the government for redress, facilitating responsiveness from agencies.
 
-Examining interbranch representation reshapes our understanding of how the legislative and executive interact. Our models of interbranch relations (both in public discourse and formal theory) are largely based on a formal, constitutionally prescribed division of legislative and executive functions. Thus, political scientists have focused on legislative bargaining, delegation of policymaking authority, and oversight hearings. This focus neglects the primary way legislators interact with the executive branch. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms, relationships, and softer forms of legitimacy. From an interbranch representation perspective, "separation of powers" is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy on a daily basis. There are a few executive branch activities that Members of Congress do not involve themselves in, and any lack of involvement is likely due to a lack of capacity rather than any formal separation of powers on paper. 
+<!--Rochelle 7/2: I think a version of the paragraph below is also in chapter 2, or maybe chapter 1 
 
+Examining interbranch representation reshapes our understanding of how the legislative and executive interact. Our models of interbranch relations (both in public discourse and formal theory) are largely based on a formal, constitutionally prescribed division of legislative and executive functions. Thus, political scientists have focused on legislative bargaining, delegation of policymaking authority, and oversight hearings. This focus neglects the primary way legislators interact with the executive branch. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms, relationships, and softer forms of legitimacy. From an interbranch representation perspective, "separation of powers" is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy on a daily basis. There are a few executive branch activities that Members of Congress do not involve themselves in, and any lack of involvement is likely due to a lack of capacity rather than any formal separation of powers on paper. -->
+
+Our study of interbranch representation reveals many previously unknown dynamics that exist between the legislative and executive branches. By examining a form of congressional activity that was, until recently, largely invisible, our research also raises new questions about what interbranch representation means for the functioning of Congress. After discussing our results in greater depth, we conclude by considering how interbranch representation informs our understandings of Congress's effectiveness, including how this work can be improved and what the changes in the federal government during the second Trump administration are likely to mean for interbranch representation.  
+
+## Understanding Interbranch Representation
+
+@tbl-results summarizes our findings and the support that we find for our hypotheses. We find support for hypotheses from all three parts of our theoretical framework, though the strength of the support varies, particularly across types of interbranch representation.
+
+We find consistent support for our expectations about the role that demand would play in interbranch representation. Constituent population, constituent demand (as measured by education and government employment), and constituent need (as measured by the use of government assistance) all matter for the amount of interbranch representation that legislators do. Constituent need plays a role primarily in the provision of constituency service to nonprofits and local governments, reflecting the fact that legislators often support these organizations' applications for grants. It is surprising that constituent population matters for interbranch representation even in the House, where differences in population across districts are much smaller than in the Senate. 
+
+Demand, however, does not tell the entire story of inequality in interbranch representation. We also find extremely consistent (and often large) effects for components of capacity. Legislator experience matters across nearly every model specification and type of interbranch representation, with more experienced legislators doing more of this activity. Interestingly, institutional position matters only for policy work. It seems that legislators who hold positions like committee chairs have no advantage in the constituency service types of interbranch representation, despite the additional capacity that those positions provide. Legislators who sit on the reporting committee for an agency, however, do more interbranch representation with that agency, which could reflect an underlying interest in that policy area, closer relationships with that agency, or even perceived expertise among constituents.
+
+Although we do find that strategy matters in some circumstances for interbranch representation, the ways in which it works are complicated. In some cases, for instance, interbranch representation is positively correlated with electoral competitiveness--that is, legislators facing more competitive general elections do more interbranch representation. For competitive primary elections, the results are mixed and inconclusive: positive and statistically significant results do not appear in enough of our model specifications to draw clear conclusions. We find similarly tepid results for majority/minority status, as only non-chairs in the minority party sometimes do more interbranch representation. 
+
+Other components of strategy matter differently across types of interbranch representation. As hypothesized, we do find evidence that Republican legislators do more advocacy on behalf of businesses. We also find that legislators who allocate more staff to a particular function in their office do more of that activity, particularly with constituency service staff and service on behalf of nonprofits and local governments. Legislators' partisan and ideological strategies, however, appear even more nuanced. Legislators do seem to take advantage of a cooperative executive by writing more letters on behalf of businesses and nonprofits/local governments when a co-partisan president is in the White House. But we find no evidence that legislators who do not share the president's party do more interbranch representation as a means of checking the executive or opposing the administration's work in federal agencies. Ideological distance between a legislator and an agency works in similar ways. 
+
+One of our most striking findings is the relationship between fundraising and interbranch representation. We had hypothesized that legislators who received more corporate PAC donations would do more interbranch representation on behalf of corporations (in the form of both service and policy). While we do find evidence to support this hypothesis, we also find relationships between corporate PAC donations and all other types of interbranch representation. Legislators who engage in more fundraising also engage in more constituency service on behalf of individuals and nonprofits/local governments, as well as more general policy work. 
 
 ## Conceptualizing and Measuring Effectiveness in Congress
 
 A major argument of this book is that despite significant levels of inequality in interbranch representation across members of Congress, the regular provision of interbranch representation is one way in which Congress, as an institution, is relatively functional. As discussed in chapter 1, Congress appears less functional by a number of other (primarily legislative) metrics. However, this discourse about the broken nature of Congress comes with a caveat, noted by David Mayhew: the oft-used metric of "bills passed" is incomplete. *More* legislation, Mayhew argues, is not the same as *landmark* legislation. And legislating, though an important function of Congress, is only one of its tasks.
 
-Separate from the question of what makes the *institution* of Congress effective is what makes an individual *member* of Congress effective. Scholars have done extensive work to answer this question by measuring the legislative effectiveness of individual legislators [@VoldenWiseman2014]. Since the introduction of Volden and Wiseman's Legislative Effectiveness Scores, many other scholars have sought to understand how and why this legislative effectiveness matters, including for (representation, elections, etc.).
+Separate from the question of what makes the *institution* of Congress effective is what makes an individual *member* of Congress effective. Scholars have done extensive work to answer this question by measuring the legislative effectiveness of individual legislators [@VoldenWiseman2014]. Since the introduction of Volden and Wiseman's Legislative Effectiveness Scores, many other scholars have sought to understand how and why this legislative effectiveness matters, including for representation [@HuntMiler2025] and elections [@TreulThomsenVoldenWiseman2022].
 
 What, then, would we consider a truly "effective" Congress to be? Adding interbranch representation to our picture of what Congress does makes it clear that a more holistic understanding of Congress's activities is necessary to answer this question. Studying interbranch representation also raises the question of how this work compares with the other work that individual legislators do, particularly legislating and fundraising. To explore this relationship, we present correlations between interbranch representation and two measures of individual legislators' productivity on other matters: Legislative Effectiveness Scores [@VoldenWiseman2014] and corporate PAC fundraising. 
 
-### LES 
+### Legislative Effectiveness Scores 
 
 The Pearson's product-moment correlation between annual Legislative Effectiveness Scores and total annual requests to federal agencies is  0.024 (p < .01). While we cannot necessarily infer from this correlation that more effective legislators are also consistently more effective at interbranch representation, @fig-les-decile does show that legislators with the lowest Legislative Effectiveness Scores also do the least interbranch representation. Some of this relationship, however, may be driven by congressional leaders, particularly the Speaker, exercising power and effectiveness through other channels that are not captured in these measures. 
 
@@ -96,10 +143,9 @@ While more research is needed to understand the precise nature of the relationsh
 
 ## Legislative Styles and Interbranch Representation 
 
-
 A separate body of scholarship has classified representation into "types" based on relative attention to various legislative, constituency, partisan, and communications activities [e.g. @Fenno1978; @Payne1980; @BernhardSulkin2018; @Grimmer2013; @CrossonKaslovsky2024]. From *Home Style* to "work horses and show horses", many political scientists present variation in representation not in an overall measure of more or less representation but by characterizing different ways of representing (or at least, different ways of practicing politics). 
 
-Conceptually, the legislative styles developed by @BernhardSulkin2018 seem to map well onto the types of interbranch representation. We might expect "district advocates" to be associates with more constituency services and less policy work, and "policy specialists" to be the reverse. However, @tbl-styles shows no such relationship. While the relationships between policy specialists and corporate constituent service (model 2) and policy work on behalf of industry (model 5) are in the expected directions, relative to the reference style of "Ambitious Entrepreneur," this is true for all of the other styles as well. 
+Conceptually, the legislative styles developed by @BernhardSulkin2018 seem to map well onto the types of interbranch representation. We might expect "district advocates" to be associated with more constituency services and less policy work, and "policy specialists" to be the reverse. However, @tbl-styles shows no such relationship. While the relationships between policy specialists and corporate constituent service (model 2) and policy work on behalf of industry (model 5) are in the expected directions, relative to the reference style of "Ambitious Entrepreneur," this is true for all of the other styles as well. 
 
 ```{r}
 #| label: tbl-styles
@@ -113,9 +159,11 @@ modelsummary(models,
              notes = "This model predicts different types of interbranch represetnation using Bernhard and Sulkin's legislative styles.")
 ```
 
-For interbranch representation, trade-offs between serving their district and focusing on policy are not the main story. The invisible nature of interbranch representation likely plays a role in these patterns. For instance, Grimmer's types of "appropriators" and "position-takers" capture senators' orientations toward communication and how these tendencies vary depending on their "marginal" or "aligned" electoral relationship with their state. Legislators of either style could realistically perform high levels of interbranch representation. 
+For interbranch representation, trade-offs between serving the district and focusing on policy are not the main story. The invisible nature of interbranch representation likely plays a role in these patterns. For instance, Grimmer's types of "appropriators" and "position-takers" capture senators' orientations toward communication and how these tendencies vary depending on their "marginal" or "aligned" electoral relationship with their state. Legislators of either style could realistically perform high levels of interbranch representation. 
 
-Common drivers of high levels across different types of interbranch representation also speak to the importance of staff and expertise.
+<!-- Rochelle 7/2: commenting out the below sentence for now because I don't remember where I was going with this!! -->
+
+<!--Common drivers of high levels across different types of interbranch representation also speak to the importance of staff and expertise. -->
 
 
 
@@ -125,21 +173,20 @@ Common drivers of high levels across different types of interbranch representati
 
 
 If we want to characterize styles of interbranch representation, it is an overarching style. Workhorses and show horses is a better fit for the empirical patterns we observe. Some offices are doing much more work than others. Despite a great deal of evidence that members invest in advertising their services to drum up demand, we find a fairly consistent negative relationship with spending on communications staff. Generally speaking, the same factors drive all of the different forms of interbranch representation we study. 
---> 
+ 
 
 ## Practical Implications of Interbranch Representation
 
 The inequality in interbranch representation that we have documented and explained in this book raises questions about how effectively congressional offices are handling this workload and what, if anything, can be done to improve how interbranch representation works. As constituency service has begun to gain more attention as an essential function of congressional offices, other groups more closely connected to the institution have made efforts to study and improve both casework and congressional communication with the bureaucracy. Organizations like Civic, which has proposed a consistent tagging system for casework to identify common problems that constituents experience during policy implementation, and PopVox, which provides resources for caseworkers and opportunities for congressional office staff to learn from one another, are doing vital work to improve congressional offices' capacity for constituency service. Equally important are efforts to ensure that constituents are aware that they can contact their member of Congress for help. While some recent research has thankfully picked up this thread [e.g. @Blackwood2026], more can also be done to understand legislators' solicitation of casework and how (if at all) it affects interbranch representation. 
 
 <!-- this paragraph could be clearer--> 
-Another important conclusion to be drawn from our findings is the extent to which interbranch representation depends on the skill and initiative of congressional offices. Far from simply responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. As part of effectively serving constituents and pursuing the legislator's policy goals, congressional staff must possess knowledge about the workings of the bureaucracy and how it connects to constituency service and policy. 
+Another important conclusion to be drawn from our findings is the extent to which interbranch representation depends on the skill and initiative of congressional offices. Rather than mechanically responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. As part of effectively serving constituents and pursuing the legislator's policy goals, congressional staff must possess knowledge about the workings of the bureaucracy and how it connects to constituency service and policy. 
 
-
- The consistent and positive relationship between legislators' experience and providing more interbranch representation is further evidence that term limits would undermine Congress as an institution. 
+The consistent and positive relationship between legislators' experience and providing more interbranch representation is further evidence that term limits would undermine Congress as an institution. Legislators--or, at minimum, their staff--need to spend time in the institution in order to develop useful expertise. This fact has long been known and accepted by political scientists [e.g. @CareyNiemiPowell2000], and this evidence that interbranch representation also benefits from institutional memory adds to this body of evidence.
 
 ## Changes Under the Trump Administration 
 
-Our findings have also made clear the importance of employees in the federal bureaucracy for legislators' providing effective interbranch representation. Although we did not examine agencies' responses to legislators' queries, legislators would undoubtedly be most effective at interbranch representation when bureaucrats are responsive to them. The nature of useful responses will vary across the types of interbranch representation that we have examined. Still, we can assume that more people -- and more expertise -- would produce more helpful responses.
+Our findings have also made clear the importance of employees in the federal bureaucracy for legislators' providing effective interbranch representation. Although we did not examine agencies' responses to legislators' queries, legislators would undoubtedly be most effective at interbranch representation when bureaucrats are responsive to them. The nature of useful responses will vary across the types of interbranch representation that we have examined. Still, we can assume that more people -- and more expertise -- in the bureaucracy would produce more helpful responses.
 
 The Trump administration's cuts to the federal workforce therefore have enormous implications for interbranch representation. We have not yet obtained data covering Trump's second term, but the data we do have suggest that these cuts would matter for interbranch representation (and the study of it) in several ways. First, we would expect additional delays in responses to our FOIA requests beyond what we have experienced, thus limiting our ability to obtain useful data in a timely manner. Second, agencies operating with fewer employees may simplify, alter, or even eliminate their regular record-keeping practices if they have fewer people available to keep and maintain records of congressional correspondence. Third, agencies may be less responsive to requests from members of Congress, thus impeding the overall functioning of interbranch representation, particularly its ability to "close the loop" in bureaucratic processes.
 
@@ -148,19 +195,25 @@ Given that this book has studied congressional behavior, it is worth considering
 - see cases where Trump says you should elect republicans because he won't let agencies help Dem districts (FEMA)
 - see coverage of DOGE cut exemptions system only open to republicans 
 
-Controlling agencies' interactions with members of Congress will both constrain and be constrained by the coalitional politics that @Carpenter2010 discusses as giving agencies autonomy. 
-
-## Interbranch Representation and Democracy
-
-Much of this discussion assumes a particular normative interpretation of interbranch representation -- that is, the idea that providing *more* interbranch representation is always better. [Where do we land on this?]
-
-[Maybe return to examples here to show how it affects people's lives - yes, some of these instances are legislators' offices solving serious problems for constituents - but others are answering questions or lending credence to people's concerns by passing them along to the bureaucracy. Immigration as example: yes, in some way it shows that the system is complex and bewildering and arguably broken -- but it also really matters to know that someone is fighting for you. That is what congressional offices can provide.]
+Controlling agencies' interactions with members of Congress will both constrain and be constrained by the coalitional politics that @Carpenter2001 documents between agency officials and legislative offices. 
 
 
 ## Future Research
 
-Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs [@CITE] and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with white house officials. 
+Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs [@CITE] and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with White House officials. 
 
 As a practical matter, the institutions of our vast federal government cannot magically coordinate and work together to solve problems. Interbranch correspondence is work that stitches the government together. The "three branches" of government metaphor may do harm to our understanding of a complex federal system [@Bednar2009] with stylized job descriptions. The threads of scholarship we tried to unite in this book paint a richer picture of what representation is in practice with our institutions as they are. A bureaucracy of millions serving a population of hundreds of millions will always do so imperfectly, with oppotunities or improvement inspired by people's problems, and inevitable fights over policy continuing long after the ink is dry on most pieces of legislation. Businesses, universities, and local governments will always be searching for someone with clout to get their bid or application a second look. 
 <!-- carpenter on coalitions --> 
+
+## Interbranch Representation and Democracy
+
+<!--what have we learned from it? how does it change how we think about interbranch representation? esp. traditions that are more or less supported in the literature
+
+also be sure to circle back to majority/minority point: is this a viable path that legislators could be pursuing but are not?-->
+
+Much of this discussion assumes a particular normative interpretation of interbranch representation -- that is, the idea that providing *more* interbranch representation is always better. The variety of requests that appear in our data, particularly for constituency service, suggests that interbranch representation is not necessarily an indicator that the bureaucracy is broken. As we have discussed here, interbranch representation is correlated with other measures that are commonly viewed as indicative of high levels of skill. We believe, therefore, that more interbranch representation could be viewed as normatively desirable. 
+
+
+
+[Maybe return to examples here to show how it affects people's lives - yes, some of these instances are legislators' offices solving serious problems for constituents - but others are answering questions or lending credence to people's concerns by passing them along to the bureaucracy. Immigration as example: yes, in some way it shows that the system is complex and bewildering and arguably broken -- but it also really matters to know that someone is fighting for you. That is what congressional offices can provide.]
 
