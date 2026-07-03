@@ -89,6 +89,7 @@ rename_vars <- function(data){
          first_two = first + second, 
          experience = ifelse(first_two == 1, 0, 1),
          distance = abs(nominate_dim1 - agency_ideo),
+    # staff 
     # fixed effects 
     icpsr_agency = paste(agency, icpsr, sep='_'),
     agency_year = paste(agency, year, sep='_'),
@@ -764,9 +765,14 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 
 {{< include code/replication-full-majority.qmd >}}
 
+## With Total Staff Spending 
+
+{{< include code/replication-full-staff-spending.qmd >}}
+
 ## With % MRA 
 
 {{< include code/replication-full-MRA.qmd >}}
+
 
 # Inequality figures based on full model 
 
