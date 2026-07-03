@@ -35,22 +35,33 @@
 
 % all we need is this to remove chapter numbering:
 % \newtheorem{hypothesis}{Hypothesis}
+% did not seem to work
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% all of this can be deleted when we remove it from chapter 2
-\newtheoremstyle{indented}
-  {0em}{1.5em}{\itshape}{0em}{\bfseries}{.}{ }%
-  {\thmname{#1}\thmnumber{ #2}\thmnote{- \bfseries#3}}
-\theoremstyle{indented}
+% or do we need this
+\usepackage{chngcntr}
 
-\newtheorem{innerhypothesis}{Hypothesis}
-\newtheorem{innersubhypothesis}{Hypothesis}[innerhypothesis]
-\renewcommand{\theinnersubhypothesis}{\theinnerhypothesis\alph{innersubhypothesis}}
+\makeatletter
+\AtBeginDocument{%
+  \@ifundefined{c@theorem}{}{\counterwithout{theorem}{chapter}}%
+  \@ifundefined{c@example}{}{\counterwithout{example}{chapter}}%
+}
+\makeatother
 
-\newenvironment{hypothesis}[1][]%
-  {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innerhypothesis}[#1]}%
-  {\end{innerhypothesis}\end{adjustwidth}}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % all of this can be deleted when we remove it from chapter 2
+% \newtheoremstyle{indented}
+%   {0em}{1.5em}{\itshape}{0em}{\bfseries}{.}{ }%
+%   {\thmname{#1}\thmnumber{ #2}\thmnote{- \bfseries#3}}
+% \theoremstyle{indented}
 
-\newenvironment{subhypothesis}[1][]%
-  {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innersubhypothesis}[#1]}%
-  {\end{innersubhypothesis}\end{adjustwidth}}
+% \newtheorem{innerhypothesis}{Hypothesis}
+% \newtheorem{innersubhypothesis}{Hypothesis}[innerhypothesis]
+% \renewcommand{\theinnersubhypothesis}{\theinnerhypothesis\alph{innersubhypothesis}}
+%
+% \newenvironment{hypothesis}[1][]%
+%   {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innerhypothesis}[#1]}%
+%   {\end{innerhypothesis}\end{adjustwidth}}
+%
+% \newenvironment{subhypothesis}[1][]%
+%   {\vspace*{-\baselineskip}\begin{adjustwidth}{2em}{2em}\begin{innersubhypothesis}[#1]}%
+%   {\end{innersubhypothesis}\end{adjustwidth}}
