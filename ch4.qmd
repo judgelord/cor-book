@@ -229,8 +229,9 @@ To assess further strategic behavior, we return to legislator-level models, firs
 #### Interbranch representation as electoral strategy
 
 We find less support for the theory that interbranch representation is reelection-motivated [@King1991]. Cross-sectionally, we find differences across members of the House whose prior election was competitive or not (@tbl-models-full-4, model 3), but not in the pooled model or the Senate. The within-member designs (models 2, 4, and 6) do not show a difference in behavior when a member had recently faced a competitive election and when they had not. This could be the result of few districts being competitive and even fewer experiencing changes in competitiveness. 
+<!-- TODO THESE SHOULD BE PLOTS FOR THE HOUSE ONLY MODEL
 
-@fig-elect-effect-4 shows the predicted levels of interbranch representation from @tbl-models-full-4 compared to a counterfactual where no member's prior general election had been competitive. Because differences in general election competition are only statistically different across members (not within), @fig-elect-effect-4 (a) shows cross-sectional differences (Model 1). Because differences in primary election competition are only statistically different within members, @fig-elect-effect-4 (b) shows difference-in-differences (Model 2). The estimated difference between competitive and non-competitive districts is spread across the distribution of representatives who provide higher and lower levels of interbranch representation and thus has little impact on the inequality across districts. 
+@fig-elect-effect-4 shows the predicted levels of interbranch representation from @tbl-models-full-4 compared to a counterfactual where no legislator's prior general election had been competitive. Because differences in general election competition are only statistically different across members (not within), @fig-elect-effect-4 (a) shows cross-sectional differences (Model 1). Because differences in primary election competition are only statistically different within members, @fig-elect-effect-4 (b) shows difference-in-differences (Model 2). The estimated difference between competitive and non-competitive districts is spread across the distribution of representatives who provide higher and lower levels of interbranch representation and thus has little impact on the inequality across districts. 
 
 ```{r}
 #| label: fig-elect-effect-4
@@ -248,7 +249,7 @@ knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
 #TODO ADD DISTANCE 
 ```
 
-
+--> 
 
 #### Strategic responses to partisan institutions
 
