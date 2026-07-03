@@ -15,19 +15,29 @@
 #|   - "Model 4: log Diff in Diff"
 
 # cross-sectional 
-m_elect_basic_cross <- fenegbin (perYear ~ chamber + party +  competitive | Year_x_Agency,
+m_elect_basic_cross <- fenegbin (
+  perYear ~ chamber + # party +   # ? why is this causing the model to fail to converge? 
+    competitive | Year_x_Agency,
                     cluster = "Legislator", data = data_member)
 
 # did
-m_elect_basic_did <-fenegbin (perYear ~ chamber + party +    competitive | Year_x_Agency + Legislator_x_Agency, 
+m_elect_basic_did <-fenegbin (
+  perYear ~ chamber + # party +   # ? why is this causing the model to fail to converge?   
+    competitive | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",  data = data_member)
 
+# PRIMARY = HOUSE ONLY 
 # cross-sectional 
-m_elect_basic_primary_cross <- fenegbin (perYear ~ chamber + party +  competitive + competitive_primary | Year_x_Agency,
+m_elect_basic_primary_cross <- fenegbin (
+  perYear ~ # party +   # ? why is this causing the model to fail to converge? 
+    competitive + competitive_primary | Year_x_Agency,
                     cluster = "Legislator", data = data_member)
 
 # did
-m_elect_basic_primary_did <-fenegbin (perYear ~ chamber + party +    competitive + competitive_primary | Year_x_Agency + Legislator_x_Agency, 
+m_elect_basic_primary_did <-fenegbin (
+  perYear ~ # party +   # ? why is this causing the model to fail to converge?   
+    # competitive + 
+    competitive_primary | Year_x_Agency + Legislator_x_Agency, 
                     cluster = "Legislator",  data = data_member)
 
 ```
