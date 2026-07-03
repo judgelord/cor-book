@@ -426,6 +426,14 @@ Legislators who engage in more corporate fundraising will be associated with *lo
 :::
 
 
+#### Strategic: Republican
+
+Because the Republican Party is typically perceived as being friendlier to business interests [@GimpelLeeParrott2014], we expect that Republicans will do more interbranch representation on behalf of business interests than Democrats will. 
+
+::: {#thm-strategic-republican}
+## Strategic: Republican 
+Republicans will advocate more for business interests in both service and policy.
+:::
 
 
 #### Strategic Choices: Staff Allocation
