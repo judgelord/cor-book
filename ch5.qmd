@@ -7,7 +7,7 @@ here::here("code", "formatting.R") |> source()
 ```
 
 
-> ABSTRACT: We examine what explains the unequal levels of constituency service that legislators provide to individuals in their district. Folk theory explanations about district demand and, especially, legislator capacity explain a large share of the variation. We find that constituency service work is most prominently driven by legislators’ experience in office. However, constituency service is not free of partisan and ideological influences. Legislators also do more constituency service with agencies that fall under the oversight jurisdiction of their committee assignment. While re-election does not seem to motivate constituency service, ideologically moderate members do perform more of this work. Overall, our analysis suggests that demand and capacity matter most for individual constituency service, with strategy appearing important in small but surprising ways. 
+> ABSTRACT: We examine what explains the unequal levels of constituency service that legislators provide to individuals in their district. Folk theory explanations about district demand and, especially, legislator capacity explain a large share of the variation. We find that constituency service work is most prominently driven by legislators’ experience in office. However, constituency service is not entirely free of partisan and ideological influences. While re-election does not seem to motivate constituency service, ideologically moderate members do perform more of this work. Overall, our analysis suggests that demand and capacity matter most for individual constituency service, with strategy appearing important in small but surprising ways. 
 
 <!-- Ellie: Potential Block quote to include -->
 
@@ -15,7 +15,7 @@ here::here("code", "formatting.R") |> source()
 >
 > --- @Olson1966, pg. 338.
 
-The above quote about constituency service speaks to the importance of constituency service for the individuals it helps. Constituency service is also important for members of Congress in a number of ways, including as a major component of interbranch representation. In this chapter, we describe what individual constituency service looks like from this perspective and assess what explains inequalities in this activity across legislators. We find that various elements of demand, capacity, and strategic responses to the political environment matter for individual constituency service. Most notably, legislators with more experience and with more constituents, as well as legislators who are more ideologically moderate, do more of this work. 
+Olson's quote about constituency service speaks to the importance of constituency service for the individuals it helps. Constituency service is also important for members of Congress in a number of ways, including as a major component of interbranch representation. In this chapter, we describe what individual constituency service looks like from this perspective and assess what explains inequalities in this activity across legislators. We find that various elements of demand, capacity, and strategic responses to the political environment matter for individual constituency service. Most notably, legislators with more experience and with more constituents, as well as legislators who are more ideologically moderate, do more of this work. 
 
 ## What is individual constituency service?
 
@@ -30,22 +30,22 @@ knitr::include_graphics(here::here("anecdotes", 1, "AllredTweet.png"))
 Legislators perform a variety of tasks to help and serve individual constituents [@Blackwood2026], and the difference between a constituent request for assistance and a constituent communication about policy is not always clear [@Snyder2024]. Because we are concerned with how legislators engage with federal agencies on behalf of constituents, we use a definition of individual constituency service that is distinct from definitions used in other studies. We conceptualize individual constituency service as actions that congressional offices have taken on behalf of individual constituents, including groups of individuals and large numbers of people,^[For example, Senator Marco Rubio wrote about people across Florida receiving FEMA disaster aid.] to help them navigate the federal bureaucracy. As the post from Rep. Colin Allred in @fig-anecdote shows, this assistance often involves returning money to constituents from the federal government by correcting errors in benefits payments or tax refunds. Legislators also view individual constituency service as important enough to warrant regular communications and significant staff budgets.  
 
 ```{r}
-#| label: fig-words
+#| label: fig-words-5
 #| fig-cap: "Most frequent words by year"
 
 knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
 ```
 
 
-Given the large number of topics in which the federal bureaucracy is involved, constituency service on behalf of individuals involves legislators' contacting a number of different agencies for a vast array of purposes. Many of the most common will be familiar to scholars of congressional representation and constituency service. As evidenced by the word cloud in @fig-words, our data include a significant number of contacts between legislators and the Department of Veterans Affairs (VA) to ask about the status of claims that their veteran constituents had filed with the VA. Other common subjects of requests to the VA on behalf of individual constituents involved appeals, disability ratings, and changes in benefits. Interestingly, a fair number of VA letters were identified as follow-up requests, indicating that legislators' casework staff were repeatedly contacting the VA about the same constituent case. Determining whether this pattern speaks more to a particular unresponsiveness of the VA or exceptional persistence on the part of congressional staff (or exceptionally detailed record-keeping by the VA) is beyond the scope of our analysis, but it does accord with our theoretical expectation about the importance of capacity for interbranch representation.
+Given the large number of policy areas in which the federal bureaucracy is involved, constituency service on behalf of individuals involves legislators' contacting a number of different agencies for a vast array of purposes. Many of the most common will be familiar to scholars of congressional representation and constituency service. As evidenced by the word cloud in @fig-words-5, our data include a significant number of contacts between legislators and the Department of Veterans Affairs (VA) to ask about the status of claims that their veteran constituents had filed with the VA. Other common subjects of requests to the VA on behalf of individual constituents involved appeals, disability ratings, and changes in benefits. Interestingly, a fair number of VA letters were identified as follow-up requests, indicating that legislators' casework staff were repeatedly contacting the VA about the same constituent case. Determining whether this pattern speaks more to a particular unresponsiveness of the VA or exceptional persistence on the part of congressional staff (or exceptionally detailed record-keeping by the VA) is beyond the scope of our analysis, but it does accord with our theoretical expectation about the importance of capacity for interbranch representation.
 
-Similar communications appeared in the congressional correspondence logs from many sub-agencies in the Department of Labor (DOL). Several different DOL sub-agencies, including the Occupational Safety and Health Administration (OSHA), the Office of Workers' Compensation Programs (OWCP), and the Office of Congressional and Intergovernmental Affairs (OCIA), handled congressional requests involving on-the-job injuries, benefits claims, and workplace safety complaints. Also unsurprising is the number of communications with the Internal Revenue Service (IRS) in the Treasury Department on behalf of constituents dealing with issues involving their taxes, especially tax refunds. Though not evident in the word cloud because they were identified in the logs using the names of specific forms, a very large amount of individual constituency service requests involved immigration issues and were sent to U.S. Citizenship and Immigration Services (USCIS) within the Department of Homeland Security.
+Similar communications appeared in the congressional correspondence logs from many sub-agencies in the Department of Labor (DOL). Several different DOL sub-agencies, including the Occupational Safety and Health Administration (OSHA), the Office of Workers' Compensation Programs (OWCP), and the Office of Congressional and Intergovernmental Affairs (OCIA), handled congressional requests involving on-the-job injuries, benefits claims, and workplace safety complaints. Also unsurprising is the number of communications with the Internal Revenue Service (IRS) in the Treasury Department on behalf of constituents dealing with issues involving their taxes, especially tax refunds. Though excluded from the word cloud because of their massive volume, a very large amount of individual constituency service requests involved immigration issues and were sent to U.S. Citizenship and Immigration Services (USCIS) within the Department of Homeland Security.
 
 Beyond these "classic" examples of individual constituency service, there are also many examples of correspondence on behalf of individuals that did not involve a problem with the federal bureaucracy (at least not in the sense that the bureaucracy had made an error or the constituent had experienced some injustice). The National Archives and Records Administration (NARA) received thousands of requests from legislators on behalf of constituents who were seeking copies of their family members' military records. Many legislators also forwarded constituent complaints and queries to the Food and Drug Administration (FDA) within the Department of Health and Human Services. Although these concerns were broadly related to the policy work of the FDA, they often did not suggest a specific bureaucratic failure on the part of the agency. For example, Senator Arlen Specter wrote to the FDA with a request to investigate the treatment that a constituent received at a VA hospital. The constituent had an adverse reaction to a drug that included joint pain, memory loss, sleep apnea, vision loss, and stomach difficulties. The symptoms abated after the patient stopped taking the drug, at the behest of the VA physician. At issue in this case was the drug, not the VA, as the physician seemed to recognize and respond to the problem. And although the FDA had the ability to investigate the issue, the constituent was not contacting Specter about a particular bureaucratic issue with the FDA. This example illustrates how problems can sometimes appear for constituents at the intersection of several agencies, which suggests that the expertise and capacity of legislators' offices matters for addressing these issues. Congressional staff need to have some sense of how contacting an agency may help to address a problem in a way that is appropriate for the constituent, and these ambiguous cases likely require deep knowledge of the federal bureaucracy. 
 
 
 ```{r}
-#| label: fig-percent
+#| label: fig-percent-5
 #| fig-cap: "Observed levels of interbranch representation per legislator per year"
 #| fig-subcap: 
 #|   - "Senate"
@@ -62,9 +62,9 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 ## Explaining Differences in Constituency Service  
 
-We now turn to explaining the significant inequalities in constituency service that exist across legislators. @fig-percent shows extreme levels of inequality in individual constituency service across members in both the Senate (left) and the House (right), with the top performers, interestingly, in the House. 
+We now turn to explaining the significant inequalities in constituency service that exist across legislators. @fig-percent-5 shows extreme levels of inequality in individual constituency service across members in both the Senate (left) and the House (right), with the top performers, interestingly, in the House. 
 
-The models in @tbl-models-full use our framework of Demand, Capacity, and Strategic Motivation to explain interbranch representation. Models 1, 3, and 5 show the cross-sectional effects, which are our primary focus for now. Across these models, we find that elements of all three parts of our framework explain inequalities in interbranch representation.
+The models in @tbl-models-full-5 use our framework of Demand, Capacity, and Strategic Choice to explain interbranch representation. Models 1, 3, and 5 show the cross-sectional effects, which are our primary focus for now. Across these models, we find that elements of all three parts of our framework explain inequalities in interbranch representation.
 
 <!--Legislators do more constituency service with agencies with whom they are ideologically aligned or sit on the oversight committee.
 
@@ -84,7 +84,7 @@ Variation in constituency service is mainly driven by ... -->
 |---|
 |   |
 
-: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full}
+: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full-5}
 
 ```{=latex}
 \endgroup\vspace{-2\baselineskip}
@@ -122,7 +122,7 @@ modelsummary(models_full,
 
 ### Demand
 
-As in the models examining overall interbranch representation that we presented in chapter 4, district population is related to levels of interbranch representation in both the House and the Senate, supporting our expectations in @thm-demandmoreconstituents. We can see the effects of population on inequality in @fig-pop-effect. This figure is comparing predicted levels of interbranch representation (as a function of district population) with a counterfactual in which each senator represents an equal number of constituents. While the counterfactual of equal state populations reduces inequality in individual constituency service somewhat, by no means does it suggest equal levels across legislators. To fully explain legislators' unequal levels of individual constituency service, we must look elsewhere.
+As in the models examining overall interbranch representation that we presented in chapter 4, district population is related to levels of interbranch representation in both the House and the Senate, supporting our expectations in @thm-demandmoreconstituents. We can see the effects of population on inequality in @fig-pop-effect-5. This figure is comparing predicted levels of interbranch representation (as a function of district population) with a counterfactual in which each senator represents an equal number of constituents. While the counterfactual of equal state populations reduces inequality in individual constituency service somewhat, by no means does it suggest equal levels across legislators. To fully explain legislators' unequal levels of individual constituency service, we must look elsewhere.
 
 Other components of constituent demand have only inconsistent effects across models. Only one operationalization of "more demanding" constituents, the percentage of constituents employed in government, is statistically significant in our models (and only in the cross-sectional model with all legislators and the cross-sectional model using only House members). Thus, we find minimal support for our expectation (@thm-demandmoredemanding) that legislators with more demanding constituents -- those who are more likely to know how to contact their legislator for help -- will perform more individual constituency service.
 
@@ -130,7 +130,7 @@ Interestingly, we also find minimal support for our expectation in @thm-demandgr
 
 
 ```{r}
-#| label: fig-pop-effect
+#| label: fig-pop-effect-5
 #| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
 #| out-width: 50%
 
@@ -143,13 +143,13 @@ knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.p
 
 ### Capacity
 
-Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. Most obvious here is the strong and statistically significant relationship between legislator experience (operationalized as having spent three or more years in office) and individual constituency service. Experience is significant in all six models, though the effect is largest in the Senate. We can see in panel (c) of @fig-capacity-effect that a counterfactual of equal tenure between legislators has a noticeable effect only at the upper end of the distribution. Interestingly, our other measure of legislator experience, having served in a state legislature, does not accord with our expectations about experience. The coefficient is negative in all three cross-sectional models and statistically significant (at the 0.1 level) in the House cross-sectional model. While it appears that experience in another legislative institution has no bearing on the amount of individual constituency service that legislators perform, experience in Congress does. Overall, then, we find support for @thm-capacitylegexperience.
+Columns 1, 3, and 5 of @tbl-models-full-5 show differences across legislators with different capacity advantages. Most obvious here is the strong and statistically significant relationship between legislator experience (operationalized as having spent three or more years in office) and individual constituency service. Experience is significant in all six models, though the effect is largest in the Senate. We can see in panel (c) of @fig-capacity-effect-5 that a counterfactual of equal tenure between legislators has a noticeable effect only at the upper end of the distribution. Interestingly, our other measure of legislator experience, having served in a state legislature, does not accord with our expectations about experience. The coefficient is negative in all three cross-sectional models and statistically significant (at the 0.1 level) in the House cross-sectional model. While it appears that experience in another legislative institution has no bearing on the amount of individual constituency service that legislators perform, experience in Congress does. Overall, then, we find support for @thm-capacitylegexperience.
 
 Other indicators of capacity, however, have inconsistent effects that do not support our hypotheses. Contrary to our expectations in @thm-capacityinstitutionalposition, there is no evidence that committee chairs do more individual constituency service: those coefficients are negative across most models and statistically insignificant in all models. The effect of being a ranking member of a committee is statistically significant only in the pooled and House difference-in-difference models (Models 2 and 4). Holding a subcommittee chair position is positively associated with individual constituency service only in the cross-sectional model including both the House and the Senate, although it is statistically significant only at the 0.1 level. While we find some evidence to support our expectations in @thm-capacityreporting that legislators who sit on the reporting committees for an agency will write more letters to that agency, these effects are statistically significant only in the pooled and House cross-sectional models.   
 
 
 ```{r}
-#| label: fig-capacity-effect
+#| label: fig-capacity-effect-5
 #| fig-cap: "Predicted levels of interbranch representation per legislator per year compared to counterfactuals"
 #| fig-subcap: 
 #|   - ""
@@ -174,7 +174,7 @@ here::here("figs", type,
 ##### Staff quality 
 
 ```{r}
-#| label: tbl-models-district
+#| label: tbl-models-district-5
 #| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
 
 load(here::here("models", type,  "models_district.Rdata"))
@@ -186,22 +186,22 @@ modelsummary(models_district,
 
 Beyond the experience that the legislator themselves brings to the legislative office, we also account for the experience that congressional staff may have. As established in @thm-capacitystaff, we expect that legislators with more experienced staff will do more interbranch representation, including constituency service (which is primarily, if not solely, done by staff). We have conceptualized and operationalized staff experience as staff "holdover" from one member to the next, which is more likely to occur if a new member is of the same party as the previous member. 
 
-To evaluate this hypothesis, we turn to the results of the models in @tbl-models-district. Of primary interest are the coefficients on the New Member and Same Party variables, as well as the interaction between the two. We focus once again on interpreting the cross-sectional results (Models 1, 3, and 5).
+To evaluate this hypothesis, we turn to the results of the models in @tbl-models-district-5. Of primary interest are the coefficients on the New Member and Same Party variables, as well as the interaction between the two. We focus once again on interpreting the cross-sectional results (Models 1, 3, and 5).
 
 While the coefficients for the New Member variable are negative, as we would expect given the impact of experience, the coefficient is statistically significant in only one of the cross-sectional models (Model 5). Interestingly, the coefficients for the Same Party variable are also negative in Models 3 and 5. Most notably, the interaction between New Member and Same Party is not statistically significant in either cross-sectional model, although both coefficients are positive. Thus, it does not appear that legislators who succeed another legislator of the same party do more individual constituency service. This operationalization of staff experience is admittedly a very rough proxy and may not be a fully valid measure. We find no support for @thm-capacitystaff in this analysis, but we acknowledge that a better measure may produce different results. 
 
 ### Strategic Responses to the Environment
 
-We next evaluate hypotheses generated from the third part of our theoretical framework: strategic responses to the political environment. We return to the models in @tbl-models-full to assess the effects of electoral vulnerability, partisan and ideological relations with the executive branch, and ideology.
+We next evaluate hypotheses generated from the third part of our theoretical framework: strategic responses to the political environment. We return to the models in @tbl-models-full-5 to assess the effects of electoral vulnerability, partisan and ideological relations with the executive branch, and ideology.
 
 #### Interbranch representation as electoral strategy
 
-We established in @thm-strategic-election that legislators who are more concerned about reelection will perform greater levels of interbranch representation, including constituency service on behalf of individuals. We test this hypothesis in our main models in @tbl-models-full using measures capturing the competitiveness of legislators' general and primary elections. General election competition has a modest positive relationship with individual constituency service in the main cross-sectional model (Model 1) and the House-only cross-sectional model (Model 3), although the coefficient in Model 1 reaches statistical significance at only the 0.1 level. In Model 5, which includes only senators, general election competition has a negative but statistically insignificant relationship with individual constituency service. @fig-elect-effect shows how competitive general and primary elections explain inequality in individual constituency service across legislators by comparing the predicted number of requests with a counterfactual in which legislators face no electoral competition. Panel (a) shows the general election effect in Model 3 (House cross-sectional), while Panel (b) shows the primary election effect in Model 4 (House difference-in-differences). While it is clear that House members facing a more competitive general election do more individual constituency service than they would without a competitive general election, electoral competition explains a relatively small proportion of the overall inequality across members. Thus, we find little support for @thm-strategic-election. 
+We established in @thm-strategic-election that legislators who are more concerned about reelection will perform greater levels of interbranch representation, including constituency service on behalf of individuals. We test this hypothesis in our main models in @tbl-models-full-5 using measures capturing the competitiveness of legislators' general and primary elections. General election competition has a modest positive relationship with individual constituency service in the main cross-sectional model (Model 1) and the House-only cross-sectional model (Model 3), although the coefficient in Model 1 reaches statistical significance at only the 0.1 level. In Model 5, which includes only senators, general election competition has a negative but statistically insignificant relationship with individual constituency service. @fig-elect-effect-5 shows how competitive general and primary elections explain inequality in individual constituency service across legislators by comparing the predicted number of requests with a counterfactual in which legislators face no electoral competition. Panel (a) shows the general election effect in Model 3 (House cross-sectional), while Panel (b) shows the primary election effect in Model 4 (House difference-in-differences). While it is clear that House members facing a more competitive general election do more individual constituency service than they would without a competitive general election, electoral competition explains a relatively small proportion of the overall inequality across members. Thus, we find little support for @thm-strategic-election. 
 
 
 
 ```{r}
-#| label: fig-elect-effect
+#| label: fig-elect-effect-5
 #| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
 #| fig-subcap: 
 #|   - ""
@@ -218,11 +218,11 @@ knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
 
 #### Strategic responses to partisan institutions
 
-A second component of legislators' strategic responses that may drive interbranch representation involves the partisan and ideological relationships between legislators and the executive branch. @tbl-models-full shows that neither the party of the president, nor the ideological distance between a legislator and an agency, nor the interaction between these two variables is consistently related to individual constituency service. Sharing the president's party is positive and statistically significant only in Model 2 (the House and Senate difference-in-differences model); none of the other coefficients in the other models are significant at all, and the signs are inconsistent. We established two competing hypotheses in chapter 2: on one hand, legislators may do more interbranch representation when they share the party of the president because they assume they are more likely to get a response (@thm-strategic-presidentmore); on the other hand, legislators may do more interbranch representation when they do *not* share the president's party because they will have a partisan incentive to conduct additional oversight of the bureaucracy (@thm-strategic-presidentless). We find support for neither hypothesis, which suggests that, for individual constituency service, legislators are not factoring partisanship or ideology into their work. This is consistent with our theoretical view of legislative offices as bureaucracies. 
+A second component of legislators' strategic responses that may drive interbranch representation involves the partisan and ideological relationships between legislators and the executive branch. @tbl-models-full-5 shows that neither the party of the president, nor the ideological distance between a legislator and an agency, nor the interaction between these two variables is consistently related to individual constituency service. Sharing the president's party is positive and statistically significant only in Model 2 (the House and Senate difference-in-differences model); none of the other coefficients in the other models are significant at all, and the signs are inconsistent. We established two competing hypotheses in chapter 2: on one hand, legislators may do more interbranch representation when they share the party of the president because they assume they are more likely to get a response (@thm-strategic-presidentmore); on the other hand, legislators may do more interbranch representation when they do *not* share the president's party because they will have a partisan incentive to conduct additional oversight of the bureaucracy (@thm-strategic-presidentless). We find support for neither hypothesis, which suggests that, for individual constituency service, legislators are not factoring partisanship or ideology into their work. This is consistent with our theoretical view of legislative offices as bureaucracies. 
 
 
 ```{r}
-#| label: fig-ideo-effect
+#| label: fig-ideo-effect-5
 #| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology (a) and perceived agency ideology (b)"
 #| fig-subcap: 
 #|   - ""
@@ -234,11 +234,11 @@ knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
 knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
 ```
 
-We had similar expectations regarding the respective ideologies of legislators and agencies and how that relationship might affect interbranch representation. Specifically, we hypothesized that legislators who are more ideologically proximate to an agency (and are therefore more likely to support its objectives) might send more letters to that agency (@thm-strategic-supportagency); alternatively, legislators who are more ideologically distant from an agency might send more letters to that agency as a means of conducting oversight (@thm-strategic-opposeagency). Our analysis finds no support for either of these hypotheses. Ideological distance between a legislator and an agency has no bearing on the amount of individual constituency service that a legislator does with that agency, as shown in Panel (b) of @fig-ideo-effect. Once again, the lack of ideological influence on constituent service speaks to a bureaucratic view of congressional offices.  
+We had similar expectations regarding the respective ideologies of legislators and agencies and how that relationship might affect interbranch representation. Specifically, we hypothesized that legislators who are more ideologically proximate to an agency (and are therefore more likely to support its objectives) might send more letters to that agency (@thm-strategic-supportagency); alternatively, legislators who are more ideologically distant from an agency might send more letters to that agency as a means of conducting oversight (@thm-strategic-opposeagency). Our analysis finds no support for either of these hypotheses. Ideological distance between a legislator and an agency has no bearing on the amount of individual constituency service that a legislator does with that agency, as shown in Panel (b) of @fig-ideo-effect-5. Once again, the lack of ideological influence on constituent service speaks to a bureaucratic characterization of congressional offices.  
 
 
 ```{r}
-#| label: fig-partisan-effect
+#| label: fig-partisan-effect-5
 #| fig-cap: "Predicted levels of interbranch representation compared to counterfactuals of no partisan effects"
 #| fig-subcap: 
 #|   - ""
@@ -252,14 +252,14 @@ knitr::include_graphics(here::here("figs", type, "m-partisan-effect-1.png"))
 knitr::include_graphics(here::here("figs", type, "m-partisan-effect-2.png"))
 ```
 
-Although we had no specific hypotheses about how Democratic and Republican legislators may differ in the amount of individual constituency service that they provide as part of interbranch representation, Models 1 and 3 in @tbl-models-full show that Republican legislators did more constituent service on behalf of individuals. It is also the case that more ideologically moderate members of Congress, as measured using the absolute values of their DW-NOMINATE scores, did more individual constituency service. The latter dynamic is illustrated in Panel (a) of @fig-partisan-effect, which compares the predicted amounts of constituency service (based on legislator ideology) with a counterfactual in which ideology has no effect on constituency service. In the counterfactual with no effect of legislator ideology, more ideologically extreme legislators would do more individual constituency service. Thus, we can see that more moderate legislators outperform their more ideologically extreme colleagues on this metric. While consistent with assumptions about constituency service being the domain of ideological moderates, it is less clear how this behavior may reflect strategy on the part of moderate legislators, particularly given the inconsistent effects of electoral vulnerability discussed above.  
+Although we had no specific hypotheses about how Democratic and Republican legislators may differ in the amount of individual constituency service that they provide as part of interbranch representation, Models 1 and 3 in @tbl-models-full-5 show that Republican legislators did more constituent service on behalf of individuals. It is also the case that more ideologically moderate members of Congress, as measured using the absolute values of their DW-NOMINATE scores, did more individual constituency service. The impact of the latter variable on inequality is illustrated in Panel (a) of @fig-partisan-effect-5, which compares the predicted amounts of constituency service (based on legislator ideology) with a counterfactual in which ideology has no effect on constituency service. In the counterfactual with no effect of legislator ideology, more ideologically extreme legislators would do more individual constituency service. Thus, we can see that more moderate legislators outperform their more ideologically extreme colleagues on this metric. While consistent with assumptions about constituency service being the domain of ideological moderates, it is less clear how this behavior may reflect strategy on the part of moderate legislators, particularly given the inconsistent effects of electoral vulnerability discussed above.  
 
 
 #### Staff allocation reflects priorities
 
 
 ```{r}
-#| label: tbl-models-staff
+#| label: tbl-models-staff-5
 #| tbl-cap: "The effect of staff budgeting on requests to federal agencies"
 #| out-width: 100%
 
@@ -270,11 +270,11 @@ modelsummary(models_staff_spending,
                           "This table shows estimates of the effect of legislator staff spending. ")) 
 ```
 
-Finally, we consider our last strategy-related hypothesis, which involves the allocation of staff. We operationalize legislators' staff allocations using the amount of their budget that they spend on legislative staff, communications staff, and constituency service staff. As established in @thm-strategic-staff, we expect that legislators who allocate more staff resources to constituency service will do more individual constituency service. We present these results in separate models, shown in @tbl-models-staff, because decisions about staff allocation are necessarily a function of many other variables included in our main models. Thus, Models 1 and 2 in @tbl-models-staff include only our measures of staff spending (along with fixed effects), and Models 3 and 4 control for many of these other capacity-related factors. 
+Finally, we consider our last strategy-related hypothesis, which involves the allocation of staff. We operationalize legislators' staff allocations using the amount of their budget that they spend on legislative staff, communications staff, and constituency service staff. As established in @thm-strategic-staff, we expect that legislators who allocate more staff resources to constituency service will do more individual constituency service. We present these results in separate models, shown in @tbl-models-staff-5, because decisions about staff allocation are necessarily a function of many other variables included in our main models. Thus, Models 1 and 2 in @tbl-models-staff-5 include only our measures of staff spending (along with fixed effects), and Models 3 and 4 control for many of these other capacity-related factors. 
 
 
 ```{r}
-#| label: fig-effect-staff
+#| label: fig-effect-staff-5
 #| fig-cap: "Predicted levels of interbranch representation per representative per year compared to counterfactual staffing levels"
 #| fig-subcap: 
 #|   - ""
@@ -292,24 +292,17 @@ here::here("figs", type,
 ```
 
 
-Although the effects of staff budget allocation are not statistically significant in any of the models, it is useful to view counterfactual plots that show the magnitude of these effects. Constituent service staff spending does have a positive relationship with individual constituency service, as shown by Panel (a) of @fig-effect-staff. This figure compares the predicted amount of individual constituency service (based on our models) with the counterfactual that we would see if there were no effect of staff allocation. Across the distribution, legislators do more individual constituency service than they would in the counterfactual without the effect. A parallel effect exists for spending on communications staff, which has a negative relationship with individual constituency service. Panel (b) of @fig-effect-staff shows that legislators would do *more* individual constituency service in a counterfactual without the effect of communications spending. Thus, while not statistically significant, these findings raise interesting questions about the relationship between staff allocation and interbranch representation. 
+Although the effects of staff budget allocation are not statistically significant in any of the models, it is useful to view counterfactual plots that show the magnitude of these effects. Constituent service staff spending does have a positive relationship with individual constituency service, as shown by Panel (a) of @fig-effect-staff-5. This figure compares the predicted amount of individual constituency service (based on our models) with the counterfactual that we would see if there were no effect of staff allocation. Across the distribution, legislators do more individual constituency service than they would in the counterfactual without the effect. A parallel effect exists for spending on communications staff, which has a negative relationship with individual constituency service. Panel (b) of @fig-effect-staff-5 shows that legislators would do *more* individual constituency service in a counterfactual without the effect of communications spending. Thus, while not statistically significant, these findings raise interesting questions about the relationship between staff allocation and interbranch representation. 
 
 It is possible, as discussed above, that the *quality* of legislators' staff, rather than the *quantity*, matters. Legislators who are high performers on individual constituency service might possess small (or larger but underpaid) but dedicated and talented teams of caseworkers who are adept at navigating the federal bureaucracy in ways that are not captured by our measures. 
-
-## Individual Constituency Service in the Context of Interbranch Representation 
-
-Because individual constituency service is such a large portion of interbranch representation overall, many of the findings in this chapter are similar to those discussed in chapter 4. However, it is worth highlighting differences before proceeding to our analyses of the other four types of interbranch representation in the following chapters. These differences can illuminate factors that may be especially important for policy work or constituency service on behalf of businesses and nonprofits/local governments.
-
-Several measures of capacity that matter for interbranch representation overall have weaker or less consistent effects for individual constituency service, suggesting that (as hypothesized) institutional position matters more for other types of interbranch representation. Ideological distance between the legislator and the agency matters only in the overall models, implying that it will come into play for other types of interbranch representation as well. Interestingly, while spending on constituency service staff is not related to amounts of individual constituency service, it is related to interbranch representation overall. Another surprising difference involves particular measures of demand (government sector employees and college graduates), which matter more consistently in the models assessing interbranch representation generally than those assessing individual constituency service. The following chapters explore these factors further by testing our hypotheses for the other four types of interbranch representation, beginning with corporate constituency service.
-
 
 
 #### Strategic: Fundraising
 
-@thm-strategic-fundraising-distracts posited that fundraising distracts from constituency service, and thus legislators who engaging in more corporate fundraising will do less interbranch representation. @tbl-models-pac shows a relationship in the opposite direction as theory predicted. 
+@thm-strategic-fundraising-distracts posited that fundraising distracts from constituency service, and thus legislators who engaging in more corporate fundraising will do less interbranch representation. @tbl-models-pac-5 shows a relationship in the opposite direction as theory predicted--instead, we see legislators who do more corporate PAC fundraising also doing more constituency service for individuals.  
 
 ```{r}
-#| label: tbl-models-pac
+#| label: tbl-models-pac-5
 #| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
 
 load(here::here("models", type,  "models_pac.Rdata"))
@@ -318,5 +311,12 @@ modelsummary(models_pac,
              notes = list("Robust standard errors in parentheses, clustered by district",
                           "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
 ```
+
+
+## Individual Constituency Service in the Context of Interbranch Representation 
+
+Because individual constituency service is such a large portion of interbranch representation overall, many of the findings in this chapter are similar to those discussed in chapter 4. However, it is worth highlighting differences before proceeding to our analyses of the other four types of interbranch representation in the following chapters. These differences can illuminate factors that may be especially important for policy work or constituency service on behalf of businesses and nonprofits/local governments.
+
+Several measures of capacity that matter for interbranch representation overall have weaker or less consistent effects for individual constituency service, suggesting that (as hypothesized) institutional position matters more for other types of interbranch representation. Ideological distance between the legislator and the agency matters only in the overall models, implying that it will come into play for other types of interbranch representation as well. Interestingly, while spending on constituency service staff is not related to amounts of individual constituency service, it is related to interbranch representation overall. Another surprising difference involves particular measures of demand (government sector employees and college graduates), which matter more consistently in the models assessing interbranch representation generally than those assessing individual constituency service. The following chapters explore these factors further by testing our hypotheses for the other four types of interbranch representation, beginning with corporate constituency service.
 
 

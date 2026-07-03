@@ -6,10 +6,10 @@ load(here::here("data", type, "means.Rdata"))
 here::here("code", "formatting.R") |> source()
 ```
 
-> ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+> ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators.
 
 
-Policy work is highly unequal. 
+Like other forms of interbranch representation, policy work is highly unequal across legislators in both the U.S. House and Senate. @fig-percent shows this inequality in the form of average number of requests to an agency per year for each legislator. The Gini coefficients are slightly smaller than those for constituency service types of interbranch representation, but at 0.715 for the House and 0.737 for the Senate, they still indicate substantial inequality. Thus, as we established earlier, the inequality in interbranch representation more generally is not simply the result of unequal constituent demand driving constituency service. Even for this policy-focused type of interbranch representation, legislators' work is highly unequal. 
 
 ```{r}
 #| label: fig-percent
@@ -27,11 +27,9 @@ knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
 
 ## Genres of policy work 
 
-We can group policy work into three subtypes: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports, and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations. Sometimes policy work is clearly driven by legislators' policy interests. Other times it clearly stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). We address policy work on behalf of business interests in the following chapter.
+We can group policy work into three subtypes: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports, and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations). Sometimes policy work is clearly driven by legislators' policy interests. Other times it clearly stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). We address policy work on behalf of business interests in the following chapter.^[To be clear about our coding scheme, general policy work and corporate policy work are mutually exclusive--one is not a subset of their other.]
 
-Within the subset of legislator requests that focus on policy rather than constituency service, most are comments on proposed agency rules implementing statutory authority (@fig-policy-subtypes). The next most frequent type of request is for assistance in drafting legislation. As it occurs before legislation, this is clearly not oversight. The third most common type of request relates to more traditional oversight actions like hearings and reports. Another, much smaller category of requests emerges of oversight that, unlike hearings and rulemaking comments, is largely unrelated to legislative tasks. For example, member of Congress frequently contact agencies about personnel decisions, upcoming lawsuits, and their response to disasters. When the nature of the congressional request relates to agency leadership, personnel policy (rather than a particular federal worker), how the agency should settle or make policy changes in response to a lawsuit, or how it should distribute disaster aid (in general, not to a particular group of constituents), we consider such requests to involve agency policy. 
-
- 
+Within the subset of legislator requests that focus on policy rather than constituency service, most are comments on proposed agency rules implementing statutory authority (@fig-policy-subtypes). The next most frequent type of request is for assistance in drafting legislation. As it occurs before legislation, this is clearly not oversight. The third most common type of request relates to more traditional oversight actions like hearings and reports. Another, much smaller category of requests emerges of oversight that, unlike hearings and rulemaking comments, is largely unrelated to legislative tasks. For example, members of Congress frequently contact agencies about personnel decisions, upcoming lawsuits, and their response to disasters. When the nature of the congressional request relates to agency leadership, personnel policy (rather than a particular federal worker), how the agency should settle or make policy changes in response to a lawsuit, or how it should distribute disaster aid (in general, not to a particular group of constituents), we consider such requests to involve agency policy. 
 
 
 ```{r}
@@ -45,7 +43,7 @@ knitr::include_graphics(here::here("anecdotes", 5, "oversight-prepost-1.png"))
 ```
 
 
-The nature of interbranch representation varies by agency. This is true within subtypes of policywork as well. 
+The nature of interbranch representation varies by agency. This is true within subtypes of policy work as well. 
 While congressional attention focuses on rulemaking overall, contacts with Homeland Security focus on traditional oversight, and contacts with USDA are mostly about Farm Bills and related legislation (@fig-policy-type-by-agency).  
 
 ```{r}
@@ -58,14 +56,17 @@ knitr::include_graphics(here::here("anecdotes", 5, "oversight-data-agency-top-to
 
 ### Interbranch representation informs legislating
 
-[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.]
+<!--[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.] 
+Rochelle 7/3: I added the paragraph about information below-->
 
 Discussions of congressional oversight usually focus on hearings and investigations, both of companies and government agencies. Through hearings like those that Senator Levin conducted on U.S. Vulnerabilities to Money Laundering, Drugs, and Terrorist Financing, legislators shine a spotlight on problems that demand action from government, often federal agencies. 
+
+Legislators also request information from federal agencies, both in ways that may inform their legislative activities and in ways that contribute to oversight. For example, Rep. John Dingell (D-MI) and other high-ranking members of the House Committee on Energy and Commerce wrote to the FDA to request information on levels of lead in children's lunchboxes. Rep. Tom Reed (R-NY) wrote to the Centers for Medicare and Medicaid Services (CMS) to ask how the competitive bidding process would affect Medicare beneficiaries' access to insulin pumps and supplies. Legislators clearly see federal agencies as resources from which they can procure information related to policy, including information that helps them oversee its implementation. 
 
 
 ### Oversight investigations inform agency policy 
 
-@fig-levin-fincen shows a letter from Senator Levin in support of a proposed rule from the Treasury Financial Crimes  Enforcement Network, citing investigations and hearings.
+@fig-levin-fincen shows a letter from Senator Levin in support of a proposed rule from the Treasury Financial Crimes Enforcement Network, citing investigations and hearings.
 
 
 ```{r}
@@ -88,7 +89,7 @@ knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-rulemaking-in
 ```
 
 
-Congressional attention is not all positive. In 2013, Senator Levin wrote, chastising five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading (@fig-levin-volcker).
+Congressional attention is not all positive. In 2013, Senator Levin wrote chastising five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading (@fig-levin-volcker).
 
 ```{r}
 #| label: fig-levin-volcker
@@ -100,9 +101,9 @@ knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-volcker.png")
 Legislators writing agencies about how they are implementing policy is much more common than questioning agencies about what they are doing in a hearing.
 
 
-###  Interbranch representation informs statutory interpretation and executive-branch policymaking
+###  Interbranch representation informs statutory interpretation and executive-branch policymaking and spending
 
-Most legislator contacts address what scholars often call "implementation" of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect (laws passed by Congress, like executive branch executing, are mostly authorizations and requirements for bureaucrats to make rules. Very little legislation is self-executing.)
+Most legislator contacts address what scholars often call "implementation" of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect. (Laws passed by Congress, like executive branch executing, are mostly authorizations and requirements for bureaucrats to make rules. Very little legislation is self-executing.)
 @fig-levin-statutory shows Senator Levin taking issue with the Statutory interpretation that the Small Business Administration used in making policy. Agencies take this kind of intervention seriously. In response to Levin's letter, the Administrator of the Small Business Administration, Maria Contreras-Sweet, replied that they were taking the senator's perspective as they crafted the rules implementing the Dodd-Frank Act. 
 
 
@@ -129,7 +130,7 @@ knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-
 ```
 --> 
 
-However, most agency rules are "implementing" legislation passed many decades ago [@CITE]
+However, most agency rules are "implementing" legislation passed many decades ago [CITE].
 
 
 ```{r}
@@ -142,20 +143,21 @@ knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-ssa.
 ```
 
 
-
+<!--
 #### Appropriations 
+--> 
 
 In addition to attempting to shape how the executive branch makes policy through rulemaking, members of Congress are active in attempting to shape the distribution of appropriated funds. This happens both for specific grant applications as discussed in @sec-type3 and in a more general sense. 
 
 <!--
 #### International Agreements 
 
-Human rights/labor also comes up a lot and we could look more into who is most involved in those concerns (see USTR 6893, 7026, etc.)
+Human rights/labor also comes up a lot, and we could look more into who is most involved in those concerns (see USTR 6893, 7026, etc.)
 
 "TPP trade secrets with USTR and DOJ" (3941, also 4785, 5974, 6469). It's hard to tell what the motivations are here. There's also some about news stories that could be potentially damaging (Politico, 4200).
 --> 
 
-## Policy work as interbranch representation 
+<!-- ### Policy work as interbranch representation --> 
 
 
 ### Constituencies and partisanship 
@@ -163,18 +165,33 @@ Human rights/labor also comes up a lot and we could look more into who is most i
 Partisan tensions between the policy agendas of members of Congress and the President drive a great deal of policy-related interbranch representation. An opposition party can only hold hearings when they are in the majority, but individual members can always contact an agency any time. For example, Democratic legislators wrote thousands of letters opposing Trump-era policy, such as those that allow certain nonprofits not to disclose their donor contributions, 
 <!-- https://www.regulations.gov/comment/IRS-2019-0039-8319 --> 
 environmental deregulation, and 
-The Consumer Financial Protection Bureau's 2019 rule that made it easier for debt collectors to harass consumers. 
+the Consumer Financial Protection Bureau's 2019 rule that made it easier for debt collectors to harass consumers. 
 <!-- https://www.regulations.gov/comment/CFPB-2019-0022-12107 --> 
 77 Democratic members of the House and 23 Senators wrote to oppose a 2019 proposed rule by the Department of Labor's Wage and Hour Division that permitted employers to pay fewer employees overtime. 
 
-Democrat Tom Malinowski and other democrats who oppose the Trump-era CFPB rule that would deregulate payday lenders.
+Democrat Tom Malinowski and other Democrats who oppose the Trump-era CFPB rule that would deregulate payday lenders sent the following in a letter to CFPB:
 
-> "The precipitues decline in the volume of enforcement actions during your tenure leads me to question whether the CFPB is indeed following through on its objective to protect consumers and aggressively enforce the law." 
+> "The precipitous decline in the volume of enforcement actions during your tenure leads me to question whether the CFPB is indeed following through on its objective to protect consumers and aggressively enforce the law." 
 
 <!-- 
 https://www.regulations.gov/document/CFPB-2019-0006-39935
 https://www.regulations.gov/document?D=CFPB-2019-0006-0344
 --> 
+
+
+
+<!--
+Policy work can also be a form of representation. @fig-shermanpayday shows a [letter](https://www.regulations.gov/document/CFPB-2016-0025-148844) from Rep. Brad Sherman to the Consumer Financial Protection Bureau. In the letter he notes that the agency is reviewing comments on a proposed rule, and he says that he is passing along a concern from a constituent. 
+
+
+```{r}
+#| label: fig-shermanpayday
+#| fig_cap: "Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule."
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
+```
+--> 
+
+
 
 <!--
 During the Obama Administration, advocacy from the Senate Environment and Public Works committee in opposition to the Obama Administration's Clean Power Plan used similar language as an anonymous advocacy campaign identified with the website betterenergyfuture.org 
@@ -195,11 +212,7 @@ Comments from the Florida State House: https://www.regulations.gov/comment/BSEE-
 --> 
 
 
-
-
-
-
-## Procedural politicking
+### Procedural politicking
 
 As documented by @LowandePotter2021 and @Potter2019, one form of proxy fight over policy is the timing of rules. Agencies may speed up or slow down rulemaking processes, for example by extending the comment periods or refusing to do so. Thus, legislators, like others, are often attempting to intervene procedurally, especially by attempting to extend study periods or comment periods. For example, on the same Federal Reserve rule that Mike Pence and other Republican Senators pushed back on substantive grounds, a different group of legislators made a procedural argument. The gambling industry groups were requesting state-by-state surveys of gambling laws. Legislators from the Subcommittee on Administrative Law called out this ploy for regulatory delay. 
 <!-- (https://www.regulations.gov/comment/TREAS-DO-2007-0015-0125) --> 
@@ -210,7 +223,7 @@ knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-
 ```
 --> 
 
-From the other side of the aisle, Democratic members of Congress attempted to slow environmental deregulation under the Trump Administration was to ask that the Counsel On Environmental Quality and other agencies extend comment periods on their proposed rules. 
+From the other side of the aisle, Democratic members of Congress attempted to slow environmental deregulation under the Trump Administration by asking the Counsel On Environmental Quality and other agencies to extend comment periods on their proposed rules. 
 
 > "That's why I am particularly disappointed that CEQ denied my---and more than 160 Members of the House and Senate---request for an extension of the comment period. Further, CEQ simply chose not to respond to our request for additional public hearings. CEQ has proposed a massive overhaul to a set of keystone environmental regulations that have stood in place — largely unchanged for almost half a century. By providing a mere 60-day comment period, and only two public hearings (in Colorado and Washington, DC), CEQ appears uninterested in obtaining broad-scale public input." - [Oregon Representative Peter DeFazio, Chairman of the Committee on Transportation and Infrastructure.](https://www.regulations.gov/comment/CEQ-2019-0003-169768)
 
@@ -263,20 +276,22 @@ https://www.epw.senate.gov/public/index.cfm/2018/9/senators-carper-and-udall-lea
 --> 
 
 
-## What it looks like
+## What it looks like in our data
 
 ```{r}
-#| label: fig-words
+#| label: fig-words-8
 #| fig-cap: "Most frequent words by year"
 
 knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
 ```
 
-As shown in the word cloud of frequently used words in @fig-words, members of Congress communicate with federal agencies about general policy work involving a variety of matters related to policy, including hearings, rules, and programs that are part of policy implementation, as well as requests for information about specific policy issues. Many of the specific policy issues seem to follow the "events of the day": "Katrina" appears in 2005; "ARRA" (the American Recovery and Reinvestment Act, or stimulus bill) appears in 2009; and "Ebola" appears in 2014, along with "Zika" in 2016 and "COVID" in 2020. The Affordable Care Act also had a major presence in congressional correspondence between 2010 and 2012. 
+As shown in the word cloud of frequently used words in @fig-words-8, members of Congress communicate with federal agencies about general policy work involving a variety of matters related to policy, including hearings, rules, and programs that are part of policy implementation, as well as requests for information about specific policy issues. Many of the specific policy issues seem to follow the "events of the day": "Katrina" appears in 2005; "ARRA" (the American Recovery and Reinvestment Act, or stimulus bill) appears in 2009; and "Ebola" appears in 2014, along with "Zika" in 2016 and "COVID" in 2020. The Affordable Care Act also had a major presence in congressional correspondence between 2010 and 2012. 
 
 Legislators' communications with federal agencies for the purpose of general policy work speak to Congress's role in conducting oversight of the bureaucracy. Senator Chuck Grassley (R-IA), the most prolific author of policy-related correspondence, sent a number of letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services that were tagged by the agency as "oversight." These letters covered topics such as budget sequestration, the implementation of the Sunshine Act, and various rules, including the Inpatient Prospective Payment System (IPPS) rule, the Medicare Hospital Value-Based Purchasing rule, and CMS's delay in drafting other regulations required by the Affordable Care Act. Grassley also co-authored a letter with two other unidentified legislators to request information about the Patient Safety and Medical Liability Reform Demonstration and Planning grants that CMS was funding. All of the examples discussed here occurred during the Obama administration. Overall, many of Grassley's communications with CMS seem to be focused on conducting oversight of an agency with which he was not ideologically aligned--a departure from the findings in our analysis, as we discuss in greater detail below. 
 
-The most frequent words used in congressional contacts with the Mine Health and Safety Administration illustrate two important points: (1) policy work often means involvement in executive-branch policymaking, and (2) policy work is often intimately related to constituent service. 
+The most frequent words used in congressional contacts with the Mine Health and Safety Administration illustrate two important points: (1) policy work often means involvement in executive-branch policymaking, and (2) policy work is often closely related to constituent service.
+In addition to topics of policy contacts (words like mine, safety, explosion, coal, dust, exposure, irreparable, silica, fibrosis, and disability),
+words like hearing, report, and inspections indicate traditional oversight activities. 
 
 
 ```{r}
@@ -286,23 +301,14 @@ The most frequent words used in congressional contacts with the Mine Health and 
 knitr::include_graphics(here::here("figs", "wordcloud", type, "by-agency", "DOL_MSHA.png"))
 ```
 
+While related to and informed by traditional oversight, many more of these requests are about agency rulemaking and other executive-branch policymaking. Often the oversight work leads to neither legislation nor hearings, but more often changes in agency rules, guidance, or enforcement practices. While scholars often talk of oversight as fitful bursts of attention in response to five-alarm fires of bureaucratic failure, legislator offices are in constant communication with many agencies, voicing opinions and raising problems they hear from their constituents as agencies develop policy. Given the meager capacity of legislator offices, attention is certainly limited across issues, leading some agencies to receive much more attention than others, but these data show that congressional interventions in agency practices are much less discrete and punctuated than assumed by conventional models of interbranch relations.
 
-## Policy work as representation 
-
-
-[](https://www.regulations.gov/document/CFPB-2016-0025-148844)
-
-```{r}
-#| fig_cap: "Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule."
-knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
-```
 
 \clearpage
 
 ## Explaining Differences in Policy Work
 
-Variation in policy work is mainly driven by ... 
-
+Variation in policy work is mainly driven by capacity, especially experience and institutional positions. In accordance with theories that view interbranch relations as coalitional networks rather than principals and agents focusing on control and oversight, policy work tends to be with agencies that are perceived as ideologically aligned. Doing more with aligned agencies is the only strategic choice that matters. @tbl-models-full-8 shows the full regression results explaining variation in policy work on the basis of demand, capacity, and legislator strategy. 
 
 ::: {.fake-xref-table-for-caption}
 
@@ -314,7 +320,7 @@ Variation in policy work is mainly driven by ...
 |---|
 |   |
 
-: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full}
+: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full-8}
 
 ```{=latex}
 \endgroup\vspace{-2\baselineskip}
@@ -352,22 +358,32 @@ modelsummary(models_full,
 
 ### Demand
 
+Unsurprisingly, the number of constituents in a district has a much weaker relationship with policy work compared to the various forms of constituency service discussed in the prior three chapters. For members of the House, there is no relationship between population and policy work. 
+Senators from larger states do more interbranch representation, likely due to the larger staff budgets of Senators from larger states. It is also possible that more constituents means a larger portfolio of policy needs. @fig-pop-effect shows that differences in state population drive differences in both the volume and inequality of interbranch representation. 
 
 ```{r}
 #| label: fig-pop-effect
-#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
-#| out-width: 50%
+#| fig-cap: "Predicted levels of policy work per Senator per year compared to counterfactuals of equal state population"
+#| fig-subcap: 
+#|   - "Wyoming Counterfactual"
+#|   - "Tennessee Counterfactual"
+#| layout-ncol: 2
+#| out-width: 100%
 
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-min-1.png"))
 knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
 
 #TOD college grads and government workers 
-
 ```
+
+
+As expected, policy work is less associated with the number of constituents and more associated with the level of education in a district. Here the intense demanders are intense *policy* demanders, and variation in interbranch representation follows well-know patterns in the kinds of constituencies who contact their member of Congress about policy. 
 
 
 ### Capacity
 
-Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. 
+Columns 1, 3, and 5 of @tbl-models-full-8 show differences across legislators with different capacity advantages. 
+Most forms of capacity matter with large effects explaining a large share of overall inequality, as shown in @fig-capacity-effect. Committee and subcommittee chairs, ranking members, and legislators with more experience in Congress all do more, as do legislators who sit on a reporting committee for that particular agency. These findings are a departure from our findings for all three types of constituency service, in which only congressional experience and sometimes a seat on a reporting committee mattered. 
 
 
 ```{r}
@@ -395,6 +411,9 @@ here::here("figs", type,
 
 ##### Staff prior experience 
 
+Even more strongly than other forms of interbranch representation, 
+electing a new member of Congress decreases policy work done on behalf of a district, and retaining staff does not appear to mitigate this. 
+
 ```{r}
 #| label: tbl-models-district
 #| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
@@ -407,35 +426,22 @@ modelsummary(models_district,
 ```
 
 
-### Strategic Responses to the Environment
+### Strategic Responses to the Political Environment
 
 
-#### Interbranch representation as electoral strategy
+#### Policy work as electoral strategy
 
-
-
-
-
-```{r}
-#| label: fig-elect-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no electoral competition"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
-knitr::include_graphics(here::here("figs", type, "m-elect-effect-2.png"))
-
-```
+The theory motivating @thm-strategic-election --- that elections motivate interbranch representation --- applies much less strongly to policy work than constituency service, especially because the kind of policy work we are studying here is mostly invisible to constituents (much more so than legislative work, which, itself, constituents rarely comprehend).
+@tbl-models-full-8 shows no evidence that electoral competitiveness affects policy work. 
 
 
 
 #### Strategic responses to partisan institutions
 
+Legislators are no more or less likely to engage in policy work with agencies under a co-partisan president. We thus have no evidence for @thm-strategic-presidentmore or @thm-strategic-presidentless when it comes to policy work. Given the strong effect of ideological alignment, it is possible legislators shift the type of policy work they do such that increased oversight under presidents of the other party cancels out the effect of decreased collaborative work. 
 
- 
+@tbl-models-full-majority-pol (all of the variables in @tbl-models-full except committee leadership positions) shows a strong positive effect of majority status for this kind of policy work. 
+However, @tbl-models-elect-pol shows the opposite. In general, we find that the correlation between majority status and policy varies widely by model specification. We thus hesitate to make strong conclusions.
 
 
 ```{r}
@@ -453,27 +459,11 @@ knitr::include_graphics(here::here("figs", type, "m-ideo-effect-2.png"))
 
 
 
+#### Staff allocation
 
-```{r}
-#| label: fig-partisan-effect
-#| fig-cap: "Predicted levels of interbranch representation compared to counterfactuals of no partisan effects"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: 100%
+Interestingly, both legislative and constituency service spending increase policy work, suggesting a relationship between constituency service and policy work that is often discussed in practitioner spaces but rarely in scholarship. As with other types of interbranch representation, offices that spend more on communications do less policy work.
 
-knitr::include_graphics(here::here("figs", type, "m-partisan-effect-1.png"))
-knitr::include_graphics(here::here("figs", type, "m-partisan-effect-2.png"))
-```
-
-
-
-
-#### Staff allocation reflects priorities
-
+<!--, supporting @. what is this supposed to cite? -->
 
 ```{r}
 #| label: tbl-models-staff
@@ -489,8 +479,11 @@ modelsummary(models_staff_spending,
 
 
 
+@fig-effect-staff-8 shows that staff allocation has a substantively large relationship with the volume of policy work but does not explain a large share of the inequality. 
+
+
 ```{r}
-#| label: fig-effect-staff
+#| label: fig-effect-staff-8
 #| fig-cap: "Predicted levels of interbranch representation per representative per year compared to counterfactual staffing levels"
 #| fig-subcap: 
 #|   - ""
@@ -501,7 +494,7 @@ modelsummary(models_staff_spending,
 knitr::include_graphics(
 here::here("figs", type,
            paste0("m-staff_spending-effect-",
-                  c(1:2), 
+                  c(1,2,3), #FIXME ADD 3
                   ".png"
                   ) 
            ))
@@ -510,10 +503,10 @@ here::here("figs", type,
 
 #### Strategic: Fundraising and Policy Work
 
-Finally, @thm-strategic-fundraising-distracts suggests that  fundraising distracts from policy work; legislators who engaging in more corporate fundraising should be associated with lower levels of policy work. @tbl-models-pac shows a relationship in the opposite direction we predicted; the offices of legislators who receive corporate PAC contributions also do more policy. 
+Likewise, legislators that raise a lot of money do more (contradicting @thm-strategic-fundraising-distracts in the same way we saw in @sec-type1 and @sec-type1). We expected legislators who engage in more corporate fundraising would be associated with lower levels of policy work. @tbl-models-pac-8 shows the opposite; the offices of legislators who receive corporate PAC contributions also do more policy work on average. We do not have a causal theory to explain this relationship, but combined with the results from @sec-type1 and @sec-type1, this pattern suggests that PAC contributions may be reflecting an unmeasured latent dimension of legislator power or capacity that empowers legislative offices to do more interbranch representation. Beyond creating an incentive to advocate for businesses to the federal government as predicted in #thm-strategic-corporate, it seems that PAC contributions reflect something more that is correlated with all types of interbranch representation.
 
 ```{r}
-#| label: tbl-models-pac
+#| label: tbl-models-pac-8
 #| tbl-cap: "Legislator requests to federal agencies and Corporate Political Action Committee Contributions in the Prior Congress" 
 
 load(here::here("models", type,  "models_pac.Rdata"))
@@ -522,3 +515,7 @@ modelsummary(models_pac,
              notes = list("Robust standard errors in parentheses, clustered by district",
                           "This table shows estimates of the relationship between corporate Political Action Committee donations and levels of interbranch representation.")) 
 ```
+
+## Conclusion: Legislators' General Interbranch Policy Work
+
+We find that differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow up to make sure legislative directions result in agency rules as envisioned by the legislators.

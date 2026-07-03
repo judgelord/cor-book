@@ -17,6 +17,9 @@ if(F){
 
   # run all 6 replication files
   quarto::quarto_render(input = here::here(), profile = "replication", cache_refresh = refresh)
+
+  # refresh CSVs from google drive
+  source("code/download_tables_from_google_sheets.R")
 }
 
 # if you want, preview the book in HTML (the pdf is in the /docs/ folder)
@@ -25,7 +28,8 @@ quarto::quarto_preview()
 # to stop the preview (required to run other code)
 quarto::quarto_preview_stop()
 
-quarto::quarto_render(as_job = F)
+# render the book, refreshing cached tables and figures
+quarto::quarto_render(as_job = F, cache_refresh = T)
 
 # send to git (just Devin for now)
 if(F){

@@ -126,9 +126,9 @@ modelsummary(models_full_majority,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 26
+    "Capacity" = 28
   )) |>
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
@@ -252,9 +252,9 @@ modelsummary(models_full_majority,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 26
+    "Capacity" = 28
   )) |>
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
@@ -380,9 +380,9 @@ modelsummary(models_full_majority,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 26
+    "Capacity" = 28
   )) |>
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
@@ -411,6 +411,50 @@ type = "3"
 ```
 
 
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full-nonprofit}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_nonprofit.Rdata"))
+
+modelsummary(models_full,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from teh agency, co-partisan president) on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 12,
+    #"Political Environment + Capcacy" = 26,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 45, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+\clearpage
 
 ### Helping Nonprofit and Local Government Representation: Demand
 
@@ -506,9 +550,9 @@ modelsummary(models_full_majority,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 26
+    "Capacity" = 28
   )) |>
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
@@ -631,9 +675,9 @@ modelsummary(models_full_majority,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 26
+    "Capacity" = 28
   )) |>
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt(i = 46, line = "t", line_color = "black", line_width = 0.1) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
@@ -737,9 +781,9 @@ modelsummary(models_full_majority,
   group_tt(i = list(
     "Constituent Demand"= 2,
     "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 26
+    "Capacity" = 28
   )) |>
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
