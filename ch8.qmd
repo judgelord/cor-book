@@ -58,8 +58,8 @@ knitr::include_graphics(here::here("anecdotes", 5, "oversight-data-agency-top-to
 
 ### Interbranch representation informs legislating
 
-Rochelle 7/3: I added the paragraph about information below-->
-[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.]
+<!--Rochelle 7/3: I added the paragraph about information below
+[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.]-->
 
 Discussions of congressional oversight usually focus on hearings and investigations, both of companies and government agencies. Through hearings like those that Senator Levin conducted on U.S. Vulnerabilities to Money Laundering, Drugs, and Terrorist Financing, legislators shine a spotlight on problems that demand action from government, often federal agencies. 
 
