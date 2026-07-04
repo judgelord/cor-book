@@ -11,10 +11,10 @@ To explain it, we advance a unified framework of possible drivers of interbranch
 We find that legislators representing districts with more constituents do more constituency service. 
 Unequal state populations and corresponding office budgets explain about ten percent of the inequality in provision of constituency service across Senators. 
 An equal or greater large share of inequality in interbranch representation can be explained by differing legislator capacity, particularly experience in office and committee positions that grant legislators access to additional information and staff.
-The main form of strategic behavior we find --- legislators working much more with agencies perceived as being ideologically aligned --- is consistent with a view of agencies and legislators as policymaking and implementing coalitions, but this behavior does not explain inequality.
-This and other drivers operate similarly for constituency service and policy, but differently when either is on behalf of business interests.
+The main form of strategic behavior we find --- legislators working much more with agencies perceived as being ideologically aligned --- is consistent with a view of agencies and legislators as policy-making-and-implementing coalitions, but this behavior does not explain inequality.
+It also does not explain representation of business interests, which has different drivers than other types of interbranch representation. 
 We find inconsistent evidence for other types of strategic behavior, such as reelection-motivated constituency service and interbranch policy work as a substitute for legislating when one's party is out of power.
-Where present, partisan and election-related drivers of interbranch representation do not explain inequality.
+Moreover, where they are present, partisan and election-related drivers of interbranch representation do not explain inequality.
 
 In sum, partisanship and ideology affect choices about which agencies legislators contact and the representation of business interests.
-But unequal interbranch representation is mostly a story of the unequal capacity of Congressional offices and committees, with unequal levels of constituent demand often a secondary cause. 
+But unequal interbranch representation is mostly a story of the unequal capacity of legislators, offices, and committees, with unequal levels of constituent demand often a secondary cause. 

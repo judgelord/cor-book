@@ -60,7 +60,7 @@ load(here::here("models", type,  "models_full.Rdata"))
 modelsummary(models_full,
              notes = list(
                "Robust standard errors in parentheses, clustered by legislator.",
-               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from teh agency, co-partisan president) on levels of interbranch representation.")) |>
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from the agency, co-partisan president) on levels of interbranch representation.")) |>
   # get rid of formatting to get rid of the extra line 
   theme_empty() |> 
   # bold header, hline bottom, aligned center
