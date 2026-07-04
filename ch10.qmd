@@ -170,7 +170,7 @@ here::here("code", "formatting.R") |> source()
 here::here("models", "m_style_cross_combined.rda") |> load()
 
 modelsummary(models,
-             notes = "This model predicts different types of interbranch represetnation using Bernhard and Sulkin's legislative styles.")
+             notes = "This model predicts different types of interbranch representation using Bernhard and Sulkin's legislative styles.")
 ```
 
 For interbranch representation, trade-offs between serving the district and focusing on policy are not the main story. The invisible nature of interbranch representation likely plays a role in these patterns. For instance, Grimmer's types of "appropriators" and "position-takers" capture senators' orientations toward communication and how these tendencies vary depending on their "marginal" or "aligned" electoral relationship with their state. Legislators of either style could realistically perform high levels of interbranch representation. 
@@ -226,7 +226,7 @@ Controlling agencies' interactions with members of Congress will both constrain 
 
 Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs [@CITE] and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with White House officials. 
 
-As a practical matter, the institutions of our vast federal government cannot magically coordinate and work together to solve problems. Interbranch correspondence is work that stitches the government together. The "three branches" of government metaphor may do harm to our understanding of a complex federal system [@Bednar2009] with stylized job descriptions. The threads of scholarship we tried to unite in this book paint a richer picture of what representation is in practice with our institutions as they are. A bureaucracy of millions serving a population of hundreds of millions will always do so imperfectly, with oppotunities or improvement inspired by people's problems, and inevitable fights over policy continuing long after the ink is dry on most pieces of legislation. Businesses, universities, and local governments will always be searching for someone with clout to get their bid or application a second look. 
+As a practical matter, the institutions of our vast federal government cannot magically coordinate and work together to solve problems. Interbranch correspondence is work that stitches the government together. The "three branches" of government metaphor may do harm to our understanding of a complex federal system [@Bednar2009] with stylized job descriptions. The threads of scholarship we tried to unite in this book paint a richer picture of what representation is in practice with our institutions as they are. A bureaucracy of millions serving a population of hundreds of millions will always do so imperfectly, with opportunities for improvement inspired by people's problems, and inevitable fights over policy continuing long after the ink is dry on most pieces of legislation. Businesses, universities, and local governments will always be searching for someone with clout to get their bid or application a second look. 
 <!-- carpenter on coalitions --> 
 
 ## Interbranch Representation and Democracy

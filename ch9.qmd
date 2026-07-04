@@ -47,7 +47,7 @@ In addition to letters with multiple signatories from neighboring states or dist
 
 ```{r}
 #| label: fig-percent-type4
-#| fig-cap: "Observed levels of corporate policywork per legislator per year"
+#| fig-cap: "Observed levels of corporate policy work per legislator per year"
 #| fig-subcap: 
 #|   - "Senate"
 #|   - "House"
