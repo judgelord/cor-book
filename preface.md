@@ -5,10 +5,10 @@ Thank you so much for taking the time to read this. We welcome feedback of all k
 Please reach out anytime with questions about anything. 
 We are very happy to clarify, provide additional context, or start some part of the conversation early.
 
-We understand the manuscript is long, but it includes a lot of tables and figures of similar formats across Chapters. 
+We understand the manuscript is long, but it includes a lot of tables and figures in similar formats across Chapters. 
 
-If you have limited time, the most important Chapters are the theory and research design (1-3) and conclusion (10). 
-We hope you can read at least one of the empirical Chapters. These Chapters have a common structure, which is described in most detail in Chapter 4.
+If you have limited time, the most important chapters are the theory and research design (1-3) and conclusion (10). 
+We hope you can read at least one of the empirical chapters. These chapters have a common structure, which is described in most detail in Chapter 4.
 
 <!--
 Some questions we could use advice on: 

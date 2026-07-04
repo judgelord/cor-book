@@ -104,19 +104,18 @@ Legislators writing agencies about how they are implementing policy is much more
 
 ###  Interbranch representation informs statutory interpretation and executive-branch policymaking
 
-Most legislator contacts address what scholars often call "implementation" of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect (laws passed by Congress, like executive branch executing, are mostly authorizations and requirements for bureaucrats to make rules. Very little legislation is self-executing.)
-@fig-levin-statutory shows Senator Levin taking issue with the Statutory interpretation that the Small Business Administration used in making policy. Agencies take this kind of intervention seriously. In response to Levin's letter, the Administrator of the Small Business Administration, Maria Contreras-Sweet, replied that they were taking the senator's perspective as they crafted the rules implementing the Dodd-Frank Act. 
-
-
-
 ```{r}
 #| label: fig-levin-statutory
-#| fig_cap: Senator Levin takes issue with how the Small Business Administration interpreted a statute in making rules
-#| out_width: 80%
+#| fig_cap: "Senator Levin takes issue with how the Small Business Administration interpreted a statute in making rules"
+#| out_width: "80%"
+
 knitr::include_graphics(here::here("anecdotes", 5, "levin", "statutory-interpretation.png"))
 #TODO Replace this second one with a transcribed block quote
-knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-dodd-frank.png"))
+#knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-dodd-frank.png"))
 ```
+
+Most legislator contacts address what scholars often call "implementation" of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect (laws passed by Congress, like executive branch executing, are mostly authorizations and requirements for bureaucrats to make rules. Very little legislation is self-executing.)
+@fig-levin-statutory shows Senator Levin taking issue with the Statutory interpretation that the Small Business Administration used in making policy. Agencies take this kind of intervention seriously. In response to Levin's letter, the Administrator of the Small Business Administration, Maria Contreras-Sweet, replied that they were taking the senator's perspective as they crafted the rules implementing the Dodd-Frank Act. 
 
 Interbranch representation goes beyond technical and legal opinions.
 Policy fights do not end when Congress passes a law; they merely shift to the executive branch, and members of Congress are actively engaged in this arena. 
@@ -445,7 +444,7 @@ We find no evidence that electoral competitiveness, majority status, or the part
 Legislators are no more or less likely to engage in policy work with agencies under a co-partisan president. We thus have no evidence for @thm-strategic-presidentmore or @thm-strategic-presidentmore when it comes to policy work. Given the strong effect of ideological alignment, legislators may shift the type of policy work they do such that increased oversight under presidents of the other party cancels out the effect of decreased collaborative work. 
 
 @tbl-models-full-majority-pol (all of the variables in @tbl-models-full except committee leadership positions)  shows a strong positive effect of majority status for this kind of policy work. 
-However, @tbl-models-elect_pol shows the opposite. In general, we find that the correlation between majority status and policy varies widely by model specification. We thus hesitate to make strong conclusions.
+However, @tbl-models-elect-pol shows the opposite. In general, we find that the correlation between majority status and policy varies widely by model specification. We thus hesitate to make strong conclusions.
 
 
 ```{r}
