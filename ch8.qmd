@@ -63,7 +63,7 @@ knitr::include_graphics(here::here("anecdotes", 5, "oversight-data-agency-top-to
 
 Discussions of congressional oversight usually focus on hearings and investigations, both of companies and government agencies. Through hearings like those that Senator Levin conducted on U.S. Vulnerabilities to Money Laundering, Drugs, and Terrorist Financing, legislators shine a spotlight on problems that demand action from government, often federal agencies. 
 
-Legislators also request information from federal agencies, both in ways that may inform their legislative activities and in ways that contribute to oversight. For example, Rep. John Dingell (D-MI) and other high-ranking members of the House Committee on Energy and Commerce wrote to the FDA to request information on levels of lead in children's lunchboxes. Rep. Tom Reed (R-NY) wrote to the Centers for Medicare and Medicaid Services (CMS) to ask how the competitive bidding process would affect Medicare beneficiaries' access to insulin pumps and supplies. Legislators clearly see federal agencies as resources from which they can procure information related to policy, including information that helps them oversee its implementation. 
+Legislators also request information from federal agencies, both in ways that may inform their legislative activities and in ways that contribute to oversight. For example, Rep. John Dingell (D-MI) and other high-ranking members of the House Committee on Energy and Commerce wrote to the FDA to request information on levels of lead in childrens' lunchboxes. Rep. Tom Reed (R-NY) wrote to the Centers for Medicare and Medicaid Services (CMS) to ask how the competitive bidding process would affect Medicare beneficiaries' access to insulin pumps and supplies. Legislators clearly see federal agencies as resources from which they can procure information related to policy, including information that helps them oversee its implementation. 
 
 ### Oversight investigations inform agency policy 
 
@@ -158,8 +158,6 @@ Human rights/labor also comes up a lot, and we could look more into who is most 
 "TPP trade secrets with USTR and DOJ" (3941, also 4785, 5974, 6469). It's hard to tell what the motivations are here. There's also some about news stories that could be potentially damaging (Politico, 4200).
 --> 
 
-## Policy work as interbranch representation 
-
 
 ### Constituencies and partisanship 
 
@@ -198,11 +196,20 @@ Comments from the Florida State House: https://www.regulations.gov/comment/BSEE-
 --> 
 
 
+<!--
+
+
+[](https://www.regulations.gov/document/CFPB-2016-0025-148844)
+
+```{r}
+#| fig_cap: "Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule."
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
+```
+--> 
 
 
 
-
-## Procedural politicking
+### Procedural politicking
 
 As documented by @LowandePotter2021 and @Potter2019, one form of proxy fight over policy is the timing of rules. Agencies may speed up or slow down rulemaking processes, for example by extending the comment periods or refusing to do so. Thus, legislators, like others, are often attempting to intervene procedurally, especially by attempting to extend study periods or comment periods. For example, on the same Federal Reserve rule that Mike Pence and other Republican Senators pushed back on substantive grounds, a different group of legislators made a procedural argument. The gambling industry groups were requesting state-by-state surveys of gambling laws. Legislators from the Subcommittee on Administrative Law called out this ploy for regulatory delay. 
 <!-- (https://www.regulations.gov/comment/TREAS-DO-2007-0015-0125) --> 
@@ -293,15 +300,7 @@ knitr::include_graphics(here::here("figs", "wordcloud", type, "by-agency", "DOL_
 
 While related to and informed by traditional oversight, many more of these requests are about agency rulemaking and other executive-branch policymaking. Often the oversight work leads to neither legislation nor hearings, but more often changes in agency rules, guidance, or enforcement practices. While scholars often talk of oversight as fitful bursts of attention in response to five-alarm fire of bureaucratic failure, legislator offices are in constant communication with many agencies, voice opinions, and raise problems they hear from their constituents as agencies develop policy. Given the meager capacity of legislator offices, attention is certainly limited across issues, leading some agencies to receive much more attention than others, but these data show that congressional interventions in agency practices are much less discrete and punctuated than assumed by conventional models of interbranch relations.
 
-## Policy work as representation 
 
-
-[](https://www.regulations.gov/document/CFPB-2016-0025-148844)
-
-```{r}
-#| fig_cap: "Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule."
-knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
-```
 
 \clearpage
 
