@@ -98,8 +98,6 @@ The correlation between Legislative Effectiveness Scores and interbranch represe
 ```{r}
 #| label: fig-les
 #| fig-cap: "Correlation With Legislative Effectiveness Scores by Type of Interbranch Representation"
-#| out-width: 100%
-#| fig-show: "hold"
 #| fig-subcap: 
 #|   - "Overall"
 #|   - "Indiv. Constituents"
@@ -107,7 +105,9 @@ The correlation between Legislative Effectiveness Scores and interbranch represe
 #|   - "Nonprofits and Local Governments"
 #|   - "Policy Work"
 #|   - "Policy Work on Behalf of Business"
-#| layout-ncol: 3
+#| layout-ncol: 2
+#| out-width: "100%"
+#| fig-show: "hold"
 
 knitr::include_graphics(here::here("figs", "total", "cor-les-3.png"))
 knitr::include_graphics(here::here("figs", 1, "cor-les-3.png"))
@@ -142,8 +142,9 @@ The correlation between annual corporate PAC contributions and total annual requ
 #|   - "Nonprofits and Local Governments"
 #|   - "Policy Work"
 #|   - "Policy Work on Behalf of Business"
-#| layout-ncol: 3
-#| out-width: 100%
+#| layout-ncol: 2
+#| out-width: "100%"
+#| fig-show: "hold"
 
 knitr::include_graphics(here::here("figs", "total", "cor-pac-3.png"))
 knitr::include_graphics(here::here("figs", 1, "cor-pac-3.png"))
@@ -224,7 +225,7 @@ Controlling agencies' interactions with members of Congress will both constrain 
 
 ## Future Research
 
-Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs [@CITE] and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with White House officials. 
+Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs <!--[@CITE]--> and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with White House officials. 
 
 As a practical matter, the institutions of our vast federal government cannot magically coordinate and work together to solve problems. Interbranch correspondence is work that stitches the government together. The "three branches" of government metaphor may do harm to our understanding of a complex federal system [@Bednar2009] with stylized job descriptions. The threads of scholarship we tried to unite in this book paint a richer picture of what representation is in practice with our institutions as they are. A bureaucracy of millions serving a population of hundreds of millions will always do so imperfectly, with opportunities for improvement inspired by people's problems, and inevitable fights over policy continuing long after the ink is dry on most pieces of legislation. Businesses, universities, and local governments will always be searching for someone with clout to get their bid or application a second look. 
 <!-- carpenter on coalitions --> 

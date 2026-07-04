@@ -186,10 +186,10 @@ While population in the form of demand is highly correlated with corporate servi
 #| fig-show: hold
 #| fig-subcap: 
 #|   - "No College Counterfactual"
-#| out-width: 50%
+#| out-width: "50%"
 knitr::include_graphics(here::here("figs", type, "m-demand-effect-1.png"))
-#TOD college grads and government workers 
 
+#TODO college grads and government workers 
 ```
  
 
@@ -261,8 +261,8 @@ Drawing on across-legislator differences in the cross-sectional model (with just
 ##| fig-subcap: 
 ##|   - "Competitive General Election"
 ##|   - "Competitive Primary Election"
-#| layout-ncol: 2
-#| out-width: 100%
+##| layout-ncol: 2
+#| out-width: "50%"
 
 knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
 #knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
@@ -276,7 +276,7 @@ knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
 #| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no difference in legislator ideology"
 #| fig-subcap: 
 #|   - "Legislator's Idoelogical Extremity"
-#| out-width: 50%
+#| out-width: "50%"
 
 knitr::include_graphics(here::here("figs", type, "m-ideo-effect-1.png"))
 ```

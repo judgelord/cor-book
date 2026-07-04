@@ -131,7 +131,8 @@ knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-
 ```
 --> 
 
-However, most agency rules are "implementing" legislation passed many decades ago [@CITE]
+
+<!--
 
 
 ```{r}
@@ -142,7 +143,7 @@ However, most agency rules are "implementing" legislation passed many decades ag
 
 knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-ssa.png"))
 ```
-
+--> 
 
 
 #### Appropriations 
