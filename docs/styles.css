@@ -1,0 +1,6 @@
+
+
+h1 .header-section-number::before,
+h1 .chapter-number::before {
+  content: "Chapter ";
+}
