@@ -9,7 +9,7 @@ We document substantial inequality in interbranch representation.
 To explain it, we advance a unified framework of possible drivers of interbranch representation: Constituent Demand, Capacity, and Strategic Choice, which integrates and extends theories rooted in unequal demand for interbranch representation, unequal legislator capacity to deliver service, and varying strategic motivations to invest time and energy in interbranch representation.
 
 We find that legislators representing districts with more constituents do more constituency service. 
-Unequal state populations and corresponding office budgets explain about ten percent of the inequality in provision of constituency service across Senators. 
+Unequal state populations and corresponding office budgets explain about ten percent of the inequality in constituency service across Senators. 
 An equal or greater large share of inequality in interbranch representation can be explained by differing legislator capacity, particularly experience in office and committee positions that grant legislators access to additional information and staff.
 The main form of strategic behavior we find --- legislators working much more with agencies perceived as being ideologically aligned --- is consistent with a view of agencies and legislators as policy-making-and-implementing coalitions, but this behavior does not explain inequality.
 It also does not explain representation of business interests, which has different drivers than other types of interbranch representation. 

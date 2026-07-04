@@ -14,7 +14,9 @@ This section goes into more detail on how we coded types of interbranch represen
 
 To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type.
 
+
 <!--https://foia.blogs.archives.gov/2017/09/11/cheers-for-a-national-foia-portal/--> 
+
 
 <!--
 
@@ -43,3 +45,5 @@ Quotes from Ellie
 Quotes from Rochelle 
 
 Sounds good! I will let I&A and S&T know that we intend to appeal. I think Fran knows that this is an interim response, as Maura referred to it that way in her e-mail.
+
+--> 
