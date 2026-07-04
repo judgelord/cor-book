@@ -7,8 +7,9 @@ cor-book.Rproj
 **/*.quarto_ipynb
 .DS_Store
 Icon
-data
-models
+/data/
+/figs/
+/models/
 feedback
 to cite
 .positai
