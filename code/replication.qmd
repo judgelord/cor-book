@@ -134,10 +134,37 @@ data_member |> group_by(year, icpsr, chamber) |>  mutate(sum = sum( percent_work
 } 
 
 
+# confirm 
+# data_member |> count(chair, ranking_minority, subchr, majority)
+
 ```
 
 
-# Top member average counts per year
+## Correlations
+
+```{r}
+#| label: "correlations"
+#| fig-cap: "figs/[TYPE]/correlations-1.png"
+#| fig-height: 9
+#| fig-width: 8
+#| out-width: "100%"
+
+source(here::here("code", "cor_matrix.R"))
+p1
+```
+
+
+```{r}
+#| label: "correlations-deciles"
+#| fig-cap: "figs/[TYPE]/correlations-deciles-1.png"
+#| fig-height: 6
+#| fig-width: 8
+#| out-width: "100%"
+
+p2
+```
+
+## Top member average counts per year
 
 ```{r}
 data_member |> 
@@ -149,7 +176,7 @@ data_member |>
   kablebox()
 ```
 
-# Top member-year counts 
+## Top member-year counts 
 
 ```{r}
 data_member |> 
@@ -159,7 +186,7 @@ data_member |>
   kablebox()
 ```
 
-# Top member-agency-year counts 
+## Top member-agency-year counts 
 
 
 ```{r leaderboard-agency}
@@ -194,12 +221,30 @@ data_member |>
 
 here::here("code", "percentile_plot.R") |> source()
 
-plot_data(d = data_member |> filter(chamber == "Senate"))
-plot_data(d = data_member |> filter(chamber == "House"))
+plot_data(d = data_member |>   
+            filter(year > 2006, year < 2021) |> 
+            filter(chamber == "Senate"))
+
+plot_data(d = data_member  |>
+            filter(year > 2006, year < 2021) |> 
+            filter(chamber == "House"))
 ```
 
 
 ### Gini coefficients 
+
+Overall inequality in interbranch representation in the House and the Senate mirrors 2024 levels of income inequality in United States (.42) and Mexico (.43), respectively. 
+
+Interbranch representation on behalf of individuals mirrors income inequality in Brazil (.49 in 2024) for both the House and the Senate. 
+
+Inequality in interbranch representation on behalf of businesses  mirrors 2024 levels of income inequality in Brazil (.5) and Turkey (.44) for the House and the Senate, respectively. 
+
+Inequality in interbranch representation on behalf of nonprofits and local governments  mirrors 2024 levels of income inequality in Honduras (.46) and Brazil (.5) for the House and the Senate, respectively. 
+
+Inequality in interbranch policy work mirrors 2024 levels of income inequality in Mexico (.43) and the United States (.42) for the House and the Senate, respectively. 
+
+Inequality in interbranch policy work on behalf of business interests mirrors 2024 levels of income inequality in Zambia (.52) and Honduras (.46) for the House and the Senate, respectively. 
+
 
 ```{r gini}
 gini <- data_member |> 
@@ -210,10 +255,10 @@ gini <- data_member |>
 group_by(year) |> 
   summarise(gini = round(ineq::Gini(perYear),2)) |>
   arrange(- year) |> 
-  filter(year > 2006) 
+  filter(year > 2006, year < 2021) 
 
 gini|> 
-  kablebox()
+  kable(caption = "Gini per year across chambers")
 
 gini |> 
   ggplot() +
@@ -221,22 +266,24 @@ gini |>
   geom_point() + 
   geom_smooth(method = "lm")
 
-gini_min <- min(gini$gini)
-gini_max <- max(gini$gini)
+gini_min <- min(gini$gini, na.rm = T)
+gini_max <- max(gini$gini, na.rm = T)
 
+gini_min
+gini_max
 
 gini2 <- data_member |> 
   ungroup() |> 
   group_by(year, chamber, icpsr) |> 
   summarize(perYear = sum(perYear)) |> 
   ungroup() |> 
-group_by(year, chamber) |> 
+group_by(chamber, year) |> 
   summarise(gini = round(ineq::Gini(perYear),2)) |>
   arrange(- year) |> 
-  filter(year > 2006) 
+  filter(year > 2006, year < 2021) 
 
 gini2|> 
-  kablebox()
+  kable(caption = "Gini per year, chamber")
 
 gini2 |> 
   ggplot() +
@@ -247,10 +294,26 @@ gini2 |>
   #geom_smooth(method = "lm")
   
 
-gini %<>% filter(year > 2017)
 
-min(gini$gini)
-max(gini$gini)
+min(gini$gini, na.rm = T)
+max(gini$gini, na.rm = T)
+
+
+## NOT BY YEAR (AVERAGED)
+gini3 <- data_member |> 
+  ungroup() |> 
+  group_by(year, chamber, icpsr) |> 
+  summarize(perYear = sum(perYear)) |> 
+  ungroup() |> 
+  filter(year > 2006, year < 2021) |> 
+  group_by(chamber, icpsr) |> 
+  summarise(mean = mean(perYear)) |> 
+group_by(chamber) |> 
+  summarise(gini = round(ineq::Gini(mean),2))
+
+gini3 |> 
+  kable(caption = "Gini in Average Requests")
+
 ```
 
 
@@ -277,7 +340,7 @@ Top 10 Gini Coefficients in 2023
 
 
 
-# Correlations 
+## LES & PAC
 
 
 ## oversight (reporting) committee 
@@ -759,11 +822,17 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 
 {{< include code/replication-full-nonprofit.qmd >}}
 
+## With party but not ideology
 
+{{< include code/replication-full-party.qmd >}}
 
 ## With Majority Status Rather than Committee Chair
 
 {{< include code/replication-full-majority.qmd >}}
+
+## With Majority Status AND Committee Chair
+
+{{< include code/replication-full-majority2.qmd >}}
 
 ## With Total Staff Spending 
 
