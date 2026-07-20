@@ -78,6 +78,73 @@ dcounts |>
 
 \clearpage
 
+@fig-data-correlations shows cross tabulations among all variables used in the analyses and by decile of total interbranch representation. 
+Many of the patterns we document with regression analysis are clear in these unconditional correlations as well. For example, district population is correlated with total interbranch representation, with the top two deciles doing more and the bottom seven deciles doing less. Likewise, being in the Senate is associated with being in the top 30% of legislators. Weaker associations for district demographics, various forms of institutional capacity and experience, and competitive elections are also apparent. Those with more extreme nominate scores, Republicans, and legislators in the majority are less likely to be in the top decile, overall. 
+
+```{r}
+#| fig-cap: "Cross Correlations - Total Interbranch Representation"
+#| label: fig-data-correlations
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "total", "correlations-1.png"))
+```
+
+@fig-data-correlations1 shows many of the same patterns in cross tabulations for deciles of individual interbranch representation.
+Notably, we see that the positive association between Republicans and individual interbranch representation is driven by deciles 5-8, not the top decile of congressional offices. 
+
+```{r}
+#| fig-cap: "Correlations by Decile of Individual Constituent Interbranch Representation"
+#| label: fig-data-correlations1
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "1", "correlations-2.png"))
+```
+
+@fig-data-correlations2 shows cross tabulations shows many of the same patterns for interbranch representation on behalf of businesses. The correlation with percent of district with a college degree is lower, and there is no longer a correlation with being in the minority. 
+There is now a positive association with being a Republican and being in all five deciles at the top of the distribution. 
+
+```{r}
+#| fig-cap: "Correlations by Decile of Corporate Constituent Interbranch Representation"
+#| label: fig-data-correlations2
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "2", "correlations-2.png"))
+```
+
+
+@fig-data-correlations3 shows many of the same patterns related to capacity in the raw cross tabulations for interbranch representation on behalf of nonprofits and local governments. The main differences are (1) a strong negative correlation between being a Republican officeholder and this type of interbranch representation and (2) a strong positive relationship with being in the president's party [aligned with @BerryBurdenHowell2010].
+
+```{r}
+#| fig-cap: "Correlations by Decile of Nonprofit and Local Government Interbranch Representation"
+#| label: fig-data-correlations3
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "3", "correlations-2.png"))
+```
+
+
+@fig-data-correlations5 shows many of the same patterns again related to capacity and district demand. Unsurprisingly, the correlation with LES scores is stronger, and there is now somewhat of a relationship for subcommittee chairs that is largely absent from non-policy work forms of interbranch representation. There is again a positive relationship between policy work and being in the president's party and a negative relationship with being a Republican. 
+
+```{r}
+#| fig-cap: "Correlations by Decile of Policy Work"
+#| label: fig-data-correlations5
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "5", "correlations-2.png"))
+```
+
+@fig-data-correlations4, showing policy work on behalf of particular industries, shows many of the same patterns as general policy work seen in @fig-data-correlations5, but stronger correlations with corporate PAC fundraising and weaker relationships with committee chair positions and legislative effectiveness scores. Interestingly, republican offices are less likely to be in the top decile for corporate policy work. Members with the top 20% of large positive or negative NOMINATE scores are also much less likely to do policy work on behalf of businesses, but this is partially driven by republicans having, on average, NOMINATE scores more distant from zero. 
+
+
+```{r}
+#| fig-cap: "Correlations by Decile of Corporate Policy Work"
+#| label: fig-data-correlations4
+#| out-width: "100%"
+
+
+knitr::include_graphics(here::here("figs", "4", "correlations-2.png"))
+```
+
 
 ### Staff data from @CrossonFurnasLapiraBurgat2021
 
@@ -88,7 +155,8 @@ dcounts |>
 ```{r}
 #| fig-cap: "Staff Data Coverage"
 #| label: fig-staff-data-coverage
-#| out_width: 100%
+#| out-width: "100%"
+
 knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
 ```
 
@@ -138,6 +206,7 @@ We have trimmed out some years in the tails where we know this happened, but it 
 ```{r}
 #| fig-cap: "Data Coverage by Agency"
 #| label: fig-data-coverage
+#| out-width: "100%"
 
 knitr::include_graphics(here::here("figs", "completeness-percent.png"))
 ```

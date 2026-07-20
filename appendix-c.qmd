@@ -3,7 +3,7 @@
 
 The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the political environment on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.
 
-## Modeling Response to Constituency Demands
+#### Modeling Response to Constituency Demands
 
 $$
 \begin{aligned}
@@ -19,7 +19,7 @@ Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\m
 $$ {#eq-demand}
 
 
-### Modeling Capacity Effects
+#### Modeling Capacity Effects
 
 
 $$
@@ -42,6 +42,8 @@ $$ {#eq-capacity}
 
 Additionally, each section includes a model where we exclude committee leadership positions that depend on majority status, in order to estimate the effect of majority status among all members (not just those without leadership positions, who are structurally more likely to be in the minority, or junior members of the majority). 
 
+
+
 ## Total Interbranch Representation {#sec-appendix-models-total}
 
 ```{r}
@@ -57,7 +59,7 @@ here::here("code", "formatting.R") |> source()
 ```{r}
 #| label: tbl-models-demand_tot
 #| tbl-cap: "The effect of demand on requests to federal agencies"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_demand.Rdata"))
 
@@ -77,13 +79,13 @@ Columns 1, 3, and 5 show differences across legislators with different capacity 
 ```{r}
 #| label: tbl-models-capacity-tot
 #| tbl-cap: "The effect of capacity on total requests to federal agencies"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_capacity.Rdata"))
 
 modelsummary(models_capacity,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) on levels of interbranch representation.")) 
 ```
 
 
@@ -150,6 +152,9 @@ modelsummary(models_elect,
 ```
 
 
+\clearpage 
+
+
 ## Constituency Service {#sec-appendix-models-1}
 
 ```{r}
@@ -157,13 +162,12 @@ type = "1"
 ```
 
 
-
 ### Demand
 
 ```{r}
 #| label: tbl-models-demand-ind
 #| tbl-cap: "The effect of demand on individual constituent service"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_demand.Rdata"))
 
@@ -176,21 +180,23 @@ modelsummary(models_demand,
 
 ### Capacity
 
-<!--
-Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
---> 
-
 ```{r}
 #| label: tbl-models-capacity-ind
 #| tbl-cap: "The effect of capacity on individual constituent services"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_capacity.Rdata"))
 
 modelsummary(models_capacity,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) on levels of interbranch representation.")) 
 ```
+
+
+
+\clearpage 
+
+
 
 ```{r}
 #| label: fig-effect-ind
@@ -201,7 +207,7 @@ modelsummary(models_capacity,
 #|   - ""
 #|   - ""
 #| layout-ncol: 2
-#| out-width: 100%
+#| out-width: "100%"
 
 knitr::include_graphics(
 here::here("figs", type,
@@ -266,7 +272,7 @@ modelsummary(models_full_majority,
 ```{r}
 #| label: tbl-models-elect-ind
 #| tbl-cap: "The effect of electoral security on individual constituent service"
-#| out-width: 60%
+#| out-width: "60%"
 
 load(here::here("models", type,  "models_elect.Rdata"))
 
@@ -275,6 +281,11 @@ modelsummary(models_elect,
                           "This table shows estimates of the effect of electoral competition on levels of interbranch representation. "))  
 
 ```
+
+
+
+\clearpage 
+
 
 
 ## Corporate Service (Helping Businesses) {#sec-appendix-models-2}
@@ -290,7 +301,7 @@ type = "2"
 ```{r}
 #| label: tbl-models-demand-corser
 #| tbl-cap: "The effect of demand on corporate service"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_demand.Rdata"))
 
@@ -303,21 +314,23 @@ modelsummary(models_demand,
 
 ### Corporate Service: Capacity
 
-<!--
-Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
---> 
 
 ```{r}
 #| label: tbl-models-capacity-corser
 #| tbl-cap: "The effect of capacity on corporate service"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_capacity.Rdata"))
 
 modelsummary(models_capacity,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) on levels of interbranch representation.")) 
 ```
+
+
+
+\clearpage 
+
 
 ```{r}
 #| label: fig-effect-corser
@@ -328,7 +341,7 @@ modelsummary(models_capacity,
 #|   - ""
 #|   - ""
 #| layout-ncol: 2
-#| out-width: 100%
+#| out-width: "100%"
 
 knitr::include_graphics(
 here::here("figs", type,
@@ -404,6 +417,9 @@ modelsummary(models_elect,
 ```
 
 
+\clearpage 
+
+
 ## Helping Nonprofit and Local Government Representation {#sec-appendix-models-3}
 
 ```{r}
@@ -461,7 +477,7 @@ modelsummary(models_full,
 ```{r}
 #| label: tbl-models-demand-non
 #| tbl-cap: "The effect of demand on non-profit/local government service"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_demand.Rdata"))
 
@@ -474,21 +490,23 @@ modelsummary(models_demand,
 
 ### Capacity
 
-<!--
-Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
---> 
 
 ```{r}
 #| label: tbl-models-capacity-non
 #| tbl-cap: "The effect of capacity on non-profit/local government service"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_capacity.Rdata"))
 
 modelsummary(models_capacity,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) on levels of interbranch representation.")) 
 ```
+
+
+\clearpage 
+
+
 
 ```{r}
 #| label: fig-effect-non
@@ -499,7 +517,7 @@ modelsummary(models_capacity,
 #|   - ""
 #|   - ""
 #| layout-ncol: 2
-#| out-width: 100%
+#| out-width: "100%"
 
 knitr::include_graphics(
 here::here("figs", type,
@@ -573,6 +591,9 @@ modelsummary(models_elect,
 ```
 
 
+\clearpage 
+
+
 ## Policy Work {#sec-appendix-models-5}
 
 ```{r}
@@ -586,7 +607,7 @@ type = "5"
 ```{r}
 #| label: tbl-models-demand-pol
 #| tbl-cap: "The effect of demand on general policy work with federal agencies"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_demand.Rdata"))
 
@@ -599,21 +620,24 @@ modelsummary(models_demand,
 
 ### Policy Work: Capacity
 
-<!--
-Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
---> 
 
 ```{r}
 #| label: tbl-models-capacity-pol
 #| tbl-cap: "The effect of capacity on general policy work with federal agencies"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_capacity.Rdata"))
 
 modelsummary(models_capacity,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) on levels of interbranch representation.")) 
 ```
+
+
+
+\clearpage 
+
+
 
 ```{r}
 #| label: fig-effect-pol
@@ -624,7 +648,7 @@ modelsummary(models_capacity,
 #|   - ""
 #|   - ""
 #| layout-ncol: 2
-#| out-width: 100%
+#| out-width: "100%"
 
 knitr::include_graphics(
 here::here("figs", type,
@@ -698,6 +722,7 @@ modelsummary(models_elect,
 
 ```
 
+\clearpage 
 
 ## Policy Work on Behalf of Business {#sec-appendix-models-4}
 
@@ -712,7 +737,7 @@ type = "4"
 ```{r}
 #| label: tbl-models-demand-corpol
 #| tbl-cap: "The effect of demand on corporate policy work"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_demand.Rdata"))
 
@@ -723,22 +748,19 @@ modelsummary(models_demand,
 
 \clearpage
 
-### Policy Work on Behalf of Business: Capacity
 
-<!--
-Columns 1, 3, and 5 show differences across legislators with different capacity advantages.
---> 
+### Policy Work on Behalf of Business: Capacity
 
 ```{r}
 #| label: tbl-models-capacity-corpol
 #| tbl-cap: "The effect of capacity on corporate policywork"
-#| out-width: 100%
+#| out-width: "100%"
 
 load(here::here("models", type,  "models_capacity.Rdata"))
 
 modelsummary(models_capacity,
              notes = list("Robust standard errors in parentheses, clustered by legislator.",
-                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (oversight committee membership, majority party status, co-partisan president) on levels of interbranch representation.")) 
+                          "This table shows estimates of the effect of legislator capacity (committee chair, subcommittee chair, and ranking member positions and years in office) on levels of interbranch representation.")) 
 ```
 
 
