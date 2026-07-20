@@ -276,7 +276,14 @@ member_data %<>%
          prestige = replace_na(prestige, 0),
          # "" is the value for missing given in generating the committees data
          # these should be replaced with 0 if they had no committee assignments in the committees repo
-         reporting_agencies = replace_na(reporting_agencies, "") )  # %>%   filter(is.na(chair)) %>% select(chair, chair_les)
+         reporting_agencies = replace_na(reporting_agencies, "") ) %>%
+  # When congress changes before president and VP breaks tie (as in the 117th, people get tagged as chair and ranking minority
+  # us majority var from voteview to pick the one that prevails
+  mutate(chair = ifelse(majority == 0, 0, chair),
+         subchr = ifelse(majority == 0, 0, subchr),
+         ranking_minority = ifelse(majority == 1, 0, ranking_minority)
+  )
+  # %>%   filter(is.na(chair)) %>% select(chair, chair_les)
 
 # confirm no duplicates in member_data post merge
 member_data <- distinct(member_data)
