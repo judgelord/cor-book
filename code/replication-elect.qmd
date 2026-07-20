@@ -2,7 +2,17 @@
 
 - Figures: `figs/[TYPE]/m-elect-[1:4].png`
 
-```{r m-elect,  fig.show="hold", out.width="50%", fig.height=4.5, fig.cap= "Per Year",fig.subcap= c("Model 1: Cross Sectional","Model 2: Diff in Diff","Model 3: restricted Diff in Diff","Model 4: log Diff in Diff")}
+```{r}
+#| label: m-elect
+#| fig-show: hold
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap:
+#|   - "Model 1: Cross-Sectional"
+#|   - "Model 2: Difference-in-Differences"
+#|   - "Model 3: Restricted Difference-in-Differences"
+#|   - "Model 4: Log Difference-in-Differences"
 
 # cross-sectional 
 m_elect_cross <- fenegbin (
