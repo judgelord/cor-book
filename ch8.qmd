@@ -9,21 +9,6 @@ here::here("code", "formatting.R") |> source()
 > ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
 
 
-Like other forms of interbranch representation, policy work is highly unequal. 
-
-```{r}
-#| label: fig-percent
-#| fig-cap: "Observed levels of interbranch representation per legislator per year"
-#| fig-subcap: 
-#|   - "Senate"
-#|   - "House"
-#| layout-ncol: 2
-#| out-width: 100%
-
-knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
-knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
-```
-
 
 ## Genres of policy work 
 
@@ -287,7 +272,7 @@ Legislators' communications with federal agencies for the purpose of general pol
 
 The most frequent words used in congressional contacts with the Mine Health and Safety Administration illustrate two important points: (1) policy work often means involvement in executive-branch policymaking, and (2) policy work is often closely related to constituent service.
 In addition to topics of policy contacts (words like mine, safety, explosion, coal, dust, exposure, irreparable, silica, fibrosis, and disability),
-words like hearing, report, inspections indicate traditional oversight activities. 
+words like hearing, report, and inspections indicate traditional oversight activities. 
 
 
 ```{r}
@@ -299,6 +284,25 @@ knitr::include_graphics(here::here("figs", "wordcloud", type, "by-agency", "DOL_
 
 While related to and informed by traditional oversight, many more of these requests are about agency rulemaking and other executive-branch policymaking. Often the oversight work leads to neither legislation nor hearings, but more often changes in agency rules, guidance, or enforcement practices. While scholars often talk of oversight as fitful bursts of attention in response to five-alarm fire of bureaucratic failure, legislator offices are in constant communication with many agencies, voice opinions, and raise problems they hear from their constituents as agencies develop policy. Given the meager capacity of legislator offices, attention is certainly limited across issues, leading some agencies to receive much more attention than others, but these data show that congressional interventions in agency practices are much less discrete and punctuated than assumed by conventional models of interbranch relations.
 
+## Inequality in Policy Work
+
+
+Like other forms of interbranch representation, policy work is highly unequal, though slightly less unequal than constituency service on behalf of individuals, businesses, nonprofits, or local governments. Inequality in interbranch policy work mirrors 2024 levels of income inequality in Mexico (.43) and the United States (.42) for the House and the Senate, respectively. @fig-percent-5 shows many of the offices that provided the most constituency service also did the most policy work, including Senator Grassley and Representatives Pallone and Rahall. 
+Other top offices for interbranch policy work were not leading providers of constituency service, including Senators Harkin and Hatch (though Harkin was near the top for work on behalf of nonprofits and local governments). 
+
+
+```{r}
+#| label: fig-percent-5
+#| fig-cap: "Observed levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+```
 
 
 \clearpage
@@ -504,7 +508,7 @@ here::here("figs", type,
 
 #### Strategic: Fundraising and Policy Work
 
-Likewise, legislators that raise a lot of money do more (contradicting @thm-strategic-fundraising-distracts in the same way we saw in @sec-type1 and @sec-type3). We expected legislators who engage in more corporate fundraising would be associated with lower levels of policy work. @tbl-models-pac shows the opposite; the offices of legislators who receive corporate PAC contributions also do more policy work on average. We do not have a causal theory to explain this relationship, but combined with the results from @sec-type1 and @sec-type3, this pattern suggests that PAC contributions may be reflecting an unmeasured latent dimension of legislator power or capacity that empowers legislative offices to do more interbranch representation. Beyond creating an incentive to advocate for businesses to the federal government as predicted in #thm-strategic-corporate, it seems that PAC contributions reflect something more that is correlated with all types of interbranch representation.
+Likewise, legislators that raise a lot of money do more (contradicting @thm-strategic-fundraising-distracts in the same way we saw in @sec-type1 and @sec-type3). We expected legislators who engage in more corporate fundraising would be associated with lower levels of policy work. @tbl-models-pac shows the opposite; the offices of legislators who receive corporate PAC contributions also do more policy work on average. We do not have a causal theory to explain this relationship. However, combined with the results from @sec-type1 and @sec-type3, this pattern suggests that PAC contributions may be reflecting an unmeasured latent dimension of legislator power or capacity that empowers legislative offices to do more interbranch representation. Beyond creating an incentive to advocate for businesses to the federal government as predicted in #thm-strategic-corporate, it seems that PAC contributions reflect something more that is correlated with all types of interbranch representation.
 
 ```{r}
 #| label: tbl-models-pac-8

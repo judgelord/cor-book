@@ -80,13 +80,15 @@ As with individual constituency service, there are examples of business-focused 
 
 As another example, Representative Eddie Bernice Johnson wrote to the IRS on behalf of a constituent who had submitted an application to the IRS with an error that needed to be corrected (the constituent mistakenly wrote his PIN instead of his PTIN number on the form). The constituent had contacted Johnson's office because the paperwork had still not been processed after he re-submitted a version with the correction, and he was concerned about "losing money in lost potential business." Both of these contacts show that legislators' advocacy on behalf of businesses is not necessarily about fixing bureaucratic problems or obtaining special treatment for businesses at the expense of the public good.
 
-In some cases, legislators wrote on behalf of businesses seeking enforcement actions against their competitors. For example, Rep. Frank Kratovil (D-MD1) wrote to the FDA, "Red Bull that is made for Ireland is being mysteriously distributed in Maryland without an FDA approval noted on the package. Constituent, who is a distributor for Red Bull in Maryland, questions whether this practice is legal," (April 22, 2009). According to the summary from the FDA, the constituent was seeking little more than information about what was happening in these circumstances, but the implications for the constituent's business interests were made very clear. 
+In some cases, legislators wrote on behalf of businesses seeking enforcement actions against their competitors. For example, Rep. Frank Kratovil (D-MD1) wrote to the FDA, "Red Bull that is made for Ireland is being mysteriously distributed in Maryland without an FDA approval noted on the package. Constituent, who is a distributor for Red Bull in Maryland, questions whether this practice is legal," (April 22, 2009). Technically, Kratovil's letter merely sought information about what was happening, but he made the implications of potentially illegal activity for his constituent's business interests very clear. 
 
 Lastly, a more traditional example of corporate constituency service is a legislator writing to an agency seeking to change policy to benefit his business. Rep. Ed Whitfield (R-KY) wrote to the FDA on behalf of a constituent who owns a tobacco outlet and "wants FDA to modify the Tobacco Control and Prevention Act to allow individuals under the age of eighteen to enter stores with self-service displays provided an adult accompanies them. The company owner does not want to make his store adult-only, and believes the FDA's regulation will prevent families from entering the store, and will threaten the sale of other non-tobacco items." Once again, we see a clear articulation of a business interest by the constituent, as well as a clear request to modify legislation to suit the constituent's business interests. Rather than making such requests on behalf of a large corporation, however, Whitfield made this request on behalf of a small business owner. 
 
 ## Inequality in Corporate Constituency Service
 
-@fig-percent-type2 below shows the inequality in corporate constituency work across legislators. These patterns again reveal high levels of inequality in how much work legislators do on behalf of business interests. We find that inequality in corporate service (Gini coefficient of .749 in the House and .789 in the Senate) is modestly larger than the inequality in overall interbranch representation (Gini coefficient of 0.720 in the House and .732 in the Senate)  and somewhat smaller than the inequality in individual constituency service. 
+Inequality in interbranch representation on behalf of businesses mirrors 2024 levels of income inequality in Brazil (.5) and Turkey (.44) for the House and the Senate, respectively. 
+@fig-percent-type2 below shows the inequality in corporate constituency work across legislators. These patterns again reveal high levels of inequality,  larger than the inequality in overall interbranch representation. Interestingly, the top of both lists contains many of the same offices --- those of Senators Nelson, Webb, Warren, Rubio, and Toomey were also in the top 10 offices in providing individual constituency service.
+Likewise, in the House, the offices of Representatives Comstock, Wolf, Van Hollen, Graham, and Faso were also in the top 10% of offices providing individual constituency service in the House. 
 
 
 
@@ -172,7 +174,7 @@ knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.p
 ```
 
 
-The panel on the right (in @fig-pop-effect-6) shows a counterfactual in which all Senators have the same population as Tennessee--the 15th most populous state (according to the 2020 Census, the population was approximately 6.9 million). This counterfactual simulates an increase in demand (and Senators' resources) for most states, while substantially decreasing population (and Senators' resources) for the most populous states like California, Texas, and New York. The yellow dots representing each Senator's actual performance are identical across plots, but in the rightmost plot, we see that some senators from smaller states would do more interbranch representation on behalf of businesses under this counterfactual.
+The panel on the right (in @fig-pop-effect-6) shows a counterfactual in which all Senators have the same population as Tennessee--the 15th most populous state (according to the 2020 Census, the population was approximately 6.9 million). This counterfactual simulates an increase in demand (and Senators' resources) for most states, while substantially decreasing population (and Senators' resources) for the most populous states like California, Texas, and New York. The yellow dots representing each Senator's actual performance are identical across plots. In the plot on the right, we see that some senators from smaller states would do more interbranch representation on behalf of businesses under this counterfactual.
 
 <!--Rochelle 7/3: Is the interpretation in the last sentence above correct? I added this because it ended mid-sentence (after "rightmost plot), so pls fix if I'm wrong!! -->
 
@@ -183,10 +185,8 @@ While population in the form of demand is highly correlated with corporate servi
 ```{r}
 #| label: fig-popcollege-effect
 #| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to more demanding constituents (highly educated) counterfactual"
-#| fig-show: hold
-#| fig-subcap: 
-#|   - "No College Counterfactual"
 #| out-width: "50%"
+
 knitr::include_graphics(here::here("figs", type, "m-demand-effect-1.png"))
 
 #TODO college grads and government workers 
@@ -211,7 +211,7 @@ Consistent with our @thm-capacitylegexperience and previous findings by @JudgeLo
 #|   - "Reporting Committee Relationship"
 #|   - "Total Capacity"
 #| layout-ncol: 2
-#| out-width: 100%
+#| out-width: "100%"
 
 knitr::include_graphics(
 here::here("figs", type,
@@ -258,15 +258,9 @@ Drawing on across-legislator differences in the cross-sectional model (with just
 ```{r}
 #| label: fig-elect-effect-6
 #| fig-cap: "Predicted levels of interbranch representation compared to counterfactual of no general electoral competition"
-##| fig-subcap: 
-##|   - "Competitive General Election"
-##|   - "Competitive Primary Election"
-##| layout-ncol: 2
 #| out-width: "50%"
 
 knitr::include_graphics(here::here("figs", type, "m-elect-effect-1.png"))
-#knitr::include_graphics(here::here("figs", type, "m-elect-did-effect-2.png"))
-
 ```
 
 <!---  Commenting out for now -- we do have leg ideological extremity findings, but we don't have any hypotheses about it, so I mention it in text, but leaving figures out. 

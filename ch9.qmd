@@ -42,7 +42,9 @@ In addition to letters with multiple signatories from neighboring states or dist
 
 ## Inequality in Corporate Policy Work
 
-@fig-percent-type4 below shows the inequality in corporate policy work across legislators, with the Senate on the left and the House on the right. These patterns again reveal high levels of inequality in how much work legislators do on behalf of business interests. We find that inequality in corporate policy work (Gini coefficient of 0.849 in the House and 0.784 in the Senate) is larger than any other form of interbranch representation.^[The Gini coefficient for corporate service is 0.749 in the House and 0.789 in the Senate. The Gini coefficient for individual constituency service is 0.794 in the House and 0.814 in the Senate. The Gini coefficient for inequality in overall interbranch representation is 0.720 in the House and 0.732 in the Senate.]
+@fig-percent-type4 shows the inequality in corporate policy work across legislators, with the Senate on the left and the House on the right. These patterns again reveal high levels of inequality in how much work legislators do on behalf of business interests. Inequality in interbranch policy work on behalf of business interests mirrors 2024 levels of income inequality in Zambia (.52) and Honduras (.46) for the House and the Senate, respectively, with inequality among House offices being greater than any other type of interbranch representation. Several of these offices were also top providers of constituency service, including Senators Lugar, Warner, and Reid. 
+Others topped the list for general policy work but not constituency service, including Senators Mikulski and Baucus. 
+
 
 
 ```{r}
