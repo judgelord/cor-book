@@ -7,6 +7,9 @@
 
 A focus on interbranch representation adds important nuance to modern narratives about a broken Congress. Although Congress may be broken in many ways, one under-appreciated way in which Congress still works is through interbranch representation (at least for some districts). The First Amendment to the U.S. Constitution guarantees the right "to petition the Government for a redress of grievances." In practice, citizens’ most direct experience with the federal government is with federal agencies. When citizens have grievances or simply need help navigating the federal bureaucracy, they petition their elected representatives for help. Legislators, in turn, petition the government for redress, facilitating responsiveness from agencies.
 
+Perhaps if people better understood what congressional offices did, politicians would be less scared of voting for more staff.
+This may require a shift in thinking about Congress as a group of politicians to thinking about Congress as an institution that serves a variety of functions, most of which are carried out by staff, not the politicians. Ironically, given how neither "bureaucracy" nor Congress are particularly popular, thinking of Congress more as a bureaucracy might make people like it better.  
+
 Our study of interbranch representation reveals many previously unknown dynamics that exist between the legislative and executive branches. By examining a form of congressional activity that was, until recently, largely invisible, our research also raises new questions about what interbranch representation means for the functioning of Congress. After discussing our results in greater depth, we conclude by considering how interbranch representation informs our understandings of Congress's effectiveness, including how this work can be improved and what the changes in the federal government during the second Trump administration are likely to mean for interbranch representation.  
 
 ## Understanding Interbranch Representation
@@ -230,7 +233,13 @@ Future research should examine other forms of interbranch representation. One su
 As a practical matter, the institutions of our vast federal government cannot magically coordinate and work together to solve problems. Interbranch correspondence is work that stitches the government together. The "three branches" of government metaphor may do harm to our understanding of a complex federal system [@Bednar2009] with stylized job descriptions. The threads of scholarship we tried to unite in this book paint a richer picture of what representation is in practice with our institutions as they are. A bureaucracy of millions serving a population of hundreds of millions will always do so imperfectly, with opportunities for improvement inspired by people's problems, and inevitable fights over policy continuing long after the ink is dry on most pieces of legislation. Businesses, universities, and local governments will always be searching for someone with clout to get their bid or application a second look. 
 <!-- carpenter on coalitions --> 
 
+Our findings emphasizing the importance of experience and the number of office and committee staff suggest that researchers should ask questions typically asked of bureaucracies, such as how staff is selected and deployed and the consequences of these decisions [@Brierley2023]. If institutional structure and access to staff drive differences in representation,  scholarship on bureaucratic organization of Congress, allocation of resources to different tasks [@Ommundsen2025], and capacity [@CrossonFurnasLapiraBurgat2021] takes on new importance.
+
+<!--CASES ACT--> 
+
 ## Interbranch Representation and Democracy
+
+
 
 Much of this discussion assumes a particular normative interpretation of interbranch representation -- that is, the idea that providing *more* interbranch representation is always better. The variety of requests that appear in our data, particularly for constituency service, suggests that interbranch representation is not necessarily an indicator that the bureaucracy is broken. As we have discussed here, interbranch representation is correlated with other measures that are commonly viewed as indicative of high levels of skill. We believe, therefore, that more interbranch representation could be viewed as normatively desirable. 
 
@@ -238,4 +247,8 @@ Consider, for instance, individual constituency service related to immigration. 
 
 The complexity of the immigration system in the United States makes the need for assistance inevitable. Furthermore, because non-citizens cannot vote, immigration-related constituency service is an important reminder that members of Congress are charged with representing *constituents*, not just voters. The representation a person receives should not depend on what they are able to offer the legislator in return. Hearteningly, interbranch representation suggests that legislative offices seem to recognize this fact. The tireless advocacy of congressional staff on behalf of constituents with little political power is a sign that congressional offices view interbranch representation not only through the logic of appropriateness, but through the logic of justice. 
 
+What makes the biggest difference in how much members of Congress do for their constituents isn't partisanship or elections, but capacity---members of Congress with access to more staff do more work on all fronts --- from constituency service to oversight. People complain that Congress isn't doing more, but congressional offices are running on shoestring budgets compared to the executive branch. The House or Senate could simply vote to give themselves more staff at any time, but they are scared of being attacked for increasing their own budget. 
+
+If people knew more about what was going on behind the scenes, they would probably be pleasantly surprised. 
+Perhaps if people better understood what congressional offices did, politicians would be less scared of voting for more staff to do more good things.
 

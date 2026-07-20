@@ -438,7 +438,7 @@ Republicans will advocate more for business interests in both service and policy
 
 #### Strategic Choices: Staff Allocation
 
-The last strategic choice that we consider is how legislators allocate their staff. Legislators who choose to prioritize a certain type of activity may want to devote more staff resources to accomplish that objective. Thus we can view staff allocation choices (in the form of the amount of a legislator's office budget that they spend on constituency service staff, for instance) as a reflection of the member's priorities, and thus a strategic choice they are making. We argue that member offices that devote more resources to staff who do a certain type of work are likely to produce more of that type of work. 
+The last strategic choice that we consider is how legislators allocate their staff. Legislators who choose to prioritize a certain type of activity may want to devote more staff resources to accomplish that objective. Thus, we can view staff allocation choices (in the form of the amount of a legislator's office budget that they spend on constituency service staff, for instance) as a reflection of the member's priorities, and thus a strategic choice they are making. We argue that member offices that devote more resources to staff who do a certain type of work are likely to produce more of that type of work. 
 
 ::: {#thm-strategic-staff}
 ## Strategic: Staff Allocation
@@ -473,7 +473,7 @@ here::here("tables", "strategiccombined.csv")  |> theory_table()
 
 ### From Theoretical Framework to Research Design
 
-In this chapter, we have constructed a theoretical framework of *Demand*, *Capacity* and *Strategic Choice* with which to understand aggregate levels of interbranch representation, as well as why legislators engage in different types of interbranch representation. In the next chapter, we lay out our measurement strategy and research design. 
+In this chapter, we have constructed a theoretical framework of *Demand*, *Capacity*, and *Strategic Choice* with which to understand aggregate levels of interbranch representation, as well as why legislators engage in different types of interbranch representation. In the next chapter, we lay out our measurement strategy and research design. 
 
 
 
