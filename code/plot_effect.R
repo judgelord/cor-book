@@ -5,13 +5,15 @@ percentiles <- function(a){
     group_by(member_state, year) %>%
     summarise(n = sum(estimate, na.rm = T) ) %>%
     ungroup() %>%
-    mutate(gini = Gini(n) ) %>%
+    #mutate(gini = Gini(n) ) %>%
     dplyr::group_by(member_state) %>%
     dplyr::summarise(mean = mean(n),
-                     gini = mean(gini),
+                     #gini = mean(gini),
                      total = sum(n)
-                     ) %>%
+    ) %>%
     dplyr::ungroup() %>%
+    # CHNAGE NOW CALCULATING GINI BASED ON MEAN
+    mutate(gini = Gini(mean) ) %>%
     dplyr::mutate(Percentile = dplyr::ntile(mean, 100),
                   rank = dplyr::min_rank(-mean)) %>%
     dplyr::select(member_state, Percentile, mean, rank, gini, total) %>%
@@ -96,9 +98,12 @@ a[which(a$mean > b$mean),]
              vjust = "inward",
              geom = "text",
              size = 3.5,
-             label = paste(effect, "effect:\n",
-                           ifelse(total_b-total_a > 0, "+", ""), round(total_b-total_a) |> format(big.mark=",")  , "requests per year\n",
-                           ifelse(gini_b-gini_a > 0, "+", ""), round(gini_b-gini_a, 2), "change in Gini coefficient"
+             label = paste0(effect, " effect:\n",
+                           ifelse(total_b-total_a > 0, "+", ""), round(total_b-total_a) |> format(big.mark=","), " requests per year\n",
+                           ifelse(gini_b-gini_a > 0, "+", ""), round(gini_b-gini_a, 2),
+                           ", ",
+                           round( (gini_b-gini_a)/gini_a, 2)*100,
+                           "% change in Gini coefficient"
                            #", from", gini_a, "to", gini_b,
                            # paste0(min(d$year), "-", max(d$year))
                            ),
