@@ -194,29 +194,6 @@ modelsummary(models_capacity,
 
 
 
-\clearpage 
-
-
-
-```{r}
-#| label: fig-effect-ind
-#| fig-cap: "Predicted levels of individual constituent service per legislator per year compared to counterfactuals"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: "100%"
-
-knitr::include_graphics(
-here::here("figs", type,
-           paste0("m-effect-",
-                  c(1:2,5,8), 
-                  ".png"
-                  ) 
-           ))
-```
 
 
 \clearpage
@@ -328,29 +305,6 @@ modelsummary(models_capacity,
 ```
 
 
-
-\clearpage 
-
-
-```{r}
-#| label: fig-effect-corser
-#| fig-cap: "Predicted levels of corporate service per legislator per year compared to counterfactuals"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: "100%"
-
-knitr::include_graphics(
-here::here("figs", type,
-           paste0("m-effect-",
-                  c(1:2,5,8), 
-                  ".png"
-                  ) 
-           ))
-```
 
 
 \clearpage
@@ -504,29 +458,6 @@ modelsummary(models_capacity,
 ```
 
 
-\clearpage 
-
-
-
-```{r}
-#| label: fig-effect-non
-#| fig-cap: "Predicted levels of on non-profit/local government service per legislator per year compared to counterfactuals"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: "100%"
-
-knitr::include_graphics(
-here::here("figs", type,
-           paste0("m-effect-",
-                  c(1:2,5,8), 
-                  ".png"
-                  ) 
-           ))
-```
 
 
 \clearpage
@@ -639,25 +570,6 @@ modelsummary(models_capacity,
 
 
 
-```{r}
-#| label: fig-effect-pol
-#| fig-cap: "Predicted levels of on general policy work with federal agencies per legislator per year compared to counterfactuals"
-#| fig-subcap: 
-#|   - ""
-#|   - ""
-#|   - ""
-#|   - ""
-#| layout-ncol: 2
-#| out-width: "100%"
-
-knitr::include_graphics(
-here::here("figs", type,
-           paste0("m-effect-",
-                  c(1:2,5,8), 
-                  ".png"
-                  ) 
-           ))
-```
 
 
 \clearpage

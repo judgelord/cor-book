@@ -137,7 +137,7 @@ Finally, we crosswalk reporting committee assignments with committee jurisdictio
 
 #### Legislator office staffing levels 
 
-We use staff budget data for members of the House from @CrossonFurnasLapiraBurgat2021 via the replication files for @CrossonKaslovsky2024, specifically Members' Representational Allowance (MRA) and the portion of MRA each member spent. These data vary by Congress. 
+We use staff budget data for members of the House from @CrossonFurnasLapiraBurgat2021, specifically Members' Representational Allowance (MRA) and the portion of MRA each member spent.^[@CrossonFurnasLapiraBurgat2021 are available via the replication files for @CrossonKaslovsky2024] These data vary by Congress. 
 
 
 ### Measuring strategic behavior and the political environment 
