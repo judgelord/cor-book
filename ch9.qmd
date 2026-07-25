@@ -11,7 +11,7 @@ here::here("code", "formatting.R") |> source()
 
 ## What is policy work on behalf of businesses? 
 
-We define commercial policy to include “anything applying to a class of commercial activity or businesses (e.g. shipping, airlines, agriculture),” including “legislation, bills, acts, appropriations, authorizations, etc.” In many cases, agency log files that summarized the messages they received from legislators mentioned specific industries, which meant that these contacts were often fairly straightforward to code. For example, members of Congress regularly write to the U.S. Trade Representative on topics including imports of Brazilian cotton, Argentinian beef, rare earth minerals, Boeing and Airbus contracts, lumber markets in Peru, and intellectual property and copyright. 
+We define commercial policy to include “anything applying to a class of commercial activity or businesses (e.g. shipping, airlines, agriculture),” including “legislation, bills, acts, appropriations, authorizations, etc.” In many cases, congressional letters or agency log files that summarized the messages they received from legislators mentioned specific industries, which meant that these contacts were often fairly straightforward to code. For example, members of Congress regularly write to the U.S. Trade Representative on topics including imports of Brazilian cotton, Argentinian beef, rare earth minerals, Boeing and Airbus contracts, lumber markets in Peru, and intellectual property and copyright. 
 
 In this chapter, we examine what policy work on behalf of corporations and business interests looks like, document the inequality in corporate policy work, and examine what explains the provision of corporate policy representation. 
 

@@ -256,6 +256,10 @@ https://www.regulations.gov/comment/FWS-HQ-ES-2018-0006-53372
 https://www.epw.senate.gov/public/index.cfm/2018/9/senators-carper-and-udall-lead-democratic-senators-in-raising-concerns-over-trump-administration-s-attacks-on-landmark-endangered-species-act
 --> 
 
+### Changes to Oversight 
+
+The first Trump administration sought to limit congressional oversight, in the first few months of taking office suggesting that agencies should only respond to requests that come from a committee, subcommittee, or chairman authorized to conduct oversight [@OfficeofLegalCounsel2017]. However, a follow-up memo two years later clarified that "[d]epartments and agencies ... may appropriately give due weight and sympathetic consideration to requests for information from individual members of Congress not delegated such authority"  [@OfficeofLegalCounsel2019].
+
 
 ## What it looks like
 

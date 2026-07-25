@@ -28,7 +28,7 @@ https://www.dailyamerican.com/story/news/local/2016/12/13/beeners-get-house-arre
 
 ## What is commercial constituency service? 
 
- Constituency service on behalf of businesses, or commercial service, is a form of constituency service where the legislator is advocating on behalf of a business--including business owners like farmers. This work on behalf of individual businesses (or business owners) is often on behalf of businesses in the legislators’ districts, but it is not necessarily geographically delimited. For example, legislators could be advocating on behalf of out-of-district campaign donors.
+ Constituency service on behalf of businesses, or commercial service, is a form of constituency service where the legislator is advocating on behalf of a business --- including business owners like farmers. This work on behalf of individual businesses (or business owners) is often on behalf of businesses in the legislators’ districts, but it is not necessarily geographically delimited. For example, legislators could be advocating on behalf of out-of-district campaign donors.
 
 These commercial constituency service requests span a range of issues and agencies. A common form of request is asking an agency to expedite something--in essence, to speed up whatever it is they are doing. For example, @fig-FERC below shows a letter Rep. Mac Thornberry (R-TX13) wrote to the Federal Energy Regulatory Commission (FERC) in 2013 on behalf of the Vice President of the Panhandle Producers and Royalty Owners Association and the President of Cambridge Production, Inc. In the letter, Rep. Thornberry is urging FERC to speed up its decision-making process, and he includes letters from the named corporate leaders explaining their request.  
 
@@ -38,6 +38,11 @@ These commercial constituency service requests span a range of issues and agenci
 
 knitr::include_graphics(here::here("anecdotes", "2", "FERC.png"))
 ```
+
+In addition to contracts and permits, the federal government distributes grants to businesses. For example the Department of Commerce, National Institute of Standards and Technology Advanced Technology Program distributes grants to stimulate early-stage technology development that would otherwise not be funded.
+In 2007, Joe Biden wrote to NIST "to extend support for Athena Biotechnologies Inc.'s application in the amount of $2 million to the Advanced Technologies Program grant through NIST" and Jack Kingston, wrote "in support of the application submitted by American Process, Inc. and the Georgia Institute of Technology."
+Both of these were assigned NIST's highest priority level in their correspondence tracking system. 
+
 
 Members of Congress make thousands of such interventions every year. To the Small Business Administration alone, legislators sent thousands of letters helping businesses gain access to capital, government contracts, loans, and disaster loan forgiveness. Given incentives on the part of companies, members of Congress, and agencies to keep such interventions out of the public eye, the records we obtained are a rare glimpse into legislator advocacy on behalf of business interests. 
 

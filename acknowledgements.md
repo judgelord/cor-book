@@ -25,7 +25,7 @@ and
 the University of Wisconsin-Madison, Office of the Vice Chancellor for Research, with funding from the Wisconsin Alumni Research Foundation. 
 
 <!--We are grateful for university libraries, especially 
-College Library's computer lab overlooking beautiful Lake Medota, where Devin spent two summers with a team of RAs, with Rochelle joining the second summer. 
+College Library's computer lab overlooking beautiful Lake Medota, where we spent several summers working with our research team. 
 --> 
 
 We are grateful for research assistance from 
@@ -40,4 +40,4 @@ Maggie Nead,
 Lucy McNeil, and 
 Sam Schutt. 
 
-Justin Grimmer, as an original collaborator and coauthor of the first three articles from the broader project, deserves special credit for helping to build its foundations. 
+Justin Grimmer, as an original collaborator and coauthor of the first three articles from the broader project, deserves special credit for helping to build its foundation. 

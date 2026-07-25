@@ -195,47 +195,110 @@ If we want to characterize styles of interbranch representation, it is an overar
 
 ## Practical Implications of Interbranch Representation
 
-The inequality in interbranch representation that we have documented and explained in this book raises questions about how effectively congressional offices are handling this workload and what, if anything, can be done to improve how interbranch representation works. As constituency service has begun to gain more attention as an essential function of congressional offices, other groups more closely connected to the institution have made efforts to study and improve both casework and congressional communication with the bureaucracy. Organizations like Civic, which has proposed a consistent tagging system for casework to identify common problems that constituents experience during policy implementation, and PopVox, which provides resources for caseworkers and opportunities for congressional office staff to learn from one another, are doing vital work to improve congressional offices' capacity for constituency service. Equally important are efforts to ensure that constituents are aware that they can contact their member of Congress for help. While some recent research has thankfully picked up this thread [e.g. @Blackwood2026], more can also be done to understand legislators' solicitation of casework and how (if at all) it affects interbranch representation. 
+> "The demands on Congress are accelerating. Its capacity to legislate, oversee, learn, and adapt is not." - https://congressh3.io/
 
-<!-- this paragraph could be clearer--> 
-Another important conclusion to be drawn from our findings is the extent to which interbranch representation depends on the skill and initiative of congressional offices. Rather than mechanically responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. As part of effectively serving constituents and pursuing the legislator's policy goals, congressional staff must possess knowledge about the workings of the bureaucracy and how it connects to constituency service and policy. 
+The inequality in interbranch representation that we have documented and explained in this book raises questions about how effectively congressional offices are handling this workload and what, if anything, can be done to improve how interbranch representation works. 
 
+<!-- BETTER INFRASTRCUTURE --> 
+As constituency service has begun to gain more attention as an essential function of congressional offices, other groups more closely connected to the institution have made efforts to study and improve both casework and congressional communication with the bureaucracy. Organizations like Civic, which has proposed a consistent tagging system for casework to identify common problems that constituents experience during policy implementation, and PopVox, which provides resources for caseworkers and opportunities for congressional office staff to learn from one another, are doing vital work to improve congressional offices' capacity for constituency service. Equally important are efforts to ensure that constituents are aware that they can contact their member of Congress for help. While some recent research has thankfully picked up this thread [e.g. @Blackwood2026], more can also be done to understand legislators' solicitation of casework and how (if at all) it affects interbranch representation.
+
+<!-- INCREASE STAFF --> 
+
+<!-- CONNECTING CS AND POLICY --> 
+Interbranch representation depends on the skill and initiative of congressional staffers Rather than mechanically responding to bureaucratic failures, members of Congress and their staff are contacting agencies in the bureaucracy with a wide range of concerns involving constituency service and policy. As part of effectively serving constituents and pursuing the legislator's policy goals, congressional staff must possess knowledge about the workings of the bureaucracy and how it connects to constituency service and policy. 
+
+<!-- NO TERM LIMITS--> 
 The consistent and positive relationship between legislators' experience and providing more interbranch representation is further evidence that term limits would undermine Congress as an institution. Legislators--or, at minimum, their staff--need to spend time in the institution in order to develop useful expertise. This fact has long been known and accepted by political scientists [e.g. @CareyNiemiPowell2000], and this evidence that interbranch representation also benefits from institutional memory adds to this body of evidence.
+
+<!-- REDISTRICTING AND COMPEITIVENES--> 
+
+
+
 
 ## Changes Under the Trump Administration 
 
-Our findings have also made clear the importance of employees in the federal bureaucracy for legislators providing effective interbranch representation. Although we did not examine agencies' responses to legislators' queries, legislators would undoubtedly be most effective at interbranch representation when bureaucrats are responsive to them. The nature of useful responses will vary across the types of interbranch representation that we have examined. Still, we can assume that more people -- and more expertise -- in the bureaucracy would produce more helpful responses.
 
-The Trump administration's cuts to the federal workforce therefore have enormous implications for interbranch representation. We have not yet obtained data covering Trump's second term, but the data we do have suggest that these cuts would matter for interbranch representation (and the study of it) in several ways. First, we would expect additional delays in responses to our FOIA requests beyond what we have experienced, thus limiting our ability to obtain useful data in a timely manner. Second, agencies operating with fewer employees may simplify, alter, or even eliminate their regular record-keeping practices if they have fewer people available to keep and maintain records of congressional correspondence. Third, agencies may be less responsive to requests from members of Congress, thus impeding the overall functioning of interbranch representation, particularly its ability to "close the loop" in bureaucratic processes.
 
-Given that this book has studied congressional behavior, it is worth considering at greater length how members of Congress may respond to this new environment. Our findings on the role that presidential partisanship plays in interbranch representation are instructive here. Empirically, in our data we find that legislators have used interbranch representation less as a weapon of the opposition than as a resource of the aligned: legislators engage agencies not primarily to constrain ideological or partisan adversaries but to extract responsiveness from ideological and/or partisan friends.
+Changes in the second Trump Administration simultaneously increase demand and opportunities for interbranch work to fill new gaps in the functioning of government while also likely making that work less effective, especially for legislators on the administrations list of enemies.
+The dismantling of certain agencies and offices and the dramatic shift from a merit-based civil service to more centralized control of agencies by White House under the Trump administration and Roberts Court may drive increased interbranch representation in some cases and inhibit it in other contexts. Decreasing capacity, a shift to relying on contractors, and increased paperwork at many agencies along with the a general shift from standard procedures to ad hoc negotiations potentially increases the value of the ombudsmen role that congressional offices play. On the other hand decreasing capacity also makes agencies less able to respond to legislator requests, correct administrative errors, reform in response to oversight investigations, or adapt to changing circumstances in response to legislator pressure. Increasingly centralized, partisan, and ad hoc decision-making may also foreclose some types of interbranch representation or some legislators from doing so (e.g., those not perceived as loyal to the president or with nothing to offer in exchange for help for their constituents). 
+
+Changes under the Trump administration could also affect the study of interbranch representation.
+First, as nearly all agencies lost experienced staff to firings and encouraged resignations, we may expect additional delays in responses to FOIA requests beyond what we have experienced, thus limiting our ability to obtain useful data in a timely manner. Second, agencies operating with fewer employees may simplify, alter, or even eliminate their regular record-keeping practices if they have fewer people available to keep and maintain records of congressional correspondence. As a way of explaining gaps in the records we received, FOIA officers told us that record keeping was de-prioritized in the fist Trump administration. The second Trump administration may be similar in this respect. Indeed, the administration claimed that DOGE was not subject to FOIA and the Roberts Court stayed a lower court ruling that it was, saying "separation of powers concerns
+counsel judicial deference and restraint in the context of
+discovery regarding internal Executive Branch communications." [@DOGEvCREW2025] <!--Finally, if judicial preference for executive embolden this administration, agencies may not comply was as many FOIA requests without being sued. The Roberts Court could even get ride of the Freedom of Information Act as infringing on executive power. --> 
+
+
+
+
+<!--Decreasing capacity, a shift to relying on contractors, and increased paperwork at many agencies and a general shift from standard procedures to ad hoc negotiations--> 
+
+### Why interbranch representation may increase: Decreasing agency capacity and procedures, increasing paperwork and contractors
+
+Congressional offices fill gaps created by mass firings and structural reforms that reduced internal oversight. The most obvious gap is in the ability 
+The major casework-driving events of the second Trump administration [@tbl-casework-trump, building on tbl-casework] identified by @Meeker2026 highlights agency disruption and restructuring as major drivers of congressional office work casework. Additionally, any administration that engages in wars, fails to prevent public health crises or natural disasters, or increases the number of people dealing with immigration, unemployment, or public benefit paperwork will increase the demand for assistance from congressional offices. 
+
+
+| Year(s) | Event | Casework Impact |
+|---|---|---|
+| 2025 | Government shutdown | Agency-disruption casework; exacerbated by many legislative offices placing staff on furlough |
+| 2025 | DOGE restructuring and program changes | Sustained federal-employee and program-disruption casework |
+| 2026 | Iran war | Repatriation casework on top of ongoing immigration casework |
+| Recurring | Western drought and wildfire cycles | Seasonal and recurring disaster casework |
+| Recurring | Local disasters: tornadoes, flooding, plant closures, industry collapses | Varied and complex local casework, often including disaster programs as well as wayfinding and connections to local relief, liaising with state counterparts on unemployment and emergency SNAP/WIC benefits, replacing destroyed or damaged documents, etc. |
+
+: Major casework-driving events 2025-2026s identified by the POPVOX Foundation {#tbl-casework-trump}
+
+
+Structrual reforms may also increase the demand for oversight. For example, as many inspectors general are fired and their offices are addled or dismantled, agencies are investigating and correcting fewer of their own mistakes, creating more opportunities for congressional offices to attempt to fill the gap. 
+Similarly, Trump administrations dismantling of appeals processes for public benefits and civil servants as well as offices that help people navigate the degraded federal bureaucracy creates demands for an ombudsman. 
+
+After the the Roberts Court ruled that Congress acted unconstitutionally in requiring for-cause removal of agency heads (and generally erasing most forms of agency independence unconstitutional), the Merit Systems Protection Board began several initiatives to dramatically limit the scope of its work on behalf of civil servants. It removed the word "independent" form its website and issued joint rules with Office of Personnel Management removing procedures and factors that agencies previously had to consider when firing workers, making the process more ad hoc. Similarly, the removal of civil service protections from many federal employees [@Hsu2026] create many opportunities for case-by-case work around federal worker firing. As discussed in @sec-policy, members of Congress intervene and inquire about civil service and political appointee hiring and firing decisions. With fewer processes and protections, there they may have more inquiries. 
+
+
+
+
+<!-- less able to respond to legislator requests, correct administrative errors, reform in response to oversight investigations, or adapt to changing circumstances in response to legislator pressure. --> 
+
+### Why interbranch representation may decrease: Decreasing agency responsiveness, increasing partisanship
+
+Our findings have also made clear the importance of employees in the federal bureaucracy for legislators providing effective representation. Although we did not examine agencies' responses to legislators' queries, legislators would undoubtedly be most effective at interbranch representation when bureaucrats are responsive to them. 
+The Trump administration's cuts to the federal workforce may lead agencies to be less responsive to requests from members of Congress, thus impeding the overall functioning of interbranch representation, particularly its ability to "close the loop" in bureaucratic processes.
+Beyond the raw capacity to respond to legislator requests, dismantling internal checks and transparency mechanism like performance evaluations [@Friedman2026], whistleblower protections [@Doubleday2025], inspectors general, and FOIA also give members of Congress much less information to use in conducting oversight. 
+
+<!--Increasingly centralized, partisan, and ad hoc decision-making may also foreclose some types of interbranch representation or some legislators from doing so (e.g., those not perceived as loyal to the president or with nothing to offer in exchange for help for their constituents). --> 
+
+The centralizing of control over federal agencies, including in their communications with members of Congress may inhibit the flow of information and responsiveness to perceived enemies. As we noted in @sec-data-collection, Legislative Affairs offices are the official point of contact for members of Congress, but we a large among of interbranch representation directly with sub-agencies, not (at least initially) going through legislative affairs or the Secretaries office. If the Trump administration's controversial efforts to centralize correspondence with members of congress in legislative affairs offices are successful, many legislators worry that their correspondence with agencies will be inhibited [Timotija2025]. Likewise, if efforts to centralize contracting and procurement [@Alms2025] are successful, the ability to for members of Congress to intervene may be limited. We found strong relationships between agencies and legislators who sit on their reporting committees. To the extent that procurement is centralized in one of the few agencies that does not report to any congressional committee (the General Services Administration), legislators will no longer have that relationship with the decisionmakers on government contracts.  
+
+Given that this book has examined congressional behavior, it is worth considering at greater length how members of Congress may respond to this new environment. Our findings on the role that presidential partisanship plays in interbranch representation are instructive here. Empirically, in our data we find that legislators have used interbranch representation less as a weapon of the opposition than as a resource of the aligned: legislators engage agencies not primarily to constrain ideological or partisan adversaries but to extract responsiveness from legislators show loyalty to the president.
 
 
 <!---Contrary to what we would expect if interbranch representation were mainly the result of seeking pork from co-partisan presidents [@BerryBurdenHowell2010], we do not find the president's party being a strong or consistent predictor of legislators' work. If an increasingly powerful "unitary" executive increases control over agencies, especially over their interactions with legislators, we may expect that the impact of presidential partisanship will increase and everything else to decrease in importance. This would disempower members of Congress as representatives. When their constituents contact them, they may be, on average, in less of a position to help them.
 ---> 
 
 
-<!--- Commenting out for time. Feel free to flesh out. 
-- see cases where Trump says you should elect republicans because he won't let agencies help Dem districts (FEMA)
-- see coverage of DOGE cut exemptions system only open to republicans 
-
-
-Controlling agencies' interactions with members of Congress will both constrain and be constrained by the coalitional politics that @Carpenter2001 documents between agency officials and legislative offices. 
----> 
+<!-- COUNTERPOINT
+House lawmakers are moving ahead with several bipartisan bills cracking down on fraudulent federal spending. The House Oversight and Government Reform Committee advanced a package of nine anti-fraud bills. Most of the bills have broad support from both parties and several good-government groups. One bill would create a permanent inspector general’s office in the Treasury Department focused on fraud, accountability and recovery. Others would increase usage of Treasury’s Do Not Pay database before payments are issued. These bills, if passed by Congress, would advance some of the Trump administration's fraud-prevention efforts. President Donald Trump declared a "war on fraud" during his State of the Union address and signed an executive order establishing an interagency fraud task force.
+(House committee advances nine anti-fraud bills with mostly bipartisan support - Federal News Network)
+https://federalnewsnetwork.com/congress/2026/04/house-committee-advances-9-anti-fraud-bills-with-mostly-bipartisan-support/
+--> 
 
 
 
 
 ## Future Research
 
-Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs <!--[@CITE]--> and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with White House officials. 
+Future research should examine other forms of interbranch representation. One surprising thing we found in congressional correspondence logs was letters from judges that agencies tagged with a similar level of importance. Members of Congress regularly submit amici briefs <!--[@CITE]--> and engage behind the scenes with the judiciary in other ways. Another thing we found in agencies' congressional correspondence logs was communications with White House officials, as well lobbyists, suggesting that agencies congressional offices are situated in a constellation of external political relationship that agencies need to manage. Notably, White House officials sometimes played a simile ombudsmen role as congressional offices. For example on May 5 2018, the White House contacted the US Army Corps of Engineers about a "Family Real Estate Issue," specifically that "Roger & Joanne Boskus want their Lake View Back."
+
+
 
 As a practical matter, the institutions of our vast federal government cannot magically coordinate and work together to solve problems. Interbranch correspondence is work that stitches the government together. The "three branches" of government metaphor may do harm to our understanding of a complex federal system [@Bednar2009] with stylized job descriptions. The threads of scholarship we tried to unite in this book paint a richer picture of what representation is in practice with our institutions as they are. A bureaucracy of millions serving a population of hundreds of millions will always do so imperfectly, with opportunities for improvement inspired by people's problems, and inevitable fights over policy continuing long after the ink is dry on most pieces of legislation. Businesses, universities, and local governments will always be searching for someone with clout to get their bid or application a second look. 
 <!-- carpenter on coalitions --> 
 
-Our findings emphasizing the importance of experience and the number of office and committee staff suggest that researchers should ask questions typically asked of bureaucracies, such as how staff is selected and deployed and the consequences of these decisions [@Brierley2023]. If institutional structure and access to staff drive differences in representation,  scholarship on bureaucratic organization of Congress, allocation of resources to different tasks [@Ommundsen2025], and capacity [@CrossonFurnasLapiraBurgat2021] takes on new importance.
+Our findings emphasizing the importance of experience and the number of office and committee staff suggest that researchers should ask questions typically asked of bureaucracies, such as how staff is selected and deployed and the consequences of these decisions [@Brierley2023]. For example, journalists have suggested that a member replacing their office staff with former White House officials gives it stronger ties to the president [@Weiner2023]. If institutional structure and access to staff drive differences in representation,  scholarship on bureaucratic organization of Congress, allocation of resources to different tasks [@Ommundsen2025], and capacity [@CrossonFurnasLapiraBurgat2021] takes on new importance.
 
 <!--CASES ACT--> 
+
+<!-- https://protectdemocracy.org/wp-content/uploads/2025/04/Constituent-services-multi-member-districts.pdf --> 
 
 ## Interbranch Representation and Democracy
 

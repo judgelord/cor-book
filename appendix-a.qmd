@@ -5,20 +5,34 @@ This appendix provides more details on how we measure interbranch representation
 
 ## The data generating process 
 
-The data we received in response to our Freedom of Information Act requests include several filtering processes, leading to an under-count of true levels of interbranch representation. First, the agency had to make a record of the interaction. If a staffer from a congressional office talked to someone they know at an agency over the phone, they may not always make a record of it. However, they often do, because internal agency procedures often have precise guidance about recording interactions with members of congress, <!--cite proceedures manual-->  which often include minimum response times and signature levels. Nearly all agencies use a correspondence tracking system provided by a government contractor that standardizes information and tracks cases that need followup. Members of congress are generally tagged as "VIP" or "Priority" in these tracking systems. <!---We observed this in the data we received and it was confirmed in interview with former officials. Anything having to do with congress will be treated differently. Anything going out always goes way up the chain. For executive regulatory agencies (rather than the independent agencies) this means that every agency potentially involved as well as the White House sign off on anything sent to a member of Congress. DID OUR IRB COVER INTERVIEWS? THIS CAME FROM A CONVESATION I HAD WITH A INSTRUCTUR WHO WAS A RETIRED SES. ---> 
+The data we received in response to our Freedom of Information Act requests include several filtering processes, leading to an under-count of true levels of interbranch representation. First, the agency had to make a record of the interaction. If a staffer from a congressional office talked to someone they know at an agency over the phone, they may not always make a record of it. However, they often do, because internal agency procedures often have precise guidance about recording interactions with members of congress, <!--cite proceedures manual-->  which often include minimum response times and signature levels. Nearly all agencies use a correspondence tracking system provided by a government contractor that standardizes information and tracks cases that need followup. Members of congress are generally tagged as "VIP" or "Priority" in these tracking systems. <!---We observed this in the data we received and it was confirmed in interview with former officials. Anything having to do with congress will be treated differently. Anything going out always goes way up the chain. For executive regulatory agencies (rather than the independent agencies) this means that every agency potentially involved as well as the White House sign off on anything sent to a member of Congress. DID OUR IRB COVER INTERVIEWS? THIS CAME FROM A CONVESATION I HAD WITH A INSTRUCTUR WHO WAS A RETIRED SES. --->
 
+### Gaps and changes in recordkeeping
+
+In some cases, document retention policies limited the timeframe of our sample. For example, The Defense Finance and Accounting office destroys all records of correspondence after 2 years.
+
+In some cases, the agency made a record of the interaction, but did not record which legislator. For example, in 2014, the Department of Defense officials made notes from a verbal conversation with a member of Congress about the DOD's contract to buy Casio wristwatches, but they did not record with whom. Thus, this interaction is not in our data. 
+
+In rare cases, agency summaries alone were insufficient to code the type. For example, in 2018, when Rep. French Hill wrote to the Social Security Administration to criticism a decision to permanently waive over-payment debt (money that retirees owed the government because SSA had over-paid them), SSA staff summarized the letter as "Congratulations on receiving the Golden Fleece Award." However, upon tracking down Hill's letter, we discovered it to be much more substantive, requesting that SSA provide responses to three questions, including the exact totals for what SSA has overpaid to SSDI beneficiaries and for waived overpayment debt from fiscal years 2014 to 2018 [@RiponAdvance2018]. This allowed us to code it as policy oversight work. However, we were not always able to track down the letters where summaries in correspondence logs were unclear. 
+
+Another complication with any effort to compare interbranch representation over time is changes in how congressional correspondence is recorded. 
+
+> "We are a small agency, and when a political appointee comes in, and they have ideas about how to run things, you would not expect that to include the correspondence management system, but, well, I've said too much already..." - FOIA Officer
+
+For example, The DOL Office of Administrative Law Judges told us that they "discontinued the use of the spreadsheet" tracking congressional inquiries in November 2016.
 
 ## Coding Types of Interbranch Representation
 
 This section goes into more detail on how we coded types of interbranch representation. 
 
-To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type.
+To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type. Our intercoder agreement on EPA is .78 overall and .9 for requests marked a certianty of 1. 
+
 
 
 <!--https://foia.blogs.archives.gov/2017/09/11/cheers-for-a-national-foia-portal/--> 
 
 
-<!--
+<!-- https://docs.google.com/document/d/11HIWsuNj0EK24DpT5B3Ir2smvprbnJPU-twUF40xlhY/edit?tab=t.0
 
 ANECDOTES ABOUT FOIA 
 
