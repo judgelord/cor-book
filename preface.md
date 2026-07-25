@@ -18,6 +18,8 @@ Though minor, we want to document changes we made from the version originally ci
 1. @sec-appendix-data now includes cross-tabs summarizing raw correlations.
 1. Throughout, inequality figures are now annotated with Gini coefficients for inequality across members. The plots continue to show *average* requests by member, but the annotated Gini coefficients --- previously calculated across member-years --- are now calculated across *average* requests per member and thus no longer include inequality due to within-member variation over time.
 1. We added a few citations. 
+1. We noted where models with log population as a predictor differed from models with population as a linear term.
+1. We elaborated on speculation on how things may be changing under the second Trump Administration. 
 
 <!--
 Some questions we could use advice on: 
