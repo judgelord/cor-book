@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -243,7 +262,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-data-generating-process" id="toc-the-data-generating-process" class="nav-link active" data-scroll-target="#the-data-generating-process"><span class="header-section-number">A.1</span> The data generating process</a></li>
+  <li><a href="#the-data-generating-process" id="toc-the-data-generating-process" class="nav-link active" data-scroll-target="#the-data-generating-process"><span class="header-section-number">A.1</span> The data generating process</a>
+  <ul class="collapse">
+  <li><a href="#gaps-and-changes-in-recordkeeping" id="toc-gaps-and-changes-in-recordkeeping" class="nav-link" data-scroll-target="#gaps-and-changes-in-recordkeeping">Gaps and changes in recordkeeping</a></li>
+  </ul></li>
   <li><a href="#coding-types-of-interbranch-representation" id="toc-coding-types-of-interbranch-representation" class="nav-link" data-scroll-target="#coding-types-of-interbranch-representation"><span class="header-section-number">A.2</span> Coding Types of Interbranch Representation</a></li>
   </ul>
 </nav>
@@ -274,13 +296,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-data-generating-process" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="the-data-generating-process"><span class="header-section-number">A.1</span> The data generating process</h2>
 <p>The data we received in response to our Freedom of Information Act requests include several filtering processes, leading to an under-count of true levels of interbranch representation. First, the agency had to make a record of the interaction. If a staffer from a congressional office talked to someone they know at an agency over the phone, they may not always make a record of it. However, they often do, because internal agency procedures often have precise guidance about recording interactions with members of congress, <!--cite proceedures manual--> which often include minimum response times and signature levels. Nearly all agencies use a correspondence tracking system provided by a government contractor that standardizes information and tracks cases that need followup. Members of congress are generally tagged as “VIP” or “Priority” in these tracking systems. <!---We observed this in the data we received and it was confirmed in interview with former officials. Anything having to do with congress will be treated differently. Anything going out always goes way up the chain. For executive regulatory agencies (rather than the independent agencies) this means that every agency potentially involved as well as the White House sign off on anything sent to a member of Congress. DID OUR IRB COVER INTERVIEWS? THIS CAME FROM A CONVESATION I HAD WITH A INSTRUCTUR WHO WAS A RETIRED SES. ---></p>
+<section id="gaps-and-changes-in-recordkeeping" class="level3">
+<h3 class="anchored" data-anchor-id="gaps-and-changes-in-recordkeeping">Gaps and changes in recordkeeping</h3>
+<p>In some cases, document retention policies limited the timeframe of our sample. For example, The Defense Finance and Accounting office destroys all records of correspondence after 2 years.</p>
+<p>In some cases, the agency made a record of the interaction, but did not record which legislator. For example, in 2014, the Department of Defense officials made notes from a verbal conversation with a member of Congress about the DOD’s contract to buy Casio wristwatches, but they did not record with whom. Thus, this interaction is not in our data.</p>
+<p>In rare cases, agency summaries alone were insufficient to code the type. For example, in 2018, when Rep.&nbsp;French Hill wrote to the Social Security Administration to criticism a decision to permanently waive over-payment debt (money that retirees owed the government because SSA had over-paid them), SSA staff summarized the letter as “Congratulations on receiving the Golden Fleece Award.” However, upon tracking down Hill’s letter, we discovered it to be much more substantive, requesting that SSA provide responses to three questions, including the exact totals for what SSA has overpaid to SSDI beneficiaries and for waived overpayment debt from fiscal years 2014 to 2018 <span class="citation" data-cites="RiponAdvance2018">(<a href="references.html#ref-RiponAdvance2018" role="doc-biblioref">Ripon Advance News Service 2018</a>)</span>. This allowed us to code it as policy oversight work. However, we were not always able to track down the letters where summaries in correspondence logs were unclear.</p>
+<p>Another complication with any effort to compare interbranch representation over time is changes in how congressional correspondence is recorded.</p>
+<blockquote class="blockquote">
+<p>“We are a small agency, and when a political appointee comes in, and they have ideas about how to run things, you would not expect that to include the correspondence management system, but, well, I’ve said too much already…” - FOIA Officer</p>
+</blockquote>
+<p>For example, The DOL Office of Administrative Law Judges told us that they “discontinued the use of the spreadsheet” tracking congressional inquiries in November 2016.</p>
+</section>
 </section>
 <section id="coding-types-of-interbranch-representation" class="level2" data-number="A.2">
 <h2 data-number="A.2" class="anchored" data-anchor-id="coding-types-of-interbranch-representation"><span class="header-section-number">A.2</span> Coding Types of Interbranch Representation</h2>
 <p>This section goes into more detail on how we coded types of interbranch representation.</p>
-<p>To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type.</p>
+<p>To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type. Our intercoder agreement on EPA is .78 overall and .9 for requests marked a certianty of 1.</p>
 <!--https://foia.blogs.archives.gov/2017/09/11/cheers-for-a-national-foia-portal/-->
-<!--
+<!-- https://docs.google.com/document/d/11HIWsuNj0EK24DpT5B3Ir2smvprbnJPU-twUF40xlhY/edit?tab=t.0
 
 ANECDOTES ABOUT FOIA 
 
@@ -311,6 +344,11 @@ Sounds good! I will let I&A and S&T know that we intend to appeal. I think Fran 
 -->
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-RiponAdvance2018" class="csl-entry" role="listitem">
+Ripon Advance News Service. 2018. <em>Hill Admonishes Social Security Administration for Wasteful Spending</em>. Ripon Advance. <a href="https://riponadvance.com/stories/hill-admonishes-social-security-administration-wasteful-spending/">https://riponadvance.com/stories/hill-admonishes-social-security-administration-wasteful-spending/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

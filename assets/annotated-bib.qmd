@@ -1,0 +1,223 @@
+---
+title: "Annotated bibliography"
+format: html
+bibliography: cor.bib
+---
+
+@AchenBartels2016 argue that citizens’ policy preferences and democratic accountability are often filtered through limited information and partisan/social identities, complicating simple models in which constituent preferences straightforwardly shape legislative behavior.
+
+@AnsFigSny03 find that campaign contributions generally do not appear to “buy” congressional roll-call votes, which supports the book’s claim that moneyed influence may operate through less visible mechanisms than voting.
+
+@AnsolabehereJones2010 study policy representation as congruence between constituents and legislators, treating responsiveness to constituent preferences as a central measure of democratic representation.
+
+@AnsolabehereKuriwaki2025 find that Congress often fails to enact policies supported by public majorities, raising concerns about gaps between mass preferences and collective legislative outcomes.
+
+@Arnold1979 analyzes Congress’s use of appropriations and institutional tools to shape bureaucratic behavior, providing a foundation for thinking about legislative influence over agencies before and after delegation.
+
+@AshworthBuenodeMesquita2006 develops a formal model in which constituency service can help voters screen legislators, implying that greater legislator capacity can increase the amount of constituency service provided.
+
+@Bartels2008 find unequal political responsiveness, especially greater responsiveness to affluent citizens, and is used here to frame inequalities in who receives substantive representation.
+
+@BerryBurdenHowell2010 find that districts represented by members of the president’s party receive more federal spending, suggesting that copartisanship with the executive may increase the returns to interbranch advocacy.
+
+@Blackwood2026 treat constituency service as a form of representation and suggests that legislators can help generate constituent demand by advertising or informing constituents about available assistance.
+
+@BlackwoodRussellDocekal2026 conceptualizes constituency service not merely as electoral behavior but as a substantive form of representation.
+
+@BoltonThrower2016 argue that congressional capacity affects Congress’s ability to monitor and influence the executive branch, supporting the book’s claim that capacity constraints shape interbranch work.
+
+@BowenClark2014 study descriptive representation and responsiveness, showing how shared identities between representatives and constituents can shape representational behavior.
+
+@ButlerBroockman2011 find racial discrimination in legislators’ responsiveness to constituent service requests, demonstrating that even basic constituent communications can receive unequal treatment.
+
+@ButlerDynes2016 find distortions in legislators’ responsiveness to constituents’ policy opinions, showing that political communication from constituents does not receive uniform attention.
+
+@CainFerejohnFiorina1987 argue that constituency service helps legislators cultivate a “personal vote” and electoral independence, making casework a strategic reelection tool rather than a purely neutral office function.
+
+@Canon1990 examines political amateurism in congressional politics, providing a basis for thinking about how prior political experience may affect legislators’ capacity once in office.
+
+@Canon1999 studies minority representation and argues that descriptive representation can matter for how groups are represented substantively and symbolically.
+
+@CAR1977Vol1 reports the House Commission on Administrative Review’s extensive data collection on congressional administrative practices and constituency service caseloads, providing rare evidence on constituent demand and office workload.
+
+@Carnes2013 finds that socioeconomic class shapes representation, with working-class citizens underrepresented among officeholders and in policy outcomes.
+
+@Carnes2016 finds inequalities in representation associated with legislators’ social-class backgrounds, contributing to the book’s broader concern with who is represented in congressional action.
+
+@Carpenter2001 argues that bureaucratic agencies build autonomy and reputations through networks, expertise, and political coalitions, helping explain why agencies manage congressional contacts carefully.
+
+@Carpenter2014 emphasizes agencies’ reputational incentives and coalition maintenance, supporting the book’s view that agencies treat congressional contacts as politically important signals.
+
+@CasasDennyWilderson2019 use legislative effectiveness as a measure of representational quality, expanding the study of representation beyond roll-call congruence.
+
+@Census2026TXWV provides population figures used to illustrate that a purely demand-based “folk theory” cannot easily explain why senators from much smaller states might generate more interbranch representation than senators from much larger states.
+
+@Clinton2006 examines dyadic representation and finds limited evidence that legislators consistently align roll-call votes with district-level constituent preferences.
+
+@Cottle2022 finds that staff experience affects congressional productivity, supporting the argument that staff capacity matters for the amount and quality of legislative and interbranch work.
+
+@CrossonEtAl2020 bring attention to congressional staff and legislative offices as important units of analysis, supporting the book’s focus on office capacity rather than only legislators’ personal choices.
+
+@CrossonFurnasLapiraBurgat2021 study legislative staff and office organization, reinforcing the idea that congressional outputs depend heavily on staff resources and expertise.
+
+@CrossonKaslovsky2024 emphasize the importance of legislative offices and staff in explaining congressional work, aligning with the book’s office-centered framework of capacity and production.
+
+@CRSCensus2026 provides data on the large size of contemporary House districts, which the book uses to question whether invisible constituency service can easily generate broad electoral payoffs.
+
+@DelliCarpiniKeeter1996 shows that political knowledge is limited and unequally distributed among Americans, supporting the claim that constituents vary in their ability to know when and how to seek congressional help.
+
+@DewanShepsle2011 develop arguments about elections as selection mechanisms for politician quality, raising the possibility that high-capacity legislators may perform well across multiple domains.
+
+@Dodd1977 argues that legislators’ institutional and electoral goals shape their behavior, including the use of constituency service as part of reelection strategy.
+
+@DroppPeskowitz2012 find that legislators behave as though constituency service has electoral value, providing evidence that casework is strategically connected to reelection incentives.
+
+@Eckman2025 shows that constituency service has deep historical roots, dating to early congressional assistance with Revolutionary War pensions.
+
+@EpsteinOHalloran1999 develops a principal-agent theory of congressional delegation, explaining how Congress strategically delegates policymaking authority to the bureaucracy under informational and political constraints.
+
+@EulauKarps1977 defines representation as involving policy, service, allocation, and symbolic responsiveness, giving the book a framework for locating interbranch representation within broader representational theory.
+
+@Fenno1973 argues that members of Congress pursue multiple goals---especially reelection, influence, and good public policy—and make strategic choices about how to allocate effort.
+
+@Fenno1978 develops the concept of “home style” and shows that legislators vary in how they present themselves and prioritize district service, constituency work, and Washington policymaking over their careers.
+
+@Fiorina1977 argues that constituency service helps legislators build personal support and electoral security, making casework central to congressional reelection strategy.
+
+@Fiorina1981 challenges findings that constituency service has no electoral effect, criticizing temporal sequencing and oversimplified tests of the constituency service–reelection relationship.
+
+@Fiorina1982 argues that delegation to bureaucracy can serve legislators’ interests by allowing them to claim credit, shift blame, and manage policy conflicts through administrative processes.
+
+@GarciaSadhwani2023 uses audit or field-experimental evidence to show unequal responsiveness in constituent service, contributing to evidence that access to representation can vary by constituent identity.
+
+@Gilens2012 finds that policy outcomes are far more responsive to affluent citizens than to poorer citizens, supporting the book’s concern that interbranch representation may reproduce broader political inequalities.
+
+@GilensPage2014 find that economic elites and organized business interests have much greater influence on policy than average citizens, motivating attention to corporate and donor influence in less visible representational channels.
+
+@GimpelLeeParrott2014 supports the claim that the Republican Party is generally perceived as more aligned with business interests, motivating the hypothesis that Republicans may do more interbranch advocacy for businesses.
+
+@Grimmer2013 finds that senators strategically tailor communications to their electoral circumstances, suggesting that legislators adapt representational activity to political incentives.
+
+@GrimmerWestwoodMessing2014 studies legislative communication and position-taking as forms of representation, expanding the analysis of congressional representation beyond roll-call voting.
+
+@HabelBirch2019 find that Members of Parliament in the United Kingdom respond unequally to constituents based on ethnicity and occupation, showing that discriminatory responsiveness is not limited to the United States.
+
+@HendersonHertelFernandezMildenbergerStokes2023 find unequal legislative responsiveness to constituents sharing policy opinions, adding to field-experimental evidence that constituent voice is filtered through political and social biases.
+
+@Johannes1979 argues that constituency service can function as a form of congressional oversight because casework reveals bureaucratic problems and allows legislators to monitor agencies through individual cases.
+
+@Johannes1984 provides foundational survey evidence on congressional casework, defining it as Congress’s intermediary role between citizens and bureaucracy and finding mixed evidence on how state population, district characteristics, and constituent demographics predict caseloads.
+
+@JohannesMcAdams1981 find no clear relationship between constituency service and electoral outcomes, challenging the standard claim that casework directly improves reelection prospects.
+
+@Jones1977 finds support in a local-government context for a “parabolic” model of need, where people in the middle of the income distribution may be most likely to seek help because they combine need with sufficient resources or knowledge.
+
+@JudgeLordPowellGrimmer2026 find that increases in congressional capacity can raise interbranch representation and offset shifts in legislators’ priorities between policymaking and constituency service.
+
+@KalafHughes2023 uses interbranch contact data to study legislative effectiveness, showing that interactions with agencies can illuminate how effective legislators pursue representational and policy goals.
+
+@KallaBroockman2016 find unequal access to meetings with legislators, especially favoring donors or politically valuable constituents, illustrating how responsiveness can vary even before substantive action occurs.
+
+@KiewietMcCubbins1991 analyzes congressional control of bureaucratic agents through delegation, appropriations, and institutional design, grounding the book’s discussion of principal-agent dynamics.
+
+@Kravitz1972 notes that casework has long been controversial and poorly measured, emphasizing the lack of reliable information about the nature and extent of constituency service.
+
+@Lajevardi2020 finds discriminatory responsiveness in constituent service or constituent communication, contributing evidence that legislators do not respond equally to all constituents.
+
+@LaPiraDrutmanKosar2020 argues that low congressional capacity constrains Congress’s ability to legislate and oversee effectively, supporting the book’s emphasis on staff and institutional resources.
+
+@Lee1998 shows that state population affects Senate representation, with smaller-state constituents often receiving more representational attention or influence than larger-state constituents.
+
+@LeeOppenheimer1999 argues that unequal state population creates unequal representation in the Senate, helping frame the book’s discussion of constituency size, capacity, and representational outcomes.
+
+@LewisSelin2012 identifies congressional “reporting committee” relationships with agencies, supporting the book’s claim that committee assignments can increase members’ capacity and incentives to interact with particular agencies.
+
+@Lowande2018APSR shows that much congressional oversight and influence occurs through routine direct communication with agencies rather than only through visible hearings or sanctions.
+
+@Lowande2019 is cited as one of the relatively rare studies using data similar to congressional-agency contact records to study interbranch activity.
+
+@LowandePotter2021 shows that legislative interventions into agency operations are often routine and direct, supporting the book’s broader conception of oversight as day-to-day interbranch contact.
+
+@LowandeRitchieLauterbach2019 find that descriptive representation shapes interbranch representation, showing that legislators can use agency contacts to advocate for constituents who share salient identities.
+
+@Lupia2016 argues that citizens’ political knowledge is uneven and context-dependent, supporting the book’s claim that constituents differ in their ability to seek help from government.
+
+@Maass1983 uses the House Commission on Administrative Review data to study congressional casework, contributing to the limited empirical evidence on constituent demand and office caseloads.
+
+@MacDonald2013 shows that limitation riders in appropriations bills allow Congress to influence bureaucratic rulemaking even as administrative power expands.
+
+@MarchOlsen1989 develops the “logic of appropriateness,” which the book uses to describe constituency service as a routinized office responsibility carried out because staff understand it as part of their institutional role.
+
+@Mayhew1974 argues that reelection is the proximate goal of members of Congress and that credit claiming, advertising, and position taking structure congressional behavior.
+
+@McAdamsJohannes1981reply responds to Fiorina’s critique and defends the claim that constituency service was not clearly linked to electoral outcomes in their analysis.
+
+@McClendon2016 finds racial discrimination in local politicians’ responsiveness in South Africa, showing that unequal responsiveness to constituent requests appears across political contexts.
+
+@McCubbinsSchwartz1984 distinguishes “police patrol” and “fire alarm” oversight, providing the book’s theoretical basis for thinking about congressional monitoring of agencies.
+
+@Mendez2018 identifies discriminatory or unequal responsiveness in constituent communication, contributing to evidence that representational access varies by constituent identity.
+
+@Miler2010 finds that legislators are less responsive to less influential constituency groups, highlighting inequalities in whose interests receive congressional attention.
+
+@Miler2018 finds that poor constituents receive less policy responsiveness than more advantaged groups, reinforcing the book’s concern that interbranch representation may be unequal by socioeconomic status.
+
+@MillerStokes1963 provides the classic model of policy congruence between legislators and constituents, establishing a baseline for studying representation as alignment between constituent preferences and legislative behavior.
+
+@MillsKalafHughes2015 find that legislators used “lettermarking”—direct requests to agencies—to pursue distributive benefits after the earmark ban, showing that interbranch contacts can substitute for formal appropriations tools.
+
+@Minta2011 studies descriptive representation in congressional oversight, showing that minority legislators can shape oversight agendas and attention to marginalized groups.
+
+@MontgomeryNyhan2017 find that congressional staff resources and experience affect legislative effectiveness, supporting the book’s broader claim that staff capacity shapes office outputs.
+
+@Neustadt1991 characterizes the U.S. system as “separated institutions sharing powers,” framing interbranch representation as a natural product of constitutional design.
+
+@Olson1966 shows that in earlier congressional eras legislators themselves played a larger direct role in interbranch representation, whereas modern interbranch work is largely staff-driven.
+
+@Ommundsen2025 finds that staff capacity or budget allocation affects congressional productivity, supporting the book’s expectation that offices with more staff resources can produce more interbranch work.
+
+@Oppenheimer1996 finds that constituents from more populous states have less contact with senators across several measures, suggesting that constituency size can reduce representational access despite increasing potential demand.
+
+@Park2021 argues that congressional oversight hearings can serve strategic grandstanding purposes, allowing legislators to publicly posture or signal to audiences.
+
+@Park2023 finds that oversight grandstanding can produce electoral benefits for legislators, connecting oversight behavior to reelection incentives.
+
+@ParkerDavidson1979 explains “Fenno’s paradox” by showing that citizens evaluate Congress as an institution differently from how they evaluate their own member, with constituency service and personal traits central to evaluations of individual legislators.
+
+@Payne1980 distinguishes legislative “work horses” from “show horses,” suggesting that members differ systematically in whether they prioritize substantive work such as interbranch representation or more visible communication.
+
+@Pitkin67 defines representation as acting in the interest of the represented in a manner responsive to them, providing the book’s normative foundation for treating interbranch activity as representation.
+
+@PorterHardenDobson2025 studies political amateurism and congressional behavior, supporting the idea that prior political experience may shape how effectively new members perform office work.
+
+@PorterTreul2025 examines political amateurism in congressional campaigns and service, relevant to the book’s distinction between freshman status and broader prior political experience.
+
+@PorterTreul2026 continues work on political amateurism and legislative behavior, suggesting that members new to politics may differ in capacity from those with prior governing experience.
+
+@PowellGrimmer2015 argues that highly visible roll-call votes may be unattractive channels for donor influence, implying that less visible activities such as interbranch advocacy may be more plausible mechanisms.
+
+@PowellJudgeLordGrimmer2023 find in a study of the Federal Energy Regulatory Commission that legislators receiving more energy-sector corporate PAC money were more likely to advocate before the agency on behalf of corporate interests.
+
+@Price2022 observes that constituents vary in their ability and inclination to use constituency service, supporting the book’s distinction between constituent need and constituent capacity to demand help.
+
+@Reynolds2020 argues that limited congressional capacity constrains legislative and oversight work, and that staff resources matter for Congress’s ability to function effectively.
+
+@RichardsonClintonLewis2018 estimates ideological positions of federal agencies, allowing the book to theorize about ideological proximity or distance between legislators and agencies.
+
+@Ritchie2018 shows that legislators contact agencies to influence policymaking after delegation, demonstrating that interbranch contacts can be a form of policy work rather than only casework.
+
+@Ritchie2023 develops the concept of “backdoor lawmaking,” showing that members of Congress use direct agency appeals to overcome legislative obstacles and influence rulemaking, especially when ordinary legislative routes are blocked.
+
+@SerraCover1992 find evidence that constituency service is connected to electoral strategy, supporting the idea that legislators may increase casework when it helps reelection.
+
+@SerraMoon1994 similarly links constituency service to electoral incentives, reinforcing the view that casework is a strategic activity rather than a purely bureaucratic response to demand.
+
+@Snyder2024 treats constituency service as a form of representation, shows that casework can make constituents feel heard, notes that casework and policy concerns can blur, and finds that constituents may be less likely to seek help from opposite-party legislators.
+
+@Verba95 develop the Civic Voluntarism Model, arguing that political participation depends on resources, motivation, and recruitment, which the book uses to explain why higher-SES constituents may be more likely to demand help.
+
+@VoldenWiseman2014 conceptualizes legislative effectiveness as a measure of representational quality, expanding representation beyond preference congruence.
+
+@Wagner2007 shows that constituents expect opposite-party representatives to be less helpful, suggesting that partisan perceptions can suppress demand for constituency service.
+
+@Yiannakis1981 uses congressional casework data to show that higher income, higher education, prior contact with a member, and knowing someone who sought help are associated with requesting constituency service.
