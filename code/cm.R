@@ -93,6 +93,8 @@ cm = c(
   "presidents_party" = "President's Party",
   "party(R)" = "Republican",
   "party(I)" = "Independent",
+  "party(I):presidents_party" = "Ind. × President's Party",
+  "party(R):presidents_party" = "Republican × President's",
   # RCL + VOTEVIEW
   "alignmentTRUE" = "Aligned with Agency",
   "distance" = "Ideological Distance",
