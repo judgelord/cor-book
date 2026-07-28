@@ -1,4 +1,3 @@
-
 # Alternative Models {#sec-appendix-models}
 
 The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the political environment on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.

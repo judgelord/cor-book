@@ -1,13 +1,13 @@
 
 # Data   {#sec-appendix-data}
 
-We requested records from 295 federal agencies and received records from	179.
+We requested records from 295 federal agencies / components and received records from	179. @fig-data-foia shows the number of components to which we sent requests, the number of those that released records, the number of those that we have completed hand coding, and the total number of observations used in our analyses. 
 Of the 962,720 records that agencies gave us in response to our requests for congressional correspondence, we linked 837,223 a legislator in office at the time.
 The remainder are committee staff, state legislators, judges, agency officials, lobbyists, White House officials, former members of Congress, or future members of Congress and others who were, for various reasons, swept into an agency's tracking systems or search for records. In some cases, agencies appeared to use their congressional correspondence tracking system as a general for VIPs. The Department of Education included Politico correspondent Jennifer Haberkorn and Kenneth P Vogel from the New York Times. The Federal Highway Administration tagged 27 letters from a particularly well-connected consultant. A smaller number are members of Congress whose names were ambiguous, illegible, or inappropriately redacted. 
 
 ```{r, eval=TRUE}
 #| tbl-cap: "FOIA Data"
-#| label: tbl-data-foia
+#| label: fig-data-foia
 
 library(tidyverse)
 library(tinytable)

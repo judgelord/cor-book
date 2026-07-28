@@ -27,6 +27,10 @@ Some questions we could use advice on:
 1. At least in Chapters 6 and 9, which focus on advocacy on behalf of businesses and industries, our analysis would certainly benefit from sector-level measures of employment, industry, and corporate campaign contributions. 
 Previous work focused on domains @Ritchie2018 with the Department of Labor agency that regulates mining and @PowellJudgeLordGrimmer2023 with the energy sector. 
 We would like some kind of feasible generalized version of this approach for dozens of agencies representing many industries. How might we best do this? Should we use an LLM to give us NAICS codes for all letters we have tagged as representing businesses? 
+- CRP PAC industry classification - committee jurisdiction crosswalk 
+- committee to agnecy crosswalk
+- agency to CAP industry crosswalk 
+- CAP to Census? 
 
 1. Some have asked for an analysis of the legislator fixed effects. 
 The intuition is that these "remainder" quantities could be a measure of legislator performance beyond the predictors we are able to measure. 

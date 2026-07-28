@@ -1,0 +1,11 @@
+# Fixed Effects
+
+@fig-FEs plots the fixed effects from the main model of total interbranch representation in from @sec-typetotal.
+
+```{r, eval=TRUE}
+#| fig-cap: "Legislator Fixed Effects"
+#| label: fig-FEs
+
+knitr::include_graphics(here::here("figs", "fixed-effects.png"))
+                                   
+```

@@ -1,6 +1,6 @@
 execute:
   cache: true
-  freeze: auto # once the results are locked in, turn this on so that we don't need to re-render - it does require rendering each chapter seperatly as we update them
+  freeze: false # once the results are locked in, turn this on so that we don't need to re-render - it does require rendering each chapter seperatly as we update them
   echo: false
   message: false
   warning: false
@@ -41,6 +41,8 @@ book:
      - appendix-a.qmd
      - appendix-b.qmd
      - appendix-c.qmd
+     - appendix-d.qmd
+
 
   search: true
   #repo-url: https://github.com/judgelord/cor-book
