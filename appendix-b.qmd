@@ -121,7 +121,7 @@ Notably, we see that the positive association between Republicans and individual
 #| label: fig-data-correlations1
 #| out-width: "100%"
 
-knitr::include_graphics(here::here("figs", "1", "correlations-2.png"))
+knitr::include_graphics(here::here("figs", "1", "correlations-deciles-1.png"))
 ```
 
 @fig-data-correlations2 shows cross tabulations shows many of the same patterns for interbranch representation on behalf of businesses. The correlation with percent of district with a college degree is lower, and there is no longer a correlation with being in the minority. 
@@ -132,7 +132,7 @@ There is now a positive association with being a Republican and being in all fiv
 #| label: fig-data-correlations2
 #| out-width: "100%"
 
-knitr::include_graphics(here::here("figs", "2", "correlations-2.png"))
+knitr::include_graphics(here::here("figs", "2", "correlations-deciles-1.png"))
 ```
 
 
@@ -143,7 +143,7 @@ knitr::include_graphics(here::here("figs", "2", "correlations-2.png"))
 #| label: fig-data-correlations3
 #| out-width: "100%"
 
-knitr::include_graphics(here::here("figs", "3", "correlations-2.png"))
+knitr::include_graphics(here::here("figs", "3", "correlations-deciles-1.png"))
 ```
 
 
@@ -154,7 +154,7 @@ knitr::include_graphics(here::here("figs", "3", "correlations-2.png"))
 #| label: fig-data-correlations5
 #| out-width: "100%"
 
-knitr::include_graphics(here::here("figs", "5", "correlations-2.png"))
+knitr::include_graphics(here::here("figs", "5", "correlations-deciles-1.png"))
 ```
 
 @fig-data-correlations4, showing policy work on behalf of particular industries, shows many of the same patterns as general policy work seen in @fig-data-correlations5, but stronger correlations with corporate PAC fundraising and weaker relationships with committee chair positions and legislative effectiveness scores. Interestingly, republican offices are less likely to be in the top decile for corporate policy work. Members with the top 20% of large positive or negative NOMINATE scores are also much less likely to do policy work on behalf of businesses, but this is partially driven by republicans having, on average, NOMINATE scores more distant from zero. 
@@ -166,7 +166,7 @@ knitr::include_graphics(here::here("figs", "5", "correlations-2.png"))
 #| out-width: "100%"
 
 
-knitr::include_graphics(here::here("figs", "4", "correlations-2.png"))
+knitr::include_graphics(here::here("figs", "4", "correlations-deciles-1.png"))
 ```
 
 
@@ -183,6 +183,63 @@ knitr::include_graphics(here::here("figs", "4", "correlations-2.png"))
 
 knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
 ```
+
+
+
+```{r}
+#| fig-cap: "Correlations With Staff of Individual Constituent Interbranch Representation"
+#| label: fig-data-correlations-staff1
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "1", "correlations-staff-1.png"))
+```
+
+@fig-data-correlations-staff2 shows cross tabulations ...
+
+```{r}
+#| fig-cap: "Correlations With Staff of Corporate Constituent Interbranch Representation"
+#| label: fig-data-correlations-staff2
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "2", "correlations-staff-1.png"))
+```
+
+
+@fig-data-correlations-staff3 shows ...
+
+```{r}
+#| fig-cap: "Correlations With Staff of Nonprofit and Local Government Interbranch Representation"
+#| label: fig-data-correlations-staff3
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "3", "correlations-staff-1.png"))
+```
+
+
+@fig-data-correlations-staff5 shows ...
+
+```{r}
+#| fig-cap: "Correlations With Staff of Policy Work"
+#| label: fig-data-correlations-staff5
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "5", "correlations-staff-1.png"))
+```
+
+@fig-data-correlations-staff4...
+
+
+```{r}
+#| fig-cap: "Correlations With Staff of Corporate Policy Work"
+#| label: fig-data-correlations-staff4
+#| out-width: "100%"
+
+
+knitr::include_graphics(here::here("figs", "4", "correlations-staff-1.png"))
+```
+
+
+
 
 <!-- TODO 
 

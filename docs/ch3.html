@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Measuring (Invisible) Interbranch Representation – Unequal Interbranch Representation</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -27,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,16 +52,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./ch4.html" rel="next">
 <link href="./ch2.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5e2915e4d4df5928b2b0a61215b328b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -93,7 +90,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -106,7 +103,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -125,7 +122,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -350,7 +347,7 @@ window.Quarto = {
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-data"><span class="header-section-number">3.1</span> New Data</h2>
 <p>To study interbranch representation, we rely on congressional correspondence logs from federal agencies. When members of Congress contact the bureaucracy, most federal agencies enter these contacts into a database or keep some other kind of record of the correspondence. These congressional correspondence logs therefore allow us to determine the overall volume of interbranch representation for each member of Congress in our chosen time period, as well as the general purpose of the contact. Importantly, we did not, in most cases, obtain the full text of the communications themselves. However, the summaries of the subjects provided rich data on the content of each item of communication.</p>
 <p><a href="ch2.html" class="quarto-xref"><span>Chapter 2</span></a> established that interbranch representation occurs behind the scenes, out of view of the public, journalists, and scholars. More specifically, these records of communications between members of Congress and federal agencies are, for the most part, not proactively disclosed to the public. We therefore obtained our data through a large number of Freedom of Information Act (FOIA) requests for federal agencies’ congressional correspondence logs.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics <span class="citation" data-cites="MillsKalafHughes2015">(<a href="references.html#ref-MillsKalafHughes2015" role="doc-biblioref">Mills and Kalaf-Hughes 2015</a>)</span>, the policy strategies of cross-pressured legislators <span class="citation" data-cites="Ritchie2018 Ritchie2023">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>, the role of ideology in congressional oversight <span class="citation" data-cites="Lowande2019">(<a href="references.html#ref-Lowande2019" role="doc-biblioref">Lowande 2019</a>)</span>, descriptive representation <span class="citation" data-cites="LowandeRitchieLauterbach2019">(<a href="references.html#ref-LowandeRitchieLauterbach2019" role="doc-biblioref">Lowande et al. 2019</a>)</span>, and money in politics <span class="citation" data-cites="Powell2023FERC">(<a href="references.html#ref-Powell2023FERC" role="doc-biblioref">Powell et al. 2023</a>)</span>. With a near census of agencies, we are able to study, for the first time (except for <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord et al. (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span>), patterns across all members and policy areas.</p>
+<p>Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics <span class="citation" data-cites="MillsKalafHughes2015">(<a href="references.html#ref-MillsKalafHughes2015" role="doc-biblioref">Mills and Kalaf-Hughes 2015</a>)</span>, the policy strategies of cross-pressured legislators <span class="citation" data-cites="Ritchie2018 Ritchie2023">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>, the role of ideology in congressional oversight <span class="citation" data-cites="Lowande2019">(<a href="references.html#ref-Lowande2019" role="doc-biblioref">Lowande 2019</a>)</span>, descriptive representation <span class="citation" data-cites="LowandeRitchieLauterbach2019">(<a href="references.html#ref-LowandeRitchieLauterbach2019" role="doc-biblioref">Lowande, Ritchie, and Lauterbach 2019</a>)</span>, and money in politics <span class="citation" data-cites="Powell2023FERC">(<a href="references.html#ref-Powell2023FERC" role="doc-biblioref">Powell, Judge-Lord, and Grimmer 2023</a>)</span>. With a near census of agencies, we are able to study, for the first time (except for <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord, Powell, and Grimmer (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span>), patterns across all members and policy areas.</p>
 <p>We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts federal agencies (179 of 295 agencies) from 2007 to 2025 that required 434 FOIA requests (some agencies required multiple requests), over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. Our data allow us to quantify the nature of the contact, but also include rich data on the content of those contacts.</p>
 <section id="sec-data-collection" class="level3">
 <h3 class="anchored" data-anchor-id="sec-data-collection">Data collection process</h3>
@@ -463,13 +460,13 @@ Table&nbsp;3.1: Volume of Interbranch Representation by Hand-Coded Type
 <h3 class="anchored" data-anchor-id="measuring-legislator-capacity">Measuring legislator capacity</h3>
 <section id="experience" class="level4">
 <h4 class="anchored" data-anchor-id="experience">Experience</h4>
-<p>Legislators may benefit from experience in office and prior to office. As <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord et al. (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span> documented, much of the startup costs (especially for constituency service) occur in the first two years. We thus model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. As a measure of relevant experience prior to taking office, we use an indicator of whether the legislator was a state legislator provided by <span class="citation" data-cites="VoldenWiseman2014">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="VoldenWiseman2018">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2018" role="doc-biblioref">2018</a>)</span>. Almost half of members of Congress previously served as a state legislator.</p>
+<p>Legislators may benefit from experience in office and prior to office. As <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord, Powell, and Grimmer (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span> documented, much of the startup costs (especially for constituency service) occur in the first two years. We thus model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. As a measure of relevant experience prior to taking office, we use an indicator of whether the legislator was a state legislator provided by <span class="citation" data-cites="VoldenWiseman2014">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="VoldenWiseman2018">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2018" role="doc-biblioref">2018</a>)</span>. Almost half of members of Congress previously served as a state legislator.</p>
 </section>
 <section id="institutional-positions-and-oversight-relationships" class="level4">
 <h4 class="anchored" data-anchor-id="institutional-positions-and-oversight-relationships">Institutional positions and oversight relationships</h4>
 <p>All executive-branch agencies “report” to one or more congressional committees charged with overseeing their work. Both chambers also have an “oversight” committee that focuses on a small number of investigations, usually of scandals or other alleged wrongdoing. Reporting committees are different. They may investigate perceived problems with the agencies they oversee. Indeed, oversight hearings — the classic example of congressional oversight — are often conducted by reporting committees. However, these committees also provide coverage over nearly the entire executive branch, dividing the work of monitoring and developing policy targeting particular agencies. Members of Congress have an especially close relationship with the agencies that report to their committees.</p>
-<p>To identify this link between agencies and legislators, we combine four sources of existing data and augment it with additional research into the committees members sit on. We combine snapshots from the version history of current committee assignment data maintained by <span class="citation" data-cites="unitedstates"><span class="nocase">@unitedstates-project</span> (<a href="references.html#ref-unitedstates" role="doc-biblioref">2025</a>)</span>. The result is a new dataset on committee assignments, including committee chair, ranking minority, subcommittee chair, and other leadership positions <span class="citation" data-cites="StewartWoon2017">(updating <a href="references.html#ref-StewartWoon2017" role="doc-biblioref">Stewart and Woon 2017</a>)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> We cross-checked and augmented these data with chair and subcommittee chair indicators compiled by <span class="citation" data-cites="VoldenWiseman2014">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="VoldenWiseman2018">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2018" role="doc-biblioref">2018</a>)</span> from the Almanac of American Politics. We adopt the definition of prestige committee assignments from <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord et al. (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span>.</p>
-<p>Finally, we crosswalk reporting committee assignments with committee jurisdictions using the ACUS Sourcebook of United States Executive Agencies (<span class="citation" data-cites="LewisSelin2012">Lewis and Selin (<a href="references.html#ref-LewisSelin2012" role="doc-biblioref">2012</a>)</span>). This gives us an indicator for each legislator-agency pair of whether the legislator sat on a reporting committee with oversight jurisdiction over that agency in each congress. As discussed in the previous chapter, we consider oversight relationships to be a measure of capacity (because legislators have special access to committee staff and information and may be more likely to get a response from the agencies that report to them) and strategic behavior (because legislators seek to join committees that oversee parts of the government they care about).</p>
+<p>To identify this link between agencies and legislators, we combine four sources of existing data and augment it with additional research into the committees members sit on. We combine snapshots from the version history of current committee assignment data maintained by <span class="citation" data-cites="unitedstates">@unitedstates-project (<a href="references.html#ref-unitedstates" role="doc-biblioref">2025</a>)</span>. The result is a new dataset on committee assignments, including committee chair, ranking minority, subcommittee chair, and other leadership positions <span class="citation" data-cites="StewartWoon2017">(updating <a href="references.html#ref-StewartWoon2017" role="doc-biblioref">Stewart and Woon 2017</a>)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> We cross-checked and augmented these data with chair and subcommittee chair indicators compiled by <span class="citation" data-cites="VoldenWiseman2014">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="VoldenWiseman2018">Volden and Wiseman (<a href="references.html#ref-VoldenWiseman2018" role="doc-biblioref">2018</a>)</span> from the Almanac of American Politics. We adopt the definition of prestige committee assignments from <span class="citation" data-cites="JudgeLordPowellGrimmer2026">Judge-Lord, Powell, and Grimmer (<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">2026</a>)</span>.</p>
+<p>Finally, we crosswalk reporting committee assignments with committee jurisdictions using the ACUS Sourcebook of United States Executive Agencies (<span class="citation" data-cites="LewisSelin2012">D. E. Lewis and Selin (<a href="references.html#ref-LewisSelin2012" role="doc-biblioref">2012</a>)</span>). This gives us an indicator for each legislator-agency pair of whether the legislator sat on a reporting committee with oversight jurisdiction over that agency in each congress. As discussed in the previous chapter, we consider oversight relationships to be a measure of capacity (because legislators have special access to committee staff and information and may be more likely to get a response from the agencies that report to them) and strategic behavior (because legislators seek to join committees that oversee parts of the government they care about).</p>
 </section>
 <section id="legislator-office-staffing-levels" class="level4">
 <h4 class="anchored" data-anchor-id="legislator-office-staffing-levels">Legislator office staffing levels</h4>
@@ -484,7 +481,7 @@ Table&nbsp;3.1: Volume of Interbranch Representation by Hand-Coded Type
 </section>
 <section id="partisanship-and-ideological-distance" class="level4">
 <h4 class="anchored" data-anchor-id="partisanship-and-ideological-distance">Partisanship and Ideological Distance</h4>
-<p>We use legislator partisanship and ideology data from <span class="citation" data-cites="dwnominate2024">Lewis et al. (<a href="references.html#ref-dwnominate2024" role="doc-biblioref">2024</a>)</span>. To assess the ideological distance between members of Congress and specific federal agencies, we subtract a member’s first dimension DW-NOMINATE scores <span class="citation" data-cites="dwnominate2024">(<a href="references.html#ref-dwnominate2024" role="doc-biblioref">Lewis et al. 2024</a>)</span> from a survey-based measure of federal agencies’ perceived ideological leanings <span class="citation" data-cites="RichardsonClintonLewis2018">(<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">Richardson et al. 2018</a>)</span>.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> For example, Bernie Sanders, with a NOMINATE score of -0.545 (liberal), has a distance close to zero with the Department of Labor’s Mine Health and Safety Administration with a score of -0.580 (liberal), but a distance close to 1 with the United States Trade Representative (USTR) with a score of 0.439 (conservative). The largest distance in our data is 2.66 between the Office of the Secretary of Defense and Joint Staff (1.91) and Carte Goodwin (-0.747). To help guard against conclusions about distance being driven by distance from zero on the DW-NOMINATE scale, we control for the absolute value of the first dimension DW-NOMINATE. We also use other legislator-level variables from <span class="citation" data-cites="dwnominate2024">Lewis et al. (<a href="references.html#ref-dwnominate2024" role="doc-biblioref">2024</a>)</span>, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president’s party.</p>
+<p>We use legislator partisanship and ideology data from <span class="citation" data-cites="dwnominate2024">J. B. Lewis et al. (<a href="references.html#ref-dwnominate2024" role="doc-biblioref">2024</a>)</span>. To assess the ideological distance between members of Congress and specific federal agencies, we subtract a member’s first dimension DW-NOMINATE scores <span class="citation" data-cites="dwnominate2024">(<a href="references.html#ref-dwnominate2024" role="doc-biblioref">J. B. Lewis et al. 2024</a>)</span> from a survey-based measure of federal agencies’ perceived ideological leanings <span class="citation" data-cites="RichardsonClintonLewis2018">(<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">Richardson, Clinton, and Lewis 2018</a>)</span>.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> For example, Bernie Sanders, with a NOMINATE score of -0.545 (liberal), has a distance close to zero with the Department of Labor’s Mine Health and Safety Administration with a score of -0.580 (liberal), but a distance close to 1 with the United States Trade Representative (USTR) with a score of 0.439 (conservative). The largest distance in our data is 2.66 between the Office of the Secretary of Defense and Joint Staff (1.91) and Carte Goodwin (-0.747). To help guard against conclusions about distance being driven by distance from zero on the DW-NOMINATE scale, we control for the absolute value of the first dimension DW-NOMINATE. We also use other legislator-level variables from <span class="citation" data-cites="dwnominate2024">J. B. Lewis et al. (<a href="references.html#ref-dwnominate2024" role="doc-biblioref">2024</a>)</span>, including year of first election to calculate experience in office and party membership to derive majority status and whether a legislator is a member of the president’s party.</p>
 </section>
 <section id="electoral-context" class="level4">
 <h4 class="anchored" data-anchor-id="electoral-context">Electoral context</h4>
@@ -577,7 +574,7 @@ Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &amp;\sim \text{NegBin
 \tag{3.3}\]</span></span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-BerryFowler2016" class="csl-entry" role="listitem">
 Berry, Christopher., and James H. Fowler. 2016. <span>“<span class="nocase">Cardinals or Clerics? Congressional Committees and the Distribution of Pork</span>.”</span> <em>American Journal of Political Science</em> 60 (3): 692–708.
 </div>
@@ -597,7 +594,7 @@ Judge-Lord, Devin, Eleanor Neff Powell, and Justin Grimmer. 2026. <span>“<span
 Lewis, David E., and Jennifer L. Selin. 2012. <em><span class="nocase">ACUS Sourcebook of United States Executive Agencies</span></em>. Administrative Conference of the United States.
 </div>
 <div id="ref-dwnominate2024" class="csl-entry" role="listitem">
-Lewis, Jeffrey B., Keith Poole, Howard Rosenthal, Adam Boche, Aaron Rudkin, and Luke Sonnet. 2024. <em><span>Voteview: Congressional Roll-Call Votes Database</span></em>. <a href="https://voteview.com" class="uri">Https://voteview.com</a>. <a href="https://voteview.com">https://voteview.com</a>.
+Lewis, Jeffrey B., Keith Poole, Howard Rosenthal, Adam Boche, Aaron Rudkin, and Luke Sonnet. 2024. <span>“<span>Voteview: Congressional Roll-Call Votes Database</span>.”</span> <a href="https://voteview.com" class="uri">https://voteview.com</a>. <a href="https://voteview.com">https://voteview.com</a>.
 </div>
 <div id="ref-Lowande2019" class="csl-entry" role="listitem">
 Lowande, Kenneth. 2019. <span>“<span class="nocase">Politicization and Responsiveness in Executive Agencies</span>.”</span> <em>Journal of Politics</em> 81 (1): 33–48.
@@ -618,28 +615,28 @@ Richardson, Mark D., Joshua D. Clinton, and David E. Lewis. 2018. <span>“<span
 Ritchie, Melinda N. 2018. <span>“<span class="nocase">Back-Channel Representation: A Study of the Strategic Communication of Senators with the US Department of Labor</span>.”</span> <em>Journal of Politics</em> 80: 240--253.
 </div>
 <div id="ref-Ritchie2023" class="csl-entry" role="listitem">
-Ritchie, Melinda N. 2023. <em><span class="nocase">Backdoor Lawmaking: Evading Obstacles in the U.S. Congress</span></em>. Oxford University Press.
+———. 2023. <em><span class="nocase">Backdoor Lawmaking: Evading Obstacles in the U.S. Congress</span></em>. New York: Oxford University Press.
 </div>
 <div id="ref-StewartWoon2017" class="csl-entry" role="listitem">
-Stewart, Charles, III, and Jonathan Woon. 2017. <span>“Congressional Committee Assignments, 103rd to 115th Congresses, 1993–2017: House of Representatives.”</span> Unpublished manuscript.
+Stewart, Charles, III, and Jonathan Woon. 2017. <span>“Congressional Committee Assignments, 103rd to 115th Congresses, 1993–2017: House of Representatives.”</span>
 </div>
 <div id="ref-Stowe2026" class="csl-entry" role="listitem">
-Stowe, Lydia. 2026. <em>How Congressional Staffers Can Manage 81 Million Messages from Constituents</em>. Fireside by FiscalNote. <a href="https://www.fireside21.com/resources/congressional-staffer-communication/">https://www.fireside21.com/resources/congressional-staffer-communication/</a>.
+Stowe, Lydia. 2026. <span>“How Congressional Staffers Can Manage 81 Million Messages from Constituents.”</span> Fireside by FiscalNote. <a href="https://www.fireside21.com/resources/congressional-staffer-communication/">https://www.fireside21.com/resources/congressional-staffer-communication/</a>.
 </div>
 <div id="ref-Thomsen2023" class="csl-entry" role="listitem">
 Thomsen, Danielle M. 2023. <span>“Competition in Congressional Elections: Money Versus Votes.”</span> <em>American Political Science Review</em> 117 (2): 675–91. <a href="https://doi.org/10.1017/S0003055422000764">https://doi.org/10.1017/S0003055422000764</a>.
 </div>
 <div id="ref-unitedstates" class="csl-entry" role="listitem">
-<span class="nocase">@unitedstates-project, the</span>. 2025. <em>Unitedstates/Congress-Legislators</em>. <a href="https://unitedstates.github.io/" class="uri">Https://unitedstates.github.io/</a> <a href="https://github.com/unitedstates/congress-legislators" class="uri">https://github.com/unitedstates/congress-legislators</a>. Date Accessed: March 18, 2025.
+@unitedstates-project, the. 2025. <span>“Unitedstates/Congress-Legislators.”</span> <a href="https://unitedstates.github.io/" class="uri">https://unitedstates.github.io/</a> <a href="https://github.com/unitedstates/congress-legislators" class="uri">https://github.com/unitedstates/congress-legislators</a>. Date Accessed: March 18, 2025.
 </div>
 <div id="ref-VoldenWiseman2014" class="csl-entry" role="listitem">
-Volden, Craig, and Alan E. Wiseman. 2014. <em>Legislative Effectiveness in the United States Congress: The Lawmakers</em>. Cambridge University Press.
+Volden, Craig, and Alan E. Wiseman. 2014. <em>Legislative Effectiveness in the United States Congress: The Lawmakers</em>. New York, NY: Cambridge University Press.
 </div>
 <div id="ref-VoldenWiseman2018" class="csl-entry" role="listitem">
-Volden, Craig, and Alan E. Wiseman. 2018. <span>“Legislative Effectiveness in the United States Senate.”</span> <em>The Journal of Politics</em> 80 (2): 731–35. <a href="https://doi.org/10.1086/697121">https://doi.org/10.1086/697121</a>.
+———. 2018. <span>“Legislative Effectiveness in the United States Senate.”</span> <em>The Journal of Politics</em> 80 (2): 731–35. <a href="https://doi.org/10.1086/697121">https://doi.org/10.1086/697121</a>.
 </div>
 <div id="ref-tidycensus" class="csl-entry" role="listitem">
-Walker, Kyle, and Matt Herman. 2026. <em>Tidycensus: Load US Census Boundary and Attribute Data as ’Tidyverse’ and ’Sf’-Ready Data Frames</em>. <a href="https://walker-data.com/tidycensus/">https://walker-data.com/tidycensus/</a>.
+Walker, Kyle, and Matt Herman. 2026. <span>“Tidycensus: Load US Census Boundary and Attribute Data as ’Tidyverse’ and ’Sf’-Ready Data Frames.”</span> <a href="https://walker-data.com/tidycensus/">https://walker-data.com/tidycensus/</a>.
 </div>
 </div>
 </section>
@@ -654,7 +651,7 @@ Walker, Kyle, and Matt Herman. 2026. <em>Tidycensus: Load US Census Boundary and
 <li id="fn5"><p>Our overall breakdown of these three types of constituency service is similar to that observed by <span class="citation" data-cites="Johannes1984">Johannes (<a href="references.html#ref-Johannes1984" role="doc-biblioref">1984</a>)</span> decades earlier. In surveying 37 Senate offices, Johannes found that 73.2% of all cases they received came from individuals; 11.2% came from state and local governments; and the rest came from businesses, private organizations, and other groups. Among the 144 House offices surveyed, 80% of their incoming cases came from individuals, while 8.9% came from government, and the remainder came from businesses and other organizations.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>Committee assignment and position data are available at <a href="https://github.com/judgelord/committees" class="uri">https://github.com/judgelord/committees</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p><span class="citation" data-cites="CrossonFurnasLapiraBurgat2021">Crosson et al. (<a href="references.html#ref-CrossonFurnasLapiraBurgat2021" role="doc-biblioref">2021</a>)</span> are available via the replication files for <span class="citation" data-cites="CrossonKaslovsky2024">Crosson and Kaslovsky (<a href="references.html#ref-CrossonKaslovsky2024" role="doc-biblioref">2024</a>)</span><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p> Technically, 0 has no special meaning on these latent scales; therefore, for example, there is no reason that -1 and 1 are equally ideologically distant. However, the <span class="citation" data-cites="RichardsonClintonLewis2018">Richardson et al. (<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">2018</a>)</span> scale is locally identified to have mean 0, so absolute value serves as a linear measure of distance from the mean. Moreover, agencies with ideological scores near zero include the National Aeronautics and Space Administration (NASA), National Institute of Standards and Technology (NIST), and Veterans Benefits Administration (VBA), which are agencies that respondents presumably would perceive to be neither liberal nor conservative when responding to the survey question, suggesting 0 could be considered “moderate.” <span class="citation" data-cites="RichardsonClintonLewis2018">Richardson et al. (<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">2018</a>)</span> estimates subagency-specific perceived ideology scores for many sub-agencies in our data. For sub-agencies that do not have a specific score, we use their department’s score. Six small, extremely low-salience independent agencies or commissions do not have a score. We assign them a score of 0. <!--This makes the measure of distance for these agencies the same as the absolute value of a member's first-dimension DW-NOMINATE score, which we control for in all models.--> These six were the American Battle Monuments Commission (ABMC), the Court Services and Offender Supervision Agency (CSOSA), National Capital Planning Commission (NCPA; despite making the news in 2026, it is reasonable to assume it did not have a strong partisan perception prior), U.S. Nuclear Waste Technical Review Board, the Postal Regulatory Commission (PRC), U.S. Railroad Retirement Board (RRB)<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p> Technically, 0 has no special meaning on these latent scales; therefore, for example, there is no reason that -1 and 1 are equally ideologically distant. However, the <span class="citation" data-cites="RichardsonClintonLewis2018">Richardson, Clinton, and Lewis (<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">2018</a>)</span> scale is locally identified to have mean 0, so absolute value serves as a linear measure of distance from the mean. Moreover, agencies with ideological scores near zero include the National Aeronautics and Space Administration (NASA), National Institute of Standards and Technology (NIST), and Veterans Benefits Administration (VBA), which are agencies that respondents presumably would perceive to be neither liberal nor conservative when responding to the survey question, suggesting 0 could be considered “moderate.” <span class="citation" data-cites="RichardsonClintonLewis2018">Richardson, Clinton, and Lewis (<a href="references.html#ref-RichardsonClintonLewis2018" role="doc-biblioref">2018</a>)</span> estimates subagency-specific perceived ideology scores for many sub-agencies in our data. For sub-agencies that do not have a specific score, we use their department’s score. Six small, extremely low-salience independent agencies or commissions do not have a score. We assign them a score of 0. <!--This makes the measure of distance for these agencies the same as the absolute value of a member's first-dimension DW-NOMINATE score, which we control for in all models.--> These six were the American Battle Monuments Commission (ABMC), the Court Services and Offender Supervision Agency (CSOSA), National Capital Planning Commission (NCPA; despite making the news in 2026, it is reasonable to assume it did not have a strong partisan perception prior), U.S. Nuclear Waste Technical Review Board, the Postal Regulatory Commission (PRC), U.S. Railroad Retirement Board (RRB)<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9"><p>We drop ten member-year level observations where members switched chambers mid-congress because the office resources of members of the House and Senate differ significantly and, thus, attributing their counts to either House or Senate in those years is not quite right.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
@@ -811,243 +808,236 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1055,161 +1045,185 @@ document.addEventListener("DOMContentLoaded", async function () {
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch2.html" class="pagination-link" aria-label="Theories of Interbranch Representation">

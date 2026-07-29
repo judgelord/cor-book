@@ -1,6 +1,6 @@
 # THE FIRST PART HERE IS COPPIED FROM replication.qmd to get the data ready.
 if(F){
-  type = 1
+  type = "total"
 # load r packages and qmd render defaults
 here::here("code", "qmd_global_options.R") |> source()
 testing = F
@@ -189,3 +189,123 @@ p1
          panel.grid = element_blank() )  +
    scale_x_discrete(position = "top")
 p2
+
+
+
+### WITH STAFF
+data_member |> select(contains("staff")) |> names()
+
+vars <- c(
+  "est_legis_spending",
+  "est_pol_spending",
+  "est_comm_spending",
+  "est_off_spending",
+  "est_constit_spending",
+  "pct_MRA_spending",
+  "pct_MRA_legis_spending",
+  "pct_MRA_pol_spending",
+  "pct_MRA_constit_spending",
+  "est_legis_staff_size",   "est_pol_staff_size",     "est_comm_staff_size",
+  "est_off_staff_size",     "est_constit_staff_size", "est_staff_spending",
+  "population_m",
+  "chamber",
+  #"workers_self_employed",
+  # "workers_private_sector",
+  # "workers_nonprofit",
+  #"percent_workers_government",
+  #"percent_education_bachelor_or_higher",
+  "percent_public_assistance_or_snap_households",
+  #"percent_workers_self_employed",
+  #"percent_workers_private_sector",
+  "percent_workers_nonprofit",
+  # electoral
+  "competitive",
+  "PACamount_m",
+  # institution
+  "chair",
+  "subchr",
+  "ranking_minority",
+  "prestige",
+  # member level
+  "state_leg",
+  "experience",
+  "oversight",
+  "distance",
+  "abs_nominate_dim1",
+  "republican",
+  #"nominate_dim1",
+  "presidents_party",
+  #"majority",
+  #"senate",
+  #"lesclassic",
+  "decile_1",
+  "decile_2",
+  "decile_3",
+  "decile_4",
+  "decile_5",
+  "decile_6",
+  "decile_7",
+  "decile_8",
+  "decile_9",
+  "decile_10"
+)
+
+# Correlation matrix for all numeric variables in a tibble
+cor_matrix <- data_member %>%
+  mutate(abs_nominate_dim1 = abs(nominate_dim1),
+         republican = as.numeric(party == "(R)" ),
+         senate = as.numeric(chamber == "Senate" )) %>%
+  select(where(is.numeric)) %>%
+  select(any_of(vars)) %>%
+  cor(use = "pairwise.complete.obs")
+
+
+
+# GGPLOT
+
+#install.packages("reshape2")
+library(reshape2)
+
+cor_matrix[lower.tri(cor_matrix)] <- NA
+
+
+melted <- melt(cor_matrix, na.rm = T )
+
+
+
+# A Full Correlation Plot Using ggplot2
+
+## Version One: Correlation Plot using ggplot2:
+p3 <- melted |>
+  filter(Var1!=Var2,
+         !str_detect(Var1, "decile")) |>
+  ggplot(aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(color = "black") +
+  scale_fill_gradient2(midpoint = 0, mid ="white") +
+  labs(#title = "Correlation Matrix",
+    x = "",
+    y = "",
+    fill = "Correlation") +
+  theme(axis.text.x = element_text(angle = 90, hjust=0, vjust = .02) ,
+        panel.grid = element_blank(),
+        legend.position =  c(.8,.3))  +
+  scale_x_discrete(position = "top")
+p3
+
+## spend only Correlation Plot using ggplot2:
+p4 <- melted |>
+  filter(Var1!=Var2,
+         !str_detect(Var2, "staff|spend"),
+         str_detect(Var1, "staff|spend")) |>
+  ggplot(aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient2(midpoint = 0, mid ="white") +
+  labs(#title = "Correlation Matrix",
+    x = "",
+    y = "",
+    fill = "Correlation") +
+  theme(axis.text.x = element_text(angle = 90, hjust=0, vjust = .02) ,
+        panel.grid = element_blank() )  +
+  scale_x_discrete(position = "top")
+p4
+

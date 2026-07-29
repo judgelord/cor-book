@@ -145,8 +145,8 @@ data_member |> group_by(year, icpsr, chamber) |>  mutate(sum = sum( percent_work
 ```{r}
 #| label: "correlations"
 #| fig-cap: "figs/[TYPE]/correlations-1.png"
-#| fig-height: 9
-#| fig-width: 8
+#| fig-height: 8
+#| fig-width: 7
 #| out-width: "100%"
 
 source(here::here("code", "cor_matrix.R"))
@@ -157,11 +157,32 @@ p1
 ```{r}
 #| label: "correlations-deciles"
 #| fig-cap: "figs/[TYPE]/correlations-deciles-1.png"
-#| fig-height: 6
-#| fig-width: 8
+#| fig-height: 5
+#| fig-width: 5
 #| out-width: "100%"
 
 p2
+```
+
+
+```{r}
+#| label: "correlations-deciles-staff"
+#| fig-cap: "figs/[TYPE]/correlations-deciles-staff-1.png"
+#| fig-height: 9
+#| fig-width: 9
+#| out-width: "100%"
+
+p3
+```
+
+```{r}
+#| label: "correlations-staff"
+#| fig-cap: "figs/[TYPE]/correlations-staff-1.png"
+#| fig-height: 5
+#| fig-width: 7
+#| out-width: "100%"
+
+p4
 ```
 
 ## Top member average counts per year
@@ -1463,7 +1484,7 @@ plot_effect(
 
 m-ideo-effect
 
-```{r}
+```{r, eval=FALSE}
 #| label: "m-ideo-effect"
 #| fig-cap: "figs/[TYPE]/m-ideo-effect"
 #| layout-ncol: 2
