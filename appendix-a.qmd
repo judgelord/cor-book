@@ -1,5 +1,5 @@
 
-# Methods {#sec-appendix-methods}
+# Methods {.appendix #sec-appendix-methods}
 
 This appendix provides more details on how we measure interbranch representation, our data collection process, and the methods with which we analyze the data.  
 

@@ -1,6 +1,6 @@
-# Fixed Effects
+# Fixed Effects {.appendix #sec-fe}
 
-@fig-FEs plots the fixed effects from the main model of total interbranch representation in from @sec-typetotal.
+@fig-FEs plots the fixed effects from the main difference-in-differences model of total interbranch representation in from @sec-appendix-models.
 
 ```{r, eval=TRUE}
 #| fig-cap: "Legislator Fixed Effects"

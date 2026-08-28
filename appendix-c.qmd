@@ -1,4 +1,41 @@
-# Alternative Models {#sec-appendix-models}
+# Models {.appendix #sec-appendix-models}
+
+## Main Model
+
+
+```{r}
+#| label: tbl-models-full
+#| tbl-cap: "Cross-sectional differences in requests to federal agencies"
+
+load(here::here("models", "models_full-1.Rdata"))
+
+
+modelsummary(models_full,
+             cm = cm,
+             row = rows,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from the agency, co-partisan president) on levels of interbranch representation."))  |>
+  # get rid of formatting to get rid of the extra line
+  theme_empty() |>
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>
+  # new stuff for this table
+  tinytable::theme_latex(multipage = TRUE) |>
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    #"Political Environment + Capcacy" = 26,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+## Alternative Models
 
 The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the political environment on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.
 

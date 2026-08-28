@@ -1,16 +1,184 @@
 ---
 title: "mermaid-figure-1"
 format: pdf
+engine: knitr
 cache: true
 ---
 
-This will render a figure in fig-causal-cache/latex called mermaid-figure-1.png. I just copied it to figs/, but that can be automated. 
+This will render figures in causal_files/figure-latex called mermaid-figure-1.png. (and Additional numbers). For now we are just copying them to figs/, but that can be automated. 
+
+Here's a key for the figures: 
+
+1. mermaid-figure-1.png is the Overall Framework Flowchart Figure
+2. demand-pyramid.png is the Demand Space: How latent, unimagined, and actualized demand fit together
+3. mermaid-figure-2.png is the Demand Flowchart Figure
+4. mermaid-figure-3.png is the Capacity Flowchart Figure.
+5. mermaid-figure-4.png is the Strategy Flowchart Figure.
+6. mermaid-figure-5.png is the old more complex figure that integrates some details from all of the figures. 
+
+
+
+
 
 ```{mermaid}
-%%| label: fig-causal
-%%| fig-cap: "How constituent demand, capacity, political environment, and member's strategic choices shape interbranch representation activities"
+%%| label: fig-causal-overall
+%%| fig-cap: "How constituent demand, capacity, political environment, and Legislator's strategic choices shape interbranch representation activities"
 %%| fig-width: 6.5
-%%| fig-height: 6
+%%| out-width: "100%"
+
+flowchart TD
+        CD["Constituent<br/>Demand"]
+        IR["Legislator Office Capacity"]
+        G["Legislator's Strategic<br/>Choices Shaped by Political Environment"]
+        W["Work Done by<br/>Legislator Office"]
+        L["Legislation"]
+        A["Interbranch Representation"]
+        C["Communications"]
+
+    CD --> W
+    IR --> W
+    G --> W
+    W --> L
+    W --> A
+    W --> C
+
+
+```
+
+
+```{r}
+#| label: make-demand-pyramid
+#| include: false
+tikz_src <- r"(\documentclass[tikz,border=5pt]{standalone}
+\usepackage{xcolor}
+\begin{document}
+\begin{tikzpicture}
+% Inverted pyramid, apex at (0,0); halfwidth at height y is 0.75*y.
+% Three bands: y = 6..4, 4..2, 2..0.
+\definecolor{band1}{gray}{0.88}
+\definecolor{band2}{gray}{0.69}
+\definecolor{band3}{gray}{0.50}
+
+\draw[fill=band1, draw=black, line width=1pt]
+  (-4.5,6) -- (4.5,6) -- (3,4) -- (-3,4) -- cycle;
+\draw[fill=band2, draw=black, line width=1pt]
+  (-3,4) -- (3,4) -- (1.5,2) -- (-1.5,2) -- cycle;
+\draw[fill=band3, draw=black, line width=1pt]
+  (-1.5,2) -- (1.5,2) -- (0,0) -- cycle;
+
+\node[font=\sffamily\bfseries] at (0,5)   {Latent Demands};
+\node[font=\sffamily\bfseries] at (0,3)   {Expressed Demands};
+\node[font=\sffamily\bfseries\footnotesize, align=center] at (0,1.45) {Fulfilled\\Demands};
+
+\end{tikzpicture}
+\end{document})"
+writeLines(tikz_src, "figs/demand-pyramid.tex")
+if (requireNamespace("tinytex", quietly = TRUE) && tinytex::is_tinytex()) {
+  # TinyTeX: this auto-installs any missing LaTeX packages (e.g. standalone)
+  tinytex::xelatex("figs/demand-pyramid.tex")
+} else {
+  xl <- Sys.which("xelatex")
+  if (xl == "") xl <- "/Library/TeX/texbin/xelatex"  # MacTeX's home
+  if (!file.exists(xl)) stop("Can't find xelatex from R.")
+  system2(xl, c("-interaction=nonstopmode",
+                "-output-directory=figs", "figs/demand-pyramid.tex"),
+          stdout = FALSE)
+}
+if (!file.exists("figs/demand-pyramid.pdf"))
+  stop("TikZ compile failed - see figs/demand-pyramid.log for the LaTeX error")
+suppressWarnings(
+  pdftools::pdf_convert("figs/demand-pyramid.pdf", format = "png",
+                        dpi = 300, filenames = "figs/demand-pyramid.png")
+)
+```
+
+![The demand pyramid: from latent to expressed to fulfilled demands](figs/demand-pyramid.pdf){#fig-demand-pyramid}
+
+```{mermaid}
+%%| label: fig-causal-demand
+%%| fig-cap: "How constituent demand shapes interbranch representation activities"
+%%| fig-width: 6.5
+
+%%| out-width: "100%"
+
+flowchart TD
+        MD["More<br/>Demanding<br/>Constituents"]
+        GN["Greater<br/> Needs<br/>Constituents"]
+        AD["Expressed<br/>Demand"]
+        W["Work Done by<br/>Congressional Office"]
+        L["Legislation"]
+        A["Interbranch Representation"]
+        C["Communications"]
+
+    GN -->AD
+    MD -->AD
+    AD --> W
+    W --> L
+    W --> A
+    W --> C
+```
+
+
+```{mermaid}
+%%| label: fig-causal-capacity
+%%| fig-cap: "How legislator office capacity shapes interbranch representation activities"
+%%| fig-width: 6.5
+%%| out-width: "100%"
+%%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"subGraphTitleMargin": {"top": 15, "bottom": 25}, "htmlLabels": false}}}%%
+flowchart TD
+    subgraph capacity_g ["Congressional Office Capacity"]
+          direction TB
+        IR["Institutional<br/>Resource<br/>Allocation"]
+        LE["Legislator's<br/>Experience"]
+        SE["Staff<br/>Experience"]
+
+
+    end 
+        W["Work Done by<br/>Congressional Office"]
+        L["Legislation"]
+        A["Interbranch<br/>Representation"]
+        C["Communications"]
+
+    IR --> W
+    LE --> W
+    SE --> W
+    W --> L
+    W --> A
+    W --> C
+
+```
+
+
+```{mermaid}
+%%| label: fig-causal-strategy
+%%| fig-cap: "How legislator's strategic choices shape interbranch representation activities"
+%%| fig-width: 6.5
+%%| out-width: "100%"
+%%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"subGraphTitleMargin": {"top": 15, "bottom": 25}, "htmlLabels": false}}}%%
+flowchart TD
+        PE["Political<br/>Environment"]
+    subgraph strategic_g ["Legislator’s Strategic Choices"]
+        G["What Work to Prioritize"]
+        SA["How to Allocate Staff"]
+    end
+        W["Work Done by<br/>Congressional Office"]
+        L["Legislation"]
+        A["Interbranch Representation"]
+        C["Communications"]
+    PE ---> strategic_g
+    G --> SA
+    SA --> W
+    W --> L
+    W --> A
+    W --> C
+
+```
+
+
+```{mermaid}
+%%| label: fig-causal-oldoverall
+%%| fig-cap: "Original Figure: How constituent demand, capacity, political environment, and Legislator's strategic choices shape interbranch representation activities"
+%%| fig-width: 6.5
 %%| out-width: "100%"
 
 flowchart TD
@@ -19,15 +187,15 @@ flowchart TD
     end
     subgraph capacity_g ["Capacity"]
         IR["Institutional Resource<br/>Allocation"]
-        SC["Member's Staff<br/>Capacity"]
-        MK["Member's<br/>Experience"]
+        SC["Legislator's Staff<br/>Capacity"]
+        MK["Legislator's<br/>Experience"]
     end
     subgraph env_g ["Environment"]
         PE["Political<br/>Environment"]
     end
     subgraph strategic_g ["Strategic Choices"]
-        G["Member's Strategic<br/>Choices"]
-        SA["Member's <br/> Staff Allocation"]
+        G["Legislator's Strategic<br/>Choices"]
+        SA["Legislator's <br/> Staff Allocation"]
     end
     subgraph output_g ["Outputs"]
         W["Work Done by<br/>Congressional Office"]
