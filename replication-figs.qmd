@@ -1,0 +1,1173 @@
+---
+title: "Figures for main regressions"
+subtitle: ""
+author: Devin Judge-Lord
+format: 
+  #pdf: 
+  html:
+      self-contained: true
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
+---
+
+[1] "population_m"                                 "chamber"                                      "percent_workers_government"                  
+ [4] "percent_education_bachelor_or_higher"         "percent_public_assistance_or_snap_households" "competitive"                                 
+ [7] "chair"                                        "subchr"                                       "ranking_minority"                            
+[10] "oversight"                                    "state_leg"                                    "experience"                                  
+[13] "nominate_dim1"                                "party"                                        "distance"                                    
+[16] "presidents_party" 
+
+Packages: 
+  
+- `tidyverse` and `magrittr`, for data wrangling
+- `scales` for plot scales 
+- `here` for file paths 
+- `tinytable` for table formatting 
+- `modelsummary` for regression tables 
+- `marginaleffects` for predictions 
+
+
+# Tables 
+
+## Model 1 - All legislators, cross sectional 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full-4}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+library(tidyverse)
+here::here("code", "formatting.R") |> source()
+here::here("code", "qmd_global_options.R") |> source() 
+
+# knitr::opts_chunk$set(cache = F)
+
+
+type = "total"
+load(here::here("models", type,  "models_full.Rdata"))
+
+ttotal <- models_full[[1]]
+
+type = 1
+load(here::here("models", type,  "models_full.Rdata"))
+
+t1 <- models_full[[1]]
+
+type = 2
+load(here::here("models", type,  "models_full.Rdata"))
+
+t2 <- models_full[[1]]
+
+type = 3
+load(here::here("models", type,  "models_full.Rdata"))
+
+t3 <- models_full[[1]]
+
+type = 4
+load(here::here("models", type,  "models_full.Rdata"))
+
+t4 <- models_full[[1]]
+
+type = 5
+load(here::here("models", type,  "models_full.Rdata"))
+
+t5 <- models_full[[1]]
+
+models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Const. Serv."),
+  `(2)` =c("Corp. Serv."),
+  `(3)` = c("NGO/Govt. Serv."),    
+  `(4)` = c("Corp. Policy"),
+  `(5)` = c("General Policy"),    
+  `(6)` = c("Total")
+  )
+
+attr(rows, 'position') <- c(0)
+
+modelsummary(models_full,
+             cm = cm,
+             row = rows,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from the agency, co-partisan president) on levels of interbranch representation."))  |>
+  # get rid of formatting to get rid of the extra line
+  theme_empty() |>
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>
+  # new stuff for this table
+  tinytable::theme_latex(multipage = TRUE) |>
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    #"Political Environment + Capcacy" = 26,
+    "Capacity" = 26
+  )) |>
+  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+
+
+save(models_full, rows, cm, gm, 
+     file = here::here("models", "models_full-1.Rdata"))
+
+# TESTING MARGINAL EFFECTS 
+# # define type 
+# type = 1
+# 
+# # define model 
+# model = 1
+# 
+# # define variable 
+# var = "chamber"
+# 
+# # load list of 6 models
+# load(here::here("models", type,  "models_full.Rdata"))
+# 
+# modelsummary(models_full)
+# 
+# # select model 
+# m <- models_full[[model]] 
+# 
+# # load data for these models 
+# load(here::here("data", type,  "data_member.rda"))
+# 
+# 
+# # calculate comparisons for variable 
+# avg_comparisons(m,
+#   variables = list(party =  c("(D)", "(R)")),
+#   #variables = list(party = "pairwise"),
+#   ) |>
+#   as_tibble() 
+```
+
+Model 2 - All legislators -  diff in diff
+
+```{r}
+type = "total"
+load(here::here("models", type,  "models_full.Rdata"))
+
+ttotal <- models_full[[2]]
+
+type = 1
+load(here::here("models", type,  "models_full.Rdata"))
+
+t1 <- models_full[[2]]
+
+type = 2
+load(here::here("models", type,  "models_full.Rdata"))
+
+t2 <- models_full[[2]]
+
+type = 3
+load(here::here("models", type,  "models_full.Rdata"))
+
+t3 <- models_full[[2]]
+
+type = 4
+load(here::here("models", type,  "models_full.Rdata"))
+
+t4 <- models_full[[2]]
+
+type = 5
+load(here::here("models", type,  "models_full.Rdata"))
+
+t5 <- models_full[[2]]
+
+models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+save(models_full, rows, cm, gm, 
+     file = here::here("models", "models_full-2.Rdata"))
+```
+
+
+## Model 3 - House cross-sectional
+
+```{r}
+type = "total"
+load(here::here("models", type,  "models_full.Rdata"))
+
+ttotal <- models_full[[3]]
+
+type = 1
+load(here::here("models", type,  "models_full.Rdata"))
+
+t1 <- models_full[[3]]
+
+type = 2
+load(here::here("models", type,  "models_full.Rdata"))
+
+t2 <- models_full[[3]]
+
+type = 3
+load(here::here("models", type,  "models_full.Rdata"))
+
+t3 <- models_full[[3]]
+
+type = 4
+load(here::here("models", type,  "models_full.Rdata"))
+
+t4 <- models_full[[3]]
+
+type = 5
+load(here::here("models", type,  "models_full.Rdata"))
+
+t5 <- models_full[[3]]
+
+models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+save(models_full, rows, cm, gm, 
+     file = here::here("models", "models_full-3.Rdata"))
+```
+
+
+## Model 4 - House diff-in-diff
+
+```{r}
+type = "total"
+load(here::here("models", type,  "models_full.Rdata"))
+
+ttotal <- models_full[[4]]
+
+type = 1
+load(here::here("models", type,  "models_full.Rdata"))
+
+t1 <- models_full[[4]]
+
+type = 2
+load(here::here("models", type,  "models_full.Rdata"))
+
+t2 <- models_full[[4]]
+
+type = 3
+load(here::here("models", type,  "models_full.Rdata"))
+
+t3 <- models_full[[4]]
+
+type = 4
+load(here::here("models", type,  "models_full.Rdata"))
+
+t4 <- models_full[[4]]
+
+type = 5
+load(here::here("models", type,  "models_full.Rdata"))
+
+t5 <- models_full[[4]]
+
+models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+save(models_full, rows, cm, gm, 
+     file = here::here("models", "models_full-4.Rdata"))
+```
+
+## Model 5 - Senate cross-sectional
+
+```{r}
+type = "total"
+load(here::here("models", type,  "models_full.Rdata"))
+
+ttotal <- models_full[[5]]
+
+type = 1
+load(here::here("models", type,  "models_full.Rdata"))
+
+t1 <- models_full[[5]]
+
+type = 2
+load(here::here("models", type,  "models_full.Rdata"))
+
+t2 <- models_full[[5]]
+
+type = 3
+load(here::here("models", type,  "models_full.Rdata"))
+
+t3 <- models_full[[5]]
+
+type = 4
+load(here::here("models", type,  "models_full.Rdata"))
+
+t4 <- models_full[[5]]
+
+type = 5
+load(here::here("models", type,  "models_full.Rdata"))
+
+t5 <- models_full[[5]]
+
+models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+save(models_full, rows, cm, gm, 
+     file = here::here("models", "models_full-5.Rdata"))
+```
+
+## Model 6 - Senate diff-in-diff
+
+```{r}
+type = "total"
+load(here::here("models", type,  "models_full.Rdata"))
+
+ttotal <- models_full[[6]]
+
+type = 1
+load(here::here("models", type,  "models_full.Rdata"))
+
+t1 <- models_full[[6]]
+
+type = 2
+load(here::here("models", type,  "models_full.Rdata"))
+
+t2 <- models_full[[6]]
+
+type = 3
+load(here::here("models", type,  "models_full.Rdata"))
+
+t3 <- models_full[[6]]
+
+type = 4
+load(here::here("models", type,  "models_full.Rdata"))
+
+t4 <- models_full[[6]]
+
+type = 5
+load(here::here("models", type,  "models_full.Rdata"))
+
+t5 <- models_full[[6]]
+
+models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+save(models_full, rows, cm, gm, 
+     file = here::here("models", "models_full-6.Rdata"))
+```
+
+# Functions 
+
+## Predictions Function 
+
+1. Load each `.RData` file into a temporary environment instead of the global environment.
+2. Dynamically construct the `variables` argument.
+3. Describe the desired comparisons in a specification dataframe.
+4. Use `purrr::pmap_dfr()` to run and combine them.
+
+```{r}
+library(tidyverse)
+library(marginaleffects)
+library(here)
+
+# Load a specific object from an .RData/.rda file without modifying
+# the global environment
+read_rdata_object <- function(path, object = NULL) {
+  env <- new.env(parent = globalenv())
+  object_names <- load(path, envir = env)
+
+  if (is.null(object)) {
+    if (length(object_names) != 1) {
+      stop(
+        "`", path, "` contains multiple objects: ",
+        paste(object_names, collapse = ", "),
+        ". Specify which object should be used."
+      )
+    }
+
+    object <- object_names
+  }
+
+  if (!object %in% object_names) {
+    stop(
+      "Object `", object, "` was not found in `", path, "`.\n",
+      "Available objects: ", paste(object_names, collapse = ", ")
+    )
+  }
+
+  env[[object]]
+}
+
+with_temporary_global <- function(name, value, code) {
+  had_original <- exists(
+    name,
+    envir = globalenv(),
+    inherits = FALSE
+  )
+
+  if (had_original) {
+    original <- get(
+      name,
+      envir = globalenv(),
+      inherits = FALSE
+    )
+  }
+
+  assign(name, value, envir = globalenv())
+
+  on.exit({
+    if (had_original) {
+      assign(name, original, envir = globalenv())
+    } else if (exists(name, envir = globalenv(), inherits = FALSE)) {
+      rm(list = name, envir = globalenv())
+    }
+  }, add = TRUE)
+
+  force(code)
+}
+
+
+# function 
+get_comparison <- function(
+    type,
+    model,
+    var,
+    variable_change = "pairwise",
+    outcome_comparison = "ratioavg",
+    root = here::here(),
+    models_file = "models_full.Rdata",
+    models_object = "models_full",
+    data_file = "data_member.rda",
+    data_object = "data_member",
+    hypothesis = NULL
+) {
+
+  # Load model list
+  models_path <- file.path(
+    root, "models", as.character(type), models_file
+  )
+
+  models <- read_rdata_object(
+    path = models_path,
+    object = models_object
+  )
+
+  # Permit either a numeric position or a named-list element
+  if (is.character(model) && model %in% names(models)) {
+    model_index <- model
+  } else if (is.numeric(model) ||
+             (is.character(model) && grepl("^[0-9]+$", model))) {
+    model_index <- as.integer(model)
+  } else {
+    stop("Model `", model, "` was not found in the model list.")
+  }
+
+  if (is.numeric(model_index) && model_index > length(models)) {
+    stop(
+      "Model index ", model_index,
+      " exceeds the number of saved models: ", length(models)
+    )
+  }
+
+  m <- models[[model_index]]
+
+  # Load the model's analysis data
+  data_path <- file.path(
+    root, "data", as.character(type), data_file
+  )
+
+  model_data <- read_rdata_object(
+    path = data_path,
+    object = data_object
+  )
+
+  # Unwrap values coming from a list-column
+variable_change <- unlist(
+  variable_change,
+  recursive = TRUE,
+  use.names = FALSE
+)
+
+variables_arg <- setNames(
+  list(variable_change),
+  var
+)
+
+# Some model methods re-evaluate the original model call and therefore
+# require an object with the original data name.
+result <- with_temporary_global(
+  name = data_object,
+  value = model_data,
+  code = avg_comparisons(
+    m,
+    variables = variables_arg,
+    comparison = outcome_comparison,
+    newdata = model_data,
+    type = "response",
+    hypothesis = hypothesis
+  )
+)
+
+result |>
+  as_tibble() |>
+  mutate(
+    estimate = estimate - 1,
+    conf.low = conf.low - 1,
+    conf.high = conf.high - 1,
+
+    # Explicit .env pronoun prevents conflicts with result columns
+    type = as.character(.env$type),
+    model = .env$model,
+    var = .env$var,
+    variable_change = list(.env$variable_change),
+    outcome_comparison = .env$outcome_comparison,
+    .before = 1
+  ) |>
+  mutate(
+    outcome_label = case_when(
+      type == "1" ~ "Constituency Service",
+      type == "2" ~ "Corporate Service",
+      type == "3" ~ "NGO/Government Service",
+      type == "4" ~ "Corporate Policy",
+      type == "5" ~ "General Policy",
+      type == "total" ~ "Total",
+      TRUE ~ type
+    ),
+
+    model_label = case_when(
+      as.character(model) == "1" ~
+        "All legislators, cross-sectional",
+      as.character(model) == "2" ~
+        "All legislators, diff-in-diff",
+      as.character(model) == "3" ~
+        "House, cross-sectional",
+      as.character(model) == "4" ~
+        "House, diff-in-diff",
+      as.character(model) == "5" ~
+        "Senate, cross-sectional",
+      as.character(model) == "6" ~
+        "Senate, diff-in-diff",
+      TRUE ~ as.character(model)
+    ),
+
+    outcome_label = factor(
+      outcome_label,
+      levels = c(
+        "Constituency Service",
+        "Corporate Service",
+        "NGO/Government Service",
+        "Corporate Policy",
+        "General Policy",
+        "Total"
+      )
+    ),
+
+    model_label = factor(
+      model_label,
+      levels = c(
+        "All legislators, cross-sectional",
+        "All legislators, diff-in-diff",
+        "House, cross-sectional",
+        "House, diff-in-diff",
+        "Senate, cross-sectional",
+        "Senate, diff-in-diff"
+      )
+    )
+  )
+}
+```
+
+## Test predictions function 
+
+```{r, eval=FALSE}
+get_comparison(
+  type = 1,
+  model = 1,
+  var = "chair",
+    variable_change = list(chair = c(0,1)),
+  hypothesis = NULL
+)
+
+get_comparison(
+  type = 1,
+  model = 1,
+  var = "population_m",
+  variable_change = "sd",
+  outcome_comparison = "ratioavg",
+  hypothesis = NULL
+)
+
+get_model_vars <- function(model) {
+  terms(model) |>
+    delete.response() |>
+    all.vars() |>
+    unique()
+}
+
+get_model_vars(t1)
+```
+
+## Plot function 
+
+```{r}
+# plot function 
+comparison_plot <- function(df = comparison_df, caption = "") {
+  
+  df |>  
+  ggplot(
+    aes(
+      y = "",
+      x = estimate,
+      xmin = conf.low,
+      xmax = conf.high,
+      color = outcome_label,
+      shape = outcome_label
+    )
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    color = "grey50"
+  ) +
+  geom_pointrange(
+    position = position_dodge(width = -0.5)
+  ) +
+  facet_wrap("model_label", ncol = 1) +
+  labs(
+    y = NULL,
+   x = "Difference in interbranch representation (%)",
+   caption = caption,
+    color = "DV",
+   shape = "DV"
+  ) +
+    scale_color_discrete(palette = "Okabe-Ito") +
+      scale_x_continuous(labels = scales::percent) + 
+    theme_minimal() + 
+    theme(panel.grid.major.y = element_blank(),
+          axis.ticks.x = element_blank() ) 
+
+    
+} 
+```
+
+
+
+
+# Demand
+
+##  percent_workers_government
+
+
+```{r}
+#| label: marginal-percent_workers_government
+#| fig-cap: "figs/marginal-percent_workers_government-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = c(3, 5), # 5 = senate cross sectional 
+    models_file = "models_full.Rdata",
+    models_object = "models_full" # 1 = total cross sectional 
+) |>
+  crossing(
+    tribble(
+      ~var, ~variable_change, ~outcome_comparison,
+      "percent_workers_government",  "sd" , "ratioavg"
+    )
+  ) 
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation higher % gov't workers") 
+```
+
+##  percent_education_bachelor_or_higher
+
+
+```{r}
+#| label: marginal-percent_education_bachelor_or_higher
+#| fig-cap: "figs/marginal-percent_education_bachelor_or_higher-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = c(3, 5), # 5 = senate cross sectional 
+    models_file = "models_full.Rdata",
+    models_object = "models_full" # 1 = total cross sectional 
+) |>
+  crossing(
+    tribble(
+      ~var, ~variable_change, ~outcome_comparison,
+      "percent_education_bachelor_or_higher",  "sd" , "ratioavg"
+    )
+  ) 
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation higher % college grads")
+```
+
+
+##  percent_public_assistance_or_snap_households
+
+```{r}
+#| label: marginal-percent_public_assistance_or_snap_households
+#| fig-cap: "figs/marginal-percent_public_assistance_or_snap_households-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = c(3, 5), # 5 = senate cross sectional 
+    models_file = "models_full.Rdata",
+    models_object = "models_full"
+) |>
+  crossing(
+    tribble(
+      ~var, ~variable_change, ~outcome_comparison,
+      "percent_public_assistance_or_snap_households",  "sd" , "ratioavg"
+    )
+  ) 
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation higher\npercent of households receiving public assistance")
+```
+
+
+# Capacity 
+
+
+## chamber
+
+```{r}
+#| label: marginal-chamber
+#| fig-cap: "figs/marginal-chamber-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = 1L, # 1 = total cross sectional 
+  models_file = "models_full.Rdata",
+    models_object = "models_full"
+) |>
+  crossing(
+    tribble(
+      ~var,            ~variable_change,  ~outcome_comparison,
+      "chamber",  "pairwise" , "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Senators vs Representatives") 
+```
+
+
+
+## chair 
+
+```{r}
+#| label: marginal-chair
+#| fig-cap: "figs/marginal-chair-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = c(1, 2),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "chair",
+    variable_change = list(chair = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  ) 
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Standing committee chairs vs. non-chairs") 
+```
+
+## subchr 
+
+```{r}
+#| label: marginal-subchr
+#| fig-cap: "figs/marginal-subchr-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(1,2),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "subchr",
+      variable_change = list(subchr = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Subcommittee chair vs. non-chairs") 
+```
+
+## ranking_minority 
+
+```{r}
+#| label: marginal-ranking_minority
+#| fig-cap: "figs/marginal-ranking_minority-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(1,2),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "ranking_minority",
+      variable_change = list(ranking_minority = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Ranking minority vs all others") 
+```
+
+## oversight 
+
+```{r}
+#| label: marginal-oversight
+#| fig-cap: "figs/marginal-oversight-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(1,2),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "oversight",
+      variable_change = list(oversight = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Reporting committee members vs others") 
+```
+
+## state_leg 
+
+```{r}
+#| label: marginal-state_leg
+#| fig-cap: "figs/marginal-state_leg-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(1,3),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "state_leg",
+      variable_change = list(state_leg = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Legislators who served in state legislatures vs others") 
+```
+
+## experience 
+
+```{r}
+#| label: marginal-experience
+#| fig-cap: "figs/marginal-experience-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(1,2),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "experience",
+      variable_change = list(experience = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "more than 2 years of expiernce vs freshmen") 
+   
+```
+
+# Strategic 
+
+## competitive
+
+```{r}
+#| label: marginal-competitive
+#| fig-cap: "figs/marginal-competitive-1.png"
+#| fig-height: 3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(3,5),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "competitive",
+      variable_change = list(competitive = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Legislators with competitive prior elections vs others") 
+```
+
+
+## competitive primary
+
+```{r}
+#| label: marginal-competitive_primary
+#| fig-cap: "figs/marginal-competitive_primary-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(3),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "competitive_primary",
+      variable_change = list(competitive_primary = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Legislators with competitive prior elections vs others") 
+```
+
+## nominate_dim1 
+
+```{r}
+#| label: marginal-nominate_dim1
+#| fig-cap: "figs/marginal-nominate_dim1-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = 1L,
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "nominate_dim1",
+      variable_change = "sd",
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation from mean NOMINATE Dim. 1") 
+```
+
+## distance 
+
+```{r}
+#| label: marginal-distance
+#| fig-cap: "figs/marginal-distance-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = 1L,
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = c("distance"),#, "party"),
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_df$contrast
+
+comparison_df <- comparison_df |>
+  filter(contrast %in% c("mean((R)) / mean((D))","mean(x + sd/2) / mean(x - sd/2)")) 
+
+comparison_plot(caption = "with one-standard-deviation greater distance from agency") #+ facet_wrap("contrast", ncol = 1)
+```
+
+
+## party 
+
+
+```{r, eval=FALSE}
+#| label: marginal-party
+#| fig-cap: "figs/marginal-party-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = 1L, # 1 = total cross sectional 
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+) |>
+  crossing(
+    tribble(
+      ~var, ~variable_change, ~outcome_comparison,
+      "party",  "pairwise" , "ratioavg"
+    )
+  )
+
+# comparison_spec$hypothesis
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+# comparison_df
+
+comparison_df <- comparison_df |>
+  filter(contrast == "mean((R)) / mean((D))") 
+
+comparison_plot(caption = "Republicans vs Democrats") 
+```
+
+
+## presidents_party 
+
+```{r}
+#| label: marginal-presidents_party
+#| fig-cap: "figs/marginal-presidents_party-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), 
+  model = c(1,2),
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+  ) |>
+  crossing(
+    tibble(
+      var = "presidents_party",
+      variable_change = list(presidents_party = c(0,1)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "Members fo the president's party vs others") 
+```
+
+
+# Model 5, cross-sectional, Senate 
+
+## population 
+
+```{r}
+#| label: marginal-population
+#| fig-cap: "figs/marginal-population-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = c(3, 5), # 5 = senate cross sectional 
+  models_file = "models_full.Rdata",
+  models_object = "models_full"
+) |>
+  crossing(
+    tribble(
+      ~var, ~variable_change, ~outcome_comparison,
+      "population_m",  "sd", "ratioavg"
+    )
+  ) 
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
+
+comparison_plot( caption = "with one-standard-deviation greater state population") 
+```
+
+
+
+

@@ -102,7 +102,10 @@ rename_vars <- function(data){
 data_member <- rename_vars(data_member) 
 data_district <- rename_vars(data_district)
 
+
+save(data_member, file = here::here("data", type, "data_member.rda"))
 ######## DON'T MODFIY DATA BELOW THIS LINE 
+
 
 # INSPECT NA COUNT
 data_member |>
