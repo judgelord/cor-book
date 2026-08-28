@@ -69,7 +69,7 @@ format:
     number-depth: 2
     include-in-header:
        - assets/header.tex
-    keep-tex: true
+    keep-tex: false
     fig-cap-location: top
     tbl-cap-location: top
     #pdf-engine: pdflatex. # pdflatex is faster, but perhaps not as good as lulatex

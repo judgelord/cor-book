@@ -6,8 +6,11 @@ if(F){
   # make total and type 1-5 datasets
   here::here("code", "replication-data.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
   # run one replication file at a time
-  refresh = F # refresh if data or models used in manuscript tables changed, don't if just adding new things
-  job = F
+  refresh = T # refresh if data or models used in manuscript tables changed, don't if just adding new things
+  job = T
+
+  here::here("replication-figs.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
+
   here::here("replication-total.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-1.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-2.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
@@ -29,7 +32,7 @@ quarto::quarto_preview()
 quarto::quarto_preview_stop()
 
 # render the book, refreshing cached tables and figures
-quarto::quarto_render(as_job = F, cache_refresh = T)
+quarto::quarto_render(as_job = T, cache_refresh = T)
 
 # send to git (just Devin for now)
 if(F){
