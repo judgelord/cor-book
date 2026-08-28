@@ -17,7 +17,8 @@ project:
     - "!README"
 
 book:
-  title: "Unequal Interbranch Representation"
+  title: "Interbranch Representation"
+  subtitle: "How congressional offices represent when decisions are made in executive-branch agencies"
   author: "Devin Judge-Lord, Eleanor Powell, Rochelle Snyder"
   date: today
   cover-image: assets/cover.png
