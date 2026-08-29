@@ -947,7 +947,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "more than 2 years of expiernce vs freshmen") 
+comparison_plot(caption = "Legislators with 3+ years of expiernce vs freshmen") 
    
 ```
 
