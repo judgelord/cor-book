@@ -1,32 +1,5 @@
 
-# Data   {.appendix #sec-appendix-data}
-
-We requested records from 295 federal agencies / components and received records from	179. @tbl-data-foia shows the number of components to which we sent requests, the number of those that released records, the number of those that we have completed hand coding, and the total number of observations used in our analyses. 
-Of the 962,720 records that agencies gave us in response to our requests for congressional correspondence, we linked 837,223 a legislator in office at the time.
-The remainder are committee staff, state legislators, judges, agency officials, lobbyists, White House officials, former members of Congress, or future members of Congress and others who were, for various reasons, swept into an agency's tracking systems or search for records. In some cases, agencies appeared to use their congressional correspondence tracking system as a general for VIPs. The Department of Education included Politico correspondent Jennifer Haberkorn and Kenneth P Vogel from the New York Times. The Federal Highway Administration tagged 27 letters from a particularly well-connected consultant. A smaller number are members of Congress whose names were ambiguous, illegible, or inappropriately redacted. 
-
-```{r, eval=TRUE}
-#| tbl-cap: "FOIA Data"
-#| label: tbl-data-foia
-
-library(tidyverse)
-library(tinytable)
-library(modelsummary)
-
-here::here("data", "_FOIA_response_table.csv") |> 
-  read_csv() |> 
-  select(-"...1") |> 
-  mutate(Department = Department |> str_replace("Department", "Dept.")) |> 
-  tt() |> 
-     # bold header, hline bottom, aligned center
-  tinytable::style_tt(j = 1, align = "l") |>
-    tinytable::style_tt(j = 2:4, align = "c") |>
-    tinytable::style_tt(j = 5, align = "r") |>
-  tinytable::style_tt(i = 0, bold = T, line = "b") |> 
-    tinytable::style_tt(i = 17, bold = T, line = "t") 
-```
-
-## Summary statistics
+# Summary statistics   {.appendix #sec-appendix-data}
 
 ```{r, eval=TRUE}
 #| tbl-cap: "Summary Statistics"
@@ -103,6 +76,88 @@ dcounts |>
 
 \clearpage
 
+## Correlations 
+
+### Legislative Effectiveness Scores 
+
+The Pearson's product-moment correlation between annual Legislative Effectiveness Scores and total annual requests to federal agencies is  0.024 (p < .01). While we cannot necessarily infer from this correlation that more effective legislators are also consistently more effective at interbranch representation, @fig-les-decile does show that legislators with the lowest Legislative Effectiveness Scores also do the least interbranch representation. Some of this relationship, however, may be driven by congressional leaders, particularly the Speaker, exercising power and effectiveness through other channels that are not captured in these measures. 
+
+
+```{r}
+#| label: fig-les-decile
+#| fig-cap: "Correlation Between Legislative Effectiveness Scores and Interbranch Representation"
+#| out-width: 80%
+
+knitr::include_graphics(here::here("figs", "total", "cor-les-decile-1.png"))
+```
+
+The correlation between Legislative Effectiveness Scores and interbranch representation is, unsurprisingly, strongest for policy work. It is driven by the top and, especially, bottom deciles of both distributions. 
+
+```{r}
+#| label: fig-les
+#| fig-cap: "Correlation With Legislative Effectiveness Scores by Type of Interbranch Representation"
+#| fig-subcap: 
+#|   - "Overall"
+#|   - "Indiv. Constituents"
+#|   - "Corporate Constituents"
+#|   - "Nonprofits and Local Governments"
+#|   - "Policy Work"
+#|   - "Policy Work on Behalf of Business"
+#| layout-ncol: 2
+#| out-width: "100%"
+#| fig-show: "hold"
+
+knitr::include_graphics(here::here("figs", "total", "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 1, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 2, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 3, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 4, "cor-les-3.png"))
+knitr::include_graphics(here::here("figs", 5, "cor-les-3.png"))
+```
+
+### Fundraising 
+
+As shown in @fig-pac-decile, the correlation between corporate PAC fundraising and interbranch representation is driven even more by the top and, especially, bottom deciles of both. 
+
+```{r}
+#| label: fig-pac-decile
+#| fig-cap: "Correlation Between Corporate Political Action Committee Donations and Interbranch Representation"
+#| out-width: 80%
+
+knitr::include_graphics(here::here("figs", "total", "cor-pac-decile-1.png"))
+```
+
+The correlation between annual corporate PAC contributions and total annual requests to federal agencies is 0.08 (p< .001), a slightly stronger correlation than that between LES and requests to federal agencies. The fact that some legislators do both more fundraising and more interbranch representation, also supported by our other findings throughout this book, presents a significant challenge to our understanding of how fundraising work fits in with legislators' other activities. Critics of Congress -- sometimes including members of Congress themselves -- decry fundraising as, at best, a vacuous distraction from Congress's real work. It is assumed that, by engaging in more fundraising activities, members of Congress are sacrificing legislative and representational work. From our analysis, however, that appears not necessarily to be the case.  
+
+
+```{r}
+#| label: fig-pac
+#| fig-cap: "Correlation With Corporate Political Action Committee Donations by Type of Interbranch Representation"
+#| fig-subcap: 
+#|   - "Overall"
+#|   - "Indiv. Constituents"
+#|   - "Corporate Constituents"
+#|   - "Nonprofits and Local Governments"
+#|   - "Policy Work"
+#|   - "Policy Work on Behalf of Business"
+#| layout-ncol: 2
+#| out-width: "100%"
+#| fig-show: "hold"
+
+knitr::include_graphics(here::here("figs", "total", "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 1, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 2, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 3, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 4, "cor-pac-3.png"))
+knitr::include_graphics(here::here("figs", 5, "cor-pac-3.png"))
+```
+
+While more research is needed to understand the precise nature of the relationship between interbranch representation and these other measures of what legislators do, the correlations presented here suggest that at least some legislators, rather than choosing to concentrate their efforts only on one type of activity, simply excel at everything. 
+
+\clearpage
+
+### Correlations among variables used in the analyses
+
 @fig-data-correlations shows cross tabulations among all variables used in the analyses and by decile of total interbranch representation. 
 Many of the patterns we document with regression analysis are clear in these unconditional correlations as well. For example, district population is correlated with total interbranch representation, with the top two deciles doing more and the bottom seven deciles doing less. Likewise, being in the Senate is associated with being in the top 30% of legislators. Weaker associations for district demographics, various forms of institutional capacity and experience, and competitive elections are also apparent. Those with more extreme nominate scores, Republicans, and legislators in the majority are less likely to be in the top decile, overall. 
 
@@ -171,7 +226,7 @@ knitr::include_graphics(here::here("figs", "4", "correlations-deciles-1.png"))
 ```
 
 
-### Staff data from @CrossonFurnasLapiraBurgat2021
+## Staff data from @CrossonFurnasLapiraBurgat2021
 
 
 @fig-staff-data-coverage shows that staff allocations vary across legislators and within legislators over time. These data are from @CrossonFurnasLapiraBurgat2021. Each dot is a legislator-congress observation of the estimated money the office spent on each type of staff. Lines link legislative offices across congresses.
@@ -195,7 +250,7 @@ knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
 knitr::include_graphics(here::here("figs", "1", "correlations-staff-1.png"))
 ```
 
-@fig-data-correlations-staff2 shows cross tabulations ...
+<!-- @fig-data-correlations-staff2 shows cross tabulations ...--> 
 
 ```{r}
 #| fig-cap: "Correlations With Staff of Corporate Constituent Interbranch Representation"
@@ -206,7 +261,7 @@ knitr::include_graphics(here::here("figs", "2", "correlations-staff-1.png"))
 ```
 
 
-@fig-data-correlations-staff3 shows ...
+<!-- @fig-data-correlations-staff3 shows ... --> 
 
 ```{r}
 #| fig-cap: "Correlations With Staff of Nonprofit and Local Government Interbranch Representation"
@@ -217,7 +272,7 @@ knitr::include_graphics(here::here("figs", "3", "correlations-staff-1.png"))
 ```
 
 
-@fig-data-correlations-staff5 shows ...
+<!-- @fig-data-correlations-staff5 shows ... --> 
 
 ```{r}
 #| fig-cap: "Correlations With Staff of Policy Work"
@@ -227,7 +282,7 @@ knitr::include_graphics(here::here("figs", "3", "correlations-staff-1.png"))
 knitr::include_graphics(here::here("figs", "5", "correlations-staff-1.png"))
 ```
 
-@fig-data-correlations-staff4...
+<!-- @fig-data-correlations-staff4... --> 
 
 
 ```{r}
@@ -267,28 +322,3 @@ datasummary_skim()
 
 --> 
 
-## Limitations
-
-
-
-### Agency record keeping
-
-
-> "We have no responsive records between April 13, 2016, and May 16, 2017. It is impossible to say for certain why there is this gap; however, it is likely the changes in staffing leading up to and following the change in Administration contributed." - FOIA Officer 
-
-
-We included 0-counts for agency-member-months with no contacts of a particular type (indeed, it is mostly 0s). I included and excluded agencies by year, because we asked for data by year and generally got data by year. That said, an important caveat about censoring: 
-We include agency-year fixed effects in all of our models because record-keeping is not always consistent across years (e.g., several FOIA offices told me that they had no records for much of 2017 because no one in the Secretary's office knew (or cared) to write things down. This was probably not evenly distributed across months within 2017. Other shocks are similarly not evenly distributed.
-Relatedly, there is sometimes left and right censoring in the tails. 
-We have trimmed out some years in the tails where we know this happened, but it can be hard to know with the smaller subagencies that do not get much congressional attention. Is it because they did not include it in the request, a failure of record-keeping, or a true 0? It's often hard to tell.  
-
-@fig-data-coverage shows the coverage of agencies used in the data, including the relative density of the data per agency by month. 
-
-
-```{r}
-#| fig-cap: "Data Coverage by Agency"
-#| label: fig-data-coverage
-#| out-width: "100%"
-
-knitr::include_graphics(here::here("figs", "completeness-percent.png"))
-```
