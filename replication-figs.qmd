@@ -761,7 +761,7 @@ comparison_plot(caption = "with one-standard-deviation higher\npercent of househ
 
 comparison_spec <- crossing(
   type = c(as.character(1:5), "total"),
-  model = 1L, # 1 = total cross sectional 
+  model = c(1,2), # 1 = total cross sectional 
   models_file = "models_full.Rdata",
     models_object = "models_full"
 ) |>
@@ -905,7 +905,7 @@ comparison_plot(caption = "Reporting committee members vs others")
 
 comparison_spec <- crossing(
   type = c(as.character(1:5), "total"), 
-  model = c(1,3),
+  model = c(3,5),
   models_file = "models_full.Rdata",
   models_object = "models_full"
   ) |>
@@ -1134,7 +1134,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Members fo the president's party vs others") 
+comparison_plot(caption = "Members of the president's party vs others") 
 ```
 
 
