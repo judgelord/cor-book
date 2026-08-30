@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix D — Fixed Effects – Unequal Interbranch Representation</title>
+<title>Appendix D — Fixed Effects – Interbranch Representation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7d8ad657b878717df1156ab40fed854c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -100,9 +103,9 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Unequal Interbranch Representation</a> 
+      <a href="./">Interbranch Representation</a> 
         <div class="sidebar-tools-main">
-    <a href="./Unequal-Interbranch-Representation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Interbranch-Representation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -221,13 +224,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Summary statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Alternative Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -251,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Fixed Effects</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix D — Fixed Effects</h1>
+<h1 class="title"><span id="sec-fe" class="quarto-section-identifier">Appendix D — Fixed Effects</span></h1>
 </div>
 
 
@@ -268,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="#fig-FEs" class="quarto-xref">Figure&nbsp;<span>D.1</span></a> plots the fixed effects from the main model of total interbranch representation in from <a href="ch4.html" class="quarto-xref"><span>Chapter 4</span></a>.</p>
+<p><a href="#fig-FEs" class="quarto-xref">Figure&nbsp;<span>D.1</span></a> plots the fixed effects from the main difference-in-differences model of total interbranch representation in from <a href="appendix-c.html" class="quarto-xref"><span>Appendix C</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-FEs" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -277,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
 Figure&nbsp;D.1: Legislator Fixed Effects
 </figcaption>
 <div aria-describedby="fig-FEs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/fixed-effects.png" class="img-fluid figure-img">
+<img src="figs/fixed-effects.png" class="img-fluid figure-img" width="2160">
 </div>
 </figure>
 </div>
@@ -839,8 +842,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./appendix-c.html" class="pagination-link" aria-label="Alternative Models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Alternative Models</span></span>
+      <a href="./appendix-c.html" class="pagination-link" aria-label="Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

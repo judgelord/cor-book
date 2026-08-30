@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix A — Methods – Unequal Interbranch Representation</title>
+<title>Appendix A — Methods – Interbranch Representation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -60,10 +63,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7d8ad657b878717df1156ab40fed854c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,9 +123,9 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Unequal Interbranch Representation</a> 
+      <a href="./">Interbranch Representation</a> 
         <div class="sidebar-tools-main">
-    <a href="./Unequal-Interbranch-Representation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Interbranch-Representation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -241,13 +244,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Summary statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Alternative Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,11 +271,15 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-data-generating-process" id="toc-the-data-generating-process" class="nav-link active" data-scroll-target="#the-data-generating-process"><span class="header-section-number">A.1</span> The data generating process</a>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link active" data-scroll-target="#data-collection"><span class="header-section-number">A.1</span> Data Collection</a></li>
+  <li><a href="#processing-and-coding-the-data" id="toc-processing-and-coding-the-data" class="nav-link" data-scroll-target="#processing-and-coding-the-data"><span class="header-section-number">A.2</span> Processing and coding the data</a></li>
+  <li><a href="#the-data-generating-process" id="toc-the-data-generating-process" class="nav-link" data-scroll-target="#the-data-generating-process"><span class="header-section-number">A.3</span> The data generating process</a>
   <ul class="collapse">
+  <li><a href="#the-role-of-legislators-and-staff" id="toc-the-role-of-legislators-and-staff" class="nav-link" data-scroll-target="#the-role-of-legislators-and-staff">The role of legislators and staff</a></li>
+  <li><a href="#recordkeeping" id="toc-recordkeeping" class="nav-link" data-scroll-target="#recordkeeping">Recordkeeping</a></li>
   <li><a href="#gaps-and-changes-in-recordkeeping" id="toc-gaps-and-changes-in-recordkeeping" class="nav-link" data-scroll-target="#gaps-and-changes-in-recordkeeping">Gaps and changes in recordkeeping</a></li>
   </ul></li>
-  <li><a href="#coding-types-of-interbranch-representation" id="toc-coding-types-of-interbranch-representation" class="nav-link" data-scroll-target="#coding-types-of-interbranch-representation"><span class="header-section-number">A.2</span> Coding Types of Interbranch Representation</a></li>
+  <li><a href="#coding-types-of-interbranch-representation" id="toc-coding-types-of-interbranch-representation" class="nav-link" data-scroll-target="#coding-types-of-interbranch-representation"><span class="header-section-number">A.4</span> Coding Types of Interbranch Representation</a></li>
   </ul>
 </nav>
     </div>
@@ -299,9 +306,304 @@ div.csl-indent {
 
 
 <p>This appendix provides more details on how we measure interbranch representation, our data collection process, and the methods with which we analyze the data.</p>
-<section id="the-data-generating-process" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="the-data-generating-process"><span class="header-section-number">A.1</span> The data generating process</h2>
+<section id="data-collection" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">A.1</span> Data Collection</h2>
+<p>We requested records from 295 federal agencies / components and received records from 179. <a href="#tbl-data-foia" class="quarto-xref">Table&nbsp;<span>A.1</span></a> shows the number of components to which we sent requests, the number of those that released records, the number of those that we have completed hand coding, and the total number of observations used in our analyses. Of the 962,720 records that agencies gave us in response to our requests for congressional correspondence, we linked 837,223 a legislator in office at the time. The remainder are committee staff, state legislators, judges, agency officials, lobbyists, White House officials, former members of Congress, or future members of Congress and others who were, for various reasons, swept into an agency’s tracking systems or search for records. In some cases, agencies appeared to use their congressional correspondence tracking system as a general for VIPs. The Department of Education included Politico correspondent Jennifer Haberkorn and Kenneth P Vogel from the New York Times. The Federal Highway Administration tagged 27 letters from a particularly well-connected consultant. A smaller number are members of Congress whose names were ambiguous, illegible, or inappropriately redacted.</p>
+<div class="cell">
+<div id="tbl-data-foia" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-foia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.1: FOIA Data
+</figcaption>
+<div aria-describedby="tbl-data-foia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_4yuu5zb9joqaof0xjgim = TinyTable.createTableFunctions("tinytable_4yuu5zb9joqaof0xjgim");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '17', j: 5 } ], css_id: 'tinytable_css_u94xjpchoc34mnbmnm9r',}, 
+          { positions: [ { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '3', j: 5 }, { i: '4', j: 5 }, { i: '5', j: 5 }, { i: '6', j: 5 }, { i: '7', j: 5 }, { i: '8', j: 5 }, { i: '9', j: 5 }, { i: '10', j: 5 }, { i: '11', j: 5 }, { i: '12', j: 5 }, { i: '13', j: 5 }, { i: '14', j: 5 }, { i: '15', j: 5 }, { i: '16', j: 5 } ], css_id: 'tinytable_css_f450cnvcn41y7t3o5uio',}, 
+          { positions: [ { i: '0', j: 5 } ], css_id: 'tinytable_css_h1yxr5kahdkafnb274m7',}, 
+          { positions: [ { i: '17', j: 2 }, { i: '17', j: 3 }, { i: '17', j: 4 } ], css_id: 'tinytable_css_5jhq6pcyuerz04iladfk',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '8', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '14', j: 4 }, { i: '15', j: 4 }, { i: '16', j: 4 } ], css_id: 'tinytable_css_j20ol8d0riupcfcukvzi',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_yafp7zxmxbn4i7y3w4c9',}, 
+          { positions: [ { i: '17', j: 1 } ], css_id: 'tinytable_css_1ddu8m6j7rd03g13qcr9',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 } ], css_id: 'tinytable_css_uxx9vbwofvirno2ooy5u',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_vxf02q4lbxu7km24nn2a',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_4yuu5zb9joqaof0xjgim.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_u94xjpchoc34mnbmnm9r, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_u94xjpchoc34mnbmnm9r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: right }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_f450cnvcn41y7t3o5uio, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_f450cnvcn41y7t3o5uio { text-align: right }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_h1yxr5kahdkafnb274m7, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_h1yxr5kahdkafnb274m7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: right }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_5jhq6pcyuerz04iladfk, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_5jhq6pcyuerz04iladfk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: center }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_j20ol8d0riupcfcukvzi, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_j20ol8d0riupcfcukvzi { text-align: center }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_yafp7zxmxbn4i7y3w4c9, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_yafp7zxmxbn4i7y3w4c9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: center }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_1ddu8m6j7rd03g13qcr9, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_1ddu8m6j7rd03g13qcr9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: left }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_uxx9vbwofvirno2ooy5u, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_uxx9vbwofvirno2ooy5u { text-align: left }
+    #tinytable_4yuu5zb9joqaof0xjgim td.tinytable_css_vxf02q4lbxu7km24nn2a, #tinytable_4yuu5zb9joqaof0xjgim th.tinytable_css_vxf02q4lbxu7km24nn2a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_4yuu5zb9joqaof0xjgim" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Department</th>
+                <th scope="col" data-row="0" data-col="2">Components FOIAed</th>
+                <th scope="col" data-row="0" data-col="3">Records received</th>
+                <th scope="col" data-row="0" data-col="4">Coded</th>
+                <th scope="col" data-row="0" data-col="5">Observations</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Independent Agencies</td>
+                  <td data-row="1" data-col="2">89</td>
+                  <td data-row="1" data-col="3">52</td>
+                  <td data-row="1" data-col="4">34</td>
+                  <td data-row="1" data-col="5">80792</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Dept. of Health and Human Services</td>
+                  <td data-row="2" data-col="2">14</td>
+                  <td data-row="2" data-col="3">10</td>
+                  <td data-row="2" data-col="4">10</td>
+                  <td data-row="2" data-col="5">111994</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">Dept. of Homeland Security</td>
+                  <td data-row="3" data-col="2">12</td>
+                  <td data-row="3" data-col="3">11</td>
+                  <td data-row="3" data-col="4">11</td>
+                  <td data-row="3" data-col="5">324335</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">Dept. of Commerce</td>
+                  <td data-row="4" data-col="2">18</td>
+                  <td data-row="4" data-col="3">18</td>
+                  <td data-row="4" data-col="4">11</td>
+                  <td data-row="4" data-col="5">7807</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">Dept. of Defense</td>
+                  <td data-row="5" data-col="2">42</td>
+                  <td data-row="5" data-col="3">11</td>
+                  <td data-row="5" data-col="4">8</td>
+                  <td data-row="5" data-col="5">9808</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">Dept. of Energy</td>
+                  <td data-row="6" data-col="2">8</td>
+                  <td data-row="6" data-col="3">2</td>
+                  <td data-row="6" data-col="4">1</td>
+                  <td data-row="6" data-col="5">6188</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1">Dept. of the Interior</td>
+                  <td data-row="7" data-col="2">12</td>
+                  <td data-row="7" data-col="3">10</td>
+                  <td data-row="7" data-col="4">9</td>
+                  <td data-row="7" data-col="5">6599</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1">Dept. of Justice</td>
+                  <td data-row="8" data-col="2">24</td>
+                  <td data-row="8" data-col="3">7</td>
+                  <td data-row="8" data-col="4">5</td>
+                  <td data-row="8" data-col="5">6148</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">Dept. of Labor</td>
+                  <td data-row="9" data-col="2">22</td>
+                  <td data-row="9" data-col="3">13</td>
+                  <td data-row="9" data-col="4">12</td>
+                  <td data-row="9" data-col="5">93888</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1">Dept. of Transportation</td>
+                  <td data-row="10" data-col="2">10</td>
+                  <td data-row="10" data-col="3">7</td>
+                  <td data-row="10" data-col="4">7</td>
+                  <td data-row="10" data-col="5">26602</td>
+                </tr>
+                <tr>
+                  <td data-row="11" data-col="1">Dept. of Education</td>
+                  <td data-row="11" data-col="2">1</td>
+                  <td data-row="11" data-col="3">1</td>
+                  <td data-row="11" data-col="4">1</td>
+                  <td data-row="11" data-col="5">4589</td>
+                </tr>
+                <tr>
+                  <td data-row="12" data-col="1">Dept. of Housing and Urban Development</td>
+                  <td data-row="12" data-col="2">2</td>
+                  <td data-row="12" data-col="3">1</td>
+                  <td data-row="12" data-col="4">1</td>
+                  <td data-row="12" data-col="5">32009</td>
+                </tr>
+                <tr>
+                  <td data-row="13" data-col="1">Dept. of the Treasury</td>
+                  <td data-row="13" data-col="2">7</td>
+                  <td data-row="13" data-col="3">5</td>
+                  <td data-row="13" data-col="4">5</td>
+                  <td data-row="13" data-col="5">23888</td>
+                </tr>
+                <tr>
+                  <td data-row="14" data-col="1">Dept. of Agriculture</td>
+                  <td data-row="14" data-col="2">28</td>
+                  <td data-row="14" data-col="3">28</td>
+                  <td data-row="14" data-col="4">12</td>
+                  <td data-row="14" data-col="5">10760</td>
+                </tr>
+                <tr>
+                  <td data-row="15" data-col="1">Dept. of Veterans Affairs</td>
+                  <td data-row="15" data-col="2">5</td>
+                  <td data-row="15" data-col="3">3</td>
+                  <td data-row="15" data-col="4">2</td>
+                  <td data-row="15" data-col="5">90697</td>
+                </tr>
+                <tr>
+                  <td data-row="16" data-col="1">Dept. of State</td>
+                  <td data-row="16" data-col="2">1</td>
+                  <td data-row="16" data-col="3">0</td>
+                  <td data-row="16" data-col="4">0</td>
+                  <td data-row="16" data-col="5">0</td>
+                </tr>
+                <tr>
+                  <td data-row="17" data-col="1">Total</td>
+                  <td data-row="17" data-col="2">295</td>
+                  <td data-row="17" data-col="3">179</td>
+                  <td data-row="17" data-col="4">129</td>
+                  <td data-row="17" data-col="5">836104</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>We set out to collect data on congressional correspondence with all federal agencies between 2007 and the date of the request (2017 through early 2025). Each federal agency and many sub-agencies have a FOIA office. Separate from the FOIA office, each agency keeps track of congressional correspondence differently. These differences are opaque, but became apparent to us as we filed requests and received records across agencies. <!--However, to ensure that we received enough information for the logs to be useful for our purposes, we specified that the essential fields of data were the sender, date, and subject of the correspondence.--><br>
+<!--TODO
+The template language used in each of our FOIA requests can be found in Appendix A. --></p>
+<p>From the beginning, we suspected that congressional offices communicated directly with many sub-agencies, not just Offices of Legislative Affairs or Offices of the Secretary. This intuition was validated as we received distinct records from subagency components, even after the central office had told us that they maintained all records of congressional correspondence for their agency. Other central offices clearer about the decentralized nature of interbranch representation. As one FOIA officer put it “OSD-JS (Office of the Secretary of Defense Joint Staff) Legislative Affairs is supposed to be the front door for DOD, but if somebody knows somebody, well…”</p>
+<p>Our first FOIA requests in 2016 asked about the kinds of records the agency kept. This informed our initial round of FOIA requests for correspondence logs with 27 sub-agencies within the U.S. Department of Agriculture (USDA) in February of 2017.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> By May, we had received records from 20 of the USDA sub-agencies. <!--We received these correspondence logs in spreadsheet form, which made them easier to process and begin to match with legislators' names (a process we discuss in more detail in the next section). <!--(Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?)--> Many other agencies, including the Environmental Protection Agency (EPA), the Department of Commerce, the Department of Education, the Indian Health Service (IHS) and Substance Abuse and Mental Health Services Administration (SAMHSA) within the Department of Health and Human Services, and several components of the Department of Transportation like the Federal Aviation Administration (FAA) and Federal Highway Administration (FHWA), also provided records in matter of weeks or months.</p>
+<p>However, the process for many other agencies was far less straightforward. We waited for nearly a year for records from the Department of Veterans Affairs. Other agencies, including the Internal Revenue Service (IRS) in the Treasury Department, the Office of Congressional and Intergovernmental Affairs (OCIA) in the Department of Labor, and the Bureau of Indian Affairs and the Office of the Solicitor within the Department of the Interior, took a year or more. Still other agencies, including the Centers for Disease Control and Prevention (CDC) in the Department of Health and Human Services, asked that we accept a rolling release of the records (usually a year or two at a time). The U.S. Citizenship and Immigration Services (USCIS) in the Department of Homeland Security has an extraordinary volume of congressional correspondence and initially agreed to give us congressional correspondence logs from one year, 2018. We received these logs a year and a half after filing the request. Immediately upon receiving the 2018 data in August of 2020, we filed a second request for congressional correspondence logs from 2016, which we received four and a half years later, in April of 2025.</p>
+<p>The State Department is notorious for its backlog of FOIA requests. We filed our initial request for all State Department congressional correspondence logs on May 18, 2018. As of June 2026, we have still not received the records. We have been in frequent communication with State Department FOIA officials over the last eight years to check on the status of our request. <!--Most recently, they estimated that our request would be complete on May 29, 2026. A recent follow-up email for a new estimated completion date in June of 2026 has not yet been answered. --> State is the only department for which we do not have records.</p>
+<p>After receiving initial batches of documents (primarily covering 2007-2017) for a number of agencies, we then filed second requests with these agencies for their congressional correspondence logs for 2018 and 2019. Response times also varied for this second batch of requests, although they were shorter on average because most of these requests were directed to agencies that had already been responsive. In total, we have filed at least 434 FOIA requests over nearly nine and a half years.</p>
+<p>No single system or database across agencies for keeping track of congressional correspondence. Agencies vary in the sophistication of their tracking systems and in what these systems record. Some agencies changed tracking systems partway through our time series, ultimately giving us multiple sets of logs in slightly different formats from the same agency. At minimum, useful congressional correspondence logs contained the name(s) of the sender(s) (members of Congress), the date of the correspondence, and a summary of the subject of the correspondence.</p>
+<p>The formats in which we received the records varied widely. Although we requested that records be sent to us “in the original, machine-readable format (i.e., if possible, not .pdf),” many agencies were only able to provide the data as PDFs because of the redaction of personal identifiable information that was required. In such situations, we converted the PDFs to spreadsheets. Some PDFs were machine-readable and could neatly be converted to spreadsheets using PDF conversion software. Other PDFs required extensive reconstruction by hand, mostly because redactions split individual observations. Still others were not machine-readable, including handwritten notes, and had to be typed into spreadsheets entirely by hand.</p>
+</section>
+<section id="processing-and-coding-the-data" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="processing-and-coding-the-data"><span class="header-section-number">A.2</span> Processing and coding the data</h2>
+<p>After converting the agency-specific logs to spreadsheet form if necessary, we then turned to cleaning the data from each agency. Our goal was to identify all instances of correspondence in the agency logs that could be linked to a member of Congress during the time in which they were in office. As such, we required the name of the member of Congress and the date of the correspondence to appropriately match the observations with our list of member names and incorporate the observations into our merged dataset. Because of the variation in agencies’ record-keeping practices, the necessary conversions of the logs from PDFs, and natural human error, the data required extensive cleaning. Member names failed to match for a variety of reasons, including typographical errors in agencies’ logs, the use of aliases, nicknames, or maiden and middle names for legislators, and OCR errors that occurred in the process of converting the logs. (For example, in one instance, “Arlen Specter” had become “Alien Specter.”) We also had to drop observations that were included in the logs but were not sent by members of Congress; this included communications from governors, state legislators, and other political officials, as well as outgoing correspondence from the agency to members of Congress. We completed this work primarily on an ongoing basis as we received new data, completing a large portion of the historical records with the help of several undergraduate research assistants in the summers of 2018 and 2019.</p>
+<p>Another concurrent task was coding the data to identify the purpose of the communication. We set out to identify five different types: (1) constituency service on behalf of individuals; (2) constituency service on behalf of businesses; (3) constituency service on behalf of nonprofits or local governments; (4) policy work on behalf of industries; and (5) general policy work. We also included a sixth category for “other” correspondence, which mostly included thank-you notes, congratulations, and other personal letters that rarely appeared in the data. Where agencies did not provide the original letters or emails from members of Congress, we used the information contained in the summaries of the correspondence, usually found in a “Subject” field from a correspondence tracking system, to code each contact. The level of detail included in these summaries varied widely across agencies. For some agencies with sparser subjects, it was possible to auto-code for our types by identifying keywords or phrases that were repeated throughout the logs for a particular agency. We only did this when we were sure that every instance of that key phrase was unambiguously a certain type. Some agencies tagged individual constituency service requests as “casework” or “constituent,” which was useful for our purposes. Most of the data, however, required hand-coding to consider detailed and/or ambiguous subjects more carefully. For example, some contacts were labeled as follow-up from a contact on an earlier date, the subject of which we could identify by looking for the earlier record.</p>
+<p><a href="#fig-data-by-type" class="quarto-xref">Figure&nbsp;<span>A.1</span></a> and <a href="#tbl-data-by-type" class="quarto-xref">Table&nbsp;<span>A.2</span></a> show the result of our coding for the hand-coded observations. The vast majority of observations — over 540,000 — were coded as constituency service on behalf of individuals.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Altogether, all three types of constituency service make up 88% of our observations. We observed nearly equal amounts of constituency service on behalf of businesses and nonprofits/local governments (about 42,000 each).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> The remaining 12% of our observations were coded as policy work, with most of that (over 72,000 observations) being general policy work. Corporate policy work was the smallest category, with over 13,000 observations.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-by-type" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-by-type-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.1: Volume of Interbranch Representation by Hand-Coded Type
+</figcaption>
+<div aria-describedby="fig-data-by-type-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/data_by_type-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div id="tbl-data-by-type" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-by-type-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.2: Volume of Interbranch Representation by Hand-Coded Type
+</figcaption>
+<div aria-describedby="tbl-data-by-type-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 85%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type of Interbranch Representation</th>
+<th style="text-align: right;">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Constituent (501c3 or local government)</td>
+<td style="text-align: right;">41,917</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Constituent (corporate)</td>
+<td style="text-align: right;">42,092</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Constituent (individual)</td>
+<td style="text-align: right;">547,202</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Policy (general)</td>
+<td style="text-align: right;">72,570</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Policy (corporate)</td>
+<td style="text-align: right;">13,617</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uncoded</td>
+<td style="text-align: right;">115,566</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">—————————————</td>
+<td style="text-align: right;">——</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TOTAL</td>
+<td style="text-align: right;">832,964</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>To facilitate hand-coding by a number of different research assistants over time (and to standardize and record our coding process), we created a detailed codebook that spells out the differences between our types. We defined personal/individual constituency service as “individual, non-commercial constituent service”; examples included “help with a government form…visa, back pay, military honor…disability application, worker compensation, personal complaint,” and other similar cases that were clearly on behalf of an individual with no business interests involved. We considered commercial service, or constituency service on behalf of businesses, to be “anything related to a specific individual case by a business (including business owners like farmers and consultants).” Examples included helping businesses with grants, loans, contracts, or fines. Service on behalf of government and nonprofit entities (type 3) was similar, except this work was done on behalf of “municipal or state governments (including cities, counties, etc.) or non-business-oriented nonprofit organizations.” It also included assistance with (or support for) grant applications. In many cases, agencies’ congressional correspondence logs named the specific government or nonprofit entity; for some organizations, it was necessary to conduct a web search to confirm their nonprofit status.</p>
+<p>Our two remaining types of interbranch representation focused on policy work. Commercial policy involved “anything applying to a class of commercial activity or businesses (e.g., shipping, airlines, agriculture),” including “legislation, bills, acts, appropriations, authorizations, etc.” Some summaries of correspondence mentioned specific industries, which meant that these contacts were often fairly straightforward to code. Finally, we defined general policy work as work that was not done in the service of any particular individual, business, or industry. General policy communications included legislators’ requesting policy-relevant information; requests from legislators or committees related to hearing testimonies or reports; and requests for clarification on agency rules or lobbying regarding proposed agency rules. <!--Full details of our coding process and codebook can be found in Appendix A. --></p>
+</section>
+<section id="the-data-generating-process" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="the-data-generating-process"><span class="header-section-number">A.3</span> The data generating process</h2>
+<section id="the-role-of-legislators-and-staff" class="level3">
+<h3 class="anchored" data-anchor-id="the-role-of-legislators-and-staff">The role of legislators and staff</h3>
+<p>This work is done almost entirely by office staff. Indeed, when members leave Congress, their staff continue to represent their district. For example, in the period between Rep.&nbsp;Patrick Meehan (PA-7) resigning from Congress in April of 2018 and Rep.&nbsp;Mary Gay Scanlon assuming office in November, USCIS received 51 requests from the office that the agency tagged as from “Vacant, Meehan” along with dozens of other letters from staff whose members were no longer serving and did not yet have a replacement. These letters end up getting dropped from our legislator-level analyses. <!--After leaving a senior policy position at the Department of Homeland Security and before becoming chief of staff to Ron Johnson, Donald H. Kent wrote hundreds of letters to DHS. 
+<!--the principal legislation adviser to Secretary Michael Chertoff 2005—2006, and before becoming chief of staff to Ron Johnson, Donald H. Kent, https://prabook.com/web/donald_h.kent/1457458, 
+--></p>
+<p>Committee staff are active as well. Agencies often made a record of phone calls, requests, or inquiries from committee staff. For some agencies, particular committee staffers were among the most frequent people in the correspondence logs. We only capture committee work when it is attributed to specific members. This usually involved letterhead communication from the chair or ranking member, sometimes signed by other (often co-partisan) members of the committee. Thus we are also under-counting interbranch representation when it comes to the work that committees do. For example, “House Ways and Means Committee Staff” wrote over 2000 letters to the U.S. Trade Representative between 2007 and 2014. These letters are not in our analysis because the agency did not identify them as coming from a member of Congress.</p>
+</section>
+<section id="recordkeeping" class="level3">
+<h3 class="anchored" data-anchor-id="recordkeeping">Recordkeeping</h3>
 <p>The data we received in response to our Freedom of Information Act requests include several filtering processes, leading to an under-count of true levels of interbranch representation. First, the agency had to make a record of the interaction. If a staffer from a congressional office talked to someone they know at an agency over the phone, they may not always make a record of it. However, they often do, because internal agency procedures often have precise guidance about recording interactions with members of congress, <!--cite proceedures manual--> which often include minimum response times and signature levels. Nearly all agencies use a correspondence tracking system provided by a government contractor that standardizes information and tracks cases that need followup. Members of congress are generally tagged as “VIP” or “Priority” in these tracking systems. <!---We observed this in the data we received and it was confirmed in interview with former officials. Anything having to do with congress will be treated differently. Anything going out always goes way up the chain. For executive regulatory agencies (rather than the independent agencies) this means that every agency potentially involved as well as the White House sign off on anything sent to a member of Congress. DID OUR IRB COVER INTERVIEWS? THIS CAME FROM A CONVESATION I HAD WITH A INSTRUCTUR WHO WAS A RETIRED SES. ---></p>
+</section>
 <section id="gaps-and-changes-in-recordkeeping" class="level3">
 <h3 class="anchored" data-anchor-id="gaps-and-changes-in-recordkeeping">Gaps and changes in recordkeeping</h3>
 <p>In some cases, document retention policies limited the timeframe of our sample. For example, The Defense Finance and Accounting office destroys all records of correspondence after 2 years.</p>
@@ -311,11 +613,30 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>“We are a small agency, and when a political appointee comes in, and they have ideas about how to run things, you would not expect that to include the correspondence management system, but, well, I’ve said too much already…” - FOIA Officer</p>
 </blockquote>
-<p>For example, The DOL Office of Administrative Law Judges told us that they “discontinued the use of the spreadsheet” tracking congressional inquiries in November 2016.</p>
+<p>For example, The DOL Office of Administrative Law Judges told us that they “discontinued the use of the spreadsheet” tracking congressional inquiries in November 2016. Another agency noted how staffing at during the presidential transitions may affect recordkeeping.</p>
+<blockquote class="blockquote">
+<p>“We have no responsive records between April 13, 2016, and May 16, 2017. It is impossible to say for certain why there is this gap; however, it is likely the changes in staffing leading up to and following the change in Administration contributed.” - FOIA Officer</p>
+</blockquote>
+<p>We included 0-counts for agency-member-months with no contacts of a particular type (indeed, it is mostly 0s). I included and excluded agencies by year, because we asked for data by year and generally got data by year. That said, an important caveat about censoring: We include agency-year fixed effects in all of our models because record-keeping is not always consistent across years (e.g., several FOIA offices told me that they had no records for much of 2017 because no one in the Secretary’s office knew (or cared) to write things down. This was probably not evenly distributed across months within 2017. Other shocks are similarly not evenly distributed. Relatedly, there is sometimes left and right censoring in the tails. We have trimmed out some years in the tails where we know this happened, but it can be hard to know with the smaller subagencies that do not get much congressional attention. Is it because they did not include it in the request, a failure of record-keeping, or a true 0? It’s often hard to tell.</p>
+<p><a href="#fig-data-coverage" class="quarto-xref">Figure&nbsp;<span>A.2</span></a> shows the coverage of agencies used in the data, including the relative density of the data per agency by month.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-coverage" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.2: Data Coverage by Agency
+</figcaption>
+<div aria-describedby="fig-data-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/completeness-percent.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="coding-types-of-interbranch-representation" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="coding-types-of-interbranch-representation"><span class="header-section-number">A.2</span> Coding Types of Interbranch Representation</h2>
+<section id="coding-types-of-interbranch-representation" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="coding-types-of-interbranch-representation"><span class="header-section-number">A.4</span> Coding Types of Interbranch Representation</h2>
 <p>This section goes into more detail on how we coded types of interbranch representation.</p>
 <p>To account for uncertainty or ambiguity in our coding, we also identified the level of certainty of each decision made during the hand-coding process (1 = very certain, 2 = fairly certain, and 3 = toss-up), as well as the next best guess for an alternative type. Our intercoder agreement on EPA is .78 overall and .9 for requests marked a certianty of 1.</p>
 <!--https://foia.blogs.archives.gov/2017/09/11/cheers-for-a-national-foia-portal/-->
@@ -351,10 +672,24 @@ Sounds good! I will let I&A and S&T know that we intend to appeal. I think Fran 
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Johannes1984" class="csl-entry" role="listitem">
+Johannes, John R. 1984. <em><span class="nocase">To Serve the People: Congress and Constituency Service</span></em>. University of Nebraska Press.
+</div>
 <div id="ref-RiponAdvance2018" class="csl-entry" role="listitem">
 Ripon Advance News Service. 2018. <em>Hill Admonishes Social Security Administration for Wasteful Spending</em>. Ripon Advance. <a href="https://riponadvance.com/stories/hill-admonishes-social-security-administration-wasteful-spending/">https://riponadvance.com/stories/hill-admonishes-social-security-administration-wasteful-spending/</a>.
 </div>
+<div id="ref-Stowe2026" class="csl-entry" role="listitem">
+Stowe, Lydia. 2026. <em>How Congressional Staffers Can Manage 81 Million Messages from Constituents</em>. Fireside by FiscalNote. <a href="https://www.fireside21.com/resources/congressional-staffer-communication/">https://www.fireside21.com/resources/congressional-staffer-communication/</a>.
 </div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Several of these requests turned out to be redundant, as some USDA components held congressional correspondence logs for multiple sub-agencies. This turned out to be a common pattern where record-keeping was fairly opaque, even to FOIA officers, who referred us back and forth among components.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Due to incomplete record keeping and compliance with our FOIA requests, these are certainly under counts. One vendor of correspondence management systems <span class="citation" data-cites="Stowe2026">(<a href="references.html#ref-Stowe2026" role="doc-biblioref">Stowe 2026</a>)</span> estimated that congressional offices logged 128 thousand cases in 2022 alone — though we do not know what portion of these required dealing with the Federal Bureaucracy.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Our overall breakdown of these three types of constituency service is similar to that observed by <span class="citation" data-cites="Johannes1984">Johannes (<a href="references.html#ref-Johannes1984" role="doc-biblioref">1984</a>)</span> decades earlier. In surveying 37 Senate offices, Johannes found that 73.2% of all cases they received came from individuals; 11.2% came from state and local governments; and the rest came from businesses, private organizations, and other groups. Among the 144 House offices surveyed, 80% of their incoming cases came from individuals, while 8.9% came from government, and the remainder came from businesses and other organizations.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -915,8 +1250,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix-b.html" class="pagination-link" aria-label="Data">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix-b.html" class="pagination-link" aria-label="Summary statistics">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Summary statistics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
