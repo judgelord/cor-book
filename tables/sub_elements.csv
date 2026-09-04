@@ -1,0 +1,16 @@
+,element,sub,Constituency\nService,Corporate\nService,NGO/Gov't\nService,General\nPolicy,Corporate\nPolicy,Total
+1,Demand,Number of constituents,Strong,Strong,Strong,Strong,Strong,Strong
+2,Demand,Neediness of constituents,Mixed,None,Strong,None,None,Mixed
+3,Demand,Political savvy of constituents,Mixed,Strong,Strong,Mixed,None,Mixed
+4,Capacity,Senate,Strong,Strong,Strong,Strong,Strong,Strong
+5,Capacity,Experience in Congress,Strong,Strong,Strong,Strong,Strong,Strong
+6,Capacity,Experience in state leg.,None,None,None,None,None,None
+7,Capacity,Committee leadership,Mixed,Mixed,Mixed,Strong,Strong,Strong
+8,Capacity,Reporting committee seat,Mixed,Mixed,Mixed,Strong,Strong,Strong
+9,Capacity,Staff volume,Mixed,Mixed,Strong,Mixed,Mixed,Mixed
+10,Capacity,Staff allocation,Mixed,Mixed,Strong,Mixed,Mixed,Mixed
+11,Strategic incentives,Partisan alignment,None,Mixed,Mixed,Mixed,Mixed,Mixed
+12,Strategic incentives,Ideological alignment,Mixed,Mixed,Strong,Strong,Strong,Strong
+13,Strategic incentives,Business,NA,Strong,None,None,Strong,None
+14,Strategic incentives,Electoral incentives,Mixed,None,Mixed,None,None,None
+15,Strategic incentives,Institutional incentives,Strong,Strong,Strong,Strong,Strong,Strong

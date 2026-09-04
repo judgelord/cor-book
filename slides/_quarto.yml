@@ -1,0 +1,29 @@
+project:
+  type: default
+
+format:
+  revealjs:
+    transition: none
+    #background-transition: none
+
+bibliography: "../assets/cor.bib"
+self-contained: true
+
+author:
+  - name: Devin Judge-Lord
+    affiliations:
+      - name: University of Michigan
+    #department: Ford School of Public Policy
+    #email: "judgelor@umich.edu"
+    attributes:
+      corresponding: true
+  - name: Eleanor Powell
+    affiliations:
+      - name: University of Wisconsin-Madison
+    #department: Department of Political Science
+  - name: Rochelle Snyder
+    affiliations:
+      - name: Coe College
+    #department: Department of Political Science
+#date: today
+cap-location: bottom

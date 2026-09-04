@@ -3,6 +3,11 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap);
 
+.reveal .slides span.citation {
+  font-size: 0.5em;
+  color: #666;
+}
+
 // fonts
 $font-family-sans-serif: 'Nunito Sans', sans-serif !default;
 
