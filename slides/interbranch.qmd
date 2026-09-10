@@ -19,6 +19,9 @@ format:
 #| label: setup
 #| include: false
 
+# copy to docs
+file.copy(from = here::here("slides", "interbranch.html"), to = here::here("docs", "interbranch.html"), overwrite = T)
+
 here::i_am("slides/interbranch.qmd")
 
 type = "total"
