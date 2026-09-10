@@ -8,14 +8,31 @@
 knitr::include_graphics(here::here("figs", "mermaid-figure-2.png"))
 ```
 
+\clearpage 
+
 ## Main Model
 
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: Cross-sectional differences in requests to federal agencies {#tbl-models-full}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
 
 ```{r}
-#| label: tbl-models-full
-#| tbl-cap: "Cross-sectional differences in requests to federal agencies"
-
 load(here::here("models", "models_full-1.Rdata"))
+library(tinytable)
+here::here("code", "formatting.R") |> source()
 
 
 modelsummary(models_full,
@@ -42,6 +59,8 @@ modelsummary(models_full,
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 1)
 ```
+
+\clearpage
 
 ## Alternative Models
 
@@ -93,7 +112,6 @@ Additionally, each section includes a model where we exclude committee leadershi
 ```{r}
 type = "total"
 here::here("code", "formatting.R") |> source()
-
 ```
 
 
@@ -179,6 +197,7 @@ modelsummary(models_full_majority,
   style_tt("~groupi", j = 1, indent = 1)
 ```
 
+\clearpage
 
 #### Total Interbranch Representation: Interbranch representation as electoral strategy
 

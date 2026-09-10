@@ -24,8 +24,7 @@ book:
   cover-image: assets/cover.png
   chapters:
      - index.md
-     - agenda.md
-     - preface.md
+ #    - preface.md
      - acknowledgements.md
      - ch1.qmd
      - ch2.qmd

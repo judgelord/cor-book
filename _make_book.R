@@ -9,6 +9,8 @@ if(F){
   refresh = T # refresh if data or models used in manuscript tables changed, don't if just adding new things
   job = T
 
+  here::here("replication-descriptive.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
+
   here::here("replication-figs.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
 
   here::here("replication-total.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)

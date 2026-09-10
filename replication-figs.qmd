@@ -958,7 +958,7 @@ comparison_plot(caption = "Legislators with 3+ years of expiernce vs freshmen")
 ```{r}
 #| label: marginal-competitive
 #| fig-cap: "figs/marginal-competitive-1.png"
-#| fig-height: 3
+#| fig-height: 2.3
 #| fig-width: 5
 #| out-width: "100%"
 
@@ -978,7 +978,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Legislators with competitive prior elections vs others") 
+comparison_plot(caption = "Legislators with competitive prior elections vs. others") 
 ```
 
 
@@ -1007,7 +1007,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Legislators with competitive prior elections vs others") 
+comparison_plot(caption = "Legislators with competitive prior elections vs. others") 
 ```
 
 ## nominate_dim1 
@@ -1075,7 +1075,7 @@ comparison_plot(caption = "with one-standard-deviation greater distance from age
 ## party 
 
 
-```{r, eval=FALSE}
+```{r}
 #| label: marginal-party
 #| fig-cap: "figs/marginal-party-1.png"
 #| fig-height: 2.3

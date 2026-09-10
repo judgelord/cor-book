@@ -144,11 +144,11 @@ We use staff budget data for members of the House from @CrossonFurnasLapiraBurga
 
 ### Measuring strategic behavior and the political environment 
 
-
+ 
 #### Office staff allocation across priorities
 
 In addition to the overall staffing levels, @CrossonFurnasLapiraBurgat2021 measure the allocation by category. We use spending on constituency service, legislative, and communications staff to measure how legislators prioritize their office resources. We compare each of these to office staff spending (the omitted category in the models). 
-
+--> 
 
 #### Partisanship and Ideological Distance
 

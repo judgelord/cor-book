@@ -72,9 +72,6 @@ So this is a paper about legislator offices, especially, as you will see, office
 ::: {.notes}
 Zooming out, we can think about representation varying along two dimensions: (1) WHO someone is representing and (2) WHAT kind of action is the representative taking to do so. 
 
-
-So this is a paper about legislator offices, especially, as you will see, offices of powerhouse legislators like Robert Byrd's, whose office is in the background here. 
-
 [Read slide] 
 :::
 
@@ -389,17 +386,6 @@ knitr::include_graphics(here::here("figs", "marginal-chair-1.png"))
 ```
 
 
-## Capacity: more `committee staff`
-
-more policy work, even for non-chairs
-
-```{r}
-#| label: fig-marginal-ranking_minority
-
-knitr::include_graphics(here::here("figs", "marginal-ranking_minority-1.png"))
-```
-
-
 
 ## Capacity: `experience` in Congress
 
@@ -442,9 +428,9 @@ knitr::include_graphics(here::here("figs", "marginal-experience-1.png"))
 --> 
 
 
-## Reelection Incentives: `Competitive general`
+## Reelection Incentives: 
 
-a bit more constit. service in House
+`Competitive general` a bit more constit. service in House
 
 ```{r}
 #| label: fig-marginal-electoral
@@ -478,30 +464,6 @@ knitr::include_graphics(here::here("figs", "marginal-party-1.png"))
 
 
 
-## Partisan/Ideological Incentives: 
-
-`Copartisan presidents`  incentivize helping nonprofit & local government get grants and industrial policy.
-
-```{r}
-#| label: fig-marginal-presidents_party
-##| fig-cap: "Differences by President's Partisanship"
-##| out-width: "100%"
-
-knitr::include_graphics(here::here("figs", "marginal-presidents_party-1.png"))
-```
-
-::: {.notes}
-In line with Berry, Burden, and Howell -- presidential pork-seeking. 
-:::
-
-
-::: {.notes}
-When legislators are advocating for grants for nonprofits and local governments, or for public interest policy, they are mostly working with their ideological allies -- agencies perceived as being aligned with their policy agenda. 
-
-For policy work on behalf of corporations, they are engaging with the unaligned. What's going on here is mostly comments opposing regulations, for example Republicans commenting on EPA regulations. 
-:::
-
-
 ## Institutional Incentives 
 
 `Oversight positions` reflect and extend interests.
@@ -522,7 +484,7 @@ There is a causal effect of joining a committee, but it is smaller than the cros
 ```{r}
 #| label: results-matrix
 #| echo: false
-#| fig-width: 10
+#| fig-width: 14
 #| fig-height: 7.5
 #| out-width: "100%"
 
@@ -561,7 +523,7 @@ results <- read_csv(here::here("tables/sub_elements.csv") ) |> group_by(element,
   pivot_longer(#!element, !sub,
     #cols = c(element, sub),
                cols = c(
-    "Corporate\\nService",
+    "Constituency\\nService",
     "NGO/Gov't\\nService",
     "General\\nPolicy",
     "Corporate\\nPolicy",
@@ -667,6 +629,20 @@ knitr::include_graphics(here::here("figs", "marginal-percent_workers_government-
 :::
 
 
+
+
+## Capacity: more `committee staff`
+
+more policy work, even for non-chairs
+
+```{r}
+#| label: fig-marginal-ranking_minority
+
+knitr::include_graphics(here::here("figs", "marginal-ranking_minority-1.png"))
+```
+
+
+
 ## Capacity: Staff
 
 ```{r}
@@ -711,6 +687,30 @@ knitr::include_graphics(here::here("figs", "marginal-distance-1.png"))
 ```
 
 
+
+
+## Partisan/Ideological Incentives: 
+
+`Copartisan presidents`  incentivize helping nonprofit & local government get grants and industrial policy.
+
+```{r}
+#| label: fig-marginal-presidents_party
+##| fig-cap: "Differences by President's Partisanship"
+##| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "marginal-presidents_party-1.png"))
+```
+
+::: {.notes}
+In line with Berry, Burden, and Howell -- presidential pork-seeking. 
+:::
+
+
+::: {.notes}
+When legislators are advocating for grants for nonprofits and local governments, or for public interest policy, they are mostly working with their ideological allies -- agencies perceived as being aligned with their policy agenda. 
+
+For policy work on behalf of corporations, they are engaging with the unaligned. What's going on here is mostly comments opposing regulations, for example Republicans commenting on EPA regulations. 
+:::
 
 
 
@@ -1077,3 +1077,87 @@ modelsummary(models,
 
 ## References 
 
+
+<!-- 
+
+APSA FEEDBACK 
+
+Ruth 
+
+skeptical and or off-beat comments 
+
+made me think about representation 
+
+theories of representation 
+- demand = delegate model 
+INTERVIEWS 
+- anticipate demand = Trustee 
+
+Voice to opinions 
+Lobbying for needs 
+
+
+ALT FRAME 
+- project about congressional influence -- NOT WE CANT SAY INFLUENCE, BUT YES, UNDERAPPRECIATED ACTION 
+
+congress ill-equipped for design reasons - difficult for congress in SOP
+
+could be more assertive - AT THE INDIVIDUAL LEVEL - YES, BUT CAPACITY CONSTRAINED
+- fire alarms and police patrols
+- aggregates up 
+
+
+understimateing congress- because they are hard to see 
+
+
+extanding congress into thinking about exeutive 
+
+state of seperatioin of powers - YES!
+- BUT CAPACITY CONSTRAINED 
+
+channeling demands vs anticipating 
+- BOTH AND 
+
+
+Focus on engagement rather than representation 
+
+---RESPONSE----
+
+1. theories of representation -YES, MORE IN THE BOOK, MORE NEEDED
+
+2. influence - YES, 2 THINGS
+- THIS IS PROBABLY THE SECOND BOOK 
+- I HAVE SOME WORK SHOWING THAT MOCS INFLUENCE RULEMAKING 
+
+3. SCOLRATIC CONGRESS + SOP 
+- HISTORICAL MOMENT WHERE ACTION IN THE EXECUTIVE BRANCH
+- CAPACITY CONSTRAINED 
+
+---
+
+QUESTION FOR NICHOLAS 
+- COURT CURBING - ALLOWING OR PROHIBITING LITIGATION 
+- SHAL -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--> 

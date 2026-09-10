@@ -6,3 +6,6 @@ byrdoffice.jpg
 cruzoffice.jpg
 Powell-interbranchslides.pdf
 Powell-interbranchslides.qmd
+
+/.quarto/
+**/*.quarto_ipynb

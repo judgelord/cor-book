@@ -89,7 +89,7 @@ Our two remaining types of interbranch representation focused on policy work. Co
 
 
 
-## The data generating process 
+## The data generating process {#sec-appendix-dgp}
 
 
 ### The role of legislators and staff
