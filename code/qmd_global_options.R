@@ -88,19 +88,23 @@ standard_errors <- . %>% .$se %>%
 
 
 # plot defaults
-library(ggplot2); theme_set(
-  theme_minimal() +
-    theme(
- )
+library(ggplot2)
+
+okabe_ito <- c(
+  "#E69F00", # orange
+  "#56B4E9", # sky blue
+  "#009E73", # bluish green
+  "#F0E442", # yellow
+  "#0072B2", # blue
+  "#D55E00", # vermillion
+  "#CC79A7", # reddish purple
+  "#000000"  # black
 )
 
-library(ggplot2)
-library(scales)
-
 options(
-  ggplot2.continuous.fill = NULL,
+  ggplot2.continuous.fill   = NULL,
   ggplot2.continuous.colour = NULL,
-  ggplot2.continuous.color = NULL
+  ggplot2.continuous.color  = NULL
 )
 
 theme_set(
@@ -108,22 +112,8 @@ theme_set(
     theme(
       palette.colour.continuous = scales::pal_viridis(option = "cividis"),
       palette.fill.continuous   = scales::pal_viridis(option = "cividis"),
-      palette.colour.discrete   = scales::pal_viridis(option = "cividis", direction = -1),
-      palette.fill.discrete     = scales::pal_viridis(option = "cividis", direction = -1),
-      # # FOR AJPS
-      # panel.grid = element_blank(),
-      # legend.position = "bottom",
-      # # make text black, not grey
-      # axis.text = element_text(color="black"),
-      # axis.ticks = element_line(color = "black"),
-      # # add space between labels and text
-      # axis.title.x = element_text(margin = unit(c(5, 0, 0, 0), "mm")),
-      # axis.title.y = element_text(margin = unit(c(0, 5, 0, 0), "mm")),
-      # plot.title = element_text(vjust = 1,
-      #                           lineheight = 0,
-      #                           margin = margin(0, 0, 0, 0)), # Margins (t, r, b, l)
-      # # END FOR AJPS
-      panel.border  = element_blank()
+      palette.colour.discrete   = okabe_ito,
+      palette.fill.discrete     = okabe_ito
     )
 )
 
