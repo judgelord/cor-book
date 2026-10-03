@@ -1,0 +1,116 @@
+---
+title: "Staff Descriptives from Brookings Vital Statistics"
+subtitle: ""
+author: Devin Judge-Lord
+format: 
+  #pdf: 
+  html:
+      self-contained: true
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
+---
+
+Packages: 
+  
+- `tidyverse` and `magrittr`, for data wrangling
+- `scales` for plot scales 
+- `ggrepel` for plot labels
+- `here` for file paths 
+- `knitr` for document formatting 
+- `tinytable` for table formatting 
+
+
+
+```{r global.options, include=FALSE, purl=FALSE}
+testing = F
+verification = T
+here::here("code", "qmd_global_options.R") |> source() 
+```
+
+# Data 
+
+```{r}
+brookings <- read_csv(here::here("data", "brookings", "vitalstats_ch5_tbl2.csv")) |> 
+  rename(year = Year, 
+         chamber = Chamber) |> 
+  mutate(Employees = as.integer(Employees)) |> 
+  mutate(source = "Brookings")
+
+here::here("data", "member_year_experience.rda") |> 
+  str_replace("cor-book", "congressional_staff") |>
+  load()
+
+legistorm <- member_year_experience |>
+  group_by(year, chamber) |> 
+  summarise(Employees = sum(staff_count)) |> 
+  mutate(source = "Legistorm")
+```
+
+
+
+```{r}
+#| label: brookings-staff
+#| fig-width: 5.5
+#| fig-height: 3.5
+
+brookings |> 
+  ggplot() + 
+  aes(x = year, 
+      color = chamber,
+      y = Employees |> as.numeric()) + 
+  geom_line() +
+  #geom_point() + 
+  #geom_vline(xintercept = 1972) +
+  labs(x = "", 
+       y = "Personal Staff",
+       color = "") 
+```
+
+
+```{r}
+#| label: legistorm-staff
+#| fig-width: 5.5
+#| fig-height: 3.5
+
+legistorm |> 
+  ggplot() + 
+  aes(x = year, 
+      color = chamber,
+      y = Employees |> as.numeric()) + 
+  geom_line() +
+  #geom_point() + 
+  #geom_vline(xintercept = 1972) +
+  labs(x = "", 
+       y = "Personal Staff",
+       color = "") 
+```
+
+
+```{r}
+#| label: combined-staff
+#| fig-width: 5.5
+#| fig-height: 3.5
+
+d <- full_join(legistorm |> filter(year>2010),
+               brookings)
+
+d |> 
+  drop_na(chamber) |> 
+  ggplot() + 
+  aes(x = year, 
+      color = chamber,
+      linetype = source,
+      y = Employees |> as.numeric()) + 
+  geom_line() +
+  #geom_point() + 
+  #geom_vline(xintercept = 1972) +
+  labs(x = "", 
+       y = "Personal Staff",
+       color = "") 
+```
+
