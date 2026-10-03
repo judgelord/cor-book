@@ -1,0 +1,404 @@
+# Interbranch Representation---For Whom? And How? {sec-effects}
+
+TODO: MOVE ALL QUANTATIVE FIGURES TO CHAPTER 4 
+
+>ABSTRACT: We have argued that interbranch representation varies along two dimensions---who is represented and how. This chapter shows what interbranch representation on behalf of different constituencies --- individuals, nonprofits, local governments, business --- looks like. First we look at particularized service ("casework") on behalf of each of these constituencies. Then we show what policy work looks like. Often casework and policywork are linked, with casework informing policy work. 
+
+```{r, include=FALSE, cache=FALSE}
+here::here("code", "formatting.R") |> source()
+```
+
+## Representing Individual Constituents {#sec-type1}
+
+```{r, include=FALSE, cache=FALSE}
+type = 1
+load(here::here("data", type, "means.Rdata"))
+mean = mean*n_agency
+```
+
+
+> An individual complaint or request for a favor may itself be trivial, except to the aggrieved or hopeful citizen and his family. Responding to it may tax the energy and ingenuity of an overworked member of Congress and his staff. No single request left unheeded is likely to rock the Republic. But the provision of millions of such minuscule services, in their totality, amounts to a major function of modern American government. How well these services are performed goes a long way in determining the confidence of citizens in their representatives.
+>
+> --- @Olson1966, pg. 338.
+
+Olson's quote about constituency service speaks to the importance of constituency service for the individuals it helps. Constituency service is also important for members of Congress in a number of ways, including as a major component of interbranch representation. In this chapter, we describe what individual constituency service looks like from this perspective and assess what explains inequalities in this activity across legislators. We find that various elements of demand, capacity, and strategic responses to the political environment matter for individual constituency service. Most notably, legislators with more experience and with more constituents, as well as legislators who are more ideologically moderate, do more of this work. 
+
+
+
+```{r}
+#| label: fig-anecdote
+#| fig-cap: "Representative Colin Allred's office takes credit for constituent casework and encourages constituents to ask his office for help"
+
+knitr::include_graphics(here::here("anecdotes", 1, "AllredTweet.png"))
+```
+
+Legislators perform a variety of tasks to help and serve individual constituents [@Blackwood2026], and the difference between a constituent request for assistance and a constituent communication about policy is not always clear [@Snyder2024]. Because we are concerned with how legislators engage with federal agencies on behalf of constituents, we use a definition of individual constituency service that is distinct from definitions used in other studies. We conceptualize individual constituency service as actions that congressional offices have taken on behalf of individual constituents, including groups of individuals and large numbers of people,^[For example, Senator Marco Rubio wrote about people across Florida receiving FEMA disaster aid.] to help them navigate the federal bureaucracy. As the post from Rep. Colin Allred in @fig-anecdote shows, this assistance often involves returning money to constituents from the federal government by correcting errors in benefits payments or tax refunds.
+More generally, casework involves help with paperwork, either because they impose administrative burdens or because the bureaucratic processes or laws are a poor fit for the case.
+Legislators also view individual constituency service as important enough to warrant regular communications and significant staff budgets.  
+
+
+Beyond these "classic" examples of individual constituency service, there are also many examples of correspondence on behalf of individuals that did not involve a problem with the federal bureaucracy (at least not in the sense that the bureaucracy had made an error or the constituent had experienced some injustice). The National Archives and Records Administration (NARA) received thousands of requests from legislators on behalf of constituents who were seeking copies of their family members' military records. Many legislators also forwarded constituent complaints and queries to the Food and Drug Administration (FDA) within the Department of Health and Human Services. Although these concerns were broadly related to the policy work of the FDA, they often did not suggest a specific bureaucratic failure on the part of the agency. For example, Senator Arlen Specter wrote to the FDA with a request to investigate the treatment that a constituent received at a VA hospital. The constituent had an adverse reaction to a drug that included joint pain, memory loss, sleep apnea, vision loss, and stomach difficulties. The symptoms abated after the patient stopped taking the drug, at the behest of the VA physician. At issue in this case was the drug, not the VA, as the physician seemed to recognize and respond to the problem. And although the FDA had the ability to investigate the issue, the constituent was not contacting Specter about a particular bureaucratic issue with the FDA. This example illustrates how problems can sometimes appear for constituents at the intersection of several agencies, which suggests that the expertise and capacity of legislators' offices matters for addressing these issues. Congressional staff need to have some sense of how contacting an agency may help to address a problem in a way that is appropriate for the constituent, and these ambiguous cases likely require deep knowledge of the federal bureaucracy. 
+
+
+ 
+
+## Representing Businesses  {#sec-type2}
+
+```{r, include=FALSE, cache=FALSE}
+type = 2
+load(here::here("data", type, "means.Rdata"))
+```
+
+<!---
+> ABSTRACT: What explains unequal levels of constituency service on behalf of businesses? We find that selective elements of all parts of our Demand, Capacity, and Strategic Choice framework are related to the provision of corporate service. For Demand, we find that having more constituents and more demanding constituents are correlated with greater provision of corporate service.  For Capacity, we find that legislator experience is always correlated with greater provision of corporate service, and that reporting committee assignments and committee leadership positions are sometimes correlated with greater provision of corporate service. For Strategic Responses to the Political Environment, we find that in accordance with their pro-business ideological beliefs, Republicans consistently do more corporate service. We also find that ideologically extreme legislators consistently do less corporate service, and members of the president’s party who are more ideologically distant do more corporate service. We observe House Members who are electorally vulnerable doing more corporate service; these findings are limited to the cross-sectional models. Lastly, we find that corporate campaign contributions are correlated with greater corporate service in cross-sectional, but not within-legislator models. This pattern regarding corporate campaign contributions holds at both the aggregate level, looking at all corporate contributions and all corporate service, as well as within an Energy Sector case study.  ---> 
+
+<!-- 
+Representative Tauscher of Wisconsin wrote to the Defense Commissary Agency on behalf
+of the Jelly Belly Candy Co., based in California. Jelly Belly was then “given a chance to
+resolve issues” with their contract.
+There are more in that sheet.
+
+
+
+Bartlett, Roscoe (Congressman) appears to have forwarded a letter he received from Tri-Star Mining, Inc. President George R.Beener about the closing of a site after two people did		5/30/2007			5/31/2007		
+https://miningincidents.org/controller/C12621
+
+Beener also sentenced to house arrest for Felony Tax Evasion 
+https://www.dailyamerican.com/story/news/local/2016/12/13/beeners-get-house-arrest-probation-for-tax-evasio/116659958/
+--> 
+
+<!---Ellie: I like the idea of this anecdote, but I think we want to pick an example from our data, and a case where someone who gets a lot of corporate money then takes an action on behalf of a corporation. I also think there's way too long a time period between the action and the fundraising. Also, I know this is my fault because I had it backward in an earlier draft of the chapter, but the way we're looking at the money and representation story in this chapter is that we're looking at donations predicting future actions. I've relabeled this as corporate advocacy on behalf of donors. ---> 
+
+
+ Constituency service on behalf of businesses, or commercial service, is a form of constituency service where the legislator is advocating on behalf of a business --- including business owners like farmers. This work on behalf of individual businesses (or business owners) is often on behalf of businesses in the legislators’ districts, but it is not necessarily geographically delimited. For example, legislators could be advocating on behalf of out-of-district campaign donors.
+
+These commercial constituency service requests span a range of issues and agencies. A common form of request is asking an agency to expedite something--in essence, to speed up whatever it is they are doing. For example, @fig-FERC below shows a letter Rep. Mac Thornberry (R-TX13) wrote to the Federal Energy Regulatory Commission (FERC) in 2013 on behalf of the Vice President of the Panhandle Producers and Royalty Owners Association and the President of Cambridge Production, Inc. In the letter, Rep. Thornberry is urging FERC to speed up its decision-making process, and he includes letters from the named corporate leaders explaining their request.  
+
+```{r}
+#| label: fig-FERC
+#| fig-cap: "Letter from Rep. Mac Thornberry to Federal Energy Regulatory Commission Chairman."
+
+knitr::include_graphics(here::here("anecdotes", "2", "FERC.png"))
+```
+
+In addition to contracts and permits, the federal government distributes grants to businesses. For example the Department of Commerce, National Institute of Standards and Technology Advanced Technology Program distributes grants to stimulate early-stage technology development that would otherwise not be funded.
+In 2007, Joe Biden wrote to NIST "to extend support for Athena Biotechnologies Inc.'s application in the amount of $2 million to the Advanced Technologies Program grant through NIST" and Jack Kingston, wrote "in support of the application submitted by American Process, Inc. and the Georgia Institute of Technology."
+Both of these were assigned NIST's highest priority level in their correspondence tracking system. 
+
+
+Members of Congress make thousands of such interventions every year. To the Small Business Administration alone, legislators sent thousands of letters helping businesses gain access to capital, government contracts, loans, and disaster loan forgiveness. Given incentives on the part of companies, members of Congress, and agencies to keep such interventions out of the public eye, the records we obtained are a rare glimpse into legislator advocacy on behalf of business interests. 
+
+While it is impossible to obtain systematic data historically, scattered archival records indicate that Members of Congress advocating on behalf of business interests to federal agencies is not an entirely new phenomenon. In 1966, Senator Strom Thurmond sent a Western Union telegram to Lee White, Chair of the Federal Power Commission, requesting expeditious processing of Duke Power Company's recent license application (@fig-telegram). This outreach took place before the passage of the Federal Election Campaign Act of 1971 and the advent of the modern campaign finance disclosure system, so there is no way to know whether Duke Energy was a campaign contributor to Senator Thurmond shortly before or in the years immediately following the outreach. Decades later, campaign finance disclosure records indicate that the long-serving Senator Thurmond received campaign contributions from Duke Energy^[Duke Energy gave Thurmond $6,000 in 1998 and in 2000.].
+
+ <!---
+ Ellie: We need a citation here for these campaign contribution numbers.
+ Devin: It was Sunlight or CRP's website lookup tool, I believe 
+ Ellie: I tried findings these contributions on CRP's tool and the FEC tool, and couldn't find them. It's notable because he did almost no fundraising in those two cycles. Maybe they were in earlier years? Leaving for now in the interest of time, but if we can't find a citation, we'll eventually want to take it out. 
+ ---> 
+
+```{r}
+#| label: fig-telegram
+#| fig-cap: "Telegram from Senator Thurmond to Chair of Federal Power Commission requesting the commission expedite the processing of Duke Power Company's recent application. Source: Federal Energy Regulatory Commission e-Library."
+
+knitr::include_graphics(here::here("anecdotes/2","thurmond-telegram.png"))
+```
+
+
+
+
+
+As with individual constituency service, there are examples of business-focused constituency service that are less obvious or focus less on bureaucratic problems and government benefits. For example, Senator Richard Lugar wrote to the Food and Drug Administration (FDA) on behalf of a constituent who owned a produce company and was concerned about how the classification of watermelons in a high-risk food safety category would affect the productivity of his business, given the extra (and in his view, unnecessary) precautions that the company would have to take. Although the business owner was technically expressing an opinion about FDA policy in this communication with Lugar, the issue at hand had a clear and tangible impact upon his business operations, and the constituent presumably wanted the FDA to reconsider the policy to mitigate these effects. 
+
+As another example, Representative Eddie Bernice Johnson wrote to the IRS on behalf of a constituent who had submitted an application to the IRS with an error that needed to be corrected (the constituent mistakenly wrote his PIN instead of his PTIN number on the form). The constituent had contacted Johnson's office because the paperwork had still not been processed after he re-submitted a version with the correction, and he was concerned about "losing money in lost potential business." Both of these contacts show that legislators' advocacy on behalf of businesses is not necessarily about fixing bureaucratic problems or obtaining special treatment for businesses at the expense of the public good.
+
+In some cases, legislators wrote on behalf of businesses seeking enforcement actions against their competitors. For example, Rep. Frank Kratovil (D-MD1) wrote to the FDA, "Red Bull that is made for Ireland is being mysteriously distributed in Maryland without an FDA approval noted on the package. Constituent, who is a distributor for Red Bull in Maryland, questions whether this practice is legal," (April 22, 2009). Technically, Kratovil's letter merely sought information about what was happening, but he made the implications of potentially illegal activity for his constituent's business interests very clear. 
+
+Lastly, a more traditional example of corporate constituency service is a legislator writing to an agency seeking to change policy to benefit his business. Rep. Ed Whitfield (R-KY) wrote to the FDA on behalf of a constituent who owns a tobacco outlet and "wants FDA to modify the Tobacco Control and Prevention Act to allow individuals under the age of eighteen to enter stores with self-service displays provided an adult accompanies them. The company owner does not want to make his store adult-only, and believes the FDA's regulation will prevent families from entering the store, and will threaten the sale of other non-tobacco items." Once again, we see a clear articulation of a business interest by the constituent, as well as a clear request to modify legislation to suit the constituent's business interests. Rather than making such requests on behalf of a large corporation, however, Whitfield made this request on behalf of a small business owner. 
+
+
+## Representing Nonprofits and Local Governments  {#sec-type3}
+
+```{r, include=FALSE, cache=FALSE}
+type = 3
+load(here::here("data", type, "means.Rdata"))
+```
+<!---
+> ABSTRACT: We examine what explains unequal levels of constituency service work on behalf of specific nonprofits and local governments. We find that inequality in work on behalf of nonprofits and local governments is mostly a story of unequal capacity across legislators. However, partisanship and ideology play a larger role in representing business interests than in other types of interbranch representation. Legislators do much more for nonprofits and local governments when they have a co-partisan in the White House, or they are ideologically aligned with the agency. This fits with research on distributive politics and presidential pork — a story in which nonprofits and local governments are disproportionately served by Democrats, who make requests of left-leaning agencies (like HUD) in Democratic administrations, and Republicans contact right-leaning organizations (like USDA) during Republican administrations.
+---> 
+
+In addition to providing constituency service to individuals and businesses in their districts, legislators provide similar types of service to nonprofit organizations and local governments. These entities often apply for competitive grants from the federal government; as part of this process, they may seek the support of their member of Congress, which involves the legislator writing to the relevant agency in support of the organization. Beyond working directly with federal agencies in this way, which is most directly relevant for our project, legislative offices also conduct grants workshops to provide resources to organizations that may wish to apply for these grants. By all accounts, this is a slightly more specialized form of constituency service that may benefit from additional knowledge and skill on the part of congressional staff. 
+
+
+
+Many of legislators' requests on behalf of local governments and nonprofit organizations were in support of (or otherwise concerning) grants for which cities, counties, or other organizations had applied. These kinds of grants appeared across a number of different agencies for an array of purposes. For example, legislators wrote to the Department of Homeland Security (DHS) in support of local fire departments that had applied to FEMA's Assistance to Firefighters Grants Program, which provides funding for first respondents and emergency personnel. Legislators also wrote to CMS on behalf of nonprofit health systems and local governments seeking to obtain grants as part of various CMS initiatives and programs, like the Pioneer Accountable Care Organization (ACO) Model and the Community-based Care Transitions Program (CCTP). Other groups sought grants from the National Institutes of Health (NIH).
+
+
+Many letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services involved legislators forwarding concerns from local health care entities about matters specific to Medicare and Medicaid, including overpayments and Graduate Medical Education (GME) affiliation agreements for teaching hospitals. 
+
+Requests on behalf of nonprofits also make up a large share of interbranch representation to the IRS. Legislators' offices inquire about why organizations have been audited, the processing time for 501c(3) tax-exempt status applications, and the reasons for canceling of tax-exempt status. They help with nonprofit paperwork --- most frequently reinstatement of nonprofit status --- and request that certain applications be expedited. 
+
+Letters on behalf of local governments appeared frequently in many subagencies within the Department of Transportation. For example, members of both the House and Senate from a number of different states wrote to the Federal Highway Administration (FHWA) in support of local transportation boards' applications for the Transportation Investment Generating Economic Recovery (TIGER) I and II Discretionary Grant programs. While it was not uncommon for several legislators from the same state delegation to join together in support of a locality's grant application, there are also examples of senators from different states co-authoring letters in support of grant applications submitted by multiple states. Bob Bennett (R-UT) and Barbara Boxer (D-CA) wrote jointly to the FHWA to support "the multi-state Phase II application submitted to DOT's Corridors of the Future program for the I-80 corridor," as Interstate 80 originates in California and passes through Utah. Overall, legislators' work on behalf of nonprofits and local governments as part of interbranch representation speaks to both demand from these organizations and congressional offices' capacity to respond to this demand.
+
+
+
+## Public Interest Policywork {#sec-type5}
+
+```{r, include=FALSE, cache=FALSE}
+type = 5
+load(here::here("data", type, "means.Rdata"))
+```
+<!---
+> ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, follow-up to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+---> 
+
+
+### Genres of policy work 
+
+We can group policy work into three subtypes: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports, and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations. Sometimes policy work is clearly driven by legislators' policy interests. Other times it clearly stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). We address policy work on behalf of business interests as a separate form of interbranch representation.
+
+ 
+
+
+### Interbranch representation informs legislating
+
+<!--Rochelle 7/3: I added the paragraph about information below
+[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.]-->
+
+Discussions of congressional oversight usually focus on hearings and investigations, both of companies and government agencies. Through hearings like those that Senator Levin conducted on U.S. Vulnerabilities to Money Laundering, Drugs, and Terrorist Financing, legislators shine a spotlight on problems that demand action from government, often federal agencies. 
+
+Legislators also request information from federal agencies, both in ways that may inform their legislative activities and in ways that contribute to oversight. For example, Rep. John Dingell (D-MI) and other high-ranking members of the House Committee on Energy and Commerce wrote to the FDA to request information on levels of lead in children's lunchboxes. Rep. Tom Reed (R-NY) wrote to the Centers for Medicare and Medicaid Services (CMS) to ask how the competitive bidding process would affect Medicare beneficiaries' access to insulin pumps and supplies. Legislators clearly see federal agencies as resources from which they can procure information related to policy, including information that helps them oversee its implementation. 
+
+### Oversight investigations inform agency policy 
+
+@fig-levin-fincen shows a letter from Senator Levin in support of a proposed rule from the Treasury Financial Crimes  Enforcement Network, citing investigations and hearings.
+
+
+```{r}
+#| label: fig-levin-fincen
+#| fig_cap: Senator Levin Writes to the Treasury Department's Financial Crimes Enforcement Network (FinCEN) on the same topic of hearings
+#| out_width: 55%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "rulemaking-fincen.png"))
+# larger version 
+# knitr::include_graphics(here::here("anecdotes/5//levin/rulemaking-fincen-large.png"))
+```
+
+
+This was not the only agency policy informed by Levin's oversight investigations. @fig-levin-foreign shows a letter that Senator Levin wrote supporting an IRS rule, with a 1000-page hearing transcript entered into the record. 
+
+```{r}
+#| label: fig-levin-foreign
+#| fig_cap: Senator Levin writes to the IRS, entering a Committee Report and full 1000-page hearing transcript into the record supporting an IRS rule
+#| out_width: 95%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-rulemaking-investigation-foreign.png"))
+```
+
+
+Congressional attention is not all positive. In 2013, Senator Levin wrote, chastising five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading (@fig-levin-volcker).
+
+```{r}
+#| label: fig-levin-volcker
+#| fig_cap: Senator Levin writes to chastise five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading.
+#| out_width: 80%
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-volcker.png"))
+```
+
+Legislators writing agencies about how they are implementing policy is much more common than questioning agencies about what they are doing in a hearing.
+
+
+###  Interbranch representation informs statutory interpretation and executive-branch policymaking
+
+```{r}
+#| label: fig-levin-statutory
+#| fig_cap: "Senator Levin takes issue with how the Small Business Administration interpreted a statute in making rules"
+#| out_width: "80%"
+
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "statutory-interpretation.png"))
+#TODO Replace this second one with a transcribed block quote
+#knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-dodd-frank.png"))
+```
+
+Most legislator contacts address what scholars often call "implementation" of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect (laws passed by Congress, like executive branch executing, are mostly authorizations and requirements for bureaucrats to make rules. Very little legislation is self-executing.)
+@fig-levin-statutory shows Senator Levin taking issue with the Statutory interpretation that the Small Business Administration used in making policy. Agencies take this kind of intervention seriously. In response to Levin's letter, the Administrator of the Small Business Administration, Maria Contreras-Sweet, replied that they were taking the senator's perspective as they crafted the rules implementing the Dodd-Frank Act. 
+
+Interbranch representation goes beyond technical and legal opinions.
+Policy fights do not end when Congress passes a law; they merely shift to the executive branch, and members of Congress are actively engaged in this arena. 
+For example, in 2007, a group of 13 Republican legislators, including Mike Pence, wrote to Ben Bernanke and the Federal Reserve governors to "applaud [them] for not exempting any payment system from the regulations" and to oppose pressure from industry to delay rules implementing the 2006 Unlawful Internet Gambling Enforcement Act of 2006. <!--https://www.regulations.gov/comment/TREAS-DO-2007-0015-0112)--> 
+
+<!--
+```{r}
+#| label: fig-rulemaking-pence
+#| fig_caption: A bipartisan group of 13 members of Congress 
+#| 
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-0015-0112.png"))
+```
+--> 
+
+
+<!--
+
+
+```{r}
+#| label: fig-levin-ssa
+#| fig_cap: Senator Levin and others urge SSA to withdraw a proposed rule
+#| out_width: 80%
+
+
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "implementation-ssa.png"))
+```
+--> 
+
+
+#### Appropriations 
+
+In addition to attempting to shape how the executive branch makes policy through rulemaking, members of Congress are active in attempting to shape the distribution of appropriated funds. This happens both for specific grant applications as discussed in @sec-type3 and in a more general sense. 
+
+<!--
+#### International Agreements 
+
+Human rights/labor also comes up a lot, and we could look more into who is most involved in those concerns (see USTR 6893, 7026, etc.)
+
+"TPP trade secrets with USTR and DOJ" (3941, also 4785, 5974, 6469). It's hard to tell what the motivations are here. There's also some about news stories that could be potentially damaging (Politico, 4200).
+--> 
+
+
+### Constituencies and partisanship 
+
+Partisan tensions between the policy agendas of members of Congress and the President drive a great deal of policy-related interbranch representation. An opposition party can only hold hearings when they are in the majority, but individual members can always contact an agency any time. For example, Democratic legislators wrote thousands of letters opposing Trump-era policy, such as those that allow certain nonprofits not to disclose their donor contributions, 
+<!-- https://www.regulations.gov/comment/IRS-2019-0039-8319 --> 
+environmental deregulation, and 
+The Consumer Financial Protection Bureau's 2019 rule that made it easier for debt collectors to harass consumers. 
+<!-- https://www.regulations.gov/comment/CFPB-2019-0022-12107 --> 
+77 Democratic members of the House and 23 Senators wrote to oppose a 2019 proposed rule by the Department of Labor's Wage and Hour Division that permitted employers to pay fewer employees overtime. 
+
+Democrat Tom Malinowski and other democrats who oppose the Trump-era CFPB rule that would deregulate payday lenders.
+
+> "The precipitous decline in the volume of enforcement actions during your tenure leads me to question whether the CFPB is indeed following through on its objective to protect consumers and aggressively enforce the law." 
+
+<!-- 
+https://www.regulations.gov/document/CFPB-2019-0006-39935
+https://www.regulations.gov/document?D=CFPB-2019-0006-0344
+--> 
+
+<!--
+During the Obama Administration, advocacy from the Senate Environment and Public Works committee in opposition to the Obama Administration's Clean Power Plan used similar language as an anonymous advocacy campaign identified with the website betterenergyfuture.org 
+--> 
+
+Members of Congress were more often than not supportive of industry when writing to the Department of the Interior's Bureau of Safety and Environmental Enforcement (as discussed in the next chapter). However, there is also a great deal of advocacy on behalf of broader interests. For example, many members of Congress from coastal states wrote to oppose the Trump administration's removal of safety rules on offshore oil drilling. Florida Republican Vern Buchanan went so far as to support the environmentalist group Center for Biological Diversity.
+
+```{r}
+#| label: fig-rulemaking-buchanan
+#| fig_caption: Florida Republican, Vern Buchanan, opposing a Trump-era rule rolling back regulations
+
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "BSEE-2017-0008-0473.png"))
+```
+<!--
+Senators from multiple states but all coastal https://www.regulations.gov/comment/BSEE-2018-0002-19026
+https://www.regulations.gov/comment/BSEE-2018-0002-20464
+Comments from the Florida State House: https://www.regulations.gov/comment/BSEE-2018-0002-0032
+--> 
+
+
+<!--
+
+
+[](https://www.regulations.gov/document/CFPB-2016-0025-148844)
+
+```{r}
+#| fig_cap: "Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule."
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "CFPB-2016-0025-148844.png")  )
+```
+--> 
+
+
+
+### Procedural politicking
+
+As documented by @LowandePotter2021 and @Potter2019, one form of proxy fight over policy is the timing of rules. Agencies may speed up or slow down rulemaking processes, for example by extending the comment periods or refusing to do so. Thus, legislators, like others, are often attempting to intervene procedurally, especially by attempting to extend study periods or comment periods. For example, on the same Federal Reserve rule that Mike Pence and other Republican Senators pushed back on substantive grounds, a different group of legislators made a procedural argument. The gambling industry groups were requesting state-by-state surveys of gambling laws. Legislators from the Subcommittee on Administrative Law called out this ploy for regulatory delay. 
+<!-- (https://www.regulations.gov/comment/TREAS-DO-2007-0015-0125) --> 
+
+<!--
+```{r, out.width = "100%"}
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "TREAS-DO-2007-0015-0125.png"))
+```
+--> 
+
+From the other side of the aisle, Democratic members of Congress attempted to slow environmental deregulation under the Trump Administration was to ask that the Counsel On Environmental Quality and other agencies extend comment periods on their proposed rules. 
+
+> "That's why I am particularly disappointed that CEQ denied my---and more than 160 Members of the House and Senate---request for an extension of the comment period. Further, CEQ simply chose not to respond to our request for additional public hearings. CEQ has proposed a massive overhaul to a set of keystone environmental regulations that have stood in place — largely unchanged for almost half a century. By providing a mere 60-day comment period, and only two public hearings (in Colorado and Washington, DC), CEQ appears uninterested in obtaining broad-scale public input." - [Oregon Representative Peter DeFazio, Chairman of the Committee on Transportation and Infrastructure.](https://www.regulations.gov/comment/CEQ-2019-0003-169768)
+
+
+<!--
+
+
+
+[26 Republicans ask the Comptroller of the Currency for clarity on a 2020 proposed rule that increases regulations between banks and lenders, focusing on the rule's impact on companies.](https://www.regulations.gov/comment/OCC-2020-0026-0002)
+
+```{r}
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "OCC-2020-0026-0002.png"))
+```
+
+
+
+[Democrats opposing the same 2020 Comptroller of the Currency rule](https://www.regulations.gov/comment/OCC-2020-0026-0277)
+
+```{r, out.width = "100%"}
+knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "OCC-2020-0026-0277.png"))
+```
+
+These examples illustrate how "states' rights" rhetoric is used strategically depending on which side of the substantive issue one is on.
+Here, Democrats are advocating for states' rights, while Republicans want a federal standard that would preempt state policy.
+
+--> 
+
+### Legislator attention is often shaped by constituents & interest groups
+
+Interbranch representation does not occur in a political vacuum. All of the examples above are parts of broader policy fights that include interest groups. 
+In 2019, the Sierra Club advertised that "Last fall, 105 Members of Congress and 34 U.S. Senators sent letters to Trump's Department of the Interior to protest the harmful rollbacks" [@SierraClub2019].
+In his classic book **Bureaucracy**, @Wilson1989 describes the role of constituents and interest groups in activating interbranch representation when the Federal Trade Commission (FTC) began making rules about antitrust and fraud in the 1970s. The FTC proposed a Funeral Industry Practice rule requiring disclosure of the prices of components of funeral expenses and a Used Car Rule that required dealers to inspect each car offered for sale and post the results on the car's window. 
+
+> "Undertakers and used-car dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down" (Wilson 1989, 83).
+
+```{r}
+#| label: fig-levin-constituents
+#| fig_cap: Constituents 
+#| out_width: 80%
+# DEVIN: MOVE TO CHAPTER ON CONSTITUENTS? I THINK THIS WOULD BE CODED AS TYPE 5 THOUGH 
+knitr::include_graphics(here::here("anecdotes", 5, "levin", "levin-constituents.png"))
+```
+
+
+
+<!--RELATED 
+https://www.regulations.gov/comment/FWS-HQ-ES-2018-0006-53372
+
+https://www.epw.senate.gov/public/index.cfm/2018/9/senators-carper-and-udall-lead-democratic-senators-in-raising-concerns-over-trump-administration-s-attacks-on-landmark-endangered-species-act
+--> 
+
+### Changes to Oversight 
+
+The first Trump administration sought to limit congressional oversight, in the first few months of taking office suggesting that agencies should only respond to requests that come from a committee, subcommittee, or chairman authorized to conduct oversight [@OfficeofLegalCounsel2017]. However, a follow-up memo two years later clarified that "[d]epartments and agencies ... may appropriately give due weight and sympathetic consideration to requests for information from individual members of Congress not delegated such authority"  [@OfficeofLegalCounsel2019].
+
+
+
+
+## Policy Work on Behalf of Business
+
+```{r, include=FALSE, cache=FALSE}
+type = 4
+load(here::here("data", type, "means.Rdata"))
+```
+
+
+We define commercial policy to include “anything applying to a class of commercial activity or businesses (e.g. shipping, airlines, agriculture),” including “legislation, bills, acts, appropriations, authorizations, etc.” In many cases, congressional letters or agency log files that summarized the messages they received from legislators mentioned specific industries, which meant that these contacts were often fairly straightforward to code. For example, members of Congress regularly write to the U.S. Trade Representative on topics including imports of Brazilian cotton, Argentinian beef, rare earth minerals, Boeing and Airbus contracts, lumber markets in Peru, and intellectual property and copyright. 
+
+Here, we examine what policy work on behalf of corporations and business interests looks like, document the inequality in corporate policy work, and examine what explains the provision of corporate policy representation. 
+
+
+<!-- EOP_USTR sheet 
+Sen. Murkowski and salmon/fishing - rows 2134 and 3011
+"Buy American" requirements. WI Sen. Johnson's letters about small businesses could be interesting to look into (see 7968).
+
+other key words: Brazil cotton, Japan whaling, rare earths, Airbus dispute, beef, Peru logging and softwood lumber Intellectual property and copyright 
+--> 
+
+### NEEDS CONCLUSION AND TRANSITION SECTION

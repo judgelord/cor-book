@@ -1,0 +1,373 @@
+# How Constituent Demand Affects Interbranch Representation {#sec-results-demand}
+
+> ABSTRACT: 
+
+```{r, include=FALSE, cache=FALSE}
+# formatting for tables and numbers
+here::here("code", "formatting.R") |> source()
+```
+
+## MEASURING DEMAND
+
+Since we lack data on constituents' requests for help in the contemporary period, we focus on three components likely to be correlated with constituent demand: representing a larger number of constituents, representing more demanding constituents, and representing higher need constituents. Conceptually, the number of constituents and higher need constituents are related to an underlying latent demand. The former captures how many constituents might need help, while the latter captures how many constituents possess the information, time, and energy necessary to advocate for themselves.   
+
+## Measuring Demand
+
+Predicting and measuring demand for interbranch representation, particularly for constituency service, is difficult given the variety of activities and types of service that it encompasses. In the simplest and most general sense, we can think of demand for interbranch representation as depending on the number of constituents in a legislator's district or state. Beyond population, however, demand for individual constituency service can be thought of as arising from the confluence of several different factors: the amount of interaction that a legislator's constituents have with the federal government; the problems that arise from these interactions with government; constituents' knowledge of legislators' ability to help them navigate these problems; and the ability of constituents to advocate for their interests. Even when accounting for the number of constituents who use federal programs, it is nearly impossible to accurately predict the problems that constituents might encounter through their use of these programs. Further complicating this picture is that legislators appear to use capacity to generate demand through advertising and informing their constituents about ways they can help---either for strategic reasons or just because they believe normatively it is the right thing for them to do.
+
+While we are not able to precisely measure demand in the form of actual problems that constituents experience with federal agencies or the number of constituent requests that legislators' offices receive, we are able to measure demand in three broader ways: **the number**, **neediness**, and **political savvy** of constituents. We use demographic estimates from U.S. Census Bureau data [@tidycensus] to calculate our three types of demand measures. 
+
+To measure the **number** of constituents, we use the estimated population of states and congressional districts. The first and most straightforward component of constituent demand is the number of constituents. We view this as a mechanical relationship. If X proportion of constituents encounter problems with the federal government, the more constituents one represents, the more constituents one will represent encountering problems with the federal government. While the number of constituents represented by United States Representatives is roughly equivalent, U.S. Senators represent states with a wide range of state populations. The more people a legislator represents, the more problems they are likely to encounter with the federal government, and thus the greater demand for interbranch representation. While an intuitive argument, little empirical evidence exists to support it. @Johannes1984 found a weak positive relationship between state population and senators' constituency service caseloads in the late 1970s.  
+
+While not explicitly focused on the issue of constituency demand, there is a body of research examining the impact of state population (constituency size) on Senate representation, demonstrating the opposite relationship between population and representation [@Oppenheimer1996; @Lee1998; @LeeOppenheimer1999]. Perhaps of greatest relevance, @Oppenheimer1996 found that constituents from more populous states have less contact with their legislators across a variety of survey measures (meeting the incumbent personally, attending a meeting where the incumbent spoke, speaking with a staff member, receiving mail from the incumbent, and contacting the incumbent). Of particular interest for our purposes here, he found substantial variation in constituents seeking help with a problem by state size. Constituents from more populous states were much less likely to report seeking help with a problem or information from their Senators [@Oppenheimer1996].
+
+How do we reconcile our intuition about greater population leading to greater constituent demand with the existing literature demonstrating constituents from less populous states receiving better representation? We think those studies are capturing representational outcomes, which are functions of the legislator's office capacity and member choices about what to prioritize. Thus we argue that representing more constituents will be associated with higher levels of interbranch representation. 
+
+Before moving on to our next component of demand, we will note two complications that limit the conclusions we can draw about constituent population: 1) constituent population only meaningfully varies in the Senate, and 2) the amount of money senators receive to run their offices is a function of state population. Thus, state population in the Senate is a somewhat bundled treatment that includes both increased population and an increased office budget.^[We do not know, and we make no claims about, whether the variation in funding senators receive is sufficient to compensate for the variation in constituent population.]
+
+We turn next to our second form of constituent demand: **constituent need for government service.** To estimate district need, we use estimates of program utilization and employment from the U.S. Census. Constituents receiving public assistance may have a greater need for help from the federal government. To measure this form of constituent need, we use the estimated percent of people receiving public assistance or Supplemental Nutrition Assistance Program (SNAP) from the U.S. Census. Similarly, we use the estimated percentage of employment in different sectors. <!--Greater employment in the private sector may generate more demand for constituency service on behalf of businesses. Employment in the nonprofit and government sectors may generate demand for constituency service on behalf of these employees. --> 
+
+Constituent demand may vary for reasons other than population and underlying need for service. <!--As former Congressman and political scientist David E. Price noted when describing his experience representing North Carolina's fourth district, "...constituents vary considerably in their ability and inclination to use it" [@Price2022].--> 
+A constituent encountering a problem with the federal bureaucracy needs to know that they can reach out to their congressional representatives for assistance with such problems, know how to do so, and then have the time and energy to follow through and reach out to them. None of the linkages in that chain should be taken for granted. A large body of work demonstrates that most Americans are ill-informed about how government works and that knowledge is unevenly distributed across the American public [@DelliCarpiniKeeter1996; @Lupia2016]. @Verba95's canonical Civic Voluntarism Model suggests that citizens need both the motivation and capacity to participate, with constituents with higher socio-economic status (particularly education) being most likely to speak up. Therefore, our last form of constituent demand is the **political savvy** of constituents --- how some constituents are more aware of the services that congressional offices offer and best able to advocate for themselves. Consistent with the Civic Volunteerism Model [@Verba95], we consider the percentage of highly educated constituents (bachelor's degree or higher). Similarly, because government employees are more likely to be aware of the services that congressional offices can provide, we also include the percentage of government employees in the district. 
+
+Politically savvy constituents likely increase the demand for all types of work from a congressional office. However, high-capacity constituents may be higher policy demanders than constituency service demanders, leading to more policy-focused interbranch work in districts with more informed constituents. 
+
+
+
+#### More Constituents
+
+The first and most straightforward component of constituent demand is the number of constituents. We view this as a mechanical relationship. If X proportion of constituents encounter problems with the federal government, the more constituents one represents, the more constituents one will represent encountering problems with the federal government. While the number of constituents represented by United States Representatives is roughly equivalent, US Senators represent states with a wide range of state populations. The more people a legislator represents, the more problems they are likely to encounter with the federal government, and thus the greater demand for interbranch representation. While an intuitive argument, little empirical evidence exists to support it. Drawing on @CAR1977Vol1's data collection, and augmenting it with additional data collection of his own, @Johannes1984 found a weak positive relationship between state population and senators' constituency service caseloads in the late 1970s.  
+
+While not explicitly focused on the issue of constituency demand, there is a body of research examining the impact of state population (constituency size) on Senate representation, demonstrating the opposite relationship between population and representation [@Oppenheimer1996; @Lee1998; @LeeOppenheimer1999]. Perhaps of greatest relevance, @Oppenheimer1996 found that constituents from more populous states have less contact with their legislators across a variety of survey measures (meeting the incumbent personally, attending a meeting where the incumbent spoke, speaking with a staff member, receiving mail from the incumbent, and contacting the incumbent). Of particular interest for our purposes here, he found substantial variation in constituents seeking help with a problem by state size. Constituents from more populous states were much less likely to report seeking help with a problem or information from their Senators [@Oppenheimer1996].
+
+How do we reconcile our intuition about greater population leading to greater constituent demand with the existing literature demonstrating constituents from less populous states receiving better representation? We think those studies are capturing representational outcomes, which are functions of the legislator's office capacity and member choices about what to prioritize. Thus we argue that representing more constituents will be associated with higher levels of interbranch representation. 
+
+::: {#thm-demandmoreconstituents}
+
+## More Constituents
+Legislators who represent *more constituents* will be associated with higher levels of interbranch representation. 
+:::
+
+Before moving on to our next component of demand, we will note two complications that limit the conclusions we can draw about constituent population: 1) constituent population only meaningfully varies in the Senate, and 2) the amount of money senators receive to run their offices is a function of state population. Thus state population in the Senate is a somewhat bundled treatment that includes both increased population and an increased office budget.^[We do not know, and we make no claims about, whether the variation in funding senators receive is sufficient to compensate for the variation in constituent population.]
+
+#### More Demanding Constituents
+
+Conceptually, we might imagine that constituent demand could vary for reasons other than population and underlying need for service. As former Congressman and political scientist David E. Price noted when describing his experience representing North Carolina's fourth district, "...constituents vary considerably in their ability and inclination to use it" [@Price2022]. A constituent encountering a problem with the federal bureaucracy needs to know that they can reach out to their congressional representatives for assistance with such problems, know how to do so, and then have the time and energy to follow through and reach out to them. None of the linkages in that chain should be taken for granted. A large body of work demonstrates how ill-informed most Americans are about basic political facts, and how knowledge is unevenly distributed across the American public [@DelliCarpiniKeeter1996; @Lupia2016]. 
+
+Much less is known about how well informed the American public is regarding casework and constituency service support that they can receive from members of Congress. While systematic empirical evidence regarding knowledge of casework support is surprisingly lacking, our personal conversations with friends, family, and well-informed professional political scientists suggest that many people would not think about contacting their elected representatives when encountering problems with the bureaucracy. We can, however, turn again to the evidence from the @CAR1977Vol1's data collection. Using these data, and augmented with additional data collection of his own, @Johannes1984 found a positive relationship between the number of government employees in a district (perhaps those most likely to know how to navigate the federal government) and constituency service caseload in the House, but no relationship in the Senate. Meanwhile, district education had an inconsistent and surprising negative relationship, contrary to resource-based arguments. 
+
+A small body of research has used survey data (1977-1980) asking if the respondent has reached out to their legislator for help (constituency service) and attempted to examine both the more demanding and greater need constituent hypotheses [@Yiannakis1981; @Johannes1984]. @Yiannakis1981 found that at the individual level, high income, higher education, prior contact with the member, and knowing someone who has requested help were all positively associated with requests for constituency service. @Johannes1984 found inconsistent relationships between constituent demographics and requests for assistance, in contrast to the strong relationships he found between constituent demographics and expressing political or policy opinions to the member. 
+
+Existing literature has more consistent findings, however, about what factors are associated with constituents contacting their legislators in general, in the sense that the contact could be about expressing an issue position or requesting casework support, as well as general participation in politics.^[Research by @Wagner2007 shows constituents think a representative of the opposing party would be less likely to be helpful if contacted, and in a survey experiment, @Snyder2024 shows that constituents are less likely to reach out to legislators of the opposite party for help.] @Verba95's canonical Civic Voluntarism Model suggests that citizens need both the motivation and capacity to participate, with constituents with higher socio-economic status (particularly education) being most likely to speak up.
+
+We are building on these findings [@Verba95] to argue that legislators who represent more constituents who are informed about how to seek help and what the government could help with will do more interbranch representation. This could include legislators who represent constituents with greater levels of education, but also legislators who represent more federal employees who are particularly well positioned to be knowledgeable about how to seek help from the federal government. 
+
+::: {#thm-demandmoredemanding}
+## More Demanding Constituents
+Legislators who represent *more demanding* constituents will be associated with higher levels of interbranch representation. 
+:::
+
+#### Greater Need Constituents
+
+The last component of constituent demand in our framework is constituent needs. Some constituents might have a greater need for help from the federal government. While the previous section focused on constituents who, in the @Verba95 framework, have greater capacity to contact their legislators, in this section we focus on constituents who have greater motivation to contact them because they have greater needs. Such constituents are those who might be struggling with major problems --- lower income, food insecurity, housing insecurity, immigration status issues, and other issues with a strong presence in their daily lives. On the one hand, these constituents have the greatest needs, and in the Civic Voluntarism framework, they also have greater motivation to speak up. But on the other hand, these very traits are also correlated with potentially limiting their capacity and resources to speak up. These constituents with the greatest need might be the least likely to know where to appeal for help, and might be the least able to devote time and resources to seeking help [@Verba95]. For that reason, we could expect either a positive or negative relationship between representing more high-need constituents and interbranch representation. 
+
+There is little direct evidence examining exactly this question on constituent demand. @Jones1977 found support for a "parabolic" model of constituent need in a local government context, in which individuals in the middle of the income distribution, who have both enough need and enough knowledge, were more likely to contact public officials for help. Other studies, however, have largely failed to replicate these results. @Johannes1984 examined the relationship between the median income in a district and constituency caseload requests for help, and found a weak and inconsistent positive relationship. Using survey data from this same period, @Johannes1984 found no relationship between the respondent's self-reported economic hardship or income and contacting one's member of Congress for casework assistance. Drawing on similar survey data, @Yiannakis1981 found a positive relationship between the respondent's income and likelihood of contacting one's congressman for casework assistance, suggesting that not having the knowledge/resources to reach out may outweigh the need itself. 
+
+::: {#thm-demandgreaterneed}
+## Greater Need Constituents
+Legislators who represent constituents with greater needs do more interbranch representation for individuals, nonprofits, and local governments. 
+:::
+
+::: {#thm-demanddisempowered}
+## Disempowered Constituents
+Legislators who represent lower socio-economic status constituents do less interbranch representation. 
+:::
+
+#### Summarizing Demand Hypotheses
+
+@tbl-demand below summarizes our expectations for how various types of constituent-driven demand pressures impact the interbranch representation a member's office produces. 
+
+The three components of constituent demand we have discussed here are by no means comprehensive. Further complicating this picture is that legislators appear to use capacity to generate demand through advertising and informing their constituents about ways they can help [@Yiannakis1981; @Blackwood2026]  ---  either for strategic reasons or just because they believe normatively it is the right thing for them to do. Thus, in our flow chart above [@fig-causal], we show a potential feedback loop between members' communications activities and constituent demand. 
+
+```{r}
+#| cache: true
+#| cache.extra: !expr tools::md5sum(here::here("tables", "demand.csv"))
+#| label: tbl-demand
+#| tbl-cap: "Demand Hypotheses"
+#| results: asis
+
+library(tinytable)
+
+theory_table <- function(file){
+  tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character()) ) |> 
+  dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) 
+  tbl |>
+  pander::pandoc.table(
+  style = "multiline",
+  split.cells = c(18, 40, 15, 27),
+  split.table = Inf,
+  justify = c("left", "left", "center", "left"),
+  missing = ""
+)
+}
+
+here::here("tables", "demand.csv") |> theory_table()
+```
+
+## RESULTS 
+
+@fig-marginal-population shows the predicted marginal effects for a one standard deviation change in each of the demographic variables we use to measure constituent demand on each of our hand-coded types of interbranch representation provided by members of the House and Senate. Because we are interested in explaining variation across districts, and because these variables change little over time, we focus on cross-sectional models. However, models in the appendix, including  @tbl-models-demand_tot and @tbl-models-full-majority-tot, consistently show changes in district population causing changes in interbranch representation in the difference-in-differences specifications as well. 
+
+Overall, more constituents, more needy constituents, and more demanding constituents are generally associated with more constituency service, but not more policy work (except for college graduates, which is associated more with policy work). Some of these relationships are very large.
+The main takeaways from @fig-marginal-population are that (a) Legislators representing more constituents do more constituency service; (b) Senators with needier constituents do much more constituency service, especially for nonprofits (panel b, lower), but members of the House with needier constituents only do slightly more for nonprofits (panel b, upper); (c) Members of the House representing more government workers do more constituency service, but Senators do not; (d) Legislators representing more educated constituents do more policy work, but not necessarily more constituency service.
+More specifically, Senators with more constituents do more interbranch work on behalf of all types of constituents, as well as more interbranch policy work (panel b, lower). The effects of state population on volume of constituency service are large (+35-40%). These effects can be partially explained by the capacity boost from the additional staff allocation that senators from larger states receive.  
+
+By construction, House districts have nearly identical populations and office budget allocations.^[Representatives from more expensive districts receive budgets adjusted for renting more expensive office space, but not for paying higher district staff salaries.] Nevertheless, we see legislators from slightly larger House districts providing a small but statistically significant additional volume of constituency service. This is solid support for @thm-hyp:demand with respect to demand coming from the number of constituents one represents.
+As anticipated by @thm-hyp:demand, more needy constituents receive more constituency service, but only for the Senate. Members of the House from needier districts provide slightly more help to nonprofits, and senators provide a great deal more help to nonprofits. This mostly supports @thm-hyp:demand with respect to district need, with that relationship being much weaker for the House.
+
+
+```{r}
+#| label: fig-marginal-population
+#| fig-cap: "Demand"
+#| out-width: "100%"
+#| layout-ncol: 2
+#| fig-subcap: 
+#|   - "State/District Population"
+#|   - "% Constituents Receiving Public Assistance or SNAP"
+#|   - "% Constituents Employed by Government"
+#|   - "% Constituents with a College Degree"
+
+knitr::include_graphics(here::here("figs", "marginal-population-1.png"))
+knitr::include_graphics(here::here("figs", "marginal-percent_public_assistance_or_snap_households-1.png"))
+knitr::include_graphics(here::here("figs", "marginal-percent_workers_government-1.png"))
+knitr::include_graphics(here::here("figs", "marginal-percent_education_bachelor_or_higher-1.png"))
+
+```
+
+### The Effect of Demand on Total Interbranch Work
+
+Estimating the level of constituent demand on each legislator's office and estimating the effect that constituent demand has on contacts with federal agencies are both difficult, primarily because demand is directly affected by both the capacity and strategic behavior of legislator offices when they advertise constituency services. What appears to be a root *cause* of variation in legislator contacts with agencies (incoming requests for help from constituents) is, in part, an *effect* of the office's capacity and decisions to invest in promoting the services they offer, which, to our knowledge, no one has systematically measured [but see @HendersonHertelFernandezMildenbergerStokes2023].
+
+However, some underlying features of one's constituency likely affect the volume of incoming constituent demand. We start with these background characteristics of a constituency that are largely out of a legislator's control (even if how they translate to actual demands of the office may vary by what services they decide to advertise and how easy they make it for constituents to contact them). 
+Specifically, we examine the effects of the four variables from the U.S. Census that map most closely to the kinds of things political science theory predicts will increase constituent demand: estimated district population, the percent of workers in the government sector (including state and local government), the percent of college graduates (with a BA or higher), and the percent of people receiving public assistance (including SNAP).
+
+Unsurprisingly, the first row of @tbl-models-full-4, Model 5, shows a positive relationship between state population and the amount of interbranch representation that Senators do. 
+There is significant variation in the number of constituents per state, and budgets for staff are determined by the population of the state.
+Under these conditions, failing to find a significant relationship between state population and senators would be surprising evidence against both constituent demand and congressional capacity as drivers of interbranch representation. 
+
+Interesting, Model 3 shows that even small differences in the estimated population of House districts correlate with interbranch representation.^[This holds if we use log population, as do all of population results.] However, this could be driven by population in small states with only one district with a lower population. This correlation is notable because, unlike the Senate, members of the House receive the same Members’ Representational Allowance for staff. The pooled model (1) also shows the same relationship. The within-legislator models show a significant relationship for *changing* population in the pooled model (Model 4) and a possible relationship in the Senate (Model 6), but there is too little variation in estimated district population over time to estimate in this full model. A model with fewer other variables (@sec-appendix-models-total) shows that increasing state population increases the amount of interbranch representation that senators do, but no such relationship exists for representatives. In general, these results support @thm-demandmoreconstituents, with the note that differences in House district population are enough to see a significant correlation with levels of interbranch representation, whereas *changes* in estimated district population do not seem to be large enough to observe an effect. 
+
+
+
+
+
+
+
+## Unequal Representation Due to Unequal Demand 
+
+This section takes the results discussed above to estimate how much unequal demand contributes to unequal provision of interbranch representation. 
+
+
+### Unequal Representation Overall 
+
+```{r}
+type = "total"
+```
+
+Using the coefficients and fixed effects from @tbl-models-full-4 model 2, @fig-pop-effect-total shows the predicted average levels of interbranch representation per year per senator compared to two counterfactual scenarios: (a) where all states had the *minimum* state population (and thus all senators had the staff budgets equal to a senator from Wyoming) and (b) where all states had the *average* state population (and thus all senators had staff budgets equal to those of a senator from Tennessee). Unsurprisingly, there is a general pattern of decreasing inequality in interbranch representation in both scenarios. About 10% of the overall inequality across senators (as measured by the Gini coefficient) is due to differences in state population and staff resources attached to state population. But a significant amount of inequality (differences among the darker blue dots) remains to be explained. These same counterfactuals show similar results if we estimate them using the difference-in-differences coefficients and fixed effects from Model 2.
+
+By construction, all Senate offices are predicted to do less interbranch representation in counterfactual scenario a, compared to predictions using actual state populations. This adds up to an average difference of about 9,000 fewer requests to federal agencies per year. Thus, we might say that the effect of some states being larger than Wyoming is +9,000 requests per year in this model. 
+In scenario b, by construction, there is little difference in the total volume of interbranch representation because of population, because we are using the average level of the predictor. 
+In general, this means that Senators at the top of the distribution, who tend to be from large states, decrease in the Tennessee counterfactual while those in the lower half, who tend to be from smaller states, see increased predicted levels. 
+However, there are some cases where senators in the upper half of the distribution do more interbranch representation in the counterfactual. These are senators from smaller states whose offices, despite having fewer resources and representing fewer constituents, were nevertheless among the more active Senate offices and would be expected to be even more active if their state had a larger population and their office had more resources. 
+
+
+```{r}
+#| label: fig-pop-effect-total
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactuals of equal state population"
+#| fig-show: hold
+#| fig-subcap: 
+#|   - "Wyoming Counterfactual"
+#|   - "Tennessee Counterfactual"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-min-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
+
+#TOD college grads and government workers 
+
+```
+
+The next two rows of @tbl-models-full-4 show similar results for the two indicators we use to test @thm-demandmoredemanding: that legislators with more demanding constituents will do more interbranch representation--- the percent of government-sector workers and the percent with a bachelor's degree or higher. Except for a failure to reject the null of no relationship between government workers and interbranch representation in the Senate, all of the specifications show a positive relationship --- legislators who represent higher portions of these constituents do more interbranch representation. In an alternative model using log population, the percent of workers is significantly correlated in the Senate. 
+However, we do not see the significant within-member relationships that we would see if this were a causal relationship. It is possible that the percent of government sector or college-educated workers in a district does not vary sufficiently over time to have an effect on interbranch representation. Thus, we have a correlation but not causal evidence for @thm-demandmoredemanding. 
+
+@thm-demandgreaterneed --- that legislators serving constituents who need more help from the federal government will do more interbranch representation --- only has correlational support in the Senate. Again, it may be that the percent of a constituency receiving public assistance simply does not vary sufficiently over our time period to affect levels of interbranch representation. 
+
+@fig-workers-effect-total shows predictions with observed values compared to counterfactuals where legislators have less demanding constituencies, specifically no government workers (a) and no college graduates (b). Both of these features of district demand are related to large substantive differences in levels of interbranch representation but little change in inequality, because people with districts with a large share of government workers or college graduates are not sufficiently clustered on one end of the distribution.  
+
+```{r}
+#| label: fig-workers-effect-total
+#| fig-cap: "Predicted levels of interbranch representation per year compared to counterfactual of less demanding constituents"
+#| fig-show: hold
+#| fig-subcap: 
+#|   - "No Government Workers Counterfactual"
+#|   - "No College Grads Counterfactual"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-workers-effect-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-education-effect-1.png"))
+
+
+#TOD college grads and government workers 
+
+```
+
+### Unequal Representation of Individuals 
+
+```{r}
+type = 1
+```
+
+
+
+As in the models examining overall interbranch representation that we presented in @sec-typetotal, district population is related to levels of interbranch representation in both the House and the Senate, supporting our expectations in @thm-demandmoreconstituents. We can see the effects of population on inequality in @fig-pop-effect-1. This figure compares predicted levels of interbranch representation (as a function of district population) with a counterfactual in which each senator represents an equal number of constituents. While the counterfactual of equal state populations reduces inequality in individual constituency service somewhat, by no means does it suggest equal levels across legislators. To fully explain legislators' unequal levels of individual constituency service, we must look elsewhere.
+
+Other components of constituent demand have only inconsistent effects across models. Only one operationalization of "more demanding" constituents, the percentage of constituents employed in government, is statistically significant in our models (and only in the cross-sectional model with all legislators and the cross-sectional model using only House members).^[The percent of government employment is significant in all three cross-sectional models using log population.] Thus, we find minimal support for our expectation (@thm-demandmoredemanding) that legislators with more demanding constituents -- those who are more likely to know how to contact their legislator for help -- will perform more individual constituency service.
+
+Interestingly, we also find minimal support for our expectation in @thm-demandgreaterneed that constituents with a greater need for assistance, operationalized here as the percentage of a legislator's constituents receiving public assistance, is associated with higher levels of individual constituency service. The coefficients on this variable are negative in both pooled models and both House models. While positive in both Senate models, the coefficient is statistically significant only in the cross-sectional model (Model 5). The fact that this measure of need works in different directions for the House and the Senate is worth exploring in greater depth, particularly because of the nuance it adds to the debate in the literature about the effects of knowledge vs. need on constituents' contact with their legislators.
+
+
+```{r}
+#| label: fig-pop-effect-1
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
+#| out-width: 50%
+
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
+
+#TOD college grads and government workers 
+
+```
+
+
+
+### Unequal Representation of Businesses 
+
+```{r}
+type = 2
+```
+
+We find evidence in @tbl-models-full-2 consistent with both  @thm-demandmoreconstituents and @thm-demandmoredemanding across all cross-sectional model specifications (models 1, 3, 5).^[In evaluating our demand hypotheses, we focus on the cross-sectional results because the difference-in-difference model specifications that include both legislator-agency fixed effects and year-agency fixed effects effectively control for district demand characteristics, and thus it is largely consistent with expectations that the limited temporal variation in these variables hold little explanatory power.] Having more constituents, and more demanding constituents (college graduates in all cross-sectional specifications, and government workers in two of the three cross-sectional specifications) are positively associated with more corporate service. Findings are, perhaps not surprisingly, more mixed for a relationship between greater needs constituents (the percentage of the district on public assistance) and corporate service work, with varying signs and significance across model specifications. Our greater needs hypothesis (@thm-demandgreaterneed) theorized a relationship between greater needs constituents and individual constituent service and non-profit constituency service, but not with corporate service. 
+
+Using the coefficients from model 5 in @tbl-models-full-2, @fig-pop-effect-2 shows the predicted average levels of interbranch representation per year per senator compared to a counterfactual scenario where all states had the same population (and staff budget corresponding to that population). The panel on the left shows a counterfactual in which all Senators had the same population as Wyoming. The yellow dots represent every Senator's actual provision of constituency service, organized left to right from lowest providers to highest providers. The blue dots show the counterfactual prediction of population being equalized to the state of Wyoming. Since Wyoming is currently the least populous state (according to the 2020 Census, the population was approximately 577 thousand people), this would be a scenario that reduces demand in every state--high population states observe large estimated effects, while states with more modest populations experience smaller estimated effects. 
+
+
+```{r}
+#| label: fig-pop-effect-2
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to population counterfactuals"
+#| fig-show: hold
+#| fig-subcap: 
+#|   - "Wyoming Counterfactual"
+#|   - "Tennessee Counterfactual"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-min-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
+#TOD college grads and government workers 
+
+```
+
+
+The panel on the right (in @fig-pop-effect-2) shows a counterfactual in which all Senators have the same population as Tennessee--the 15th most populous state (according to the 2020 Census, the population was approximately 6.9 million). This counterfactual simulates an increase in demand (and Senators' resources) for most states, while substantially decreasing population (and Senators' resources) for the most populous states like California, Texas, and New York. The yellow dots representing each Senator's actual performance are identical across plots. In the plot on the right, we see that some senators from smaller states would do more interbranch representation on behalf of businesses under this counterfactual.
+
+<!--Rochelle 7/3: Is the interpretation in the last sentence above correct? I added this because it ended mid-sentence (after "rightmost plot), so pls fix if I'm wrong!! -->
+
+While population in the form of demand is highly correlated with corporate service -- having more constituents is associated with substantially more constituency service -- it has relatively little impact on inequality. In a counterfactual world in which states had the same population (not too dissimilar from the U.S. House), there would be a limited impact on reducing inequality in interbranch corporate service, because the impacts are spread across the distribution. The Gini coefficient is estimated to change by 0.04 points, which suggests that the variation in corporate service associated with state population is responsible for approximately 5\% of the overall inequality in corporate service. 
+
+@fig-popcollege-effect-2 shows a similar style of counterfactual for our @thm-demandmoreconstituents. In this case, we are comparing predicted levels of interbranch representation per Senator based on the actual education levels of their constituents (yellow dots) to a counterfactual in which no constituents had a college degree (blue dots). Reducing the number of more demanding constituents in a district would be associated with a reduction in corporate service. If we sum up the predicted corporate service differences between the no education counterfactual and the actual district education across all legislators, the effect of the proportion of college-educated constituents is estimated to be an average of 1,584 corporate service requests per year. Although increasing or decreasing a district's education level is estimated to change the amount of corporate service, equalizing education levels across districts is estimated to have no change in the inequality across districts (Gini coefficient). 
+
+```{r}
+#| label: fig-popcollege-effect-2
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to more demanding constituents (highly educated) counterfactual"
+#| out-width: "50%"
+
+knitr::include_graphics(here::here("figs", type, "m-demand-effect-1.png"))
+
+#TODO college grads and government workers 
+```
+ 
+ 
+ 
+ 
+### Unequal Representation of Nonprofits and Local Governments
+
+```{r}
+type = 3
+```
+
+We begin by testing our hypotheses about demand for interbranch representation. District population is positively associated with more constituency service work on behalf of nonprofits and local governments in the pooled model (1) and the Senate-only model (5). Thus, demand-focused expectations about the role of district population established in @thm-demandmoreconstituents are partially supported. Because populations in House districts are likely to vary only with natural population shifts between reapportionment and redistricting cycles, the negative relationship between district population and this type of interbranch representation in the House suggests that legislators representing districts with less population *growth* are doing more service on behalf of nonprofits and local governments. More research is needed to parse this relationship carefully. 
+
+```{r}
+#| label: fig-pop-effect-3
+#| fig-cap: "Predicted levels of interbranch representation per Senator per year compared to counterfactual of equal state population"
+#| out-width: 50%
+
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
+
+#TOD college grads and government workers 
+
+```
+
+@fig-pop-effect-3 visualizes the effect of unequal populations on this inequality across legislators. As with other similar figures throughout the book, the plot compares predicted amounts of constituency service on behalf of nonprofits and local governments (based on our model) with counterfactual amounts that would exist if every legislator represented a district of equal population. Differences in population, however, do not explain all of the inequality in work on behalf of nonprofits and local governments.
+
+Legislators who represent more demanding constituents, government sector employment, and the percent of college graduates are associated with work on behalf of nonprofits and local governments in most cross-sectional models.^[Alternatively, when nonprofit employment is included in the model (@tbl-models-full-nonprofit), it also has a strong relationship across specifications. However,  government sector employment and public assistance loose significant in most of these alternative models, suggesting that these variables are competing to explain the same variation, consistent with there being an underlying latent quality of a more demanding constituency.]  
+
+We find clear support for our expectations in @thm-demandgreaterneed that legislators representing greater-need constituents would do more interbranch representation. The coefficients on the variable measuring the percentage of constituents who receive public assistance are positive and statistically significant in all relevant models. The effect is largest in the Senate-only model. Thus, while the provision of constituency service to individuals seemed not to be tied to greater need in the district, the provision of constituency service to nonprofit organizations and local governments does. <!--Interbranch representation is one way in which legislators can help disadvantaged communities.--> 
+
+### Unequal Public-Interest Policywork 
+
+```{r}
+type = 5
+```
+
+
+Unsurprisingly, the number of constituents in a district has a much weaker relationship with policy work compared to the various forms of constituency service discussed in the prior three chapters. For members of the House, there is no relationship between population and policy work. 
+Senators from larger states do more interbranch representation, likely due to the larger staff budgets of Senators from larger states. It is also possible that more constituents means a larger portfolio of policy needs. @fig-pop-effect-5 shows that differences in state population drive differences in both the volume and inequality of interbranch representation. 
+
+```{r}
+#| label: fig-pop-effect-5
+#| fig-cap: "Predicted levels of policy work per Senator per year compared to counterfactuals of equal state population"
+#| fig-subcap: 
+#|   - "Wyoming Counterfactual"
+#|   - "Tennessee Counterfactual"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-min-1.png"))
+knitr::include_graphics(here::here("figs", type, "m-population-Senate-effect-1.png"))
+
+#TOD college grads and government workers 
+```
+
+
+As expected, policy work is less associated with the number of constituents and more associated with the level of education in a district. Here the intense demanders are intense *policy* demanders, and variation in interbranch representation follows well-know patterns in the kinds of constituencies who contact their member of Congress about policy. 
+
+
+### Unequal Corporate Policy work 
+
+```{r}
+type = 4
+```
+
+We find little systematic evidence that constituent demand is related to corporate policy work, with the exception of state population. Across all of our measures of demand in @tbl-models-full, the only consistently significant demand factor in the expected direction is population in the Senate and pooled cross-sectional models. In those models, it is significant and positive, while in the House models it is insignificant and negative. 
+
+We find little evidence that our other types of demand (private-sector constituents and more demanding constituents) are correlated with the provision of corporate policy work. Contrary to what we would expect from a greater presence of business interests, we see the percent private sector is significant and negative in the pooled and House cross-sectional models. In the cross-sectional Senate model, it is in the expected direction but insignificant. It may be that the percentage of employees in a district is not the best way to measure the presence of business interests. Perhaps corporate headquarters, or other indicators of corporate presence, are more related to the generation of corporate policy-focused interbranch representation. 
+
+Regarding our more demanding constituents (\% college graduates), we see little systematic evidence in support of our expectations, with coefficients of marginal significance pointing in opposite directions in two of the six models and no significant results otherwise. 
+
+
+## Conclusion: Differing Constituent Demands Explain Some But Not All Variation
+
+[TODO]

@@ -26,16 +26,15 @@ book:
      - index.md
  #    - preface.md
      - acknowledgements.md
-     - ch1.qmd
-     - ch2.qmd
-     - ch3.qmd
-     - ch4.qmd
-     - ch5.qmd
-     - ch6.qmd
-     - ch7.qmd
-     - ch8.qmd
-     - ch9.qmd
-     - ch10.qmd
+     - ch1-intro.qmd
+     - ch2-causes.qmd
+     - ch3-effects.qmd
+     - ch4-data.qmd
+     - ch5-results-demand.qmd
+     - ch6-results-capacity.qmd
+     - ch7-results-incentives.qmd
+     - ch8-results-overall.qmd
+     - ch9-conclusion.qmd
      - references.md
   appendices:
      - appendix-a.qmd

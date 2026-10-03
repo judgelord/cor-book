@@ -1,0 +1,375 @@
+# Measuring (Invisible) Interbranch Representation {#sec-measuring}
+
+
+> ABSTRACT: We discuss how, up to this point, interbranch representation has been largely invisible to voters, journalists, and scholars, which has consequences for democratic accountability. We describe how we measure interbranch representation, our data collection process, and the methods we use to analyze the data. We detail the process of translating letters and congressional correspondence logs from many different agencies into aggregate data on representation activity. We then describe our coding process for determining who was being represented in each case. Finally, we present descriptive tables and figures, documenting staggering levels of inequality in the provision of interbranch representation across legislators (and districts) that motivate the rest of the book.
+
+
+```{r, include=FALSE, cache=FALSE}
+# Totals and means for this chapter at the top of the document
+type = "total"
+load(here::here("data", type, "means.Rdata"))
+
+# formatting for tables and numbers
+here::here("code", "formatting.R") |> source()
+```
+
+To understand highly unequal levels of interbranch representation, we rely on a nearly decade-long data collection effort to look both descriptively at cross-sectional differences across legislators and more rigorously at within-legislator and within-district differences-in-differences specifications for causal leverage. While in an ideal world we would be able to look at our more rigorous specifications in all circumstances, some of our hypotheses can only be examined descriptively. 
+
+
+The invisible nature of interbranch representation means that data on these activities were not readily available. In this chapter, we describe the extensive process by which we collected, cleaned, coded, and analyzed the data that we use to measure interbranch representation, which comes from federal agencies' congressional correspondence tracking systems. 
+
+Since 2016, we have been filing FOIA requests with all federal agencies and sub-agencies for all records of their correspondence with members. This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We requested records from 295 federal agencies and received records from	179. Thousands of pages of agency logs yielded 962,720 instances of what agencies tagged as congressional correspondence, 837,223 of which we link to a legislator in office at the time.^[The remainder are committee staff, state legislators, judges, agency officials, lobbyists, White House officials, former members of Congress, or future members of Congress and others who were, for various reasons, swept into an agency's tracking systems or search for records. In some cases, agencies appeared to use their congressional correspondence tracking system as a general for VIPs. The Department of Education included Politico correspondent Jennifer Haberkorn and Kenneth P Vogel from the New York Times. The Federal Highway Administration tagged 27 letters from a particularly well-connected consultant. A smaller number are members of Congress whose names were ambiguous, illegible, or inappropriately redacted. ] 
+This averages to `r perYear_mean` per legislator per year, with some, as we noted in @sec-intro, doing an order of magnitude more than the average.  
+
+
+We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded rethinking our understanding of representation and the institutions of American democracy. For more on our data collection and coding process, see @sec-appendix-methods. For summary statistics, see @sec-appendix-data.
+
+Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request.  We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. Understandably, therefore, recent studies have focused on records from a limited number of agencies. Those studies have yielded important findings regarding distributive politics [@MillsKalafHughes2015], the policy strategies of cross-pressured legislators [@Ritchie2018; @Ritchie2023], the role of ideology in congressional oversight [@Lowande2019], descriptive representation [@LowandeRitchieLauterbach2019], and money in politics [@PowellJudgeLordGrimmer2023]. With a near census of agencies, we are able to study patterns across all members and policy areas. This allows us to ask more general questions, test existing explanations out of sample, and compare the magnitude of effects documented in previous studies. 
+
+
+
+<!--Looks like I filed the first request in Nov 2016, possibly October--> 
+This effort to collect a near census of legislator-agency interactions has yielded by far the largest and most comprehensive dataset of its kind. We have spent hundreds of hours negotiating with FOIA officers, filing appeals, and convincing judges to order agencies to provide these documents. The raw data we received (often scanned PDFs full of redactions, handwritten call logs, or screenshots of database entries) has taken years to clean and process. We spent an even greater effort on hand-coding nearly all of these records—over half a million legislator requests to federal agencies—to capture whom the legislator was advocating on behalf of in each instance. This effort gives us high confidence in the quality of the data we use to make inferences. From these new data emerged a new picture of what legislator offices do and how they interact with the executive branch that demanded rethinking our understanding of representation and the institutions of American democracy.
+
+We assess both cross-sectional differences across legislators (e.g., to explain highly unequal levels of interbranch representation) and within-legislator and within-district differences-in-differences specifications for causal leverage. We also model legislators' distribution of interbranch representation across types of constituents and government agencies. These data and strategies allow us to identify causes of inequality in interbranch representation and how those causes differ for different constituencies.
+
+
+## New Data {#sec-data}
+
+To study interbranch representation, we rely on congressional correspondence logs from federal agencies. When members of Congress contact the bureaucracy, most federal agencies enter these contacts into a database or keep some other kind of record of the correspondence. These congressional correspondence logs therefore allow us to determine the overall volume of interbranch representation for each member of Congress in our chosen time period, as well as the general purpose of the contact. Importantly, we did not, in most cases, obtain the full text of the communications themselves. However, the summaries of the subjects provided rich data on the content of each item of communication.
+
+@sec-theory established that interbranch representation occurs behind the scenes, out of view of the public, journalists, and scholars. More specifically, these records of communications between members of Congress and federal agencies are, for the most part, not proactively disclosed to the public. We therefore obtained our data through a large number of Freedom of Information Act (FOIA) requests for federal agencies' congressional correspondence logs.^[Some agencies publish previously and/or frequently requested records in online reading rooms on their FOIA websites. In such cases, we were able to obtain some data without making a new request. However, these instances were relatively rare. The only agency we have found to publish records of congressional correspondence proactively is the Federal Energy Regulatory Commission. <!--Other agencies that claimed to proactively disclose records, like the Department of Homeland Security, posted significantly incomplete records.--> 
+Some FOIA offices did everything they could to refuse our requests. Other FOIA offices said they were "waiting for someone to do this so [they] don't have to keep dealing with piecemeal requests, which [they] get all of the time."] 
+
+
+
+Obtaining records of legislators’ communications with federal agencies through FOIA requests is laborious, painstaking, and time-consuming, with agencies often taking years to respond to a single request. Understandably, therefore, recent studies have focused on records from a small number of agencies. Those studies have yielded important findings regarding distributive politics [@MillsKalafHughes2015], the policy strategies of cross-pressured legislators [@Ritchie2018; @Ritchie2023], the role of ideology in congressional oversight [@Lowande2019], descriptive representation [@LowandeRitchieLauterbach2019], and money in politics [@Powell2023FERC]. With a near census of agencies, we are able to study, for the first time (except for @JudgeLordPowellGrimmer2026), patterns across all members and policy areas.
+
+We are contributing to that growing field of scholarship with a painstakingly collected new dataset that represents a near census of legislator contacts federal agencies (179	of 295 agencies) from 2007 to 2025 that required 434 FOIA requests (some agencies required multiple requests), over a thousand follow-up and clarification emails, and dozens of hours on the phone with FOIA officers. These data (an order of magnitude greater than those in all prior studies combined) enable us to address a range of new questions about representation that previous studies, which focused on a small number of agencies, could not. Our data allow us to quantify the nature of the contact, but also include rich data on the content of those contacts.
+
+
+### Data collection process {#sec-data-collection}
+
+We set out to collect data on congressional correspondence with all federal agencies between 2007 and the date of the request (2017 through early 2025). Each federal agency and many sub-agencies have a FOIA office. Separate from the FOIA office, each agency keeps track of congressional correspondence differently. These differences are opaque, but became apparent to us as we filed requests and received records across agencies. <!--However, to ensure that we received enough information for the logs to be useful for our purposes, we specified that the essential fields of data were the sender, date, and subject of the correspondence.-->  
+<!--TODO
+The template language used in each of our FOIA requests can be found in Appendix A. -->
+
+From the beginning, we suspected that congressional offices communicated directly with many sub-agencies, not just Offices of Legislative Affairs or Offices of the Secretary. This intuition was validated as we received distinct records from subagency components, even after the central office had told us that they maintained all records of congressional correspondence for their agency. Other central offices clearer about the decentralized nature of interbranch representation. As one FOIA officer put it "OSD-JS (Office of the Secretary of Defense Joint Staff) Legislative Affairs is supposed to be the front door for DOD, but if somebody knows somebody, well..." 
+
+Our first FOIA requests in 2016 asked about the kinds of records the agency kept. This informed our initial round of FOIA requests for correspondence logs with 27 sub-agencies within the U.S. Department of Agriculture (USDA) in February of 2017.^[Several of these requests turned out to be redundant, as some USDA components held congressional correspondence logs for multiple sub-agencies. This turned out to be a common pattern where record-keeping was fairly opaque, even to FOIA officers, who referred us back and forth among components.] By May, we had received records from 20 of the USDA sub-agencies. <!--We received these correspondence logs in spreadsheet form, which made them easier to process and begin to match with legislators' names (a process we discuss in more detail in the next section). <!--(Probably also need a footnote here about how Justin was involved at this stage but Rochelle was not?)--> 
+Many other agencies, including the Environmental Protection Agency (EPA), the Department of Commerce, the Department of Education, the Indian Health Service (IHS) and Substance Abuse and Mental Health Services Administration (SAMHSA) within the Department of Health and Human Services, and several components of the Department of Transportation like the Federal Aviation Administration (FAA) and Federal Highway Administration (FHWA), also provided records in matter of weeks or months. 
+
+However, the process for many other agencies was far less straightforward. We waited for nearly a year for records from the Department of Veterans Affairs. Other agencies, including the Internal Revenue Service (IRS) in the Treasury Department, the Office of Congressional and Intergovernmental Affairs (OCIA) in the Department of Labor, and the Bureau of Indian Affairs and the Office of the Solicitor within the Department of the Interior, took a year or more. Still other agencies, including the Centers for Disease Control and Prevention (CDC) in the Department of Health and Human Services, asked that we accept a rolling release of the records (usually a year or two at a time). The U.S. Citizenship and Immigration Services (USCIS) in the Department of Homeland Security has an extraordinary volume of congressional correspondence and initially agreed to give us congressional correspondence logs from one year, 2018. We received these logs a year and a half after filing the request. Immediately upon receiving the 2018 data in August of 2020, we filed a second request for congressional correspondence logs from 2016, which we received four and a half years later, in April of 2025. 
+
+The State Department is notorious for its backlog of FOIA requests. We filed our initial request for all State Department congressional correspondence logs on May 18, 2018. As of June 2026, we have still not received the records. We have been in frequent communication with State Department FOIA officials over the last eight years to check on the status of our request. <!--Most recently, they estimated that our request would be complete on May 29, 2026. A recent follow-up email for a new estimated completion date in June of 2026 has not yet been answered. --> 
+State is the only department for which we do not have records.
+
+After receiving initial batches of documents (primarily covering 2007-2017) for a number of agencies, we then filed second requests with these agencies for their congressional correspondence logs for 2018 and 2019. Response times also varied for this second batch of requests, although they were shorter on average because most of these requests were directed to agencies that had already been responsive. In total, we have filed at least 434 FOIA requests over nearly nine and a half years.
+
+No single system or database across agencies for keeping track of congressional correspondence. Agencies vary in the sophistication of their tracking systems and in what these systems record. Some agencies changed tracking systems partway through our time series, ultimately giving us multiple sets of logs in slightly different formats from the same agency. At minimum, useful congressional correspondence logs contained the name(s) of the sender(s) (members of Congress), the date of the correspondence, and a summary of the subject of the correspondence.
+
+The formats in which we received the records varied widely. Although we requested that records be sent to us "in the original, machine-readable format (i.e., if possible, not .pdf)," many agencies were only able to provide the data as PDFs because of the redaction of personal identifiable information that was required. In such situations, we converted the PDFs to spreadsheets. Some PDFs were machine-readable and could neatly be converted to spreadsheets using PDF conversion software. Other PDFs required extensive reconstruction by hand, mostly because redactions split individual observations. Still others were not machine-readable, including handwritten notes, and had to be typed into spreadsheets entirely by hand. 
+
+### Processing and Coding the Data
+
+After converting the agency-specific logs to spreadsheet form if necessary, we then turned to cleaning the data from each agency. Our goal was to identify all instances of correspondence in the agency logs that could be linked to a member of Congress during the time in which they were in office. As such, we required the name of the member of Congress and the date of the correspondence to appropriately match the observations with our list of current member names and incorporate the observations into our merged dataset.^[Agencies often made a record of phone calls, requests, or inquiries from committee staff. For some agencies, particular committee staffers were among the most frequent people in the correspondence logs. We only capture committee work when it is attributed to specific members. This usually involved letterhead communication from the chair or ranking member, sometimes signed by other (often co-partisan) members of the committee. Thus we are also under-counting interbranch representation when it comes to the work that committees do. For example, "House Ways and Means Committee Staff" wrote over 2000 letters to the U.S. Trade Representative between 2007 and 2014. These letters are not in our analysis because the agency did not identify them as coming from a member of Congress.] Because of the variation in agencies' record-keeping practices, the necessary conversions of the logs from PDFs, and natural human error, the data required extensive cleaning. Member names failed to match for a variety of reasons, including typographical errors in agencies' logs, the use of aliases, nicknames, or maiden and middle names for legislators, and OCR errors that occurred in the process of converting the logs. (For example, in one instance, "Arlen Specter" had become "Alien Specter.") We also had to drop observations that were included in the logs but were not sent by members of Congress; this included communications from governors, state legislators, and other political officials, as well as outgoing correspondence from the agency to members of Congress. We completed this work primarily on an ongoing basis as we received new data, completing a large portion of the historical records with the help of several undergraduate research assistants in the summers of 2018 and 2019. 
+
+Another concurrent task was coding the data to identify the purpose of the communication. We set out to identify five different types: (1) constituency service on behalf of individuals; (2) constituency service on behalf of businesses; (3) constituency service on behalf of nonprofits or local governments; (4) policy work on behalf of industries; and (5) general policy work. We also included a sixth category for "other" correspondence, which mostly included thank-you notes, congratulations, and other personal letters that rarely appeared in the data. Where agencies did not provide the original letters or emails from members of Congress, we used the information contained in the summaries of the correspondence, usually found in a "Subject" field from a correspondence tracking system, to code each contact. The level of detail included in these summaries varied widely across agencies. For some agencies with sparser subjects, it was possible to auto-code for our types by identifying keywords or phrases that were repeated throughout the logs for a particular agency. We only did this when we were sure that every instance of that key phrase was unambiguously a certain type. Some agencies tagged individual constituency service requests as "casework" or "constituent," which was useful for our purposes. Most of the data, however, required hand-coding to consider detailed and/or ambiguous subjects more carefully. For example, some contacts were labeled as follow-up from a contact on an earlier date, the subject of which we could identify by looking for the earlier record. 
+
+@fig-data-by-type and @tbl-data-by-type show the result of our coding for the hand-coded observations. The vast majority of observations--over 540,000--were coded as constituency service on behalf of individuals.^[Due to incomplete record keeping and compliance with our FOIA requests, these are certainly under counts. One vendor of correspondence management systems [@Stowe2026] estimated that congressional offices logged 128 thousand cases in 2022 alone --- though we do not know what portion of these required dealing with the Federal Bureaucracy.] Altogether, all three types of constituency service make up 88% of our observations. We observed nearly equal amounts of constituency service on behalf of businesses and nonprofits/local governments (about 42,000 each).^[Our overall breakdown of these three types of constituency service is similar to that observed by @Johannes1984 decades earlier. In surveying 37 Senate offices, Johannes found that 73.2% of all cases they received came from individuals; 11.2% came from state and local governments; and the rest came from businesses, private organizations, and other groups. Among the 144 House offices surveyed, 80% of their incoming cases came from individuals, while 8.9% came from government, and the remainder came from businesses and other organizations.] The remaining 12% of our observations were coded as policy work, with most of that (over 72,000 observations) being general policy work. Corporate policy work was the smallest category, with over 13,000 observations. 
+
+
+
+```{r}
+#| label: fig-data-by-type
+#| fig-cap: "Volume of Interbranch Representation by Hand-Coded Type"
+#| out-width: 80%
+
+knitr::include_graphics(here::here("figs", "data_by_type-1.png"))
+```
+
+| Type of Interbranch Representation                                    |      N|
+|:---------------------------------------|------:|
+|Constituent (501c3 or local government) |  41,917|
+|Constituent (corporate)                 |  42,092|
+|Constituent (individual)                | 547,202|
+|Policy (general)                        |  72,570|
+|Policy (corporate)                      |  13,617|
+|Uncoded                                 | 115,566|
+|---------------------------------------|------|
+| TOTAL | 832,964 | 
+
+: Volume of Interbranch Representation by Hand-Coded Type {#tbl-data-by-type}
+
+To facilitate hand-coding by a number of different research assistants over time (and to standardize and record our coding process), we created a detailed codebook that spells out the differences between our types. We defined personal/individual constituency service as "individual, non-commercial constituent service"; examples included "help with a government form...visa, back pay, military honor...disability application, worker compensation, personal complaint," and other similar cases that were clearly on behalf of an individual with no business interests involved. We considered commercial service, or constituency service on behalf of businesses, to be "anything related to a specific individual case by a business (including business owners like farmers and consultants)." Examples included helping businesses with grants, loans, contracts, or fines. Service on behalf of government and nonprofit entities (type 3) was similar, except this work was done on behalf of "municipal or state governments (including cities, counties, etc.) or non-business-oriented nonprofit organizations." It also included assistance with (or support for) grant applications. In many cases, agencies' congressional correspondence logs named the specific government or nonprofit entity; for some organizations, it was necessary to conduct a web search to confirm their nonprofit status. 
+
+Our two remaining types of interbranch representation focused on policy work. Commercial policy involved "anything applying to a class of commercial activity or businesses (e.g., shipping, airlines, agriculture)," including "legislation, bills, acts, appropriations, authorizations, etc." Some summaries of correspondence mentioned specific industries, which meant that these contacts were often fairly straightforward to code. Finally, we defined general policy work as work that was not done in the service of any particular individual, business, or industry. General policy communications included legislators' requesting policy-relevant information; requests from legislators or committees related to hearing testimonies or reports; and requests for clarification on agency rules or lobbying regarding proposed agency rules. 
+<!--Full details of our coding process and codebook can be found in Appendix A. -->
+
+<!--After leaving a senior policy position at the Department of Homeland Security and before becoming chief of staff to Ron Johnson, Donald H. Kent wrote hundreds of letters to DHS. 
+<!--the principal legislation adviser to Secretary Michael Chertoff 2005—2006, and before becoming chief of staff to Ron Johnson, Donald H. Kent, https://prabook.com/web/donald_h.kent/1457458, 
+--> 
+
+
+
+
+### Patterns of interbranch representation
+
+## What does individual constituent service look like in the data? 
+
+
+```{r}
+#| label: fig-words-1
+#| fig-cap: "Most frequent words by year"
+
+knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
+```
+
+
+Given the large number of policy areas in which the federal bureaucracy is involved, constituency service on behalf of individuals involves legislators' contacting a number of different agencies for a vast array of purposes. Many of the most common will be familiar to scholars of congressional representation and constituency service. As evidenced by the word cloud in @fig-words-1, our data include a significant number of contacts between legislators and the Department of Veterans Affairs (VA) to ask about the status of claims that their veteran constituents had filed with the VA. Other common subjects of requests to the VA on behalf of individual constituents involved appeals, disability ratings, and changes in benefits. Interestingly, a fair number of VA letters were identified as follow-up requests, indicating that legislators' casework staff were repeatedly contacting the VA about the same constituent case. Determining whether this pattern speaks more to a particular unresponsiveness of the VA or exceptional persistence on the part of congressional staff (or exceptionally detailed record-keeping by the VA) is beyond the scope of our analysis, but it does accord with our theoretical expectation about the importance of capacity for interbranch representation.
+
+Similar communications appeared in the congressional correspondence logs from many sub-agencies in the Department of Labor (DOL). Several different DOL sub-agencies, including the Occupational Safety and Health Administration (OSHA), the Office of Workers' Compensation Programs (OWCP), and the Office of Congressional and Intergovernmental Affairs (OCIA), handled congressional requests involving on-the-job injuries, benefits claims, and workplace safety complaints. Also unsurprising is the number of communications with the Internal Revenue Service (IRS) in the Treasury Department on behalf of constituents dealing with issues involving their taxes, especially tax refunds. Hundreds of thousands of individual constituency service requests involve immigration issues with U.S. Citizenship and Immigration Services (USCIS) within the Department of Homeland Security.
+These data align with  major drivers of casework identified by @Meeker2026 in our time period. 
+
+
+| Year(s) | Event | Casework Impact |
+|---|---|---|
+| 2005 | Hurricane Katrina | Years of disaster and displacement casework across the Gulf states |
+| 2008 | Financial crisis | Foreclosure and unemployment cases at volumes most offices had never seen; long-tail casework related to rising demand for other safety net programs including SSDI and VA Compensation and Pension |
+| 2010 | Haiti earthquake | Immigration and repatriation casework, including recovery and return of the remains of deceased American citizens |
+| 2017 | Hurricane Maria | Multi-year disaster and recovery casework |
+| 2018–2019 | Partial government shutdown | Agency-disruption casework across the federal landscape including homeland security agencies, federal employees, etc. |
+| 2020–2022 | COVID-19 pandemic | Sustained, multi-year surges across many agencies and programs simultaneously; pandemic-era relief casework still active in 2026 |
+| 2021 and ongoing | Afghanistan withdrawal | Thousands of urgent immigration and evacuation cases; many Afghan families remain in the immigration process today |
+| Recurring | Western drought and wildfire cycles | Seasonal and recurring disaster casework |
+| Recurring | Local disasters: tornadoes, flooding, plant closures, industry collapses | Varied and complex local casework, often including disaster programs as well as wayfinding and connections to local relief, liaising with state counterparts on unemployment and emergency SNAP/WIC benefits, replacing destroyed or damaged documents, etc. |
+
+: Major casework-driving events 2005-2024 identified by the POPVOX Foundation {#tbl-casework tbl-colwidths="[14,26,60]"}
+
+### Variation by Legislator in Individual Constituency Service
+
+```{r}
+#| label: fig-percent-1
+#| fig-cap: "Observed levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+
+```
+
+ @fig-percent-1 shows extreme levels of inequality in individual constituency service across members in both the Senate (left) and the House (right), with a few offices of members of the House averaging higher levels of interbranch representation than any Senate office. Interbranch representation on behalf of individuals mirrors income inequality in Brazil (.49 in 2024) for both the House and the Senate. Notable outliers in the House include Representatives Meng, Comstock, Donovan, and Curbelo.^[Dropping these four outliers does not affect any of our statistical results.] 
+ 
+ 
+## What does representing businesses service look like in the data? 
+
+
+
+@fig-words-2 below shows the most frequent words used in corporate constituency service messages from legislators to federal agencies over time.^[In some cases these words are taken from the actual letters themselves, but more often they come from a summary in a log file the agency kept of contact with Members of Congress.] These word clouds reveal some of the types of assistance consistently sought through the prevalence of terms like pending, assistance, contracting, application, funding, and project. They also show issues that suddenly become salient, like COVID and coronavirus appearing in the years following the outbreak of the coronavirus pandemic in 2020.  
+
+```{r}
+#| label: fig-words-2
+#| fig-cap: "Most frequent words by year"
+
+knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
+```
+
+
+Given that its mission is to support small businesses in the United States, the Small Business Administration is a locus of communications from members of Congress on behalf of businesses. Many of these involved requests for disaster assistance, as well as assistance with accessing capital and obtaining loans. Legislators also wrote on behalf of constituents seeking assistance with the 8(a) Business Development Program, which provides support to business owners who are presumed to be socially disadvantaged, including Black Americans, Hispanic Americans, Native Americans, and Asian Americans. Requests on behalf of small businesses appeared in many other agencies as well, including requests on behalf of Service-Disabled Veteran-Owned Small Businesses in several subagencies in the Department of Labor. 
+
+Many legislators wrote on behalf of businesses that needed assistance with work visas and other documentation for foreign workers. These communications appeared in a number of different agencies, including the U.S. Citizenship and Immigration Services (USCIS) and several sub-agencies in the Department of Labor like the Employment and Training Administration (ETA) and the Office of the Solicitor.^[Other requests on behalf of businesses that legislators sent to DOL agencies involved disputes over fines that businesses received and help with Trade Adjustment Assistance (TAA) benefits for displaced workers.] Some of the legislators we find doing the most work helping businesses with work visas for their employees might run contrary to our stereotypes of corporate advocacy. For example, the list of legislators who wrote the most letters on behalf of business interests to USCIS in 2016 includes prominent progressive Democrats like Senator Elizabeth Warren (D-MA, 249 letters) and Rep. Jerry Nadler (D-NY, 211 letters), as well as, Rep. Brian Higgins (D-NY, 249 letters), Sen. Chuck Schumer (D-NY, 220 letters), Rep. Scott Rigell (R-VA, 215 letters), Sen. Kirsten Gillibrand (D-NY, 151 letters), Sen. Amy Klobuchar (D-NY, 146 letters), and Sen. Johnny Isakson (R-GA, 125 letters).^[A word of caution about drawing inferences from this 2016 case. We chose 2016 to use for this example because it was one of the few years for which we have data from USCIS. We urge readers to remember that these letters during 2016 were written prior to President Trump's inauguration (January 2017), and thus were not in response to Trump-initiated immigration policy changes.]
+
+If we look at legislators who wrote the most corporate service letters to a single agency in a given year excluding USCIS, we see a less surprising list of names: Sen. David Vitter (R-LA, 64 letters in 2015 to SBA), Sen. Mark Warner (D-VA, 56 letters in 2014 to CMS), Sen. Richard Lugar (R-IN, 49 letters in 2009 to CMS), Rep. Eric Cantor (R-VA, 33 letters in 2011 to CMS), Sen. Marco Rubio (R-FL, 32 letters in 2016 to CMS), Rep. Brad Sherman (D-CA, 31 letters in 2012 to CMS), and Sen. Jim Webb (D-VA, 28 letters in 2007 to DOL-ETA).^[As previously mentioned, SBA is the Small Business Administration--a common and natural place for corporate service; CMS is the Centers for Medicare and Medicaid Services--a plausible place after the passage of the Affordable Care Act; and the DOL-ETA is the Department of Labor's Employment and Training Administration.]
+
+### Variation by Legislator in Corporate Constituency Service
+
+
+Inequality in interbranch representation on behalf of businesses mirrors 2024 levels of income inequality in Brazil (.5) and Turkey (.44) for the House and the Senate, respectively. 
+@fig-percent-2 below shows the inequality in corporate constituency work across legislators. These patterns again reveal high levels of inequality,  larger than the inequality in overall interbranch representation. Interestingly, the top of both lists contains many of the same offices --- those of Senators Nelson, Webb, Warren, Rubio, and Toomey were also in the top 10 offices in providing individual constituency service.
+Likewise, in the House, the offices of Representatives Comstock, Wolf, Van Hollen, Graham, and Faso were also in the top 10% of offices providing individual constituency service in the House. 
+
+
+
+```{r}
+#| label: fig-percent-2
+#| fig-cap: "Observed levels of corporate constituency service per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+
+```
+\clearpage
+
+
+## What does representing Nonprofits and Local Governments look like in the data? 
+
+Although our data show that letters in support of grants for local nonprofits and governments predate the congressional ban on earmarks that was instituted in 2011, we should acknowledge that legislators may be engaging in this activity as a substitute for appropriations activity, as @MillsKalafHughes2015 describe. However, @MillsKalafHughes2015 also find that "letter-marking," as they term this behavior, may be less effective than earmarking. 
+
+
+
+
+```{r}
+#| label: fig-words-3
+#| fig-cap: "Most frequent words by year"
+
+knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
+```
+
+### Variation by Legislator in Nonprofit and Government Service 
+
+
+@fig-percent-3 shows high levels of inequality across legislators in the amount of constituency service on behalf of nonprofits and local governments that legislators perform each year. Inequality in interbranch representation on behalf of nonprofits and local governments mirrors 2024 levels of income inequality in Honduras (.46) and Brazil (.5) for the House and the Senate, respectively. 
+Several outliers, including Senators Schumer (D-NY), Gillibrand (D-NY), and Nelson (D-FL), are driving a fair share of inequality in the Senate, with Schumer writing over a hundred letters on behalf of nonprofits and local governments per year. In the House, on the other hand, the offices doing the most are closer to the rest of the distribution. The yearly averages are much lower, with Representatives Rahall (D-WV), Baldwin (D-WI, before she moved to the Senate), and Owens (D-NY) leading with averages of 11-15 letters per year.
+
+
+
+```{r}
+#| label: fig-percent-3
+#| fig-cap: "Observed levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+
+```
+\clearpage 
+
+## What does Public Interest Policywork look like in the data? 
+
+
+
+```{r}
+#| label: fig-words-5
+#| fig-cap: "Most frequent words by year"
+
+knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
+```
+
+As shown in the word cloud of frequently used words in @fig-words, members of Congress communicate with federal agencies about general policy work involving a variety of matters related to policy, including hearings, rules, and programs that are part of policy implementation, as well as requests for information about specific policy issues. Many of the specific policy issues seem to follow the "events of the day": "Katrina" appears in 2005; "ARRA" (the American Recovery and Reinvestment Act, or stimulus bill) appears in 2009; and "Ebola" appears in 2014, along with "Zika" in 2016 and "COVID" in 2020. The Affordable Care Act also had a major presence in congressional correspondence between 2010 and 2012. 
+
+Legislators' communications with federal agencies for the purpose of general policy work speak to Congress's role in conducting oversight of the bureaucracy. Senator Chuck Grassley (R-IA), the most prolific author of policy-related correspondence, sent a number of letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services that were tagged by the agency as "oversight." These letters covered topics such as budget sequestration, the implementation of the Sunshine Act, and various rules, including the Inpatient Prospective Payment System (IPPS) rule, the Medicare Hospital Value-Based Purchasing rule, and CMS's delay in drafting other regulations required by the Affordable Care Act. Grassley also co-authored a letter with two other unidentified legislators to request information about the Patient Safety and Medical Liability Reform Demonstration and Planning grants that CMS was funding. All of the examples discussed here occurred during the Obama administration. Overall, many of Grassley's communications with CMS seem to be focused on conducting oversight of an agency with which he was not ideologically aligned--a departure from the findings in our analysis, as we discuss in greater detail below. 
+
+The most frequent words used in congressional contacts with the Mine Health and Safety Administration illustrate two important points: (1) policy work often means involvement in executive-branch policymaking, and (2) policy work is often closely related to constituent service.
+In addition to topics of policy contacts (words like mine, safety, explosion, coal, dust, exposure, irreparable, silica, fibrosis, and disability),
+words like hearing, report, and inspections indicate traditional oversight activities. 
+
+
+```{r}
+#| label: fig-words-msha
+#| fig-cap: "General Policy-Related Contacts with the Department of Labor Mine Health and Safety Administration"
+
+knitr::include_graphics(here::here("figs", "wordcloud", type, "by-agency", "DOL_MSHA.png"))
+```
+
+While related to and informed by traditional oversight, many more of these requests are about agency rulemaking and other executive-branch policymaking. Often the oversight work leads to neither legislation nor hearings, but more often changes in agency rules, guidance, or enforcement practices. While scholars often talk of oversight as fitful bursts of attention in response to five-alarm fire of bureaucratic failure, legislator offices are in constant communication with many agencies, voice opinions, and raise problems they hear from their constituents as agencies develop policy. Given the meager capacity of legislator offices, attention is certainly limited across issues, leading some agencies to receive much more attention than others, but these data show that congressional interventions in agency practices are much less discrete and punctuated than assumed by conventional models of interbranch relations.
+
+### Variation Across Legislators in Policy Work
+
+
+Like other forms of interbranch representation, policy work is highly unequal, though slightly less unequal than constituency service on behalf of individuals, businesses, nonprofits, or local governments. Inequality in interbranch policy work mirrors 2024 levels of income inequality in Mexico (.43) and the United States (.42) for the House and the Senate, respectively. @fig-percent-5 shows many of the offices that provided the most constituency service also did the most policy work, including Senator Grassley and Representatives Pallone and Rahall. 
+Other top offices for interbranch policy work were not leading providers of constituency service, including Senators Harkin and Hatch (though Harkin was near the top for work on behalf of nonprofits and local governments). 
+
+
+```{r}
+#| label: fig-percent-5
+#| fig-cap: "Observed levels of interbranch representation per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+type = 5
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+```
+
+
+\clearpage
+
+### Subtypes of Policywork 
+
+We can group policy work into three subtypes: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports, and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations. Sometimes policy work is clearly driven by legislators' policy interests. Other times it clearly stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). We address policy work on behalf of business interests as a separate form of interbranch representation.
+
+Within the subset of legislator requests that focus on policy rather than constituency service, most are comments on proposed agency rules implementing statutory authority (@fig-policy-subtypes). The next most frequent type of request is for assistance in drafting legislation. As it occurs before legislation, this is clearly not oversight. The third most common type of request relates to more traditional oversight actions like hearings and reports. Another, much smaller category of requests emerges of oversight that, unlike hearings and rulemaking comments, is largely unrelated to legislative tasks. For example, member of Congress frequently contact agencies about personnel decisions, upcoming lawsuits, and their response to disasters. When the nature of the congressional request relates to agency leadership, personnel policy (rather than a particular federal worker), how the agency should settle or make policy changes in response to a lawsuit, or how it should distribute disaster aid (in general, not to a particular group of constituents), we consider such requests to involve agency policy. 
+
+ 
+
+
+```{r}
+#| label: fig-policy-subtypes
+#| fig_cap: Types of policy work
+#| out_width: 80%
+
+# not broken out by type 
+knitr::include_graphics(here::here("anecdotes", 5, "oversight-prepost-1.png"))
+#knitr::include_graphics(here::here("anecdotes", 5, "oversight-drivers-prepost-1.png"))
+```
+
+
+The nature of interbranch representation varies by agency. This is true within subtypes of policy work as well. 
+While congressional attention focuses on rulemaking overall, contacts with Homeland Security focus on traditional oversight, and contacts with USDA are mostly about Farm Bills and related legislation (@fig-policy-type-by-agency).  
+
+```{r}
+#| label: fig-policy-type-by-agency
+#| fig_cap: Types of policy work with selected agencies.
+#| out_width: 80%
+knitr::include_graphics(here::here("anecdotes", 5, "oversight-data-agency-top-top-1.png"))
+```
+
+## What does Policywork on Behalf of Business look like in the data? 
+
+@fig-words-4 below shows the most frequent words used in corporate policy-related messages from legislators to federal agencies over time.^[In some cases these words are taken from the actual letters themselves, but more often they come from a summary in a log file the agency kept of contact with Members of Congress.] The prevalence of the terms "rule" and "proposed" suggests that legislators are often inquiring about rules and the rule-making process.  
+
+```{r}
+#| label: fig-words-4
+#| fig-cap: "Most frequent words by year"
+
+knitr::include_graphics(here::here("figs", "wordcloud", type, "overall_by_year.png"))
+```
+
+Much of legislators' correspondence regarding policy work on behalf of industries and business was directed to the Office of the U.S. Trade Representative (USTR) within the Executive Office of the President. More specifically, legislators often wrote to USTR and other agencies about industries with a strong presence in their state or district. The staff of Senator Mark Warner (D-VA) wrote to USTR about a proposal within the Trans-Pacific Partnership that involved tobacco, and Senator Tammy Baldwin (D-WI) wrote to USTR about beer and the Transatlantic Trade and Investment Partnership. Baldwin also wrote to the FDA with concerns about how "policies prohibiting the use of wooden boards" could negatively affect Wisconsin cheese makers. 
+
+A number of legislators with a seafood industry presence in their district contacted the FDA about matters affecting this industry. Representative Wayne Gilchrest (R-MD), for instance, wrote regarding seafood labeling, and Representatives Frank Pallone (D-NJ) and Tom Allen (D-ME) wrote regarding "Maine lobster." Senator Bill Cassidy (R-LA) also wrote to the FDA in support of the shrimp industry, urging the Presidential Task Force on Combating Illegal, Unreported, and Unregulated Fishing and Seafood Fraud to help identify factors that negatively affect shrimp industry trade practices. A group of senators and one representative--Senators Barbara Mikulski (D-MD), Mark Warner (D-VA), and Tim Kaine (D-VA), as well as Representative Rob Wittman (R-VA)--contacted the FDA with a similar concern about "fraudulent labeling of blue crabmeat" and its effect on the livelihood of those who work in the industry in Maryland and Virginia. Interestingly, this particular request (at least as it was summarized by officials at the FDA) highlighted the connection between the health of the industry and the financial well-being of the legislators' constituents, suggesting that legislators likely see this policy work on behalf of industries as a crucial part of representation. 
+
+In addition to letters with multiple signatories from neighboring states or districts, many industry-focused letters came from entire committees. For example, Senator Tom Harkin (D-IA) and the Committee on Agriculture, Nutrition, and Forestry wrote to the FDA about a final rule prohibiting the use of brains and spinal cords from certain cows in animal feed. The committee asked that the FDA "immediately conduct meetings in Iowa and elsewhere" to hear the concerns of the rendering industry about their compliance with this rule. Several letters expressing similar sentiments were sent from other groups of legislators, including one letter from all six of Kentucky's House members supporting the FDA's 60-day delay of the implementation of the rule. While we have no record in our data of legislators trying to stop or change this rule before it was about to take effect, the left-censoring of the data means that we cannot rule out the possibility that they did so at some point prior to 2007. Nevertheless, it is illuminating that legislators took these actions on behalf of a key industry at this particular stage of the policymaking process. 
+
+## Inequality in Corporate Policy Work
+
+@fig-percent-4 shows the inequality in corporate policy work across legislators, with the Senate on the left and the House on the right. These patterns again reveal high levels of inequality in how much work legislators do on behalf of business interests. Inequality in interbranch policy work on behalf of business interests mirrors 2024 levels of income inequality in Zambia (.52) and Honduras (.46) for the House and the Senate, respectively, with inequality among House offices being greater than any other type of interbranch representation. Several of these offices were also top providers of constituency service, including Senators Lugar, Warner, and Reid. 
+Others topped the list for general policy work but not constituency service, including Senators Mikulski and Baucus. 
+
+
+
+```{r}
+#| label: fig-percent-4
+#| fig-cap: "Observed levels of corporate policy work per legislator per year"
+#| fig-subcap: 
+#|   - "Senate"
+#|   - "House"
+#| layout-ncol: 2
+#| out-width: 100%
+
+knitr::include_graphics(here::here("figs", type, "percentile-1.png"))
+knitr::include_graphics(here::here("figs", type, "percentile-2.png"))
+
+```
+
+
+In addition to showing the inequality in corporate policy work, @fig-percent-4 also sheds light on how much less common it is relative to other forms of interbranch representation. While 12\% of interbranch representation is policy work, just 16\% of that is business-related. Combining those percentages, we see that less than 2\% of all interbranch representation is about corporate policy. Legislators average between 0 and 40 corporate policy contacts a year, with the median Senator averaging around 5 corporate policy contacts a year, and the average House member around 2 per year. 
+
+\clearpage
