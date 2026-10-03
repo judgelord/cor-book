@@ -1,5 +1,7 @@
 # Models {.appendix #sec-appendix-models}
 
+
+
 ```{r}
 #| label: fig-causal2
 #| fig-cap: "How constituent demand, capacity, and strategy shape interbranch representation activities"
@@ -10,7 +12,111 @@ knitr::include_graphics(here::here("figs", "mermaid-figure-2.png"))
 
 \clearpage 
 
+
+## Statistical Models {#sec-models}
+
+<!--
+[Are we planning to use different models to test demand, capacity, and strategic incentives? If so, do we want to move the models to the results section for each type?]
+Not yet in this version
+--> 
+
+Our analysis is generally at the legislator-agency-year level. <!--, with a few models at the district-agency-year level to examine changes in interbranch representation with electoral turnover. 
+<!--Our hypotheses in @sec-theory set out expectations for differences across members and within-member variation.--> 
+We estimate both cross-sectional and difference-in-differences regressions, similar to the specifications in @BerryFowler2016. 
+Because our outcome is a count, we use negative binomial regression with agency-year fixed effects to estimate differences in interbranch representation across members of Congress (cross-sectional differences). To estimate within-legislator differences over time, we include legislator-agency fixed effects.^[We drop ten member-year level observations where members switched chambers mid-congress because the office resources of members of the House and Senate differ significantly and, thus, attributing their counts to either House or Senate in those years is not quite right.] 
+Tests for differences within legislator-agency pairs take a form similar to @eq-full (with additional variables, such as those relating to primary elections, that decrease the number of observations included only in some specifications). 
+However, to assess how much each factor contributes to the observed differences across members shown in @fig-percent-1, we must rely on cross-sectional estimates (@eq-full without $\gamma_{ij}$). 
+
+We estimate all models separately for the House and the Senate, as well as pooled with an indicator to capture the capacity boost, including the staff allocation, that being a Senator provides. 
+
+Most predictors are at the legislator-year level ($it$) while a few are at the legislator-agency-year level ($itj$). Predictors at the legislator level ($i$), like prior experience, are not included in difference-in-differences models because there is no within-legislator variation.
+When perceived ideological distance is included in models, we interact it with the indicator for whether the legislator has a co-partisan president ("president's party") because legislators may interact differently with aligned and unaligned agencies depending on their partisan alignment with the president. 
+
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha),\\
+\log(\mu_{ijt}) = \\
+  & \underline{-Demand-}\\
+  & \beta_1 \text{District Population}_{it}+\\
+  & \beta_2 \text{Percent Goverment Workers}_{it}+\\
+  & \beta_3 \text{Percent with College Degree}_{it}+\\
+  & \beta_4 \text{Percent Receiving Public Assistance}_{it}+\\
+  & \underline{-Capacity-}\\
+  & \beta_5 \text{Experience in Congress}_{it}+\\
+  & \beta_6 \text{Experience in State Legislator}_{it}+\\
+  & \beta_7 \text{Staff Budget}_{it}+\\
+  & \beta_8 \text{Committee Chair}_{it}+\\
+  & \beta_{9}  \text{Subcommittee Chair}_{it}+\\
+  & \beta_{10}  \text{Ranking Minority Committee Member}_{it}+\\
+  & \beta_{11}  \text{Reporting Committee Member}_{itj}+\\
+  & \underline{-Stratigic Environment-}\\
+  & \beta_{12}  \text{Competitive Prior Election}_{it}+\\
+  & \beta_{13}  \text{Republican}_{it}+\\
+  & \beta_{14}  \text{President's Party}_{it}+\\
+  & \beta_{15}  \text{Perceived Ideological Distance}_{itj}+\\
+  & \beta_{16}  \text{President's Party} \times \text{Perceived Distance}_{it}+\\
+  & \underline{-Other-}\\
+  & \beta_{17}  \text{|DW-NOMINATE 1|}_{it}+\\
+  &...\\
+  & \gamma_{ij} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-full}
+
+
+$Y_{ijt}$ is the number of requests legislator $i$ makes to agency $j$ in year $t$. We estimate a negative binomial count model with conditional mean $\mu_{ijt}$ and overdispersion parameter $\alpha$. The conditional mean is linked to covariates via the log link, $\log(\mu_{ijt})$: a one-unit increase in a covariate multiplies the expected count by $\exp(\beta)$, holding other terms fixed.
+
+$\gamma_{ij}$ denotes a *legislator--agency* fixed effect that is estimated using a true conditional fixed-effects approach (i.e., conditioned out rather than included as a full set of dummy variables). This fixed effect controls for time-invariant legislator characteristics and time-invariant legislator--agency-specific factors, including persistent constituent demand for assistance from a given agency and stable state or district attributes (population, demographics, local industries) that shape demand for particular agencies.
+
+$\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific shocks over time that may affect the level of requests received from legislators in the periods for which data are available from each agency.
+
+
+
+
+### Modeling the effect of electoral turnover 
+
+Finally, we estimate a district-level model (@eq-district). 
+In contrast to other models, this model estimates counts per district $d$ rather than legislator $i$. The main coefficients of interest are the average effect of a district electing a new person to Congress and whether new legislators are able to do more interbranch representation if they replace a member of the same party (because they are more likely to retain staff with experience serving the district).
+
+Like the legislator-level model, district fixed effects should largely control for differences in constituent demand across districts. 
+The district-level specification holds constant the level of demand in a district while examining things that vary little over time within legislators, such as partisan affiliation or a legislator's perceived ideological distance from each agency. Electoral turnover thus provides a valuable additional way to assess competing theories about whether ideological distance will lead to more or less interbranch representation.
+The district-level analysis also allows us to estimate the effect of partisan turnover, but we only have theoretical predictions for partisan turnover for representation of business interests. 
+
+
+
+<!--- NOT SURE THIS IS RIGHT - I THINK CHAIR SHOULD BE IN THE FINAL SPECIFICATION, BECAUSE WE WANT TO COMPARE NEW MEMBERS TO OTHERS WHO ARE SIMILAR (IN ADDITION TO THE UNCONDITIONAL NEW MEMBER EFFECT.
+
+Because new members of Congress are not generally considered for committee chair positions, we omit these variables. 
+
+ALSO, WE SHOULD PROBABLY DO DISTRICT_AGENCY FE
+---> 
+
+$$
+\begin{aligned}
+Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\mu_{ijt},\alpha),\\
+\log(\mu_{ijt}) = \\
+  & \beta_1 \text{New Member}_{dt}+\\
+  & \beta_6 \text{Same Party}_{dt}+\\
+  & \beta_7 \text{New Member} \times \text{Same Party}_{dt}+\\
+  & \beta_{12}  \text{Reporting Committee Member}_{dtj}+\\
+  & \underline{-Environment-}\\
+  & \beta_{13}  \text{Competitive Prior Election}_{dt}+\\
+  & \beta_{14}  \text{Republican}_{dt}+\\
+  & \beta_{15}  \text{President's Party}_{dt}+\\
+  & \beta_{16}  \text{Perceived Ideological Distance}_{dtj}+\\
+  & \beta_{17}  \text{President's Party} \times \text{Perceived Distance}_{dt}+\\
+  & \underline{-Other-}\\
+  & \beta_{18}  \text{|DW-NOMINATE 1|}_{dt}+\\
+  &...\\
+  & \gamma_{d} + \delta_{jt} 
+\end{aligned}
+$$ {#eq-district}
+
+
+\clearpage
 ## Main Model
+
+
 
 ::: {.fake-xref-table-for-caption}
 
