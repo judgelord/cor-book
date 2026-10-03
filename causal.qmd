@@ -28,9 +28,9 @@ Here's a key for the figures:
 
 flowchart TD
         CD["Constituent<br/>Demand"]
-        IR["Legislator Office Capacity"]
-        G["Legislator's Strategic<br/>Choices Shaped by Political Environment"]
-        W["Work Done by<br/>Legislator Office"]
+        IR["Congressional Office Capacity"]
+        G["Legislator Incentives"]
+        W["Work Done by<br/>Congressional Office"]
         L["Legislation"]
         A["Interbranch Representation"]
         C["Communications"]
@@ -121,7 +121,7 @@ flowchart TD
 
 ```{mermaid}
 %%| label: fig-causal-capacity
-%%| fig-cap: "How legislator office capacity shapes interbranch representation activities"
+%%| fig-cap: "How Congressional Office capacity shapes interbranch representation activities"
 %%| fig-width: 6.5
 %%| out-width: "100%"
 %%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"subGraphTitleMargin": {"top": 15, "bottom": 25}, "htmlLabels": false}}}%%
@@ -157,7 +157,7 @@ flowchart TD
 %%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"subGraphTitleMargin": {"top": 15, "bottom": 25}, "htmlLabels": false}}}%%
 flowchart TD
         PE["Political<br/>Environment"]
-    subgraph strategic_g ["Legislator’s Strategic Choices"]
+    subgraph strategic_g ["Legislator Incentives"]
         G["What Work to Prioritize"]
         SA["How to Allocate Staff"]
     end
@@ -193,8 +193,8 @@ flowchart TD
     subgraph env_g ["Environment"]
         PE["Political<br/>Environment"]
     end
-    subgraph strategic_g ["Strategic Choices"]
-        G["Legislator's Strategic<br/>Choices"]
+    subgraph strategic_g ["Strategic Incentives"]
+        G["Legislator Incentives"]
         SA["Legislator's <br/> Staff Allocation"]
     end
     subgraph output_g ["Outputs"]
