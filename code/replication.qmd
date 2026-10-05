@@ -73,6 +73,8 @@ rename_vars <- function(data){
          pop2010m = pop2010/1000000,
          # from new census data 
          population_m = population_total/1000000,
+         # note I am transforming these without making "_h" versions 
+         total_staff_experience_years = total_staff_experience_years/100,
          # note I am transforming these without making "_m" versions 
          workers_federal=workers_federal/1000000 ,
     workers_private_sector=workers_private_sector/1000000 ,
@@ -102,10 +104,19 @@ rename_vars <- function(data){
 data_member <- rename_vars(data_member) 
 data_district <- rename_vars(data_district)
 
+# read in the list of member years to exclude (because they died in office etc)
+source(here::here("code", "member_years_to_exclude.R"))
+data_member <- anti_join(data_member, exclude)
 
 save(data_member, file = here::here("data", type, "data_member.rda"))
 ######## DON'T MODFIY DATA BELOW THIS LINE 
 
+# INSPECT NEW VARS 
+data_member |>  filter(is.na(staff_count), year>2010) |>  distinct(bioname, icpsr, party, chamber,  year) |>
+  kable(caption = "missing from staff experience data")
+data_member |>  filter(is.na(staff_count_policy), year>2010) |> distinct(bioname, icpsr,party, chamber, year) |>
+  kable(caption = "missing from staff allocation data")
+#  Jeff Van Drew (R) — became Republican in Dec. 2019
 
 # INSPECT NA COUNT
 data_member |>
@@ -127,7 +138,7 @@ kablebox_long()
 # (OFTEN FOR GOOD REASONS - OFTEN BECAUSE THEY SERVED ONLY A PARTIAL TERM), should we drop them too? 
 # https://github.com/judgelord/correspondence/issues/248
 # They already auto-dropped from most models
-data_member |> filter(is.na(lesclassic), congress < 119) |> distinct(congress, chamber, icpsr, bioname, votepct, state_leg, lesclassic) |> kable()
+data_member |> filter(is.na(lesclassic), congress < 119) |> distinct(bioname, chamber, icpsr, party, year ) |> kable(caption = "in voteview but not LES data")
 
 if(F){ # INSPECT CENSUS EMPLOYMENT DATA - DO THEY ADD UP TO 1? WHAT IS THE REMAINDER?
 data_member |> group_by(year, icpsr, chamber, agency) |>  mutate(sum = sum( percent_workers_nonprofit, percent_workers_self_employed, percent_workers_private_sector, percent_workers_government, na.rm = T) |> round(1)) |> ungroup() |> count(sum) |> arrange(sum) |> kablebox(
@@ -1594,9 +1605,13 @@ plot_effect(
 {{< include code/replication-capacity-house.qmd >}}
 {{< include code/replication-capacity-senate.qmd >}}
 
-## Staff expierence 
+## Staff experience 
 
-see Per District models below
+{{< include code/replication-full-staff-experience.qmd >}}
+
+
+
+also see Per District models below
 
 # Strategic Responses to the Political Environment 
 

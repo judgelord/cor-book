@@ -1,3 +1,4 @@
+# IDEOLOGY
 load( here::here("data", "rcl_ideology_estimates.rda") )
 
 rcl <- rcl_ideology_estimates |> transmute(
@@ -12,11 +13,12 @@ rcl <- rcl_ideology_estimates |> transmute(
   department_ideo = X.ideo_rating.
 )
 
+# TEST
 if(F){
 rcl |> full_join( distinct(d, agency) )
 }
 
-
+# MOVE TO SCRIPT THAT CREATED THESE DATA
 # CENSUS DATA
 load( here::here("data", "census", "census.rda") )
 
@@ -63,7 +65,73 @@ save(cen, file = here::here("data", "cen.rds"))
 # read in the list of member years to exclude (because they died in office etc)
 source(here::here("code", "member_years_to_exclude.R"))
 
-# d <- left_join(d, member_data)
+
+##########################
+# STAFF - MOVE TO NEW SCRIPT
+here::here("data", "member_year_experience.rda") |>
+  str_replace("cor-book", "congressional_staff") |>
+  load()
+
+
+member_year_experience %<>%
+  # remove vars with NAs from merge of historical committee data in https://github.com/judgelord/committees/issues/1
+  distinct(icpsr, year, chamber, staff_count, mean_staff_experience_years, median_staff_experience_years, total_staff_experience_years) %>%
+  as_tibble()
+
+if(F){
+  member_year_experience |> count(icpsr, year, chamber, sort = T)
+  member_year_experience |> count(is.na(year), chamber, sort = T)
+  member_year_experience |> count(is.na(staff_count), chamber, sort = T)
+  member_year_experience |> filter(chamber == "President")
+
+  # should be all 1s
+  d |>
+    left_join(member_year_experience) |> count(icpsr, agency, year, chamber, sort = T)
+
+  d |>
+    left_join(member_year_experience) |> filter(is.na(staff_count), congress > 105) |>
+    distinct(bioname, icpsr, chamber, year) |>  knitr::kable(caption = "missing from legistorm")
+
+  members |>
+    #anti_join(exclude, by = c("congress", "chamber", "icpsr")) |>
+    left_join(member_year_experience) |> filter(is.na(staff_count), congress > 106, chamber != "President") |>
+    count(bioname, congress, chamber, icpsr)
+}
+
+##########################
+# STAFF Allocation
+here::here("data",  "member_year_category_counts_wide.rda") |>
+  str_replace("cor-book", "congressional_staff") |>
+  load()
+
+member_year_category_counts_wide %<>%
+  # remove vars with NAs from merge of historical committee data in https://github.com/judgelord/committees/issues/1
+  select(icpsr, year, chamber, total_staff_count, starts_with("staff")) %>%
+  select(-staff_count_unclassified, -staff_count_other_expenses) %>%
+  mutate(icpsr = as.double(icpsr)) %>%
+  distinct() %>%
+  as_tibble()
+
+if(F){ # INSPECT
+  member_year_category_counts_wide |> count(icpsr, year, chamber, sort = T)
+
+  member_year_category_counts_wide |> count(is.na(year), chamber, sort = T)
+  member_year_category_counts_wide |> count(is.na(staff_count_policy), chamber, sort = T)
+
+
+  # should be all 1s
+  d |>
+    left_join(member_year_category_counts_wide) |> count(icpsr, agency, year, chamber, sort = T)
+
+  d |>
+    left_join(member_year_category_counts_wide) |> filter(is.na(staff_count_policy), congress > 105) |>
+    distinct(bioname, icpsr, chamber, year) |>  knitr::kable(caption = "missing from legistorm")
+
+  members |>
+    left_join(member_year_category_counts_wide) |>
+    filter(is.na(staff_count_policy), congress > 106, chamber != "President") |>
+    count(bioname, congress, chamber, icpsr)
+}
 
 post_merge_transformations <- function(d){
 
@@ -171,77 +239,8 @@ d <- d |>
 nrow(d)
 
 
-##########################
 # STAFF
-here::here("data", "member_year_experience.rda") |>
-  str_replace("cor-book", "congressional_staff") |>
-  load()
-
-
-member_year_experience %<>%
-  # remove vars with NAs from merge of historical committee data in https://github.com/judgelord/committees/issues/1
-  distinct(icpsr, year, chamber, staff_count, total_staff_experience_years) %>%
-  as_tibble()
-
-if(F){
-  member_year_experience |> count(icpsr, year, chamber, sort = T)
-  member_year_experience |> count(is.na(year), chamber, sort = T)
-  member_year_experience |> count(is.na(staff_count), chamber, sort = T)
-  member_year_experience |> filter(chamber == "President")
-
-  # should be all 1s
-  d |>
-    left_join(member_year_experience) |> count(icpsr, agency, year, chamber, sort = T)
-
-  d |>
-    left_join(member_year_experience) |> filter(is.na(staff_count), congress > 105) |>
-    distinct(bioname, icpsr, chamber, year) |>  knitr::kable(caption = "missing from legistorm")
-
-  members |>
-    #anti_join(exclude, by = c("congress", "chamber", "icpsr")) |>
-    left_join(member_year_experience) |> filter(is.na(staff_count), congress > 106, chamber != "President") |>
-    count(bioname, congress, chamber, icpsr)
-}
-
 d <- d |> left_join(member_year_experience)
-
-
-##########################
-# STAFF Allocation
-here::here("data",  "member_year_category_counts_wide.rda") |>
-  str_replace("cor-book", "congressional_staff") |>
-  load()
-
-
-member_year_category_counts_wide %<>%
-  # remove vars with NAs from merge of historical committee data in https://github.com/judgelord/committees/issues/1
-  select(icpsr, year, chamber, total_staff_count, starts_with("staff")) %>%
-  select(-staff_count_unclassified, -staff_count_other_expenses) %>%
-  mutate(icpsr = as.double(icpsr)) %>%
-  distinct() %>%
-  as_tibble()
-
-if(F){ # INSPECT
-member_year_category_counts_wide |> count(icpsr, year, chamber, sort = T)
-
-member_year_category_counts_wide |> count(is.na(year), chamber, sort = T)
-member_year_category_counts_wide |> count(is.na(staff_count_policy), chamber, sort = T)
-
-
-  # should be all 1s
-  d |>
-    left_join(member_year_category_counts_wide) |> count(icpsr, agency, year, chamber, sort = T)
-
-  d |>
-    left_join(member_year_category_counts_wide) |> filter(is.na(staff_count_policy), congress > 105) |>
-    distinct(bioname, icpsr, chamber, year) |>  knitr::kable(caption = "missing from legistorm")
-
-  members |>
-    left_join(member_year_category_counts_wide) |>
-    filter(is.na(staff_count_policy), congress > 106, chamber != "President") |>
-    count(bioname, congress, chamber, icpsr)
-}
-
 d <- d |> left_join(member_year_category_counts_wide)
 
 nrow(d)
