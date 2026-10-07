@@ -3,6 +3,14 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap);
 
+.reveal .cell .figure-caption,
+.reveal .cell figcaption,
+.reveal .cell p.caption {
+  color: transparent !important;
+  display: none !important;
+}
+
+/* citation class size and color */
 .reveal .slides span.citation {
   font-size: 0.5em;
   color: #666;
@@ -132,6 +140,10 @@ p {
     color: $text-muted;
     font-family: $presentation-heading-font;
     background-color: $body-bg;
+    bottom: 3px !important;
+    top: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 
@@ -139,6 +151,20 @@ p {
 ul li:first-child,
 ol li:first-child {
   margin-top: 0; // No extra space at the end
+}
+
+.reveal {
+  // Remove the paragraph's bottom margin when followed by a list
+  p:has(+ ul),
+  p:has(+ ol) {
+    margin-bottom: 0;
+  }
+
+  // Control the remaining space above the list
+  p + ul,
+  p + ol {
+    margin-top: 0.0em; // Use 0 for no gap
+  }
 }
 
 
