@@ -1,185 +1,363 @@
 # How Congressional Capacity Affects Interbranch Representation {#sec-results-capacity}
 
-> ABSTRACT: 
+> ABSTRACT: How does the capacity of congressional offices shape interbranch representation? Legislators can respond to constituent demand, and generate work of their own, only to the extent their offices have the ability to do so. We test four sources of capacity: legislator experience, staff, committee leadership positions, and seats on an agency’s reporting committee. Because many of these change over a legislator’s career, we compare legislators with one another and also compare the same legislator before and after their capacity changes. We find that capacity matters: capacity that comes from experience in congress and larger staff increases many types of interbranch representation, while capacity that comes from committee roles (leadership positions or seat on agency's reporting committee), increases general policy work. 
 
 ```{r, include=FALSE, cache=FALSE}
 # formatting for tables and numbers
 here::here("code", "formatting.R") |> source()
+here::here("code", "hypothesis_table.R") |> source()
 ```
 
 
-## MEASURING CAPACITY 
+In @sec-results-demand, we examined the first element in our framework of interbranch representation: *constituent demand*, where we found that demand can explain some, but not all of the variation in interbranch representation. Legislators can only respond to constituent demand if they have sufficient ability to do so. That ability is captured in our concept of *capacity*, which is the second element in our framework of interbranch representation, and the focus of this chapter. @hyp-capacity (Capacity), introduced in @sec-theory, holds that congressional offices with more capacity will do more interbranch representation. A number of different factors are likely to affect a legislator's capacity, or the ability of their office to produce work. These include factors that pertain to legislators themselves, such as their experience in office and their committee leadership positions, as well as factors related to the congressional office more broadly, like the number and experience of the staff. We include all of these measures as different facets of capacity. 
 
+As @fig-capacity-flowchart shows, capacity sits between demand and work: the requests for help that constituents send become interbranch representation only to the extent that an office has the ability to act on them. Capacity also enables offices to generate interbranch work of their own, such as policy work and oversight that no constituent requested.
 
-## Measuring Capacity
+```{r}
+#| label: fig-capacity-flowchart
+#| fig-cap: "How congressional office capacity shapes interbranch representation. 
+#| out-width: "85%"
+knitr::include_graphics(here::here("figs", "causal-capacity.png"))
+```
 
+In the following sections, we discuss our four sources of congressional capacity: legislator experience, legislators' staff, committee leadership roles, and reporting committee seats. We develop sub-hypotheses for how each of these sources of capacity relate to the provision of different forms of interbranch representation. We test these hypotheses using both cross-sectional and difference-in-differences models. We find capacity matters, and see two consistent patterns: capacity that comes from experience and a larger staff increases many types of interbranch representation, while capacity that comes from committee work, whether a leadership position or a seat on an agency's reporting committee, increases general policy work, but not constituency service. 
 
-A number of different factors are likely to affect a legislator's capacity, or the ability of their office to produce work. These include factors that pertain to legislators themselves, such as their experience in office and their institutional positions, as well as factors related to the congressional office more broadly, like the number of staff and how staff are allocated across different tasks. We include all of these measures as different facets of capacity. 
+## Four Sources of Capacity
 
 ### Legislator Experience 
 
-Like anyone starting a new job, legislators face startup costs such as how to organize their office, develop efficient routines, and make connections. As @JudgeLordPowellGrimmer2026 documented, much of the startup costs (especially for constituency service) occur in the first two years of legislators' tenure. We thus model experience as having more than two years in office for purposes of testing the impact of experience against other causes of variation in interbranch representation. 
-As a measure of relevant experience prior to taking office, we use an indicator of whether the legislator was a state legislator provided by @VoldenWiseman2014 and @VoldenWiseman2018. Almost half of members of Congress previously served as a state legislator.
+Like anyone starting a new job, legislators face start-up costs such as how to organize their office, develop efficient routines, and make connections. As @JudgeLordPowellGrimmer2026 documented, much of the start-up costs (especially for constituency service) occur in the first two years of legislators' tenure. 
 
-### Committee Leadership Roles and Committee Oversight Relationships 
-
-Committee chairs direct committee staff in addition to their own personal staff. Empirical research shows that this additional staff capacity increases both policy work [@Ritchie2018; @Ritchie2023; @JudgeLordPowellGrimmer2026] and constituency service [@JudgeLordPowellGrimmer2026]. 
-
-All executive branch agencies "report" to one or more congressional committees charged with overseeing their work. Both chambers also have an "oversight" committee that focuses on a small number of investigations, usually of scandals or other alleged wrongdoing. Reporting committees are different. They may investigate perceived problems with the agencies they oversee. Indeed, oversight hearings --- the classic example of congressional oversight --- are often conducted by reporting committees. However, these committees also provide coverage over nearly the entire executive branch, dividing the work of monitoring and developing policy targeting particular agencies. Members of Congress have an especially close relationship with the agencies that report to their committees. 
-
-Only a small proportion of Congress-agency interactions rise to the levels of hearings and investigations. Instead, as @Lowande2018APSR and @LowandePotter2021 demonstrate, most congressional interventions happen in direct communication between legislators and agencies. Legislators who sit on congressional committees overseeing an agency are likely to engage in higher levels of interbranch representation with that agency. We think this relationship is likely to exist for two reasons. First, legislators are likely to be substantively interested in that policy area to have received a seat on that committee. Second, their responsibility as committee members may also lead them to engage in higher interbranch representation with agencies under the committee's jurisdiction.  
-
-To identify this link between agencies and legislators, we combine several sources of existing data and augment it with additional research into the committees members sit on. The result is a new dataset on committee assignments, including committee chair, ranking minority, subcommittee chair, and other leadership positions [updating @StewartWoon2017].^[Committee assignment and position data are available at <https://github.com/judgelord/committees>. We cross-checked and augmented these data with chair and subcommittee chair indicators compiled by @VoldenWiseman2014 and @VoldenWiseman2018 from the Almanac of American Politics.] <!--We adopt the definition of prestige committee assignments from @JudgeLordPowellGrimmer2026.--> 
-
-Finally, we crosswalk reporting committee assignments with committee jurisdictions using the ACUS Sourcebook of United States Executive Agencies [@LewisSelin2012]. This gives us an indicator for each legislator-agency pair of whether the legislator sat on a reporting committee with oversight jurisdiction over that agency in each Congress. We consider oversight relationships to be a measure of capacity (because legislators have special access to committee staff and information and may be more likely to get a response from the agencies that report to them) and strategic behavior (because legislators seek to join committees that oversee parts of the government they care about).
+We can think of legislator experience as coming from both experience within the chamber (seniority) and from experience in politics itself. An alternative conceptual approach to direct congressional experience within the chamber is thinking about political amateurism --- politicians new to politics itself. For example, a freshman member of Congress might be new to Capitol Hill, but could have served previously on a city council and in their state legislature, during which they could have gained experience with analogous forms of interbranch representation. Congressional research has examined the impact of political amateurism in both congressional campaigns and in the work of Congress itself [@Canon1990; @PorterTreul2025; @PorterHardenDobson2025; @PorterTreul2026], but has yet to explore the impact of political amateurism on interbranch representation specifically.  
 
 
-
-#### Capacity: Legislator Experience 
-
-::: {#thm-capacitylegexperience}
-## Capacity: Legislator Experience
-Legislators with more experience will be associated with higher amounts of interbranch representation.
+::: {#hyp-capacity-experience .hypothesis name="Experience"}
+Legislators with more *experience*, whether from time served in Congress or from prior service in a state legislature, will be associated with higher levels of interbranch representation.
 :::
 
-We can think of legislator experience as coming from both experience within the chapter (seniority) and from experience in politics itself. An alternative conceptual approach to direct congressional experience within the chapter is thinking about political amateurism --- politicians new to politics itself. For example, a freshman member of Congress might be new to Capitol Hill, but could have served previously on a city council and in his or her state legislature, during which they could have gained experience with analogous forms of interbranch representation. Congressional research has examined the impact of political amateurism in both congressional campaigns and in the work of Congress itself [@Canon1990; @PorterTreul2025; @PorterHardenDobson2025; @PorterTreul2026], but has yet to explore the impact of political amateurism on interbranch representation specifically.
+### Staff 
 
-#### Capacity: Institutional Position
-
-Legislators' institutional positions also shape the capacity of their offices. In this project, we are primarily focused on committee positions  ---  committee chairs, ranking members, and subcommittee chairs --- as the most relevant forms of institutional positions. Committee chairs direct committee staff in addition to their own personal staff. While committee staff are at least theoretically limited to working on committee business, one might imagine a legislator could reallocate his personal office staff differently, and that staffers working for the same legislators (committee and personal office) could force closer connections and help provide knowledge and expertise to one another. Empirical research shows that this additional staff capacity increases both policy work [@Ritchie2018; @Ritchie2023; @JudgeLordPowellGrimmer2026] and constituency service [@JudgeLordPowellGrimmer2026]. An alternative interpretation of any potential relationship between institutional position and interbranch representation is also possible --- that committee chairs are more powerful, and they anticipate the bureaucracy will respond better to them. 
-
-::: {#thm-capacityinstitutionalposition}
-## Capacity: Institutional Position
-Legislators who hold committee leadership positions will be associated with higher amounts of interbranch representation.
-:::
+Unlike legislative work, where a legislator might choose to be more hands-on, the vast majority (if not all) of interbranch work in the contemporary period is carried out by congressional staff. While legislators played a much greater role in interbranch representation in earlier eras of congressional history [@Olson1966], today staff do most of the work.^[Indeed, we can point to some cases in which after members left Congress, their staff continued to represent their district. For example, in the period between Rep. Patrick Meehan (R-PA) resigning from Congress in April of 2018 and Rep. Mary Gay Scanlon (D-PA) assuming office in November, USCIS received 51 requests from the office that the agency tagged as from "Vacant, Meehan" along with dozens of other letters from staff whose members were no longer serving and did not yet have a replacement. These letters end up getting dropped from our legislator-level analyses.]   Research shows that other aspects of congressional work --- legislative committee productivity and individual legislator effectiveness --- are impacted by staff experience and staff budget allocation [@Cottle2022; @Ommundsen2025; @MontgomeryNyhan2017; @CrossonEtAl2020; @Reynolds2020]. Personal office staffing has changed substantially over Congress's history (@fig-staff-over-time). Members of the House are limited to 18 permanent employees and may only fill 12 due to a limited budget that has been declining since 2010 [@Reynolds2020]. 
 
 
-#### Capacity: Reporting Committee Assignment 
+```{r}
+#| label: fig-staff-over-time
+#| fig-cap: "Congressional Office Staff, 1891-2025"
 
-Congressional committee assignments provide members with information and the opportunity to gain substantive expertise about a policy area, including the agencies that a committee oversees. While we often focus on the role that the House Oversight Committee plays in overseeing the executive branch, other committees also play a role in oversight. These substantive committees are also charged with overseeing agencies within their policy area. In congressional lingo, these relationships are called the "Reporting Committees" for a federal agency [see @LewisSelin2012]. In addition to gaining substantive expertise in the policy area and expertise about the agency itself, members sitting on these committees have access to committee staff for substantive policy information about issues and agencies in the committee's wheelhouse. We consider sitting on a committee to which the agency reports (a form of oversight) as expanding that member's capacity with regard to that agency. 
+here::here("figs", "combined-staff-1.png") |>
+  knitr::include_graphics() 
+```
 
-::: {#thm-capacityreporting}
-## Capacity: Reporting Committee Assignment
-Legislators who sit on the reporting committee for the agency will be associated with higher amounts of interbranch representation with that agency.
-:::
 
-A nuance that will complicate our interpretation of this relationship is that a committee seat on a reporting committee may capture other things beyond capacity that comes from sitting on the committee. Members may have prior expertise in a policy area, which could partially contribute to getting that committee assignment in the first place. This complication could be considered capacity coming from prior life experience (not committee reporting relationships themselves), so it would still fall under the capacity portion of our framework. 
+Offices also differ considerably in both the number of staff they employ and how much congressional experience those staff bring (@fig-staff-experience). Each thin line in the figure traces a single congressional office over time; blue lines show offices in a legislator’s first Congress, and orange lines show established offices. Staff size varies widely, especially in the Senate, where some offices employ fewer than 40 staff and others more than 100 (@fig-staff-experience-1). New offices are also smaller: senators in their first Congress employ about 15 fewer staff than established Senate offices, on average, and new House offices are slightly smaller than established ones. Staff experience varies even more (@fig-staff-experience-2). New offices start with little accumulated experience and build it over the course of a Congress, producing the sawtooth pattern of blue lines, while established offices range from fewer than 100 to more than 750 combined years of congressional experience. We argue that a larger staff and more experienced staff have the capacity to provide more interbranch representation. In this book, we examine three aspects of congressional staffing that impact interbranch representation: the number of staff, total staff experience, and average staff experience.
 
-Alternatively, a seat on a reporting committee could be considered a form of strategic behavior. It could be a strategic choice to seek out that committee assignment in the first place, because legislators seek to join committees that oversee parts of the government they care about. But we could also think of it as a strategic choice to invest in oversight work with the agency. Interbranch representation includes many forms of agency oversight. Only a small proportion of congressional-agency interactions rise to the levels of hearings and investigations. Instead, as @Lowande2018APSR and @LowandePotter2021 demonstrate, most legislative interventions happen in direct communication between legislators and agencies. Legislators who sit on congressional committees that have a reporting relationship with that agency are likely to engage in higher levels of interbranch representation with that agency. While notions of policy-focused interbranch representation might immediately spring to mind, constituency service can also be a congressional oversight strategy [@Johannes1979]. 
 
-#### Capacity: Staff 
 
-Unlike legislative work, where a legislator might choose to be more hands-on, the vast majority (if not all) of interbranch work in the contemporary period is carried out by congressional staff. While legislators played a much greater role in interbranch representation in earlier eras of congressional history [@Olson1966], today staff do most of the work.^[Indeed, we can point to some cases in which after members left Congress, their staff continued to represent their district. For example, in the period between Rep. Patrick Meehan (PA-7) resigning from Congress in April of 2018 and Rep. Mary Gay Scanlon assuming office in November, USCIS received 51 requests from the office that the agency tagged as from "Vacant, Meehan" along with dozens of other letters from staff whose members were no longer serving and did not yet have a replacement. These letters end up getting dropped from our legislator-level analyses.]   Research shows that other aspects of congressional work --- legislative committee productivity and individual legislator effectiveness --- are impacted by staff experience and staff budget allocation [@Cottle2022; @Ommundsen2025; @MontgomeryNyhan2017; @CrossonEtAl2020; @Reynolds2020]. 
-Members of the House are limited to 18 permanent employees and may only fill 12 due to a limited budget that has been declining since 2010 [Reynolds2020].
+```{r}
+#| label: fig-staff-experience
+#| fig-cap: "Congressional office staff size and experience. Each thin line represents one congressional office over time; blue lines show offices in a legislator's first Congress and orange lines show established offices. Thick lines in panel (a) show average trends. Staff experience gained before 2011 is incompletely recorded, so experience is understated in the early years of the series."
+#| layout-ncol: 2
+#| fig-subcap:
+#|   - "Number of staff per office"
+#|   - "Staff experience in Congress"
 
-We argue that a larger staff and more experienced staff have the capacity to provide more interbranch representation. In this book, we examine three aspects of congressional staffing that impact interbranch representation: staff experience, staff quantity, and staff budget.  
+here::here("figs", "plot-history-member-year-staff-count-2.png") |> knitr::include_graphics()
+# here::here("figs", "plot-history-member-year-mean-experience-1.png") |> knitr::include_graphics()
+here::here("figs", "plot-history-member-year-experience-1.png") |>
+  knitr::include_graphics()
+```
+
 
 <!--
 @Cottle2022 finds that staff experience affects the productivity of legislative committees. Similarly, we might expect that members who inherit experienced staff from the previous representative of that state or district will have more capacity for interbranch representation. Because staff are much more likely to stay when the new representative is of the same party, we use whether the former representative was of the same party as a proxy for staff quality. We expect this effect to be especially strong in offsetting the start-up costs of new members in their first two years, so we allow it to vary by legislator experience.
 --> 
 
-::: {#thm-capacitystaff}
-## Capacity: Staff
-Legislators with more staff capacity (staff quantity, staff experience, and/or budget) will be associated with higher amounts of interbranch representation. 
+::: {#hyp-capacity-staff .hypothesis name="Staff"}
+Legislators with more *staff capacity* (more staff, more total staff experience, or more experienced staff on average) will be associated with higher levels of interbranch representation.
 :::
 
-#### Summarizing Capacity Hypotheses
+Examples from our data provide additional justification for our expectations in this hypothesis, particularly regarding staff experience. Some staff appear to have gone out of their way to contact a federal agency for a constituent. Some requests on behalf of individual constituents did not have an obvious connection to a certain federal agency; others did not require action from an agency. In both kinds of situations, legislators' staff contacted the agency on behalf of the constituent anyway. For example, Bernie Sanders (I-VT)'s office sent a comment from a constituent regarding the H-2A Temporary Agricultural Workers Program to the Office of Congressional and Intergovernmental Affairs within the Department of Labor. Unlike other letters on behalf of individual constituents about the H-2A program, the DOL-OCIA logs did not discuss any particular action or request from the constituent in their summary of this correspondence, indicating that Sanders's office was simply forwarding a constituent's opinion to the agency. This letter suggests that Sanders's constituency service staff knew that contacting DOL was an action that they could take in response to this constituent's comment.^[Alternatively, the constituent could have specifically requested that Sanders's office forward their comment to a relevant agency, which would accord with our expectations about constituent knowledge and interbranch representation described in the previous chapter.]
 
-@tbl-capacity below summarizes our expectations for how various types of legislative office capacity impact the interbranch representation a member's office produces. 
+Other examples show that legislators' offices are sometimes persistent in contacting a federal agency on behalf of a constituent, which also speaks to experience and capacity on the part of the staffers who do this work. For instance, Tom Udall (D-NM)'s office sent a letter to DOL-OCIA on August 4, 2011, on behalf of a constituent who was experiencing issues with Energy Employees Occupational Illness Compensation Program (EEOICPA) benefits; their office then sent a follow-up letter about the same issue to the agency on September 9, 2011. Similarly, Maria Cantwell (D-WA)'s office sent a letter to DOL-OCIA on September 8, 2011 regarding "follow-ups to constituent inquiries"---apparently a catch-all correspondence indicated to follow up on many outstanding constituent requests. Thus, in situations in which the congressional office did not receive a timely response from the agency, staff members were capable of following up to try to produce a response. 
 
-
-
-```{r}
-#| label: tbl-capacity
-#| tbl-cap: "Capacity Hypotheses"
-#| results: asis
-
-theory_table <- function(file){
-  tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character())) |> 
-    dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, "")))
-
-  # NOTE: THIS REQUIRES #| results: asis
-  tbl |>
-    pander::pandoc.table(
-      style = "multiline",
-      split.cells = c(20, 40, 10, 25),   # Hypothesis, Description, Direction, Citations
-      split.table = Inf,
-      justify = c("left", "left", "center", "left"),
-      missing = ""
-    )
-}
-
-here::here("tables", "capacity.csv") |> theory_table()
-```
-
-These legislative capacity factors have the potential to impact not just interbranch representation, but other areas of legislators' work. One question we will return to in the concluding chapter is whether the patterns of interbranch representation we observe correlate with other forms of legislative representation. For example, do high interbranch representation performs also more legislatively effective, and good fundraisers? A large body of formal theory literature examines elections as selection mechanisms for high- or low-quality politicians [@DewanShepsle2011], and under some assumptions might imply correlated performance across work areas. 
+Interestingly, there appears not to be a standard amount of time for which legislative offices will wait before sending a follow-up request to an agency, as the gaps between letters about the same issue vary from a few weeks to several months. Mike Rounds (R-SD)'s office sent two letters on behalf of a constituent---an initial letter on December 5, 2016 and a follow-up letter on December 21, 2016---to the Indian Health Service (IHS) on behalf of a constituent who was requesting information about her mother's injury at an IHS dialysis unit. Heather Wilson (R-NM)'s office, on the other hand, sent a letter to the IHS on February 14, 2007 regarding previous letters sent to the agency on behalf of their constituent on October 30 and December 20 of 2006. The variation in these gaps between follow-up requests suggests that congressional offices are using their knowledge of the individual case at hand (and maybe their knowledge of the agency involved) when determining when to send follow-up correspondence. 
 
 
-### Staff Volume and Allocation
+### Committee Leadership
+
+Legislators' committee leadership positions also shape the capacity of their offices. We are primarily focused on committee positions---committee chairs, ranking members, and subcommittee chairs.  Committee chairs direct committee staff in addition to their own personal staff. While committee staff are at least theoretically limited to working on committee business, one might imagine a legislator could reallocate their personal office staff differently, and that staffers working for the same legislators (committee and personal office) could force closer connections and help provide knowledge and expertise to one another. Empirical research shows that this additional staff capacity increases both policy work [@Ritchie2018; @Ritchie2023; @JudgeLordPowellGrimmer2026] and constituency service [@JudgeLordPowellGrimmer2026]. An alternative interpretation of any potential relationship between institutional position and interbranch representation is also possible --- that committee chairs are more powerful, and they anticipate the bureaucracy will respond better to them. 
+
+::: {#hyp-capacity-position .hypothesis name="Committee Leadership"}
+Legislators who hold committee leadership positions will be associated with higher amounts of interbranch representation.
+:::
+
+### Reporting Committees 
+
+All executive branch agencies "report" to one or more congressional committees charged with overseeing their work. In congressional lingo, these relationships are called the "Reporting Committees" for a federal agency [see @LewisSelin2012]. Congressional committee assignments provide members with information and the opportunity to gain substantive expertise about a policy area, including the agencies that a committee oversees. Both chambers also have an "oversight" committee that focuses on a small number of investigations, usually of scandals or other alleged wrongdoing. Reporting committees are different. While we often focus on the role that the oversight committees play in overseeing the executive branch, other committees also play a role in oversight. They may investigate perceived problems with the agencies they oversee. Indeed, oversight hearings --- the classic example of congressional oversight --- are often conducted by reporting committees. However, these committees also provide coverage over nearly the entire executive branch, dividing the work of monitoring and developing policy targeting particular agencies. Members of Congress have an especially close relationship with the agencies that report to their committees. These substantive committees are also charged with overseeing agencies within their policy area. In addition to gaining substantive expertise in the policy area and expertise about the agency itself, members sitting on these committees have access to committee staff for substantive policy information about issues and agencies in the committee's wheelhouse. We consider sitting on a committee to which the agency reports (a form of oversight) as expanding that member's capacity with regard to that agency. 
+
+Interbranch representation includes many forms of agency oversight. Only a small proportion of Congress-agency interactions rise to the levels of hearings and investigations. Instead, as @Lowande2018APSR and @LowandePotter2021 demonstrate, most congressional interventions happen in direct communication between legislators and agencies. Legislators who sit on congressional committees overseeing an agency are likely to engage in higher levels of interbranch representation with that agency. We think this relationship is likely to exist for two reasons. First, legislators are likely to be substantively interested in that policy area to have received a seat on that committee. Second, their responsibility as committee members may also lead them to engage in higher interbranch representation with agencies under the committee's jurisdiction. While notions of policy-focused interbranch representation might immediately spring to mind, constituency service can also be a congressional oversight strategy [@Johannes1979]. 
+
+::: {#hyp-capacity-reporting .hypothesis name="Reporting committee"}
+Legislators who sit on the reporting committee for the agency will be associated with higher amounts of interbranch representation with that agency.
+:::
+
+A challenge that complicates our interpretation of this relationship is that a committee seat on a reporting committee may capture more than capacity. Members may have prior expertise in a policy area that helped them win the committee assignment in the first place. This would still fall under capacity, but capacity from a prior experience rather than from the committee relationship itself. A reporting committee seat could also reflect strategic behavior: legislators may seek out committees that oversee parts of the government they care about, and they may choose to invest in oversight work with agencies those committees oversee. We return to this ambiguity when interpreting our results, where comparing cross-sectional and within-legislator estimates helps separate these explanations. 
+
+
+## Measuring Capacity
+
+All of our models use legislator-agency-year observations. Most capacity measures vary across legislators and years, but are the same for all agencies a legislator contacts. Reporting committee seats also vary by agency, since they indicate whether a legislator sat on a committee overseeing that particular agency in that Congress. For legislator experience, we use an indicator of whether a legislator has served more than two years in Congress, since @JudgeLordPowellGrimmer2026 find that most start-up costs occur in the first two years. For legislative experience prior to serving in Congress, we use an indicator of whether the legislator previously served in a state legislature, from @VoldenWiseman2014 and @VoldenWiseman2018. Empirically, almost half of members of Congress enter Congress with such experience. 
+
+We measure staff capacity using data from LegiStorm [@Legistorm], a commercial database of congressional staff that is widely used commercially and in congressional research [@CrossonEtAl2020]. We use their staff data to count the number of staff each legislator has, but also to measure the experience of their staff. Measuring staff experience requires following individual staffers as they move between offices, committees, and chambers, which is extremely difficult in the raw staff files Congress releases. LegiStorm’s records attempt to link the same staff member across positions and over time, which allows us to measure each staffer’s cumulative experience in Congress rather than only their tenure in a single office. An important limitation with their staff experience measure has to do with when they began collecting congressional staff data systematically, which wasn't until 2011. Although it has tried to fill in staff employment from earlier years, that history is incomplete, so our measures undercount the experience of staff who worked in Congress before 2011. This undercounting is largest early in our period and for offices that kept long-serving staff, who are concentrated in the offices of more senior legislators. Because the missing experience makes experienced and inexperienced offices look more alike than they are, we expect it to bias our staff experience estimates toward zero, and we interpret null results for staff experience with caution. <!---DEVIN: Is this the best way for us to situate the legistorm issue? I'm trying to think of a better way to describe it that doesn't imply critique of Omar's work.... ---> 
+
+To measure committee leadership positions, we combine several existing sources and augment them with additional research into the committees members sit on. The result is a new dataset on committee assignments, including committee chair, ranking minority member, subcommittee chair, and other leadership positions [updating @StewartWoon2017].^[Committee assignment and position data are available at <https://github.com/judgelord/committees>. We cross-checked and augmented these data with chair and subcommittee chair indicators compiled by @VoldenWiseman2014 and @VoldenWiseman2018 from the Almanac of American Politics.] <!--We adopt the definition of prestige committee assignments from @JudgeLordPowellGrimmer2026.--> Finally, to identify reporting committee relationships, we crosswalk committee assignments with committee jurisdictions using the ACUS Sourcebook of United States Executive Agencies [@LewisSelin2012]. This gives us an indicator for each legislator-agency pair of whether the legislator sat on a reporting committee with oversight jurisdiction over that agency in each Congress. 
+
+@tbl-capacity summarizes how we measure each source of capacity and what each indicator predicts. 
+
++----------------------------+----------------------------+--------------------------+
+| Sub-hypothesis             | Indicators                 | Predicted relationship   |
++:===========================+:===========================+:=========================+
+| @hyp-capacity-experience\  | More than two years in     | ↑ all types              |
+| (Experience)               | Congress\                  |                          |
+|                            | Prior state legislative    |                          |
+|                            | service                    |                          |
++----------------------------+----------------------------+--------------------------+
+| @hyp-capacity-staff\       | Senate (vs. House)\        | ↑ all types              |
+| (Staff)                    | Staff count\               |                          |
+|                            | Total staff experience\    |                          |
+|                            | Average staff experience   |                          |
++----------------------------+----------------------------+--------------------------+
+| @hyp-capacity-position\    | Committee chair\           | ↑ all types, especially  |
+| (Committee leadership)     | Ranking member\            | policy work              |
+|                            | Subcommittee chair         |                          |
++----------------------------+----------------------------+--------------------------+
+| @hyp-capacity-reporting\   | Seat on the agency's       | ↑ all types, with that   |
+| (Reporting committee)      | reporting committee        | agency                   |
++----------------------------+----------------------------+--------------------------+
+
+: Sub-hypotheses of @hyp-capacity (Capacity): the indicators that measure each source of capacity and what each predicts for interbranch representation {#tbl-capacity}
+
+
+
+
+<!--Rochelle 10/30: should the section below still be here? I'm commenting it out for now; we can incorporate parts of it elsewhere in the chapter if we want -->
+
+<!--### Staff Volume and Allocation
 
 While legislators may often sign letters to agencies, congressional staff do most of the work. Legislators who hire more staff may have more capacity to make more requests. And legislators who prioritize a certain type of activity may devote more staff resources to accomplish that objective [@Reynolds2020]. Thus, congressional offices that devote more resources to staff who do a certain type of work are likely to produce more of that type of work. 
-We use staff budget data for members of the House from @CrossonFurnasLapiraBurgat2021, specifically Members' Representational Allowance (MRA) and the portion of MRA each member spent.^[Specifically, we use the @CrossonFurnasLapiraBurgat2021 data from the replication files for @CrossonKaslovsky2024.] These measures vary by Congress. 
+We use staff budget data for members of the House from @CrossonFurnasLapiraBurgat2021, specifically Members' Representational Allowance (MRA) and the portion of MRA each member spent.^[Specifically, we use the @CrossonFurnasLapiraBurgat2021 data from the replication files for @CrossonKaslovsky2024.] These measures vary by Congress. -->
  
-## RESULTS 
+## Results 
 
-The capacity gains that come with experience in Congress and committee positions have significant and often large effects on many forms of interbranch representation, especially policy work.
-In addition to the effect of the number of constituents one represents, @fig-marginal-chamber shows large average differences between members of the House and Senate, with Senators doing more than twice the amount of all types of interbranch representation as Representatives, and more than three times as much on behalf of nonprofits and local governments. 
+<!-- DEVIN: Please confirm or correct the bracketed details:
+(1) unit of analysis and clustering (same as Chapter 5?);
+(2) controls and fixed effects in each design;
+(3) the figures show upper panels = cross-sectional and lower panels = diff-in-diff, except the state legislature figure (House and Senate, both cross-sectional); please confirm;
+(4) which models are pooled vs. chamber-specific (the staff count figure has an all-legislators panel and a Senate-only panel; why a separate Senate model, and is the chamber diff-in-diff identified from House-to-Senate movers?);
+(5) appendix table references. -->
 
-```{r}
-#| label: fig-marginal-chamber
-#| fig-cap: "Differences by Chamber"
-#| out-width: "50%"
+To estimate how each source of capacity relates to interbranch representation, we use the same approach as in @sec-results-demand: we model the number of contacts of each type that a legislator's office makes with each federal agency in a given year, using negative binomial regressions with standard errors clustered by legislator. Each model includes all of the capacity measures, along with [DEVIN: controls for demand and strategic incentives].
 
-knitr::include_graphics(here::here("figs", "marginal-chamber-1.png"))
-```
+Unlike the demographic characteristics we examined in @sec-results-demand, many sources of capacity change over a legislator's career: legislators gain experience, hire and lose staff, and win or lose committee leadership positions. We estimate two kinds of models. *Cross-sectional* models compare legislators with more capacity to legislators with less. *Within-legislator* (difference-in-differences) models, which include legislator-agency and year-agency fixed effects, compare the same legislator's interbranch representation before and after their capacity changes, such as when they become a committee chair or join a committee to which an agency reports. Because these models hold constant everything about a legislator that does not change over time, including their interests and constituency, they provide stronger evidence that capacity itself, rather than the kinds of legislators who gain it, shapes interbranch representation. Measures that do not change over a legislator's career, such as prior service in a state legislature, can only be estimated cross-sectionally.
+
+For indicators such as holding a committee chair, we report the percent difference in expected contacts associated with having that position. For continuous measures such as staff size and experience, we report the percent change associated with a one standard deviation increase. In each figure, points mark the estimated effect for each of the five types of interbranch representation, horizontal lines show 95% confidence intervals, and the upper and lower panels, unless otherwise noted, show the cross-sectional and within-legislator estimates. Full results are in [DEVIN: appendix table reference].
+
+### Experience in Congress Pays Off
 
 Experience in Congress increases interbranch representation. Prior experience in state legislatures does not. 
-@fig-marginal-experience (a) shows no evidence that prior experience in state legislatures is associated with more interbranch representation. Because prior legislative experience is a fixed attribute, we cannot estimate within-legislator variation, but we see no differences in the House or Senate. 
-@fig-marginal-experience (b) shows strong effects of experience that are consistent in magnitude in within- and across-legislator comparisons. After their first two years in office Legislators do 15-20% more constituency service and 35-50% more policy work. 
+@fig-marginal-experience-1 shows no evidence that prior experience in state legislatures is associated with more interbranch representation. Because prior legislative experience is a fixed attribute, we cannot estimate within-legislator variation, but we see no differences in the House or Senate. 
+@fig-marginal-experience-2 shows strong effects of experience that are consistent in magnitude in within- and across-legislator comparisons. After their first two years in office, legislators do 15-20% more constituency service and 35-50% more policy work. 
 
 ```{r}
 #| label: fig-marginal-experience
-#| fig-cap: "Differences with Experience"
+#| fig-cap: "Legislator experience and interbranch representation (@hyp-capacity-experience). Points show the estimated percent difference in each type of interbranch representation associated with (a) having served in a state legislature before Congress and (b) having served more than two years in Congress, with 95% confidence intervals. Because prior state legislative service does not change over a legislator's career, panel (a) shows only cross-sectional estimates, estimated separately for House members (upper panel) and senators (lower panel). In panel (b), the upper panel shows cross-sectional estimates and the lower panel shows within-legislator estimates."
+#| fig-alt: "Marginal effects of prior state legislative service and more than two years in Congress on five types of interbranch representation"
 #| out-width: "100%"
 #| layout-ncol: 2
-#| fig-subcap: 
-#|   - "Experience in state legislature"
-#|   - "Experience in the U.S. Congress"
+#| fig-subcap:
+#|   - "Prior service in a state legislature"
+#|   - "More than two years in Congress"
 
 knitr::include_graphics(here::here("figs", "marginal-state_leg-1.png"))
 knitr::include_graphics(here::here("figs", "marginal-experience-1.png"))
 ```
 
-Committee staff significantly boost non-legislative policy work.
-@fig-marginal-committee shows that committee leadership positions increase interbranch policy work such as commenting on proposed agency rules and conducting oversight investigations. Subcommittee leadership positions do not, possibly because they cannot direct staff capacity as committee chairs and (often) ranking minority members can.
-Serving on a committee to which an agency reports is associated with more constituency service and policy work, but this effect is only causal for policy work. The greater level of constituency service with agencies that legislators oversee (panel d, upper) likely reflects pre-existing interest in that agency that drove interest in joining that committee in the first place. 
-Specifically, @fig-marginal-committee shows committee chairs doing more than twice the level of general interbranch policy work of non-chairs (panel 1, upper). Much of this cross-sectional difference is a causal effect, with legislators increasing the amount of policy work by over 75% when they gain a committee chair position (panel 1, lower). 
-Differences in policy work on behalf of specific industries are much smaller (+25%) and not statistically significant in the within-legislator design. 
-Gaining a committee chair position is associated with neither more nor less constituency service. 
-Ranking Minority positions have similar effects at a slightly lesser scale for members of standing committees (panel b). Ranking members do 65% more policy work (panel b, upper), with most of that cross-sectional difference being a causal effect. When a legislator becomes a ranking member, they increase interbranch policy work by nearly 50% (panel b, lower). 
-Again, differences in policy work on behalf of specific industries are much smaller (+25-30%) and not statistically significant in the within-legislator design. 
-Subcommittee chair positions (panel c) are associated with much smaller and not statistically significant increases in interbranch representation. 
-On top of chair effects, legislators who serve committees to which an agency reports (panel d, upper) do 
-nearly double the amount of policy work with that agency and more constituency service with that agency (a small amount more individual constituency service to 35% more service on behalf of nonprofits and local governments). For general policy work, a good share of this effect is causal, with legislators who join a committee (panel d, lower) increasing policy work with that agency by 40%. Differences in constituency service and corporate policy work are not significant in the within-member design, suggesting that cross-sectional differences result from legislators who join the committees to which an agency reports are already doing constituency service and industry-specific policy work with that agency.
+These results partly support @hyp-capacity-experience: experience in Congress is associated with more interbranch representation, but prior state legislative experience is not. 
+
+### More Staff, More Interbranch Representation 
+
+The largest difference in office capacity in Congress is between the chambers. Senate offices employ far more staff than House offices, and senators’ office budgets grow with state population. As we noted in @sec-results-demand, this means the large effects of state population on senators’ interbranch representation combine demand and capacity. @fig-marginal-chamber shows that, holding constant the other variables in our models, in the cross-sectional models we find that senators do about 30% more corporate service, roughly twice as much nonprofit/local government service and corporate policy work, and about 80% more general policy work. Somewhat surprisingly, we see no significant differences in individual constituency service. Within legislators (leveraging politicians who serve in both the House and Senate during their careers), only general policy work rises significantly. Because chamber also bundles differences in constituency size, term length, and institutional role, we cannot attribute this gap to capacity alone. The staff measures we turn to next vary within each chamber and so offer a cleaner test of @hyp-capacity-staff. <!---DEVIN: Does this model control for population and staff size? If so, we should specifically note that here in our interpretation---> 
 
 ```{r}
-#| label: fig-marginal-committee
-#| fig-cap: "Differences with Committee Positions"
+#| label: fig-marginal-chamber
+#| fig-cap: "Chamber and interbranch representation (@hyp-capacity-staff). Points show the estimated percent difference in each type of interbranch representation for senators compared with House members, with 95% confidence intervals. The upper panel shows cross-sectional estimates; the lower panel shows within-legislator estimates for legislators who served in both chambers."
+#| fig-alt: "Marginal effects of serving in the Senate rather than the House on five types of interbranch representation"
+#| out-width: "70%"
+
+knitr::include_graphics(here::here("figs", "marginal-chamber-1.png"))
+```
+
+@fig-marginal-staff-count shows the marginal effect of additional staff for all legislators (@fig-marginal-staff-count-1) and for senators only (@fig-marginal-staff-count-2).
+
+
+```{r}
+#| label: fig-marginal-staff-count
+#| fig-cap: "Staff size and interbranch representation (@hyp-capacity-staff). Points show the estimated percent change in each type of interbranch representation associated with a one standard deviation increase in the number of staff in a legislator's personal office, estimated for (a) all legislators and (b) senators only, with 95% confidence intervals. Upper panels show cross-sectional estimates; lower panels show within-legislator estimates."
+#| fig-alt: "Marginal effects of personal office staff size on five types of interbranch representation, all legislators and senators only"
 #| out-width: "100%"
 #| layout-ncol: 2
-#| fig-subcap: 
-#|   - "Committee Chair"
-#|   - "Ranking Minority Committee Member"
-#|   - "Subcommittee Chair"
-#|   - "Reporting Committee Position"
+#| fig-subcap:
+#|   - "All legislators"
+#|   - "Senators only"
+
+knitr::include_graphics(here::here("figs", "marginal-staff-count-2.png"))
+knitr::include_graphics(here::here("figs", "marginal-staff-count-3.png"))
+```
+
+Across all legislators, offices with more staff do more constituency service on behalf of individuals, businesses, and nonprofits and local governments, as well as more general policy work (@fig-marginal-staff-count-1, upper panel). A one-standard-deviation increase in staff is associated with about 10% more individual constituency service and 5–7% more of the other types. If we compare the same legislator's office before and after it adds staff (@fig-marginal-staff-count-1, lower panel), a larger staff is associated with more individual constituency service, corporate constituency service and general policy work. Among senators, more staff is associated with more of all five types of interbranch representation, with increases of roughly 13–20% (@fig-marginal-staff-count-2, upper panel). Within the same senator’s office over time, however, only individual constituency service increases significantly as staff grows (@fig-marginal-staff-count-2, lower panel).
+
+@fig-marginal-experience-staff shows the marginal effects of total staff experience (@fig-marginal-experience-staff-1) and average staff experience (@fig-marginal-experience-staff-2). Cross-sectionally, total staff experience is most strongly associated with policy work. A one-standard-deviation increase in the total amount of staff experience in a legislative office is associated with a 15% increase in the amount of general policy work that that legislator's office performs as part of interbranch representation. Importantly, this applies only to *general* policy work. This relationship also holds when comparing the same legislator’s office over time: as the total experience of a legislator’s staff grows, their office does about 33% more general policy work (@fig-marginal-experience-staff-1, lower panel). Total staff experience is not significantly related to any other type of interbranch representation in either design.
+
+```{r}
+#| label: fig-marginal-experience-staff
+#| fig-cap: "Staff experience and interbranch representation (@hyp-capacity-staff). Points show the estimated percent change in each type of interbranch representation associated with a one standard deviation increase in (a) the total years of congressional experience among a legislator's staff and (b) the average years of congressional experience per staffer, with 95% confidence intervals. Upper panels show cross-sectional estimates; lower panels show within-legislator estimates."
+#| fig-alt: "Marginal effects of total and average staff experience on five types of interbranch representation"
+#| out-width: "100%"
+#| layout-ncol: 2
+#| fig-subcap:
+#|   - "Total staff experience"
+#|   - "Average staff experience"
+
+knitr::include_graphics(here::here("figs", "marginal-staff-experience-1.png"))
+knitr::include_graphics(here::here("figs", "marginal-staff-mean-experience-1.png"))
+```
+
+Average staff experience, on the other hand, is positively associated with corporate constituency service and nonprofit/local government constituency service in addition to general policy work. A one-standard-deviation increase in average staff years of experience is associated with a 5% increase in corporate constituency service, an 8% increase in nonprofit/local government constituency service, and a 10% increase in general policy work. None of these relationships hold within the same legislator’s office over time, however (@fig-marginal-experience-staff-2, lower panel), suggesting that they may reflect differences between offices whose staff stay longer rather than the effect of experience itself. Given that corporate and nonprofit constituency service are both slightly more "specialized" forms of constituency service that may require deeper knowledge of the district to perform well, the cross-sectional relationship between staff experience and each of these forms of interbranch representation is not surprising.
+
+However, the lack of a relationship between total staff experience and any form of constituency service, as well as average staff experience and individual constituency service, is surprising and contradicts our expectations in @hyp-capacity-staff. One reason for caution in interpreting these null results is measurement. As noted above, our data undercount staff experience gained before 2011, which likely understates differences in experience across offices and makes relationships harder to detect. Measurement error alone, however, cannot explain why staff experience is consistently related to general policy work but not to individual constituency service, since the same measures are used for both.  
+
+Anecdotal evidence from our data suggests several potential explanations, including other ways in which staff experience might matter for individual constituency service. First are a number of letters in which legislators' offices appear to be requesting an expedited response from an agency. For instance, several legislators, including David Rouzer (R-NC), Steve Stivers (R-OH), Dick Durbin (D-IL), Jim Jordan (R-OH), Julia Brownley (D-CA), and Matt Cartwright (D-PA) wrote to the Transportation Security Administration (TSA) within the Department of Homeland Security to request expedited assistance for their constituents.^[A summary of a letter from Kirsten Gillibrand (D-NY)'s office also contained instructions to expedite; however, the actual text was "Per OLA [Office of Legislative Affairs], please expedite," suggesting that TSA, not Gillibrand's office, made the decision to expedite this request, which had to do with lost luggage.] Most of these requests involved TWIC (Transportation Worker Identification Credential) cards, various types of certifications, and background checks---all ordinary bureaucratic processes that the legislators' offices were asking the TSA to handle more quickly. 
+
+Other requests for expedited handling of constituent cases were for more urgent issues. Our data include nearly 3,000 records of congressional correspondence sent to the VA urging expedited responses for individual constituents requesting assistance obtaining health care and other benefits through the agency. Even the short summaries of correspondence sent to the VA sometimes explained why the request was time-sensitive. Among the letters were requests that the VA expedite claims and payments due to illnesses (including terminal illnesses), "failing health," advanced age, financial hardships, homelessness, and, in one harrowing letter, suicidality. Still other letters mentioned requests for expedited medical treatments, like hip replacements and liver transplants. 
+
+Interestingly, not all of these letters appeared to be about urgent matters. For example, Mike Michaud (D-ME)'s office wrote to the National Park Service on September 23, 2014 on behalf of a constituent who was concerned about property damage at the Statue of Liberty. The letter was tagged with "PLEASE EXPEDITE," despite not being related to a time-sensitive medical or financial matter like other letters that legislators requested agencies expedite. Not all staff members may know that requesting an expedited response is an option, and presumably, more senior staff members with more experience working with federal agencies in this way may have more pull when it comes to getting agencies to respond. Therefore, while staff experience may not be related to the *volume* of interbranch representation, it could still matter for *how* legislators provide interbranch representation to constituents. 
+
+A second potential explanation for this relationship comes from letters in which legislators' offices are sending additional information about an ongoing case to a federal agency. There are a number of reasons why these follow-up letters may be necessary, one of which could be that they are being sent by more junior staffers who did not collect all necessary information from constituents to send to the agency initially. Thus, if some congressional offices have less experienced staff who do more interbranch representation for this reason, it could cancel out any effects of a positive relationship between staff experience and the volume of interbranch representation that legislators provide.
+
+Collectively, the staff findings raise the possibility that congressional staff can quickly gain the skills needed for interbranch representation, particularly for individual casework. If so, legislators could provide more of this service simply by hiring more staff. This possibility may also help explain the start-up costs that new legislators face [@JudgeLordPowellGrimmer2026]. New offices must hire and train staff before they can take on a full casework load, so part of the lower interbranch representation we see in a legislator’s first two years may reflect offices that are slowly being built rather than staff who lack experience.
+
+Together, these results partly support @hyp-capacity-staff. Offices with more staff do more of nearly every type of interbranch representation, and when the same legislator’s office grows, it does more constituency service on behalf of individuals and businesses and more general policy work. Staff experience appears to matter more selectively. The total experience of a legislator’s staff is consistently associated with more general policy work, both across offices and within the same office over time. More experienced staffs also do more service for businesses, nonprofits, and local governments, but only in comparisons across offices, and staff experience is not associated with more individual constituency service in either design.  This selective experience finding may have to do with how staff experience is distributed across different roles. If for example, more experienced staff tend to serve in more policy focused roles, that could explain this finding. In @sec-results-incentives, we'll return to this question of staff allocation across roles.<!--- DEVIN AND ROCHELLE: These findings make me wonder if we need to consider how experience is distributed across staff roles---I'd imagine the experienced staff tend to be the policy staff, and the casework staff tends to be more junior. May want to think about where to situate this, and how these findings fit with the staff allocation stuff in the next chapter---> 
+
+
+### Committee Leadership Positions Increase Policy Work 
+
+Next, we focus on the capacity that comes from committee positions. Committee leadership positions are associated with substantially more interbranch policy work, which includes work like commenting on proposed agency rules and conducting oversight investigations (@fig-marginal-position). Committee chairs do more than twice as much general policy work as non-chairs (@fig-marginal-position-1, upper panel). Much of this cross-sectional difference reflects the position itself: legislators increase their general policy work by over 75% when they gain a committee chair position (@fig-marginal-position-1, lower panel). Differences in corporate policy work are much smaller (+25%) and not statistically significant in the within-legislator design. Gaining a committee chair position is associated with neither more nor less constituency service.
+
+Ranking minority positions have similar effects at a slightly smaller scale (@fig-marginal-position-2). Ranking members do 65% more general policy work than other legislators, and most of that cross-sectional difference again reflects the position: when a legislator becomes a ranking member, their general policy work increases by nearly 50%. As with chairs, differences in corporate policy work are much smaller (+25–30%) and not statistically significant in the within-legislator design.
+
+Subcommittee chair positions are associated with much smaller and mostly not statistically significant increases in interbranch representation (@fig-marginal-position-3), possibly because subcommittee chairs cannot direct staff as committee chairs and (often) ranking minority members can. Committee staff, and the capacity that accompanies them, may therefore be partly responsible for the relationship between committee leadership and general policy work.
+
+
+```{r}
+#| label: fig-marginal-position
+#| fig-cap: "Committee leadership positions and interbranch representation (@hyp-capacity-position). Points show the estimated percent difference in each type of interbranch representation associated with holding each position, with 95% confidence intervals. Upper panels show cross-sectional estimates; lower panels show within-legislator estimates."
+#| fig-alt: "Marginal effects of committee chair, ranking minority member, and subcommittee chair positions on five types of interbranch representation"
+#| out-width: "100%"
+#| layout-ncol: 2
+#| fig-subcap:
+#|   - "Committee chair"
+#|   - "Ranking minority member"
+#|   - "Subcommittee chair"
 
 knitr::include_graphics(here::here("figs", "marginal-chair-1.png"))
 knitr::include_graphics(here::here("figs", "marginal-ranking_minority-1.png"))
 knitr::include_graphics(here::here("figs", "marginal-subchr-1.png"))
+```
+
+As an example of the role that committee leadership positions play in policy-related interbranch representation, we can examine how the general policy work of Robert C. Scott (D-VA) changed after he became the ranking member (and later chair) of the House Committee on Education and the Workforce. Prior to 2015, when he became the ranking member of this committee, he sent a relatively small number of letters to agencies within the Department of Labor (DOL), including the DOL's Office of Congressional and Intergovernmental Affairs (OCIA) and the Office of Federal Contract Compliance Programs (OFCCP). Scott sent 51 letters to the OCIA between 2007 and 2014, none of which involved general policy work. The vast majority concerned individual constituency service. Between 2015 and 2019, however, after becoming the ranking member (and later chair) of the House Committee on Education and the Workforce, Scott sent 54 letters to the OCIA, 28 of which were about policy (including thank-you letters to DOL officials for testifying at hearings). Similarly, Scott sent only one letter to the OFCCP between 2007 and 2014, on behalf of a constituent (regarding the issue of "unlawful harassment" that the constituent was facing). But between 2015 and December of 2017, Scott sent five letters to the OFCCP, all about policy. In this case, Scott's committee position gave him a clear reason to become more involved in general policy work through interbranch representation. Interestingly, even if he had a preexisting interest in labor policy, it was not apparent from the letters contained in our data. 
+
+Together, these results support @hyp-capacity-position for policy work but not for constituency service: committee chairs and ranking members do substantially more general policy work, and they increase that work when they gain these positions.
+
+
+### Reporting Committee Members Do More Policy Work with Their Agencies
+
+Legislators who serve on committees to which an agency reports do nearly twice as much general policy work with that agency, and more constituency service with that agency, ranging from slightly more individual constituency service to 35% corporate service, and 13% more nonprofit and local government service (@fig-marginal-reporting, upper panel). For general policy work, a good share of this difference reflects committee service itself: legislators who join a committee increase their policy work with the agencies that report to it by 40% (@fig-marginal-reporting, lower panel). Differences in constituency service and corporate policy work are not significant in the within-legislator design. This suggests that legislators who join the committees to which an agency reports were already doing constituency service and corporate policy work with that agency, consistent with the pre-existing interest or expertise that may have drawn them to the committee in the first place.
+
+```{r}
+#| label: fig-marginal-reporting
+#| fig-cap: "Reporting committee seats and interbranch representation (@hyp-capacity-reporting). Points show the estimated percent difference in each type of interbranch representation with an agency associated with sitting on a committee to which that agency reports, with 95% confidence intervals. The upper panel shows cross-sectional estimates; the lower panel shows within-legislator estimates."
+#| fig-alt: "Marginal effects of sitting on an agency's reporting committee on five types of interbranch representation with that agency"
+#| out-width: "70%"
+
 knitr::include_graphics(here::here("figs", "marginal-oversight-1.png"))
 ```
 
+These results support @hyp-capacity-reporting for general policy work. For constituency service, the cross-sectional association likely reflects which legislators join these committees rather than what committee service enables.
 
+### Summary of Results 
+
+In @tbl-capacity-findings we summarize our results. We find that member office capacity appears to play an important role in shaping what offices can do, and we see at least partial support for all of our capacity hypotheses. Capacity that comes from time in Congress and from a larger staff increases many types of interbranch representation, including constituency service on behalf of individuals, and these relationships hold when we compare the same legislator over time. Somewhat surprisingly, while legislator's experience that comes from time in Congress appears to increase capacity, previously serving in a different legislative body---a state legislative role---does not. 
+
+
++---------------------------------+------------+------------+--------------+------------+------------+
+| Indicator                       | Individual | Corporate  | Nonprofit/   | General    | Corporate  |
+|                                 | service    | service    | local gov't  | policy     | policy     |
+|                                 |            |            | service      |            |            |
++:================================+:==========:+:==========:+:============:+:==========:+:==========:+
+| **@hyp-capacity-experience (Experience): partly supported.** Time in Congress matters; prior state |
+| legislative service does not.                                                                      |
++---------------------------------+------------+------------+--------------+------------+------------+
+| More than two years in Congress | ↑/↑        | ↑/↑        | ↑/↑          | ↑/↑        | ↑/↑        |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Prior state legislature†        | n.s./–     | n.s./–     | n.s./–       | n.s./–     | n.s./–     |
++---------------------------------+------------+------------+--------------+------------+------------+
+| **@hyp-capacity-staff (Staff): partly supported.** Staff size matters broadly; staff experience    |
+| mainly for general policy work.                                                                    |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Senate (vs. House)              | n.s./n.s.  | ↑/n.s.     | ↑/n.s.       | ↑/↑        | ↑/n.s.     |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Staff count                     | ↑/↑        | ↑/↑        | ↑/n.s.       | ↑/↑        | n.s./n.s.  |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Staff count (Senate only)       | ↑/↑        | ↑/n.s.     | ↑/n.s.       | ↑/n.s.     | ↑/n.s.     |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Total staff experience          | n.s./n.s.  | n.s./n.s.  | n.s./n.s.    | ↑/↑        | n.s./n.s.  |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Average staff experience        | n.s./n.s.  | ↑/n.s.     | ↑/n.s.       | ↑/n.s.     | n.s./n.s.  |
++---------------------------------+------------+------------+--------------+------------+------------+
+| **@hyp-capacity-position (Committee leadership): supported for general policy work.** Gaining a    |
+| post increases only general policy work.                                                           |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Committee chair                 | n.s./n.s.  | ↑/n.s.     | n.s./n.s.    | ↑/↑        | ↑/n.s.     |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Ranking member                  | n.s./n.s.  | ↑/n.s.     | ↑/n.s.       | ↑/↑        | ↑/n.s.     |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Subcommittee chair              | n.s./n.s.  | ↑/n.s.     | n.s./n.s.    | n.s./n.s.  | n.s./n.s.  |
++---------------------------------+------------+------------+--------------+------------+------------+
+| **@hyp-capacity-reporting (Reporting committee): supported for general policy work.** Other        |
+| associations likely reflect who joins.                                                             |
++---------------------------------+------------+------------+--------------+------------+------------+
+| Reporting committee seat        | ↑/n.s.     | ↑/n.s.     | ↑/n.s.       | ↑/↑        | ↑/n.s.     |
++---------------------------------+------------+------------+--------------+------------+------------+
+
+: Summary of results for @hyp-capacity (Capacity). Each cell shows *cross-sectional/within-legislator* estimates: ↑, positive and statistically significant (95% confidence intervals); n.s., not significant; –, not estimable. †Cross-sectional only, from separate House and Senate models. {#tbl-capacity-findings}
+
+A second pattern that emerges is that the capacity that comes from committee work, whether a leadership position or a seat on an agency’s reporting committee, increases general policy work but not constituency service. Legislators with these positions do more of almost everything in cross-sectional comparisons, but when the same legislator gains a position, only their general policy work increases. This pattern is consistent with the idea that in the absence of a strict seniority system for selecting committee leaders, higher quality legislators (with greater capacity) are being selected into these roles, but their capacity for non-policy work (outside the scope of the committee) is not increased by serving in these roles. Across nearly every source of capacity, general policy work is the type of interbranch representation most responsive to an office’s ability to do more.
+
+
+
+## Conclusion: Capacity Constrained Congressional Offices
+
+Our findings offer support for @hyp-capacity, though not for every form of capacity or every type of interbranch representation. Experience in Congress increases every type of interbranch representation, but prior service in a state legislature does not (@hyp-capacity-experience). Staff size matters broadly, while staff experience matters mainly for general policy work (@hyp-capacity-staff). Committee leadership positions (@hyp-capacity-position) and reporting committee seats (@hyp-capacity-reporting) increase general policy work, but their cross-sectional associations with constituency service likely reflect which legislators hold these positions rather than what the positions make possible. Our two research designs are central to these conclusions. Comparisons across legislators show who does more interbranch representation; comparisons within the same legislator over time show which forms of capacity change what an office does. Some measures, like prior state legislative service, can only be compared across legislators, and our measures of staff experience undercount experience gained before 2011, so the absence of a relationship between staff experience and constituency service should be interpreted with caution.
+
+Capacity explains some of the variation in interbranch representation that demand leaves unexplained, but it does not explain all of it. Legislators with similar capacity, facing similar constituent demand, still vary considerably in how much interbranch representation they do and what kinds. 
+
+These findings also have implications for how Congress represents constituents, which we return to in @sec-conclusion. If larger staffs lead to more constituency service, then the decline in House office budgets since 2010 [@Reynolds2020] has likely reduced the help constituents receive with federal agencies. If staff can gain the skills needed for this work relatively quickly, then investments in staff numbers may matter more for constituency service than investments in retaining experienced staff, though experienced staff may matter more for policy work. And because experience and committee positions concentrate capacity among more senior legislators, constituents of newer members may receive less interbranch representation simply because of when their legislator arrived in Congress.
+
+These legislative capacity factors have the potential to impact not just interbranch representation, but other areas of legislators' work. One question we will return to in the concluding chapter is whether the patterns of interbranch representation we observe correlate with other forms of legislative representation. For example, do high interbranch representation performers also perform more effectively legislatively and as good fundraisers? A large body of formal theory literature examines elections as selection mechanisms for high- or low-quality politicians [@DewanShepsle2011], and under some assumptions might imply correlated performance across work areas. 
+
+Capacity determines what congressional offices can do. In @sec-results-incentives, we turn to the third element of our framework, strategy---which is what legislators choose to do. In particular, we examine how legislators’ partisan, electoral, and institutional incentives shape what type of work legislators do (constituency service or policy), and on whose behalf they work (corporate or general interest). Among those choices is how legislators allocate the capacity they have, including how they divide their staff between constituency service and policy work.
+
+<!--- Commenting all inequality out for now. We may want to add selected portions back in. I think most points are made earlier in chapter 
 ## Explaining Inequality
  
 ### Unequal Representation Overall 
@@ -188,9 +366,9 @@ knitr::include_graphics(here::here("figs", "marginal-oversight-1.png"))
 type = "total"
 ```
 
-Columns 1, 3, and 5 of @tbl-models-full-total show differences across legislators with different capacity advantages. Most obvious here is the strong and statistically significant relationship between legislator experience (operationalized as having spent three or more years in office) and individual constituency service. Experience is significant in all six models, though the effect is largest in the Senate. We can see in panel (a) of @fig-capacity-effect-total that a counterfactual of equal tenure between legislators has a noticeable effect on levels of constituency service. Interestingly, our other measure of legislator experience, having served in a state legislature, does not accord with our expectations about experience; it appears that experience in another legislative institution has no bearing on the amount of individual constituency service that legislators perform. Overall, then, we find support for @thm-capacitylegexperience.
+Columns 1, 3, and 5 of @tbl-models-full-total show differences across legislators with different capacity advantages. Most obvious here is the strong and statistically significant relationship between legislator experience (operationalized as having spent three or more years in office) and individual constituency service. Experience is significant in all six models, though the effect is largest in the Senate. We can see in panel (a) of @fig-capacity-effect-total that a counterfactual of equal tenure between legislators has a noticeable effect on levels of constituency service. Interestingly, our other measure of legislator experience, having served in a state legislature, does not accord with our expectations about experience; it appears that experience in another legislative institution has no bearing on the amount of individual constituency service that legislators perform. Overall, then, we find support for @hyp-capacity-experience.
 
-Other indicators of capacity, however, provide no support for our hypotheses. Contrary to our expectations in @thm-capacityinstitutionalposition, there is no evidence that committee chairs do more individual constituency service. The effect of being a ranking member of a committee is statistically significant only in the pooled and House difference-in-difference models (Models 2 and 4). Holding a subcommittee chair position is not associated with individual constituency service either. While we find some evidence to support our expectations in @thm-capacityreporting that legislators who sit on the reporting committees for an agency will write more letters to that agency, these effects are statistically significant only in the pooled and House cross-sectional models. The predicted differences between higher and lower capacity legislators in panel (b) of @fig-capacity-effect-total are almost entirely driven by experience in office. 
+Other indicators of capacity, however, provide no support for our hypotheses. Contrary to our expectations in @hyp-capacity-position, there is no evidence that committee chairs do more individual constituency service. The effect of being a ranking member of a committee is statistically significant only in the pooled and House difference-in-difference models (Models 2 and 4). Holding a subcommittee chair position is not associated with individual constituency service either. While we find some evidence to support our expectations in @hyp-capacity-reporting that legislators who sit on the reporting committees for an agency will write more letters to that agency, these effects are statistically significant only in the pooled and House cross-sectional models. The predicted differences between higher and lower capacity legislators in panel (b) of @fig-capacity-effect-total are almost entirely driven by experience in office. 
 
 
 ```{r}
@@ -214,25 +392,6 @@ here::here("figs", type,
 
 
 
-##### Staff quality 
-
-```{r}
-#| label: tbl-models-district-total
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
-
-Beyond the experience that the legislator themselves brings to the legislative office, we also account for the experience that congressional staff may have. As established in @thm-capacitystaff, we expect that legislators with more experienced staff will do more interbranch representation, including constituency service (which is primarily, if not solely, done by staff). We have conceptualized and operationalized staff experience as staff "holdover" from one member to the next, which is more likely to occur if a new member is of the same party as the previous member. 
-
-To evaluate this hypothesis, we turn to the results of the models in @tbl-models-district-total. Of primary interest are the coefficients on the New Member and Same Party variables, as well as the interaction between the two. We focus once again on interpreting the cross-sectional results (Models 1, 3, and 5).
-
-While the coefficients for the New Member variable are negative, as we would expect given the impact of experience, the coefficient is statistically significant in only one of the cross-sectional models (Model 5). Interestingly, the coefficients for the Same Party variable are also negative in Models 3 and 5. Most notably, the interaction between New Member and Same Party is not statistically significant in either cross-sectional model, although both coefficients are positive. Thus, it does not appear that legislators who succeed another legislator of the same party do more individual constituency service. This operationalization of staff experience is admittedly a very rough proxy and may not be a fully valid measure. We find no support for @thm-capacitystaff in this analysis, but we acknowledge that a better measure may produce different results. 
-
 
 ### Unequal Representation of Individuals 
 
@@ -240,9 +399,9 @@ While the coefficients for the New Member variable are negative, as we would exp
 type = 1
 ```
 
-Columns 1, 3, and 5 of @tbl-models-full-1 show differences across legislators with different capacity advantages. Most obvious here is the strong and statistically significant relationship between legislator experience (operationalized as having spent three or more years in office) and individual constituency service. Experience is significant in all six models, though the effect is largest in the Senate. We can see in panel (a) of @fig-capacity-effect-1 that a counterfactual of equal tenure between legislators has a noticeable effect on levels of constituency service. Interestingly, our other measure of legislator experience, having served in a state legislature, does not accord with our expectations about experience; it appears that experience in another legislative institution has no bearing on the amount of individual constituency service that legislators perform. Overall, then, we find support for @thm-capacitylegexperience.
+Columns 1, 3, and 5 of @tbl-models-full-1 show differences across legislators with different capacity advantages. Most obvious here is the strong and statistically significant relationship between legislator experience (operationalized as having spent three or more years in office) and individual constituency service. Experience is significant in all six models, though the effect is largest in the Senate. We can see in panel (a) of @fig-capacity-effect-1 that a counterfactual of equal tenure between legislators has a noticeable effect on levels of constituency service. Interestingly, our other measure of legislator experience, having served in a state legislature, does not accord with our expectations about experience; it appears that experience in another legislative institution has no bearing on the amount of individual constituency service that legislators perform. Overall, then, we find support for @hyp-capacity-experience.
 
-Other indicators of capacity, however, provide no support for our hypotheses. Contrary to our expectations in @thm-capacityinstitutionalposition, there is no evidence that committee chairs do more individual constituency service. The effect of being a ranking member of a committee is statistically significant only in the pooled and House difference-in-difference models (Models 2 and 4). Holding a subcommittee chair position is not associated with individual constituency service either. While we find some evidence to support our expectations in @thm-capacityreporting that legislators who sit on the reporting committees for an agency will write more letters to that agency, these effects are statistically significant only in the pooled and House cross-sectional models. The predicted differences between higher and lower capacity legislators in panel (b) of @fig-capacity-effect-1 are almost entirely driven by experience in office. 
+Other indicators of capacity, however, provide no support for our hypotheses. Contrary to our expectations in @hyp-capacity-position, there is no evidence that committee chairs do more individual constituency service. The effect of being a ranking member of a committee is statistically significant only in the pooled and House difference-in-difference models (Models 2 and 4). Holding a subcommittee chair position is not associated with individual constituency service either. While we find some evidence to support our expectations in @hyp-capacity-reporting that legislators who sit on the reporting committees for an agency will write more letters to that agency, these effects are statistically significant only in the pooled and House cross-sectional models. The predicted differences between higher and lower capacity legislators in panel (b) of @fig-capacity-effect-1 are almost entirely driven by experience in office. 
 
 
 ```{r}
@@ -266,27 +425,6 @@ here::here("figs", type,
 
 
 
-##### Staff quality 
-
-```{r}
-#| label: tbl-models-district-1
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
-
-Beyond the experience that the legislator themselves brings to the legislative office, we also account for the experience that congressional staff may have. As established in @thm-capacitystaff, we expect that legislators with more experienced staff will do more interbranch representation, including constituency service (which is primarily, if not solely, done by staff). We have conceptualized and operationalized staff experience as staff "holdover" from one member to the next, which is more likely to occur if a new member is of the same party as the previous member. 
-
-To evaluate this hypothesis, we turn to the results of the models in @tbl-models-district-5. Of primary interest are the coefficients on the New Member and Same Party variables, as well as the interaction between the two. We focus once again on interpreting the cross-sectional results (Models 1, 3, and 5).
-
-While the coefficients for the New Member variable are negative, as we would expect given the impact of experience, the coefficient is statistically significant in only one of the cross-sectional models (Model 5). Interestingly, the coefficients for the Same Party variable are also negative in Models 3 and 5. Most notably, the interaction between New Member and Same Party is not statistically significant in either cross-sectional model, although both coefficients are positive. Thus, it does not appear that legislators who succeed another legislator of the same party do more individual constituency service. This operationalization of staff experience is admittedly a very rough proxy and may not be a fully valid measure. We find no support for @thm-capacitystaff in this analysis, but we acknowledge that a better measure may produce different results. 
-
-
-
 
 ### Unequal Representation of Businesses 
 
@@ -295,12 +433,12 @@ type = 2
 ```
 
 We find evidence of some forms of capacity always having strong positive relationships (legislator experience in Congress) across all model specifications. In contrast, other forms of capacity (reporting committee assignment and committee leadership positions) are positive and significant in some models. Lastly, prior state legislative experience is insignificant across all model specifications. 
-
+---> 
 <!---Columns 1, 3, and 5 of @tbl-models-full show differences across legislators with different capacity advantages. --> 
-
+<!---Continuing to comment out inequality
 @fig-capacity-effect-2 below shows a similar style of counterfactual scenarios estimating the impact of capacity changes on the performance of corporate constituency service. The top left panel shows the effect of legislator experience, the top right shows a Reporting Committee Relationship (sitting on the committee that has jurisdiction over that agency), and the bottom left panel shows a Total Capacity counterfactual effect.^[Total capacity effect includes counterfactuals for chair, sub-committee chair, ranking minority member, oversight, prestige committee assignment, and legislator experience.]
 
-Consistent with our @thm-capacitylegexperience and previous findings by @JudgeLordPowellGrimmer2026 and others, we see capacity in the form of legislator experience playing an important role in the provision of corporate constituency service. 
+Consistent with our @hyp-capacity-experience and previous findings by @JudgeLordPowellGrimmer2026 and others, we see capacity in the form of legislator experience playing an important role in the provision of corporate constituency service. 
 
 ```{r}
 #| label: fig-capacity-effect-2
@@ -325,27 +463,6 @@ here::here("figs", type,
 
 Perhaps most intriguing is that the Reporting Committee capacity measure is only significant in cross-sectional models, not in difference-in-difference models, suggesting that Reporting Committee may be capturing something important about the capacity of specific members who serve on those committees. 
 
-##### Capacity: Staff with District Experience for New Members
-
-In the preceding section, we found that capacity in the form of legislator experience has one of the strongest relationships with corporate service. This finding is consistent with @JudgeLordPowellGrimmer2026, which found a substantial drop-off in district service when a new member replaces an incumbent. Now we want to consider whether it is possible for staff experienced with the district to mitigate this loss--essentially staff with experience working in Congress on behalf of this district as a form of capacity for new members. As a rough proxy for detailed staff retention data, we look at whether a new member is from the same party as the previous incumbent. In many cases, it is plausible that new members of the same party retain some staff members, while it is implausible that new members of the opposite party will retain many staff members. 
-
-@tbl-models-district-2 shows the effect of staff with congressional district representation experience on the provision of corporate constituency service. While new members have a negative impact on corporate service in all specifications (statistically significant in all but one), we do not observe the interaction of new members with the same party as having a mitigating effect. 
-
-```{r}
-#| label: tbl-models-district-2
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
-
-We want to be cautious about drawing firm inferences regarding the evidence failing to support the potential for experienced congressional staff to mitigate the drop in representation associated with being represented by a new Member of Congress. Further research is needed using a more precise measure of staff experienced to evaluate this claim. 
-
-Taking a step back, we have found that capacity in the form of legislator experience and serving on a committee with a reporting relationship (oversight) of an agency are associated with greater provision of corporate service. 
-
 
 
 ### Unequal Representation of Nonprofits and Local Government
@@ -354,9 +471,9 @@ Taking a step back, we have found that capacity in the form of legislator experi
 type = 3
 ```
 
-Columns 1, 3, and 5 of @tbl-models-full-3 show differences across legislators with different capacity advantages. Most obvious here is the consistent effect of experience in office, as the coefficients on this variable (Three+ Years in Office) are positive and statistically significant in Models 1, 3, and 5. However, our other measure of experience, having served in a state legislature prior to Congress, is not related to this type of interbranch representation. These results lend some support to @thm-capacitylegexperience and are largely in line with the results in the previous two chapters for our two other types of constituency service: legislators benefit from gaining experience specific to the institution of Congress. 
+Columns 1, 3, and 5 of @tbl-models-full-3 show differences across legislators with different capacity advantages. Most obvious here is the consistent effect of experience in office, as the coefficients on this variable (Three+ Years in Office) are positive and statistically significant in Models 1, 3, and 5. However, our other measure of experience, having served in a state legislature prior to Congress, is not related to this type of interbranch representation. These results lend some support to @hyp-capacity-experience and are largely in line with the results in the previous two chapters for our two other types of constituency service: legislators benefit from gaining experience specific to the institution of Congress. 
 
-Other indicators of capacity, however, have little to no relationship with constituency service on behalf of nonprofits and local governments. Committee chairs do no more of this type of interbranch representation than non-chairs, and being a ranking member of a committee is statistically significant only in the pooled model (Model 1). Thus, we find no support for our hypothesis about institutional position (@thm-capacityinstitutionalposition).
+Other indicators of capacity, however, have little to no relationship with constituency service on behalf of nonprofits and local governments. Committee chairs do no more of this type of interbranch representation than non-chairs, and being a ranking member of a committee is statistically significant only in the pooled model (Model 1). Thus, we find no support for our hypothesis about institutional position (@hyp-capacity-position).
 
 
 ```{r}
@@ -381,26 +498,8 @@ here::here("figs", type,
 
 @fig-capacity-effect-3 illustrates the different effects of these different measures of capacity. Once again, each panel compares the predicted levels of interbranch representation (with the effect of the variable in question taken into account) with a counterfactual in which the effect is excluded. Most of the total capacity effect (shown in Panel (a)) comes from the effect of experience in office (shown in Panel (a)). 
 
-The last component of capacity that we test in the models in @tbl-models-full-2 is whether a legislator sits on a committee with a reporting relationship with a particular agency. We hypothesized in @thm-capacityreporting that legislators would do more interbranch representation with agencies for which they serve on a reporting committee. This relationship is only positive and statistically significant in Models 1 and 3 (the pooled and House-only models), as was the case for constituency service on behalf of individuals. Therefore, we find only some evidence to support @thm-capacityreporting.
+The last component of capacity that we test in the models in @tbl-models-full-2 is whether a legislator sits on a committee with a reporting relationship with a particular agency. We hypothesized in @hyp-capacity-reporting that legislators would do more interbranch representation with agencies for which they serve on a reporting committee. This relationship is only positive and statistically significant in Models 1 and 3 (the pooled and House-only models), as was the case for constituency service on behalf of individuals. Therefore, we find only some evidence to support @hyp-capacity-reporting.
 
-
-
-##### Staff quality 
-
-We next assess another component of capacity: the quality of legislators' staff. We established in @thm-capacitystaff that we expect legislators with more experienced staff to do more interbranch representation. Given the importance of congressional staff in providing constituency service, including constituency service on behalf of nonprofits and local governments, we might expect that staff quality would be particularly important here. As in previous chapters, we use a rough proxy for staff experience: whether a new legislator took over for another legislator of the same party. We assume that some staff retention would occur in such a situation, giving the new legislator the benefit of more experienced staff (despite having no experience in Congress themselves). 
-
-@tbl-models-district-3 shows the results of six models that estimate the effect of staff retention on this type of interbranch representation. Although the coefficients on "New Member" are negative and statistically significant in the base models, interaction models, and models with additional control variables, there is no interaction between "New Member" and "Same Party." As before, we find no support for @thm-capacitystaff using this measure of staff experience but do not rule out the possibility that a more precise measure would produce different results.   
-
-```{r}
-#| label: tbl-models-district-3
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
 
 
 ### Unequal Representation in Public Interest Policywork 
@@ -435,23 +534,6 @@ here::here("figs", type,
 
 
 
-##### Staff prior experience 
-
-Even more strongly than other forms of interbranch representation, 
-electing a new member of Congress decreases policy work done on behalf of a district, and retaining staff does not appear to mitigate this. 
-
-```{r}
-#| label: tbl-models-district-5
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
-
-
 
 ### Unequal Representation in Corporate Policywork 
 
@@ -463,7 +545,7 @@ Turning from Demand to Capacity, we see a similar pattern in the relationship be
 
 @fig-capacity-effect-4 below shows the same style of counterfactual scenarios used in previous chapters to estimate the impact of capacity changes on the performance of corporate policy work, drawing on the regression results in @tbl-models-full. The top left panel shows the effect of legislator experience, the top right shows a Reporting Committee Relationship (sitting on the committee that has jurisdiction over that agency), and the bottom left panel shows a Total Capacity counterfactual effect.^[Total capacity effect includes counterfactuals for chair, sub-committee chair, ranking minority member, oversight, prestige committee assignment, and legislator experience.]
 
-Consistent with our expectations in @thm-capacitylegexperience and previous work by @JudgeLordPowellGrimmer2026, we find legislator experience playing an important role in the provision of corporate interbranch policy work. The blue dots in the top left panel in @fig-capacity-effect-4 show predicted corporate interbranch policy work in a counterfactual scenario in which the chamber was filled with all new legislators--thus all legislators would have the same experience of zero. The yellow dots show predicted corporate policy work based on legislators' actual legislative experience. We see that reducing legislator experience drops predicted corporate service work. We estimate the net effect of observed legislator experience to be 371 annual corporate service requests a year. Interestingly, in this case, counterfactual scenarios involving legislator experience have no impact on the inequality in corporate policy work.  
+Consistent with our expectations in @hyp-capacity-experience and previous work by @JudgeLordPowellGrimmer2026, we find legislator experience playing an important role in the provision of corporate interbranch policy work. The blue dots in the top left panel in @fig-capacity-effect-4 show predicted corporate interbranch policy work in a counterfactual scenario in which the chamber was filled with all new legislators--thus all legislators would have the same experience of zero. The yellow dots show predicted corporate policy work based on legislators' actual legislative experience. We see that reducing legislator experience drops predicted corporate service work. We estimate the net effect of observed legislator experience to be 371 annual corporate service requests. Interestingly, in this case, counterfactual scenarios involving legislator experience have no impact on the inequality in corporate policy work.  
 
 ```{r}
 #| label: fig-capacity-effect-4
@@ -483,32 +565,14 @@ here::here("figs", type,
                   ) 
            ))
 ```
-
+---> 
 <!--Rochelle 7/3: commenting out because this is the same paragraph as the one above?
-Consistent with @thm-capacitylegexperience, and previous work by @JudgeLordPowellGrimmer2026, we find legislator experience playing an important role in the provision of corporate interbranch policy-work. The blue dots in the top left panel in @fig-capacity-effect-4 show predicted corporate interbranch policy-work in a counterfactual scenario in which the chamber was filled with all new legislators- thus, all legislators would have the same experience of zero. The yellow dots show predicted corporate policy-work based on legislators' actual legislative experience. We see that reducing legislator experience drops predicted corporate service work. We estimate the net effect of observed legislator experience to be 371 annual corporate service requests a year. Interestingly, in this case, counterfactual scenarios involving legislator experience have no impact on the inequality in corporate policy-work. -->
-
-Largely consistent with our expectations in @thm-capacityreporting, we find serving on a committee with a reporting relationship with an agency (an oversight role with that agency) is a significant positive correlate of corporate interbranch policy work in four of the six model specifications in @tbl-models-full. The blue dots in the top right panel in @fig-capacity-effect-4 show predicted corporate interbranch policy work in a counterfactual scenario in which no legislators were serving on a committee with a reporting relationship with the agency --- thus all legislators would have the same lack of capacity derived from the reporting committee service. The yellow dots show predicted corporate policy work based on legislators' actual reporting committee relationships. We see that eliminating legislators' reporting committee capacity drops predicted corporate policy work. We estimate the net effect of observed legislator experience to be 255 annual corporate policy requests a year. In contrast to what we saw with legislator experience in this case, counterfactual scenarios involving legislators' reporting committee service do have a modest impact on the inequality in corporate policy work. 
+Consistent with @hyp-capacity-experience, and previous work by @JudgeLordPowellGrimmer2026, we find legislator experience playing an important role in the provision of corporate interbranch policy-work. The blue dots in the top left panel in @fig-capacity-effect-4 show predicted corporate interbranch policy-work in a counterfactual scenario in which the chamber was filled with all new legislators- thus, all legislators would have the same experience of zero. The yellow dots show predicted corporate policy work based on legislators' actual legislative experience. We see that reducing legislator experience drops predicted corporate service work. We estimate the net effect of observed legislator experience to be 371 annual corporate service requests a year. Interestingly, in this case, counterfactual scenarios involving legislator experience have no impact on the inequality in corporate policy work. -->
+<!---Continuing to comment out
+Largely consistent with our expectations in @hyp-capacity-reporting, we find serving on a committee with a reporting relationship with an agency (an oversight role with that agency) is a significant positive correlate of corporate interbranch policy work in four of the six model specifications in @tbl-models-full. The blue dots in the top right panel in @fig-capacity-effect-4 show predicted corporate interbranch policy work in a counterfactual scenario in which no legislators were serving on a committee with a reporting relationship with the agency --- thus all legislators would have the same lack of capacity derived from the reporting committee service. The yellow dots show predicted corporate policy work based on legislators' actual reporting committee relationships. We see that eliminating legislators' reporting committee capacity drops predicted corporate policy work. We estimate the net effect of observed legislator experience to be 255 corporate policy requests per year. In contrast to what we saw with legislator experience in this case, counterfactual scenarios involving legislators' reporting committee service do have a modest impact on the inequality in corporate policy work. 
 
 The bottom left panel in @fig-capacity-effect-4 attempts to estimate the effect of all forms of capacity on the provision of corporate interbranch policy work. By combining counterfactual comparisons involving all of these forms of capacity, we estimate the net impact of capacity as producing 649 corporate interbranch policy requests. 
+---> 
 
 
-##### Staff experience  
-
-In the preceding section, we found that capacity in the form of legislator experience has one of the strongest relationships with corporate service. This finding is consistent with @JudgeLordPowellGrimmer2026, which found a substantial drop-off in district service when a new member replaces an incumbent. We now return to the question of whether it is possible for staff experienced with the district to mitigate this loss--essentially staff with experience working in Congress on behalf of this district as a form of capacity for new members. As a rough proxy for detailed staff retention data, we look at whether the new member is from the same party as the previous incumbent. In many cases, it is plausible that new members of the same party retain some staff members, while it is implausible that new members of the opposite party will retain many staff members. 
-
-@tbl-models-district shows the effect of staff with congressional district representation experience on the provision of corporate constituency service. Across all models, having a new member is estimated to reduce the provision of corporate interbranch policy work, though it is only statistically significant in five of six models. In the two difference-in-difference models, we see that while the interaction term between new member and same party is near zero and never statistically significant, the Same Party variable is positive and of a similar magnitude to the New Member variable---effectively washing out the loss from having a new member.  
-
-```{r}
-#| label: tbl-models-district-4
-#| tbl-cap: "The effect of capacity on total requests to federal agencies per district"
-
-load(here::here("models", type,  "models_district.Rdata"))
-
-modelsummary(models_district,
-             notes = list("Robust standard errors in parentheses, clustered by district",
-                          "This table shows estimates of the effect of electing a new member of the same or different party on levels of interbranch representation.")) 
-```
-
-
-## Conclusion: Capacity Constrained Congressional Offices
 

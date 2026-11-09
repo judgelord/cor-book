@@ -1,0 +1,334 @@
+## - Staff Allocation %
+
+- Figures: `figs/[TYPE]/m-staff_allocation-[1:4].png`
+
+```{r m-staff_allocation}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+
+# cross-sectional 
+m_staff_allocation_cross <- fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party | Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_staff_allocation_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_staff_allocation_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 2
+m_staff_allocation_did <-fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party  | Year_x_Agency + Legislator_x_Agency, 
+                    cluster = "Legislator",
+                    # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
+           data = data_member)
+
+if(testing){modelsummary::modelsummary(m_staff_allocation_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_staff_allocation_did, horiz = T, drop = ".theta") 
+
+
+```
+
+
+
+## - House Staff %
+
+- Figures: `figs/[TYPE]/m-house_staff_allocation-[1:4].png`
+
+```{r m-house_staff_allocation}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: restricted Diff in Diff"
+#|   - "Model 4: log Diff in Diff"
+
+
+
+# cross-sectional 
+m_house_staff_allocation_cross <- fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party | Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_house_staff_allocation_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_house_staff_allocation_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 2
+m_house_staff_allocation_did <-fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party  | Year_x_Agency + Legislator_x_Agency, 
+                    cluster = "Legislator",
+                    # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
+           data = data_member)
+
+if(testing){modelsummary::modelsummary(m_house_staff_allocation_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_house_staff_allocation_did, horiz = T, drop = ".theta") 
+
+
+# 3
+m_house_staff_allocation_2nd_cross <-fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party | Year_x_Agency, 
+                    cluster = "Legislator", 
+           data = data_member %>% filter(survive == 1))
+
+if(testing){modelsummary::modelsummary(m_house_staff_allocation_2nd_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+coefplot(m_house_staff_allocation_2nd_cross, horiz = T, drop = ".theta") 
+
+
+# 4
+m_house_staff_allocation_2nd_did <-fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party | Year_x_Agency + Legislator_x_Agency,
+                    cluster = "Legislator",
+           data = data_member %>% filter(survive == 1))
+
+if(testing){modelsummary::modelsummary(m_house_staff_allocation_2nd_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_house_staff_allocation_2nd_did, horiz = T, drop = ".theta")
+```
+
+
+## - Senate Staff %
+
+- Figures: `figs/[TYPE]/m-senate_staff_allocation-[1:4].png`
+
+```{r m-senate_staff_allocation}
+#| fig-show: "hold"
+#| out-width: "50%"
+#| fig-height: 4.5
+#| fig-cap: "Per Year"
+#| fig-subcap: 
+#|   - "Model 1: Cross Sectional"
+#|   - "Model 2: Diff in Diff"
+#|   - "Model 3: restricted Diff in Diff"
+#|   - "Model 4: log Diff in Diff"
+
+
+
+# cross-sectional 
+m_senate_staff_allocation_cross <- fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party | Year_x_Agency,
+  cluster = "Legislator", 
+  data = data_member)
+
+if(testing){modelsummary::modelsummary(m_senate_staff_allocation_cross, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_senate_staff_allocation_cross, horiz = T, drop = "(Intercept)") 
+
+
+
+# 2
+m_senate_staff_allocation_did <-fenegbin (
+  perYear ~ 
+    pct_legis_staff + 
+    #pct_pol_staff + 
+    pct_comm_staff + 
+    #pct_off_staff + 
+    pct_constit_staff + pct_policy_staff +
+    chair + 
+    #subchr + state_leg +  
+    ranking_minority + 
+    oversight +
+    experience + 
+    #majority + 
+    presidents_party  | Year_x_Agency + Legislator_x_Agency, 
+                    cluster = "Legislator",
+                    # ALT vcov = hetero ~ ssc(cluster.adj = TRUE),
+           data = data_member)
+
+if(testing){modelsummary::modelsummary(m_senate_staff_allocation_did, gof_omit = "R.*", coef_omit = coef_omit)}
+
+coefplot(m_senate_staff_allocation_did, horiz = T, drop = ".theta") 
+```
+
+### Table - Staff %
+
+```{r m-staff_allocation-models}
+models_staff_allocation <- list(
+      "(1)" =  m_staff_allocation_cross,
+  "(2)" = m_staff_allocation_did,
+    "(3)" =  m_house_staff_allocation_cross,
+  "(4)" = m_house_staff_allocation_did,
+  "(5)" =  m_senate_staff_allocation_cross,
+  "(6)" = m_senate_staff_allocation_did
+)
+rows <- tibble(
+  term = c("Dependent variable",
+           "All legislators",
+           "Only House",
+           "Only Senate"),
+ `(1)` = c("Count", "X", "", ""),
+  `(2)` = c("Count", "X", "", ""),
+    `(3)` = c("Count", "", "X", ""),
+  `(4)` = c("Count", "", "X", ""),
+  `(5)` = c("Count", "", "", "X"),
+  `(6)` = c("Count", "", "", "X"),
+  )
+attr(rows, 'position') <- c(0)
+
+# HTML
+modelsummary(models_staff_allocation, 
+             title = "The Effect of Staff Allocation on Legislator Contacts", 
+             notes = list("Robust standard errors in parentheses, clustered by legislator."))
+
+beta_cross <- betas(m_staff_allocation_cross)
+se_cross <- standard_errors(m_staff_allocation_cross)
+beta_did <- betas(m_staff_allocation_did)
+se_did <- standard_errors(m_staff_allocation_did)
+
+save(models_staff_allocation, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_staff_allocation.Rdata"))
+```
+
+
+### Narrative - Staff %
+
+TODO
+
+
+### Modeled Effects - Staff % - cross sectional 
+
+```{r, eval=FALSE}
+#| label: "m-staff_allocation-effect"
+#| fig-cap: "figs/[TYPE]/m-staff_allocation-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#|   - "2"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_staff_allocation_cross
+data = data_member |> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, pct_constit_staff = 0),
+  effect = " %Constit. Serv. Staff"
+  )
+
+plot_effect( 
+  newdata = mutate(data, pct_comm_staff = 0),
+  effect = "% Comms Staff"
+  )
+```
+
+### Modeled Effects - staff % - diff in diff
+
+```{r, eval=FALSE}
+#| label: "m-staff_allocation-did-effect"
+#| fig-cap: "figs/[TYPE]/m-staff_allocation-did-effect"
+#| layout-ncol: 2
+#| fig-height: 3.5
+#| fig-width: 3.5
+#| fig-subcap: 
+#|   - "1"
+#| out-width: "100%"
+#| fig-show: "hold"
+
+model <- m_staff_allocation_did
+data = data_member #|> filter(year > 2007,  year < 2019)
+
+plot_effect( 
+  newdata = mutate(data, pct_constit_staff = 0),
+  effect = "% Constit. Serv. Staff\n(diff in diff)"
+  )
+```

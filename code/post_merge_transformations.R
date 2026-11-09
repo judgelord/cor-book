@@ -112,6 +112,13 @@ member_year_category_counts_wide %<>%
   distinct() %>%
   as_tibble()
 
+member_year_category_counts_wide %<>%
+  mutate(staff_count_policy2 = sum(staff_count_policy, staff_count_committee, staff_count_intergovernmental, staff_count_legal) ) %>%
+  mutate(   pct_legis_staff   = staff_count_legislative/total_staff_count,
+            pct_comm_staff  = staff_count_communications/total_staff_count,
+            pct_constit_staff = staff_count_constituent_casework/total_staff_count,
+            pct_policy_staff =  staff_count_policy2/total_staff_count)
+
 if(F){ # INSPECT
   member_year_category_counts_wide |> count(icpsr, year, chamber, sort = T)
 

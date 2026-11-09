@@ -1,5 +1,5 @@
 
-## - House staff-only %
+## - House staff spending % only 
 
 - Figures: `figs/[TYPE]/m-staff-only-[1:4].png`
 
@@ -182,7 +182,7 @@ plot_effect(
 
 \clearpage
 
-## - House Staff Spending
+## - House Staff Spending $ - only 
 
 Spending in Millions 
 

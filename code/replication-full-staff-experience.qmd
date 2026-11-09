@@ -28,14 +28,15 @@ m_full_staff_experience_cross <- fenegbin (
     experience +
      abs(nominate_dim1) +
      party +
+        chamber + 
     distance*presidents_party #+ majority
   | Year_x_Agency,
                     cluster = "Legislator",
-           data = data_member )
+           data = data_member |> filter(year>2010) )
 if(testing){modelsummary::modelsummary(m_full_staff_experience_cross, stars = T)}
 ```
 
-#### House staff count did
+#### Staff experience did
 
 m_full_staff_experience_did
 
@@ -67,10 +68,11 @@ m_full_staff_experience_did <-fenegbin (
     # abs(nominate_1)
     # party +
     # distance*presidents_party +
+    chamber + 
     presidents_party #+ majority
   | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
-           data = data_member )
+           data = data_member |> filter(year>2010) )
 if(testing){modelsummary::modelsummary(m_full_staff_experience_did, stars = T)}
 ```
 
@@ -106,7 +108,7 @@ m_full_house_staff_experience_cross <- fenegbin (
     distance*presidents_party #+ majority
   | Year_x_Agency,
                     cluster = "Legislator",
-           data = data_member |> filter(chamber == "House") )
+           data = data_member |> filter(year>2010) |> filter(chamber == "House") )
 if(testing){modelsummary::modelsummary(m_full_house_staff_experience_cross, stars = T)}
 ```
 
@@ -145,7 +147,7 @@ m_full_house_staff_experience_did <-fenegbin (
     presidents_party #+ majority
   | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
-           data = data_member |> filter(chamber == "House") )
+           data = data_member |> filter(year>2010) |> filter(chamber == "House") )
 if(testing){modelsummary::modelsummary(m_full_house_staff_experience_did, stars = T)}
 ```
 
@@ -181,7 +183,7 @@ m_full_senate_staff_experience_cross <- fenegbin (
     distance*presidents_party #+ majority
   | Year_x_Agency,
                     cluster = "Legislator",
-           data = data_member |> filter(chamber == "Senate") )
+           data = data_member |> filter(year>2010) |> filter(chamber == "Senate") )
 if(testing){modelsummary::modelsummary(m_full_house_staff_experience_cross, stars = T)}
 ```
  
@@ -220,7 +222,7 @@ m_full_senate_staff_experience_did <-fenegbin (
     presidents_party #+ majority
   | Year_x_Agency + Legislator_x_Agency,
                     cluster = "Legislator",
-           data = data_member |> filter(chamber == "Senate") )
+           data = data_member |> filter(year>2010) |> filter(chamber == "Senate") )
 if(testing){modelsummary::modelsummary(m_full_senate_staff_experience_did, stars = T)}
 ```
 

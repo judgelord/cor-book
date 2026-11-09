@@ -10,7 +10,7 @@ project:
   output-dir: docs
   render:
     - "!interbranch.qmd" # ! = things to not render
-    - "!code/"
+    - "!code/**"
     - "!replication*"
     - "!archive/"
     - "!feedback/"
@@ -33,8 +33,8 @@ book:
      - ch5-results-demand.qmd
      - ch6-results-capacity.qmd
      - ch7-results-incentives.qmd
-     - ch8-results-overall.qmd
-     - ch9-conclusion.qmd
+#     - ch8-results-overall.qmd. #TODO merge this into conclusion
+     - ch8-conclusion.qmd
      - references.md
   appendices:
      - appendix-a.qmd
@@ -53,6 +53,38 @@ language:
   crossref-thm-title: "Hypothesis"
   crossref-thm-prefix: "Hypothesis"
 bibliography: assets/cor.bib
+
+filters:
+  - assets/hypotheses.lua
+  - quarto
+  - assets/rowlines.lua
+
+rowlines:
+  - tbl-demand-findings
+  - tbl-demand
+  - tbl-capacity
+  - tbl-capacity-findings
+
+hypotheses:
+  - id: demand
+    subs: [number, empowered, need]
+  - id: capacity
+    subs: [experience, staff, position, reporting]
+  - id: strategy
+    subs:
+      - id: partisan
+        subs:
+          - {id: alignment, label: "+"}
+          - {id: antagonism, label: "-"}
+          - {id: coalition, label: "business"}
+          - {id: antigovernment, label: "anti-government"}
+      - id: electoral
+        subs:
+          - {id: competition, label: "competition"}
+          - {id: donors, label: "donors"}
+          - {id: distraction, label: "distraction"}
+      - institutional
+      - staff
 
 format:
   html:

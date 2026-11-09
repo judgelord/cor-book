@@ -5,7 +5,7 @@ author: Devin Judge-Lord
 format: 
   #pdf: 
   html:
-      self-contained: true
+      self-contained: false
       toc: true
       code-fold: true
 editor_options: 
@@ -132,35 +132,6 @@ modelsummary(models_full,
 
 save(models_full, rows, cm, gm, 
      file = here::here("models", "models_full-1.Rdata"))
-
-# TESTING MARGINAL EFFECTS 
-# # define type 
-# type = 1
-# 
-# # define model 
-# model = 1
-# 
-# # define variable 
-# var = "chamber"
-# 
-# # load list of 6 models
-# load(here::here("models", type,  "models_full.Rdata"))
-# 
-# modelsummary(models_full)
-# 
-# # select model 
-# m <- models_full[[model]] 
-# 
-# # load data for these models 
-# load(here::here("data", type,  "data_member.rda"))
-# 
-# 
-# # calculate comparisons for variable 
-# avg_comparisons(m,
-#   variables = list(party =  c("(D)", "(R)")),
-#   #variables = list(party = "pairwise"),
-#   ) |>
-#   as_tibble() 
 ```
 
 Model 2 - All legislators -  diff in diff
@@ -475,6 +446,9 @@ get_comparison <- function(
 
   m <- models[[model_index]]
 
+  rm(models)
+gc(FALSE)
+
   # Load the model's analysis data
   data_path <- file.path(
     root, "data", as.character(type), data_file
@@ -775,7 +749,7 @@ comparison_spec <- crossing(
 comparison_df <- comparison_spec |>
   pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Senators vs Representatives") 
+comparison_plot(caption = "Senators vs. Representatives") 
 ```
 
 
@@ -863,7 +837,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Ranking minority vs all others") 
+comparison_plot(caption = "Ranking minority vs. all others") 
 ```
 
 ## oversight 
@@ -891,7 +865,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Reporting committee members vs others") 
+comparison_plot(caption = "Reporting committee members vs. others") 
 ```
 
 ## state_leg 
@@ -919,7 +893,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Legislators who served in state legislatures vs others") 
+comparison_plot(caption = "Legislators who served in state legislatures vs. others") 
 ```
 
 ## experience 
@@ -947,11 +921,752 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Legislators with 3+ years of expiernce vs freshmen") 
+comparison_plot(caption = "Legislators with 3+ years of expiernce vs. freshmen") 
    
 ```
 
+
+
+## Total staff experience 
+
+### Total staff experience only (without most controls)
+
+```{r}
+#| label: marginal-staff-experience-only
+#| fig-cap: "figs/marginal-staff-experience-only-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_experience_only.Rdata",
+  models_object = "models_staff_experience_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #model = c(1,2),
+  model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_experience_only.Rdata",
+  models_object = "models_staff_experience_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_staff_experience_only.Rdata",
+  models_object = "models_staff_experience_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+```
+
+### Total staff experience - Full model
+
+```{r}
+#| label: marginal-staff-experience
+#| fig-cap: "figs/marginal-staff-experience-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_full_staff_experience.Rdata",
+  models_object = "models_full_staff_experience"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+# FIXME - unclear why this does not work
+# comparison_spec <- crossing(
+#   type = c(as.character(1:5), 
+#            "total"), 
+#   #model = c(1,2),
+#   model = c(3,4), # FIXME pick one 
+#   #model = c(5,6),
+#   models_file = "models_full_staff_experience.Rdata",
+#   models_object = "models_full_staff_experience"
+#   ) |>
+#   crossing(
+#     tibble(
+#       var = "total_staff_experience_years",
+#       variable_change = c("sd"), #, "pairwise"),
+#       #variable_change = list(experience = c(1,2)),
+#       outcome_comparison = "ratioavg"
+#     )
+#   )
+# 
+# comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+# 
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_full_staff_experience.Rdata",
+  models_object = "models_full_staff_experience"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+```
+
+## Average staff experience 
+
+### Average staff experience only (without most controls)
+
+```{r}
+#| label: marginal-staff-mean-experience-only
+#| fig-cap: "figs/marginal-staff-mean-experience-only-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_mean_experience_only.Rdata",
+  models_object = "models_staff_mean_experience_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "mean_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #model = c(1,2),
+  model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_mean_experience_only.Rdata",
+  models_object = "models_staff_mean_experience_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "mean_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_staff_mean_experience_only.Rdata",
+  models_object = "models_staff_mean_experience_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "mean_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+```
+
+### Average staff experience 
+
+```{r}
+#| label: marginal-staff-mean-experience
+#| fig-cap: "figs/marginal-staff-mean-experience-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_mean_experience.Rdata",
+  models_object = "models_staff_mean_experience"
+  ) |>
+  crossing(
+    tibble(
+      var = "mean_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+# FIXME - unclear why this is not working 
+# comparison_spec <- crossing(
+#   type = c(as.character(1:5), 
+#            "total"), 
+#   #model = c(1,2),
+#   model = c(3,4), # FIXME pick one 
+#   #model = c(5,6),
+#   models_file = "models_staff_mean_experience.Rdata",
+#   models_object = "models_staff_mean_experience"
+#   ) |>
+#   crossing(
+#     tibble(
+#       var = "mean_staff_experience_years",
+#       variable_change = c("sd"), #, "pairwise"),
+#       #variable_change = list(experience = c(1,2)),
+#       outcome_comparison = "ratioavg"
+#     )
+#   )
+# 
+# comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_staff_mean_experience.Rdata",
+  models_object = "models_staff_mean_experience"
+  ) |>
+  crossing(
+    tibble(
+      var = "mean_staff_experience_years",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff years of experience") 
+```
+
+
+## Office staff count 
+
+### small model (without most controls)
+
+```{r}
+#| label: marginal-staff-count-only
+#| fig-cap: "figs/marginal-staff-count-only-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_count_only.Rdata",
+  models_object = "models_staff_count_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff")
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #  model = c(1,2),
+  model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_staff_count_only.Rdata",
+  models_object = "models_staff_count_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_staff_count_only.Rdata",
+  models_object = "models_staff_count_only"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff") 
+```
+
+
+### full model 
+
+```{r}
+#| label: marginal-staff-count
+#| fig-cap: "figs/marginal-staff-count-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_full_staff_count.Rdata",
+  models_object = "models_full_staff_count"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff")
+
+# FIXME this one too 
+# comparison_spec <- crossing(
+#   type = c(as.character(1:5), 
+#            "total"), 
+#   #  model = c(1,2),
+#   model = c(3,4), # FIXME pick one 
+#   #model = c(5,6),
+#   models_file = "models_full_staff_count.Rdata",
+#   models_object = "models_full_staff_count"
+#   ) |>
+#   crossing(
+#     tibble(
+#       var = "total_staff_count",
+#       variable_change = c("sd"), #, "pairwise"),
+#       #variable_change = list(experience = c(1,2)),
+#       outcome_comparison = "ratioavg"
+#     )
+#   )
+# 
+# comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_full_staff_count.Rdata",
+  models_object = "models_full_staff_count"
+  ) |>
+  crossing(
+    tibble(
+      var = "total_staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff") 
+```
+
+## Reporting staff count 
+
+
+### full model 
+
+```{r}
+#| label: marginal-reporting-staff-count
+#| fig-cap: "figs/marginal-reporting-staff-count-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  #model = c(5,6),
+  models_file = "models_full_reporting_staff_count.Rdata",
+  models_object = "models_full_reporting_staff_count"
+  ) |>
+  crossing(
+    tibble(
+      var = "staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff")
+
+# FIXME 
+# comparison_spec <- crossing(
+#   type = c(as.character(1:5), 
+#            "total"), 
+#   #  model = c(1,2),
+#   model = c(3,4), # FIXME pick one 
+#   #model = c(5,6),
+#   models_file = "models_full_reporting_staff_count.Rdata",
+#   models_object = "models_full_reporting_staff_count"
+#   ) |>
+#   crossing(
+#     tibble(
+#       var = "staff_count",
+#       variable_change = c("sd"), #, "pairwise"),
+#       #variable_change = list(experience = c(1,2)),
+#       outcome_comparison = "ratioavg"
+#     )
+#   )
+# 
+# comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff") 
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), 
+           "total"), 
+  #  model = c(1,2),
+  #model = c(3,4), # FIXME pick one 
+  model = c(5,6),
+  models_file = "models_full_reporting_staff_count.Rdata",
+  models_object = "models_full_reporting_staff_count"
+  ) |>
+  crossing(
+    tibble(
+      var = "staff_count",
+      variable_change = c("sd"), #, "pairwise"),
+      #variable_change = list(experience = c(1,2)),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in staff") 
+```
+
+
+
+
 # Strategic 
+
+## Staff allocation
+
+### casework
+
+```{r}
+#| label: marginal-staff-allocation-casework
+#| fig-cap: "figs/marginal-staff-allocation-casework-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1), # c(1,2),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_constit_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in casework staff")
+
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1,2),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_constit_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in casework staff")
+```
+
+### policy 
+
+```{r}
+#| label: marginal-staff-allocation-policy
+#| fig-cap: "figs/marginal-staff-allocation-policy-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_policy_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in policy staff")
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1,2),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_policy_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in policy staff")
+```
+
+### comm
+
+```{r}
+#| label: marginal-staff-allocation-comm
+#| fig-cap: "figs/marginal-staff-allocation-comm-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_comm_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in communications staff")
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1,2),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_comm_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in communications staff")
+```
+
+
+### legis
+
+```{r}
+#| label: marginal-staff-allocation-legis
+#| fig-cap: "figs/marginal-staff-allocation-legis-1.png"
+#| fig-height: 2.3
+#| fig-width: 5
+#| out-width: "100%"
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_legis_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in legislative staff")
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"), #FIXME
+  model = c(1,2),
+  models_file = "models_staff_allocation.Rdata",
+  models_object = "models_staff_allocation"
+  ) |>
+  crossing(
+    tibble(
+      var = "pct_legis_staff",
+      variable_change = c("sd"), #, "pairwise"),
+      outcome_comparison = "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
+
+comparison_plot(caption = "with one-standard-deviation increase in legislative staff")
+```
+
 
 ## competitive
 
@@ -1069,6 +1784,17 @@ comparison_df <- comparison_df |>
   filter(contrast %in% c("mean((R)) / mean((D))","mean(x + sd/2) / mean(x - sd/2)")) 
 
 comparison_plot(caption = "with one-standard-deviation greater distance from agency") #+ facet_wrap("contrast", ncol = 1)
+
+
+gc(full = TRUE)
+
+object_sizes <- vapply(
+  ls(envir = .GlobalEnv),
+  function(name) object.size(get(name, envir = .GlobalEnv)),
+  numeric(1)
+)
+
+sort(object_sizes, decreasing = TRUE)[1:min(20, length(object_sizes))]
 ```
 
 
@@ -1081,6 +1807,7 @@ comparison_plot(caption = "with one-standard-deviation greater distance from age
 #| fig-height: 2.3
 #| fig-width: 5
 #| out-width: "100%"
+#| cache: false
 
 comparison_spec <- crossing(
   type = c(as.character(1:5), "total"),
@@ -1105,7 +1832,7 @@ comparison_df <- comparison_spec |>
 comparison_df <- comparison_df |>
   filter(contrast == "mean((R)) / mean((D))") 
 
-comparison_plot(caption = "Republicans vs Democrats") 
+comparison_plot(caption = "Republicans vs. Democrats") 
 ```
 
 
@@ -1134,7 +1861,7 @@ comparison_spec <- crossing(
 
 comparison_df <- comparison_spec |> pmap_dfr(get_comparison)
 
-comparison_plot(caption = "Members of the president's party vs others") 
+comparison_plot(caption = "Members of the president's party vs. others") 
 ```
 
 

@@ -1,0 +1,160 @@
+---
+title: "Faces of the administrative state"
+subtitle: ""
+author: Devin Judge-Lord
+project: false
+format: 
+  #pdf: 
+  html:
+      self-contained: false
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
+project: false
+---
+
+```{r functions, cache=FALSE}
+here::here("code", "qmd_global_options.R") |> source() 
+```
+
+
+```{r}
+#| label: faces-cor
+#| fig-width: 7
+#| fig-height: 2
+#| layout-ncol: 1
+library(dplyr)
+library(purrr)
+
+# load(here::here("data", type, "dcounts.rds")) 
+# dcounts$perYear |> sum()
+
+readcordata <- function(type) {
+  load(
+    here::here("data", as.character(type), "dcounts.rds")
+  )
+
+  dcounts |>
+    group_by(agency) |>
+    summarise(
+      perYear = sum(perYear, na.rm = TRUE),
+      .groups = "drop"
+    ) |>
+    rename(!!as.character(type) := perYear)
+}
+
+result <- c(1:5,"total") |>
+  map(readcordata) |>
+  reduce(
+    full_join,
+    by = c("agency")
+  )
+
+d <- result
+# googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/18pKz-pPVvSlLs92BfVqEvqI2wsLWL3eU6ztmCVPq6bk/edit?gid=0#gid=0") |> write_csv(file = here::here("data", "two-faces.csv") )
+
+# two faces 
+tf <- here::here("data", "two-faces.csv") |>  read_csv() |> 
+  select(department_agency_acronym, means,	ends) |> 
+  mutate(faces= str_c(means, ends) |> 
+           str_replace("firstfirst", "First face (both)")  |> 
+           str_replace("secondsecond", "Second face (both)")  |> 
+           str_replace("neithermixed|mixedneither|neitherneither|mixedmixed|secondfirst|firstsecond", "Nither or mixed")  |> 
+           str_replace("first(n|m).*|firstsecond", "first face (means)")  |> 
+           str_replace("second(n|m).*", "Second face (means)")  |> 
+           str_replace(".*(er|ed)first", "First face (ends)") |> 
+           str_replace(".*(er|ed)second", "Second face (ends)"),
+         face = ifelse(faces %in% c("First face (both)", "Second face (both)"),
+                       faces |> str_remove(" \\(.*"),
+                       "Mixed or neither")
+         
+         ) |> mutate(
+  # RENAME TO MATCH
+  # (THIS REALLY SHOULD HAVE BEEN STANDARDIZED IN THE SCRIPT THAT CREATED THESE DATA)
+  department_agency_acronym = department_agency_acronym |>
+    str_replace("HHS_", "DHHS_") |>
+    str_replace("HHS$", "DHHS") |>
+    str_replace("DHSICE", "DHS_ICE")
+)
+
+tf_keys <- unique(tf$department_agency_acronym)
+
+result_joined <- result |>
+  mutate(
+    department = sub("_.*$", "", agency),
+    join_key = case_when(
+      agency %in% tf_keys ~ agency,
+      department %in% tf_keys ~ department,
+      TRUE ~ NA_character_
+    )
+  ) |>
+  left_join(
+    tf,
+    by = c("join_key" = "department_agency_acronym")
+  ) |>
+  select(-department, -join_key)
+
+
+
+d <- result_joined |> 
+  group_by(face) |>
+  summarise(
+    across(where(is.numeric), \(x) sum(x, na.rm = TRUE)),
+    .groups = "drop"
+  ) |>
+  pivot_longer(
+    cols = -face,
+    names_to = "variable",
+    values_to = "value"
+  ) |> 
+  ungroup() |> 
+  mutate(
+    TYPE = variable,
+    Type = case_when(
+    TYPE %in% c(1,2,3) ~ "Constituency\nService", 
+    TYPE %in% c(4,5) ~ "Policy"), 
+         type = case_when(
+            TYPE == 1 ~ " Constituent (individual)",
+            TYPE == 2 ~ "Constituent (business)",
+            TYPE == 3 ~ "Constituent (501c3 or\nlocal government)",
+            TYPE == 4 ~ "Policy (business interest)",
+            TYPE == 5 ~ "Policy (public interest)",
+            TYPE == "total" ~ "Total"
+         )) 
+
+
+d |> 
+  drop_na(Type) |> 
+  ggplot() +
+  aes(x = value/1000,
+      y = "",
+      fill = face
+      ) +
+  geom_col(position = "dodge") +
+  labs(x = "Average Congressional Requests per Year, 2007-2024 (Thousands)",
+       y = "",
+       fill = "") + 
+scale_x_continuous(breaks = scales::breaks_pretty()) + 
+  theme(palette.fill.discrete = c(#"#E69F00",  
+                                    "#D55E00",
+                                    #"#F0E442", 
+                                    "#999999", 
+                                    "#0072B2" ),
+        legend.position = c(.9,.26)) +
+  facet_wrap("type", scales = "free") + 
+  guides(
+    fill  = guide_legend(reverse = TRUE),
+    color = guide_legend(reverse = TRUE)
+  )
+
+
+ggsave(height = 2,
+       width = 7,
+       filename =here::here("figs", "faces-cor.png"))
+
+
+```

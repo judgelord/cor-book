@@ -1,0 +1,261 @@
+
+#### Staff Mean Experience - cross
+
+m_staff_mean_experience_only_cross
+
+```{r m_staff_mean_experience_only_cross}
+m_staff_mean_experience_only_cross <- fenegbin (
+  perYear ~ mean_staff_experience_years +
+    # population_m +
+     # percent_workers_government +
+     # percent_education_bachelor_or_higher +
+     # percent_public_assistance_or_snap_households +
+    # # percent_workers_self_employed +
+    # # percent_workers_private_sector +
+    # # percent_workers_nonprofit +
+    # electoral
+    # competitive +
+    # competitive_primary +
+    #PACamount_m +
+    # institution
+    # chair +
+    # subchr +
+    # ranking_minority +
+    #prestige +
+    # oversight +
+    # member level
+    # state_leg +
+    # experience +
+     # abs(nominate_dim1) +
+     # party +
+        chamber + 
+    distance*presidents_party #+ majority
+  | Year_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(year>2010) )
+if(testing){modelsummary::modelsummary(m_staff_mean_experience_only_cross, stars = T)}
+```
+
+#### Staff Mean Experience did
+
+m_staff_mean_experience_only_did
+
+```{r m_staff_mean_experience_only_did}
+# controlling for experience
+m_staff_mean_experience_only_did <-fenegbin (
+  perYear ~ mean_staff_experience_years +
+    # lots of this does not vary enough for the dif in diff
+    # population_m +
+      # percent_workers_government + # model failing to converge dropping
+      # percent_education_bachelor_or_higher + # model failing to converge dropping
+      # percent_public_assistance_or_snap_households +  # model failing to converge dropping
+    # # percent_workers_self_employed +
+    # # percent_workers_private_sector +
+    # # percent_workers_nonprofit +
+    # electoral
+     # competitive +
+    # competitive_primary +
+    #PACamount_m +
+    # institution
+    # chair +
+    # subchr +
+    # ranking_minority +
+    # prestige +
+    # oversight +
+    # member level
+    # # state_leg +
+    # experience +
+    # abs(nominate_1)
+    # # party +
+    # distance*presidents_# party +
+    chamber + 
+    presidents_party #+ majority
+  | Year_x_Agency + Legislator_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(year>2010) )
+if(testing){modelsummary::modelsummary(m_staff_mean_experience_only_did, stars = T)}
+```
+
+#### House staff  - cross
+
+m_house_staff_mean_experience_only_cross
+
+```{r m_house_staff_mean_experience_only_cross}
+m_house_staff_mean_experience_only_cross <- fenegbin (
+  perYear ~ mean_staff_experience_years +
+    # population_m +
+     # percent_workers_government +
+     # percent_education_bachelor_or_higher +
+     # percent_public_assistance_or_snap_households +
+    # # percent_workers_self_employed +
+    # # percent_workers_private_sector +
+    # # percent_workers_nonprofit +
+    # electoral
+    # competitive +
+    # competitive_primary +
+    #PACamount_m +
+    # institution
+    # chair +
+    # subchr +
+    # ranking_minority +
+    #prestige +
+    # oversight +
+    # member level
+    # state_leg +
+    # experience +
+     # abs(nominate_dim1) +
+     # party +
+    distance*presidents_party #+ majority
+  | Year_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(year>2010) |> filter(chamber == "House") )
+if(testing){modelsummary::modelsummary(m_house_staff_mean_experience_only_cross, stars = T)}
+```
+
+#### House Staff Mean Experience did
+
+m_house_staff_mean_experience_only_did
+ 
+```{r m_house_staff_mean_experience_only_did}
+# controlling for expiernce
+m_house_staff_mean_experience_only_did <-fenegbin (
+  perYear ~ mean_staff_experience_years +
+    # lots of this does not vary enough for the dif in diff
+    # population_m +
+      # percent_workers_government + # model failing to converge dropping
+      # percent_education_bachelor_or_higher + # model failing to converge dropping
+      # percent_public_assistance_or_snap_households +  # model failing to converge dropping
+    # # percent_workers_self_employed +
+    # # percent_workers_private_sector +
+    # # percent_workers_nonprofit +
+    # electoral
+     # competitive +
+    # competitive_primary +
+    #PACamount_m +
+    # institution
+    # chair +
+    # subchr +
+    # ranking_minority +
+    # prestige +
+    # oversight +
+    # member level
+    # # state_leg +
+    # experience +
+    # abs(nominate_1)
+    # # party +
+    # distance*presidents_# party +
+    presidents_party #+ majority
+  | Year_x_Agency + Legislator_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(year>2010) |> filter(chamber == "House") )
+if(testing){modelsummary::modelsummary(m_house_staff_mean_experience_only_did, stars = T)}
+```
+
+#### Senate staff  - cross
+
+m_senate_staff_mean_experience_only_cross
+
+```{r m_senate_staff_mean_experience_only_cross}
+m_senate_staff_mean_experience_only_cross <- fenegbin (
+  perYear ~ mean_staff_experience_years +
+    # population_m +
+     # percent_workers_government +
+     # percent_education_bachelor_or_higher +
+     # percent_public_assistance_or_snap_households +
+    # # percent_workers_self_employed +
+    # # percent_workers_private_sector +
+    # # percent_workers_nonprofit +
+    # electoral
+    # competitive +
+    #ompetitive_primary +
+    #PACamount_m +
+    # institution
+    # chair +
+    # subchr +
+    # ranking_minority +
+    #prestige +
+    # oversight +
+    # member level
+    # state_leg +
+    # experience +
+     # abs(nominate_dim1) +
+     # party +
+    distance*presidents_party #+ majority
+  | Year_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(year>2010) |> filter(chamber == "Senate") )
+if(testing){modelsummary::modelsummary(m_house_staff_mean_experience_only_cross, stars = T)}
+```
+ 
+#### Senate Staff Mean Experience did
+ 
+m_senate_staff_mean_experience_only_did
+
+```{r m_senate_staff_mean_experience_only_did}
+m_senate_staff_mean_experience_only_did <-fenegbin (
+  perYear ~ mean_staff_experience_years +
+    # lots of this does not vary enough for the dif in diff
+    # population_m +
+      # percent_workers_government + # model failing to converge dropping
+      # percent_education_bachelor_or_higher + # model failing to converge dropping
+      # percent_public_assistance_or_snap_households +  # model failing to converge dropping
+    # # percent_workers_self_employed +
+    # # percent_workers_private_sector +
+    # # percent_workers_nonprofit +
+    # electoral
+     # competitive +
+    ## competitive_primary +
+    #PACamount_m +
+    # institution
+    # chair +
+    # subchr +
+    # ranking_minority +
+    # prestige +
+    # oversight +
+    # member level
+    # # state_leg +
+    # experience +
+    # abs(nominate_1)
+    # # party +
+    # distance*presidents_# party +
+    presidents_party #+ majority
+  | Year_x_Agency + Legislator_x_Agency,
+                    cluster = "Legislator",
+           data = data_member |> filter(year>2010) |> filter(chamber == "Senate") )
+if(testing){modelsummary::modelsummary(m_senate_staff_mean_experience_only_did, stars = T)}
+```
+
+#### "models_staff_mean_experience_only.Rdata"
+
+```{r models_staff_mean_experience_only}
+models_staff_mean_experience_only <- list(
+      "(1)" =  m_staff_mean_experience_only_cross,
+  "(2)" = m_staff_mean_experience_only_did,
+    "(3)" =  m_house_staff_mean_experience_only_cross,
+  "(4)" = m_house_staff_mean_experience_only_did,
+  "(5)" =  m_senate_staff_mean_experience_only_cross,
+  "(6)" = m_senate_staff_mean_experience_only_did
+)
+rows <- tibble(
+  term = c("Dependent variable",
+           "All legislators",
+           "Only House",
+           "Only Senate"),
+ `(1)` = c("Count", "X", "", ""),
+  `(2)` = c("Count", "X", "", ""),
+    `(3)` = c("Count", "", "X", ""),
+  `(4)` = c("Count", "", "X", ""),
+  `(5)` = c("Count", "", "", "X"),
+  `(6)` = c("Count", "", "", "X"),
+  )
+attr(rows, 'position') <- c(0)
+# load(here::here("models", type, "models.Rdata")))
+modelsummary(models_staff_mean_experience_only) 
+
+beta_did <- betas(m_house_staff_mean_experience_only_did)
+se_did <- standard_errors(m_house_staff_mean_experience_only_did)
+beta_cross <- betas(m_house_staff_mean_experience_only_cross)
+se_cross <- standard_errors(m_house_staff_mean_experience_only_cross)
+save(models_staff_mean_experience_only, rows, cm, gm,   beta_cross, beta_did, se_cross, se_did,
+     file = here::here("models", type, "models_staff_mean_experience_only.Rdata"))
+```

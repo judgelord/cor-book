@@ -57,10 +57,18 @@ load(here::here("data", "corr_counts.Rdata"))
 ## just in case it was saved as grouped data 
 corr_counts %<>% ungroup()
 
+corr_counts |>
+  filter(year > 1999, year < 2025) |> 
+  summarise(total_1999_2025 = sum(per_icpsr_chamber_year_agency_type))
+
+corr_counts |>
+  filter(year > 2007, year < 2025) |> 
+  summarise(total_2007_2025 = sum(per_icpsr_chamber_year_agency_type))
+
 # previously, I subset to 2007-2020. No need to do that now. 
 corr_counts  %<>% filter(year > 1999, year < 2025)
 
-
+corr_counts$per_icpsr_chamber_year_agency_type |> sum()
 ####################
 # TRANSFORMATIONS #  
 ###################
@@ -103,6 +111,10 @@ chamber_switchers  <- d |>
 
 # DROP CHAMBER SWITCHERS
 d %<>% filter(!icpsr_year %in% chamber_switchers$icpsr_year)
+
+# check n 
+d$per_icpsr_chamber_year_agency_type |> sum()
+
 ```
 
 ## Counts by Type 
@@ -129,15 +141,21 @@ make_dcounts <- function(d, type){
 if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))}
   
   
-  # drop uncoded agencies
-  #WHY DOES THIS GO DOWN  FOR TOTAL? 
-  # BECAUSE WE RETAINED DHS_USCIS_2016 as all 0s, it being counted with USCIS (though good to confirm and fix )
+  # NOTE: BECAUSE WE RETAINED DHS_USCIS_2016 as all 0s, it being counted with USCIS (though good to confirm and fix )
   d %<>% group_by(agency) %>% 
     mutate(
       coded = ifelse(TYPE %in% c(0:5), per_icpsr_chamber_year_agency_type, 0),
-      total_per_agency = sum(coded)) %>% 
+      total_per_agency = sum(coded)) 
+  
+  # drop uncoded agencies from coded analysis data 
+  if(type !="total"){
+  d %<>% 
     filter(total_per_agency > 0) %>% 
     ungroup() 
+  } 
+  
+  # check n 
+d$per_icpsr_chamber_year_agency_type |> sum()
   
   d <- d |>
   filter(TYPE == type | type == "total",
@@ -147,9 +165,12 @@ if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))
   ungroup() |>
   left_join(member_data) 
   
+  # check n 
+d$perYear |> sum()
+  
   # check for NAs 
   count(d, is.na(bioname))
-  # filter(d, is.na(bioname))
+  # filter(d, is.na(bioname)) |> count(agency, icpsr)
   
 
   
@@ -159,8 +180,15 @@ if (!dir.exists(here::here("data", type))) {dir.create(here::here("data", type))
   ungroup() |>
   distinct()
   
+    # check n 
+dcounts$perYear |> sum()
+  
   # Drop president and nonvoting members 
   dcounts %<>% drop_na(state)
+  
+      # check n 
+dcounts$perYear |> sum()
+  
 
   save(dcounts, file =  here::here("data", type, "dcounts.rds"))
 
@@ -187,14 +215,15 @@ perYear_mean <- dcounts |>
 perYear_mean <- mean(perYear_mean$perYearTotal) |> round()
 
 ## Ns
-n2007_2020 <- dcounts$perYear |> sum()
+n_analysis <- dcounts$perYear |> sum()
 n_agency <- dcounts$agency |> unique() |> length()
+
+dcounts |> distinct(year) |> range()
 
 save(mean,
      perYear_mean,
      n_agency, 
-     n2007_2020, 
-     # n2007_2020coded,  
+     n_analysis, 
      file = here::here("data", type, "means.Rdata"))
 }
 

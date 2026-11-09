@@ -29,8 +29,7 @@ m_full_cross <-fenegbin (
     # member level 
     state_leg + 
     experience + 
-     abs(nominate_dim1) + 
-     party + 
+     abs(nominate_dim1) + party + 
     distance*presidents_party #+ majority 
   | Year_x_Agency, 
                     cluster = "Legislator",
@@ -67,8 +66,7 @@ m_full_house_cross <- fenegbin (
     # member level 
     state_leg + 
     experience + 
-     abs(nominate_dim1) + 
-     party + 
+     abs(nominate_dim1) + party + 
     distance*presidents_party #+ majority 
   | Year_x_Agency, 
                     cluster = "Legislator",

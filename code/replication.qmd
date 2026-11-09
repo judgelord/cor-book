@@ -72,7 +72,8 @@ rename_vars <- function(data){
          # old census variable 
          pop2010m = pop2010/1000000,
          # from new census data 
-         population_m = population_total/1000000,
+         # FIXME make and use lobpop in CM 
+         population_m = log(population_total),#/1000000,
          # note I am transforming these without making "_h" versions 
          total_staff_experience_years = total_staff_experience_years/100,
          # note I am transforming these without making "_m" versions 
@@ -109,14 +110,15 @@ source(here::here("code", "member_years_to_exclude.R"))
 data_member <- anti_join(data_member, exclude)
 
 save(data_member, file = here::here("data", type, "data_member.rda"))
+######## FIXME MOVE ABOVE TO MAKE DATA FILE AND LOAD DATA_MEMBER
 ######## DON'T MODFIY DATA BELOW THIS LINE 
 
-# INSPECT NEW VARS 
-data_member |>  filter(is.na(staff_count), year>2010) |>  distinct(bioname, icpsr, party, chamber,  year) |>
-  kable(caption = "missing from staff experience data")
-data_member |>  filter(is.na(staff_count_policy), year>2010) |> distinct(bioname, icpsr,party, chamber, year) |>
-  kable(caption = "missing from staff allocation data")
-#  Jeff Van Drew (R) — became Republican in Dec. 2019
+# # INSPECT NEW VARS 
+# data_member |>  filter(is.na(staff_count), year>2010) |>  distinct(bioname, icpsr, party, chamber,  year) |>
+#   kable(caption = "missing from staff experience data")
+# data_member |>  filter(is.na(staff_count_policy), year>2010) |> distinct(bioname, icpsr,party, chamber, year) |>
+#   kable(caption = "missing from staff allocation data")
+# #  Jeff Van Drew (R) — became Republican in Dec. 2019
 
 # INSPECT NA COUNT
 data_member |>
@@ -1605,11 +1607,27 @@ plot_effect(
 {{< include code/replication-capacity-house.qmd >}}
 {{< include code/replication-capacity-senate.qmd >}}
 
+## Staff count 
+
+{{< include code/replication-staff-count-only.qmd >}}
+{{< include code/replication-staff-count.qmd >}}
+{{< include code/replication-full-staff-count.qmd >}}
+
+{{< include code/replication-full-reporting-staff-count.qmd >}}
+
 ## Staff experience 
 
+### Total experience 
+
+{{< include code/replication-staff-experience-only.qmd >}}
+{{< include code/replication-staff-experience.qmd >}}
 {{< include code/replication-full-staff-experience.qmd >}}
 
+### Mean experience 
 
+{{< include code/replication-staff-mean-experience-only.qmd >}}
+{{< include code/replication-staff-mean-experience.qmd >}}
+{{< include code/replication-full-staff-mean-experience.qmd >}
 
 also see Per District models below
 
@@ -1626,6 +1644,10 @@ also see Per District models below
 
 {{< include code/replication-staff.qmd >}}
 {{< include code/replication-staff-only.qmd >}}
+
+{{< include code/replication-staff-allocation.qmd >}}
+{{< include code/replication-staff-allocation-only.qmd >}}
+
 
 ## Style 
 

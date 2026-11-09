@@ -5,6 +5,16 @@ library(magrittr)
 here::here("data", "dcounts-min.rda") |>
   str_replace("cor-book", "correspondence_data") |> load()
 
+here::here("n_total_letters.txt") |>
+  str_replace("cor-book", "correspondence_data") |>
+  file_copy( here::here("data", type, "n_total_letters.txt") )
+
+
+here::here("n_total_matched.txt") |>
+  str_replace("cor-book", "correspondence_data") |>
+  file_copy( here::here("data", type, "n_total_matched.txt") )
+
+
 names(dcounts)
 
 corr_counts <- dcounts %>% distinct(icpsr, chamber,

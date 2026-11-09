@@ -6,13 +6,16 @@ if(F){
   # make total and type 1-5 datasets
   here::here("code", "replication-data.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
   # run one replication file at a time
-  refresh = T # refresh if data or models used in manuscript tables changed, don't if just adding new things
+  refresh = F # refresh if data or models used in manuscript tables changed, don't if just adding new things
   job = T
 
+  # make descriptive figures
   here::here("replication-descriptive.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
 
-  here::here("replication-figs.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
+  # get figs from elsewhere
+  here::here("code", "get_external_figs.R") |> source()
 
+  # run regressions
   here::here("replication-total.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-1.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-2.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
@@ -20,8 +23,13 @@ if(F){
   here::here("replication-4.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-5.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
 
+
+  # "Any given committee chair can only spend time on two or three matters, you can't drop 160 investigations." - John C Yoo, UC Berkeley
+  # then make marginal effects figs
+  here::here("replication-figs.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
+
   # run all 6 replication files
-  quarto::quarto_render(input = here::here(), profile = "replication", cache_refresh = refresh)
+  quarto::quarto_render(input = here::here(), profile = "replication", cache_refresh = refresh, as_job = job)
 
   # refresh CSVs from google drive
   source("code/download_tables_from_google_sheets.R")
