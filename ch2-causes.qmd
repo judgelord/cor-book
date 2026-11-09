@@ -1,7 +1,6 @@
-
 # Theories of Interbranch Representation {#sec-theory}
 
->ABSTRACT: Why do some legislators do more interbranch representation than others? Political science research posits many possible explanations, some pointing in different directions. We unify and extend prior scholarship into a three-part framework of possible drivers of interbranch representation: (1) constituent demand, (2) capacity, and (3) strategic incentives. 
+> ABSTRACT: Why do some legislators do more interbranch representation than others? Political science research posits many possible explanations, some pointing in different directions. We unify and extend prior scholarship into a three-part framework of possible drivers of interbranch representation: (1) constituent demand, (2) capacity, and (3) strategic incentives. 
 
 ```{r knit-options, include=FALSE, cache=FALSE}
 here::here("code", "formatting.R") |> source()
@@ -17,7 +16,7 @@ Others suggest that priorities and how they show up in legislators' work are mor
 
 In this chapter, we expand on our three-part framework of possible explanations for variation in interbranch representation: demand, capacity, and strategy. As we describe below, some explanations touch on more than one part of this framework. For example, a representative may seek to join the House Committee on Appropriations’ Subcommittee on Agriculture, Rural Development, Food and Drug Administration, and Related Agencies because they represent farmers and feel pressure from them to get more involved in shaping grant criteria and farm subsidies (demand), or because the representative thinks it is a smart way to shape farm policy or get reelected (strategic behavior). Joining a committee may also give legislators better access to the committee staff who conduct oversight of appropriations, and being on the committee may make some agencies take legislators' requests more seriously (two forms of increased *capacity* to shape the workings of government). Indeed, some agencies, including the Food and Drug Administration, meticulously document which committees every legislator who contacts the agency sits on, even for requests unrelated to committee work. Thus, a member of an Agriculture Subcommittee may make more requests to food and agriculture agencies because they face active constituent *demand*, because their institutional position on the committee increases their *capacity* to make requests, and because they have made *strategic choices* about what kinds of policy to focus on given the *political environment* they are facing. And committee membership is just one potential cause of variation. 
 
-This chapter maps existing theories onto our concept of interbranch representation. Some of these existing theories have implications for interbranch representation as a whole, though most focus on only one of its component parts, and very few talk about engaging with the executive branch as a form of representation. However, political scientists often try to characterize legislators as providing more or less representation or, alternatively, different styles of representation. Depending on how we think about interbranch representation, we may expect the drivers of variation to be fairly consistent or vary depending on whether we are looking at activities representing individuals, work on behalf of nonprofits and businesses, or policy work. 
+This chapter maps existing theories onto our concept of interbranch representation. Some of these existing theories have implications for interbranch representation as a whole. However, most focus on only one of its component parts, and very few talk about engaging with the executive branch as a form of representation. However, political scientists often try to characterize legislators as providing more or less representation or different styles of representation. Depending on how we think about interbranch representation, we may expect the drivers of variation to be fairly consistent or vary depending on whether we are looking at activities representing individuals, work on behalf of nonprofits and businesses, or policy work. 
 
 
 ```{r, include=FALSE, cache=FALSE}
@@ -38,7 +37,7 @@ Unlike other, more visible forms of congressional representation that have been 
 
 ### Interbranch Dynamics and Congressional Oversight 
 
-In recent decades, scholarship on the interaction between the legislative and executive branches has revolved around the concepts of strategic delegation of policymaking authority and appropriation of funds on the front end [@Arnold1979; @EpsteinOHalloran1999; @KiewietMcCubbins1991] and oversight on the back end [@McCubbinsSchwartz1984; @Lee2013]. As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship also focuses on principal-agent relationships, with some recent work on descriptive representation [@Minta2011]. Congressional oversight hearings can serve strategic political functions for Members of Congress by giving them the opportunity to grandstand [@Park2021], and research suggests that such grandstanding pays electoral dividends for legislators [@Park2023]. However, oversight is also partisan, with legislators less likely investigate presididents of their own party [@Lee2013].
+In recent decades, scholarship on the interaction between the legislative and executive branches has revolved around the concepts of strategic delegation of policymaking authority and appropriation of funds on the front end [@Arnold1979; @EpsteinOHalloran1999; @KiewietMcCubbins1991] and oversight on the back end [@McCubbinsSchwartz1984; @Lee2013]. As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship also focuses on principal-agent relationships, with some recent work on descriptive representation [@Minta2011]. Congressional oversight hearings can serve strategic political functions for Members of Congress by giving them the opportunity to grandstand [@Park2021], and research suggests that such grandstanding pays electoral dividends for legislators [@Park2023]. However, oversight is also partisan, with legislators less likely to investigate presidents of their own party [@Lee2013].
 
 <!--TODO MORE ON OVERSIGHT LIT. Ellie: I added the Park grandstanding stuff above.-->
 
@@ -94,31 +93,14 @@ Constituency service's function as a form of oversight raises questions about th
 <!--
 ## The Relative Invisibility of Interbranch Representation
 
-Rochelle 6/11: Devin's suggestion is that we probably don't need a separate section on the invisibility of interbranch representation in the theory chapter, and I think I agree (it might be better just woven into the previous sections), but I've included what I have so far for this section anyway
+Rochelle 6/11: Devin suggests that we probably don't need a separate section on the invisibility of interbranch representation in the theory chapter, and I think I agree (it might be better just woven into the previous sections), but I've included what I have so far for this section anyway
 
-The primary characteristic of interbranch representation that sets it apart from other interbranch activities and other forms of representation is its largely invisible nature. Although legislators sometimes claim credit for constituency service and communicate publicly about letters they send to federal agencies about policy, the routinized and near-constant quality of this work is hidden from public view. Congress has refused to disclose data on this aspect of its work, which would involve making itself subject to the Freedom of Information Act (FOIA) as most federal agencies are.
+The primary characteristic of interbranch representation that sets it apart from other interbranch activities and other forms of representation is its largely invisible nature. Although legislators sometimes claim credit for constituency service and communicate publicly about letters they send to federal agencies about policy, the routinized and near-constant quality of this work is hidden from public view. Congress has refused to disclose data on this aspect of its work, which would involve making itself subject to the Freedom of Information Act (FOIA), as most federal agencies are.
 
 -->
  
-
 <!-- MOVE TO INTRO OR CONCLUSION 
-Studying constituency service alongside other forms of interbranch representation can allow us to better understand what trade-offs, if any, legislators may face when providing representation to constituents. 
-
-<!--
-## The "Folk Theory" of Model Representation
-
-We seek to explain inequalities in interbranch representation by contrasting a "folk theory" of model representation with theories that account for legislators’ \textbf{strategic motivations and capacity}. One of the central elements of interbranch representation-- constituency service--is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. In this view, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. The intuition here is that staff understand their job to be responding to all constituent requests. This is what we call the \textbf{Naive Folk Theory}: 
-
-\begin{hypothesis}[Naive Folk Theory: Proportional Representation]
-\label{hyp:naivefolk} Interbranch representation is proportional to district population. 
-House: no variation in interbranch representation. Senate: Interbranch representation proportional to state population. 
-\end{hypothesis}
-
-This naive folk theory would expect no variation in interbranch representation in the House, where all legislators represent roughly the same number of constituents. In the Senate, however, it would expect interbranch representation proportional to the number of constituents a Senator represents. In this naive folk theory world, legislators are simply responding to all constituents in an even and apolitical manner. Existing research, however, suggests that such a view of legislative behavior as non-strategic (and in the strong form unconstrained) may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve reelection [e.g., @Mayhew1974;  @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security, with less electorally secure legislators engaging in more contact with the bureaucracy.
-
-Two additional features of the "Naive Folk Theory" are also unrealistic. First, the model representatives envisioned by this "Naive Folk Theory" would be assumed to have similar levels of institutional capacity with which to serve their constituents and engage in interbranch representation. In practice, however, members of Congress differ when it comes to the resources and staff at their disposal to support this work. Similarly, in this "Naive Folk Theory" world, the model representatives would also represent constituents with similar demands to their representatives. Yet in the real world, we might expect constituent demands to vary across districts. 
-
---> 
+Studying constituency service alongside other forms of interbranch representation can allow us to better understand what trade-offs, if any, legislators may face when providing representation to constituents. --> 
 
 
 ## A Unified Framework: Demand, Capacity, and Strategic Choices
@@ -127,13 +109,13 @@ We introduce a framework of *Demand, Capacity, and Strategic Choices* to explain
 
 We define *Demand* as the constituent-driven influences on a congressional office. We define *Capacity* as the ability of a legislator's office to produce work. We define *Political Environment* as the partisan, electoral, and institutional conditions a member faces in a given year. We define *Strategic Choices* as decisions legislators make about what to prioritize and how to allocate their time and resources. Importantly, these elements and the explanations that follow from them understand legislators and their offices differently. Demand- and Capacity-related explanations focus on legislative offices as bureaucracies, while Strategic Choices focus on legislators as politicians. 
 
-@fig-causal2 illustrates how the parts of our framework come together to explain work done by congressional offices and highlights some of the important components (sub-units) within each part of the framework. Looking at @fig-causal from top to bottom, we see the political environment shaping the *strategic choices* legislators make, as well as *office capacity* influencing both a member's staff allocation choice and the work done by congressional offices. Members' *strategic choices*, *constituent demand*, and *capacity* all shape the work that is done by congressional offices (output). The work done by congressional offices encompasses three different types of outputs: legislation, interbranch representation, and communications. 
+@fig-causal2 illustrates how the parts of our framework come together to explain work done by congressional offices. It highlights some of the important components (sub-units) within each part of the framework. Looking at @fig-causal from top to bottom, we see the political environment shaping the *strategic choices* legislators make, as well as *office capacity* influencing both a member's staff allocation choice and the work done by congressional offices. Members' *strategic choices*, *constituent demand*, and *capacity* all shape the work that is done by congressional offices (output). The work done by congressional offices encompasses three different types of outputs: legislation, interbranch representation, and communications. 
 
 ```{r}
 #| label: fig-causal2
 #| fig-cap: "How constituent demand, capacity, political environment, and members' strategic choices shape interbranch representation activities"
 #| out-width: "100%"
-knitr::include_graphics(here::here("figs", "mermaid-figure-1.png"))
+knitr::include_graphics(here::here("figs", "causal-overall.png"))
 ```
 
 In the following sections, we elaborate on each of these elements of our framework.
@@ -142,28 +124,31 @@ In the following sections, we elaborate on each of these elements of our framewo
 
 In any democratic system, the needs and preferences of a legislator's constituents are at least supposed to play a role in the work done by a legislator's office. While a large literature exists examining whether and how constituents' policy preferences impact legislators' voting behavior [@MillerStokes1963; @AchenBartels2016], less is known about how constituent demand relates to the provision of interbranch representation. Of all work done by congressional offices, one might imagine that interbranch representation, in which a large portion of the work is helping individual constituents navigate specific problems they have encountered with some branch of the federal bureaucracy, might be most closely tied to constituent demand. 
 
-Surveys estimate 8-23 percent of constituents contact a congressional office in a given year [@Moses2025]. One of the central elements of interbranch representation---constituency service --- is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. Extending this idea to the realm of interbranch representation, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. Staff in particular understand their job to be responding to all constituent requests. How much demand-pressure a district places on their senator or representative may depend on the number of constituents in the district, how well the constituents are able to advocate for their interests, and how much need for government help constituents experience. 
+Surveys estimate 8-23 percent of constituents contact a congressional office in a given year [@Moses2025]. One of the central elements of interbranch representation---constituency service --- is often assumed to be a core institutional function of congressional offices, as evidenced by the fact that district office staff continue to provide constituency service even when the congressional office is vacant due to the death or resignation of the legislator. This dynamic suggests that constituency service is an activity aptly described by the "logic of appropriateness" that characterizes bureaucracies [@MarchOlsen1989]. Extending this idea to the realm of interbranch representation, legislators and their staff provide service to constituents simply because it is understood to be a key part of their representational responsibilities. Staff in particular understand their job to be responding to all constituent requests. How much demand a district places on its senator or representative may depend on the number of constituents in the district, how well the constituents are able to advocate for their interests, and how much need for government help constituents experience. 
 
 <!--DEMAND IS HARD TO OBSERVE, --> 
 Unfortunately, most of the time we cannot observe constituent demand in the form of the number of requests for help member offices receive directly. Congressional offices typically do not release data on the number of requests for help they receive. 
 
-<!--BUT THE 1976 COMMISSION ONF ADMINISTREATIVE REVIEW TELLS US SOME THINGS--> 
+<!--BUT THE 1976 COMMISSION ON ADMINISTRATIVE REVIEW TELLS US SOME THINGS--> 
 One notable exception in which this data was collected gives us a brief glimpse into the world of constituent demand. In 1976, the House created a Commission on Administrative Review (HR 1368) to conduct "a comprehensive study of the administrative system" [@CAR1977Vol1, pg 1].^[The commission, chaired by Rep. David Obey (D-WI) with Prof. Joseph Cooper (distinguished congressional scholar) as its staff director, included a veritable who's who of leading politicians, corporate executives, and scholars [@CAR1977Vol1].] To lay the groundwork for their recommendations, the commission undertook a rigorous data collection process that included (among many other things) gathering data from congressional offices about their constituency service caseload. If we assume that all member offices recorded constituent requests for help, which is certainly not a given, this number would roughly approximate actual constituent demand (requests received).^[As a note of clarification, this measure of office caseload is a different measure from the interbranch representation data we focused on in this book. Our measure of interbranch representation captures the work done by a Congressional office with the federal bureaucracy, meaning that it only captures action outside of their office. If the member does not respond to the constituent or responds without reaching out to the federal bureaucracy, those responses are not captured in our data.] Thankfully for the advancement of scholarly research on congressional offices, the committee was remarkably transparent and forward-thinking in not only releasing their results, but including a detailed methodological report [@CAR1977Vol1] and providing full replication data that future scholars could, and did, take advantage of to conduct additional analyses [@Yiannakis1981; @Johannes1984; @Maass1983]. 
 
-::: {#thm-hyp:demand}
-## Demand
-Legislators with more constituent demand will do more interbranch representation. 
+::: {#hyp-demand .hypothesis name="Demand"}
+Legislators with more constituent demand will do more interbranch representation.
 :::
 
 
 
 #### Why Constituent Demand is Insufficient to Explain Interbranch Representation
 
-While acknowledging the central role of constituent demand in the production of interbranch representation, we caution against overstating its role. An extreme interpretation of the importance of constituent demand is one of the myths we hope to dispel in writing this book: that interbranch representation is simply a function of constituent demand. We call this view the "folk theory of constituency service." In this folk theory world, legislators are simply responding to all constituents in an even and apolitical manner; there are no constraints imposed by the office's capacity limits, and members are making no choices about whom to help or what to prioritize. Rather, they receive a request for help, and they reach out to a federal agency to help the constituent. 
+Constituent demands drive interbranch representation to an extent, but a-apolitical descriptions of constituency service overstate its role. We show variation in interbranch work that cannot be explained by variation in demand. Moreover, some legislators strategically allocate staff time to soliciting requests for help from their constituents, making some representation that results from constituent demands best understood as legislator-driven. 
+
+An extreme interpretation of the importance of constituent demand is one of the myths we aim to dispel in writing this book: that interbranch representation is simply a function of constituent demand. We call this view the "folk theory of constituency service." By this folk theory, legislators simply respond to their constituents; there are no constraints imposed by the office's capacity limits, and congressional offices are making no choices about whom to help or what to prioritize. Rather, they receive a request for help, and they reach out to a federal agency to help the constituent.
 
 While we do not directly observe the requests for help legislators receive from constituents and thus cannot directly compare the requests for help to interbranch representation provided, a brief examination of interbranch representation provided by US senators who represent vastly different numbers of constituents renders this purely demand-driven explanation unlikely. It is hard to imagine, for example, that the mere 1.8 million West Virginians asked for more help from Senator Robert Byrd than the 29 million Texans did from Senator Ted Cruz, which would be necessary to believe a folk theory explanation of why Senator Byrd provided so much more interbranch representation to his constituents than did Senator Cruz [@Census2026TXWV]. While constituent demand appears insufficient to explain inequality in interbranch representation, we believe it still plays an important role in the production of interbranch representation. 
 
-Existing research, however, suggests that such a view of legislative behavior as non-strategic (and in the strong form unconstrained) may be inadequate. As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. Furthermore, field experiments demonstrate uneven responses that different constituents receive from state legislative offices in the United States on the basis of constituent race [@ButlerBroockman2011], from Members of Parliament in the United Kingdom on the basis of constituent ethnicity and occupation [@HabelBirch2019], and from local politicians in South Africa on the basis of race [@McClendon2016]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security may matter, with less electorally secure legislators engaging in more contact with the bureaucracy.
+Existing research, however, suggests that such a view of legislative behavior as non-strategic or unconstrained is inadequate. 
+<!-- DEVIN: "as discussed above" suggests an opportunity to consolidate--> 
+As discussed above, political scientists have long understood legislators’ behavior, including their provision of constituency service, to be strategic, particularly when it comes to helping legislators achieve reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. Other research dating from the 1970s and 1980s has largely supported this claim [@SerraCover1992; @SerraMoon1994], and more recent work suggests that legislators behave as though constituency service has electoral benefits [@DroppPeskowitz2012], just as senators tailor their communications based on their electoral concerns [@Grimmer2013]. Furthermore, field experiments demonstrate uneven responses that different constituents receive from state legislative offices in the United States on the basis of constituent race [@ButlerBroockman2011], from Members of Parliament in the United Kingdom on the basis of constituent ethnicity and occupation [@HabelBirch2019], and from local politicians in South Africa on the basis of race [@McClendon2016]. We therefore expect that legislators’ interbranch representation activities will vary according to their motivations. For example, electoral security may matter, with less electorally secure legislators engaging in more contact with the bureaucracy.
 
 
 ## Capacity 
@@ -176,232 +161,24 @@ Responses to constituent requests, however, can take many different forms. Savvy
 
 Congressional staff are central to the activities that constitute interbranch representation. Staff play crucial yet underappreciated roles in most functions of Congress [e.g. @HertelFernandez2019; @MontgomeryNyhan2017; @CrossonEtAl2020], including constituent-facing functions like constituency service [@GroseMangumMartin2007; @LandgraveWeller2020]. Thus, our theory focuses as much on the capacity and other characteristics of the congressional *office* as it does on the decisions and characteristics of legislators. 
 
-::: {#thm-capacityunequal}
-## Capacity
-Congressional offices with more capacity will do more interbranch representation. 
+::: {#hyp-capacity .hypothesis name="Capacity"}
+Congressional offices with more capacity will do more interbranch representation.
 :::
 
 ## Strategic Incentives
 
-We define *Strategic Incentives* as the incentive structure that shapes decisions legislators make about what to prioritize and how to allocate their time and resources in response to the political environment (partisan, electoral, and institutional incentives a member faces in a given year). How much energy and staff time do legislators want to devote to interbranch representational activities as opposed to other tasks like legislating, communicating, and fundraising? Similarly, how much time and energy do they want to devote to different types of interbranch representational activities? We argue that the answer depends on the strategic choices legislators make in response to their political environment. 
+We define *strategic incentives* as the features of the political environment that shape what legislators choose to prioritize and how they allocate their time and resources. While party leaders constrain most legislative work, congressional offices have nearly full autonomy over interbranch representation, which makes it an unusually clear window into legislators’ strategic choices. Unlike demand and capacity, which we expect to increase interbranch representation, strategic incentives can push in different directions, shaping not only *how much* interbranch representation legislators do but also *what kinds* and on *whose behalf*. 
 
-Beginning with @Fenno1973 and @Mayhew1974, a substantial body of literature on the U.S. Congress has explored these strategic choices. We build on existing literatures to hypothesize how legislators will strategically respond to variation in the partisan/ideological [@BerryBurdenHowell2010], electoral [@Fenno1973; @Mayhew1974; @Fiorina1977; @CainFerejohnFiorina1987; @SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012], and institutional environment [@Lowande2019; @LowandePotter2021; @Ritchie2023].  
+**Partisanship and ideology**. If interbranch work is mainly collaborative, legislators should work more with partisan and ideological allies: members of the president’s party and those ideologically close to an agency may expect a warmer reception. If it is mainly adversarial and oversight focused, the opposite should hold: legislators opposed to the president or distant from an agency have more reason to scrutinize it. Party coalitions also shape whose interests legislators represent, and ideologically extreme Republicans, skeptical of the federal government, may avoid working with agencies altogether.
 
-While party leaders constrain most legislative work, congressional offices have full autonomy in their decisions about engaging in interbranch representation. Other activities where this constraint matters less, like position-taking, are highly public and increasingly coordinated by party leaders [@HightonRocca2005]. Explaining why legislators engage in interbranch representation can therefore provide insight into congressional behavior unconstrained by party leadership. 
+**Elections and fundraising**. Legislators worried about reelection may do more interbranch representation, especially constituency service, which members believe builds support at home [@Fenno1973; @Mayhew1974]. Campaign money may shape whose interests offices advocate for, or it may compete for the time legislators would otherwise spend on this work.
 
-### Electoral Incentives
+**Institutional position and staff allocation**. Legislators in the minority party, blocked from advancing legislation, may turn to agencies instead [@Ritchie2023]. And because offices decide how to divide their staff among casework, legislation, and communications, how they allocate staff reflects which kinds of work they choose to prioritize.
 
-While it is difficult to measure a legislator's incentive structure directly, we can identify situations in which legislators are likely to prioritize certain goals. Perhaps the most widely recognized strategic incentive of legislators is reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in *Congress: The Electoral Connection*, "[Reelection] has to be the *proximate* goal of everyone, the goal that must be achieved over and over if other ends are to be entertained" [@Mayhew1974]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to reelect the legislator [@SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012 ]. Yet, in the modern Congress, very few members of Congress are electorally vulnerable in either general or primary elections. Legislators who do find themselves in an electorally vulnerable political environment are likely to prioritize reelection. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to reelect the legislator [@Dodd1977; @Fiorina1977; @CainFerejohnFiorina1987; @SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012]. 
+::: {#hyp-strategy .hypothesis name="Strategic incentives"}
+The political environment shapes the strategic choices legislators make about how much, and what kinds of, interbranch representation to do. We test seven sub-hypotheses in @sec-results-incentives: @hyp-strategy-partisan-alignment, @hyp-strategy-partisan-antagonism, @hyp-strategy-partisan-coalition, @hyp-strategy-partisan-antigovernment, @hyp-strategy-electoral, @hyp-strategy-fundraising, @hyp-strategy-institutional, and @hyp-strategy-staff.
+:::  
 
-Members of Congress purport to believe that constituency service work will help their reelection efforts, with 44% of members saying they believed reelection was the primary reason most members perform constituency service [@Johannes1984, pg. 13]. This intuition has some empirical grounding. In their exploration of why Americans like their individual member of Congress more than Congress the institution (what has become known as Fenno's paradox), @ParkerDavidson1979 found that Americans evaluate the institution of Congress based on its legislative performance, the style and pace of the legislative process, and legislative-executive relations. At the same time, they judge individual members of Congress on the basis of two factors: constituency service and the legislator's personal characteristics. 
-
-This expectation that electorally vulnerable legislators will do more constituency service, however, is contrary to Ritchie's findings in *Backdoor Lawmaking* about a different form of interbranch representation---policy work with federal agencies---which showed no consistent relationship between electoral vulnerability and policy work with federal agencies [@Ritchie2023]. 
-
-Another potential reason for caution regarding the relationship between electoral vulnerability and interbranch representation is the invisibility of interbranch representation. Although reelection motives have long been posited as a motivation to engage in constituency service, a skeptic might question whether allocating time and resources to a largely invisible activity rather than something more visible like communications or legislation is the best strategy. While acts of constituency service might be visible to an individual who has been helped, as well as their friends and family, one would have to assume fairly large social network amplification effects for it to reach enough voters to make an electoral difference at a time when the size of the average House district is over 760,000 people [@CRSCensus2026].
-
-### Partisanship and Ideology 
-
-If interbranch work focuses on procuring benefits for constituents, we should see more work among partisan and ideological allies. 
-For example, members of the President's party receive more federal spending in their districts [@BerryBurdenHowell2010]. Expecting relatively greater success, members of the President's party may thus engage in higher levels of interbranch representation. Interbranch representation is at the nexus of the Congress and the executive branch. The behavior we are documenting in this book is the congressional portion of that relationship; it is legislators reaching out to executive branch agencies. To actually deliver results to their constituents, the agencies need to cooperate. If legislators of the President's party think they are more likely to receive higher levels of cooperation from executive branch agencies, they may be motivated to attempt interbranch representation at higher rates. 
-
-A similar logic of working with friends and receiving a warmer reception applies for agencies that are ideologically closer to the legislators. This may be in part because of the way that party coalitions represent interests. For example, the U.S. Department of Agriculture (USDA) may be perceived as conservative in part because it represents Republican-dominated rural states, and the Department of Housing and Urban Development (HUD) may be perceived as liberal because it represents more urbanized states dominated by Democrats. If interbranch work is about procuring benefits, we would expect rural representatives to work more with USDA and urban representatives to work more with HUD, thus producing a pattern of interbranch work favoring allies in one's policymaking and implementing coalition. 
-
-Alternatively, if interbranch work focuses more on oversight than procuring benefits for constituents, we might see the opposite. While members of the president's party might anticipate a friendlier reception from executive branch agencies controlled by a same-party president, members of the opposition party might have greater incentives to engage in oversight of an executive branch controlled by an opposing party's president [but see @Lowande2018APSR]. Similarly, we might anticipate constituents of opposition party legislators having more concerns or problems with agencies more associated with a president of a different party, who might prioritize different types of constituents or policies less hospitable to opposition party constituents. Lastly, Ritchie's argument that legislators turn to backdoor policymaking when they confront obstacles in the legislative process applies here, too. Faced with a president unlikely to support the legislative proposals of opposition legislators, Ritchie found that legislators were more likely to turn to backchannel policymaking [@Ritchie2023].
-
-Party coalitions suggest some divergence with respect to which constituencies legislators represent, with Republicans typically perceived as being friendlier to business interests [@GimpelLeeParrott2014]. Ideology may also matter for legislators' interbranch representation, as more bipartisan (and therefore more ideologically moderate, per DW-NOMINATE scores) legislators are more effective at pursuing their policymaking goals through lawmaking [@HarbridgeVoldenWiseman2023]. 
-
-The same logic could apply to interbranch representation, with more ideologically extreme legislators doing less of this work. Given the Republican Party's orientation toward smaller government, which has been particularly pronounced in its more extreme Tea Party and Freedom Caucus wings in recent years, ideologically extreme Republicans may be uniquely predisposed to avoid working with federal agencies, including through interbranch representation. Because ideologically extreme Democrats generally favor *more* government action and involvement, we would not expect to see such an effect for all ideologically extreme legislators. 
-
-
-### Institutional Incentive Structures
-
-Layered on top of ideological/partisan coalitions are chamber rules and the institutional structure of Congress that empowers certain legislators based on their committee assignments and party caucus. 
-If legislators anticipate that agencies under the jurisdiction of their committee would be more responsive to their requests^[It is beyond the scope of this paper to ascertain the validity of this assumption---whether the agencies are actually more responsive to committee members---and at least one study [@MillsKalafHughes2015] found no support for this intuition.], then we might expect these legislators to make more requests of these agencies.    
-
-<!--
-A different form of institutional advantage is being a member of the majority party, in which it is easier to achieve legislative goals. Thus, legislators who are in the majority may invest more in legislative work, which may result in their doing less interbranch representation. In her research on backdoor policymaking with federal agencies, Ritchie argues that legislators are most likely to turn to backchannel lawmaking by appealing directly to federal agencies when they face obstacles in the legislative process [@Ritchie2023]. Majority legislators encounter a much friendlier legislative environment and are thus less likely than minority legislators to turn to backchannel policy appeals to bureaucratic agencies. 
-
-<!-- DEVIN: this seems like partisanship rather than institutional position, so I am cutting this bit (even though I think I'm the one who wrote it).  
-
-Similarly, having a co-partisan president is an institutional advantage, regardless of ideology. For example, legislators may be able to get infrastructure grants simply because of co-partisanship. 
---> 
-
-
-::: {#thm-motivation}
-**Strategic Incentives**
-The political environment (partisan, electoral, institutional, and ideological context) shapes the strategic choices legislators make about how much and what forms of interbranch representation to invest in.  
-
-**Hypothesis 3a (Partisan/Ideological):**  The partisan/ideological environment shapes the strategic choices legislators make about how much and what forms of interbranch representation to invest in. However, as discussed above, partisan/ideological incentives could have opposing effects depending on whether interbranch work is mostly collaborative policymaking and implementation or antagonistic oversight.
-
-- **Hypothesis 3a(+): Partisan/Ideological Alignment**: Legislators from the President's party will do more interbranch work overall, and those who are ideologically aligned with an agency will engage in higher amounts of interbranch representation with that agency.
-- **Hypothesis 3a(-): Partisan/Ideological Antagonism**: Legislators opposing party of the President will do more interbranch work overall, and those who are ideologically *distant* from an agency will engage in higher amounts of interbranch representation with that agency.
-- **Hypothesis 3a(business): Partisan Coalition**: Republicans will do more interbranch representation of businesses interests.
-- **Hypothesis 3a(anti-government): Government Antagonism**: Ideologically extreme Republicans (who believe in small government and disapprove of the federal bureaucracy) will do less interbranch representation.
-
-**Hypothesis 3b (Electoral):** Legislators worried about reelection (from more electorally vulnerable districts) will do more interbranch representation
-
-**Hypothesis 3c (Institutional):** Legislators will invest more in activities where their institutional positions give them leverage; conversely, they will invest less in activities where their institutional position puts them at a disadvantage. 
-
-<!--
-- **Hypothesis 3c1: Majority Party**: Legislators from the majority party will do less interbranch work.--> 
-
-:::
-
-
-
-
-
-
-
-
-
-<!--- Commenting out old language. Keeping in case we want to move to any of the component chapters.  
-
-## MEASURING STRATIGIC INCENTIVES 
-
-
-An important prior factor shaping the strategic choices members make is the political environment they find themselves in during that Congress. We focus on four aspects of the political environment: whether the member is electorally vulnerable, whether they are in the chamber majority, whether they are a member of the President's party, and whether they sit on a congressional committee that has a reporting relationship with a particular agency. 
-
-### Electoral Incentives
-
-
-::: {#thm-strategic-election}
-## Strategic Choice: Prioritizing Reelection when Electorally Vulnerable
-Legislators worried about reelection (from more vulnerable districts) will be associated with higher amounts of interbranch representation.
-:::
-
-While a substantial body of research ties reelection interests to constituency service, counterarguments are also prevalent in the literature. @JohannesMcAdams1981 found no relationship between constituency service and election results.^[@JohannesMcAdams1981's findings were not without controversy. @Fiorina1981 disputed the temporal sequencing and oversimplification of this approach, which @McAdamsJohannes1981reply further contested.] This expectation that more electorally vulnerable members would engage in more constituency service is also contrary to Ritchie's findings in *Backdoor Lawmaking*, which showed no consistent relationship between electoral vulnerability and policy work with federal agencies [@Ritchie2023].
-
-Another potential reason for caution regarding the relationship between electoral vulnerability and interbranch representation is the invisibility of interbranch representation. Although reelection motives have long been posited as a motivation to engage in constituency service, a skeptic might question whether allocating time and resources to a largely invisible activity rather than something more visible like communications or legislation is the best strategy. While acts of constituency service might be visible to an individual who has been helped, as well as their friends and family, one would have to assume fairly large social network amplification effects for it to reach enough voters to make an electoral difference at a time when the size of the average House district is over 760,000 people [@CRSCensus2026].
-
-DEVIN: FUNDRAISING COULD BE ITS OWN SUBSECTION. 
-ON THE ONE HAND, CAMPAIGN FUNDRAISING IS SORT OF PART OF WINNING REELECTION 
-ON THE OTHER HAND, OUR RESULTS ARE NOT REALLY CONSISTANT WITH THIS, THE BIG FUNDRAISISERS ARE NOT RAISING MONEY FOR THEIR OWN ELECTION
-
-### Campaign Finance Incentives 
-
-#### Strategic: Advocate for Corporate Donors
-
-A strategic choice legislators can make is thinking about on whose behalf to advocate. While a substantial body of research has documented the disproportionate influence of the elite [@Bartels2008; @Gilens2012; @Carnes2013; @GilensPage2014], the mechanisms of influence are substantially less clear. A large number of studies have concluded that, at least most of the time, campaign contributions do not buy roll call votes in Congress [@AnsFigSny03]. However, as @PowellGrimmer2015 point out, the high-profile visibility of roll call votes may make them one of the least desirable mechanisms of influence. Thus, the very invisibility that hinders the public's knowledge of interbranch representation might make it a desirable pathway for the influence of money [@PowellJudgeLordGrimmer2023]. In a case study of the Federal Energy Regulatory Commission, @PowellJudgeLordGrimmer2023 found that legislators who received more corporate PAC contributions from energy companies were more likely to engage in interbranch advocacy on behalf of corporate interests. 
-
-
-::: {#thm-strategic-corporate}
-## Strategic: Advocate for Corporate Donors
-Legislators who engage in more corporate fundraising will be associated with higher levels of corporate interbranch representation (constituency service and policy).
-:::
-
-
-
-### Partisanship and Ideology 
-
-#### Strategic Choice: Prioritizing Interbranch Representation when in Chamber Minority
-
-Legislators in the minority party often have a difficult time passing legislation, because most in their chamber have differing policy preferences. In her research on backdoor policymaking with federal agencies, Ritchie argues that legislators are most likely to turn to backchannel lawmaking by appealing directly to federal agencies when they face obstacles in the legislative process [@Ritchie2023]. Majority legislators encounter a much friendlier legislative environment and are thus less likely than minority legislators to turn to backchannel policy appeals to bureaucratic agencies. We argue that this same theory generalizes to prioritizing all forms of interbranch representation when the opportunities to legislate are more challenging. 
- 
-::: {#thm-strategic-majority}
-### Strategic: Prioritizing Interbranch in Minority
-
-Legislators from the minority party will be associated with higher amounts of interbranch representation.
-:::
-
-#### Strategic Incentives: Cooperative Executive or Oppose President's Agency Work?
-
-Members of the President's party receive more federal spending in their districts [@BerryBurdenHowell2010]. Expecting relatively greater success, members of the President's party may thus engage in higher levels of interbranch representation.  Interbranch representation is at the nexus of the executive and legislative branches. The behavior we are documenting in this book is the congressional portion of that relationship; it is legislators reaching out to executive branch agencies. To actually deliver results to their constituents, the agencies need to cooperate. If legislators of the President's party think they are more likely to receive higher levels of cooperation from executive branch agencies, they may be motivated to attempt interbranch representation at higher rates. 
-
-::: {#thm-strategic-presidentmore}
-## Strategic: Take Advantage of Cooperative Executive
-Legislators from the President's party will be associated with higher amounts of interbranch representation.
-:::
-
-The other side of the coin, however, is that while members of the president's party might anticipate a friendlier reception from executive branch agencies controlled by a same-party president, members of the opposition party might have greater incentives to engage in oversight of an executive branch controlled by an opposing party's president [@Lee2013]. Similarly, we might anticipate constituents of opposition party legislators having more concerns or problems with agencies controlled by a president of a different party, who might prioritize different types of constituents or policies less hospitable to opposition party constituents. Lastly, Ritchie's argument that legislators turn to backdoor policymaking when they confront obstacles in the legislative process applies here, too. Faced with a president unlikely to support the legislative proposals of opposition legislators, Ritchie found that legislators were more likely to turn to backchannel policymaking [@Ritchie2023]. Thus, we also generate an alternative hypothesis that legislators who oppose a president's agency work might engage in more interbranch representation.  
-
-::: {#thm-strategic-presidentless}
-## Strategic: Oppose President's Agency Work
-Legislators not from the President's party will be associated with higher amounts of interbranch representation.
-:::
-
-#### Strategic Motivation: Supports or Opposes Agency Objectives 
-
-Just as shared partisanship with a president could lead a legislator to engage in more or less agency work, legislators who support an agency's objectives might want to engage in more or less work with an agency. While shared partisanship between presidency and legislator may be a more familiar concept, we can also think of executive agencies as having different ideologies [@RichardsonClintonLewis2018] and consider the ideological distance between a legislator and an agency. Thus we could have a similar pair of hypotheses about how supporting or opposing an agency's objectives could lead to more or less interbranch work with that specific agency. 
-
-::: {#thm-strategic-supportagency}
-## Strategic: Supports Agency Objectives
-Legislators who share similar preferences with an agency (are ideologically proximate to the agency) might want to engage in more work with the agency. 
-:::
-
-A competing hypothesis would be that legislators who dislike what an agency does (are ideologically distant from the agency) would be likely to do more oversight of that agency. If legislator interactions with the agencies take the form of police patrols or responding to "fire alarms" [@McCubbinsSchwartz1984], we may expect policing and attention to problems to focus on those institutions perceived to be distant. The rationale here is analogous to seeking to oversee or investigate something a legislator dislikes. 
-
-::: {#thm-strategic-opposeagency}
-## Strategic: Opposes Agency Objectives
-Legislators who disagree with an agency (are ideologically distant from the agency) will be associated with higher levels of interbranch work with that agency. 
-:::
-
-Thus far, our hypotheses have focused on the total amount of interbranch representation legislative offices provide. Our remaining hypotheses explore more nuanced variation in the subtype of representation  ---  whom they are representing when engaging in interbranch representation and whether they are engaging in constituency service work or policy work. 
-
-
-
-#### Strategic: Prioritizing Fundraising
-
-There is widespread conventional wisdom that the more time members of Congress spend "dialing for dollars," the less time they spend on constituency service and policy work. 
-
-::: {#thm-strategic-fundraising-distracts}
-## Strategic: Allocate Time to Fundraising 
-Legislators who engage in more corporate fundraising will be associated with *lower* levels of constituency service and policy work not on behalf of corporations.
-:::
-
-
-#### Strategic: Republicans advocate for business
-
-Because the Republican Party is typically perceived as being friendlier to business interests [@GimpelLeeParrott2014], we expect that Republicans will do more interbranch representation on behalf of business interests than Democrats will. 
-
-::: {#thm-strategic-republican}
-## Strategic: Republican 
-Republicans will advocate more for business interests in both service and policy.
-:::
-
-
-
-### Institutional Incentive Structures
-
-TODO
-
-
-### Strategic Staff Allocation
-
-The last strategic choice that we consider is how legislators allocate their staff. Legislators who choose to prioritize a certain type of activity may want to devote more staff resources to accomplish that objective [@Reynolds2020]. Thus, we can view staff allocation choices (in the form of the amount of a legislator's office budget that they spend on constituency service staff, for instance) as a reflection of the member's priorities, and thus a strategic choice they are making. We argue that member offices that devote more resources to staff who do a certain type of work are likely to produce more of that type of work. 
-
-::: {#thm-strategic-staff}
-## Strategic: Staff Allocation
-The more staff an office allocates to a given type of work, the more of that work it produces.
-:::
-
-```{r}
-#| cache: false
-#| cache.extra: !expr tools::md5sum(here::here("tables", "strategiccombined.csv"))
-#| label: tbl-strategiccombined
-#| tbl-cap: "Strategy Hypotheses"
-#| results: asis
-
-theory_table <- function(file){
-  tbl <- readr::read_csv(file, col_types = readr::cols(.default = readr::col_character()) ) |> 
-  dplyr::mutate(dplyr::across(everything(), ~ tidyr::replace_na(.x, ""))) 
-
-# NOTE: THIS REQUIRES #| results: asis
-  tbl |>
-  pander::pandoc.table(
-  style = "multiline",
-  split.cells = c(15, 15, 35, 15, 20),
-  split.table = Inf,
-  justify = c("left", "left", "left", "center", "left"),
-  missing = ""
-)
-}
-
-
-here::here("tables", "strategiccombined.csv")  |> theory_table()
-```
-
----> 
 
 
 ### From Theoretical Framework to Research Design
