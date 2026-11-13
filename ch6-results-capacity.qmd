@@ -15,7 +15,7 @@ As @fig-capacity-flowchart shows, capacity sits between demand and work: the req
 
 ```{r}
 #| label: fig-capacity-flowchart
-#| fig-cap: "How congressional office capacity shapes interbranch representation. 
+#| fig-cap: "How congressional office capacity shapes interbranch representation."
 #| out-width: "85%"
 knitr::include_graphics(here::here("figs", "causal-capacity.png"))
 ```
@@ -88,17 +88,17 @@ Interestingly, there appears not to be a standard amount of time for which legis
 Legislators' committee leadership positions also shape the capacity of their offices. We are primarily focused on committee positions---committee chairs, ranking members, and subcommittee chairs.  Committee chairs direct committee staff in addition to their own personal staff. While committee staff are at least theoretically limited to working on committee business, one might imagine a legislator could reallocate their personal office staff differently, and that staffers working for the same legislators (committee and personal office) could force closer connections and help provide knowledge and expertise to one another. Empirical research shows that this additional staff capacity increases both policy work [@Ritchie2018; @Ritchie2023; @JudgeLordPowellGrimmer2026] and constituency service [@JudgeLordPowellGrimmer2026]. An alternative interpretation of any potential relationship between institutional position and interbranch representation is also possible --- that committee chairs are more powerful, and they anticipate the bureaucracy will respond better to them. 
 
 ::: {#hyp-capacity-position .hypothesis name="Committee Leadership"}
-Legislators who hold committee leadership positions will be associated with higher amounts of interbranch representation.
+Legislators who hold committee leadership positions will be associated with higher amounts of policy work.
 :::
 
 ### Reporting Committees 
 
-All executive branch agencies "report" to one or more congressional committees charged with overseeing their work. In congressional lingo, these relationships are called the "Reporting Committees" for a federal agency [see @LewisSelin2012]. Congressional committee assignments provide members with information and the opportunity to gain substantive expertise about a policy area, including the agencies that a committee oversees. Both chambers also have an "oversight" committee that focuses on a small number of investigations, usually of scandals or other alleged wrongdoing. Reporting committees are different. While we often focus on the role that the oversight committees play in overseeing the executive branch, other committees also play a role in oversight. They may investigate perceived problems with the agencies they oversee. Indeed, oversight hearings --- the classic example of congressional oversight --- are often conducted by reporting committees. However, these committees also provide coverage over nearly the entire executive branch, dividing the work of monitoring and developing policy targeting particular agencies. Members of Congress have an especially close relationship with the agencies that report to their committees. These substantive committees are also charged with overseeing agencies within their policy area. In addition to gaining substantive expertise in the policy area and expertise about the agency itself, members sitting on these committees have access to committee staff for substantive policy information about issues and agencies in the committee's wheelhouse. We consider sitting on a committee to which the agency reports (a form of oversight) as expanding that member's capacity with regard to that agency. 
+All executive branch agencies "report" to one or more congressional committees charged with overseeing their work. In congressional lingo, these relationships are called the "Reporting Committees" for a federal agency [see @LewisSelin2012]. Congressional committee assignments provide members with information and the opportunity to gain substantive expertise about a policy area, including the agencies that a committee oversees. Both chambers also have an "oversight" committee that focuses on a small number of investigations, usually of scandals or other alleged wrongdoing. Reporting committees are different. While we often focus on the role that the oversight committees play in overseeing the executive branch, other committees also play a role in oversight. They may investigate perceived problems with the agencies they oversee. Indeed, oversight hearings---the classic example of congressional oversight---are often conducted by reporting committees. However, these committees also provide coverage over nearly the entire executive branch, dividing the work of monitoring and developing policy targeting particular agencies. Members of Congress have an especially close relationship with the agencies that report to their committees. These substantive committees are also charged with overseeing agencies within their policy area. In addition to gaining substantive expertise in the policy area and expertise about the agency itself, members sitting on these committees have access to committee staff for substantive policy information about issues and agencies in the committee's wheelhouse. We consider sitting on a committee to which the agency reports (a form of oversight) as expanding that member's capacity with regard to that agency. 
 
 Interbranch representation includes many forms of agency oversight. Only a small proportion of Congress-agency interactions rise to the levels of hearings and investigations. Instead, as @Lowande2018APSR and @LowandePotter2021 demonstrate, most congressional interventions happen in direct communication between legislators and agencies. Legislators who sit on congressional committees overseeing an agency are likely to engage in higher levels of interbranch representation with that agency. We think this relationship is likely to exist for two reasons. First, legislators are likely to be substantively interested in that policy area to have received a seat on that committee. Second, their responsibility as committee members may also lead them to engage in higher interbranch representation with agencies under the committee's jurisdiction. While notions of policy-focused interbranch representation might immediately spring to mind, constituency service can also be a congressional oversight strategy [@Johannes1979]. 
 
 ::: {#hyp-capacity-reporting .hypothesis name="Reporting committee"}
-Legislators who sit on the reporting committee for the agency will be associated with higher amounts of interbranch representation with that agency.
+Legislators who sit on the reporting committee for the agency will be associated with higher amounts of policy work with that agency.
 :::
 
 A challenge that complicates our interpretation of this relationship is that a committee seat on a reporting committee may capture more than capacity. Members may have prior expertise in a policy area that helped them win the committee assignment in the first place. This would still fall under capacity, but capacity from a prior experience rather than from the committee relationship itself. A reporting committee seat could also reflect strategic behavior: legislators may seek out committees that oversee parts of the government they care about, and they may choose to invest in oversight work with agencies those committees oversee. We return to this ambiguity when interpreting our results, where comparing cross-sectional and within-legislator estimates helps separate these explanations. 
@@ -127,11 +127,11 @@ To measure committee leadership positions, we combine several existing sources a
 |                            | Total staff experience\    |                          |
 |                            | Average staff experience   |                          |
 +----------------------------+----------------------------+--------------------------+
-| @hyp-capacity-position\    | Committee chair\           | ↑ all types, especially  |
-| (Committee leadership)     | Ranking member\            | policy work              |
+| @hyp-capacity-position\    | Committee chair\           | ↑ policy work            |
+| (Committee leadership)     | Ranking member\            |                          |
 |                            | Subcommittee chair         |                          |
 +----------------------------+----------------------------+--------------------------+
-| @hyp-capacity-reporting\   | Seat on the agency's       | ↑ all types, with that   |
+| @hyp-capacity-reporting\   | Seat on the agency's       | ↑ policy work, with that |
 | (Reporting committee)      | reporting committee        | agency                   |
 +----------------------------+----------------------------+--------------------------+
 
@@ -298,54 +298,55 @@ These results support @hyp-capacity-reporting for general policy work. For const
 
 In @tbl-capacity-findings we summarize our results. We find that member office capacity appears to play an important role in shaping what offices can do, and we see at least partial support for all of our capacity hypotheses. Capacity that comes from time in Congress and from a larger staff increases many types of interbranch representation, including constituency service on behalf of individuals, and these relationships hold when we compare the same legislator over time. Somewhat surprisingly, while legislator's experience that comes from time in Congress appears to increase capacity, previously serving in a different legislative body---a state legislative role---does not. 
 
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Indicator                       | Individual  | Corporate   | Nonprofit/   | General     | Corporate   |
+|                                 | service     | service     | local gov't  | policy      | policy      |
+|                                 |             |             | service      |             |             |
++:================================+:===========:+:===========:+:============:+:===========:+:===========:+
+| **@hyp-capacity-experience (Experience): partly supported.** Time in Congress matters; prior state     |
+| legislative service does not.                                                                          |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| More than two years in Congress | **↑**/**↑** | **↑**/**↑** | **↑**/**↑**  | **↑**/**↑** | **↑**/**↑** |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Prior state legislature†        | n.s./–      | n.s./–      | n.s./–       | n.s./–      | n.s./–      |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| **@hyp-capacity-staff (Staff): partly supported.** Staff size matters broadly; staff experience mainly |
+| for general policy work.                                                                               |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Senate (vs. House)              | n.s./n.s.   | **↑**/n.s.  | **↑**/n.s.   | **↑**/**↑** | **↑**/n.s.  |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Staff count                     | **↑**/**↑** | **↑**/**↑** | **↑**/n.s.   | **↑**/**↑** | n.s./n.s.   |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Staff count (Senate only)       | **↑**/**↑** | **↑**/n.s.  | **↑**/n.s.   | **↑**/n.s.  | **↑**/n.s.  |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Total staff experience          | n.s./n.s.   | n.s./n.s.   | n.s./n.s.    | **↑**/**↑** | n.s./n.s.   |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Average staff experience        | n.s./n.s.   | **↑**/n.s.  | **↑**/n.s.   | **↑**/n.s.  | n.s./n.s.   |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| **@hyp-capacity-position (Committee leadership): supported for general policy work.** Gaining a        |
+| full-committee post increases general policy work; corporate policy differences are cross-sectional    |
+| only.                                                                                                  |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Committee chair                 |             |             |              | **↑**/**↑** | **↑**/n.s.  |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Ranking member                  |             |             |              | **↑**/**↑** | **↑**/n.s.  |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Subcommittee chair              |             |             |              | n.s./n.s.   | n.s./n.s.   |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| **@hyp-capacity-reporting (Reporting committee): supported for general policy work.** A new seat       |
+| increases general policy work with that agency; corporate policy differences are cross-sectional only. |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
+| Reporting committee seat        |             |             |              | **↑**/**↑** | **↑**/n.s.  |
++---------------------------------+-------------+-------------+--------------+-------------+-------------+
 
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Indicator                       | Individual | Corporate  | Nonprofit/   | General    | Corporate  |
-|                                 | service    | service    | local gov't  | policy     | policy     |
-|                                 |            |            | service      |            |            |
-+:================================+:==========:+:==========:+:============:+:==========:+:==========:+
-| **@hyp-capacity-experience (Experience): partly supported.** Time in Congress matters; prior state |
-| legislative service does not.                                                                      |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| More than two years in Congress | ↑/↑        | ↑/↑        | ↑/↑          | ↑/↑        | ↑/↑        |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Prior state legislature†        | n.s./–     | n.s./–     | n.s./–       | n.s./–     | n.s./–     |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| **@hyp-capacity-staff (Staff): partly supported.** Staff size matters broadly; staff experience    |
-| mainly for general policy work.                                                                    |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Senate (vs. House)              | n.s./n.s.  | ↑/n.s.     | ↑/n.s.       | ↑/↑        | ↑/n.s.     |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Staff count                     | ↑/↑        | ↑/↑        | ↑/n.s.       | ↑/↑        | n.s./n.s.  |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Staff count (Senate only)       | ↑/↑        | ↑/n.s.     | ↑/n.s.       | ↑/n.s.     | ↑/n.s.     |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Total staff experience          | n.s./n.s.  | n.s./n.s.  | n.s./n.s.    | ↑/↑        | n.s./n.s.  |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Average staff experience        | n.s./n.s.  | ↑/n.s.     | ↑/n.s.       | ↑/n.s.     | n.s./n.s.  |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| **@hyp-capacity-position (Committee leadership): supported for general policy work.** Gaining a    |
-| post increases only general policy work.                                                           |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Committee chair                 | n.s./n.s.  | ↑/n.s.     | n.s./n.s.    | ↑/↑        | ↑/n.s.     |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Ranking member                  | n.s./n.s.  | ↑/n.s.     | ↑/n.s.       | ↑/↑        | ↑/n.s.     |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Subcommittee chair              | n.s./n.s.  | ↑/n.s.     | n.s./n.s.    | n.s./n.s.  | n.s./n.s.  |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| **@hyp-capacity-reporting (Reporting committee): supported for general policy work.** Other        |
-| associations likely reflect who joins.                                                             |
-+---------------------------------+------------+------------+--------------+------------+------------+
-| Reporting committee seat        | ↑/n.s.     | ↑/n.s.     | ↑/n.s.       | ↑/↑        | ↑/n.s.     |
-+---------------------------------+------------+------------+--------------+------------+------------+
+: Summary of results for @hyp-capacity (Capacity). Cells show *cross-sectional/within-legislator* estimates: ↑, positive and statistically significant (95% confidence intervals); n.s., not significant; –, not estimable; blank, no prediction (@tbl-capacity). †Cross-sectional only, from separate House and Senate models. {#tbl-capacity-findings}
 
-: Summary of results for @hyp-capacity (Capacity). Each cell shows *cross-sectional/within-legislator* estimates: ↑, positive and statistically significant (95% confidence intervals); n.s., not significant; –, not estimable. †Cross-sectional only, from separate House and Senate models. {#tbl-capacity-findings}
 
 A second pattern that emerges is that the capacity that comes from committee work, whether a leadership position or a seat on an agency’s reporting committee, increases general policy work but not constituency service. Legislators with these positions do more of almost everything in cross-sectional comparisons, but when the same legislator gains a position, only their general policy work increases. This pattern is consistent with the idea that in the absence of a strict seniority system for selecting committee leaders, higher quality legislators (with greater capacity) are being selected into these roles, but their capacity for non-policy work (outside the scope of the committee) is not increased by serving in these roles. Across nearly every source of capacity, general policy work is the type of interbranch representation most responsive to an office’s ability to do more.
 
 
 
-## Conclusion: Capacity Constrained Congressional Offices
+## Conclusion: Capacity-Constrained Congressional Offices
 
 Our findings offer support for @hyp-capacity, though not for every form of capacity or every type of interbranch representation. Experience in Congress increases every type of interbranch representation, but prior service in a state legislature does not (@hyp-capacity-experience). Staff size matters broadly, while staff experience matters mainly for general policy work (@hyp-capacity-staff). Committee leadership positions (@hyp-capacity-position) and reporting committee seats (@hyp-capacity-reporting) increase general policy work, but their cross-sectional associations with constituency service likely reflect which legislators hold these positions rather than what the positions make possible. Our two research designs are central to these conclusions. Comparisons across legislators show who does more interbranch representation; comparisons within the same legislator over time show which forms of capacity change what an office does. Some measures, like prior state legislative service, can only be compared across legislators, and our measures of staff experience undercount experience gained before 2011, so the absence of a relationship between staff experience and constituency service should be interpreted with caution.
 

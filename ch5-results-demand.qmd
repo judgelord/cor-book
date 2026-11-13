@@ -67,7 +67,7 @@ Existing literature has more consistent findings, however, about what factors ar
 We are building on these findings [@Verba95] to argue that legislators who represent more constituents who are informed about how to seek help and what the government could help with will do more interbranch representation. Empowerment is shaped by education, resources, and knowledge of how government works. Constituents with more education, as well as government workers, who are particularly well positioned to know how to seek help from the federal government, are likely to be highly empowered. Constituents receiving low-income benefits, by contrast, are likely to have fewer resources and less knowledge of where to turn, and thus lower empowerment. Empowered constituents likely increase the demand for all types of work from a congressional office. However, they may be higher policy demanders than constituency service demanders, leading to more policy-focused interbranch work in districts with more empowered constituents. This would be consistent with @Johannes1984’s finding that constituent demographics more strongly predict expressing policy opinions than requesting casework.
 
 ::: {#hyp-demand-empowered .hypothesis name="Empowerment"}
-Legislators who represent more *empowered* constituents (those with the knowledge and resources to seek help) will be associated with higher levels of interbranch representation. Conversely, legislators whose constituents are less empowered will be associated with lower levels of individual constituency service.
+Legislators who represent more *empowered* constituents (those with the knowledge and resources to seek help) will be associated with higher levels of interbranch representation. Conversely, legislators whose constituents are less empowered will be associated with lower levels of interbranch representation.
 :::
 
 <!--- In the Connie Mack example below, can we clarify which Connie Mack it was? Connie Mack the III or IV?---> 
@@ -196,34 +196,33 @@ Beyond income and related metrics as measures of economic need, legislators also
 
 [DEVIN --- you may want to check my assessment here against the regression table. I wasn't sure exactly which table to use, so was drawing on the marginal effects plots.]
 
-
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
 | Type                       | Population             | % College graduates    | % Government workers   | % Public assistance    |
 +:===========================+:======================:+:======================:+:======================:+:======================:+
-| Individual service         | ↑: ↑ / ↑               | ↑: n.s. / n.s.         | ↑: ↑ / ↑               | ↑↓: ↓ / n.s.           |
+| Individual service         | **↑** / **↑**          | n.s. / n.s.            | **↑** / **↑**          | **↓**‡ / n.s.          |
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
-| Corporate service          | ↑: ↑ / ↑               | –: ↑ / ↑               | –: ↑ / n.s.            | –: n.s. / n.s.         |
+| Corporate service          | **↑** / **↑**          | **↑** / **↑**          | ↑ / n.s.               | n.s. / n.s.            |
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
-| Nonprofit/local gov't      | ↑: n.s. / ↑            | –: ↑ / ↑               | ↑: ↑ / n.s.            | ↑: ↑ / ↑               |
+| Nonprofit/local gov't      | n.s. / **↑**           | ↑ / ↑                  | **↑** / n.s.           | **↑** / **↑**          |
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
-| General policy             | ↑: n.s. / ↑            | ↑: ↑ / ↑               | –: n.s. / n.s.         | –: n.s. / n.s.         |
+| General policy             | n.s. / **↑**           | **↑** / **↑**          | n.s. / n.s.            | n.s. / n.s.            |
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
-| Corporate policy           | ↑: n.s. / ↑            | ↑: n.s. / n.s.         | –: n.s. / n.s.         | –: n.s. / n.s.         |
+| Corporate policy           | n.s. / **↑**           | n.s. / n.s.            | n.s. / n.s.            | n.s. / n.s.            |
 +============================+========================+========================+========================+========================+
 | @hyp-demand-number         | **Supported**\         |                                                                          |
 |                            | (strongest in Senate)  |                                                                          |
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
-| @hyp-demand-empowered      |                        | **Supported, but the kind of work depends on who is empowered:**         |
-|                            |                        | government workers, more individual service; college graduates, more     |
-|                            |                        | policy work but not individual service; low empowerment (public          |
-|                            |                        | assistance), less individual service in the House                        |
+| @hyp-demand-empowered      |                        | **Partly supported; the kind of work depends on who is empowered:**      |
+|                            |                        | college graduates, more corporate service and general policy work;       |
+|                            |                        | government workers, more individual and nonprofit/local gov't service;   |
+|                            |                        | low empowerment, less individual service (House)                         |
 +----------------------------+------------------------+------------------------+------------------------+------------------------+
 | @hyp-demand-need           |                                                                          | **Partly supported**\  |
 |                            |                                                                          | (organizations, not    |
 |                            |                                                                          | individuals)           |
 +============================+========================+========================+========================+========================+
 
-: Predicted and observed relationships between each indicator of demand and each type of interbranch representation, and an overall assessment of each sub-hypothesis. Each cell shows *predicted: House / Senate*. ↑ and ↓ indicate statistically significant positive and negative relationships (95% confidence intervals); n.s., not statistically significant; –, no prediction. For public assistance, need predicts more individual service (↑) and low empowerment predicts less (↓). {#tbl-demand-findings}
+: Observed relationships between each indicator of demand and each type of interbranch representation, with an overall assessment of each sub-hypothesis. Each cell shows *House / Senate* results: ↑ and ↓, statistically significant positive and negative relationships (95% confidence intervals); n.s., not statistically significant; **bold**, consistent with predictions (@tbl-demand); plain ↑, significant but not predicted. ‡Need predicts more individual service and low empowerment predicts less; the negative House result is consistent with low empowerment. {#tbl-demand-findings}
 
 ## Conclusion: Demand Explains Some, but Not All, of the Variation
 
