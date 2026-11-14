@@ -6,7 +6,7 @@ if(F){
   # make total and type 1-5 datasets
   here::here("code", "replication-data.qmd") |> quarto::quarto_render(cache_refresh = TRUE)
   # run one replication file at a time
-  refresh = F # refresh if data or models used in manuscript tables changed, don't if just adding new things
+  refresh = T # refresh if data or models used in manuscript tables changed, don't if just adding new things
   job = T
 
   # make descriptive figures
@@ -16,6 +16,8 @@ if(F){
   here::here("code", "get_external_figs.R") |> source()
 
   # run regressions
+  refresh
+  job
   here::here("replication-total.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-1.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)
   here::here("replication-2.qmd") |> quarto::quarto_render(cache_refresh = refresh, as_job = job)

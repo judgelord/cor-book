@@ -60,10 +60,12 @@ filters:
   - assets/rowlines.lua
 
 rowlines:
-  - tbl-demand-findings
   - tbl-demand
+  - tbl-demand-findings
   - tbl-capacity
   - tbl-capacity-findings
+  - tbl-strategy
+  - tbl-strategy-findings
 
 hypotheses:
   - id: demand
@@ -74,8 +76,8 @@ hypotheses:
     subs:
       - id: partisan
         subs:
-          - {id: alignment, label: "+"}
-          - {id: antagonism, label: "-"}
+          - {id: alignment, label: "alignment"}
+          - {id: antagonism, label: "antagonism"}
           - {id: coalition, label: "business"}
           - {id: antigovernment, label: "anti-government"}
       - id: electoral

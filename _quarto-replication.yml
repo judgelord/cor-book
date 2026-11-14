@@ -9,12 +9,12 @@ project:
   type: default
   output-dir: ""
   render:
+    - replication-total.qmd
     - replication-1.qmd
     - replication-2.qmd
     - replication-3.qmd
     - replication-4.qmd
     - replication-5.qmd
-    - replication-total.qmd
 
 format:
   html:
