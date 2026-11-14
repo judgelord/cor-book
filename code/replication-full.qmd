@@ -200,7 +200,7 @@ fes |>
 
 fe_combined <- fes
 
-save(fe_combined, file = here::here("data", "derived", "fe-combined.rds"))
+save(fe_combined, file = here::here("data", "derived", "fe-combined.rda"))
 ```
 
 ## House

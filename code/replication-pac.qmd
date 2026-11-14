@@ -71,7 +71,7 @@ m_pac_full_cross <-fenegbin (
     PACamount_m + 
     chair + 
     ranking_minority + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience + 
     majority + 
@@ -89,7 +89,7 @@ m_pac_full_did <-fenegbin (
     PACamount_m + 
     chair + 
     ranking_minority + 
-    prestige + 
+    # prestige + 
     oversight +  
     experience + 
     majority + 
@@ -209,7 +209,7 @@ m_pac_pooled_full_cross <-fenegbin (perYear ~ chamber +
                         PACamount_nonenergy_m + PACamount_energy_m +
                        chair + 
                          ranking_minority + 
-                         prestige + 
+                         # prestige + 
                          oversight +  
                     experience + 
                     majority + 
@@ -226,7 +226,7 @@ m_pac_pooled_full_did <-fenegbin (perYear ~ chamber +
                         PACamount_nonenergy_m + PACamount_energy_m +
                        chair + 
                          ranking_minority + 
-                         prestige + 
+                         # prestige + 
                          oversight +  
                     experience + 
                     majority + 

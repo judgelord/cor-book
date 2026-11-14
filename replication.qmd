@@ -69,11 +69,14 @@ data_district <- dcounts_district |> mutate(type = type)
 rename_vars <- function(data){
   data <- data |> 
   mutate(same_party = as.numeric(same_party),
+         
          # old census variable 
          pop2010m = pop2010/1000000,
          # from new census data 
          # FIXME make and use lobpop in CM 
          population_m = log(population_total),#/1000000,
+         far_right = as.numeric(nominate_dim1 > .05), #
+         far_left = as.numeric(nominate_dim1 < -.05), # https://archive.org/details/fivethirtyeight-image-b25a06502c69
          # note I am transforming these without making "_h" versions 
          total_staff_experience_years = total_staff_experience_years/100,
          # note I am transforming these without making "_m" versions 
@@ -108,11 +111,26 @@ data_district <- rename_vars(data_district)
 # read in the list of member years to exclude (because they died in office etc)
 source(here::here("code", "member_years_to_exclude.R"))
 data_member <- anti_join(data_member, exclude)
+data_district <- anti_join(data_member, exclude)
 
 save(data_member, file = here::here("data", type, "data_member.rda"))
-######## FIXME MOVE ABOVE TO MAKE DATA FILE AND LOAD DATA_MEMBER
-######## DON'T MODFIY DATA BELOW THIS LINE 
+save(data_district, file = here::here("data", type, "data_district.rda"))
 
+######## FIXME MOVE ABOVE TO MAKE DATA FILE AND LOAD DATA_MEMBER
+
+
+
+
+
+###################################################
+######## DON'T MODFIY DATA BELOW THIS LINE #######
+##################################################
+```
+
+
+## Inspect data
+
+```{r inspect}
 # # INSPECT NEW VARS 
 # data_member |>  filter(is.na(staff_count), year>2010) |>  distinct(bioname, icpsr, party, chamber,  year) |>
 #   kable(caption = "missing from staff experience data")
@@ -213,12 +231,25 @@ data_member |>
   kablebox()
 ```
 
-## Top member-year counts 
+## Top member-year counts - Senate
 
 ```{r}
 data_member |> 
+    filter(chamber == "Senate") |> 
   group_by(bioname, year) |> 
   summarise(n = sum(perYear)  )|> 
+  arrange(-n) |> 
+  kablebox()
+```
+
+
+## Top member-year counts - House
+
+```{r}
+data_member |> 
+  filter(chamber == "House") |> 
+  group_by(bioname, year) |> 
+  summarise(n = sum(perYear)  ) |> 
   arrange(-n) |> 
   kablebox()
 ```
@@ -862,6 +893,12 @@ See more about how robust (clustered) standard errors with fixed effects are cal
 ## With party but not ideology
 
 {{< include code/replication-full-party.qmd >}}
+{{< include code/replication-full-far-right.qmd >}}
+{{< include code/replication-full-far-left.qmd >}}
+
+{{< include code/replication-full-left-right.qmd >}}
+
+
 
 ## With Majority Status Rather than Committee Chair
 
@@ -1612,6 +1649,10 @@ plot_effect(
 {{< include code/replication-staff-count-only.qmd >}}
 {{< include code/replication-staff-count.qmd >}}
 {{< include code/replication-full-staff-count.qmd >}}
+{{< include code/replication-full-staff-count-cs.qmd >}}
+{{< include code/replication-full-staff-count-comms.qmd >}}
+{{< include code/replication-full-staff-count-intergov.qmd >}}
+
 
 {{< include code/replication-full-reporting-staff-count.qmd >}}
 
@@ -1627,7 +1668,7 @@ plot_effect(
 
 {{< include code/replication-staff-mean-experience-only.qmd >}}
 {{< include code/replication-staff-mean-experience.qmd >}}
-{{< include code/replication-full-staff-mean-experience.qmd >}
+{{< include code/replication-full-staff-mean-experience.qmd >}}
 
 also see Per District models below
 
@@ -1642,11 +1683,20 @@ also see Per District models below
 
 ## Staff Allocation 
 
+### Crosson et al
+
 {{< include code/replication-staff.qmd >}}
 {{< include code/replication-staff-only.qmd >}}
 
+### Legistorm 
+
 {{< include code/replication-staff-allocation.qmd >}}
 {{< include code/replication-staff-allocation-only.qmd >}}
+
+
+### Constituency service only 
+
+{{< include code/replication-staff-allocation-cs.qmd >}}
 
 
 ## Style 

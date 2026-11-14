@@ -22,17 +22,25 @@
 \usepackage{amsthm}
 
 % we need this so our tiny tables compile properly with the pdf
+% we need this so our tiny tables compile properly with the pdf
 \usepackage{tabularray}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{rotating}
 \usepackage[normalem]{ulem}
+\usepackage{xcolor}
 \UseTblrLibrary{booktabs}
 \UseTblrLibrary{siunitx}
 
-% THIS WAS CAUSING ERRORS AND DOES NOT SEEM NECESSARY
-%\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
-%\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
-% \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+% tinytable helper commands: defined only if tinytable hasn't already defined them
+% (defining them twice caused errors; not defining them causes "Undefined control sequence")
+\AtBeginDocument{%
+  \providecommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}%
+  \providecommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}%
+  \ifdefined\tinytableDefineColor\else
+    \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}%
+  \fi
+}
 
 % DO WE NEED THIS? OR IS BOOKTABS GOING TO WORK?
 % \usepackage{longtable}

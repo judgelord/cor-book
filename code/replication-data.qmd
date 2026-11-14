@@ -32,6 +32,7 @@ Packages:
 ```{r global.options, include=FALSE, purl=FALSE, cache=FALSE}
 testing = F
 verification = F
+here::i_am("code/replication-data.qmd")
 here::here("code", "qmd_global_options.R") |> source() 
 
 # functions 
@@ -206,12 +207,20 @@ dcounts_district <- dcounts   |>
   save(dcounts_district, file =  here::here("data", type, "dcounts_district.rds"))
   
   ## Means for chapter
-mean <- mean(dcounts$perYear)
+#FIXME what do we really want here 
+perYear_mean <- dcounts |> 
+  group_by(icpsr, year) |> 
+  transmute(perYearTotal = sum(perYear)) |> 
+  filter(year == 2016) 
+
+mean <- mean(perYear_mean$perYearTotal) |> round()  
 
 # mean per year 
 perYear_mean <- dcounts |> 
-  group_by(icpsr, year) |> 
-  transmute(perYearTotal = sum(perYear))
+  group_by(year) |> 
+  transmute(perYearTotal = sum(perYear)) |> 
+  filter(year == 2016) 
+
 perYear_mean <- mean(perYear_mean$perYearTotal) |> round()
 
 ## Ns

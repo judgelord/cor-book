@@ -1,0 +1,584 @@
+---
+title: "Correlations"
+subtitle: ""
+author: Devin Judge-Lord
+project:
+  type: default
+format: 
+  #pdf: 
+  html:
+      self-contained: false
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
+---
+
+```{r functions, cache=FALSE}
+here::here("code", "qmd_global_options.R") |> source() 
+```
+
+# counts per member per year 
+
+```{r}
+#| label: correlations-deciles-across-types-years
+#| fig-width: 8
+#| fig-height: 8
+#| layout-ncol: 1
+library(dplyr)
+library(purrr)
+
+
+# 1. Load and summarize each type
+counts <- map_dfr(1:5, function(type_id) {
+
+  # Load into a separate environment to avoid overwriting objects
+  env <- new.env()
+  load(
+    here::here("data", as.character(type_id), "data_member.rda"),
+    envir = env
+  )
+
+  env$data_member |>
+    filter(year > 2006, year < 2018) |>
+    group_by(icpsr, chamber, year) |>
+    summarise(
+      perYear_sum = sum(perYear),
+      .groups = "drop"
+    ) |>
+    mutate(
+      type = type_id,
+      perYear_decile = ntile(perYear_sum, 10)
+    )
+})
+
+# 2. Calculate correlations between decile indicators for each type pair
+type_pairs <- combn(1:5, 2, simplify = FALSE)
+
+decile_correlations <- map_dfr(type_pairs, function(pair) {
+
+  type_a <- pair[1]
+  type_b <- pair[2]
+
+  a <- counts |>
+    filter(type == type_a) |>
+    select(icpsr, chamber, year, decile_a = perYear_decile)
+
+  b <- counts |>
+    filter(type == type_b) |>
+    select(icpsr, chamber, year, decile_b = perYear_decile)
+
+  matched <- inner_join(
+    a, b,
+    by = c("icpsr", "chamber", "year")
+  ) |>
+    filter(!is.na(decile_a), !is.na(decile_b))
+
+  # One binary indicator column per decile
+  indicators_a <- outer(matched$decile_a, 1:10, `==`) * 1
+  indicators_b <- outer(matched$decile_b, 1:10, `==`) * 1
+
+  # Correlation is undefined if either indicator has zero variance
+  correlations <- matrix(NA_real_, nrow = 10, ncol = 10)
+
+  if (nrow(matched) >= 2) {
+    valid_a <- apply(indicators_a, 2, sd) > 0
+    valid_b <- apply(indicators_b, 2, sd) > 0
+
+    if (any(valid_a) && any(valid_b)) {
+      correlations[valid_a, valid_b] <- cor(
+        indicators_a[, valid_a, drop = FALSE],
+        indicators_b[, valid_b, drop = FALSE]
+      )
+    }
+  }
+
+  # expand_grid varies decile_b fastest; transpose before flattening
+  expand_grid(
+    decile_a = 1:10,
+    decile_b = 1:10
+  ) |>
+    mutate(
+      correlation = as.vector(t(correlations)),
+      comparison = paste("Type", type_a, "vs. Type", type_b),
+      n_matched = nrow(matched)
+    )
+})
+
+decile_correlations <- decile_correlations |>
+  mutate(
+    # For binary indicators, n * r^2 is the Pearson chi-squared
+    # statistic for the corresponding 2 × 2 table.
+    p_value = pchisq(
+      n_matched * correlation^2,
+      df = 1,
+      lower.tail = FALSE
+    ),
+    p_adjusted = p.adjust(p_value, method = "BH"),
+    significance = case_when(
+      !is.na(p_adjusted) & p_adjusted < 0.05 & correlation > 0 ~ "+",
+      !is.na(p_adjusted) & p_adjusted < 0.05 & correlation < 0 ~ "-",
+      TRUE ~ ""
+    )
+  )
+
+# 3. Plot all 10 unique type comparisons
+ggplot(
+  decile_correlations,
+  aes(x = decile_b, y = decile_a, fill = correlation)
+) +
+  geom_tile(color = "white", linewidth = 0.2) +
+  geom_tile(color = "white", linewidth = 0.2) +
+geom_text(
+  aes(label = significance),
+  color = "black",
+  #size = 4,
+  fontface = "bold"
+) +
+  facet_wrap(~ comparison, ncol = 4) +
+  scale_x_continuous(breaks = 1:10, expand = c(0, 0)) +
+  scale_y_continuous(breaks = 1:10, expand = c(0, 0)) +
+  scale_fill_gradient2(
+    low = "#2166AC",
+    mid = "white",
+    high = "#B2182B",
+    midpoint = 0,
+    #limits = c(-1, 1),
+    na.value = "grey80",
+    name = "Correlation"
+  ) +
+  coord_equal() +
+  labs(
+    x = "Decile within chamber",
+    y = "Decile within chamber",
+    title = "Correlations across types",
+    subtitle = "Matched by member, chamber, and year",
+    caption = paste(
+  "+ / -: χ² test correlation with BH-adjusted p < 0.05."
+  ) )  +
+  theme(
+    panel.grid = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+
+
+
+# correlations per congress 
+
+
+```{r}
+#| label: correlations-deciles-across-types
+#| fig-width: 8
+#| fig-height: 8
+#| layout-ncol: 1
+library(dplyr)
+library(purrr)
+
+
+# 1. Load and summarize each type
+counts <- map_dfr(1:5, function(type_id) {
+
+  # Load into a separate environment to avoid overwriting objects
+  env <- new.env()
+  load(
+    here::here("data", as.character(type_id), "data_member.rda"),
+    envir = env
+  )
+
+  env$data_member |>
+    filter(year > 2006, year < 2018) |>
+    group_by(icpsr, chamber, congress) |>
+    summarise(
+      per_sum = sum(perYear),
+      .groups = "drop"
+    ) |>
+    mutate(
+      type = type_id,
+      per_decile = ntile(per_sum, 10)
+    )
+})
+
+# 2. Calculate correlations between decile indicators for each type pair
+type_pairs <- combn(1:5, 2, simplify = FALSE)
+
+decile_correlations <- map_dfr(type_pairs, function(pair) {
+
+  type_a <- pair[1]
+  type_b <- pair[2]
+
+  a <- counts |>
+    filter(type == type_a) |>
+    select(icpsr, chamber, congress, decile_a = per_decile)
+
+  b <- counts |>
+    filter(type == type_b) |>
+    select(icpsr, chamber, congress, decile_b = per_decile)
+
+  matched <- inner_join(
+    a, b,
+    by = c("icpsr", "chamber", "congress")
+  ) |>
+    filter(!is.na(decile_a), !is.na(decile_b))
+
+  # One binary indicator column per decile
+  indicators_a <- outer(matched$decile_a, 1:10, `==`) * 1
+  indicators_b <- outer(matched$decile_b, 1:10, `==`) * 1
+
+  # Correlation is undefined if either indicator has zero variance
+  correlations <- matrix(NA_real_, nrow = 10, ncol = 10)
+
+  if (nrow(matched) >= 2) {
+    valid_a <- apply(indicators_a, 2, sd) > 0
+    valid_b <- apply(indicators_b, 2, sd) > 0
+
+    if (any(valid_a) && any(valid_b)) {
+      correlations[valid_a, valid_b] <- cor(
+        indicators_a[, valid_a, drop = FALSE],
+        indicators_b[, valid_b, drop = FALSE]
+      )
+    }
+  }
+
+  # expand_grid varies decile_b fastest; transpose before flattening
+  expand_grid(
+    decile_a = 1:10,
+    decile_b = 1:10
+  ) |>
+    mutate(
+      correlation = as.vector(t(correlations)),
+      comparison = paste("Type", type_a, "vs. Type", type_b),
+      n_matched = nrow(matched)
+    )
+})
+
+decile_correlations <- decile_correlations |>
+  mutate(
+    # For binary indicators, n * r^2 is the Pearson chi-squared
+    # statistic for the corresponding 2 × 2 table.
+    p_value = pchisq(
+      n_matched * correlation^2,
+      df = 1,
+      lower.tail = FALSE
+    ),
+    p_adjusted = p.adjust(p_value, method = "BH"),
+    significance = case_when(
+      !is.na(p_adjusted) & p_adjusted < 0.05 & correlation > 0 ~ "+",
+      !is.na(p_adjusted) & p_adjusted < 0.05 & correlation < 0 ~ "-",
+      TRUE ~ ""
+    )
+  )
+
+# 3. Plot all 10 unique type comparisons
+# Prepare row/column type labels
+pairs <- decile_correlations |>
+  tidyr::extract(
+    comparison,
+    into = c("type_a", "type_b"),
+    regex = "Type (\\d+) vs\\. Type (\\d+)",
+    convert = TRUE,
+    remove = FALSE
+  )
+
+# Mirror each comparison, swapping the decile axes as well
+# Keep existing significance results; do not recalculate adjusted p-values
+plot_data <- dplyr::bind_rows(
+  pairs,
+  pairs |>
+    dplyr::transmute(
+      type_a = type_b,
+      type_b = type_a,
+      decile_a = decile_b,
+      decile_b = decile_a,
+      correlation,
+      significance
+    )
+) |>
+  dplyr::mutate(
+    type_a = factor(type_a, levels = 1:5, labels = paste("Type", 1:5)),
+    type_b = factor(type_b, levels = 1:5, labels = paste("Type", 1:5))
+  )
+
+# Plot a type-by-type matrix; diagonal panels remain blank
+ggplot(
+  plot_data,
+  aes(x = decile_b, y = decile_a, fill = correlation)
+) +
+  geom_tile(color = "white", linewidth = 0.2) +
+  geom_text(
+    aes(label = significance),
+    color = "black",
+    fontface = "bold"
+  ) +
+  facet_grid(
+    rows = vars(type_a),
+    cols = vars(type_b),
+    switch = "both",
+    drop = FALSE
+  ) +
+  scale_x_continuous(breaks = 1:10, expand = c(0, 0)) +
+  scale_y_continuous(breaks = 1:10, expand = c(0, 0)) +
+  scale_fill_gradient2(
+    low = "#0072B2",
+    mid = "white",
+    high = "#D55E00",
+    midpoint = 0,
+    na.value = "grey80",
+    name = "Correlation"
+  ) +
+  coord_equal() +
+  labs(
+    x = "Decile within chamber",
+    y = "Decile within chamber",
+    title = "Correlations across types",
+    caption = paste(
+      "+ / −: positive / negative correlation;",
+      "χ² test with BH-adjusted p < 0.05."
+    )
+  ) +
+  theme(
+    panel.grid = element_blank(),
+    strip.placement = "outside",
+    strip.background = element_blank(),
+    strip.text = element_text(face = "bold"),
+    strip.text.y.left = element_text(angle = 0),
+    panel.spacing = grid::unit(0.5, "lines")
+  )
+
+# TRY 2 
+library(patchwork)
+
+# Extract the types for each comparison
+plot_data <- decile_correlations |>
+  tidyr::extract(
+    comparison,
+    into = c("type_a", "type_b"),
+    regex = "Type (\\d+) vs\\. Type (\\d+)",
+    convert = TRUE,
+    remove = FALSE
+  ) |> 
+    mutate(Type_a = case_when(
+            type_a == 1 ~ " Constituent (individual)",
+            type_a == 2 ~ "Constituent (corporate)",
+            type_a == 3 ~ "Constituent (nonprofit or \nlocal government)",
+            type_a == 4 ~ "Policy (corporate)",
+            type_a == 5 ~ "Policy (general)"
+         ),
+         Type_b = case_when(
+            type_b == 1 ~ " Constituent (individual)",
+            type_b == 2 ~ "Constituent (corporate)",
+            type_b == 3 ~ "Constituent (nonprofit or \nlocal government)",
+            type_b == 4 ~ "Policy (corporate)",
+            type_b == 5 ~ "Policy (general)"
+         )
+         ) 
+
+# Use a common color scale across all panels
+fill_limit <- max(abs(plot_data$correlation), na.rm = TRUE)
+if (!is.finite(fill_limit) || fill_limit == 0) fill_limit <- 1
+
+# Make one plot per unique comparison
+plots <- plot_data |>
+  dplyr::group_by(type_a, type_b) |>
+  dplyr::group_split() |>
+  purrr::map(function(df) {
+    ggplot(
+      df,
+      aes(x = decile_b, y = decile_a, fill = correlation)
+    ) +
+      geom_tile(color = "white", linewidth = 0.2) +
+      geom_text(
+        aes(label = significance),
+        color = "black",
+        fontface = "bold"
+      ) +
+      scale_x_continuous(breaks = 1:10, expand = c(0, 0)) +
+      scale_y_continuous(breaks = 1:10, expand = c(0, 0)) +
+      scale_fill_gradient2(
+        low = "#0072B2",
+        mid = "white",
+        high = "#D55E00",
+        midpoint = 0,
+        limits = c(-.3, fill_limit),
+        na.value = "grey80",
+        name = "Correlation"
+      ) +
+      coord_equal() +
+      labs(
+        x = paste0("", df$Type_b[1], ""),
+        y = paste0("", df$Type_a[1], "")
+      ) +
+      theme(
+        panel.grid = element_blank(),
+        axis.title = element_text(size = 10)
+      )
+  })
+
+# Caption as a separate panel
+caption_panel <- wrap_elements(
+  full = grid::textGrob(
+    paste(
+      "+ / −: χ² test",
+      "with BH-adjusted",
+      "p < 0.05.",
+      sep = "\n"
+    ),
+    x = 0.05,
+    y = 0.5,
+    just = c("left", "center"),
+    gp = grid::gpar(fontsize = 10)
+  )
+)
+
+# Ten plots + legend + caption = twelve cells
+wrap_plots(
+  c(plots, list(guide_area(), caption_panel)),
+  ncol = 4,
+  guides = "collect"
+) +
+  plot_annotation(
+    #title = "Correlations across types"
+  ) &
+  theme(
+    legend.position = "right",
+    legend.justification = "center"
+  )
+```
+
+
+# counts per congress 
+
+
+
+```{r}
+#| label: correlations-deciles-across-types-counts
+#| fig-width: 9
+#| fig-height: 8
+#| layout-ncol: 1
+
+library(dplyr)
+library(purrr)
+
+tile_counts <- purrr::map_dfr(
+  combn(1:5, 2, simplify = FALSE),
+  function(pair) {
+
+    a <- counts |>
+      dplyr::filter(type == pair[1]) |>
+      dplyr::select(
+        icpsr, chamber, congress,
+        decile_a = per_decile
+      )
+
+    b <- counts |>
+      dplyr::filter(type == pair[2]) |>
+      dplyr::select(
+        icpsr, chamber, congress,
+        decile_b = per_decile
+      )
+
+    dplyr::inner_join(
+      a, b,
+      by = c("icpsr", "chamber", "congress")
+    ) |>
+      dplyr::filter(!is.na(decile_a), !is.na(decile_b)) |>
+      dplyr::count(decile_a, decile_b, name = "tile_count") |>
+      tidyr::complete(
+        decile_a = 1:10,
+        decile_b = 1:10,
+        fill = list(tile_count = 0L)
+      ) |>
+      dplyr::mutate(
+        type_a = pair[1],
+        type_b = pair[2]
+      )
+  }
+)
+
+plot_data2 <- plot_data |>
+  dplyr::left_join(
+    tile_counts,
+    by = c("type_a", "type_b", "decile_a", "decile_b")
+  )
+
+# Shared scale across all ten plots
+ count_limit <- max(plot_data2$tile_count, na.rm = TRUE)
+ 
+ 
+# 2. Rebuild your plots with # count as the fillUse a sequential color scale because counts are nonnegative:
+  
+  
+  plots <- plot_data2 |>
+  dplyr::group_by(type_a, type_b) |>
+  dplyr::group_split() |>
+  purrr::map(function(df) {
+    ggplot(
+      df,
+      aes(x = decile_b, y = decile_a, fill = tile_count)
+    ) +
+      geom_tile(color = "white", linewidth = 0.2) +
+      geom_text(
+        aes(label = significance),
+        color = "black",
+        fontface = "bold"
+      ) +
+      scale_x_continuous(breaks = 1:10, expand = c(0, 0)) +
+      scale_y_continuous(breaks = 1:10, expand = c(0, 0)) +
+      scale_fill_gradient(
+        low = "white",
+        high = "#D55E00",
+        limits = c(0, count_limit),
+        name = "Count"
+      ) +
+      coord_equal() +
+labs(
+  x = trimws(df$Type_b[1]),
+  y = trimws(df$Type_a[1])
+) + 
+      theme(
+        panel.grid = element_blank(),
+        axis.title = element_text(size = 10)
+      )
+  })
+
+
+# Caption as a separate panel
+caption_panel <- wrap_elements(
+  full = grid::textGrob(
+    paste(
+      "Deciles within each chamber within", 
+      "a congress are based on the number",
+      "of each type of request each member",
+      "of Congress made to all federal agencies.",
+      "Correlations (+ / −) indicate χ² test",
+      "with a BH-adjusted p < 0.05.",
+      sep = "\n"
+    ),
+    x = 0.05,
+    y = 0.5,
+    just = c("left", "center"),
+    gp = grid::gpar(fontsize = 10)
+  )
+)
+
+layout <- "
+ABCD
+EFGH
+IJKK
+"
+
+wrap_plots(
+  c(plots, list(caption_panel)),
+  design = layout
+) +
+  plot_annotation(
+    title = "Correlations Across Types",
+    subtitle = "by Decile within Chamber per Congress"
+  ) &
+  theme(legend.position = "none")
+```
+

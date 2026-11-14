@@ -43,7 +43,6 @@ cm = c(
   # other sections
   "percent_education_bachelor_or_higher" = "% College Grad",
   "percent_public_assistance_or_snap_households" = "% Public Assistance",
-  "percent_public_assistance_or_snap_households" = "% Public Assistance",
   "percent_above_poverty_line" = "% Above Poverty Line",
   ##################################################################################
   # Strategic responses to political environment
@@ -68,6 +67,8 @@ cm = c(
   "party(I):presidents_party" = "Ind. × President's Party",
   "party(R):presidents_party" = "Republican × President's",
   # RCL + VOTEVIEW
+  "far_right" = "1st Dim. DW-NOMINATE > .5",
+  "far_left" = "1st Dim. DW-NOMINATE < -.5",
   "alignmentTRUE" = "Aligned with Agency",
   "distance" = "Ideological Distance",
   "distance:presidents_party" = "Distance x President's Party",
@@ -76,6 +77,7 @@ cm = c(
   "abs_nominate_dim1:presidents_party" = "abs(NOMINATE) x President's Party",
   "abs_nominate_dim1" = "| 1st Dim. DW-NOMINATE |",
   "abs(nominate_dim1)" = "| 1st Dim. DW-NOMINATE |",
+  "nominate_dim1" = "1st Dim. DW-NOMINATE",
   #############################
   # Capacity
   #################################################
@@ -165,6 +167,9 @@ cm = c(
   "Agency" = "Agency",
   "Num.Obs." = "Observations"
 )
+
+
+dplyr::tibble(cm) |> dplyr::count(cm, sort = T)
 
 # # FORMATTING FOR AJPS
 # cmAJPS <- cm |> str_to_sentence()

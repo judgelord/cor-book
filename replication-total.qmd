@@ -17,4 +17,4 @@ here::here("code", "qmd_global_options.R") |> source()
 type = "total"
 ```
 
-{{< include code/replication.qmd >}}
+{{< include replication.qmd >}}

@@ -198,6 +198,7 @@ m_senate_staff_allocation_cross <- fenegbin (
     #pct_pol_staff + 
     pct_comm_staff + 
     #pct_off_staff + 
+        pct_constit_staff + pct_policy_staff +
     chair + 
     #subchr + state_leg +  
     ranking_minority + 
