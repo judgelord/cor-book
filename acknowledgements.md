@@ -1,7 +1,10 @@
 # Acknowledgements {-}
 
 We are grateful for comments on the proposal or earlier parts of this manuscript from 
-Kathy Cramer, Barry Burden, Liz Gerber, Maria Silfa, Molly Ritchie, Geoff Lorenz, Bing Powell, Laurel Harbridge-Yong, Jeff Harden, Justin Kirkland, Ruth Bloch Rubin, and participants in both the Annual Forum on American Institutional Renewal, and the Chambers of Democracy Conference.
+Kathy Cramer, Barry Burden, Liz Gerber, Bing Powell,
+Maria Silfa, Molly Ritchie, Geoff Lorenz,  Jeff Harden, Justin Kirkland, Ruth Bloch Rubin, 
+Laurel Harbridge-Yong,  Dave Lewis, Molly Reynolds, Sharece Thrower,
+and participants in both the Annual Forum on American Institutional Renewal, and the Chambers of Democracy Conference.
 
 Previous work from this broader project has benefited from conversations with 
 Wendy Schiller, Steve Ansolabehere, Dan Carpenter, Jennifer Hochschild, Andy Hall, Nolan McCarty, Jonathan Mummolo, Dan Thompson, Danielle Thomsen, Leah Rosenstiel, Sean Westwood, Jim Curry, 

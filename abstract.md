@@ -18,3 +18,31 @@ Moreover, where they are present, partisan and election-related drivers of inter
 
 In sum, partisanship and ideology affect choices about which agencies legislators contact and the representation of business interests.
 But unequal interbranch representation is mostly a story of the unequal capacity of legislators, offices, and committees, with unequal levels of constituent demand often a secondary cause. 
+
+
+<!-- TRYING OUT A NEW VERSION: 
+
+This book advances and measures the concept of ***interbranch representation*** – how Members of Congress work directly with federal agencies on behalf of various constituencies. 
+Interbranch representation includes casework (constituency service) on behalf of individuals, nonprofits, and businesses, as well as communicating with agencies about executive-branch policymaking and implementation. 
+We document massive variation in the amount of interbranch work done by congressional offices.
+
+What drives variation in interbranch work? 
+We offer a framework with three types of explanations, those rooted in constituent demand, legislator capacity, and stratigic incentives. 
+
+We find that demand matters but is far from the full story. 
+Those representing more and more demanding constituents do more interbranch work.
+Different levels of capacity, especially legislator experience and staffing, explain the largest share of variation. 
+Committee staff increase policy work (even of non-chairs)
+Strategic incentives shape some types of representation, but we find 
+little relationship with **electoral** incentives 
+We do find strong **partisan/ideological** effects, with congressional offices more often working with partisan and ideological allies in the executive-branch.
+We also show that committee work extends *preexisting* **policy interests**. 
+All forms of interbranch work are positively correlated with legislating and fundraising.
+
+These findings have policy implications. 
+Because experience matters, term limits would likely have unappreciated costs.
+More staff would increase constituency service and rebalance power with executive branch (as congress did after the New Deal and the Nixon administration).
+Centralizing executive power likely reduces congressional oversight, representation, and influence in policymaking and implementation.
+Because both hared congressional & agency infrastructure** opportunities.
+
+--> 
