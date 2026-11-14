@@ -115,16 +115,12 @@ flowchart TD
         GN["Greater<br/> Needs<br/>Constituents"]
         AD["Expressed<br/>Demand"]
         W["Work Done by<br/>Congressional Office"]
-        L["Legislation"]
         A["Interbranch Representation"]
-        C["Communications"]
     MC -->AD
     GN -->AD
     MD -->AD
     AD --> W
-    W --> L
     W --> A
-    W --> C
 ```
 
 
@@ -142,14 +138,14 @@ flowchart LR
         CP["Committee<br/>leadership position"]
         RC["Reporting<br/>committee seat"]
     end
-    O["Office's ability to<br/>act on demand and<br/>generate its own work"]
+    O["Work Done by<br/>Congressional Office"]
     W["Interbranch<br/>representation"]
-    D ==> O
+    D --> O
     LE --> O
     ST --> O
     CP --> O
     RC --> O
-    O ==> W
+    O --> W
     classDef demand fill:#f2f2f2,stroke:#888,stroke-dasharray: 4 3
     class D demand
 ```
@@ -159,20 +155,20 @@ flowchart LR
 flowchart LR
     D["Expressed demand<br/>and office capacity<br/>(Chapters 5 and 6)"]
     subgraph env ["Political environment"]
-        PI["Partisan:<br/>party, president's party,<br/>and ideology"]
-        EL["Electoral:<br/>competitive general<br/>and primary elections"]
-        MJ["Institutional:<br/>majority status"]
+        PI["Partisan/Ideological<br/>incentives"]
+        EL["Electoral<br/>incentives"]
+        MJ["Institutional<br/>incentives"]
     end
     O["Strategic choices:<br/>what activities, and<br/>on whose behalf"]
     SA["Staff<br/>allocation"]
     W["Interbranch<br/>representation"]
-    D ==> O
+    D --> O
     PI --> O
     EL --> O
     MJ --> O
     O --> SA
     SA --> W
-    O ==> W
+    O --> W
     classDef demand fill:#f2f2f2,stroke:#888,stroke-dasharray: 4 3
     class D demand
 ```
@@ -241,12 +237,12 @@ flowchart TD
 %%{init: {"themeVariables": {"fontSize": "13px", "edgeLabelBackground": "#ffffff"}, "flowchart": {"htmlLabels": true, "curve": "basis"}}}%%
 flowchart LR
     C["Constituent"]
-    O["Member's office<br/>(caseworker)"]
+    O["Member's office"]
     A["Federal agency"]
-    C -->|"<b>1. Constituent request</b>"| O
+    C -->|"<b>1. Constituent <br/>contacts</b>"| O
   O ==>|"<b>2. Office contacts<br/>the agency</b><br/>(what we measure)"| A
     A -.->|"3. Agency responds<br/>(sometimes)"| O
-    O -.->|"Office responds to<br/>the constituent<br/>(at any point)"| C
+    O -.->|"Office responds <br/>(at any point)"| C
     linkStyle 1 stroke:#000,stroke-width:4px
     classDef default fill:#ffffff,stroke:#333
     classDef office fill:#e8e8e8,stroke:#333
