@@ -1,7 +1,7 @@
 # Models {.appendix #sec-appendix-models}
 
 
-
+<!---
 ```{r}
 #| label: fig-causal2
 #| fig-cap: "How constituent demand, capacity, and strategy shape interbranch representation activities"
@@ -9,8 +9,7 @@
 #| 
 knitr::include_graphics(here::here("figs", "mermaid-figure-2.png"))
 ```
-
-\clearpage 
+---> 
 
 
 ## Statistical Models {#sec-models}
