@@ -266,10 +266,10 @@ modelsummary( models_full_far_right) |>
   group_tt(i = list(
     "Demand"= 2,
     "Political Environment" = 10,
-    "Political Environment & Capcacy" = 26,
-    "Capacity" = 28
+    "Political Environment & Capcacy" = 22,
+    "Capacity" = 24
   )) |> 
-  style_tt(i = 44, line = "t", line_color = "black", line_width = 0.2) |>
+  style_tt(i = 40, line = "t", line_color = "black", line_width = 0.2) |>
   style_tt("groupi", background = "grey") |>
   style_tt("~groupi", j = 1, indent = 2)
 
