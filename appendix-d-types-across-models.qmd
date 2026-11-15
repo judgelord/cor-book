@@ -1,0 +1,311 @@
+# Types Across Models (Online Only) {.appendix #sec-appendix-types-across-models}
+
+
+## Total Interbranch Representation {#sec-appendix-models-total}
+
+```{r}
+type = "total"
+here::here("code", "formatting.R") |> source()
+```
+
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on corporate policy-work with federal agencies {#tbl-models-full-majority-tot}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+\clearpage
+
+
+## Individual Constituent Service {#sec-appendix-models-1}
+
+```{r}
+type = 1
+```
+
+
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on individual constituent service  {#tbl-models-full-majority-ind}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+## Corporate Service {#sec-appendix-models-2}
+
+```{r}
+type = 2
+```
+
+
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on corporate service with federal agencies {#tbl-models-full-majority-corser}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+## Non-profit/Local Government Service {#sec-appendix-models-3}
+
+```{r}
+type = "3"
+```
+
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment on requests to federal agencies {#tbl-models-full-nonprofit}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_nonprofit.Rdata"))
+
+modelsummary(models_full,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand (population, employment, education, public assistance), legislator capacity (chamber, reporting committee, committee chair, subcommittee chair, and ranking member positions and years in office) and institutional positions that may affect strategic behavior (reporting committee membership, perceived ideological distance from teh agency, co-partisan president) on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 12,
+    #"Political Environment + Capcacy" = 26,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 45, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+
+\clearpage
+
+## General Policywork  {#sec-appendix-models-5}
+
+```{r}
+type = 5
+```
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on general policy-work with federal agencies {#tbl-models-full-majority-pol}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 46, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+## Policy Work on Behalf of Business  {#sec-appendix-models-4}
+
+```{r}
+type = 4
+```
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of constituent demand, legislator capacity, and political environment (including majority status) on corporate policy-work with federal agencies {#tbl-models-full-majority}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Strategic Choices Shaped by Political Environment" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+

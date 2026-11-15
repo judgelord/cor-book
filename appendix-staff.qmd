@@ -1,0 +1,98 @@
+
+
+## Staff data from @CrossonFurnasLapiraBurgat2021
+
+
+@fig-staff-data-coverage shows that staff allocations vary across legislators and within legislators over time. These data are from @CrossonFurnasLapiraBurgat2021. Each dot is a legislator-congress observation of the estimated money the office spent on each type of staff. Lines link legislative offices across congresses.
+
+
+```{r}
+#| fig-cap: "Staff Data Coverage"
+#| label: fig-staff-data-coverage
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "staff", "staff-spending.png"))
+```
+
+
+
+```{r}
+#| fig-cap: "Correlations With Staff of Individual Constituent Interbranch Representation"
+#| label: fig-data-correlations-staff1
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "1", "correlations-staff-1.png"))
+```
+
+<!-- @fig-data-correlations-staff2 shows cross tabulations ...--> 
+
+```{r}
+#| fig-cap: "Correlations With Staff of Corporate Constituent Interbranch Representation"
+#| label: fig-data-correlations-staff2
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "2", "correlations-staff-1.png"))
+```
+
+
+<!-- @fig-data-correlations-staff3 shows ... --> 
+
+```{r}
+#| fig-cap: "Correlations With Staff of Nonprofit and Local Government Interbranch Representation"
+#| label: fig-data-correlations-staff3
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "3", "correlations-staff-1.png"))
+```
+
+
+<!-- @fig-data-correlations-staff5 shows ... --> 
+
+```{r}
+#| fig-cap: "Correlations With Staff of Policy Work"
+#| label: fig-data-correlations-staff5
+#| out-width: "100%"
+
+knitr::include_graphics(here::here("figs", "5", "correlations-staff-1.png"))
+```
+
+<!-- @fig-data-correlations-staff4... --> 
+
+
+```{r}
+#| fig-cap: "Correlations With Staff of Corporate Policy Work"
+#| label: fig-data-correlations-staff4
+#| out-width: "100%"
+
+
+knitr::include_graphics(here::here("figs", "4", "correlations-staff-1.png"))
+```
+
+
+
+
+<!-- TODO 
+
+## Political Action Committee Data From the Center For Responsive Politics
+
+## Electoral Competitiveness Data From 
+
+## District Demographics from U.S. Census Estimates 
+
+
+## Summary 
+
+```
+type = "total"
+load(here::here("data", type, "dcounts.rds")) 
+load(here::here("code", "cm.r")) 
+
+
+dcounts |> 
+ ungroup() |> 
+ select(any_of(cm)) |> 
+datasummary_skim()
+```
+
+--> 
+

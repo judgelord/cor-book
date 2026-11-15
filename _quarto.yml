@@ -1,6 +1,6 @@
 execute:
-  cache: true
-  freeze: false # once the results are locked in, turn this on so that we don't need to re-render - it does require rendering each chapter seperatly as we update them
+  cache: false
+  freeze: true # once the results are locked in, turn this on so that we don't need to re-render - it does require rendering each chapter seperatly as we update them
   echo: false
   message: false
   warning: false
@@ -37,12 +37,12 @@ book:
      - ch8-conclusion.qmd
      - references.md
   appendices:
-     - appendix-a.qmd
-     - appendix-b.qmd
-     - appendix-c.qmd
-     - appendix-d.qmd
-
-
+     - appendix-a-methods.qmd
+     - appendix-b-data.qmd
+     - appendix-c-models.qmd
+     - appendix-d-types-across-models.qmd
+     - appendix-e-alt-models.qmd
+     - appendix-f-correlations.qmd
   search: true
   #repo-url: https://github.com/judgelord/cor-book
   downloads: pdf # [pdf, epub]
@@ -90,7 +90,6 @@ hypotheses:
 
 format:
   html:
-    # theme: cosmo
     self-contained: false # why does this make the files so large? (77MB!)
     css: styles.css
     fig-cap-location: top
@@ -98,7 +97,9 @@ format:
     include-after-body:
       - assets/hypothesis-numbering-overide.html
   pdf:
-    #documentclass: scrreprt. # why this rather than book?
+    toc: true
+    lof: true
+    lot: true
     number-depth: 2
     include-in-header:
        - assets/header.tex

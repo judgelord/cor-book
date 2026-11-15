@@ -22,7 +22,9 @@ here::here("data", "_FOIA_response_table.csv") |>
   read_csv() |> 
   select(-"...1") |> 
   mutate(Department = Department |> str_replace("Department", "Dept.")) |> 
-  rename(`Obs.` = `Observations`)
+  rename(`Obs.` = `Observations`,
+         Components = `Components FOIAed`,
+         Records = `Records received`) |>
   tt() |> 
      # bold header, hline bottom, aligned center
   tinytable::style_tt(j = 1, align = "l") |>
