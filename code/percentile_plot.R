@@ -34,13 +34,13 @@ d1 |>
              width = .000001,
              position = "dodge") +
     geom_jitter(aes(x = Percentile, y = mean, color= party), alpha = 1 ) +
-    annotate(x = 5, y =  max(d1$mean, na.rm = T),
-             hjust = 0,
-             vjust = 1,
-             geom = "text",
-             size = 3.5,
-             label = paste("Gini coefficient\n=", gini)
-             ) +
+    # annotate(x = 5, y =  max(d1$mean, na.rm = T),
+    #          hjust = 0,
+    #          vjust = 1,
+    #          geom = "text",
+    #          size = 3.5,
+    #          label = paste("Gini coefficient\n=", gini)
+    #          ) +
   geom_text_repel(aes(x = Percentile, y = mean,
                 label = ifelse(Percentile > 80,
                                member_state,
@@ -53,7 +53,7 @@ d1 |>
       x = "Percentile in Chamber",
       y = "Average requests per year") +
     scale_color_viridis_d(option = 1, begin = .3, end = .7) +
-    theme(legend.position = c(.1, .5),
+    theme(legend.position = c(.1, .9), # FIXME if adding back in GINI annotations, this will need to be changed to .5
           legend.title = element_blank(),
           #         legend.box.background = element_rect(),
           legend.box.margin = unit(c(0,0,0,0), "mm"),

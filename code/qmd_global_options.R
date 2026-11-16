@@ -39,6 +39,7 @@ requires <- c("tidyverse", "magrittr", # data wrangling
               "marginaleffects", # for predictions
               "fixest", # statistical package for fixed effects estimation
               "ineq", # to calculate GINI coefficients
+              "labelled", # for making labeled data for summary table in appendix b
               # MAY BE REQUIRED FOR QMD RENDERING
               "base64enc",
               "digest",

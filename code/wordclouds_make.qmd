@@ -1,21 +1,35 @@
 ---
 title: "wordclounds"
-editor: source
+subtitle: ""
+author: Devin Judge-Lord
+project:
+  type: default
+format: 
+  #pdf: 
+  html:
+      self-contained: false
+      toc: true
+      code-fold: true
+editor_options: 
+  chunk_output_type: console
+execute:
+  message: false
+  warning: false
 ---
 
-```{r}
+```{r 1}
 type = 1
 ```
 
 {{< include wordclouds.qmd >}}
 
-```{r}
+```{r 2}
 type = 2
 ```
 
 {{< include wordclouds.qmd >}}
 
-```{r}
+```{r 3}
 type = 3
 ```
 

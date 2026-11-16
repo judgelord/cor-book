@@ -62,6 +62,7 @@ cm = c(
   # VOTEVIEW
   "majority" = "Majority",
   "presidents_party" = "President's Party",
+  "party" = "Party",
   "party(R)" = "Republican",
   "party(I)" = "Independent",
   "party(I):presidents_party" = "Ind. × President's Party",
@@ -73,6 +74,7 @@ cm = c(
   "distance" = "Ideological Distance",
   "distance:presidents_party" = "Distance x President's Party",
   "presidents_party:distance" = "Distance x President's Party",
+  "agency_ideo" = "Percieved as Ideological",
   "abs(agency_ideo)" = "Agency Percieved as Ideological",
   "abs_nominate_dim1:presidents_party" = "abs(NOMINATE) x President's Party",
   "abs_nominate_dim1" = "| 1st Dim. DW-NOMINATE |",

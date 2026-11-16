@@ -19,9 +19,17 @@ library(fs)
 library(scales)
 library(magrittr)
 
+if(F){
+file.copy(
+  from = here::here("data", "all_contacts.rda") |> str_replace("cor-book", "correspondence_data") ,
+  to = here::here("data", "all_contacts.rda") 
+  )
+}
 
-here::here("data", "all_contacts.rda") |>
-  str_replace("cor-book", "correspondence_data") |> load()
+here::i_am("code/wordclouds.qmd")
+load(here::here("data", "all_contacts.rda"))
+
+d <- all_contacts 
 
 if(type != "total"){
 d <- all_contacts |> filter(TYPE == type)
@@ -35,7 +43,15 @@ d <- d |>
 members <- legislators::members
 
 # years to include from data_list
-here::here("data_list.R") |> str_replace("cor-book", "correspondence_data") |> source() 
+if(F){
+file.copy(
+  from = here::here("data_list.R") |> str_replace("cor-book", "correspondence_data")  ,
+  to = here::here("data_list.R") 
+  )
+}
+
+here::here("data_list.R") |> source() 
+
 
 agency_years_to_keep <- data_list %>%
   select(agency, years_to_include) %>%
@@ -81,9 +97,11 @@ custom_stop <- c(
   unique(d$agency) |> str_split("_") |> unlist(), "ferc", "ferc's", "fda's", "cdc", "cdc's", "dhs", "hhs", "cms", "ig's", "ita's", "doc's", "be'er", #"cder",
   "medicare", "health", "homeland", "security", "support", "america",
   unique(d$agency) |> str_split("_") |> unlist() |> str_to_lower(), 
-  state.name,
+  month.name |> str_to_lower(),
+  month.abb |> str_to_lower(),
+  state.name |> str_to_lower(),
   state.name |> str_to_lower() |> str_split(" |-") |> unlist(),
-  unique(members$last_name) |> str_split(" |-") |> unlist(), "diaz", "gwen", "andr", "vel", "zquez", "chuy", "dina", "cortez", "rona", "jos", "jesus", "jacky",
+  unique(members$last_name) |> str_split(" |-") |> unlist(), "diaz", "gwen", "andr", "vel", "zquez", "chuy", "dina", "cortez", "rona", "jos", "jesus", "jacky", "jame",  "raja", "abigail", "duncan",
   unique(members$first_name),
   unique(members$last_name) |> str_split(" |-") |> unlist() |> str_to_lower(),
   unique(members$first_name)|> str_to_lower() ,
@@ -137,7 +155,7 @@ subject_words <- d %>%
   count(agency, year, party_name, word, sort = TRUE)
 
 # Optional but recommended so you do not need to retokenize each time
-fs::dir_create(here("data", "derived"))
+fs::dir_create(here("data", "derived", type))
 saveRDS(subject_words, here("data", "derived", type, "subject_word_counts.rds"))
 ```
 
@@ -326,7 +344,7 @@ This creates one PNG with one panel per year.
 overall_year_counts <- subject_words %>%
   group_by(year, word) %>%
   summarize(n = sum(n), .groups = "drop") %>% 
-  filter(year >2003, year < 2024)
+  filter(year >2003, year < 2022)
 
 save_cloud_panel(
   counts = overall_year_counts,
