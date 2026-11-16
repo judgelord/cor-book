@@ -173,6 +173,18 @@ t5 <- models_full[[2]]
 
 models_full <- list(t1, t2, t3, t4, t5, ttotal)
 
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Const. Serv."),
+  `(2)` =c("Corp. Serv."),
+  `(3)` = c("NGO/Govt. Serv."),    
+  `(4)` = c("Corp. Policy"),
+  `(5)` = c("General Policy"),    
+  `(6)` = c("Total")
+  )
+
+attr(rows, 'position') <- c(0)
+
 save(models_full, rows, cm, gm, 
      file = here::here("models", "models_full-2.Rdata"))
 ```
@@ -212,6 +224,18 @@ load(here::here("models", type,  "models_full.Rdata"))
 t5 <- models_full[[3]]
 
 models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Const. Serv."),
+  `(2)` =c("Corp. Serv."),
+  `(3)` = c("NGO/Govt. Serv."),    
+  `(4)` = c("Corp. Policy"),
+  `(5)` = c("General Policy"),    
+  `(6)` = c("Total")
+  )
+
+attr(rows, 'position') <- c(0)
 
 save(models_full, rows, cm, gm, 
      file = here::here("models", "models_full-3.Rdata"))
@@ -253,6 +277,18 @@ t5 <- models_full[[4]]
 
 models_full <- list(t1, t2, t3, t4, t5, ttotal)
 
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Const. Serv."),
+  `(2)` =c("Corp. Serv."),
+  `(3)` = c("NGO/Govt. Serv."),    
+  `(4)` = c("Corp. Policy"),
+  `(5)` = c("General Policy"),    
+  `(6)` = c("Total")
+  )
+
+attr(rows, 'position') <- c(0)
+
 save(models_full, rows, cm, gm, 
      file = here::here("models", "models_full-4.Rdata"))
 ```
@@ -292,6 +328,18 @@ t5 <- models_full[[5]]
 
 models_full <- list(t1, t2, t3, t4, t5, ttotal)
 
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Const. Serv."),
+  `(2)` =c("Corp. Serv."),
+  `(3)` = c("NGO/Govt. Serv."),    
+  `(4)` = c("Corp. Policy"),
+  `(5)` = c("General Policy"),    
+  `(6)` = c("Total")
+  )
+
+attr(rows, 'position') <- c(0)
+
 save(models_full, rows, cm, gm, 
      file = here::here("models", "models_full-5.Rdata"))
 ```
@@ -330,6 +378,18 @@ load(here::here("models", type,  "models_full.Rdata"))
 t5 <- models_full[[6]]
 
 models_full <- list(t1, t2, t3, t4, t5, ttotal)
+
+rows <- tibble(
+  term = c("Dependent variable"),
+  `(1)` = c("Const. Serv."),
+  `(2)` =c("Corp. Serv."),
+  `(3)` = c("NGO/Govt. Serv."),    
+  `(4)` = c("Corp. Policy"),
+  `(5)` = c("General Policy"),    
+  `(6)` = c("Total")
+  )
+
+attr(rows, 'position') <- c(0)
 
 save(models_full, rows, cm, gm, 
      file = here::here("models", "models_full-6.Rdata"))
@@ -1981,8 +2041,8 @@ sort(object_sizes, decreasing = TRUE)[1:min(20, length(object_sizes))]
 comparison_spec <- crossing(
   type = c(as.character(1:5), "total"),
   model = 1L, # 1 = total cross sectional 
-  models_file = "models_full.Rdata",
-  models_object = "models_full"
+  models_file = "models_full_party.Rdata",
+  models_object = "models_full_party"
 ) |>
   crossing(
     tribble(
@@ -1991,12 +2051,30 @@ comparison_spec <- crossing(
     )
   )
 
-# comparison_spec$hypothesis
-
 comparison_df <- comparison_spec |>
   pmap_dfr(get_comparison)
 
-# comparison_df
+comparison_df <- comparison_df |>
+  filter(contrast == "mean((R)) / mean((D))") 
+
+comparison_plot(caption = "Republicans vs. Democrats") 
+
+
+comparison_spec <- crossing(
+  type = c(as.character(1:5), "total"),
+  model = c(3,5), # 1 = total cross sectional 
+  models_file = "models_full_party.Rdata",
+  models_object = "models_full_party"
+) |>
+  crossing(
+    tribble(
+      ~var, ~variable_change, ~outcome_comparison,
+      "party",  "pairwise", "ratioavg"
+    )
+  )
+
+comparison_df <- comparison_spec |>
+  pmap_dfr(get_comparison)
 
 comparison_df <- comparison_df |>
   filter(contrast == "mean((R)) / mean((D))") 
