@@ -1,64 +1,39 @@
 # Alternative Models (Online Only) {.appendix #sec-appendix-alt-models}
 
+
+```{r}
+library(tidyverse)
+library(tinytable)
+library(modelsummary)
+
+here::here("code", "formatting.R") |> source()
+```
+
+
 ## Alternative Specifications 
 
-Our main models excludes majority status because of how it interacts with committee leadership positions that are dependent on majority status. @tbl-models-full-majority-non includes majority status and omits committee leadership variables. 
+For three types of results, we used modified versions of @eq-full. We estimate additional models as robustness checks. 
+
+### Majority Status 
+
+Because committee leadership positions depend on chair status, we omitted majority status when estimating chair effects. To estimate the effects of majority status on interbranch work we added a majority status indicator to @eq-full. We also estimated modified models with majority status but without committee leadership variables. 
+Each section includes a model where we exclude committee leadership positions that depend on majority status, in order to estimate the effect of majority status among all members (not just those without leadership positions, who are structurally more likely to be in the minority, or junior members of the majority). 
 
 
-```{r}
-type = 3
-```
+### PAC Contributions 
+
+Because fundraising is also closely tied to committee positions as both a cause of appointment to chair positions and an effect of leadership positions, we did not include PAC fundraising in the main specification to estimate committee leadership effects. To estimate relationships with PAC contributions, we estimated separate models, identical to  @eq-full, but adding PAC contributions.
+
+### Right Wing and Left Wing 
+
+Our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate difference in interbranch representation done by the right wing, we estimate modified models where we substitute a "right wing" (NOMINATE scores greater than 0.5) indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare right wing legislators to moderates, we added a control for "left wing" (NOMINATE scores less than -0.5). These alternative models are available online in @sec-appendix-e-alt-models, along with other models estimated as robustest checks. 
+
+### Robustness Checks 
+
+The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the Incentives on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.
 
 
-::: {.fake-xref-table-for-caption}
-
-```{=latex}
-\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
-```
-
-|   |
-|---|
-|   |
-
-: The effect of constituent demand, legislator capacity, and political environment (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
-
-```{=latex}
-\endgroup\vspace{-2\baselineskip}
-```
-:::
-
-```{r}
-load(here::here("models", type,  "models_full_majority.Rdata"))
-
-modelsummary(models_full_majority,
-             notes = list(
-               "Robust standard errors in parentheses, clustered by legislator.",
-               "This table shows estimates of the effect of constituent demand, legislator capacity and strategic choices on levels of interbranch representation.")) |>
-  # get rid of formatting to get rid of the extra line 
-  theme_empty() |> 
-  # bold header, hline bottom, aligned center
-  tinytable::style_tt(j = 1, align = "l") |>
-  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
-  tinytable::style_tt(j = 1, align = "l")  |>  
-  # new stuff for this table 
-  tinytable::theme_latex(multipage = TRUE) |> 
-  group_tt(i = list(
-    "Constituent Demand"= 2,
-    "Strategic Choices Shaped by Political Environment" = 10,
-    "Capacity" = 28
-  )) |>
-  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
-  style_tt("groupi", background = "grey") |>
-  style_tt("~groupi", j = 1, indent = 1)
-```
-
-
-## Alternative Statistical Models 
-
-The main specification used a combined modeling approach.  Here we separate the parts of our framework and test the effects of constituent demand, capacity, and the political environment on interbranch representation separately, without adjusting for effects of the other parts. This alternative specification may be informative if we believe that parts are causally related (for example, if people from large states are more likely to become committee chairs or if more moderate members are more likely to face competitive general elections), or if some variables may be co-linear.
-
-
-### Modeling Response to Constituency Demands
+#### Modeling Response to Constituency Demands
 
 $$
 \begin{aligned}
@@ -74,7 +49,7 @@ Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\m
 $$ {#eq-demand}
 
 
-### Modeling Capacity Effects
+#### Modeling Capacity Effects
 
 
 $$
@@ -88,14 +63,12 @@ Y_{ijt}\mid X_{ijt},\gamma_{ij},\delta_{jt},m_{it},p_{it} &\sim \text{NegBin}(\m
   & \beta_5 \text{Committee Chair}_{it}+\\
   & \beta_6 \text{Subcommittee Chair}_{it}+\\
   & \beta_7 \text{Ranking Minority Committee Member}_{it}+\\
-  & \beta_8 \text{Prestige Committee Member}_{it}+\\
   &...\\
   & \gamma_{ij} + \delta_{jt} 
 \end{aligned}
 $$ {#eq-capacity}
 
 
-Additionally, each section includes a model where we exclude committee leadership positions that depend on majority status, in order to estimate the effect of majority status among all members (not just those without leadership positions, who are structurally more likely to be in the minority, or junior members of the majority). 
 
 
 
@@ -103,7 +76,126 @@ Additionally, each section includes a model where we exclude committee leadershi
 
 ```{r}
 type = "total"
-here::here("code", "formatting.R") |> source()
+```
+
+
+### Majority Status 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+### Right Wing and Left Wing 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including right wing and left wing {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_left_right.Rdata"))
+
+modelsummary(models_full_left_right,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 24
+  )) |>
+  style_tt(i = 41, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+### PAC Contributions 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) 
 ```
 
 
@@ -145,7 +237,7 @@ modelsummary(models_capacity,
 
 \clearpage
 
-### Total Interbranch Representation: Strategic Responses to the Political Environment
+### Total Interbranch Representation: Strategic Responses to the Incentives
 
 
 #### Total Interbranch Representation as electoral strategy
@@ -172,6 +264,127 @@ modelsummary(models_elect,
 ```{r}
 type = "1"
 ```
+
+### Majority Status 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+### Right Wing and Left Wing 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including right wing and left wing {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_left_right.Rdata"))
+
+modelsummary(models_full_left_right,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 24
+  )) |>
+  style_tt(i = 41, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+### PAC Contributions 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) 
+```
+
+
 
 
 ### Constituency Service: Demand
@@ -210,7 +423,7 @@ modelsummary(models_capacity,
 
 \clearpage
 
-### Constituency Service: Strategic Responses to the Political Environment
+### Constituency Service: Strategic Responses to the Incentives
 
 
 #### Constituency service as electoral strategy
@@ -238,6 +451,125 @@ modelsummary(models_elect,
 
 ```{r}
 type = "2"
+```
+
+### Majority Status 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+### Right Wing and Left Wing 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including right wing and left wing {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_left_right.Rdata"))
+
+modelsummary(models_full_left_right,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 24
+  )) |>
+  style_tt(i = 41, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+### PAC Contributions 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) 
 ```
 
 
@@ -278,7 +610,7 @@ modelsummary(models_capacity,
 
 \clearpage
 
-### Corporate Service: Strategic Responses to the Political Environment
+### Corporate Service: Strategic Responses to the Incentives
 
 
 #### Corporate Service as electoral strategy
@@ -301,6 +633,126 @@ modelsummary(models_elect,
 
 
 ## Nonprofit and Local Government Representation {#sec-appendix-alt-models-3}
+
+### Majority Status 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+### Right Wing and Left Wing 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including right wing and left wing {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_left_right.Rdata"))
+
+modelsummary(models_full_left_right,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 24
+  )) |>
+  style_tt(i = 41, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+### PAC Contributions 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) 
+```
+
 
 
 \clearpage
@@ -342,7 +794,7 @@ modelsummary(models_capacity,
 \clearpage
 
 
-### Nonprofit and Local Government Representation: Strategic Responses to the Political Environment
+### Nonprofit and Local Government Representation: Strategic Responses to the Incentives
 
 
 
@@ -368,6 +820,126 @@ modelsummary(models_elect,
 
 ```{r}
 type = "5"
+```
+
+
+### Majority Status 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+### Right Wing and Left Wing 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including right wing and left wing {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_left_right.Rdata"))
+
+modelsummary(models_full_left_right,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 24
+  )) |>
+  style_tt(i = 41, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+### PAC Contributions 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) 
 ```
 
 
@@ -405,7 +977,7 @@ modelsummary(models_capacity,
 
 \clearpage 
 
-### Policy Work: Strategic Responses to the Political Environment
+### Policy Work: Strategic Responses to the Incentives
 
 #### General Policy work as electoral strategy
 
@@ -427,6 +999,126 @@ modelsummary(models_elect,
 
 ```{r}
 type = "4"
+```
+
+
+### Majority Status 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_majority.Rdata"))
+
+modelsummary(models_full_majority,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 28
+  )) |>
+  style_tt(i = 39, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+
+### Right Wing and Left Wing 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including right wing and left wing {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_full_left_right.Rdata"))
+
+modelsummary(models_full_left_right,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) |>
+  # get rid of formatting to get rid of the extra line 
+  theme_empty() |> 
+  # bold header, hline bottom, aligned center
+  tinytable::style_tt(j = 1, align = "l") |>
+  tinytable::style_tt(i = 0:1, bold = T, line = "b",  align = "c") |>
+  tinytable::style_tt(j = 1, align = "l")  |>  
+  # new stuff for this table 
+  tinytable::theme_latex(multipage = TRUE) |> 
+  group_tt(i = list(
+    "Constituent Demand"= 2,
+    "Incentives Shaped by Incentives" = 10,
+    "Capacity" = 24
+  )) |>
+  style_tt(i = 41, line = "t", line_color = "black", line_width = 0.1) |>
+  style_tt("groupi", background = "grey") |>
+  style_tt("~groupi", j = 1, indent = 1)
+```
+
+
+### PAC Contributions 
+
+::: {.fake-xref-table-for-caption}
+
+```{=latex}
+\begingroup\fontsize{1pt}{1pt}\selectfont\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{0pt}\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{0pt}
+```
+
+|   |
+|---|
+|   |
+
+: The effect of Constituent Demand, Legislator Capacity, and Incentives (including majority status) on non-profit/local government service {#tbl-models-full-majority-non}
+
+```{=latex}
+\endgroup\vspace{-2\baselineskip}
+```
+:::
+
+```{r}
+load(here::here("models", type,  "models_pac.Rdata"))
+
+modelsummary(models_pac,
+             notes = list(
+               "Robust standard errors in parentheses, clustered by legislator.",
+               "This table shows estimates of The effect of Constituent Demand, Legislator Capacity and Incentives on levels of interbranch representation.")) 
 ```
 
 
