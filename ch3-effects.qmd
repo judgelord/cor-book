@@ -1,6 +1,6 @@
 # Interbranch Representation --- For Whom? And How? {#sec-effects}
 
->ABSTRACT: We have argued that interbranch representation varies along two dimensions---who is represented and how. This chapter shows what interbranch representation on behalf of different constituencies---individuals, businesses, nonprofits and local governments---looks like. First we look at particularized service ("casework") on behalf of each of these constituencies. Then we show what policy work looks like. Often casework and policy work are linked, with casework informing policy work. 
+> ABSTRACT: We have argued that interbranch representation varies along two dimensions---who is represented and how. This chapter shows what interbranch representation on behalf of different constituencies---individuals, businesses, nonprofits and local governments---looks like. First we look at particularized service ("casework") on behalf of each of these constituencies. Then we show what policy work looks like. Often casework and policy work are linked, with casework informing policy work. 
 
 ```{r, include=FALSE, cache=FALSE}
 here::here("code", "formatting.R") |> source()
@@ -173,9 +173,9 @@ load(here::here("data", type, "means.Rdata"))
 Scholars often describe oversight as fitful bursts of attention in response to the five-alarm fires of bureaucratic failure. Legislators' policy work with agencies through interbranch representation looks very different. Legislative offices are in constant communication with many agencies, voicing opinions and raising problems they hear about from constituents as agencies develop policy. This work often leads not to legislation or hearings but to changes in agency rules, guidance, or enforcement practices. The meager capacity of legislative offices means that attention is limited, with some issues and agencies receiving much more attention than others, but congressional interventions in agency practice are far less discrete and punctuated than conventional models of interbranch relations assume. 
 
 
-### Forms of General Policy Work 
+### Sub-Types of General Policy Work 
 
-We can group policy work into three distinct forms: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports), and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations). Sometimes policy work is clearly driven by legislators' policy interests. Other times it stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). Business interests are also a major driver of policy work, but we address policy work on behalf of business interests as a separate type of interbranch representation.
+We can group policy work into three distinct sub-types: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports), and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations). Sometimes policy work is clearly driven by legislators' policy interests. Other times it stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). Business interests are also a major driver of policy work, but we address policy work on behalf of business interests as a separate type of interbranch representation.
 
 We discuss each form in turn, beginning with work that precedes legislation, and then turn to the dynamics that cut across all three: partisanship, the constituents and interest groups who urge legislators to act, and fights over procedure. 
 
@@ -288,7 +288,7 @@ Human rights/labor also comes up a lot, and we could look more into who is most 
 
 ### Cross-Cutting Dynamics
 
-The three forms of general policy work describe what legislators ask agencies to do. Across all three, we can see examples of legislators' policy work being shaped by similar forces: partisan conflict with the administration, pressure from constituents and organized interests, and fights over procedure as well as substance. 
+The three sub-types of general policy work describe what legislators ask agencies to do. Across all three, we can see examples of legislators' policy work being shaped by similar forces: partisan conflict with the administration, pressure from constituents and organized interests, and fights over procedure as well as substance. 
 
 #### Constituencies and partisanship 
 
