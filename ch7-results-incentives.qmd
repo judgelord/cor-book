@@ -51,9 +51,7 @@ Unlike capacity, which we expect to have a positive relationship with interbranc
 Interbranch representation varies by partisanship and ideology. These incentives could push in opposite directions, depending on whether interbranch work is mainly collaborative (@hyp-strategy-partisan-alignment) or adversarial (@hyp-strategy-partisan-antagonism).
 :::
 
-<!--#### Alignment or antagonism? --> 
-
-If interbranch work focuses on procuring benefits for constituents, we should see more work among partisan and ideological allies. For example, members of the president's party receive more federal spending in their districts [@BerryBurdenHowell2010]. Interbranch representation is at the nexus of Congress and the executive branch. 
+**Alignment or antagonism.** If interbranch work focuses on procuring benefits for constituents, we should see more work among partisan and ideological allies. For example, members of the president's party receive more federal spending in their districts [@BerryBurdenHowell2010]. Interbranch representation is at the nexus of Congress and the executive branch. 
 Expecting relatively greater success, members of the president's party may thus engage in higher levels of interbranch representation on behalf of constituents seeking federal funding (businesses, nonprofits, and local governments).^[The behavior we are documenting in this book is the congressional portion of that relationship; it is legislators reaching out to executive branch agencies. To actually deliver results to their constituents, the agencies need to cooperate. If legislators of the president's party think they are more likely to receive higher levels of cooperation from executive branch agencies, they may be motivated to attempt interbranch representation at higher rates.]
 
 A similar logic of working with friends and receiving a warmer reception applies for agencies that are ideologically closer to the legislators. This may be in part because of the way that party coalitions represent interests. For example, the U.S. Department of Agriculture (USDA) may be perceived as conservative in part because it represents Republican-dominated rural states, and the Department of Housing and Urban Development (HUD) may be perceived as liberal because it represents more urbanized states dominated by Democrats. If interbranch work is about procuring benefits, we would expect rural representatives to work more with USDA and urban representatives to work more with HUD, thus producing a pattern of interbranch work favoring allies in one's policymaking and implementing coalition. This leads to our hypothesis about how alignment may lead to more interbranch representation. 
@@ -72,17 +70,13 @@ Legislators from the party opposing the president will do more interbranch repre
 
 The logic of antagonism is most applicable to policy work (recall, we code oversight work as policy work). 
 
-<!--#### Party coalitions--> 
-
-Party coalitions suggest some divergence with respect to which constituencies legislators represent, with Republicans typically perceived as being friendlier to business interests [@GimpelLeeParrott2014]. 
+**Party coalitions.** Party coalitions suggest some divergence with respect to which constituencies legislators represent, with Republicans typically perceived as being friendlier to business interests [@GimpelLeeParrott2014]. 
 
 ::: {#hyp-strategy-partisan-coalition .hypothesis name="Business coalition"}
 Republicans will do more interbranch representation on behalf of businesses.
 :::
 
-<!--#### Ideological factions -> 
-
-Ideology may also matter for legislators' interbranch representation, as more bipartisan (and therefore more ideologically "moderate," per DW-NOMINATE scores) legislators are more effective at pursuing their policymaking goals through lawmaking [@HarbridgeVoldenWiseman2023]. This could have countervailing effects. On the one hand, if interbranch representation is a substitute for legislating, the relative opportunity costs could incentivize less "moderate" legislators to focus more on forms of representation other than the legislative process. On the other hand, if legislating and interbranch work are complementary, or if less "moderate" legislators face similar challenges in interbranch work that they face in the legislative process, then these legislators with higher ideology scores may do less. 
+**Ideological factions**. Ideology may also matter for legislators' interbranch representation, as more bipartisan (and therefore more ideologically "moderate," per DW-NOMINATE scores) legislators are more effective at pursuing their policymaking goals through lawmaking [@HarbridgeVoldenWiseman2023]. This could have countervailing effects. On the one hand, if interbranch representation is a substitute for legislating, the relative opportunity costs could incentivize less "moderate" legislators to focus more on forms of representation other than the legislative process. On the other hand, if legislating and interbranch work are complementary, or if less "moderate" legislators face similar challenges in interbranch work that they face in the legislative process, then these legislators with higher ideology scores may do less. 
 
 <!--insert hypothesis about more policy work by left wing --> 
 
@@ -94,34 +88,34 @@ Tea Party and Freedom Caucus Republicans will do less interbranch representation
 
 The anti-administrative state logic of @hyp-strategy-partisan-antigovernment applies most strongly to policy work. While the "smaller government" logic may seem to support more work on behalf of state and local governments at first blush, Tea Party politicians often rejected federal funding, even those that went to state and local governments, so this logic, too, points in the direction of less work on behalf of those seeking funding or benefits from the federal government. 
 
-### Electoral Incentives
-
-While it is difficult to measure a legislator's incentive structure directly, we can identify situations in which legislators are likely to prioritize certain goals. Perhaps the most widely recognized strategic incentive of legislators is reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in *Congress: The Electoral Connection*, "\[Reelection \] has to be the *proximate* goal of everyone, the goal that must be achieved over and over if other ends are to be entertained" [@Mayhew1974, pg. 16]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to reelect the legislator [@Dodd1977; @Fiorina1977; @CainFerejohnFiorina1987; @SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012; @Ashworth2012]. Legislators who do find themselves in an electorally vulnerable political environment are likely to prioritize reelection, possibly by attempting to build a reputation for constituency service, to be the face of an oversight investigation, to deliver policy benefits to their district, or to invest in fundraising to build a campaign war chest. 
+**Electoral Incentives.** While it is difficult to measure a legislator's incentive structure directly, we can identify situations in which legislators are likely to prioritize certain goals. Perhaps the most widely recognized strategic incentive of legislators is reelection [e.g., @Mayhew1974; @CainFerejohnFiorina1987; @Fiorina1977; @Fenno1973]. As David Mayhew famously wrote in *Congress: The Electoral Connection*, "\[Reelection \] has to be the *proximate* goal of everyone, the goal that must be achieved over and over if other ends are to be entertained" [@Mayhew1974, pg. 16]. Legislators motivated by electoral concerns might devote additional attention and resources to helping their constituents, so that those constituents will vote to reelect the legislator [@Dodd1977; @Fiorina1977; @CainFerejohnFiorina1987; @SerraCover1992; @SerraMoon1994; @DroppPeskowitz2012; @Ashworth2012]. Legislators who do find themselves in an electorally vulnerable political environment are likely to prioritize reelection, possibly by attempting to build a reputation for constituency service, to be the face of an oversight investigation, to deliver policy benefits to their district, or to invest in fundraising to build a campaign war chest. 
 
 ::: {#hyp-strategy-electoral .hypothesis name="Electoral"}
 Electoral incentives shape how much and what kinds of interbranch representation legislators do as they respond to competition [@hyp-strategy-electoral-competition] and engage in fundraising that electoral competition demands [@hyp-strategy-electoral-donors].
 :::
 
 Members of Congress purport to believe that constituency service work will help their reelection efforts, with 44% of members saying they believed reelection was the primary reason most members perform constituency service [@Johannes1984, pg. 13]. This intuition has some empirical grounding. In their exploration of why Americans like their individual member of Congress more than Congress the institution (what has become known as "Fenno's paradox"), @ParkerDavidson1979 found that Americans evaluate the institution of Congress based on its legislative performance, the style and pace of the legislative process, and legislative-executive relations. At the same time, they judge individual members of Congress on the basis of two factors: constituency service and the legislator's personal characteristics.
-
-This expectation that electorally vulnerable legislators will do more constituency service, however, is contrary to Ritchie's findings in *Backdoor Lawmaking* about a different form of interbranch representation---policy work with federal agencies---which showed no consistent relationship between electoral vulnerability and policy work with federal agencies [@Ritchie2023].
-
-Another potential reason for caution regarding the relationship between electoral vulnerability and interbranch representation is the invisibility of interbranch representation. Although reelection motives have long been posited as a motivation to engage in constituency service, a skeptic might question whether allocating time and resources to a largely invisible activity rather than something more visible like communications or legislation is the best strategy. While acts of constituency service might be visible to an individual who has been helped, as well as their friends and family, one would have to assume fairly large social network amplification effects for it to reach enough voters to make an electoral difference at a time when the size of the average House district is over 760,000 people [@CRSCensus2026].
+This leads us to expect that electoral competition increases interbranch representation. 
 
 ::: {#hyp-strategy-electoral-competition .hypothesis name="Electoral competition"}
 Legislators whose prior general or primary election was competitive will do more interbranch representation.
 :::
 
+The @hyp-strategy-electoral-competition logic applies most strongly to constituency service. While competition may also incentivize credit claiming for oversight and policy benefits, there are reasons to be skeptical.
+In contrast to the expectation that electorally vulnerable legislators will do more constituency service, @Ritchie2023 found no consistent relationship between policy work with federal agencies and electoral vulnerability.
+Another potential reason for caution regarding the relationship between electoral vulnerability and interbranch representation is the invisibility of most interbranch work. Although reelection motives have long been posited as a motivation to engage in constituency service, a skeptic might question whether allocating time and resources to a largely invisible activity rather than something more visible like communications or legislation is the best strategy. While acts of constituency service might be visible to an individual who has been helped, as well as their friends and family, one would have to assume fairly large social network amplification effects for it to reach enough voters to make an electoral difference at a time when the size of the average House district is over 760,000 people [@CRSCensus2026].
+
 Thus far, we have focused on how electoral motivations could drive legislators to focus more on constituent concerns. We could think of this as legislators *responding* to an electoral threat by working harder for constituents when they are scared of losing their seats [@Mayhew1974; @Fiorina1977]. An alternative mechanism that could explain electorally vulnerable legislators doing more interbranch representation is *selection*. In a selection-based story, legislators who hold competitive seats may differ from those who hold safe seats. A robust formal theory literature considers the role that elections (voters and parties) play in selecting candidates that deliver [@Ashworth2012]. @GalassoNannicini2011 examine whether electoral competition is good for political selection, presenting both a formal model and empirical results from the Italian parliament. They find, consistent with their model's predictions, that "higher-quality" candidates are more likely to run in competitive districts and politicians elected in competitive districts perform better in the sense that they have fewer absences. These differences are due to selection more than to reelection incentives. If competitive elections select higher-quality legislators, then we may observe a relationship between electoral competition and interbranch representation for reasons other than as a response to reelection concerns. An alternative relationship could also exist: politicians who provide more constituency services (among other performance indicators) could deter strong challenges, so that a reputation for high-quality performance could help contribute to larger electoral margins. Indeed, the work of @Fiorina1977 and others who have argued that constituency service contributes to the incumbency advantage may suggest exactly that.  
 
-Our two different types of models---the within-legislator models and the across-legislator models---may help us disentangle these complex relationships. Comparisons across legislators cannot distinguish response from selection. Comparing the same legislator before and after their seat becomes competitive, however, can make this distinction, because it holds constant the politician's quality.  
+Our two different types of models --- the across-legislator models and the within-legislator models ---may help us disentangle these complex relationships. Comparisons across legislators cannot distinguish responses to the political environment from differing district characteristics or effects operating through selection. Comparing the same legislator before and after their seat becomes competitive, however, can make this distinction.  <!--AND DISTRICT MODELS!-->
 
-**Corporate fundraising** Legislators also choose on whose behalf to advocate. Research on campaign contributions has generally found that money does not buy roll call votes [@AnsFigSny03], but highly visible votes may be one of the least desirable channels of influence [@PowellGrimmer2015]. The relative invisibility of interbranch representation may make it a more attractive pathway for the influence of campaign contributions [@PowellJudgeLordGrimmer2023]. In a study of the Federal Energy Regulatory Commission, @PowellJudgeLordGrimmer2023 found that legislators who received more contributions from energy company PACs did more interbranch advocacy on behalf of corporate interests.
+**Corporate fundraising** Legislators also choose on whose behalf to advocate. Research on campaign contributions has generally found that money does not buy roll call votes [@AnsFigSny03], but highly visible votes may be one of the least desirable channels of influence [@PowellGrimmer2015]. The relative invisibility of interbranch representation may make it a more attractive pathway for the influence of campaign contributions. Indeed, legislators who received more contributions from energy company PACs did more interbranch advocacy on behalf of corporate interests in their dealings with the Federal Energy Regulatory Commission [@PowellJudgeLordGrimmer2023].
 
 ::: {#hyp-strategy-electoral-donors .hypothesis name="Corporate donors"}
 Legislators who receive more corporate PAC contributions will do more interbranch representation on behalf of businesses (corporate constituency service and corporate policy work).
 :::
 
+The logic of hyp-strategy-electoral-donors is strongest at agencies that are affected by the interests of the corporate donors --- for example, energy company donations ought to predict corporate service and policy work with the Department of Energy and agricultural-sector donations ought to predict corporate service and policy work with the Department of Agriculture. 
 
 <!--- Commenting out fundraising as distraction. We kind of look at this in conclusion. Leaving out for now.
 At the same time, conventional wisdom holds that the more time legislators spend "dialing for dollars," the less time they and their offices have for constituency service and policy work.
@@ -133,16 +127,18 @@ Legislators who receive more corporate PAC contributions will do less interbranc
 
 ### Institutional Incentives
 
-A central form of institutional advantage is being a member of the majority party, in which it is easier to achieve legislative goals. Thus, legislators who are in the majority may invest more in legislative work, which may result in their doing less interbranch representation. In her research on backdoor policymaking with federal agencies, Ritchie argues that legislators are most likely to turn to backchannel lawmaking by appealing directly to federal agencies when they face obstacles in the legislative process [@Ritchie2023]. Majority legislators encounter a much friendlier legislative environment and are thus less likely than minority legislators to turn to backchannel policy appeals to bureaucratic agencies. 
-
+A central form of institutional advantage is being a member of the majority party, in which it is easier to achieve legislative goals. Thus, legislators who are in the majority may invest more in legislative work, which may result in their doing less interbranch representation. In her research on backdoor policymaking with federal agencies, Ritchie argues that legislators are most likely to turn to backchannel lawmaking by appealing directly to federal agencies when they face obstacles in the legislative process [@Ritchie2023]. Majority legislators encounter a much friendlier legislative environment and may thus be less likely than minority legislators to turn to backchannel policy appeals to bureaucratic agencies. <!--TODO align this with the chapter intro, perhaps moving some of that text here.--> 
 
 ::: {#hyp-strategy-institutional .hypothesis name="Institutional"}
 Legislators in the majority party will do less interbranch representation.
 :::
 
+
+<!--TODO say something about incentives created by oversight (reporting) committee membership?-->  
+
 ### Mechanism: Staff Allocation
 
-The last strategic choice that we consider is how legislators allocate their staff. Where @sec-results-capacity examined how many staff an office has, here we consider how offices divide them across different tasks. Legislators who choose to prioritize a certain type of activity may want to devote more staff resources to accomplish that objective [@Reynolds2020]. Thus, we can view staff allocation choices (in the form of the amount of a legislator’s office budget that they spend on constituency service staff, for instance) as a reflection of the member’s priorities, and thus a strategic choice they are making. We argue that member offices that devote more resources to staff who do a certain type of work are likely to produce more of that type of work.
+The last strategic choice that we consider is how legislators allocate their staff. Where @sec-results-capacity examined how many staff an office has, here we consider how offices divide them across different tasks. Legislators who choose to prioritize a certain type of activity may want to devote more staff resources to accomplish that objective [@Reynolds2020]. Thus, we can view staff allocation choices (in the form of the number of people they hire or the amount of a legislator’s office budget that they spend on constituency service staff, for instance) as a reflection of the member’s priorities, and thus a strategic choice they are making. We argue that member offices that devote more resources to staff who do a certain type of work are likely to produce more of that type of work.
 
 ::: {#hyp-strategy-staff .hypothesis name="Staff allocation"}
 Offices that allocate more staff to a type of work will do more of that type of interbranch representation.
@@ -150,34 +146,33 @@ Offices that allocate more staff to a type of work will do more of that type of 
 
 ## Measuring Strategic Incentives
 
-Legislators may strategically respond to their political environment in a number of ways, some of which may affect how they allocate their office capacity. To measure strategic behavior, we rely on legislators' staff allocation, ideological distance from federal agencies, electoral competitiveness, majority party status, and whether the legislator is a member of the president's party. The latter four factors are features of the political environment to which legislators are likely to respond strategically, while legislators' choices about staff allocation likely *reflect* strategic choices about the kind of work that they wish to prioritize. 
+Legislators may strategically respond to their political environment in a number of ways, some of which may affect how they allocate their office capacity. We model features of the political environment to which legislators are likely to respond strategically: ideological distance from federal agencies, electoral competitiveness, majority party status, and whether the legislator is a member of the president's party. 
+To this, we add indicators of political party and ideology or faction.
+Finally, we measure legislators' choices about staff allocation, which likely *reflect* strategic choices about the kind of work that they wish to prioritize. 
 
-To assess the ideological similarity between members of Congress and each federal agency, we compare members' first dimension
-DW-NOMINATE scores [@dwnominate2024] with survey-based measurements of federal
-agencies' perceived ideological leanings [@RichardsonClintonLewis2018].
-To measure the ideological *distance* between members of Congress and
-federal agencies, we subtract each member’s first-dimension DW-NOMINATE
-score from the ideology score of each agency.^[
-Technically, 0 has no special meaning on these latent scales; therefore, for example, there is no reason that -1 and 1 are equally ideologically distant. However, the @RichardsonClintonLewis2018 scale is locally identified to have mean 0, so absolute value serves as a linear measure of distance from the mean. Moreover, agencies with ideological scores near zero include the National Aeronautics and Space Administration (NASA), National Institute of Standards and Technology (NIST), and Veterans Benefits Administration (VBA), which are agencies that respondents presumably would perceive to be neither liberal nor conservative when responding to the survey question, suggesting 0 could be considered "moderate." @RichardsonClintonLewis2018 estimates subagency-specific perceived ideology scores for many sub-agencies in our data. For sub-agencies that do not have a specific score, we use their department's score. 
-Six small, extremely low-salience independent agencies or commissions do not have a score. We assign them a score of 0. <!--This makes the measure of distance for these agencies the same as the absolute value of a member's first-dimension DW-NOMINATE score, which we control for in all models.-->  These six were 
+To assess the ideological distance between members of Congress and each federal agency, we compare members' first dimension.
+DW-NOMINATE scores [@dwnominate2024] with survey-based measurements of federal agencies' perceived ideological leanings [@RichardsonClintonLewis2018].
+To measure the ideological *distance* between members of Congress and federal agencies, we subtract each member’s first-dimension DW-NOMINATE score from the ideology score of each agency.^[
+Technically, 0 has no special meaning on these latent scales, and there is no reason that -1 and 1 are equally ideologically distant. However, the @RichardsonClintonLewis2018 scale is locally identified to have mean 0, so absolute value serves as a linear measure of distance from the mean. Moreover, agencies with ideological scores near zero include the National Aeronautics and Space Administration (NASA), National Institute of Standards and Technology (NIST), and Veterans Benefits Administration (VBA), which are agencies that respondents presumably would perceive to be neither liberal nor conservative when responding to the survey question, suggesting 0 could be considered "moderate" by survey respondents in the same way that a more bipartisan voting record leads to a "moderate" NOMINATE score. @RichardsonClintonLewis2018 estimate subagency-specific perceived ideology scores for many sub-agencies in our data. For sub-agencies that do not have a specific score, we use their department's score. 
+Six small, extremely low-salience independent agencies or commissions do not have a score. We assign them a score of 0. This makes the measure of distance for these agencies the same as the absolute value of a member's first-dimension DW-NOMINATE score, which we control for in all models, making it extremely unlikely that these agencies influence the results. These six were 
 the American Battle Monuments Commission (ABMC), 
 the Court Services and Offender Supervision Agency (CSOSA),
-National Capital Planning Commission (NCPC; despite making the news in 2026, it is reasonable to assume it did not have a strong partisan perception prior),
+National Capital Planning Commission (NCPC; despite making the news in 2026, it is reasonable to assume it did not have a strong partisan perception or partisan political engagement prior),
 U.S. Nuclear Waste Technical Review Board, 
-the Postal Regulatory Commission (PRC), and the U.S. Railroad Retirement Board (RRB)
+the Postal Regulatory Commission (PRC), and the 
+U.S. Railroad Retirement Board (RRB)
 ]
-For example, Bernie Sanders, with a NOMINATE score of -0.545 (liberal), has a distance close to zero with the Department of Labor's Mine Health and Safety Administration with a score of -0.580 (liberal), but a distance close to 1 with the United States Trade Representative (USTR) with a score of 0.439 (conservative). 
+For example, Senator Bernie Sanders, with a NOMINATE score of -0.545 (liberal), has a distance close to zero with the Department of Labor's Mine Health and Safety Administration with a score of -0.580 (liberal), but a distance close to 1 with the United States Trade Representative (USTR) with a score of 0.439 (conservative). 
 The largest distance in our data is 2.66 between the Office of the Secretary of Defense and Joint Staff (1.91) and Carte Goodwin (-0.747).
 To help guard against conclusions about distance being driven by distance from zero on the DW-NOMINATE scale, we control for the absolute value of the first dimension of DW-NOMINATE. 
  We also use other legislator-level variables from @dwnominate2024, including party membership to derive majority status and whether a legislator is a member of the president's party. 
 
-To test @hyp-strategy-partisan-antigovernment, we measure Freedom Caucus and Tea Party membership by using a cut point of a DW-NOMINATE score of 0.5 and above. While this is not the same as caucus party membership, we believe it captures most members of these factions and has the advantage of being a consistent measure over time. These actual caucus memberships do not exist for our entire time period and evolve beyond their creation, changing names from Tea Party to Freedom Caucus. Thus, the NOMINATE-based measure lets us measure this faction of very conservative legislators in a more stable way over time.
+To test @hyp-strategy-partisan-antigovernment, we approximate a Freedom Caucus- or Tea Party-aligned faction of the republican party by using a cut point of a DW-NOMINATE score of 0.5 and above. While this is not the same as caucus party membership, it captures nearly all members of these factions and has the advantage of being a consistent measure over time. These actual caucus memberships do not exist for our entire time period and evolve substantially. Thus, the NOMINATE-based measure lets us measure this faction of very conservative legislators in a more consistent way over time, based on the alignment of their voting records rather than caucus membership.
 
 For data on electoral competitiveness, we start with data from @Thomsen2023 on vote share in primary and general elections, adopting her definition of whether an election was competitive. For general election competitiveness, we fill in gaps in the @Thomsen2023 data by applying a similar decision rule (whether the winner received less than 57.5% of the vote) to vote share data compiled by @VoldenWiseman2014 and @VoldenWiseman2018. Notably, the average percent of members of Congress whose prior election was competitive (weighted by the number of agencies for which we have data for that year) was 30% for general elections and 10% for primary elections (House only). The number of districts that change from non-competitive to competitive is even smaller, possibly frustrating tests for the effect of electoral competitiveness. 
 
 To measure corporate fundraising, we use the total contributions each legislator received from corporate political action committees in the prior Congress [@Bonica2024]. For the Department of Energy case study, we use contributions from energy sector PACs specifically [as described in @PowellJudgeLordGrimmer2023].
 
-<!--Rochelle 11/14: we mention above that we use DW-NOMINATE data for majority party status -->
 For @hyp-strategy-institutional, we use an indicator for whether a legislator’s party held the majority in their chamber in that Congress, derived from party membership in @dwnominate2024.
 
 To measure staff allocation, we use the number of staffers working in casework positions in each legislator’s personal office based on LegiStorm’s staff titles [@Legistorm]—most of the staff positions we classified as caseworkers had "casework" in the job title. <!--TODO add an appendix of staff job titles--> 
@@ -224,20 +219,15 @@ To measure staff allocation, we use the number of staffers working in casework p
 
 ## Results
 
-<!-- DEVIN: Please confirm or correct the bracketed details:
-(1) same model, unit, and clustering as Chapters 5 and 6?
-(2) specify controls in these models (demand and capacity measures?), and fixed effects in the within-legislator models;
-(3) appendix table references. -->
+To estimate how strategic incentives relate to interbranch representation, we use the same models reported in @sec-results-demand and @sec-results-capacity. (Modeling the number of contacts of each type that a legislator's office makes with each federal agency in a given year, using negative binomial regressions with standard errors clustered by legislator.) Each model includes all of the strategic incentive measures together, controlling for all of the demand and capacity indicators discussed in the prior chapters. 
+For three results, we use slightly modified versions of this main model. 
+First, to estimate the effects of majority status on interbranch work, we add a majority status indicator to @eq-full. We also estimated modified models with majority status but without committee leadership variables. Respectively, these two sets of models estimate the effect of majority status among (1) non-committee leaders and (2) overall, including committee leadership effects.
+Second, because fundraising is also closely tied to committee positions as both a cause of appointment to chair positions and an effect of leadership positions, we did not include PAC fundraising in the main specification to estimate committee leadership effects. To estimate relationships with PAC contributions, we estimated separate models, identical to @eq-full, but adding PAC contributions.
+Third, our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate the difference in interbranch representation done by the "right wing" faction, we estimate modified models where we substitute a "right wing" indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare "right wing" legislators to "moderates," we add a control for "left wing" (NOMINATE scores less than -.05). These alternative models are available online in @sec-appendix-e-alt-models, along with other models estimated as robust checks. 
 
-To estimate how strategic incentives relate to interbranch representation, we use the same approach as in @sec-results-demand and @sec-results-capacity: we model the number of contacts of each type that a legislator's office makes with each federal agency in a given year, using negative binomial regressions with standard errors clustered by legislator. Each model includes all of the strategic incentive measures together, controlling for all of the demand and capacity indicators discussed in the prior chapters. 
-For three results, we used modified versions of this main model. 
-First, to estimate the effects of majority status on interbranch work, we added a majority status indicator to @eq-full. We also estimated modified models with majority status but without committee leadership variables. Respectively, these two sets of models estimate the effect of majority status among non-committee leaders and overall, including committee leadership effects.
-Second, because fundraising is also closely tied to committee positions as both a cause of appointment to chair positions and an effect of leadership positions, we did not include PAC fundraising in the main specification to estimate committee leadership effects. To estimate relationships with PAC contributions, we estimated separate models, identical to  @eq-full, but adding PAC contributions.
-Third, our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate the difference in interbranch representation done by the right wing, we estimate modified models where we substitute a "right wing" indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare "right wing" legislators to "moderates," we control for "left wing" (NOMINATE scores less than -.05). These alternative models are available online in @sec-appendix-e-alt-models, along with other models estimated as robust checks. 
+Recall that we estimated both cross-sectional and within-legislator models where possible. Some strategic incentives change over a legislator's career: legislators gain or lose a co-partisan president, move between the majority and minority, and face more or less competitive elections. For these, within-legislator models compare the same legislator before and after the change. Others rarely or never change within a legislator's career, including party and ideology, so for these we rely on cross-sectional comparisons. Few districts change from safe to competitive, which limits what within-legislator models can tell us about electoral competition. Because cross-sectional comparisons cannot rule out that legislators who face different incentives also differ in other ways, we interpret these results more cautiously than the within-legislator estimates in @sec-results-capacity.
 
-Where possible, we again estimate both cross-sectional and within-legislator models. Some strategic incentives change over a legislator's career: legislators gain or lose a co-partisan president, move between the majority and minority, and face more or less competitive elections. For these, within-legislator models compare the same legislator before and after the change. Others rarely or never change within a legislator's career, including party and ideology, so for these we rely on cross-sectional comparisons. Few districts change from safe to competitive, which limits what within-legislator models can tell us about electoral competition. Because cross-sectional comparisons cannot rule out that legislators who face different incentives also differ in other ways, we interpret these results more cautiously than the within-legislator estimates in @sec-results-capacity.
-
-As in the previous chapters, we report the percent difference in expected contacts associated with each indicator (or with a one standard deviation increase, for continuous measures such as ideological distance, PAC contributions, and employees). In each figure, points mark the estimated effect for total interbranch representation, and each of the five types of interbranch representation and horizontal lines show 95% confidence intervals. Panel labels indicate whether estimates are cross-sectional or within-legislator and whether they come from House, Senate, or pooled models. Full results are in [DEVIN: appendix table reference].
+As in the prior chapters, we report the percent difference in expected contacts associated with each indicator (or with a one standard deviation increase, for continuous measures such as ideological distance, PAC contributions, and employees). In each figure, points mark the estimated difference in interbranch representation, both overall and for each of the five types of interbranch representation. Horizontal lines show 95% confidence intervals. Panel labels indicate whether estimates are cross-sectional or within-legislator and whether they come from House, Senate, or pooled models. Full results are in @appendix-c-models.
 
 
 ### Partisan and Ideological Allies Mostly Work Together
@@ -246,31 +236,32 @@ Partisan and ideological incentives drive interbranch work in several ways (@hyp
 
 #### Presidential Alignment, Not Antagonism 
 
-We begin by considering the countervailing pressures of alignment (@hyp-strategy-partisan-alignment) and antagonism (@hyp-strategy-partisan-antagonism) for members of the president's party. @fig-marginal-presidentparty shows the marginal effect of being a member of the president's party, all else held equal, on interbranch representation. Overall, we see support for alignment outweighing antagonism: members of the president's party engage in approximately 3.5% more total interbranch representation in the diff-in-diff models.^[In this case we see very similar patterns of results in the cross-sectional and diff-in-diff models, though a few coefficients that are significant in the diff-in-diff fail to reach conventional levels of significance in the cross-sectional models.] If we dive into the sub-types of interbranch representation, we mostly see a similar pattern with the president's co-partisans doing more. However, the effect size varies from a low of 4% for individual constituent service to a high of 28% for nonprofit and local government service. Notably, the sole exception to this alignment story is for general policy work, where the point estimate is negative (-1%), though it fails to reach conventional levels of statistical significance. That the alignment hypothesis fails in precisely the category---general policy work---where we might see traditional forms of congressional oversight suggests that our traditional understanding of adversarial antagonism may play a role there. 
+We begin by considering the countervailing incentives related to alignment (@hyp-strategy-partisan-alignment) and antagonism (@hyp-strategy-partisan-antagonism) with the president. @fig-marginal-presidentparty shows the marginal effect of being a member of the president's party, all else held equal, on interbranch representation. Overall, we see support for alignment outweighing antagonism: members of the president's party engage in approximately 3.5% more total interbranch representation in the diff-in-diff models.^[In this case we see very similar patterns of results in the cross-sectional and diff-in-diff models, though a few coefficients that are significant in the diff-in-diff fail to reach conventional levels of significance in the cross-sectional models.] If we dive into the sub-types of interbranch representation, we mostly see a similar pattern with congressional offices doing more when the president becomes a co-partisan. However, the effect size varies from a low of 4% for individual constituent service to a high of 28% for nonprofit and local government service. Notably, the exception to this alignment story is for general policy work, where the point estimate is near zero and not statistically significant. That the alignment hypothesis fails in precisely the category---general policy work---where we put traditional forms of congressional oversight suggests that our traditional understanding of adversarial antagonism may play a countervailing role there, offsetting the collaborative policy work.
 
 
 ```{r}
 #| label: fig-marginal-presidentparty
 #| fig-cap: "Marginal effect of being a member of the president's party on interbranch representation. Points show the estimated percent difference in each type of interbranch representation associated with being a member of the president's party, with 95% confidence intervals. The upper panel shows cross-sectional estimates and the lower panel shows within-legislator estimates." 
 #| fig-scalp: "Marginal effects of sharing the president's party on interbranch representation"
-#| out-width: "100%"
+#| out-width: "80%"
 knitr::include_graphics(here::here("figs", "marginal-presidents_party-1.png"))
 
 ```
 
 
-#### Agency Antagonism and Alignment 
+#### Agency-level Antagonism and Alignment 
 
-In the last section, we examined how partisan alignment between a legislator and the presidency influenced interbranch representation. Another way to think about those results is to think about the presidency as influencing everything in the executive branch; therefore, legislators who agree or disagree with the presidency would act differently overall. A different approach to considering alignment or antagonism looks at agency-specific ideology measures---for example, even under the same president, the Department of Defense is viewed as more conservative than the Environmental Protection Agency. Here we examine what happens when a district elects a representative that is more distant from the perceived ideology of the agency. Do more ideologically distant legislators appear to act as antagonists, increasing their interbranch representation (@hyp-strategy-partisan-antagonism), or do we see more activity from ideologically proximate legislators acting as aligned allies (@hyp-strategy-partisan-alignment)? 
+In the last section, we examined how partisan alignment between a legislator and the presidency influenced interbranch representation. 
+A different approach to measuring alignment or antagonism looks at agency-specific ideology measures --- for example, even under the same president, the Department of Defense is viewed as more conservative than the Environmental Protection Agency. <!--TODO DISTRICT MODELS Here we examine what happens when a district elects a representative that is more distant from the perceived ideology of the agency.--> Do legislators engage more with distant agencies (@hyp-strategy-partisan-antagonism), or do we see more interbranch work coming from ideologically proximate legislators --- aligned allies in policymaking and implementation (@hyp-strategy-partisan-alignment)? 
 
-Legislators engaging more with agencies that they perceive as ideologically similar or distant is more about *which* agencies representatives target, rather than *how much* they do overall. @fig-marginal-ideodist shows the marginal effect of a one standard deviation increase in a legislator's ideological distance from an agency.^[We can only estimate the cross-sectional model here, because we lack enough variation to estimate the diff-in-diff.] We see no difference in individual constituency service or corporate service, where we find fairly precisely estimated zeros. But we see opposite alignment vs. antagonism patterns for our other forms of interbranch representation. General policy work (-16%), nonprofit/local government service (-15%), and total interbranch representation (-6.5%) follow a pattern of *alignment*, where more ideologically similar legislators do more work with the agency. On the antagonism side, we see more ideologically distant legislators engage in substantially more corporate policy work (+28%). This suggests that legislative offices may be doing policy work on behalf of certain industries by attacking regulators of those industries (e.g., conservatives spending time representing industry interests to the Environmental Protection Agency, which is perceived as ideologically distant). 
+Legislators engaging more with agencies that they perceive as ideologically similar or distant is more about *which* agencies representatives target, rather than *how much* they do overall. @fig-marginal-ideodist shows the marginal effect of a one standard deviation increase in a legislator's ideological distance from an agency.^[Ideological distance ranges from 0 to 2.66 with a standard deviation of 0.54. We can only estimate the cross-sectional model here, because we lack enough variation in NOMINATE scores to estimate the diff-in-diff.] We see no difference in individual constituency service or corporate service, where we find fairly precisely estimated zeros. But we see opposite alignment vs. antagonism patterns for our other forms of interbranch representation. General policy work (-16%), nonprofit/local government service (-15%), and total interbranch representation (-6.5%) follow a pattern of *alignment*, where more ideologically similar legislators do more work with the agency. On the antagonism side, we see more ideologically distant legislators engage in substantially more corporate policy work (+28%). This suggests that legislative offices may be doing policy work on behalf of certain industries by attacking regulators of those industries (e.g., conservatives spending time representing industry interests to the Environmental Protection Agency, which is perceived as ideologically distant). 
 
 
 ```{r}
 #| label: fig-marginal-ideodist
 #| fig-cap: "Marginal effect of ideological alignment with agency on interbranch representation. Points show the estimated percent difference in each type of interbranch representation associated with one standard deviation greater perceived ideological distance from the agency, with 95% confidence intervals. We show cross-sectional estimates only, because legislators' ideology rarely changes over their careers."
 #| fig-scalp: "Marginal effects of ideological distance from an agency on five types of interbranch representation"
-#| out-width: "100%"
+#| out-width: "80%"
 
 knitr::include_graphics(here::here("figs", "marginal-distance-1.png"))
 ```
@@ -284,7 +275,7 @@ As expected, House Republicans do significantly more corporate constituency serv
 #| label: fig-marginal-party
 #| fig-cap: "Marginal effect of party on interbranch representation. Points show the estimated percent difference in each type of interbranch representation for Republicans compared with Democrats, with 95% confidence intervals, from cross-sectional models."
 #| fig-scalp: "Marginal effects of Republican party membership on five types of interbranch representation"
-#| out-width: "70%"
+#| out-width: "80%"
 
 knitr::include_graphics(here::here("figs", "marginal-party-2.png"))
 ```
@@ -311,7 +302,7 @@ Consistent with our expectations, legislators on the extreme ideological end of 
 #| label: fig-marginal-antigovernment
 #| fig-cap: "Marginal Effect of Antigovernment ideology on interbranch representation. Points show the estimated percent difference in each type of interbranch representation for Antigovernment legislators compared to all other legislators, with 95% confidence intervals, from cross-sectional models."
 #| fig-scalp: "Marginal effects of antigovernment legislators on five types of interbranch representation"
-#| out-width: "70%"
+#| out-width: "80%"
 
 knitr::include_graphics(here::here("figs", "marginal-far_right-2.png"))
 ```
@@ -331,8 +322,8 @@ We turn next to considering what has long been considered the canonical motivati
 ```{r}
 #| label: fig-marginal-electoral
 #| fig-cap: "Marginal Effect of Electoral Competitiveness on interbranch representation. "
-#| out-width: "100%"
-#| layout-ncol: 2
+#| out-width: "80%"
+#| layout-ncol: 1
 #| fig-subcap: 
 #|   - "Competitive General Election"
 #|   - "Competitive Primary Election"
@@ -368,7 +359,7 @@ Instead of just considering the impact of all corporate PAC contributions on cor
 #| label: fig-marginal-energypac
 #| fig-cap: "Marginal effect of Energy PAC contributions on interbranch contacts with the Department of Energy. Points show the estimated percent difference of a one standard deviation increase in Energy PAC contributions, with 95% confidence intervals, from cross-sectional models."
 #| fig-scalp: "Marginal effects of Energy PAC contributions on contact with the Department of Energy"
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| fig-subcap: 
 #|   - "Energy PAC"
 #|   - "Placebo: Non-Energy PAC "
@@ -394,7 +385,7 @@ The upper panels of @fig-marginal-majority show the impact of majority status in
 #| label: fig-marginal-majority
 #| fig-cap: "Marginal Effect of Majority Status in the U.S. House of Representatives. Points show the estimated percent difference in each type of interbranch representation, with 95% confidence intervals, from cross-sectional models."
 #| fig-scalp: "Marginal effects of majority status on five types of interbranch representation"
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| fig-subcap: 
 #|   - "House Majority Status: No committee leadership controls"
 #|   - "House Majority Status: Controls for committee leadership "
@@ -435,7 +426,7 @@ here::here("figs", "staff-category-counts-over-time2-2.png") |>
 #| label: fig-marginal-staff-allocation
 #| fig-cap: "Marginal Effect of the Number of Casework Staff. Points show the estimated percent difference in each type of interbranch representation, with 95% confidence intervals, from cross-sectional models."
 #| fig-scalp: "Marginal effects of casework staff on five types of interbranch representation"
-#| out-width: "100%"
+#| out-width: "80%"
 
 knitr::include_graphics(here::here("figs", "marginal-constituent-casework-staff-count-1.png"))
 ```
@@ -462,16 +453,16 @@ knitr::include_graphics(here::here("figs", "marginal-constituent-casework-staff-
 +----------------------------+------------+------------+-------------+------------+------------+------------+
 | Republican                 |            | **↑**/–    |             |            | n.s./–     | n.s./–     |
 +----------------------------+------------+------------+-------------+------------+------------+------------+
-| Right wing (House)         | ↑/–        | ↑/–        | **↓**/–     | **↓**/–    | n.s./–     | n.s./–     |
+| Right wing (House)          | ↑/–        | ↑/–        | **↓**/–     | **↓**/–    | n.s./–     | n.s./–     |
 +----------------------------+------------+------------+-------------+------------+------------+------------+
-| Right wing (Senate)        | n.s./–     | n.s./–     | **↓**/–     | **↓**/–    | **↓**/–    | **↓**/–    |
+| Right wing (Senate)         | n.s./–     | n.s./–     | **↓**/–     | **↓**/–    | **↓**/–    | **↓**/–    |
 +----------------------------+------------+------------+-------------+------------+------------+------------+
 | **@hyp-strategy-electoral (Electoral): partly supported.** Competitive general elections select House     |
-| members who do more service but do not change what they do after a competitive primary; House members do  |
+| members who do more service but do not change what they do after a competitive primary; House members do |
 | more constituency service. Generally, corporate money goes to legislators doing corporate work. Within    | 
 | Within legislators, more money does not bring more corporate work. The energy case study is consistent    |
 | with this pattern: energy PAC money goes to legislators working with the Department of Energy. Within     | 
-| legislators, energy PAC contributions cause more general policy and total interbranch work with Energy,   | 
+| legislators, energy PAC contributions cause more general policy and total interbranch work with Energy,  | 
 | but not on corporate work specifically.                                                                   | 
 +----------------------------+------------+------------+-------------+------------+------------+------------+
 | Competitive general        | **↑**/n.s. | **↑**/n.s. | n.s./n.s.   | n.s./n.s.  | n.s./↓     | n.s./n.s.  |
@@ -526,6 +517,6 @@ That the political environment would shape what politicians do may not be a surp
 
 Next, we'll attempt to zoom out and discuss more broadly how our findings about demand, capacity, and strategic incentives change our understanding of congressional representation and democratic governance more broadly [@sec-conclusion]. We also explore new questions about conceptualizing and measuring legislative effectiveness in Congress and whether our patterns of interbranch representation can be explained by variation in legislative styles. We conclude by considering practical implications of interbranch representation, how the casework-to-policy feedback loop can be improved, how interbranch representation might be changing under the second Trump administration, and future areas of research. 
 
-<!--[Ellie: I moved our results summaries to the previous section. We still need to add some big picture stuff, and a paragraph transitioning to conclusion chapter.]--> 
+<!--[Ellie: I moved our results summaries to the previous section. We still need to add some big picture stuff, and a paragraph transitioning to the conclusion chapter.]--> 
 
 
