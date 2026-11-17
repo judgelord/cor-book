@@ -1,7 +1,7 @@
 # Types Across Models (Online Only) {.appendix #sec-appendix-types-across-models}
 
 
-## Total Interbranch Representation {#sec-appendix-models-total}
+## Total Interbranch Representation {#sec-appendix-types-across-models-total}
 
 ```{r}
 type = "total"
@@ -54,7 +54,7 @@ modelsummary(models_full_majority,
 \clearpage
 
 
-## Individual Constituent Service {#sec-appendix-models-1}
+## Individual Constituent Service {#sec-appendix-types-across-models-1}
 
 ```{r}
 type = 1
@@ -106,7 +106,7 @@ modelsummary(models_full_majority,
 
 
 
-## Corporate Service {#sec-appendix-models-2}
+## Corporate Service {#sec-appendix-types-across-models-2}
 
 ```{r}
 type = 2
@@ -156,7 +156,7 @@ modelsummary(models_full_majority,
   style_tt("~groupi", j = 1, indent = 1)
 ```
 
-## Non-profit/Local Government Service {#sec-appendix-models-3}
+## Non-profit/Local Government Service {#sec-appendix-types-across-models-3}
 
 ```{r}
 type = "3"
@@ -211,7 +211,7 @@ modelsummary(models_full,
 
 \clearpage
 
-## General Policywork  {#sec-appendix-models-5}
+## General Policywork  {#sec-appendix-types-across-models-5}
 
 ```{r}
 type = 5
@@ -261,7 +261,7 @@ modelsummary(models_full_majority,
 
 
 
-## Policy Work on Behalf of Business  {#sec-appendix-models-4}
+## Policy Work on Behalf of Business  {#sec-appendix-types-across-models-4}
 
 ```{r}
 type = 4
