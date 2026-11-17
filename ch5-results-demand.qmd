@@ -136,7 +136,7 @@ Average the unit-level estimates across the whole dataset.
 Standard errors are obtained via the delta method [see @marginaleffects, Chapter 6].
 
 
-Each figure below shows these marginal effects for one indicator. Points mark the estimated effect for each of the five types of interbranch representation, horizontal lines show 95% confidence intervals, and the upper and lower panels show the House and Senate, respectively.
+Each figure below shows these estimated differences for one indicator. These figures are labeled "marginal effects," describing the method of counterfactual estimation, but are better understood as average *differences* for cross-sectional models. Points mark the estimated percent difference for each of the five types of interbranch representation, horizontal lines show 95% confidence intervals, and the upper and lower panels show the House and Senate, respectively.
 
 ### More Constituents, More Interbranch Representation
 
@@ -240,7 +240,7 @@ TODO: Appendix C, tables 1,3,5
 |                            |                                                                          | individuals)           |
 +============================+========================+========================+========================+========================+
 
-: Observed relationships between each indicator of demand and each type of interbranch representation, with an overall assessment of each sub-hypothesis. Each cell shows *House / Senate* results: ↑ and ↓, statistically significant positive and negative relationships (95% confidence intervals); n.s., not statistically significant; **bold**, consistent with predictions (@tbl-demand); plain ↑, significant but not predicted. ‡Need predicts more individual service and low empowerment predicts less; the negative House result is consistent with low empowerment. {#tbl-demand-findings}
+: Observed relationships between each indicator of demand and each type of interbranch representation, with an overall assessment of each sub-hypothesis. Each cell shows *House / Senate* results: ↑ and ↓, statistically significant positive and negative relationships (95% confidence intervals); n.s., not statistically significant; **bold**, consistent with predictions (@tbl-demand); plain ↑, significant but not predicted. ‡Need predicts more individual service and low empowerment predicts less; the negative House result is consistent with low empowerment. {#tbl-demand-findings tbl-scap="Evidence for constituent demand hypotheses"}
 
 ## Conclusion: Demand Explains Some, but Not All, of the Variation
 
