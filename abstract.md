@@ -6,18 +6,17 @@ We have thus failed to assess our democracy on important grounds.
 This book advances and measures the concept of ***interbranch representation*** --- how Members of Congress work directly with federal agencies on behalf of various constituencies. 
 Interbranch representation includes casework (constituency service) on behalf of individuals, nonprofits, and businesses, as well as oversight and engaging in executive-branch policymaking and implementation. 
 We document massive disparities in the levels of all types of interbranch representation provided by congressional offices.  
-What drives variation in interbranch work? 
-We offer a framework with three types of explanations, those rooted in constituent demand, legislator capacity, and strategic incentives. 
+To explain this variation, we offer a framework with three types of explanations, those rooted in constituent demand, legislator capacity, and strategic incentives. 
 
-Rather than constituent demand and capacity constraints presenting trade-offs among representing different constituencies, we find the higher-capacity congressional offices doing more of all types of interbranch representation. 
-In particular, experience in office and committee positions that grant legislators access to additional information and staff.
+Rather than constituent demand and capacity constraints presenting trade-offs among representing different constituencies, we find higher-capacity congressional offices doing more of all types of interbranch representation. 
+Constituent demand matters, but most of the variation is due to different legislator capacity, particularly experience in office and committee positions that grant legislators access to additional information and staff.
 The main form of strategic behavior we find --- legislators working much more with agencies perceived as being ideologically aligned --- is consistent with a view of agencies and legislators as policy-making-and-implementing coalitions. <!--, but this behavior does not explain inequality.--> 
 This does not explain representation of business interests, which has different drivers than other types of interbranch representation. 
-One of those drivers is partisanship, with moderate Republicans doing substantially more for business, while the right wing does less interbranch representation of all kinds, including on behalf of business.
-We find partial evidence for other types of strategic behavior, such as reelection-motivated constituency service and interbranch work as a substitute for legislating when one's party is out of power, both only in the House.
+One of those drivers is partisanship, with moderate Republicans doing substantially more for business, while more right-wing legislators provide less interbranch representation of all kinds, including on behalf of business.
+We find mixed evidence for other types of strategic behavior, such as reelection-motivated constituency service and interbranch work as a substitute for legislating when one's party is out of power.
 
 In sum, partisanship and ideology affect choices about which agencies legislators contact and the representation of business interests.
-But variation in interbranch representation is mostly a story of the unequal capacity of legislators, offices, and committees, with unequal levels of constituent demand often a secondary cause. 
+But variation in interbranch representation is mostly a story of the capacity of legislators, their offices, and committees, with varying levels of constituent demand often a secondary cause. 
 
 <!--OLD TEXT 
 To explain it, we advance a unified framework of possible drivers of interbranch representation: Constituent Demand, Capacity, and Incentives, 

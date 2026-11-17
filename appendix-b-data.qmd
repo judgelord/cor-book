@@ -28,7 +28,7 @@ vars <- c(
   "subchr",
   #"staff_count_intergovernmental", #FIXME when we add these results
   "staff_count",
-  "total_staff_count" ,
+  "total_staff_count",
   "staff_count_constituent_casework",
   # "same_party",  #FIXME make this numeric in replication and cm
   "oversight",

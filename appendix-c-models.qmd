@@ -28,7 +28,7 @@ However, to assess how much each factor contributes to the observed differences 
 
 We estimate all models separately for the House and the Senate, as well as pooled with an indicator to capture the capacity boost, including the staff allocation, that being a Senator provides. 
 
-Most predictors are at the legislator-year level ($it$) while a few are at the legislator-agency-year level ($itj$). Predictors at the legislator level ($i$), like prior experience, are not included in difference-in-differences models because there is no within-legislator variation.
+Most predictors are at the legislator-year level ($it$), while a few are at the legislator-agency-year level ($itj$). Predictors at the legislator level ($i$), like prior experience, are not included in difference-in-differences models because there is no within-legislator variation.
 When perceived ideological distance is included in models, we interact it with the indicator for whether the legislator has a co-partisan president ("president's party") because legislators may interact differently with aligned and unaligned agencies depending on their partisan alignment with the president. 
 
 @eq-full shows our main specification that we use for nearly all of the results in the book.
@@ -72,9 +72,9 @@ $\gamma_{ij}$ denotes a *legislator--agency* fixed effect that is estimated usin
 $\delta_{jt}$ is an agency-year fixed effect that accounts for agency-specific shocks over time that may affect the level of requests received from legislators in the periods for which data are available from each agency.
 
 For three types of results, we used modified versions of @eq-full. 
-First, because committee leadership positions depend on chair status, we omitted majority status when estimating chair effects. To estimate the effects of majority status on interbranch work we added a majority status indicator to @eq-full. We also estimated modified models with majority status but without committee leadership variables. 
+First, because committee leadership positions depend on chair status, we omitted majority status when estimating chair effects. To estimate the effects of majority status on interbranch work, we added a majority status indicator to @eq-full. We also estimated modified models with majority status but without committee leadership variables. 
 Second, because fundraising is also closely tied to committee positions as both a cause of appointment to chair positions and an effect of leadership positions, we did not include PAC fundraising in the main specification to estimate committee leadership effects. To estimate relationships with PAC contributions, we estimated separate models, identical to  @eq-full, but adding PAC contributions.
-Third, our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate difference in interbranch representation done by the right wing, we estimate modified models where we substitute a "right wing" indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare right wing legislators to moderates, we added a control for "left wing" (NOMINATE scores less than -.05). These alternative models are available online in @sec-appendix-alt-models, along with other models estimated as robustest checks. 
+Third, our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate the difference in interbranch representation done by the "right wing," we estimate modified models where we substitute a "right wing" indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare "right-wing" legislators to "moderates," we added a control for "left wing" (NOMINATE scores less than -.05). These alternative models are available online in @sec-appendix-alt-models, along with other models estimated as robust checks. 
 
 
 ### Modeling the effect of electoral turnover 
@@ -188,7 +188,7 @@ modelsummary(models_full,
 |---|
 |   |
 
-: Differences in differences in requests to federal agencies {#tbl-models-full}
+: Differences in requests to federal agencies {#tbl-models-full}
 
 ```{=latex}
 \endgroup\vspace{-2\baselineskip}
@@ -294,7 +294,7 @@ modelsummary(models_full,
 |---|
 |   |
 
-: Differences in differences in requests to federal agencies {#tbl-models-full}
+: Differences in requests to federal agencies {#tbl-models-full}
 
 ```{=latex}
 \endgroup\vspace{-2\baselineskip}
