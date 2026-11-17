@@ -58,6 +58,8 @@ filters:
   - assets/hypotheses.lua
   - quarto
   - assets/rowlines.lua
+  - assets/wordcount.lua
+
 
 rowlines:
   - tbl-demand
