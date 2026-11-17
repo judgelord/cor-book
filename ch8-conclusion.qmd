@@ -1,6 +1,6 @@
 # Conclusion {#sec-conclusion}
-> ABSTRACT: We recap our findings and discuss how they help us understand interbranch representation. We examine the broader picture of how to conceptualize and measure effectiveness in Congress, and whether legislator behavior is best explained by aggregate effectiveness or legislative styles. We conclude with practical policy implications for how interbranch representation can be improved, discussing how interbranch representation seems to be changing during the second Trump administration, and directions for future research.
 
+> ABSTRACT: We recap our findings and discuss how they help us understand interbranch representation. We examine the broader picture of how to conceptualize and measure effectiveness in Congress, and whether legislator behavior is best explained by aggregate effectiveness or legislative styles. We conclude with practical policy implications for how interbranch representation can be improved, discussing how interbranch representation seems to be changing during the second Trump administration, and directions for future research.
 
 <!--In an ideal world we'd return to the Cruz and Comstock example to begin our conclusion, and tie it into our findings. Can our theory explain differences? If not, probably don't want to return to it. To be able to assess this, we'd need to know the independent variable values for Comstock and Cruz. I'm leaving it out for now.--> 
 
@@ -31,6 +31,9 @@ We found tremendous variation across legislators in how much interbranch work th
 
 We find at least partial support for hypotheses from all three parts of our theoretical framework: constituent demand, member office capacity, and how the political environment shapes legislators' strategic incentives [@tbl-results]. Our three sources of constituent demand (number of constituents, empowered constituents, and greater need constituents) shape the requests for help legislators receive, and in turn influence the provision of interbranch representation. Legislators who represent more constituents do more of all forms of interbranch representation; legislators who represent more empowered constituents do more of specific types of interbranch representation; and constituent need appears to reach Congress through requests from local governments and nonprofits, rather than through individual constituent service (disempowerment outweighs need for individuals). These findings are broadly consistent with and support @Ritchie2018 and @Ritchie2023's work showing that constituent demand can shape interbranch representation. There are, however, important differences worth highlighting. First, we consider very different forms of constituent demand. In her work, Ritchie considered how specific aspects of constituent demand, such as the percentage of blue-collar population, democratic vote share, and the average number of mines in a district, affect legislators' policy contacts with specific agencies (@Ritchie2018: Department of Labor and @Ritchie2023: Department of Labor, Homeland Security, and Department of Energy). By contrast, we introduced three broad sources of demand (number, empowerment, and need). Second, Ritchie shows that demand matters for policy contacts with a narrow list of agencies. At the same time, we extend her findings to show that demand matters for shaping all types of interbranch representation (not just policy contacts) across the entire federal bureaucracy [@Ritchie2018; @Ritchie2023]. 
 
+
+
+
 +--------------------------+------------+-----------+----------------------------------------------------------+
 | Hypothesis               | Verdict    | What      | Main lesson                                              |
 |                          |            | changes   |                                                          |
@@ -51,10 +54,10 @@ We find at least partial support for hypotheses from all three parts of our theo
 | \ \ \ *Partisan*         | Partly     | Mix       | Alignment mostly outweighs antagonism. Allies of the     |
 |                          |            |           | president and of the agency do more. Antagonism only     |
 |                          |            |           | in corporate policy work. Republicans do more corporate  |
-|                          |            |           | service. Far-right senators [DEVIN: check] do less of    |
+|                          |            |           | service. Far-right senators do less of    |
 |                          |            |           | most kinds of work.                                      |
 +--------------------------+------------+-----------+----------------------------------------------------------+
-| \ \ \ *Electoral*        | Partly     | Amount    | Competitive general elections select House members who   |
+| \ \ \ *Electoral*        | Partly     | Amount    | In House districts with competitive general elections, members   |
 |                          |            | and mix   | do more service; after a close primary, members do more  |
 |                          |            |           | casework, not more policy work. PAC money goes to        |
 |                          |            |           | legislators who do more interbranch work, and            |
@@ -387,7 +390,6 @@ Collectively, we find that what makes the biggest difference in how much members
 
 
 <!-- Preserving language from earlier versions of this chapter 
-
 
 ## Who is represented? 
 
