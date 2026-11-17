@@ -13,6 +13,9 @@ Many of the patterns we document with regression analysis are clear in these unc
 #| label: fig-data-correlations
 #| out-width: "100%"
 
+here::here("code", "formatting.R") |> source()
+
+
 knitr::include_graphics(here::here("figs", "total", "correlations-1.png"))
 ```
 

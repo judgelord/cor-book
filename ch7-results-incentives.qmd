@@ -565,7 +565,7 @@ names(dat) <- c(
   "Indicator",
   "Indiv. service",
   "Corp. service",
-  "Nonprofit or local gov't service",
+  "501c3 or gov't service",
   "General policy",
   "Corp. policy",
   "Total"

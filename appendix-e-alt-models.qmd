@@ -26,7 +26,7 @@ Because fundraising is also closely tied to committee positions as both a cause 
 
 ### Right Wing and Left Wing 
 
-Our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate difference in interbranch representation done by the right wing, we estimate modified models where we substitute a "right wing" (NOMINATE scores greater than 0.5) indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare right wing legislators to moderates, we added a control for "left wing" (NOMINATE scores less than -0.5). These alternative models are available online in @sec-appendix-e-alt-models, along with other models estimated as robustest checks. 
+Our main specification estimates the relationship between political party and interbranch representation, controlling for the absolute value of 1st Dimension DW-NOMINATE scores. To estimate difference in interbranch representation done by the right wing, we estimate modified models where we substitute a "right wing" (NOMINATE scores greater than 0.5) indicator for the party indicator and the absolute value of 1st Dimension DW-NOMINATE scores. Finally, to compare right wing legislators to moderates, we added a control for "left wing" (NOMINATE scores less than -0.5). <!--These alternative models are available online in @sec-appendix-alt-models, along with other models estimated as robustest checks. --> 
 
 ### Robustness Checks 
 

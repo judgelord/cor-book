@@ -57,7 +57,7 @@ Offices also differ considerably in both the number of staff they employ and how
 #| label: fig-staff-experience
 #| fig-scalp: "Congressional office staff size and experience."
 #| fig-cap: "Congressional office staff size and experience. Each thin line represents one congressional office over time; blue lines show offices in a legislator's first Congress and orange lines show established offices. Thick lines in panel (a) show average trends. Staff experience gained before 2011 is incompletely recorded, so experience is understated in the early years of the series."
-#| layout-ncol: 1
+#| layout-ncol: 2
 #| fig-subcap:
 #|   - "Number of staff per office"
 #|   - "Staff experience in Congress"
@@ -298,6 +298,116 @@ These results support @hyp-capacity-reporting for general policy work. For const
 
 In @tbl-capacity-findings we summarize our results. We find that member office capacity appears to play an important role in shaping what offices can do, and we see at least partial support for all of our capacity hypotheses. Capacity that comes from time in Congress and from a larger staff increases many types of interbranch representation, including constituency service on behalf of individuals, and these relationships hold when we compare the same legislator over time. Somewhat surprisingly, while legislator's experience that comes from time in Congress appears to increase capacity, previously serving in a different legislative body---a state legislative role---does not. 
 
+<!--
+
+```{r}
+#| label: tbl-capacity-findings
+#| tbl-scap: "Evidence for capacity hypotheses"
+#| tbl-cap: "Summary of results for @hyp-capacity (Capacity). Cells show *cross-sectional/within-legislator* estimates: ↑, positive and statistically significant (95% confidence intervals); n.s., not significant; –, not estimable; blank, no prediction (@tbl-capacity). †Cross-sectional only, from separate House and Senate models."
+
+library(tinytable)
+
+rows <- list(
+  c("More than two years in Congress",
+    "**↑**/**↑**", "**↑**/**↑**", "**↑**/**↑**",
+    "**↑**/**↑**", "**↑**/**↑**"),
+
+  c("Prior state legislature†",
+    "n.s./–", "n.s./–", "n.s./–", "n.s./–", "n.s./–"),
+
+  c("Senate (vs. House)",
+    "n.s./n.s.", "**↑**/n.s.", "**↑**/n.s.",
+    "**↑**/**↑**", "**↑**/n.s."),
+
+  c("Staff count",
+    "**↑**/**↑**", "**↑**/**↑**", "**↑**/n.s.",
+    "**↑**/**↑**", "n.s./n.s."),
+
+  c("Staff count (Senate only)",
+    "**↑**/**↑**", "**↑**/n.s.", "**↑**/n.s.",
+    "**↑**/n.s.", "**↑**/n.s."),
+
+  c("Total staff experience",
+    "n.s./n.s.", "n.s./n.s.", "n.s./n.s.",
+    "**↑**/**↑**", "n.s./n.s."),
+
+  c("Average staff experience",
+    "n.s./n.s.", "**↑**/n.s.", "**↑**/n.s.",
+    "**↑**/n.s.", "n.s./n.s."),
+
+  c("Committee chair",
+    "", "", "", "**↑**/**↑**", "**↑**/n.s."),
+
+  c("Ranking member",
+    "", "", "", "**↑**/**↑**", "**↑**/n.s."),
+
+  c("Subcommittee chair",
+    "", "", "", "n.s./n.s.", "n.s./n.s."),
+
+  c("Reporting committee seat",
+    "", "", "", "**↑**/**↑**", "**↑**/n.s.")
+)
+
+dat <- as.data.frame(
+  do.call(rbind, rows),
+  stringsAsFactors = FALSE
+)
+
+names(dat) <- c(
+  "Indicator",
+  "Individual service",
+  "Corporate service",
+  "Nonprofit or local gov't service",
+  "General policy",
+  "Corporate policy"
+)
+
+narratives <- c(
+  paste(
+    "**Experience: partly supported.**",
+    "Time in Congress matters; prior state legislative service does not."
+  ),
+
+  paste(
+    "**Staff: partly supported.**",
+    "Staff size matters broadly; staff experience mainly",
+    "for general policy work."
+  ),
+
+  paste(
+    "**Committee leadership: supported for general policy work.**",
+    "Gaining a full-committee post increases general policy work;",
+    "corporate policy differences are cross-sectional only."
+  ),
+
+  paste(
+    "**Reporting committee: supported for general policy work.**",
+    "A new seat increases general policy work with that agency;",
+    "corporate policy differences are cross-sectional only."
+  )
+)
+
+# Insert spanning narratives before original data rows 1, 3, 8, and 11.
+groups <- setNames(
+  list(1L, 3L, 8L, 11L),
+  narratives
+)
+
+tab <- tt(
+  dat,
+  width = c(2, 1, 1, 1, 1, 1) / 7
+)
+
+tab <- group_tt(tab, i = groups)
+tab <- style_tt(tab, align = "l")
+tab <- format_tt(tab, markdown = TRUE)
+
+tab
+```
+
+--> 
+
+
 +---------------------------------+-------------+-------------+--------------+-------------+-------------+
 | Indicator                       | Individual  | Corporate   | Nonprofit/   | General     | Corporate   |
 |                                 | service     | service     | local gov't  | policy      | policy      |
@@ -341,6 +451,7 @@ In @tbl-capacity-findings we summarize our results. We find that member office c
 
 : Summary of results for @hyp-capacity (Capacity). Cells show *cross-sectional/within-legislator* estimates: ↑, positive and statistically significant (95% confidence intervals); n.s., not significant; –, not estimable; blank, no prediction (@tbl-capacity). †Cross-sectional only, from separate House and Senate models. {#tbl-capacity-findings tbl-scap="Evidence for capacity hypotheses"}
 
+--> 
 
 A second pattern that emerges is that the capacity that comes from committee work, whether a leadership position or a seat on an agency’s reporting committee, increases general policy work but not constituency service. Legislators with these positions do more of almost everything in cross-sectional comparisons, but when the same legislator gains a position, only their general policy work increases. This pattern is consistent with the idea that in the absence of a strict seniority system for selecting committee leaders, higher quality legislators (with greater capacity) are being selected into these roles, but their capacity for non-policy work (outside the scope of the committee) is not increased by serving in these roles. Across nearly every source of capacity, general policy work is the type of interbranch representation most responsive to an office’s ability to do more.
 

@@ -14,6 +14,9 @@ The remainder are committee staff, state legislators, judges, agency officials, 
 #| tbl-cap: "FOIA Data"
 #| label: tbl-data-foia
 
+here::here("code", "formatting.R") |> source()
+
+
 library(tidyverse)
 library(tinytable)
 library(modelsummary)

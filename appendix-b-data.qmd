@@ -2,6 +2,9 @@
 # Summary statistics   {.appendix #sec-appendix-data}
 
 ```{r, eval=TRUE}
+here::here("code", "formatting.R") |> source()
+
+
 library(tidyverse)
 library(tinytable)
 library(modelsummary)
