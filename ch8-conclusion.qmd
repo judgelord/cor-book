@@ -31,15 +31,115 @@ We found tremendous variation across legislators in how much interbranch work th
 
 We find at least partial support for hypotheses from all three parts of our theoretical framework: constituent demand, member office capacity, and how the political environment shapes legislators' strategic incentives [@tbl-results]. Our three sources of constituent demand (number of constituents, empowered constituents, and greater need constituents) shape the requests for help legislators receive, and in turn influence the provision of interbranch representation. Legislators who represent more constituents do more of all forms of interbranch representation; legislators who represent more empowered constituents do more of specific types of interbranch representation; and constituent need appears to reach Congress through requests from local governments and nonprofits, rather than through individual constituent service (disempowerment outweighs need for individuals). These findings are broadly consistent with and support @Ritchie2018 and @Ritchie2023's work showing that constituent demand can shape interbranch representation. There are, however, important differences worth highlighting. First, we consider very different forms of constituent demand. In her work, Ritchie considered how specific aspects of constituent demand, such as the percentage of blue-collar population, democratic vote share, and the average number of mines in a district, affect legislators' policy contacts with specific agencies (@Ritchie2018: Department of Labor and @Ritchie2023: Department of Labor, Homeland Security, and Department of Energy). By contrast, we introduced three broad sources of demand (number, empowerment, and need). Second, Ritchie shows that demand matters for policy contacts with a narrow list of agencies. At the same time, we extend her findings to show that demand matters for shaping all types of interbranch representation (not just policy contacts) across the entire federal bureaucracy [@Ritchie2018; @Ritchie2023]. 
 
+Replace **just the grid table and its caption** with this chunk. Here, the “Main lesson” column gets half the table width; the other columns share the remaining half.
+
+```{r}
+#| label: tbl-results
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-cap: "Summary of findings for the three main hypotheses. See @tbl-demand-findings, @tbl-capacity-findings, and @tbl-strategy-findings for results for each sub-hypothesis."
+
+library(tinytable)
+
+rows <- list(
+  c(
+    "**Demand**",
+    "Mostly supported",
+    "Amount and mix",
+    paste(
+      "Larger constituencies → more interbranch representation.",
+      "More empowered constituents → more of specific types.",
+      "Needy constituents are served by organizations (local governments",
+      "and nonprofits), not individual constituent service."
+    )
+  ),
+
+  c(
+    "**Capacity**",
+    "Strong support",
+    "Mostly amount",
+    paste(
+      "Experience in Congress and larger staffs increase every type of interbranch representation.",
+      "Committees increase interbranch policy work, especially (but not only) for chairs and ranking members."
+    )
+  ),
+
+  c(
+    "**Strategic incentives**",
+    "Partly supported",
+    "Mostly mix",
+    paste(
+      "Strategic incentives change what kinds of work offices do and on whose behalf more than how much they do."
+    )
+  ),
+
+  c(
+    "*Partisan/Ideological*",
+    "Support for alignment theory",
+    "Mix",
+    paste(
+      "Alignment mostly outweighs antagonism.",
+      "Allies of the president and of the agency do more.",
+      "Antagonism only in corporate policy work.",
+      "Republicans do more corporate service.",
+      "Right-wing faction does less interbranch work of all kinds."
+    )
+  ),
+
+  c(
+    "*Electoral*",
+    "Mixed support (House Only)",
+    "Amount and mix",
+    paste(
+      "Members of House representing districts with competitive general elections do more service.",
+      "After a close primary, House members do more casework.",
+      "Corporate PAC money goes to legislators who do more of all kinds of interbranch work, not just corporate work."
+    )
+  ),
+
+  c(
+    "*Institutional*",
+    "Mixed support (House Ooly)",
+    "Mix",
+    paste(
+      "When their party wins a majority, members of the House shift from service toward general policy work."
+    )
+  )
+)
+
+dat <- as.data.frame(
+  do.call(rbind, rows),
+  stringsAsFactors = FALSE
+)
+
+names(dat) <- c(
+  "Hypothesis",
+  "Evidence",
+  "What changes",
+  "Main lesson"
+)
+
+tab <- tt(
+  dat,
+  width = c(0.22, 0.14, 0.14, 0.50)
+)
+
+tab <- style_tt(tab, align = "l")
+tab <- format_tt(tab, markdown = TRUE)
+
+tab
+```
 
 
+<!--
 
 +--------------------------+------------+-----------+----------------------------------------------------------+
 | Hypothesis               | Verdict    | What      | Main lesson                                              |
 |                          |            | changes   |                                                          |
 +:=========================+:===========+:==========+:=========================================================+
-| **@hyp-demand (Demand)** | Mostly     | Amount    | Larger constituencies --> more interbranch.              |
-|                          | supported  | and mix   | More empowered --> more of specific types.               |
+| **@hyp-demand (Demand)** | Mostly     | Amount    | Larger constituencies  more interbranch.              |
+|                          | supported  | and mix   | More empowered, more of specific types.               |
 |                          |            |           | Need reaches Congress through organizations (local gov.  |
 |                          |            |           | and nonprofits); not individual constituent service.     |
 +--------------------------+------------+-----------+----------------------------------------------------------+
@@ -54,7 +154,7 @@ We find at least partial support for hypotheses from all three parts of our theo
 | \ \ \ *Partisan*         | Partly     | Mix       | Alignment mostly outweighs antagonism. Allies of the     |
 |                          |            |           | president and of the agency do more. Antagonism only     |
 |                          |            |           | in corporate policy work. Republicans do more corporate  |
-|                          |            |           | service. Far-right senators do less of    |
+|                          |            |           | service. Right-wing senators do less of    |
 |                          |            |           | most kinds of work.                                      |
 +--------------------------+------------+-----------+----------------------------------------------------------+
 | \ \ \ *Electoral*        | Partly     | Amount    | In House districts with competitive general elections, members   |
@@ -70,7 +170,7 @@ We find at least partial support for hypotheses from all three parts of our theo
 +--------------------------+------------+-----------+----------------------------------------------------------+
 
 : Summary of findings for the three main hypotheses. See @tbl-demand-findings, @tbl-capacity-findings, and @tbl-strategy-findings for results for each sub-hypothesis. {#tbl-results}
-
+--> 
 
 Capacity plays a major role in shaping whether and how legislative offices respond to constituent demand and entrepreneurially initiate their own work with federal agencies. Indeed, the magnitude of our effects for capacity suggests that it plays the most important role among our three factors. Specifically, we see legislators' experience in Congress and larger personal office staff influencing how much interbranch representation (of all types) the office can provide, while committee factors (leadership and sitting on an agency's reporting committee) shape capacity to engage in policy work. These results are broadly consistent with and supportive of @Lowande2018APSR, @Ritchie2018, @Ritchie2023, and @LauterbachRitchie2025's findings about the impact of capacity. Still, there are important distinctions and extensions worth highlighting.^[The literature has also considered how agencies respond to legislator requests. @Lowande2019 shows that agencies respond more quickly to requests from committee chairs, which could encourage legislators to contact agencies when in committee leadership positions.] First, contrary to @Lowande2018APSR, we show that the committee positions in terms of committee leadership and reporting committee jurisdiction only apply to policy work, and do not spill over into increasing constituent service as well. Second, we extend their capacity findings to show that they hold more broadly across a larger set of agencies over a longer time period. 
 
@@ -406,7 +506,7 @@ Also, be sure to circle back to the majority/minority point: is this a viable pa
 In the prior three chapters, we examined what explains the unequal levels of constituency service that legislators provide to individuals in their district. District demand and, especially, legislator capacity explain a large share of the variation. We find that legislators’ experience in office is the primary driver of constituency service work. However, constituency service is not entirely free of partisan and ideological influences. While reelection does not seem to motivate constituency service, ideologically moderate members do perform more of this work. Overall, our analysis suggests that demand and capacity matter most for individual constituency service, with strategy appearing important in small but surprising ways. 
 
 
-Because individual constituency service is such a large portion of interbranch representation overall, many of the findings in this chapter are similar to those discussed in @sec-typetotal. However, it is worth highlighting differences before proceeding to our analyses of the other four types of interbranch representation in the following chapters. These differences can illuminate factors that may be especially important for policy work or constituency service on behalf of businesses and nonprofits and local governments.
+Because individual constituency service is such a large portion of interbranch representation overall, many of the findings in this chapter are similar to those discussed in @sec-typetotal. However, it is worth highlighting differences before proceeding to our analyses of the other four types of interbranch representation in the following chapters. These differences can illuminate factors that may be especially important for policy work or constituency service on behalf of businesses, nonprofits, and local governments.
 
 Several measures of capacity that matter for interbranch representation overall have weaker or less consistent effects for individual constituency service, suggesting that (as hypothesized) institutional position matters more for other types of interbranch representation. Ideological distance between the legislator and the agency matters only in the overall models, implying that it will come into play for other types of interbranch representation as well. Interestingly, while spending on constituency service staff is not related to amounts of individual constituency service, it is related to interbranch representation overall. Another surprising difference involves particular measures of demand (government sector employees and college graduates), which matter more consistently in the models assessing interbranch representation generally than those assessing individual constituency service. The following chapters explore these factors further by testing our hypotheses for the other four types of interbranch representation, beginning with corporate constituency service.
 
@@ -440,7 +540,7 @@ Differences in the amount of policy work legislators do are driven by the capaci
 
 We find that selective elements of all parts of our Demand, Capacity, and Strategic Choice framework are related to the provision of corporate service. For Demand, we find that only state population is correlated with the provision of corporate policy work. For Capacity, we find that legislator experience is always correlated with greater provision of corporate policy, and that reporting committee assignments and committee leadership positions are sometimes correlated with greater provision of corporate policy. 
 
-For Strategic Responses to the Political Environment, we find that consistent with their pro-business ideological beliefs, Republicans consistently do more corporate policy work. We also find that ideologically extreme legislators consistently do less corporate policy work. Legislators who are more ideologically distant from an agency engage in more policy work with that agency. We find House Members who are electorally vulnerable doing less corporate policy work, which is the opposite of what we found in terms of corporate constituency service--though in both cases the findings are limited to the cross-sectional models. Lastly, we find that corporate campaign contributions are correlated with greater corporate policy work in cross-sectional models, but not within-legislator models. This pattern regarding corporate campaign contributions holds at both the aggregate level, looking at all corporate contributions and all corporate policy work, as well as within an Energy Sector case study.  
+For Strategic Responses to the Political Environment, we find that, consistent with their pro-business ideological beliefs, Republicans consistently do more corporate policy work. We also find that ideologically extreme legislators consistently do less corporate policy work. Legislators who are more ideologically distant from an agency engage in more policy work with that agency. We find House Members who are electorally vulnerable doing less corporate policy work, which is the opposite of what we found in terms of corporate constituency service--though in both cases the findings are limited to the cross-sectional models. Lastly, we find that corporate campaign contributions are correlated with greater corporate policy work in cross-sectional models, but not within-legislator models. This pattern regarding corporate campaign contributions holds at both the aggregate level, looking at all corporate contributions and all corporate policy work, as well as within an Energy Sector case study.  
 
 
 ### Demand 
