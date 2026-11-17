@@ -31,8 +31,6 @@ We found tremendous variation across legislators in how much interbranch work th
 
 We find at least partial support for hypotheses from all three parts of our theoretical framework: constituent demand, member office capacity, and how the political environment shapes legislators' strategic incentives [@tbl-results]. Our three sources of constituent demand (number of constituents, empowered constituents, and greater need constituents) shape the requests for help legislators receive, and in turn influence the provision of interbranch representation. Legislators who represent more constituents do more of all forms of interbranch representation; legislators who represent more empowered constituents do more of specific types of interbranch representation; and constituent need appears to reach Congress through requests from local governments and nonprofits, rather than through individual constituent service (disempowerment outweighs need for individuals). These findings are broadly consistent with and support @Ritchie2018 and @Ritchie2023's work showing that constituent demand can shape interbranch representation. There are, however, important differences worth highlighting. First, we consider very different forms of constituent demand. In her work, Ritchie considered how specific aspects of constituent demand, such as the percentage of blue-collar population, democratic vote share, and the average number of mines in a district, affect legislators' policy contacts with specific agencies (@Ritchie2018: Department of Labor and @Ritchie2023: Department of Labor, Homeland Security, and Department of Energy). By contrast, we introduced three broad sources of demand (number, empowerment, and need). Second, Ritchie shows that demand matters for policy contacts with a narrow list of agencies. At the same time, we extend her findings to show that demand matters for shaping all types of interbranch representation (not just policy contacts) across the entire federal bureaucracy [@Ritchie2018; @Ritchie2023]. 
 
-Replace **just the grid table and its caption** with this chunk. Here, the “Main lesson” column gets half the table width; the other columns share the remaining half.
-
 ```{r}
 #| label: tbl-results
 #| echo: false
@@ -76,20 +74,18 @@ rows <- list(
 
   c(
     "*Partisan/Ideological*",
-    "Support for alignment theory",
+    "Support for ally theory",
     "Mix",
     paste(
-      "Alignment mostly outweighs antagonism.",
-      "Allies of the president and of the agency do more.",
-      "Antagonism only in corporate policy work.",
-      "Republicans do more corporate service.",
-      "Right-wing faction does less interbranch work of all kinds."
+      "Alignment mostly outweighs antagonism; allies of the president and of the agency do more.",
+      "Moderate House Republicans do more corporate service.",
+      "Right-wing faction does less of most kinds of interbranch work."
     )
   ),
 
   c(
     "*Electoral*",
-    "Mixed support (House Only)",
+    "Mixed support (House only)",
     "Amount and mix",
     paste(
       "Members of House representing districts with competitive general elections do more service.",
@@ -100,10 +96,10 @@ rows <- list(
 
   c(
     "*Institutional*",
-    "Mixed support (House Ooly)",
+    "Mixed support (House only)",
     "Mix",
     paste(
-      "When their party wins a majority, members of the House shift from service toward general policy work."
+      "When their party wins a majority, members of the House shift from service toward policy work."
     )
   )
 )
@@ -115,7 +111,7 @@ dat <- as.data.frame(
 
 names(dat) <- c(
   "Hypothesis",
-  "Evidence",
+  "Balance of evidence",
   "What changes",
   "Main lesson"
 )
