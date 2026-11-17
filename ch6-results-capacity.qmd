@@ -16,7 +16,7 @@ As @fig-capacity-flowchart shows, capacity sits between demand and work: the req
 ```{r}
 #| label: fig-capacity-flowchart
 #| fig-cap: "How congressional office capacity shapes interbranch representation."
-#| out-width: "85%"
+#| out-width: "80%"
 knitr::include_graphics(here::here("figs", "causal-capacity.png"))
 ```
 
@@ -57,7 +57,7 @@ Offices also differ considerably in both the number of staff they employ and how
 #| label: fig-staff-experience
 #| fig-scalp: "Congressional office staff size and experience."
 #| fig-cap: "Congressional office staff size and experience. Each thin line represents one congressional office over time; blue lines show offices in a legislator's first Congress and orange lines show established offices. Thick lines in panel (a) show average trends. Staff experience gained before 2011 is incompletely recorded, so experience is understated in the early years of the series."
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| fig-subcap:
 #|   - "Number of staff per office"
 #|   - "Staff experience in Congress"
@@ -150,18 +150,11 @@ We use staff budget data for members of the House from @CrossonFurnasLapiraBurga
  
 ## Results 
 
-<!-- DEVIN: Please confirm or correct the bracketed details:
-(1) unit of analysis and clustering (same as Chapter 5?);
-(2) controls and fixed effects in each design;
-(3) the figures show upper panels = cross-sectional and lower panels = diff-in-diff, except the state legislature figure (House and Senate, both cross-sectional); please confirm;
-(4) which models are pooled vs. chamber-specific (the staff count figure has an all-legislators panel and a Senate-only panel; why a separate Senate model, and is the chamber diff-in-diff identified from House-to-Senate movers?);
-(5) appendix table references. -->
-
-To estimate how each source of capacity relates to interbranch representation, we use the same approach as in @sec-results-demand: we model the number of contacts of each type that a legislator's office makes with each federal agency in a given year, using negative binomial regressions with standard errors clustered by legislator. Each model includes all of the capacity measures, along with [DEVIN: controls for demand and strategic incentives].
+To estimate how each source of capacity relates to interbranch representation, we use the same approach as in @sec-results-demand: we model the number of contacts of each type that a legislator's office makes with each federal agency in a given year, using negative binomial regressions with standard errors clustered by legislator. Each model includes all of the capacity measures, along with controls for demand and strategic incentives discussed in chapters @sec-results-demand and @sec-results-incentives.
 
 Unlike the demographic characteristics we examined in @sec-results-demand, many sources of capacity change over a legislator's career: legislators gain experience, hire and lose staff, and win or lose committee leadership positions. We estimate two kinds of models. *Cross-sectional* models compare legislators with more capacity to legislators with less. *Within-legislator* (difference-in-differences) models, which include legislator-agency and year-agency fixed effects, compare the same legislator's interbranch representation before and after their capacity changes, such as when they become a committee chair or join a committee to which an agency reports. Because these models compare the same legislator over time, they help us to rule out alternative explanations that could arise from differences in capacity across legislators. Measures that do not change over a legislator's career, such as prior service in a state legislature, can only be estimated cross-sectionally.
 
-For indicators such as holding a committee chair, we report the percent difference in expected contacts associated with having that position. For continuous measures such as staff size and experience, we report the percent change associated with a one standard deviation increase. In each figure, points mark the estimated effect for each of the five types of interbranch representation, horizontal lines show 95% confidence intervals, and the upper and lower panels, unless otherwise noted, show the cross-sectional and within-legislator estimates. Full results are in [DEVIN: appendix table reference].
+For indicators such as holding a committee chair, we report the percent difference in expected contacts associated with having that position. For continuous measures such as staff size and experience, we report the percent change associated with a one standard deviation increase. In each figure, points mark the estimated effect for each of the five types of interbranch representation, horizontal lines show 95% confidence intervals, and the upper and lower panels, unless otherwise noted, show the cross-sectional and within-legislator estimates. Full results are in @appendix-models.
 
 ### Experience in Congress Pays Off
 
@@ -174,8 +167,8 @@ Experience in Congress increases interbranch representation. Prior experience in
 #| fig-scap: "Legislator experience and interbranch representation"
 #| fig-cap: "Legislator experience and interbranch representation (@hyp-capacity-experience). Points show the estimated percent difference in each type of interbranch representation associated with (a) having served in a state legislature before Congress and (b) having served more than two years in Congress, with 95% confidence intervals. Because prior state legislative service does not change over a legislator's career, panel (a) shows only cross-sectional estimates, estimated separately for House members (upper panel) and senators (lower panel). In panel (b), the upper panel shows cross-sectional estimates and the lower panel shows within-legislator estimates."
 #| fig-alt: "Marginal effects of prior state legislative service and more than two years in Congress on five types of interbranch representation"
-#| out-width: "100%"
-#| layout-ncol: 2
+#| out-width: "80%"
+#| layout-ncol: 1
 #| fig-subcap:
 #|   - "Prior service in a state legislature"
 #|   - "More than two years in Congress"
@@ -195,7 +188,7 @@ The largest difference in office capacity in Congress is between the chambers. S
 #| fig-scalp: "Chamber and interbranch representation"
 #| fig-cap: "Chamber and interbranch representation (@hyp-capacity-staff). Points show the estimated percent difference in each type of interbranch representation for senators compared with House members, with 95% confidence intervals. The upper panel shows cross-sectional estimates; the lower panel shows within-legislator estimates for legislators who served in both chambers."
 #| fig-alt: "Marginal effects of serving in the Senate rather than the House on five types of interbranch representation"
-#| out-width: "70%"
+#| out-width: "80%"
 
 knitr::include_graphics(here::here("figs", "marginal-chamber-1.png"))
 ```
@@ -208,8 +201,8 @@ knitr::include_graphics(here::here("figs", "marginal-chamber-1.png"))
 #| fig-scalp: "Staff size and interbranch representation"
 #| fig-cap: "Staff size and interbranch representation (@hyp-capacity-staff). Points show the estimated percent change in each type of interbranch representation associated with a one standard deviation increase in the number of staff in a legislator's personal office, estimated for (a) all legislators and (b) senators only, with 95% confidence intervals. Upper panels show cross-sectional estimates; lower panels show within-legislator estimates."
 #| fig-alt: "Marginal effects of personal office staff size on five types of interbranch representation, all legislators and senators only"
-#| out-width: "100%"
-#| layout-ncol: 2
+#| out-width: "80%"
+#| layout-ncol: 1
 #| fig-subcap:
 #|   - "All legislators"
 #|   - "Senators only"
@@ -227,8 +220,8 @@ Across all legislators, offices with more staff do more constituency service on 
 #| fig-scalp: "Staff experience and interbranch representation"
 #| fig-cap: "Staff experience and interbranch representation (@hyp-capacity-staff). Points show the estimated percent change in each type of interbranch representation associated with a one standard deviation increase in (a) the total years of congressional experience among a legislator's staff and (b) the average years of congressional experience per staffer, with 95% confidence intervals. Upper panels show cross-sectional estimates; lower panels show within-legislator estimates."
 #| fig-alt: "Marginal effects of total and average staff experience on five types of interbranch representation"
-#| out-width: "100%"
-#| layout-ncol: 2
+#| out-width: "80%"
+#| layout-ncol: 1
 #| fig-subcap:
 #|   - "Total staff experience"
 #|   - "Average staff experience"
@@ -268,8 +261,8 @@ Subcommittee chair positions are associated with much smaller and mostly not sta
 #| fig-scalp: "Committee leadership positions and interbranch representation"
 #| fig-cap: "Committee leadership positions and interbranch representation (@hyp-capacity-position). Points show the estimated percent difference in each type of interbranch representation associated with holding each position, with 95% confidence intervals. Upper panels show cross-sectional estimates; lower panels show within-legislator estimates."
 #| fig-alt: "Marginal effects of committee chair, ranking minority member, and subcommittee chair positions on five types of interbranch representation"
-#| out-width: "100%"
-#| layout-ncol: 2
+#| out-width: "80%"
+#| layout-ncol: 1
 #| fig-subcap:
 #|   - "Committee chair"
 #|   - "Ranking minority member"
@@ -294,7 +287,7 @@ Legislators who serve on committees to which an agency reports do nearly twice a
 #| fig-scalp: "Reporting committee seats and interbranch representation"
 #| fig-cap: "Reporting committee seats and interbranch representation (@hyp-capacity-reporting). Points show the estimated percent difference in each type of interbranch representation with an agency associated with sitting on a committee to which that agency reports, with 95% confidence intervals. The upper panel shows cross-sectional estimates; the lower panel shows within-legislator estimates."
 #| fig-alt: "Marginal effects of sitting on an agency's reporting committee on five types of interbranch representation with that agency"
-#| out-width: "70%"
+#| out-width: "80%"
 
 knitr::include_graphics(here::here("figs", "marginal-oversight-1.png"))
 ```
@@ -385,7 +378,7 @@ Other indicators of capacity, however, provide no support for our hypotheses. Co
 #| fig-subcap: 
 #|   - ""
 #|   - ""
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| out-width: 100%
 
 knitr::include_graphics(
@@ -418,7 +411,7 @@ Other indicators of capacity, however, provide no support for our hypotheses. Co
 #| fig-subcap: 
 #|   - ""
 #|   - ""
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| out-width: 100%
 
 knitr::include_graphics(
@@ -455,8 +448,8 @@ Consistent with our @hyp-capacity-experience and previous findings by @JudgeLord
 #|   - "Legislator Experience"
 #|   - "Reporting Committee Relationship"
 #|   - "Total Capacity"
-#| layout-ncol: 2
-#| out-width: "100%"
+#| layout-ncol: 1
+#| out-width: "80%"
 
 knitr::include_graphics(
 here::here("figs", type,
@@ -492,7 +485,7 @@ Other indicators of capacity, however, have little to no relationship with const
 #|   - ""
 #|   - ""
 #|   - ""
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| out-width: 100%
 
 knitr::include_graphics(
@@ -527,7 +520,7 @@ Most forms of capacity matter with large effects explaining a large share of ove
 #|   - ""
 #|   - ""
 #|   - ""
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| out-width: 100%
 
 knitr::include_graphics(
@@ -562,7 +555,7 @@ Consistent with our expectations in @hyp-capacity-experience and previous work b
 #|   - "Legislator Experience"
 #|   - "Reporting Committee Relationship"
 #|   - "Total Capacity"
-#| layout-ncol: 2
+#| layout-ncol: 1
 #| out-width: 100%
 
 knitr::include_graphics(
