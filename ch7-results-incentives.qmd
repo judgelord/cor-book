@@ -227,7 +227,7 @@ Third, our main specification estimates the relationship between political party
 
 Recall that we estimated both cross-sectional and within-legislator models where possible. Some strategic incentives change over a legislator's career: legislators gain or lose a co-partisan president, move between the majority and minority, and face more or less competitive elections. For these, within-legislator models compare the same legislator before and after the change. Others rarely or never change within a legislator's career, including party and ideology, so for these we rely on cross-sectional comparisons. Few districts change from safe to competitive, which limits what within-legislator models can tell us about electoral competition. Because cross-sectional comparisons cannot rule out that legislators who face different incentives also differ in other ways, we interpret these results more cautiously than the within-legislator estimates in @sec-results-capacity.
 
-As in the prior chapters, we report the percent difference in expected contacts associated with each indicator (or with a one standard deviation increase, for continuous measures such as ideological distance, PAC contributions, and employees). In each figure, points mark the estimated difference in interbranch representation, both overall and for each of the five types of interbranch representation. Horizontal lines show 95% confidence intervals. Panel labels indicate whether estimates are cross-sectional or within-legislator and whether they come from House, Senate, or pooled models. Full results are in @sec-appendix-models.
+As in the prior chapters, we report the percent difference in expected contacts associated with each indicator (or with a one standard deviation increase, for continuous measures such as ideological distance, PAC contributions, and employees). As before, these figures are labeled "marginal effects," describing the method of counterfactual estimation, but are better understood as average *differences* for cross-sectional models. In each figure, points mark the estimated difference in interbranch representation, both overall and for each of the five types of interbranch representation. Horizontal lines show 95% confidence intervals. Panel labels indicate whether estimates are cross-sectional or within-legislator and whether they come from House, Senate, or pooled models. Full results are in @sec-appendix-models.
 
 
 ### Partisan and Ideological Allies Mostly Work Together
@@ -301,7 +301,7 @@ Consistent with our expectations, legislators on the extreme ideological end of 
 
 ```{r}
 #| label: fig-marginal-antigovernment
-#| fig-cap: "Marginal Effect of Antigovernment ideology on interbranch representation. Points show the estimated percent difference in each type of interbranch representation for Antigovernment legislators compared to all other legislators, with 95% confidence intervals, from cross-sectional models."
+#| fig-cap: "Marginal effect of right wing ideology on interbranch representation. Points show the estimated percent difference in each type of interbranch representation for Antigovernment legislators compared to all other legislators, with 95% confidence intervals, from cross-sectional models."
 #| fig-scalp: "Marginal effects of antigovernment legislators on five types of interbranch representation"
 #| out-width: "80%"
 
@@ -309,7 +309,7 @@ knitr::include_graphics(here::here("figs", "marginal-far_right-2.png"))
 ```
 
 
-Turning to corporate service, we see that far-right House members do substantially more corporate service work than their peers (+31%). The corporate service increase is less surprising given our previous hypothesis and finding about the Republican Party overall being more supportive of corporate interests. And, indeed, though the results are not significant in the Senate, we find a point estimate of an increase of 13% there. 
+Turning to corporate service, we see that Right-wing House members do substantially more corporate service work than their peers (+31%). The corporate service increase is less surprising given our previous hypothesis and finding about the Republican Party overall being more supportive of corporate interests. And, indeed, though the results are not significant in the Senate, we find a point estimate of an increase of 13% there. 
 
 
 ### Electoral Results
@@ -438,75 +438,193 @@ knitr::include_graphics(here::here("figs", "marginal-constituent-casework-staff-
 
 @tbl-strategy-findings summarizes our results for our hypotheses across all of our different measures. Each cell shows the result for the cross-sectional model followed by the result for the difference-in-differences model. "-" signs indicate that it wasn't possible to estimate that type of model. Collectively, we see at least partial support for all of our strategic incentive hypotheses. 
 
+<!-- Markdown formatting was getting tricky, so I switched to tinytable 
+
+::: {#tbl-strategy-findings tbl-scap="Evidence for strategic incentive hypotheses" style="text-align: left;"}
 
 
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Indicator                  | Individual | Corporate  | Nonprofit/  | General    | Corporate  | Total      |
-|                            | service    | service    | local gov't | policy     | policy     |            |
-|                            |            |            | service     |            |            |            |
-+:===========================+:==========:+:==========:+:===========:+:==========:+:==========:+:==========:+
-| @hyp-strategy-partisan (Partisan): more alignment than antagonism. Presidential and agency allies do  |
-| more interbranch work. Agency antagonism only appears for corporate policy. Republicans do more corporate |
-| service. Far-right senators do less of most kinds of work; far-right House members do more service and    |
-| less policy.                                                                                              |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| President's party          | n.s./↑     | n.s./n.s.  | ↑/↑         | n.s./n.s.  | ↑/↑        | n.s./↑     |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Ideological distance       | n.s./–     | n.s./–     | ↓/–         | ↓/–        | ↑/–        | ↓/–        |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Republican                 |            | **↑**/–    |             |            | n.s./–     | n.s./–     |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Right wing (House)          | ↑/–        | ↑/–        | **↓**/–     | **↓**/–    | n.s./–     | n.s./–     |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Right wing (Senate)         | n.s./–     | n.s./–     | **↓**/–     | **↓**/–    | **↓**/–    | **↓**/–    |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| **@hyp-strategy-electoral (Electoral): partly supported.** Competitive general elections select House     |
-| members who do more service but do not change what they do after a competitive primary; House members do |
-| more constituency service. Generally, corporate money goes to legislators doing corporate work. Within    | 
-| Within legislators, more money does not bring more corporate work. The energy case study is consistent    |
-| with this pattern: energy PAC money goes to legislators working with the Department of Energy. Within     | 
-| legislators, energy PAC contributions cause more general policy and total interbranch work with Energy,  | 
-| but not on corporate work specifically.                                                                   | 
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Competitive general        | **↑**/n.s. | **↑**/n.s. | n.s./n.s.   | n.s./n.s.  | n.s./↓     | n.s./n.s.  |
-| (House)                    |            |            |             |            |            |            |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Competitive general        | n.s./n.s.  | n.s./n.s.  | ↓/n.s.      | n.s./n.s.  | n.s./n.s.  | ↓/n.s.     |
-| (Senate)                   |            |            |             |            |            |            |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Competitive primary        | n.s./**↑** | n.s./n.s.  | n.s./n.s.   | n.s./n.s.  | n.s./n.s.  | n.s./↑     |
-| (House)                    |            |            |             |            |            |            |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Corporate PAC money        |            | **↑**/n.s. |             |            | **↑**/n.s. |            |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Energy PAC money           |            | **↑**/n.s. |             | ↑/↑        | **↑**/n.s. | ↑/↑        |
-| (Department of Energy)‡    |            |            |             |            |            |            |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Placebo: non-energy PAC    |            | n.s./n.s.  |             | n.s./n.s.  | ↓/n.s.     | n.s./n.s.  |
-| money (Department of       |            |            |             |            |            |            |
-| Energy)‡                   |            |            |             |            |            |            |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| **@hyp-strategy-institutional (Institutional): supported for constituency service in the House.** When    |
-| their party wins the House majority, members do more general policy work and less service. No significant |
-| results for the Senate.                                                                                   |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Majority party (House)     | n.s./**↓** | n.s./n.s.  | n.s./**↓**  | ↑/↑        | n.s./n.s.  | n.s./**↓** |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Majority party (Senate)    | n.s./n.s.  | n.s./n.s.  | n.s./n.s.   | n.s./n.s.  | n.s./n.s.  | n.s./n.s.  |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| **@hyp-strategy-staff (Staff allocation): supported.** Offices with more casework staff do more           |
-| individual service.                                                                                       |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
-| Casework staff             | **↑/↑**    | n.s./n.s.  | n.s./n.s.   |            |            | ↑/↑        |
-+----------------------------+------------+------------+-------------+------------+------------+------------+
 
-: Summary of results for @hyp-strategy (Strategic incentives). Each cell shows *cross-sectional/difference-in-differences* results: ↑ and ↓, statistically significant positive and negative relationships (95% confidence intervals); n.s., not significant; –, not estimated; blank, no prediction (@tbl-strategy); the Total column is shown for every indicator. **Bold** results are consistent with predictions; for president's party and ideological distance, where alignment and antagonism make opposite predictions, see the group assessment. Right wing is a first-dimension DW-NOMINATE score above 0.5. ‡Contacts with the Department of Energy only. {#tbl-strategy-findings}
+::: {style="text-align: left;"}
+
+**@hyp-strategy-partisan (Partisan):** more alignment than antagonism. Presidential and agency allies do more interbranch work. Agency antagonism only appears for corporate policy. Republicans do more corporate service. Right-wing senators do less of most kinds of work; Right-wing House members do more service and less policy.
+
+:::
+
+| Indicator | Individual service | Corporate service | Nonprofit or local gov't service | General policy | Corporate policy | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| President's party | n.s./↑ | n.s./n.s. | ↑/↑ | n.s./n.s. | ↑/↑ | n.s./↑ |
+| Ideological distance | n.s./– | n.s./– | ↓/– | ↓/– | ↑/– | ↓/– |
+| Republican | | **↑**/– | | | n.s./– | n.s./– |
+| Right wing (House) | ↑/– | ↑/– | **↓**/– | **↓**/– | n.s./– | n.s./– |
+| Right wing (Senate) | n.s./– | n.s./– | **↓**/– | **↓**/– | **↓**/– | **↓**/– |
+
+::: {style="text-align: left;"}
+
+**@hyp-strategy-electoral (Electoral): partly supported.** Competitive general elections select House members who do more service but do not change what they do after a competitive primary; House members do more constituency service. Generally, corporate money goes to legislators doing corporate work. Within legislators, more money does not bring more corporate work. The energy case study is consistent with this pattern: energy PAC money goes to legislators working with the Department of Energy. Within legislators, energy PAC contributions cause more general policy and total interbranch work with Energy, but not on corporate work specifically.
+
+:::
+
+| Indicator | Individual service | Corporate service | Nonprofit or local gov't service | General policy | Corporate policy | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Competitive general (House) | **↑**/n.s. | **↑**/n.s. | n.s./n.s. | n.s./n.s. | n.s./↓ | n.s./n.s. |
+| Competitive general (Senate) | n.s./n.s. | n.s./n.s. | ↓/n.s. | n.s./n.s. | n.s./n.s. | ↓/n.s. |
+| Competitive primary (House) | n.s./**↑** | n.s./n.s. | n.s./n.s. | n.s./n.s. | n.s./n.s. | n.s./↑ |
+| Corporate PAC money | | **↑**/n.s. | | | **↑**/n.s. | |
+| Energy PAC money (Department of Energy)‡ | | **↑**/n.s. | | ↑/↑ | **↑**/n.s. | ↑/↑ |
+| Placebo: non-energy PAC money (Department of Energy)‡ | | n.s./n.s. | | n.s./n.s. | ↓/n.s. | n.s./n.s. |
+
+::: {style="text-align: left;"}
+
+**@hyp-strategy-institutional (Institutional): supported for constituency service in the House.** When their party wins the House majority, members do more general policy work and less service—no significant results for the Senate.
+
+:::
+
+| Indicator | Individual service | Corporate service | Nonprofit or local gov't service | General policy | Corporate policy | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Majority party (House) | n.s./**↓** | n.s./n.s. | n.s./**↓** | ↑/↑ | n.s./n.s. | n.s./**↓** |
+| Majority party (Senate) | n.s./n.s. | n.s./n.s. | n.s./n.s. | n.s./n.s. | n.s./n.s. | n.s./n.s. |
+
+::: {style="text-align: left;"}
+
+**@hyp-strategy-staff (Staff allocation): supported.** Offices with more casework staff do more individual service.
+
+:::
+
+| Indicator | Individual service | Corporate service | Nonprofit or local gov't service | General policy | Corporate policy | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Casework staff | **↑/↑** | n.s./n.s. | n.s./n.s. | | | ↑/↑ |
+
+Summary of results for @hyp-strategy (Strategic incentives). Each cell shows *cross-sectional/difference-in-differences* results: ↑ and ↓, statistically significant positive and negative relationships (95% confidence intervals); n.s., not significant; –, not estimated; blank, no prediction (@tbl-strategy); the Total column is shown for every indicator. **Bold** results are consistent with predictions; for president's party and ideological distance, where alignment and antagonism make opposite predictions, see the group assessment. Right wing is a first-dimension DW-NOMINATE score above 0.5. ‡Contacts with the Department of Energy only. 
+:::
+
+--> 
+
+```{r}
+#| label: tbl-strategy-findings
+#| tbl-scap: "Evidence for strategic incentive hypotheses"
+#| tbl-cap: "Summary of results for @hyp-strategy (incentives). Each cell shows *cross-sectional/difference-in-differences* results: ↑ and ↓ indicate statistically significant positive and negative relationships; n.s. is not significant; – is not estimated; blank indicates no prediction (@tbl-strategy). **Bold** results are consistent with predictions; for president's party and ideological distance, where alignment and antagonism make opposite predictions, see the group assessment. Right wing is a first-dimension DW-NOMINATE score above 0.5. ‡ Requests to the Department of Energy only."
+
+library(tinytable)
+
+# Each vector is one ordinary data row.
+rows <- list(
+  c("President's party",
+    "n.s./↑", "n.s./n.s.", "↑/↑", "n.s./n.s.", "↑/↑", "n.s./↑"),
+
+  c("Ideological distance",
+    "n.s./–", "n.s./–", "↓/–", "↓/–", "↑/–", "↓/–"),
+
+  c("Republican",
+    "", "**↑**/–", "", "", "n.s./–", "n.s./–"),
+
+  c("Right wing (House)",
+    "↑/–", "↑/–", "**↓**/–", "**↓**/–", "n.s./–", "n.s./–"),
+
+  c("Right wing (Senate)",
+    "n.s./–", "n.s./–", "**↓**/–", "**↓**/–", "**↓**/–", "**↓**/–"),
+
+  c("Competitive general (House)",
+    "**↑**/n.s.", "**↑**/n.s.", "n.s./n.s.", "n.s./n.s.",
+    "n.s./↓", "n.s./n.s."),
+
+  c("Competitive general (Senate)",
+    "n.s./n.s.", "n.s./n.s.", "↓/n.s.", "n.s./n.s.",
+    "n.s./n.s.", "↓/n.s."),
+
+  c("Competitive primary (House)",
+    "n.s./**↑**", "n.s./n.s.", "n.s./n.s.", "n.s./n.s.",
+    "n.s./n.s.", "n.s./↑"),
+
+  c("Corporate PAC money",
+    "", "**↑**/n.s.", "", "", "**↑**/n.s.", ""),
+
+  c("Energy PAC money‡",
+    "", "**↑**/n.s.", "", "↑/↑", "**↑**/n.s.", "↑/↑"),
+
+  c("Placebo: non-energy PAC money‡",
+    "", "n.s./n.s.", "", "n.s./n.s.", "↓/n.s.", "n.s./n.s."),
+
+  c("Majority (House)",
+    "n.s./**↓**", "n.s./n.s.", "n.s./**↓**", "↑/↑",
+    "n.s./n.s.", "n.s./**↓**"),
+
+  c("Majority (Senate)",
+    "n.s./n.s.", "n.s./n.s.", "n.s./n.s.", "n.s./n.s.",
+    "n.s./n.s.", "n.s./n.s."),
+
+  c("Casework staff",
+    "**↑/↑**", "n.s./n.s.", "n.s./n.s.", "", "", "↑/↑")
+)
+
+dat <- as.data.frame(
+  do.call(rbind, rows),
+  stringsAsFactors = FALSE
+)
+
+names(dat) <- c(
+  "Indicator",
+  "Indiv. service",
+  "Corp. service",
+  "Nonprofit or local gov't service",
+  "General policy",
+  "Corp. policy",
+  "Total"
+)
+
+# Narrative rows span all seven columns.
+narratives <- c(
+  paste(
+    "**Partisan and ideological** effects are driven more by alignment than antagonism.",
+    "Interbranch work targets allied agencies and administrations.",
+    "Agency antagonism only appears for corporate policy.",
+    "Republicans do more corporate service.",
+        "Right-wing House members do less policy;",
+        "Right-wing senators do less of all types of interbranch work."
+  ),
+
+  paste(
+    "**Electoral competitiveness** effects are limited to the House.",
+    "Representatives from competitive House districts do more constituent service",
+    "After facing a competitive primary, representatives may do more service.",
+    "**Corporate PAC donations** are correlated with all kinds of work.",
+    "Within legislators, more money does not induce more corporate work."
+  ),
+
+  paste(
+    "**Institutional incentives shape the representatives' work.**",
+    "When their party wins a majority, members of the House do more general policy work and less service.",
+    "No significant differences in the Senate."
+  ),
+
+  paste(
+    "**Staff allocation: supported.**",
+    "Offices with more casework staff do more individual service."
+  )
+)
+
+# Insert a spanning narrative before original data rows 1, 6, 12, and 14.
+groups <- setNames(
+  list(1L, 6L, 12L, 14L),
+  narratives
+)
+
+tab <- tt(
+  dat,
+  width = c(3, 1, 1, 1, 1, 1, 1) / 8
+)
+
+tab <- group_tt(tab, i = groups)
+tab <- style_tt(tab, align = "l")
+tab <- format_tt(tab, markdown = TRUE)
+
+tab
+```
 
 In considering our partisan and ideological incentives, on the whole we see *alignment* outweighing antagonism in shaping interbranch representation. Members of the president's party do more individual service, nonprofit/local government service, corporate policy, and total interbranch representation. Similarly, those ideologically aligned with an agency do more nonprofit service, general policy work, and total interbranch representation. We also see Republicans engaging in more corporate service work on behalf of their traditional business coalition. We also see antigovernment Republicans (those in the Tea Party and Freedom Caucus) engaging in less policy work, and less total interbranch representation. 
 
 But partisan and ideological alignment doesn't always win out. On the antagonist side, we see those who are ideologically distant from an agency engaging in more corporate policy work with that agency (think, for example, of conservatives doing more corporate policy work with the EPA). We also see those antigovernment Republicans in the House (Tea Party and Freedom Caucus members) engaging in more individual constituency service and corporate service---perhaps pushing back against a bureaucracy they loathe on behalf of their constituents. 
 
-A surprising finding not linked to any of our hypotheses is that Republican legislators, including far-right Republicans who could be members of the Tea Party or Freedom Caucus, do more constituency service on behalf of individuals. We had expected far-right legislators to do less interbranch representation overall because of their general antigovernment ideology, but this was not the case. One possible explanation for this relationship is that Republicans view individual constituency service as an opportunity to highlight the failures of government. For example, returning a large tax refund to a constituent from the IRS or helping a Social Security beneficiary receive delayed benefits would allow a Republican legislator to claim credit for helping constituents cut through "red tape" and receive what the government owes them as a taxpaying citizen. Testing this explanation is beyond the scope of our analysis here. However, our findings still reveal a surprising way in which constituency service might be ideological or partisan, especially if this explanation is true. Interestingly, both parties, in theory, could claim to "own" constituency service as something that accords with their goals---while Republicans could describe their constituency service work as making sure that the federal government is not unfairly taking people's money or making things harder than necessary for individuals, Democrats could just as easily describe this kind of work as helping members of underserved communities get what they need from government. These unexpected findings provide an interesting contribution to the nascent literature on constituency service and partisanship, which has mostly examined that relationship from constituents' perspectives [e.g. @Wagner2007; @Snyder2024]. 
+A surprising finding not linked to any of our hypotheses is that Republican legislators, including Right-wing Republicans who could be members of the Tea Party or Freedom Caucus, do more constituency service on behalf of individuals. We had expected Right-wing legislators to do less interbranch representation overall because of their general antigovernment ideology, but this was not the case. One possible explanation for this relationship is that Republicans view individual constituency service as an opportunity to highlight the failures of government. For example, returning a large tax refund to a constituent from the IRS or helping a Social Security beneficiary receive delayed benefits would allow a Republican legislator to claim credit for helping constituents cut through "red tape" and receive what the government owes them as a taxpaying citizen. Testing this explanation is beyond the scope of our analysis here. However, our findings still reveal a surprising way in which constituency service might be ideological or partisan, especially if this explanation is true. Interestingly, both parties, in theory, could claim to "own" constituency service as something that accords with their goals---while Republicans could describe their constituency service work as making sure that the federal government is not unfairly taking people's money or making things harder than necessary for individuals, Democrats could just as easily describe this kind of work as helping members of underserved communities get what they need from government. These unexpected findings provide an interesting contribution to the nascent literature on constituency service and partisanship, which has mostly examined that relationship from constituents' perspectives [e.g. @Wagner2007; @Snyder2024]. 
 
 On the electoral side, despite the robust literature tying constituency service to reelection concerns, we see only a conditional relationship. We find that competitive general elections appear to help select legislators who do more service (from the cross-sectional model results), but competitive general elections don't change a legislator's behavior. Instead, we see competitive primary elections appearing to change behavior, where after a competitive primary, House members do more constituency service. Surprisingly, given the greater competitiveness of Senate elections, we see almost no relationship between electoral competitiveness and interbranch representation. The sole exception to that dynamic is that cross-sectionally, we see Senators from more competitive states doing less total interbranch representation, and less nonprofit and local government service. 
 
