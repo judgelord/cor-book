@@ -14,6 +14,8 @@
 \renewcommand{\arraystretch}{1.25}
 \setlength{\extrarowheight}{2pt}
 
+ \usepackage{multirow} % avoides latex error ! Undefined control sequence.l.4798 \multirow{2}{=}{\begin{minipage}[b]{\linewidth}\raggedright
+
 % other packages
 \usepackage{amssymb}
 \usepackage{pifont} % Pi fonts (Dingbats, Symbol, etc.)
@@ -32,15 +34,43 @@
 \UseTblrLibrary{booktabs}
 \UseTblrLibrary{siunitx}
 
-% tinytable helper commands: defined only if tinytable hasn't already defined them
-% (defining them twice caused errors; not defining them causes "Undefined control sequence")
-\AtBeginDocument{%
-  \providecommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}%
-  \providecommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}%
-  \ifdefined\tinytableDefineColor\else
-    \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}%
-  \fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEVIN TO ELLIE: I'm commenting out this bit defining tinytable helper because they were causing errors.  %
+% The real problem is caching, it works when you turn off cacheing in _quarto,yml or delete the cache.     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % tinytable helpers supplied manually because they are absent
+% % from the generated preamble
+% \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+% \providecommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+% \providecommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+
+% % tinytable helper commands: defined only if tinytable hasn't already defined them
+% % (defining them twice caused errors; not defining them causes "Undefined control sequence")
+% \AtBeginDocument{%
+%   \providecommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}%
+%   \providecommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}%
+%   \ifdefined\tinytableDefineColor\else
+%     \NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}%
+%   \fi
+% }
+
+
+%% FOR TOTAL FIGURE AND TABLE COUNTER
+\usepackage{etoolbox}
+
+\newcounter{totalfigures}
+\newcounter{totaltables}
+
+\let\RunningTotalsOriginalAddcontentsline\addcontentsline
+
+\renewcommand{\addcontentsline}[3]{%
+  \ifstrequal{#1}{lof}{\stepcounter{totalfigures}}{}%
+  \ifstrequal{#1}{apf}{\stepcounter{totalfigures}}{}%
+  \ifstrequal{#1}{lot}{\stepcounter{totaltables}}{}%
+  \ifstrequal{#1}{apt}{\stepcounter{totaltables}}{}%
+  \RunningTotalsOriginalAddcontentsline{#1}{#2}{#3}%
 }
+
 
 % DO WE NEED THIS? OR IS BOOKTABS GOING TO WORK?
 % \usepackage{longtable}
