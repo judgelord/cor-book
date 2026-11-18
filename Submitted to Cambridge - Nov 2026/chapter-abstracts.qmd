@@ -1,0 +1,89 @@
+---
+title: "Interbranch Representation"
+subtitle: "How Congressional Offices Work with the Bureaucracy: Chapter Abstracts"
+author: "Devin Judge-Lord, Eleanor Powell, and Rochelle Snyder"
+format:
+  pdf:
+    documentclass: article
+    geometry: margin=1in
+    toc: false
+    lof: false
+    lot: false
+    number-sections: false
+    keep-tex: false
+    include-in-header:
+      text: |
+        \pagestyle{empty}
+execute:
+  cache: false
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r include=FALSE, cache=FALSE, message=FALSE}
+#here::here("code", "qmd_global_options.R") |> source() 
+```
+
+
+```{r}
+
+here::i_am("Submitted to Cambridge - Nov 2026/chapter-abstracts.qmd")
+chapter_dir <- here::here("") # Change to your folder path
+
+files <- list.files(
+  chapter_dir,
+  pattern = "^ch[0-9]+-.*\\.(qmd|md|txt)$",
+  full.names = TRUE,
+  ignore.case = TRUE
+)
+
+if (length(files) == 0) {
+  stop("No chapter files found in ", chapter_dir)
+}
+
+# Sort numerically: ch1, ch2, ..., ch10.
+chapter_number <- as.integer(
+  sub("^ch([0-9]+)-.*$", "\\1", basename(files), ignore.case = TRUE)
+)
+files <- files[order(chapter_number)]
+chapter_number <- sort(chapter_number)
+
+extract_abstract <- function(path) {
+  lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  matches <- grep("^> ABSTRACT: ", lines, value = TRUE)
+  if (!length(matches)) {
+    warning("No abstract found in: ", basename(path))
+    return(NA_character_)
+  }
+sub("^> ABSTRACT:\\s*", "", matches[1])
+}
+
+extract_title <- function(path) {
+  lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  matches <- grep("^# ", lines, value = TRUE)
+  if (!length(matches)) {
+    warning("No title found in: ", basename(path))
+    return(NA_character_)
+  }
+  title <- sub("^#\\s+", "", matches[1])        # drop the leading "# "
+  sub("\\s*\\{#[^}]*\\}\\s*$", "", title)        # drop labels like {#sec-intro}
+}
+
+abstracts <- data.frame(
+  number   = chapter_number,
+  title    = vapply(files, extract_title, character(1)),
+  abstract = vapply(files, extract_abstract, character(1)),
+  stringsAsFactors = FALSE
+) |>
+  tidyr::drop_na(title)
+```
+
+```{r}
+#| results: asis
+
+for (i in seq_len(nrow(abstracts))) {
+  cat("\n\n## Chapter ", abstracts$number[i], ": ", abstracts$title[i], "\n\n", sep = "")
+  cat(abstracts$abstract[i], "\n\n")
+}
+```

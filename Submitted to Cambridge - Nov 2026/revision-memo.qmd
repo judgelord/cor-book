@@ -1,0 +1,69 @@
+---
+# One-page memo: revisions since the book conference
+# Render with: quarto render revision-memo.qmd
+format:
+  pdf:
+    documentclass: article
+    top-level-division: section
+    fontsize: 12pt
+    toc: false
+    lot: false
+    lof: false
+    geometry:
+      - margin=0.9in
+      - top=0.8in
+    pagestyle: empty
+    number-sections: false
+    keep-tex: false
+    colorlinks: true
+    include-in-header:
+      text: |
+        \usepackage{enumitem}
+        \setlist{nosep, leftmargin=1.2em}
+        \usepackage{titlesec}
+        \titleformat{\section}{\normalsize\bfseries}{}{0pt}{}
+        \titlespacing*{\section}{0pt}{8pt}{3pt}
+        \setlength{\parskip}{4pt}
+        \setlength{\parindent}{0pt}
+  html:
+    toc: false
+cache: false
+---
+
+# Revisions to *Interbranch Representation* in response to book conference feedback
+
+<!--*Background*: In July 2026, we held a day-long book conference at the University of Michigan. Participants included: David Lewis (Vanderbilt), Sharece Thrower (Vanderbilt), Molly Reynolds (Brookings), Justin Grimmer (Stanford), Laurel Harbridge (Northwestern), Kenneth Lowande (Rice University), Charles Shipan (University of Michigan), and Donald Moynihan (University of Michigan).--> 
+
+We are so grateful for the incredibly thoughtful and constructive feedback from conference participants. This manuscript is much stronger because of their advice. Below, we summarize our major revisions and what remains.
+
+# Main changes
+
+1. **Manuscript Reorganization:** Book workshop participants thought manuscript would benefit from a different structure to more clearly emphasize the theoretical contributions. We thus reorganized the book around the three drivers of interbranch representation in our conceptual framework rather than separate chapters for each dependent variable (types of interbranch representation). This means that the five chapters about each type of interbranch representation outcome (constituency service, policy work, etc.) were replaced by three chapters organized by our causal framework (demand, capacity, incentives). 
+2. **Added descriptive detail in new chapter on the concept of interbranch representation:** Participants wanted substantially more descriptive detail and qualitative characterization of the data. We therefore also added a chapter about the concept of interbranch representation and the different types. Throughout the manuscript, we also added anecdotes and examples from the data.
+3. **Removed inequality focus:** Participants were concerned that the word "inequality" evoked normative concerns. We're therefore replaced inequality with variation, which describes the same empirical phenomena with less normative connotation. Throughout the manuscript, our primary focus is now on explaining variation in interbranch representation rather than explaining inequality per se. Functionally, this is a matter of emphasis and presentation. For example, our regression models are the same, but we have replaced the original presentation that estimated changes in distributions and Gini coefficients with more traditional marginal effect plots. 
+4. **Added new congressional staffing data**: Previously we relied on aggregated congressional staff measures from replication data that only covered the House for a few years. We purchased complete congressional staff data from Legistorm, allowing us to add novel descriptive figures and better analyses with full coverage for the House and Senate 2010-2025. 
+
+# Manuscript Reorganization
+
+| Ch. | Conference draft                                   | Revised manuscript                                  |
+|:----|:---------------------------------------------------|:----------------------------------------------------|
+| 1   | Introduction                                       | Introduction                                        |
+| 2   | Theory                                             | Theory                                              |
+| 3   | Data and measurement                               | Concept of interbranch representation               |
+| 4   | Results: overall variation                         | Data and measurement                                |
+| 5   | Results: individual constituents                   | Impact of constituent demand                        |
+| 6   | Results: corporate constituents                    | Impact of capacity                                  |
+| 7   | Results: nonprofits and local governments          | Impact of strategic incentives                      |
+| 8   | Results: general policy work                       | Conclusion                                          |
+| 9   | Results: corporate policy work                     | –                                                   |
+| 10  | Conclusion                                         | –                                                   |
+
+
+
+# Still to come
+While the manuscript is under review, we are making the following improvements: 
+
+1. **Stylistic Edit from professional book editor**: The manuscript is currently receiving a stylistic edit from Kelly Clancy (former tenured political science professor, now head of Epilogue Editing). We anticipate receiving her comments back by February 2027. 
+2. **Interviews with Congressional staff and Members**: While the manuscript is under review, we plan to conduct interviews to add richness to the manuscript. 
+3. **Augment our results with district-level models**: The current analysis is at the legislator level. While the manuscript is under review, we plan to replicate and extend all of our results with district-level robustness checks. Our theory generally has similar theoretical predictions if we use the district rather than the legislator as the unit of analysis. We generally see similar results with a district-level analysis, but have not comprehensively tested our hypotheses with district-level models. An added benefit of doing this analysis is that district-level results can augment the results currently in the book, where we are unable to estimate difference-in-differences models due to variables that do not change within a legislator. 
+<!--- *Further analysis of the role of congressional staff: While the manuscript is under review, we plan to bolster our analysis of --> 
