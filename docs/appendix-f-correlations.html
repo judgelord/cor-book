@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix D — Fixed Effects – Interbranch Representation</title>
+<title>Appendix F — Correlations (Online Only) – Interbranch Representation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,7 +55,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix-c.html" rel="prev">
+<link href="./appendix-e-alt-models.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -88,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Fixed Effects</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-methods.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-f-correlations.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Correlations (Online Only)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -124,80 +143,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./agenda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Agenda for the Book Conference</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./acknowledgements.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Disparities in Interbranch Representation</span></span></a>
+  <a href="./ch1-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interbranch Representation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch2-causes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theories of Interbranch Representation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Measuring (Invisible) Interbranch Representation</span></span></a>
+  <a href="./ch3-effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Concept of Interbranch Representation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Explaining Unequal Interbranch Representation</span></span></a>
+  <a href="./ch4-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Studying What Congressional Offices Do Behind the Scenes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Representing Individual Constituents</span></span></a>
+  <a href="./ch5-results-demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">How Constituent Demand Affects Interbranch Representation?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Representing Businesses</span></span></a>
+  <a href="./ch6-results-capacity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">How Congressional Capacity Affects Interbranch Representation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Representing Nonprofits and Local Governments</span></span></a>
+  <a href="./ch7-results-incentives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">How Strategic Incentives Affect Interbranch Representation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General Policy Work</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ch9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Policy Work on Behalf of Business</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ch10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion: Effective Representatives or Styles of Representation?</span></span></a>
+  <a href="./ch8-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,26 +212,38 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-a.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendix-a-methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-b.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendix-b-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Summary statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-c.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models</span></span></a>
+  <a href="./appendix-c-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models Across Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-d.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Fixed Effects</span></span></a>
+  <a href="./appendix-d-types-across-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Types Across Models (Online Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-alt-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Alternative Models (Online Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-correlations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Correlations (Online Only)</span></span></a>
   </div>
 </li>
       </ul>
@@ -246,15 +253,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#correlations-among-variables-used-in-the-analyses" id="toc-correlations-among-variables-used-in-the-analyses" class="nav-link active" data-scroll-target="#correlations-among-variables-used-in-the-analyses">Correlations among variables used in the analyses</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Fixed Effects</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-methods.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-f-correlations.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Correlations (Online Only)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-fe" class="quarto-section-identifier">Appendix D — Fixed Effects</span></h1>
+<h1 class="title"><span id="sec-appendix-correlations" class="quarto-section-identifier">Appendix F — Correlations (Online Only)</span></h1>
 </div>
 
 
@@ -271,23 +284,200 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="#fig-FEs" class="quarto-xref">Figure&nbsp;<span>D.1</span></a> plots the fixed effects from the main difference-in-differences model of total interbranch representation in from <a href="appendix-c.html" class="quarto-xref"><span>Appendix C</span></a>.</p>
+<section id="correlations-among-variables-used-in-the-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="correlations-among-variables-used-in-the-analyses">Correlations among variables used in the analyses</h3>
+<p><a href="#fig-data-correlations" class="quarto-xref">Figure&nbsp;<span>F.1</span></a> shows cross-tabulations among all variables used in the analyses and by decile of total interbranch representation. Many of the patterns we document with regression analysis are clear in these unconditional correlations as well. For example, district population is correlated with total interbranch representation, with the top two deciles doing more and the bottom seven deciles doing less. Likewise, being in the Senate is associated with being in the top 30% of legislators. Weaker associations for district demographics, various forms of institutional capacity and experience, and competitive elections are also apparent. Those with more extreme NOMINATE scores, Republicans, and legislators in the majority are less likely to be in the top decile, overall.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-FEs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-data-correlations" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-FEs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;D.1: Legislator Fixed Effects
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-correlations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;F.1: Cross Correlations - Total Interbranch Representation
 </figcaption>
-<div aria-describedby="fig-FEs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/fixed-effects.png" class="img-fluid figure-img" width="2160">
+<div aria-describedby="fig-data-correlations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/total/correlations-1.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 </figure>
 </div>
 </div>
 </div>
+<p><a href="#fig-data-correlations1" class="quarto-xref">Figure&nbsp;<span>F.2</span></a> shows many of the same patterns in cross-tabulations for deciles of individual interbranch representation. Notably, we see that the positive association between Republicans and individual interbranch representation is driven by deciles 5-8, not the top decile of congressional offices.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-correlations1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-correlations1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;F.2: Correlations by Decile of Individual Constituent Interbranch Representation
+</figcaption>
+<div aria-describedby="fig-data-correlations1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/1/correlations-deciles-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-data-correlations2" class="quarto-xref">Figure&nbsp;<span>F.3</span></a> shows cross-tabulations that show many of the same patterns for interbranch representation on behalf of businesses. The correlation with the percent of the district with a college degree is lower, and there is no longer a correlation with being in the minority. There is now a positive association with being a Republican and being in all five deciles at the top of the distribution.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-correlations2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-correlations2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;F.3: Correlations by Decile of Corporate Constituent Interbranch Representation
+</figcaption>
+<div aria-describedby="fig-data-correlations2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/2/correlations-deciles-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-data-correlations3" class="quarto-xref">Figure&nbsp;<span>F.4</span></a> shows many of the same patterns related to capacity in the raw cross-tabulations for interbranch representation on behalf of nonprofits and local governments. The main differences are (1) a strong negative correlation between being a Republican officeholder and this type of interbranch representation and (2) a strong positive relationship with being in the president’s party <span class="citation" data-cites="BerryBurdenHowell2010">(aligned with <a href="references.html#ref-BerryBurdenHowell2010" role="doc-biblioref">Berry et al. 2010</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-correlations3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-correlations3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;F.4: Correlations by Decile of Nonprofit and Local Government Interbranch Representation
+</figcaption>
+<div aria-describedby="fig-data-correlations3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/3/correlations-deciles-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-data-correlations5" class="quarto-xref">Figure&nbsp;<span>F.5</span></a> shows many of the same patterns again related to capacity and district demand. Unsurprisingly, the correlation with LES scores is stronger, and there is now somewhat of a relationship for subcommittee chairs that is largely absent from non-policy work forms of interbranch representation. There is again a positive relationship between policy work and being in the president’s party and a negative relationship with being a Republican.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-correlations5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-correlations5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;F.5: Correlations by Decile of Policy Work
+</figcaption>
+<div aria-describedby="fig-data-correlations5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/5/correlations-deciles-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-data-correlations4" class="quarto-xref">Figure&nbsp;<span>F.6</span></a>, showing policy work on behalf of particular industries, shows many of the same patterns as general policy work seen in <a href="#fig-data-correlations5" class="quarto-xref">Figure&nbsp;<span>F.5</span></a>, but stronger correlations with corporate PAC fundraising and weaker relationships with committee chair positions and legislative effectiveness scores. Interestingly, republican offices are less likely to be in the top decile for corporate policy work. Members with the top 20% of large positive or negative NOMINATE scores are also much less likely to do policy work on behalf of businesses, but this is partially driven by republicans having, on average, NOMINATE scores more distant from zero.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-data-correlations4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-data-correlations4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;F.6: Correlations by Decile of Corporate Policy Work
+</figcaption>
+<div aria-describedby="fig-data-correlations4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/4/correlations-deciles-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<!-- Appears in Chapter 8 - conclusion
+### Legislative Effectiveness Scores 
+
+The Pearson's product-moment correlation between annual Legislative Effectiveness Scores and total annual requests to federal agencies is  0.024 (p < .01). While we cannot necessarily infer from this correlation that more effective legislators are also consistently more effective at interbranch representation, @fig-les-decile does show that legislators with the lowest Legislative Effectiveness Scores also do the least interbranch representation. Some of this relationship, however, may be driven by congressional leaders, particularly the Speaker, exercising power and effectiveness through other channels that are not captured in these measures. 
 
 
+
+::: {.cell}
+::: {.cell-output-display}
+![Correlation Between Legislative Effectiveness Scores and Interbranch Representation](figs/total/cor-les-decile-1.png){#fig-les-decile width=80%}
+:::
+:::
+
+
+The correlation between Legislative Effectiveness Scores and interbranch representation is, unsurprisingly, strongest for policy work. It is driven by the top and, especially, bottom deciles of both distributions. 
+
+
+::: {#fig-les .cell layout-ncol="2"}
+::: {.cell-output-display}
+![Overall](figs/total/cor-les-3.png){#fig-les-1 width=100%}
+:::
+
+::: {.cell-output-display}
+![Indiv. Constituents](figs/1/cor-les-3.png){#fig-les-2 width=100%}
+:::
+
+::: {.cell-output-display}
+![Corporate Constituents](figs/2/cor-les-3.png){#fig-les-3 width=100%}
+:::
+
+::: {.cell-output-display}
+![Nonprofits and Local Governments](figs/3/cor-les-3.png){#fig-les-4 width=100%}
+:::
+
+::: {.cell-output-display}
+![Policy Work](figs/4/cor-les-3.png){#fig-les-5 width=100%}
+:::
+
+::: {.cell-output-display}
+![Policy Work on Behalf of Business](figs/5/cor-les-3.png){#fig-les-6 width=100%}
+:::
+
+Correlation With Legislative Effectiveness Scores by Type of Interbranch Representation
+:::
+
+
+### Fundraising 
+
+As shown in @fig-pac-decile, the correlation between corporate PAC fundraising and interbranch representation is driven even more by the top and, especially, bottom deciles of both. 
+
+
+::: {.cell}
+::: {.cell-output-display}
+![Correlation Between Corporate Political Action Committee Donations and Interbranch Representation](figs/total/cor-pac-decile-1.png){#fig-pac-decile width=80%}
+:::
+:::
+
+
+The correlation between annual corporate PAC contributions and total annual requests to federal agencies is 0.08 (p< .001), a slightly stronger correlation than that between LES and requests to federal agencies. The fact that some legislators do both more fundraising and more interbranch representation, also supported by our other findings throughout this book, presents a significant challenge to our understanding of how fundraising work fits in with legislators' other activities. Critics of Congress -- sometimes including members of Congress themselves -- decry fundraising as, at best, a vacuous distraction from Congress's real work. It is assumed that, by engaging in more fundraising activities, members of Congress are sacrificing legislative and representational work. From our analysis, however, that appears not necessarily to be the case.  
+
+
+
+::: {#fig-pac .cell layout-ncol="2"}
+::: {.cell-output-display}
+![Overall](figs/total/cor-pac-3.png){#fig-pac-1 width=100%}
+:::
+
+::: {.cell-output-display}
+![Indiv. Constituents](figs/1/cor-pac-3.png){#fig-pac-2 width=100%}
+:::
+
+::: {.cell-output-display}
+![Corporate Constituents](figs/2/cor-pac-3.png){#fig-pac-3 width=100%}
+:::
+
+::: {.cell-output-display}
+![Nonprofits and Local Governments](figs/3/cor-pac-3.png){#fig-pac-4 width=100%}
+:::
+
+::: {.cell-output-display}
+![Policy Work](figs/4/cor-pac-3.png){#fig-pac-5 width=100%}
+:::
+
+::: {.cell-output-display}
+![Policy Work on Behalf of Business](figs/5/cor-pac-3.png){#fig-pac-6 width=100%}
+:::
+
+Correlation With Corporate Political Action Committee Donations by Type of Interbranch Representation
+:::
+
+
+While more research is needed to understand the precise nature of the relationship between interbranch representation and these other measures of what legislators do, the correlations presented here suggest that at least some legislators, rather than choosing to concentrate their efforts only on one type of activity, simply excel at everything. 
+
+-->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-BerryBurdenHowell2010" class="csl-entry" role="listitem">
+Berry, Christopher, Barry Burden, and William Howell. 2010. <span>“The President and the Distribution of Federal Spending.”</span> <em>American Political Science Review</em> 104 (4): 783–99.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -842,8 +1032,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./appendix-c.html" class="pagination-link" aria-label="Models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models</span></span>
+      <a href="./appendix-e-alt-models.html" class="pagination-link" aria-label="Alternative Models (Online Only)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Alternative Models (Online Only)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

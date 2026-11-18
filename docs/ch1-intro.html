@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Interbranch Representation – Interbranch Representation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch2-causes.html" rel="next">
+<link href="./acknowledgements.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-7d8ad657b878717df1156ab40fed854c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interbranch Representation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Interbranch Representation</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Interbranch-Representation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-causes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theories of Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Concept of Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Studying What Congressional Offices Do Behind the Scenes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5-results-demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">How Constituent Demand Affects Interbranch Representation?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6-results-capacity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">How Congressional Capacity Affects Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch7-results-incentives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">How Strategic Incentives Affect Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch8-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Summary statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models Across Types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-types-across-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Types Across Models (Online Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-alt-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Alternative Models (Online Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-correlations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Correlations (Online Only)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-interbranch-representation" id="toc-what-is-interbranch-representation" class="nav-link active" data-scroll-target="#what-is-interbranch-representation"><span class="header-section-number">1.1</span> What is Interbranch Representation?</a></li>
+  <li><a href="#why-study-interbranch-representation" id="toc-why-study-interbranch-representation" class="nav-link" data-scroll-target="#why-study-interbranch-representation"><span class="header-section-number">1.2</span> Why Study Interbranch Representation?</a></li>
+  <li><a href="#variation-in-interbranch-representation" id="toc-variation-in-interbranch-representation" class="nav-link" data-scroll-target="#variation-in-interbranch-representation"><span class="header-section-number">1.3</span> Variation in Interbranch Representation</a></li>
+  <li><a href="#our-theoretical-framework-and-key-concepts" id="toc-our-theoretical-framework-and-key-concepts" class="nav-link" data-scroll-target="#our-theoretical-framework-and-key-concepts"><span class="header-section-number">1.4</span> Our Theoretical Framework and Key Concepts</a></li>
+  <li><a href="#why-interbranch-representation-matters" id="toc-why-interbranch-representation-matters" class="nav-link" data-scroll-target="#why-interbranch-representation-matters"><span class="header-section-number">1.5</span> Why Interbranch Representation Matters</a>
+  <ul class="collapse">
+  <li><a href="#impact-of-federal-bureaucracy-on-the-lives-of-americans" id="toc-impact-of-federal-bureaucracy-on-the-lives-of-americans" class="nav-link" data-scroll-target="#impact-of-federal-bureaucracy-on-the-lives-of-americans">Impact of Federal Bureaucracy on the Lives of Americans</a></li>
+  <li><a href="#reshaping-our-understanding-of-how-legislative-and-executive-branches-interact" id="toc-reshaping-our-understanding-of-how-legislative-and-executive-branches-interact" class="nav-link" data-scroll-target="#reshaping-our-understanding-of-how-legislative-and-executive-branches-interact">Reshaping Our Understanding of How Legislative and Executive Branches Interact</a></li>
+  </ul></li>
+  <li><a href="#the-hidden-half-of-the-broken-branch" id="toc-the-hidden-half-of-the-broken-branch" class="nav-link" data-scroll-target="#the-hidden-half-of-the-broken-branch"><span class="header-section-number">1.6</span> The “Hidden Half” of the Broken Branch?</a></li>
+  <li><a href="#organization-of-the-book" id="toc-organization-of-the-book" class="nav-link" data-scroll-target="#organization-of-the-book"><span class="header-section-number">1.7</span> Organization of the Book</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interbranch Representation</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>ABSTRACT: Contemporary understanding of congressional representation has been limited by a myopic focus on legislative work. Scholars have largely overlooked a significant component of the work of congressional offices: direct engagement with federal agencies. We have thus failed to assess our democracy on important grounds. This chapter introduces a concept of interbranch representation, shows that it is highly unequal, and discusses the implications of highly unequal levels of interbranch representation for democracy. We conclude with a preview of our theoretical framework (demand, capacity, and strategic responses to the political environment) and empirical results of subsequent chapters that seek to explain the reasons for variation in different types of interbranch representation.</p>
+</blockquote>
+<!--Rochelle 9/13: new frame showing the nature of the data right away? and moving away from the dysfunction frame, while still highlighting the focus on legislative work in scholarship - though I don't think that needs to be said right away. This is an attempt at a "show, don't tell" version of the main points that we articulate more directly later in the intro: interbranch representation is important, it's hidden, there's variation in it, etc.-->
+<p>In the first few weeks of 2024, the Office of Legislation within the Food and Drug Administration (FDA) received 25 letters from members of Congress. These letters are part of a routine, quiet, but crucial undercurrent of legislative-executive interactions that exists beneath higher-profile hearings and investigations—forms of interactions between Congress and the bureaucracy with which the public is decidedly more familiar. A handful of these letters to the FDA in early 2024 concerned policy, as hearings and investigations usually do. For example, Representative Dan Goldman wrote with concerns about a rule that the FDA had recently proposed to regulate Laboratory Developed Tests (LDTs), and Senator Dick Durbin wrote regarding the FDA’s enforcement of the Tobacco Control Act. Most of the other letters, however, were written on behalf of individual constituents. Members of Congress shared correspondence from constituents who were asking for help obtaining necessary medication, asking for more information about drug shortages, drug trials, compassionate use, and obscure treatments for their medical conditions, and, in one case, urging that a canine dental stick product be removed from the market after it led to the death of their dog.</p>
+<p>The personal stories contained in these letters conjure pictures of constituents turning to congressional offices for help with some of the most significant struggles of their lives. Moreover, they speak to the important role that communications with the bureaucracy can play in congressional representation. These 25 letters are a minuscule fraction of the hundreds of thousands that members of Congress collectively send to federal agencies every year. Veterans seek assistance from their legislators with obtaining healthcare and benefits from the Department of Veterans’ Affairs (VA), and families seek records of their loved ones’ military service from the National Archives and Records Administration (NARA). Numerous subagencies within the Department of Labor (DOL) handle requests to assist constituents with obtaining workers’ compensation payments, back pay, and coverage for medications and medical procedures. Each year, U.S. Citizenship and Immigration Services (USCIS) within the Department of Homeland Security receives hundreds of thousands of requests to assist legislators’ constituents with immigration matters, including student visas, foreign worker authorizations, and requests for asylum. All of these examples show members of Congress engaging in a deeply meaningful form of responsiveness that the public at large rarely has the opportunity to see.</p>
+<p>The responsiveness evident through these communications stands in stark contrast to the version of Congress that exists in the minds of a public that disapproves of the institution at a rate of nearly 85%. A majority of survey respondents describe “most members of Congress” as corrupt, out of touch, and catering to special interests.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Very little of Congress’s behind-the-scenes correspondence with the bureaucracy, however, supports these assumptions. Beyond writing to federal agencies on behalf of individual constituents, legislators write on behalf of small businesses who are seeking help navigating bureaucratic processes like grant applications and worker visas. Legislators also frequently write in support of nonprofit organizations and local governments seeking grants to help improve their communities. Correspondence about policy, even on behalf of entire industries, often concerns routine matters like rulemaking or testimony at hearings. Contrary to what we might assume about communications that take place out of view of the public, this “hidden half of Congress” contains little work that most constituents would find objectionable.</p>
+<!--Rochelle 9/13: probably need more detail here contrasting Comstock and Cruz-->
+<p>Potentially concerning, however, is the fact that some members of Congress are much more engaged in its “hidden half” than others. As an example, consider Representative Barbara Comstock (R-VA) and Senator Ted Cruz (R-TX). In 2016 alone, Comstock sent 1,508 letters to USCIS and 209 to the VA. Cruz, by contrast, sent only 449 letters to USCIS and 5 to the VA in that same year—despite representing over 28 million constituents in the state of Texas, compared with Comstock’s 770,000 constituents in Virginia’s 10th district. Comstock and Cruz anchor each end of the distribution of the amount of legislators’ correspondence with federal agencies. Across all agencies in 2016, Comstock sent 1,841 letters to the federal bureaucracy, while Cruz sent just 493. Together, they also illustrate the central question and puzzle of this book: why do legislators communicate with federal agencies, and why do some of them do so much more of this work than others?</p>
+<!--According to the AP style guide, the "m" in "members of Congress" is not capitalized. I have only ever seen it capitalized in documents internal to the institution. We shouldn't capitalize it.-->
+<!--SUMMARY OF OUR CONTRIBUTION -->
+<p>In this book, we argue that these types of substantive representation beyond legislating belong under an overarching concept of <em>interbranch representation</em>.* We advance, measure, and explain a particular form of interbranch representation: how members of Congress work directly with federal agencies on behalf of various constituencies. Interbranch representation includes casework (constituency service) on behalf of individuals, nonprofits, and businesses, as well as oversight of executive branch policymaking and implementation. We show that interbranch representation is common but varies widely across members of Congress: as Comstock and Cruz illustrate, some provide a great deal to their constituents, while others provide almost none.</p>
+<p>To explain why members of Congress engage in interbranch representation, we offer a unified framework that integrates and extends theories rooted in unequal <em>demand</em>, unequal legislator <em>capacity</em>, and varying <em>strategic incentives</em> to invest time and energy in interbranch representation as opposed to other activities like legislating, communications, or fundraising. Theoretically and empirically, the capacity of congressional offices is at the center of this framework. Unequal capacity consistently explains legislators’ interbranch work across a variety of domains. Constituent demand and legislators’ strategic incentives play important roles in shaping which constituents are served but have smaller effects on the amount of interbranch representation that a district receives. The strategic behavior we do see is associated with partisan/ideological and institutional context, not electoral incentives. Overall, our findings show how congressional offices can function akin to a bureaucratic “logic of appropriateness” when providing interbranch representation.</p>
+<!--Rochelle 9/18: probably more here about our findings and their implications?-->
+<!--Rochelle 9/13: is the "logic of appropriateness"/congressional offices as bureaucracies takeaway still part of our story? I think that got removed from my summary paragraph at some point. I added it back in.-->
+<section id="what-is-interbranch-representation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-interbranch-representation"><span class="header-section-number">1.1</span> What is Interbranch Representation?</h2>
+<!--Rochelle 9/18: should the stuff about why it counts as representation (currently in the theory chapter) go in this section instead??? I feel like Ruth's comments at APSA suggest we need to talk about representation earlier.-->
+<!--DEFINITION-->
+<p>Interbranch representation has both broad and specific definitions. Broadly, it involves officials of one branch of government representing their constituents in the decision-making processes of another branch. In this book, we focus on interbranch representation that occurs between the legislative and executive branches of the United States government. Specifically, we examine requests that congressional offices send to federal agencies.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<!--PRIOR SCHOLARSHP HAS STUDIED NARROW SLIDES OF THIS KIND OF REPRESENTATION UNDER DIFFERENT NAMES-->
+<p>Scholars have studied parts of interbranch representation under labels including “congressional oversight,” “constituency service” <span class="citation" data-cites="Fenno1978">(<a href="references.html#ref-Fenno1978" role="doc-biblioref">Fenno 1978</a>)</span>, “lettermarking” in the context of spending <span class="citation" data-cites="MillsKalafHughes2015">(<a href="references.html#ref-MillsKalafHughes2015" role="doc-biblioref">Mills and Kalaf-Hughes 2015</a>)</span>, “lobbying,” “backchannel representation,” “backdoor lawmaking,” or “policy representation” in the context of agency policymaking <span class="citation" data-cites="Ritchie2018 Ritchie2023 RitchieYou2019 LauterbachRitchie2025">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>; <a href="references.html#ref-RitchieYou2019" role="doc-biblioref">Ritchie and You 2019</a>; <a href="references.html#ref-LauterbachRitchie2025" role="doc-biblioref">Lauterbach and Ritchie 2025</a>)</span>, “legislator advocacy” in the context of both constituent and donor service <span class="citation" data-cites="PowellJudgeLordGrimmer2023">(<a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">Powell et al. 2023</a>)</span>, “interbranch representation” in the context of legislators advising agency working groups <span class="citation" data-cites="USDepartmentofJustice2016">(<a href="references.html#ref-USDepartmentofJustice2016" role="doc-biblioref">U.S. Department of Justice, Bureau of Justice Assistance 2016</a>)</span>, and “interbranch representation of protected groups” in the context of descriptive representation in contacts to the bureaucracy <span class="citation" data-cites="LowandeRitchieLauterbach2019">(<a href="references.html#ref-LowandeRitchieLauterbach2019" role="doc-biblioref">Lowande et al. 2019</a>)</span>, or simply “representation” in the context of all types of requests to the bureaucracy <span class="citation" data-cites="JudgeLordPowellGrimmer2026">(<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">Judge-Lord et al. 2026</a>)</span>. We adopt “interbranch representation” as an umbrella concept to describe all of these kinds of representational activities—any work on behalf of a constituency (or constituent), donor, business, industry, or district opinion on policy issues with another branch of government.</p>
+<p>In recent years, scholars have begun to obtain snapshots of this work from federal agencies that are, unlike Congress, subject to the Freedom of Information Act (FOIA) disclosure requirements. Acquiring these data is difficult, but doing so has yielded important findings on distributive politics <span class="citation" data-cites="MillsKalafHughes2015">(<a href="references.html#ref-MillsKalafHughes2015" role="doc-biblioref">Mills and Kalaf-Hughes 2015</a>)</span>, descriptive representation <span class="citation" data-cites="LowandeRitchieLauterbach2019">(<a href="references.html#ref-LowandeRitchieLauterbach2019" role="doc-biblioref">Lowande et al. 2019</a>)</span>, agency policymaking <span class="citation" data-cites="Ritchie2018">Ritchie (<a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>, legislative effectiveness <span class="citation" data-cites="KalafHughes2023">(<a href="references.html#ref-KalafHughes2023" role="doc-biblioref">Kalaf-Hughes 2023</a>)</span>, and money in politics <span class="citation" data-cites="PowellJudgeLordGrimmer2023">(<a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">Powell et al. 2023</a>)</span>. However, the lack of systematic data across all policy areas and agencies has necessarily limited the range of questions that could be explored with these data.</p>
+<p>Our analysis in this book relies on the most comprehensive dataset of legislators’ interbranch activities to date. Through 434 Freedom of Information Act (FOIA) requests, we have obtained congressional correspondence logs from every department in the federal bureaucracy except the State Department.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Together, these correspondence logs, which cover 2007 through 2024, capture over half a million instances of contact between members of Congress and federal agencies. Our work hand-coding these data allows us to identify on whose behalf legislators were advocating in each instance of contact.</p>
+<!--SCOPE OF INTERBRANCH WORK-->
+<!--Rochelle 9/15: this might be slightly redundant given the examples discussed in the opening anecdote -->
+<!--As the examples above illustrate, legislators' direct work with federal agencies is not limited to helping individual constituents. They also help companies, nonprofits, and local governments navigate the federal bureaucracy. In addition to this broadly defined constituency service, legislators work directly with federal agencies on policy issues, including drafting legislation, shaping implementation, and conducting oversight. -->
+<!--IT HAS TWO DIMENSIONS-->
+<p>We conceptualize interbranch representation as varying along two dimensions: the constituency represented (e.g., individuals, businesses, nonprofits, or local governments) and the type of representational activity undertaken (e.g., constituency service or policy work). This yields five sub-types of interbranch representation: (1) constituency service work on behalf of individual constituents, (2) constituency service work on behalf of businesses, (3) constituency service work on behalf of local governments or nonprofits, (4) general policy work with federal agencies, and (5) policy work with federal agencies on behalf of specific industries.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>To date, the activities that constitute these five sub-types of interbranch representation have been addressed by separate literatures. Constituency service has mostly been explored as reelection-oriented behavior <span class="citation" data-cites="CainFerejohnFiorina1987">(<a href="references.html#ref-CainFerejohnFiorina1987" role="doc-biblioref">Cain et al. 1987</a>)</span>, and until recently <span class="citation" data-cites="Snyder2024 Blackwood2026">(e.g. <a href="references.html#ref-Snyder2024" role="doc-biblioref">Snyder 2024</a>; <a href="references.html#ref-Blackwood2026" role="doc-biblioref">Blackwood 2026</a>)</span>, scholars have paid little attention to its role in representation. Scholarship on interactions between Congress and the executive branch has focused on strategic delegation of policymaking authority and appropriation of funds on the front end <span class="citation" data-cites="Arnold1979 EpsteinOHalloran1999 KiewietMcCubbins1991">(<a href="references.html#ref-Arnold1979" role="doc-biblioref">Arnold 1979</a>; <a href="references.html#ref-EpsteinOHalloran1999" role="doc-biblioref">Epstein and O’Halloran 1999</a>; <a href="references.html#ref-KiewietMcCubbins1991" role="doc-biblioref">Kiewiet and McCubbins 1991</a>)</span> and oversight on the back end <span class="citation" data-cites="McCubbinsSchwartz1984">(<a href="references.html#ref-McCubbinsSchwartz1984" role="doc-biblioref">McCubbins and Schwartz 1984</a>)</span>. <!--As a concept, delegation focuses attention on principal-agent dynamics. Oversight scholarship has also focused on principal-agent relationships, with some recent work on descriptive representation [@Minta2011].  While interbranch representation encompasses many forms of oversight, it is broader than activities traditionally considered oversight (e.g., hearings, investigations, sanctions). --> Oversight scholarship focuses on hearings and investigations and rarely in terms of representation <span class="citation" data-cites="Minta2011">(but see <a href="references.html#ref-Minta2011" role="doc-biblioref">Minta 2011</a>)</span>. However, only a small share of congressional interactions with the executive branch rise to the level of hearings and investigations. The vast majority are interventions in the agency’s day-to-day operations <span class="citation" data-cites="Lowande2018APSR LowandePotter2021">(see, e.g., <a href="references.html#ref-Lowande2018APSR" role="doc-biblioref">Lowande 2018</a>; <a href="references.html#ref-LowandePotter2021" role="doc-biblioref">Lowande and Potter 2019</a>)</span>. An interbranch representation perspective broadens the concept of oversight to encompass not only occasional hearings and oversight reports prompted by crises and scandals but also daily requests for information and comments on implementation. Overall, the concept of interbranch representation that we advance in this paper unifies constituency service, oversight, and other behaviors within a broader conceptual and empirical framework.</p>
+<!-- EXAMPLES -->
+<!--Rochelle 9/18: repetitive now that the chapter opens with examples?-->
+<p>Interbranch representation includes advocacy on a wide range of subjects. Helping immigrants in their dealings with USCIS and veterans in their interactions with the VA are two very common forms of interbranch representation involving individual constituency service. Specifically, these actions might involve helping veterans check the status of their claims with the VA or helping immigrants file necessary forms. Other forms of individual constituency service might involve helping constituents obtain a tax refund with the IRS, helping constituents check their disability rating with the Social Security Administration, and helping Medicare beneficiaries navigate claims or access medical care.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>The most frequent requests that legislators make on behalf of businesses also involve immigration, as congressional offices help businesses obtain visas for their workers. Legislators also intervene in federal contracts, permits, rate cases, citations, fines, and loans, including loans for the Service-Disabled Veteran-Owned Small Business program. While <span class="citation" data-cites="PowellJudgeLordGrimmer2023">Powell et al. (<a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">2023</a>)</span> found that members of Congress who receive more campaign donations from energy companies do more work helping energy companies secure permits and profitable rates, this is not the primary kind of corporate service we find. When we looked at who did the most work on behalf of businesses overall, we found progressive Democrat Senator Elizabeth Warren at the top of the list. This was puzzling at first, given past research and our own data showing that Republicans are more likely to represent business interests. Upon closer examination, however, we discovered what put Warren’s office on top: the extraordinary amount of work that her office did to help businesses get visas for workers with needed skills.</p>
+<p>Interbranch representation on behalf of nonprofit organizations and local governments often involves legislators’ writing in support of grant applications or the many other ways that federal funds pass through state and local governments, police and fire departments, and nonprofits like Community Action Agencies.</p>
+<p>Policy work, both generally and on behalf of industries, involves writing with comments on rules, requests for appearances at hearings, the implementation of legislation, and information about specific policy matters. Congressional offices also advocate for disaster declarations and aid and seek information about how appropriated money was spent and how regulatory and personnel decisions were made inside agencies.</p>
+<!--Rochelle 9/23: in these next two paragraphs I tried to briefly explain why interbranch representation counts as representation and talk about what our concept can contribute to the literature on representation, but I think I could be much more precise here, idk-->
+<p>In all of these instances of interbranch work, members of Congress are clearly engaging in some form of representation. Constituency service is perhaps most obviously a representational activity, as it involves legislators’ offices being responsive to constituents’ requests for help. Although some recent work has conceptualized constituency service as a key form of representation <span class="citation" data-cites="Snyder2024 Blackwood2026">(<a href="references.html#ref-Snyder2024" role="doc-biblioref">Snyder 2024</a>; <a href="references.html#ref-Blackwood2026" role="doc-biblioref">Blackwood 2026</a>)</span>, most work on constituency service has approached it as an activity that can help legislators electorally <span class="citation" data-cites="Fiorina1977 CainFerejohnFiorina1987">(e.g. <a href="references.html#ref-Fiorina1977" role="doc-biblioref">Fiorina 1977</a>; <a href="references.html#ref-CainFerejohnFiorina1987" role="doc-biblioref">Cain et al. 1987</a>)</span>. And while there is, of course, a vast literature on legislators’ representation of their constituents’ interests through legislative work, there is very little research exploring how legislators provide service to businesses or nonprofit organizations. Even when examining interbranch work as representation, prior studies have focused mostly on a single type of interbranch representation, showing that legislators engage in interbranch representation to represent constituents’ needs <span class="citation" data-cites="Fiorina1977 Fenno1978 MillsKalafHughes2015 PowellJudgeLordGrimmer2023 SnyderJudgeLordPowellGrimmer2025">(<a href="references.html#ref-Fiorina1977" role="doc-biblioref">Fiorina 1977</a>; <a href="references.html#ref-Fenno1978" role="doc-biblioref">Fenno 1978</a>; <a href="references.html#ref-MillsKalafHughes2015" role="doc-biblioref">Mills and Kalaf-Hughes 2015</a>; <a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">Powell et al. 2023</a>; <a href="references.html#ref-SnyderJudgeLordPowellGrimmer2025" role="doc-biblioref">Snyder et al. 2025</a>)</span>, constituents’ policy preferences <span class="citation" data-cites="Ritchie2018 Ritchie2023">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>, shared identity groups <span class="citation" data-cites="LowandeRitchieLauterbach2019">(<a href="references.html#ref-LowandeRitchieLauterbach2019" role="doc-biblioref">Lowande et al. 2019</a>)</span>, or corporate donors <span class="citation" data-cites="PowellJudgeLordGrimmer2023">(<a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">Powell et al. 2023</a>)</span>.</p>
+<p>By conceptualizing interbranch representation as including all five of these sub-types of constituency service and policy work, our book provides a new perspective on how members of Congress provide representation to their districts. Our data allow us to understand legislators’ service responsiveness, allocation responsiveness, and policy responsiveness <span class="citation" data-cites="EulauKarps1977">(<a href="references.html#ref-EulauKarps1977" role="doc-biblioref">Eulau and Karps 1977</a>)</span> as provided through a single activity. Through these communications with federal agencies, members of Congress are providing service to their constituents, helping organizations within their districts obtain grants, and engaging in policy work. Our theory of Demand, Capacity, and Strategic Choices can help illuminate the extent to which legislators are acting as a “delegate” or “trustee” <span class="citation" data-cites="Pitkin67">(<a href="references.html#ref-Pitkin67" role="doc-biblioref">Pitkin 1967</a>)</span> when providing interbranch representation. A significant role for constituent demand in shaping this work would suggest that legislators are following a delegate model and simply channeling their constituents’ demands to the federal bureaucracy. If, however, capacity and strategic choices also matter for interbranch representation, this picture of representation becomes more complicated. Indeed, we do find that the capacity of a legislator’s office ultimately governs their ability to meet this demand. Our book therefore reveals one way in which representation can depend on—and potentially be undermined by—the nature of a congressional office.</p>
+<!--Rochelle 9/23: just couldn't find a good place for this sentence (yet?)
+Moreover, the relative invisibility of this activity provides an important theoretical contrast to other, more visible forms of representation, which legislators may provide for different reasons. -->
+<p>Our data capture the particular instance of contact between congressional offices and federal agencies that occurs as part of interbranch representation. As a whole, however, interbranch representation is an iterative process, and the components of this process inform the theory of this book. Because it involves both constituency service and policy work, much of interbranch representation may begin with a constituent becoming aware of some deficiency in the world and understanding it as a problem—particularly, a problem in which the federal government has a hand in either solving or creating. Second, the individual recognizes that congressional offices can help with this problem. Third, they contact a congressional office, which constitutes the <em>demand</em> part of our theory explaining interbranch representation. Fourth, the congressional office processes the request (per their <em>capacity</em>) and decides how to handle the request (in accordance with any <em>strategy</em> that they may wish to exercise). Finally, for the subset of cases for which such an action is appropriate and desired by the congressional office, the office will contact a federal agency. Our data capture these instances of contact.</p>
+<p>Two other key features of interbranch representation are important to discuss further. First, as established above, legislators have a significant amount of discretion and autonomy in their decisions about engaging in interbranch representation, including where and how to direct these efforts. Party leaders constrain most other activities that legislators undertake, and even other activities where this constraint matters less, like position-taking, are highly public <span class="citation" data-cites="HightonRocca2005">(e.g. <a href="references.html#ref-HightonRocca2005" role="doc-biblioref">Highton and Rocca 2005</a>)</span>. Explaining why legislators engage in interbranch representation can therefore provide rich insight into legislative behavior that, given the importance of party and party leadership, previous work has largely been unable to reveal. Second, congressional staff are as important as legislators themselves for the activities that constitute interbranch representation. Staff are crucial for a number of functions in Congress <span class="citation" data-cites="HertelFernandez2019 MontgomeryNyhan2017 CrossonEtAl2020">(e.g. <a href="references.html#ref-HertelFernandez2019" role="doc-biblioref">Hertel-Fernandez et al. 2019</a>; <a href="references.html#ref-MontgomeryNyhan2017" role="doc-biblioref">Montgomery and Nyhan 2017</a>; <a href="references.html#ref-CrossonEtAl2020" role="doc-biblioref">Crosson et al. 2020</a>)</span>, particularly constituent-facing functions like constituency service <span class="citation" data-cites="GroseMangumMartin2007 LandgraveWeller2020">(<a href="references.html#ref-GroseMangumMartin2007" role="doc-biblioref">Grose et al. 2007</a>; <a href="references.html#ref-LandgraveWeller2020" role="doc-biblioref">Landgrave and Weller 2020</a>)</span>. Similarly, legislators themselves do not personally undertake all of the interbranch representation activities that they perform. Thus, our theory focuses as much on the capacity and other characteristics of the congressional <em>office</em> as it does on the decisions and characteristics of legislators.</p>
+</section>
+<section id="why-study-interbranch-representation" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-study-interbranch-representation"><span class="header-section-number">1.2</span> Why Study Interbranch Representation?</h2>
+<p>Our data make possible new inquiries into congressional behavior, representation, and legislative-executive interactions. We argue that a focus on legislative work in studies of these three areas has limited our understanding of them. By going beyond studying legislative behavior of members of Congress to examine how they engage with the federal bureaucracy to represent various constituencies, this book makes possible major new inquiries into the previously “hidden half of Congress.”</p>
+<p>Scholarship on how members of the U.S. Congress represent their constituents has focused on legislative activity, including bill sponsorship <span class="citation" data-cites="Schiller95 RoccaGordon2010 Lazarus2013 Waggoner2019 LauterbachHayesWellerBishin2026 YoelLucasGrossmann2026">(<a href="references.html#ref-Schiller95" role="doc-biblioref">Schiller 1995</a>; <a href="references.html#ref-RoccaGordon2010" role="doc-biblioref">Rocca and Gordon 2010</a>; <a href="references.html#ref-Lazarus2013" role="doc-biblioref">Lazarus 2013</a>; <a href="references.html#ref-Waggoner2019" role="doc-biblioref">Waggoner 2019</a>; <a href="references.html#ref-LauterbachHayesWellerBishin2026" role="doc-biblioref">Lauterbach et al. 2026</a>; <a href="references.html#ref-YoelLucasGrossmann2026" role="doc-biblioref">Yoel et al. 2026</a>)</span>, roll-call votes <span class="citation" data-cites="rohde1991 poolerose1997 AnsSnySte2001LSQ AnsolabehereJones2010 Wallace2014 Fowler2026">(<a href="references.html#ref-rohde1991" role="doc-biblioref">Rohde 1991</a>; <a href="references.html#ref-poolerose1997" role="doc-biblioref">Poole and Rosenthal 1997</a>; <a href="references.html#ref-AnsSnySte2001LSQ" role="doc-biblioref">Ansolabehere et al. 2001</a>; <a href="references.html#ref-AnsolabehereJones2010" role="doc-biblioref">Ansolabehere and Jones 2010</a>; <a href="references.html#ref-Wallace2014" role="doc-biblioref">Wallace 2014</a>; <a href="references.html#ref-Fowler2026" role="doc-biblioref">Fowler 2026</a>)</span>, committee participation <span class="citation" data-cites="Hall1987 Hall1996 Gamble2007 EllisWilson2013 BanGrimmerKaslovskyWest2022">(<a href="references.html#ref-Hall1987" role="doc-biblioref">Hall 1987</a>; <a href="references.html#ref-Hall1996" role="doc-biblioref">Hall 1996</a>; <a href="references.html#ref-Gamble2007" role="doc-biblioref">Gamble 2007</a>; <a href="references.html#ref-EllisWilson2013" role="doc-biblioref">Ellis and Wilson 2013</a>; <a href="references.html#ref-BanGrimmerKaslovskyWest2022" role="doc-biblioref">Ban et al. 2022</a>)</span>, and floor speeches <span class="citation" data-cites="MaltzmanSigelman1996 Hill02 PearsonDancey2011a PearsonDancey2011b Kalaf2020">(<a href="references.html#ref-MaltzmanSigelman1996" role="doc-biblioref">Maltzman and Sigelman 1996</a>; <a href="references.html#ref-Hill02" role="doc-biblioref">Hill and Hurley 2002</a>; <a href="references.html#ref-PearsonDancey2011a" role="doc-biblioref">Pearson and Dancey 2011b</a>, <a href="references.html#ref-PearsonDancey2011b" role="doc-biblioref">2011a</a>; <a href="references.html#ref-Kalaf2020" role="doc-biblioref">Kalaf-Hughes 2020</a>)</span>. Importantly, all of these activities are highly visible to scholars, journalists, and constituents.</p>
+<!-- THERE IS A BIAS TOWARD LEGISLATIVE WORK -->
+<p>Much more, however, than votes and the text of bills that become law determines how government affects constituents. Federal agencies staffed by career civil servants and political appointees do a large share of policymaking as well as all policy implementation. Agencies make policy to meet the demands of changing technology and social relations, as well as the demands of changing presidential administrations, even when Congress is silent. And when Congress does manage to pass new laws, it inevitably instructs agencies to make and implement new policies. Even federal laws that empower state governments are almost always shaped and overseen by federal agencies. Given the prominent role of federal agencies in modern governance, it makes sense that members of Congress frequently involve themselves in executive branch policymaking and implementation to help their constituents, advocate for their districts, and advance their policy goals. However, the relative invisibility of this involvement has made it an under-studied part of representation. We have thus failed to assess our democracy on important grounds.</p>
+<!--Rochelle 9/15: this paragraph (which I wrote/rewrote from existing text) needs to be cleaned up & made less repetitive -->
+<p>Empirical research that seeks to understand why members of Congress make the decisions that they do also focuses on legislative work. Models of legislative decision-making focus almost entirely on decisions about voting on bills <span class="citation" data-cites="Kingdon1977">(e.g., <a href="references.html#ref-Kingdon1977" role="doc-biblioref">Kingdon 1977</a>)</span>. In addition to being only half of what members of Congress actually do, legislative work is an inherently collective activity, in which legislators must build coalitions, gather information, and make decisions by working with other legislators. Such models are therefore inadequate for understanding how legislators engage in activities involving representation, including interbranch representation, which are much more decentralized. As a result of this focus on legislation, appropriations, and oversight hearings, scholars have characterized the modern Congress as centralized <span class="citation" data-cites="rohde1991">(<a href="references.html#ref-rohde1991" role="doc-biblioref">Rohde 1991</a>)</span> and highly partisan <span class="citation" data-cites="Lee2009">(<a href="references.html#ref-Lee2009" role="doc-biblioref">Lee 2009</a>)</span>. But the constituency service and policy work we study here is neither. Unlike legislative activities that are often subject to constraints from party leaders, members of Congress have a great deal of autonomy over the amount and type of interbranch representation that they perform. Understanding why legislators engage in interbranch representation can provide valuable insight into legislators’ behavior absent these partisan and institutional constraints.</p>
+<!-- BIAS TOWARD LEGISLATIVE WORK IS A PROBLEM-->
+<!--PEOPLE SAY CONGRESS IS BROKEN-->
+<p>The focus on legislative work in both scholarship and popular media has additional implications for perceptions of Congress as an institution. <!--Congress is consistently described and depicted as an institution engaged in legislating, appropriations, and oversight. Many would say that it is currently performing none of these functions as it should. --> For years, Congress has been making headlines for appearing unproductive and dysfunctional, particularly according to legislative metrics like the passage of bills.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Other collective failures, like the unprecedented Motion to Vacate that ended Kevin McCarthy’s Speakership in October of 2023 and the longest government shutdown in history that occurred in October and November of 2025, have highlighted Congress’s dysfunction to the public. Partisan polarization in Congress has been at an all-time high for over a decade, and although constituents largely approve of their individual legislators, these approval ratings are polarized by party.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<!---THIS BIAS EXISTS BECAUSE INTERBRANCH WORK IS HIDDEN-->
+<!--IT IS SURPRISINGLY GOOD-->
+<p>But running parallel to the gridlocked lawmaking activities is the work that legislative offices do to help constituents navigate the federal bureaucracy and shape executive branch policymaking. While many members of the public—and certainly the punditry—are aware of Congress’s legislative woes, fewer are aware of the other half of the work that congressional offices do behind the scenes to help constituents and shape executive-branch policymaking. Despite the fact that interbranch representation is largely hidden, only a tiny portion of these activities includes normatively suspect activities, like special work on behalf of corporate campaign donors. When we look closely at what congressional offices are doing, the vast majority of legislators’ requests, even those on behalf of business interests, are the kinds of things most people would want their representatives doing, suggesting that the institution of Congress is working to represent constituents and influence policy much more than one would think from reading the news.</p>
+<!--Rochelle 6/13: potential alternative way to open the book (if we can't find a good anecdote for a high performer) might be to highlight a policy area in which Congress appears to be dysfunctional if we look at traditional legislative activity but appears more functional behind the scenes; this would highlight our major point that Congress is, in fact, working, at least in some way. Then we could also note that some legislators do way more of this work than others. What explains this inequality?
+
+DEVIN: FWIW, I'm leaning against the dysfunction frame as an opener. It sets us up to counteract that, and I'm not sure we do. We aren't showing that they are legislating. They are doing something else. That said, I am not sure what to do instead, so it's good for now, but I'd like to workshop it (or maybe I'll come around).
+-->
+<p><!--The two longest government shutdowns in American history, at 35 and 43 days, occurred within less than seven years of one another. The effects of these shutdowns, particularly the longer one in 2025, were immediately apparent to the public in the form of disruptions to air travel and funding for SNAP benefits. Partisan polarization in Congress, which was largely responsible for the 2025 shutdown, has been at an all-time high in both chambers for over a decade.--> <!--Intra-party discord has also been more visible, with House Republicans' difficulties electing a Speaker in early 2023, followed by the unprecedented Motion to Vacate that ended Kevin McCarthy's speakership that October. Unsurprisingly, recent Congresses have been historically unproductive when it comes to passing legislation. This lack of legislative productivity has contributed to Congress's ceding power to the executive branch. The institution's approval ratings have cratered to near all-time lows.--> <!--CITE--> <!--Although constituents still approve of their individual representatives more than they approve of Congress as an institution, these approval ratings are polarized by party.^[For example, in the 2020 Cooperative Congressional Election Study, 86.3% of respondents who shared their House member's party approved of them, compared to just 36.1% of respondents who did not share their House member's party.] --></p>
+<!-- 
+
+Unlike other, more visible forms of congressional representation that have been the subject of substantial scholarly inquiry (roll-call votes, legislative speech, and bill sponsorship), constituency service is largely invisible and much more difficult to study. -->
+<!--Congress has refused to disclose data on this aspect of its work.-->
+<!--Rochelle 9/16: not sure where to put the two paragraphs below - I think they belong in here somewhere -->
+<!--WHILE HIDDEN, INTERBRANCH WORK HAS LONG BEEN CENTRAL-->
+<!--Constituency service has been a routine but profoundly important part of how the institution of the U.S. Congress has worked from the beginning. In addition to advocating for individuals, congressional offices help businesses, nonprofits, and local governments with federal contracts, permits, grants, investigations, enforcement actions, and more. Often informed by constituency service work, members of Congress frequently seek to shape how policy is made and implemented in executive branch agencies. This non-legislative policy work goes far beyond the congressional oversight hearings and investigations. -->
+<!-- WHY IT LIKELY HAS AN EFFECT - respond to Ruth on influence -->
+<!--Because agency officials are constantly engaged in maintaining their political coalitions and reputations [@Carpenter2001; @Carpenter2014] --- for example, by tagging all incoming requests from members of Congress as "VIP" and implementing protocols for rapid responses --- interbranch representation likely affects policymaking and implementation. -->
+<!--[describe stats for each - X more than the average and provide some example of outreach: In X year, they contacted federal agencies Y times. They wrote to this agency to help a constituent with this problem; they wrote to that agency to help a constituent with this other problem. They wrote about policy issues, and whatnot. ] -->
+<!-- 
+What do we want opening to be? 
+-Anecdote that highlights: 
+-How some members (offices) do so much more interbranch representation than others?
+-How many decisions that impact people's lives happen in federal agencies
+-Where can people get help with problems with federal agencies? 
+-How can individual MCs impact policy outside of partisan gridlock in Congress? 
+-->
+<!-- OUR CONTRIBUTION - SOMEWHAT REPETITIVE -->
+<!--Rochelle 9/16: tried to make this less repetitive and to make it fit better in the context of earlier material in this chapter -->
+<p>Studying interbranch representation provides a more comprehensive picture of how Congress works and what it does. While focusing on legislative activities and legislators’ voting decisions is valuable, this view misses the 16,000 staffers who do most of the work. It also misses that half of that work involves working with or overseeing federal agencies.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> By refocusing attention on the bulk of the actual work done in legislators’ offices, we revisit core questions of political science: How should we understand the representative functions of members of Congress? Empirically, what do they do in office? How do we assess the quality of representation? How do the legislative and executive branches interact? Has it changed in recent years?</p>
+<!--Rochelle 11/13: do these discussions of our findings belong in the "what is interbranch representation" section?-->
+<!--FINDINGS -->
+<!--Rochelle 9/16: STILL NEED TO ADD OTHER FINDINGS - I just moved this paragraph from the section below because I thought it worked better here -->
+<p>We find that, collectively, members of Congress make over a hundred thousand requests a year directly to executive branch officials. Unconstrained by legislative agendas and party discipline <span class="citation" data-cites="Ritchie2023">(<a href="references.html#ref-Ritchie2023" role="doc-biblioref">Ritchie 2023</a>)</span>, interbranch representation allows all members of Congress to directly shape the workings of government. However, we find that this work is highly variable — some members engage in extensive interbranch representation, and others do almost none.</p>
+<!-- IMPLICATIONS FOR REPRESENTATION-->
+<p>These findings have implications for the study of representation in Congress, particularly how scholars conceive of the role of congressional staff and the extent to which representation is unconstrained by legislative agendas and party discipline. The role of congressional staff in interbranch work also speaks to how representation can be improved. More generally, because policy implementation is how the public interacts with government and experiences policy effects, the involvement of members of Congress at this stage of the process matters for representation.</p>
+<!--Rochelle 9/16: could probably include more here about implications for Congress and the bureaucracy more generally -->
+</section>
+<section id="variation-in-interbranch-representation" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="variation-in-interbranch-representation"><span class="header-section-number">1.3</span> Variation in Interbranch Representation</h2>
+<!--Rochelle 9/13: need to revise this section to remove "inequality" term/framing, and possibly move to the descriptives chapter because we are no longer setting up an "inequality" puzzle -->
+<!--The large volume of interbranch representation belies a stark inequality among states and congressional districts when it comes to the amounts of interbranch representation that they receive. Some congressional offices are extraordinarily high performers on this metric, and -->
+<!--The group of high performers includes a somewhat surprising mix. Consider, for example, two of the legislators who make the most requests to federal agencies: Representative Barbara Comstock (R-VA) and Senator Kirsten Gillibrand (D-NY). Gillibrand made an average of nearly 500 requests to agencies per year. Comstock --- despite representing a House district much smaller in population than the state of New York --- made an average of over 700 requests per year. Both legislators made requests to a variety of agencies, including U.S. Citizenship and Immigration Services to help constituents navigate immigration processes, the Department of Veterans Affairs to help veterans with bureaucratic issues, and agencies like the Centers for Medicare and Medicaid Services to advocate for policy changes. In addition to representing vastly different constituencies, Comstock and Gillibrand are also very different legislators. Comstock cultivated a reputation for service in her district that was not enough to prevent her from losing reelection in 2018. At the same time, Gillibrand became known for opposing the Trump administration, even running for the Democratic nomination for president in 2020. -->
+<!--Our puzzle is why the offices of some members of Congress, like Rep. Comstock and Sen. Gillibrand, engage with executive branch agencies so much more than others. Why do the offices of Ted Cruz and Barbara Boxer do so much less? What explains the massive inequality, and what does it mean for how we should think about the representation in the U.S. Congress? -->
+<!--Are legislators who are extraordinary at interbranch representation also extraordinary in other parts of their job, like legislating or fundraising? What does this work say about how well legislators represent their constituents? -->
+<!--11/13: need to fix references to sections and figures-->
+<p>When we first began collecting these data and having conversations with congressional scholars about interbranch representation, a common reaction we received was that every office provided constituency service, and that no significant variation in interbranch representation would exist.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> But a simple descriptive examination of our data quickly puts that notion to rest. <a href="ch4-data.html#fig-percent-1" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> below shows the average number of requests each legislator makes to federal agencies and reveals tremendous variation in interbranch representation in both the U.S. Senate (left) and the U.S. House of Representatives. In each figure, legislators are sorted by their percentile in the distribution in their chamber on the x-axis, from those with the lowest average levels of interbranch representation on the left to those with the highest on the right. As we will discuss in <a href="ch3-effects.html#sec-type1" class="quarto-xref"><span>Section 3.1</span></a>, the legislators at the top of this particular graph are the ones doing an unusually massive volume of work on behalf of immigrants seeking visas. Yet, when we remove immigration work, the pattern of inequality in constituency service persists. And, as we show in <a href="ch3-effects.html#sec-type5" class="quarto-xref"><span>Section 3.5</span></a>, when we remove constituency service casework, variation in policy work is no less extreme.</p>
+<p><a href="ch4-data.html#fig-percent-1" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> shows the tremendous variation in the amount of interbranch representation legislators provide to their constituents. This is the variation we aim to explain.</p>
+<div id="fig-percent-1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-percent-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Observed levels of interbranch representation per legislator per year
+</figcaption>
+<div aria-describedby="fig-percent-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-percent-1" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-percent-1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-fig" id="fig-percent-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Senate
+</figcaption>
+<div aria-describedby="fig-percent-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/total/percentile-1.png" class="img-fluid figure-img" style="width:100.0%" data-ref-parent="fig-percent-1">
+</div>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-percent-1" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-percent-1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-fig" id="fig-percent-1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) House
+</figcaption>
+<div aria-describedby="fig-percent-1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/total/percentile-2.png" class="img-fluid figure-img" style="width:100.0%" data-ref-parent="fig-percent-1">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<!--While @fig-percent-1 helps us visualize the inequality in interbranch representation, a different way to contextualize the inequality is to calculate a Gini coefficient. While most commonly used as a measure of income inequality, we can use this same measure to calculate the inequality in interbranch representation. Overall inequality in average levels of interbranch representation in the House and the Senate mirrors 2024 levels of income inequality in the United States (.42) and Mexico (.43), respectively. -->
+<!--Gini coefficients for inequality in interbranch representation have increased from a low of .35 in the Senate and .34 in the House in 2011 (the range of Gini coefficients for income inequality in countries like Italy and the Philippines) to .47 in the Senate and .51 in the House in 2020 (the range of Gini coefficients for income inequality in the top 10 most unequal countries, including Honduras at .47 and Zambia at .51). -->
+<p>One of the more striking features here is that on average over this period, the House and the Senate display similar within-chamber variation in interbranch representation. This is despite the fact that in the House all members represent similar numbers of constituents, while in the Senate constituent populations vary substantially.</p>
+<p>The group of high performers includes a somewhat surprising mix. While both Kirsten Gillibrand and Chuck Schumer, who represent the relatively populous state of New York, are among those who do large amounts of interbranch representation, so is Robert Byrd, representing the much smaller state of West Virginia. Other New York legislators, including Grace Meng and Dan Donovan, are also high performers, and there is other geographic overlap among the most prolific providers of interbranch representation: House members and senators from Florida and Virginia are part of this group. Two of them, Frank Wolf and Barbara Comstock, even consecutively represented the same district. These patterns suggest that some idiosyncratic form of demand—perhaps something specific to these states or their constituents—could be driving interbranch representation. However, the patterns evident in this figure raise other possibilities. Most notably, Comstock worked as the chief of staff for Frank Wolf, which suggests that something about the way their offices operate could be contributing to their high levels of work on interbranch representation. Because senators’ staff sizes vary according to state population, Byrd’s office would not have had the same staff capacity as Gillibrand’s or Schumer’s. Furthermore, all of these top performers have faced very different electoral environments: while Comstock narrowly lost reelection in 2018, Meng has frequently won reelection without facing a Republican opponent. We therefore look beyond simple demand-related factors to explain interbranch representation.</p>
+</section>
+<section id="our-theoretical-framework-and-key-concepts" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="our-theoretical-framework-and-key-concepts"><span class="header-section-number">1.4</span> Our Theoretical Framework and Key Concepts</h2>
+<!--Rochelle 9/15: this seems to belong as an intro to the theory section?-->
+<!--Interbranch representation can serve a variety of goals and functions for legislators. One of the questions we take up in this book is whether we should think about variation in all of these activities as having a common set of causes or as having distinct causes for different types of interbranch representation.-->
+<!-- OUR CONTRIBUTION: A UNIFIED FRAMEWORK-->
+<p>We gather disparate scholarship into a unified framework of <strong>Demand, Capacity, and Strategic Choices</strong> to explain variation in interbranch representation, integrating and extending theories rooted in unequal demand, unequal legislator (and legislative office) capacity, and varying strategic motivations to invest time and energy in interbranch representation as opposed to other activities like legislating, communications, or fundraising. Prior work has typically studied these activities — and their explanations — piecemeal, focusing on one type of activity and a narrower set of causes at a time. To explain variation in different types of interbranch representation, studies have focused on institutional position <span class="citation" data-cites="Lowande2018APSR LowandePotter2021 LauterbachRitchie2025 JudgeLordPowellGrimmer2026">(<a href="references.html#ref-Lowande2018APSR" role="doc-biblioref">Lowande 2018</a>; <a href="references.html#ref-LowandePotter2021" role="doc-biblioref">Lowande and Potter 2019</a>; <a href="references.html#ref-LauterbachRitchie2025" role="doc-biblioref">Lauterbach and Ritchie 2025</a>; <a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">Judge-Lord et al. 2026</a>)</span>, experience <span class="citation" data-cites="Ritchie2018 Ritchie2023 Lowande2018APSR JudgeLordPowellGrimmer2026">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>; <a href="references.html#ref-Lowande2018APSR" role="doc-biblioref">Lowande 2018</a>; <a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">Judge-Lord et al. 2026</a>)</span>, or party status and partisan alignment <span class="citation" data-cites="Ritchie2018 Ritchie2023 PowellJudgeLordGrimmer2023 Lowande2018APSR Lowande2019 LauterbachRitchie2025">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>; <a href="references.html#ref-PowellJudgeLordGrimmer2023" role="doc-biblioref">Powell et al. 2023</a>; <a href="references.html#ref-Lowande2018APSR" role="doc-biblioref">Lowande 2018</a>, <a href="references.html#ref-Lowande2019" role="doc-biblioref">2019</a>; <a href="references.html#ref-LauterbachRitchie2025" role="doc-biblioref">Lauterbach and Ritchie 2025</a>)</span>. Theories also suggest that interbranch representation ought to be driven by ideological alignment and electoral competition <span class="citation" data-cites="Fiorina1977 Rivers1989 King1991">(<a href="references.html#ref-Fiorina1977" role="doc-biblioref">Fiorina 1977</a>; <a href="references.html#ref-Rivers1989" role="doc-biblioref">Rivers and Fiorina 1989</a>; <a href="references.html#ref-King1991" role="doc-biblioref">King 1991</a>)</span>, but these intuitions are largely unsupported by empirical work <span class="citation" data-cites="Lowande2018APSR Ritchie2018 Ritchie2023">(<a href="references.html#ref-Lowande2018APSR" role="doc-biblioref">Lowande 2018</a>; <a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>. Our aim in this book is to integrate types of behavior and explanations to provide a more comprehensive assessment of the drivers of interbranch representation.</p>
+<!--Our framework of Demand, Capacity, and Strategic Responses to the Political Environment extends and unifies theoretical ideas from disparate strands of scholarship on Congress and the bureaucracy.-->
+<!--Demand- and capacity-related explanations focus on congressional offices as bureaucracies, with routines for processing inputs and outputs determined by the allocation of limited capacity, such as staffing levels and expertise. Strategic explanations focus on legislators as politicians, with incentive structures shaped by their political and institutional context. -->
+<p><strong>Demand.</strong> We define <em>Demand</em> as the constituent-driven influences on a congressional office. In any democratic system, the needs and preferences of a legislator’s constituents are supposed to play a role in the work done by a legislator’s office. While a large literature exists examining whether and how constituents’ policy preferences impact legislators’ voting behavior <span class="citation" data-cites="MillerStokes1963 AchenBartels2016">(<a href="references.html#ref-MillerStokes1963" role="doc-biblioref">Miller and Stokes 1963</a>; <a href="references.html#ref-AchenBartels2016" role="doc-biblioref">Achen and Bartels 2016</a>)</span>, less is known about how constituent demand relates to the provision of interbranch representation.</p>
+<p><strong>Capacity.</strong> We define <em>Capacity</em> as the ability of a legislator’s office to produce work. We argue that the amount of interbranch representation that legislators engage in is likely to be positively associated with the capacity of the legislator’s office. Member offices with greater capacity have the potential to provide more interbranch representation, while the inverse is true for offices with less capacity. We are building on four branches of capacity literature: (1) formal theory voter screening models that predict that as a legislator’s capacity increases, they will increase their level of constituency service <span class="citation" data-cites="AshworthBuenodeMesquita2006">(<a href="references.html#ref-AshworthBuenodeMesquita2006" role="doc-biblioref">Ashworth and Bueno de Mesquita 2006</a>)</span>, (2) empirical research that suggests low congressional capacity serves as a major constraint on Congress’s work <span class="citation" data-cites="LaPiraDrutmanKosar2020 Reynolds2020 BoltonThrower2016 BoltonThrower2022">(<a href="references.html#ref-LaPiraDrutmanKosar2020" role="doc-biblioref">LaPira et al. 2020</a>; <a href="references.html#ref-Reynolds2020" role="doc-biblioref">Reynolds 2020</a>; <a href="references.html#ref-BoltonThrower2016" role="doc-biblioref">Bolton and Thrower 2016</a>, <a href="references.html#ref-BoltonThrower2022" role="doc-biblioref">2022</a>)</span>, (3) empirical research that shows legislator capacity impacts backchannel (backdoor) policymaking — when legislators contact executive agencies attempting to influence policy <span class="citation" data-cites="Ritchie2018 Ritchie2023">(<a href="references.html#ref-Ritchie2018" role="doc-biblioref">Ritchie 2018</a>, <a href="references.html#ref-Ritchie2023" role="doc-biblioref">2023</a>)</span>, and (4) our prior research that shows that increases in congressional capacity can offset shifts in legislator priorities between policymaking and constituency service <span class="citation" data-cites="JudgeLordPowellGrimmer2026">(<a href="references.html#ref-JudgeLordPowellGrimmer2026" role="doc-biblioref">Judge-Lord et al. 2026</a>)</span>.</p>
+<p><strong>Strategic Responses to the Political Environment.</strong> We define <em>Strategic Choices</em> as decisions legislators make about what to prioritize and how to allocate their time and resources in response to the political environment (partisan, electoral, and institutional conditions a member faces in a given year). How much energy and staff time do legislators want to devote to interbranch representational activities as opposed to other tasks like legislating, communicating, and fundraising? Similarly, how much time and energy do they want to devote to different types of interbranch representational activities? We argue that the answer depends on what legislators are trying to accomplish and the political environment that shapes their ability to achieve their goals. Beginning with <span class="citation" data-cites="Fenno1973">Fenno (<a href="references.html#ref-Fenno1973" role="doc-biblioref">1973</a>)</span> and <span class="citation" data-cites="Mayhew1974">Mayhew (<a href="references.html#ref-Mayhew1974" role="doc-biblioref">1974</a>)</span>, a substantial body of legislative politics literature has explored the strategic motivations of members of Congress.</p>
+<p>In this book, we examine a variety of strategic choices, drawing on established literatures on reelection motivation <span class="citation" data-cites="Fenno1973 Mayhew1974 Fiorina1977 CainFerejohnFiorina1987 SerraCover1992 SerraMoon1994 DroppPeskowitz2012">(<a href="references.html#ref-Fenno1973" role="doc-biblioref">Fenno 1973</a>; <a href="references.html#ref-Mayhew1974" role="doc-biblioref">Mayhew 1974</a>; <a href="references.html#ref-Fiorina1977" role="doc-biblioref">Fiorina 1977</a>; <a href="references.html#ref-CainFerejohnFiorina1987" role="doc-biblioref">Cain et al. 1987</a>; <a href="references.html#ref-SerraCover1992" role="doc-biblioref">Serra and Cover 1992</a>; <a href="references.html#ref-SerraMoon1994" role="doc-biblioref">Serra and Moon 1994</a>; <a href="references.html#ref-DroppPeskowitz2012" role="doc-biblioref">Dropp and Peskowitz 2012</a>)</span>, ideological motivations <span class="citation" data-cites="Lowande2019">(<a href="references.html#ref-Lowande2019" role="doc-biblioref">Lowande 2019</a>)</span>, obstacles in the legislative process (such as being in the minority party) changing incentives to engage in backdoor policymaking <span class="citation" data-cites="Ritchie2023">(<a href="references.html#ref-Ritchie2023" role="doc-biblioref">Ritchie 2023</a>)</span>, committee assignments that position members to engage in policy oversight of specific agencies <span class="citation" data-cites="Lowande2019 LowandePotter2021">(<a href="references.html#ref-Lowande2019" role="doc-biblioref">Lowande 2019</a>; <a href="references.html#ref-LowandePotter2021" role="doc-biblioref">Lowande and Potter 2019</a>)</span>, and being a member of the president’s party shaping anticipated cooperation from the executive branch <span class="citation" data-cites="BerryBurdenHowell2010">(<a href="references.html#ref-BerryBurdenHowell2010" role="doc-biblioref">Berry et al. 2010</a>)</span>.</p>
+<p>Notably, several of these strategic motivations provide different expectations for different types of interbranch representation. For example, the substantial body of reelection incentives literature suggests re-election-focused legislators would want to engage in constituency service <span class="citation" data-cites="King1991 AshworthBuenodeMesquita2006">(e.g., <a href="references.html#ref-King1991" role="doc-biblioref">King 1991</a>; <a href="references.html#ref-AshworthBuenodeMesquita2006" role="doc-biblioref">Ashworth and Bueno de Mesquita 2006</a>)</span>. On the other hand, Ritchie’s findings in <em>Backdoor Lawmaking</em> showed no consistent relationship between electoral vulnerability and policy work with federal agencies <span class="citation" data-cites="Ritchie2023">(<a href="references.html#ref-Ritchie2023" role="doc-biblioref">Ritchie 2023</a>)</span>. In this book, we provide both a general theory of interbranch representation and distinct hypotheses for each of our subtypes of interbranch representation.</p>
+</section>
+<section id="why-interbranch-representation-matters" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="why-interbranch-representation-matters"><span class="header-section-number">1.5</span> Why Interbranch Representation Matters</h2>
+<section id="impact-of-federal-bureaucracy-on-the-lives-of-americans" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-federal-bureaucracy-on-the-lives-of-americans">Impact of Federal Bureaucracy on the Lives of Americans</h3>
+<p>In addition to the policy impacts of bureaucratic regulations, which range from vehicle and product safety to the use of REAL IDs, the federal bureaucracy affects the lives of many Americans more directly. Federal agencies administer programs and distribute benefits to millions of Americans. Over 75 million Americans received Social Security benefits in April of 2026. In Fiscal Year 2023, U.S. Citizenship and Immigration Services (USCIS) processed over 10 million requests and naturalized nearly 900,000 new U.S. citizens. Between 1970 and 2025, the Department of Labor paid over $18 billion in benefits to coal miners suffering from black lung. By keeping seniors out of poverty, by granting citizenship and its rights to immigrants, by compensating coal miners for their illness and suffering, and by administering many similar programs, the federal bureaucracy directly touches individuals’ lives in profound ways. The federal government employs over two million civil servants who use their expertise to administer these programs and serve the American public. Recent reductions in the federal workforce by the Trump administration have laid bare the impacts of the federal bureaucracy on regional employment, in addition to policy implementation and the delivery of services. And as recent government shutdowns have made clear, many Americans depend on the federal government for a paycheck, in addition to the public’s dependence on the federal government for basic safety and regulatory measures.</p>
+<p>As former member of Congress and political scientist David E. Price described, “Congressional casework often provides a kind of appeals process for bureaucratic decisions, a function that has sometimes been likened to that of the ombudsman in Scandinavian countries. It is not an ideal mechanism… It would be preferable to have all comers receive fair and efficient service from the agencies in the first place” <span class="citation" data-cites="Price2022">(<a href="references.html#ref-Price2022" role="doc-biblioref">Price 2022</a>, pg 101)</span>. In an ideal world, as Congressman Price argued, the federal bureaucracy would administer its programs with no errors or delays. Beneficiaries would receive timely responses to their queries, and agencies would have the capacity to handle unexpected surges in demand for assistance. In practice, however, this is not the case. Bureaucratic processes will always be vulnerable to human error, and in such instances, constituents will need help addressing these errors. Although some programs are designed with “administrative burdens” to make them less appealing for the public to use <span class="citation" data-cites="HerdMoynihan2019">(<a href="references.html#ref-HerdMoynihan2019" role="doc-biblioref">Herd and Moynihan 2019</a>)</span>, even minimally burdensome agencies, like the Social Security Administration, can make mistakes that require intervention. Members of Congress, as elected representatives, are well positioned to help their constituents with these problems. And there need not be a bureaucratic error or failure for a constituent to reach out for help: the standard language for casework requests on legislators’ official websites makes it clear that constituents can ask for help “if [they] feel [they] have been treated unfairly” in an interaction with a federal agency. Constituency service, then, can say as much about constituents’ perceptions of fairness as it can about the functioning of the federal bureaucracy.</p>
+<p>For these and many other reasons, constituent demand for interbranch representation is difficult to measure precisely. But differences in interbranch representation can tell us much about how members of Congress choose to serve their constituents and why some constituents receive more of this help than others. As we discuss in the next section, interbranch representation can also help to inform our understanding of the relationship between the legislative and executive branches.</p>
+<!--[Ellie's notes: Add paragraph here about how scope of federal bureaucracy, administrative burden, paperwork. People need help. Even well-designed systems with minimal burden (e.g., Social Security), people occasionally have unusual circumstances, or run into unusual problems, need someplace to go for help. Maybe also include things here about "casework success stories" that legislators often have on their websites - to show that people are really grateful for this help.]
+- Administrative Burden [@HerdMoynihan2019]
+
+[Note that Social Security is probably a bad example to use b/c @HerdMoynihan2019 points to it as being a low-burden agency...] -->
+</section>
+<section id="reshaping-our-understanding-of-how-legislative-and-executive-branches-interact" class="level3">
+<h3 class="anchored" data-anchor-id="reshaping-our-understanding-of-how-legislative-and-executive-branches-interact">Reshaping Our Understanding of How Legislative and Executive Branches Interact</h3>
+<p>In studying interactions between Congress and the executive branch, political scientists have focused on formal delegation, bargaining over legislation, and oversight hearings. While important, modern scholarship neglects the bulk of how legislators actually interact with the executive branch, which is much less based on formal legal authority and constitutionally prescribed roles that ground most models of interbranch relations. While certainly operating in the shadow of formal oversight, lawmaking, and budgeting powers, interbranch representation mostly relies on norms and softer forms of legitimacy. From an interbranch representation perspective, “separation of powers” is a misleading moniker. The behavior we document involves formal and informal mechanisms by which legislators influence how the executive branch makes and implements policy, but there is little separation.</p>
+<p>Being in the “legislative branch” often prevents us from seeing congressional offices as bureaucracies with functions in the broader system of the U.S. government. Including, but far beyond, “fire alarm” oversight, legislators are involved at every level and stage of bureaucratic politics. There is constant communication between legislators and agencies, including requests tagged as “VIP” that expedite bureaucratic procedures and elevate decisions to higher layers of the federal agency in question. Members of Congress function as a complaint and appeals process for the allocation of benefits, grants, permits, and contracts. They function as powerful allies to advocacy and lobbying campaigns. In short, we should think about congressional offices as part of the network of institutions that make government tick. The functioning of one interacts with the functioning of the other in a broader system of government.</p>
+<!-- I don't think this bit really responds to Molly's critique 
+Congress may appear dysfunctional in many ways, but it is important to note that agencies have not escaped poor public approval, particularly the perception that it is inefficient. The term "red tape" has come to characterize this bureaucratic inefficiency in a wide variety of contexts. 
+
+Originally (and literally) used by 16th-century Spanish officials to bind and identify the most important government documents, "red tape" continued to be used by first the British and then the U.S. governments for similar purposes. Red tape became associated with the burdens of bureaucracy after the Civil War, when U.S. officials used red ribbon to seal veterans' service records. The final step in accessing these records (after the veterans involved traveled to Washington) was physically cutting the ribbons that bound the documents. In the many decades since, "cutting through red tape" has become a well-worn metaphor for reducing bureaucratic inefficiencies. Members of Congress occasionally use this language when discussing constituency service, reinforcing the characterization of the bureaucracy as an inept and complex institution. -->
+<p>While members of Congress are often intervening on behalf of their constituents when they encounter problems with the federal government, we can also think of these interactions more neutrally, as simply one institution filling gaps left by the other. The ability of legislators to connect constituents to a vast and sprawling bureaucracy is valuable both in good times and in bad. Constant, rapid changes in the world lead to changes in how constituents experience the federal government, which necessarily involves some amount of friction with the federal bureaucracy. To fully fulfill its representational duties, Congress should have the capacity to reduce that friction.</p>
+<p>Numerous examples from our data illustrate how interbranch representation, especially individual constituency service, is not always undertaken because constituents are experiencing a problem that <em>originated</em> in the federal bureaucracy, even though it does <em>involve</em> the federal bureaucracy. For instance, Representative Bob Gibbs wrote to the Office of Congressional and Intergovernmental Affairs within the Department of Labor on November 26, 2019, on behalf of a constituent who was having trouble creating an online account as part of the process of permanently hiring a foreign worker. Although some government websites, like HealthCare.gov, have famously experienced widespread problems, other, more idiosyncratic problems are common features of nearly all websites. The difficulty could also have been the result of simple user error. In this case, it is valuable that Gibbs was able to reach out to the relevant agency on the constituent’s behalf and provide the kind of representation that would allow them to take this action for their business.</p>
+<p>A similar example comes from a letter that Senator Cory Gardner sent to the National Park Service (NPS) within the Department of the Interior on June 9, 2017. Gardner was writing on behalf of a “constituent requesting insurance information from a driver that caused his accident.” Presumably, the driver was an employee of the NPS, but aside from that fact, nothing about the constituent’s need in this specific incident was unique to a government agency. Requesting insurance information from other drivers is a routine part of handling the aftermath of a car accident. It does not indicate that a bureaucratic process within the NPS is fundamentally broken. In fact, depending on how many similar situations the NPS has experienced, it is possible that they could institute or revise procedures within the agency for dealing with such cases that arise because of unexpected events.</p>
+<p>More generally, our dataset contains a large number of letters, mostly sent to the Department of Veterans’ Affairs (VA) and various Department of Labor subagencies, in which constituents are simply requesting the status of the claims that they have filed with these agencies. While these contacts could be the result of a lack of communication from the agency and/or a particularly slow processing speed when it comes to handling claims and requests, they do not appear to be driven entirely by things in the bureaucracy that are fundamentally broken.</p>
+<p>Rather than indicating a fully broken system of government, these interactions between the legislative and executive branches suggest that, holistically, the system can work, especially when it comes to representing constituents. Indeed, studies of congressional oversight of the bureaucracy or the legislative process that ignore the role of interbranch representation are missing potentially important parts of the picture. As Kenneth G. Olson so eloquently describes,</p>
+<blockquote class="blockquote">
+<p>“…responding to constituents’ complaints and problems provides a recurring opportunity for a member to scrutinize the work of the executive and judicial branches….Characteristically, this scrutiny takes the form of interfering in federal administrative processes on specific issues of complaint. Sometimes such interference goes beyond the individual issue concerned and results in systematic changes in administrative procedures. Occasionally it leads to corrective legislation. In any event, the mere threat of congressional intervention helps ensure that the federal bureaucracy will anticipate problems before they arise and will not neglect its duties. Thus the exercise of the service function infuses new life into the theory of Congress as a check on the other branches of government and as a kind of balance-wheel within the entire system of government.”</p>
+<p>—– <span class="citation" data-cites="Olson1966">(<a href="references.html#ref-Olson1966" role="doc-biblioref">Olson 1966</a>, pgs 338-339)</span></p>
+</blockquote>
+<!--Ellie's notes: [DO WE WANT TO TALK ABOUT HOW THIS IS PART OF THE SECRET CONGRESS --- THAT SORT OF FUNCTIONS?]
+
+Secret Congress Theory: \url{https://www.slowboring.com/p/the-rise-and-importance-of-secret}
+Critique: \url{https://brownpoliticalreview.org/the-allure-of-hidden-bipartisanship/} -->
+<!--Rochelle 9/18: I think this section is repetitive given the revisions we've made earlier in the chapter, but we can probably re-incorporate some of this material into the intro elsewhere -->
+<!--Rochelle 9/24: I think we could rewrite this section to *contrast* what we're looking at/arguing with the idea of the "secret Congress" --- I think we're talking about even more than that. The "hidden half of Congress" that interbranch representation is part of is more than just a version of Congress that works to pass laws. -->
+</section>
+</section>
+<section id="the-hidden-half-of-the-broken-branch" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="the-hidden-half-of-the-broken-branch"><span class="header-section-number">1.6</span> The “Hidden Half” of the Broken Branch?</h2>
+<p>Members of Congress make choices about how much effort to allocate to interbranch representation in terms of both staff and time, as well as which topics and policies to work on and whom to represent. These choices are constrained by their capacity and sometimes driven by events of the day. But unlike other aspects of the job, these choices are not constrained by public attention from either constituents or the media. Rather, these choices are made behind the scenes, and the consequences of those decisions are largely invisible to constituents and journalists. Members of Congress are not required to disclose or report how much constituency service or interbranch representation they have provided. Indeed, as we discovered firsthand, it is exceedingly difficult and time-consuming for academics to track down that information.</p>
+<p>Given the budget constraints and challenges facing journalists today, it is almost unthinkable that a journalist could track down the necessary records to show that Senator X or Congressman Y is one of the worst-performing Members of Congress in this regard. Savvy legislators thinking rationally about how to allocate their scarce time and resources may choose to allocate their attention elsewhere to areas that may be more public-facing—such as communications staff or legislative work like introducing bills. They may hesitate to short-staff work that receives media attention, especially votes on bills, which have received more attention of late as a closely divided Congress makes every vote important <span class="citation" data-cites="DesjardinsMiduraJackson2026">(<a href="references.html#ref-DesjardinsMiduraJackson2026" role="doc-biblioref">Desjardins et al. 2026</a>)</span>.</p>
+<p>We argue that interbranch representation is unique because it is invisible—it is work in which legislators engage when the public at large is not looking. This “hidden half of Congress” is difficult for academics to measure, difficult for journalists to cover, and, perhaps most importantly, difficult for voters to monitor. Almost by definition, this is a topic that we know very little about. In contrast to visible forms of representation like roll call voting, bill sponsorship, congressional press releases, and social media posts that have received considerable scholarly attention, invisible forms of representation like constituent service and advocating to the bureaucracy about policy issues have received much less attention.</p>
+<!--All of these visible forms of representation are --- by definition --- known or at least knowable to the public, journalists, and scholars. Politicians know that they are or can be watched or scrutinized based on what actions they take (or fail to take). But what if there is a political equivalent to the Hawthorne Effect in which politicians modify their behavior because they know they are being watched?^[Wikipedia defines the Hawthorne Effect (originally coined in 1953) to be "a type of human behavior reactivity in which individuals modify an aspect of their behavior in response to their awareness of being observed."] Thus, invisible forms of representation might be subject to the absence of a Hawthorne Effect in which politicians know that they are not being watched, and thus behave differently because voters and journalists do not know what they are doing, and thus can neither evaluate their actions nor hold them accountable. -->
+<p>Much has been written about Congress as the “Broken Branch” of American government <span class="citation" data-cites="mann2006bbc LaPiraDrutmanKosar2020">(<a href="references.html#ref-mann2006bbc" role="doc-biblioref">Mann and Ornstein 2006</a>; <a href="references.html#ref-LaPiraDrutmanKosar2020" role="doc-biblioref">LaPira et al. 2020</a>)</span>. While explanations for why this is the case have varied, scholars have consistently shown the drop in Congress’s capacity to legislate <span class="citation" data-cites="Binder2015">(<a href="references.html#ref-Binder2015" role="doc-biblioref">Binder 2015</a>)</span>. This literature has largely focused on Congress’s most visible legislative work — sponsoring bills and casting roll call votes — which has received extensive scholarly scrutiny. Some limited attention has been paid to the public actions of congressional committees, such as roll call votes within committees, committee assignment requests, committee assignments, committee transfers, and passing bills out of committees. Measures of legislative effectiveness are built on these visible actions of representation <span class="citation" data-cites="VoldenWiseman2014">(<a href="references.html#ref-VoldenWiseman2014" role="doc-biblioref">Volden and Wiseman 2014</a>)</span>.</p>
+<p>Amid the dysfunction that has been apparent in recent Congresses, some observers have noted that the institution nevertheless is capable of passing some legislation, often with bipartisan support. Dubbed the “Secret Congress,” this part of the institution receives far less media attention yet appears much more functional and cooperative, thus obscuring the positive legislative work of Congress from public view. Critics of this theory, however, argue that this obfuscation of bipartisan cooperation is detrimental to democracy. From this perspective, constituents’ ignorance of this facet of Congress defeats its purpose.</p>
+<p>The “hidden half of Congress” that we examine in this book goes far beyond the “Secret Congress” that works well to pass bipartisan legislation. Instead of a more functional version of the legislation-focused Congress with which the public is already familiar, interbranch representation is an altogether different type of work, and many constituents are unaware that Congress is undertaking this work at all. This ignorance of interbranch representation exists despite the fact that it helps to represent constituents and forms a large component of the workload shouldered by congressional offices. By that logic, its obfuscation is even more detrimental to democracy. In what follows, we provide the first evidence systematically documenting interbranch representation and its extraordinary variation.</p>
+<!--In this book, we provide the first evidence systematically documenting the inequality in invisible representation. Our goal is to explain this variation to better understand who Congress represents when no one is watching. When and under what circumstances do members of Congress take action behind the scenes? And when they do act, who are they acting on behalf of: individual constituents, corporations, or nonprofits/local governments? -->
+</section>
+<section id="organization-of-the-book" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="organization-of-the-book"><span class="header-section-number">1.7</span> Organization of the Book</h2>
+<p>In <a href="ch2-causes.html" class="quarto-xref"><span>Chapter 2</span></a>, we review the existing literature on interbranch representation and introduce our unifying framework of Demand, Capacity, and Motivation to conceptually organize explanations for variation in overall levels of interbranch representation as well as each of our five sub-types of interbranch representation. Existing work that focuses on narrower explanations and typically just one of these outcomes misses variation in who is being represented—individual constituents, businesses, or nonprofits—and the relationship between policy work and constituency service work. These activities are linked, not only because they come from a common budget of effort and time, but also because one often leads to the other. Casework and oversight are more connected than scholarship that studies them separately implies.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> Moreover, many activities that fit in our framework (e.g., advocacy on behalf of local governments) are missed by the existing triad of legislation, oversight, and casework representing individual constituents. We explain how our theory builds on existing theories of representation.</p>
+<p>In <a href="ch3-effects.html" class="quarto-xref"><span>Chapter 3</span></a>, we introduce and describe our five types of interbranch representation: constituency service on behalf of individuals, businesses, and nonprofits and local governments, as well as general policy work and policy work on behalf of specific industries. We provide a rich qualitative overview of what each of these types looks like in our data. Individual constituency service covers “classic” cases such as requests for help obtaining veterans’ benefits and help with immigration paperwork—but it also includes a number of surprising requests that might not obviously be connected to a federal agency. Corporate service involves helping businesses obtain things like permits, grants, and visas for foreign workers, while also responding to esoteric concerns that business owners (mostly of small businesses) bring to the attention of their legislators. Service on behalf of nonprofit organizations and local governments focuses on supporting applications that these organizations have submitted for competitive grants. Both general policy work and policy work on behalf of industries involve legislators intervening before legislation is passed <em>and</em> during the implementation of legislation, often by writing about proposed rules. We make two major points about our data here that inform the interpretation of our analyses. First, constituency service has the potential to inform policy work by bringing widespread issues to legislators’ attention. Second, legislators’ success in intervening in agencies’ policy work depends on how willing the agencies are to respond.</p>
+<p><a href="ch4-data.html" class="quarto-xref"><span>Chapter 4</span></a> describes the processes by which we collected, coded, and processed our data, before providing a quantitative overview of the content of and variation in our five types of interbranch representation. We obtained our data through a large number of Freedom of Information Act (FOIA) requests over a 10-year period, which has produced a near-census of congressional contacts with federal agencies. The vast majority of these communications involve individual constituency service. Although much of this work is routine, major events like natural disasters, economic crises, and the COVID-19 pandemic also appear to influence the content of this type of interbranch representation. Across legislators, we document extraordinary variation in all five types of interbranch representation: some do very large amounts, while others do almost none. And although many legislators who are high performers of one type are also high performers of other types, this is not always the case. These descriptive findings help to further motivate one of the central questions of this book: Why do some members of Congress do so much more interbranch representation than others?</p>
+<p><a href="ch5-results-demand.html" class="quarto-xref"><span>Chapter 5</span></a> we consider how constituent demand shapes interbranch representation. Because Congress does not make constituent requests public, we cannot observe demand directly. Instead, we test whether interbranch representation varies with three possible sources of variation in constituent demand that we can measure with Census data: how many constituents a legislator represents, how many are empowered to seek help, and how many need help from the federal government. We find that each of these sources of demand shapes interbranch representation, but the type of work depends on where the demand comes from. The number of constituents shapes constituency service more than policy work, though senators from larger states do far more of every type of interbranch work. One complication here is that state population is bundled with larger office budgets in the Senate, which may increase their capacity—a topic we focus on in the following chapter. Empowered constituents generate different kinds of work: legislators with more government workers do more constituency service, while those with more college graduates do more policy work. Finally, legislators representing households with greater need do more work on behalf of nonprofits and local governments, but not more constituency service for individuals. For greater-needs individual constituents, the disempowerment associated with greater needs outweighs the need-based reasons to reach out, such that the needs of low-income constituents reach Congress largely through organizations rather than individual requests.</p>
+<p>In <a href="ch6-results-capacity.html" class="quarto-xref"><span>Chapter 6</span></a> we examine how the capacity of congressional offices shapes interbranch representation. Legislators can respond to constituent demand, and generate work of their own, only to the extent their offices have the ability to do so. We test four sources of capacity: legislator experience, staff, committee leadership positions, and seats on an agency’s reporting committee. Because many of these change over a legislator’s career, we compare legislators with one another and also compare the same legislator before and after their capacity changes. We find that capacity matters: capacity that comes from experience in Congress and larger staff increases many types of interbranch representation. In contrast, capacity that comes from committee roles (leadership positions or a seat on an agency’s reporting committee) increases general policy work.</p>
+<p>In <a href="ch7-results-incentives.html" class="quarto-xref"><span>Chapter 7</span></a> we examine how the political environment shapes the strategic incentives for legislators to engage in interbranch representation. How do incentives shape who is represented and the kinds of work congressional offices prioritize? In this chapter, we explore how incentives shape decisions about how much to prioritize interbranch representation, what type of interbranch activity to do (policy or constituency service), and on whose behalf to do it (constituents, companies, nonprofits, or local governments). We find that interbranch representation is shaped by partisan, ideological, electoral, and institutional incentives. Generally, we find alignment (working with allies) outweighs antagonism in driving interbranch work. On the electoral side, we see House members in competitive districts doing more constituency service, but no evidence that this is causal. However, competitive primaries may cause House members to increase constituency service. Institutionally, we see majority status inducing members of the House to do more policy work and less constituency service work, but no change in Senators’ behavior. Finally, supporting staff allocation as a plausible mechanism by which priorities translate to differences in representation, we find that allocating more staff to a given type of interbranch work leads to more of that work getting done.</p>
+<p>We conclude in <a href="ch8-conclusion.html" class="quarto-xref"><span>Chapter 8</span></a> with a discussion of what our results mean for how we should think about the institution of Congress and the role of legislator offices in a democracy. This includes several analyses of how interbranch representation aligns with other ways of assessing the volume or style of representation, such as Legislative Effectiveness and Legislative Styles. Finally, we look prospectively at the future of interbranch representation, explore the policy implications of our findings for how interbranch representation can be improved, and discuss how interbranch representation may be changing during the Trump administration.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-AchenBartels2016" class="csl-entry" role="listitem">
+Achen, Christopher H., and Larry M. Bartels. 2016. <em><span class="nocase">Democracy for Realists: Why Elections Do Not Produce Responsive Government</span></em>. Princeton University Press.
+</div>
+<div id="ref-AnsolabehereJones2010" class="csl-entry" role="listitem">
+Ansolabehere, Stephen, and Philip Edward Jones. 2010. <span>“<span class="nocase">Constituents’ Responses to Congressional Roll-Call Voting</span>.”</span> <em>American Journal of Political Science</em> 54 (3): 583–97.
+</div>
+<div id="ref-AnsSnySte2001LSQ" class="csl-entry" role="listitem">
+Ansolabehere, Stephen, James M Snyder Jr, and Charles Stewart III. 2001. <span>“The Effects of Party and Preferences on Congressional Roll-Call Voting.”</span> <em>Legislative Studies Quarterly</em> 26 (4): 533–72.
+</div>
+<div id="ref-Arnold1979" class="csl-entry" role="listitem">
+Arnold, R. Douglas. 1979. <em>Congress and the Bureaucracy: A Theory of Influence</em>. Yale University Press.
+</div>
+<div id="ref-AshworthBuenodeMesquita2006" class="csl-entry" role="listitem">
+Ashworth, Scott, and Ethan Bueno de Mesquita. 2006. <span>“Delivering the Goods: Legislative Particularism in Different Electoral and Institutional Settings.”</span> <em>Journal of Politics</em> 68 (1): 168–79.
+</div>
+<div id="ref-BanGrimmerKaslovskyWest2022" class="csl-entry" role="listitem">
+Ban, Pamela, Justin Grimmer, Jaclyn Kaslovsky, and Emily West. 2022. <span>“How Does the Rising Number of Women in the US Congress Change Deliberation? Evidence from House Committee Hearings.”</span> <em>Quarterly Journal of Political Science</em> 17 (3): 355–87.
+</div>
+<div id="ref-BerryBurdenHowell2010" class="csl-entry" role="listitem">
+Berry, Christopher, Barry Burden, and William Howell. 2010. <span>“The President and the Distribution of Federal Spending.”</span> <em>American Political Science Review</em> 104 (4): 783–99.
+</div>
+<div id="ref-Binder2015" class="csl-entry" role="listitem">
+Binder, Sarah. 2015. <span>“The Dysfunctional Congress.”</span> <em>Annual Review of Political Science</em> 18 (1): 85–101.
+</div>
+<div id="ref-Blackwood2026" class="csl-entry" role="listitem">
+Blackwood, Megan Rickman. 2026. <span>“Why Casework? Reimagining Political Representation Through Proactive Service.”</span> Ph. D. Dissertation, University of North Carolina at Chapel Hill.
+</div>
+<div id="ref-BoltonThrower2016" class="csl-entry" role="listitem">
+Bolton, Alexander, and Sharece Thrower. 2016. <span>“Legislative Capacity and Executive Unilaterialism.”</span> <em>American Journal of Political Science</em> 60 (3): 649–63.
+</div>
+<div id="ref-BoltonThrower2022" class="csl-entry" role="listitem">
+Bolton, Alexander, and Sharece Thrower. 2022. <em>Checks in the Balance: Legislative Capacity and the Dynamics of Executive Power</em>. Princeton University Press.
+</div>
+<div id="ref-CainFerejohnFiorina1987" class="csl-entry" role="listitem">
+Cain, Bruce, John Ferejohn, and Morris Fiorina. 1987. <em>The Personal Vote: Constituency Service and Electoral Independence</em>. Harvard University Press.
+</div>
+<div id="ref-CrossonFurnasLapiraBurgat2021" class="csl-entry" role="listitem">
+Crosson, Jesse M., Alexander C. Furnas, Timothy LaPira, and Casey Burgat. 2021. <span>“Partisan Competition and the Decline in Legislative Capacity Among Congressional Offices.”</span> <em>Legislative Studies Quarterly</em> 46 (3): 745–89.
+</div>
+<div id="ref-CrossonKaslovsky2024data" class="csl-entry" role="listitem">
+Crosson, Jesse M., and Jaclyn Kaslovsky. 2024. <span>“Replication Data for: <span class="nocase">Do Local Roots Impact Washington Behaviors? District Connections and Representation in the U.S. Congress</span>.”</span> Version 1.0. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/KEWY2U">https://doi.org/10.7910/DVN/KEWY2U</a>.
+</div>
+<div id="ref-CrossonEtAl2020" class="csl-entry" role="listitem">
+Crosson, Jesse M., Geoffrey M. Lorenz, Craig Volden, and Alan Wiseman. 2020. <span>“How Experienced Legislative Staff Contribute to Effective Lawmaking.”</span> In <em>Congress Overwhelmed: The Decline in Congressional Capacity and Prospects for Reform</em>, edited by Timothy M. LaPira, Lee Drutman, and Kevin R. Kosar. University of Chicago Press.
+</div>
+<div id="ref-DesjardinsMiduraJackson2026" class="csl-entry" role="listitem">
+Desjardins, Lisa, Kyle Midura, and Leila Jackson. 2026. <em><span class="nocase">Republican Rep. Tom Kean Jr.’s absence raises broader questions about Congress</span></em>.
+</div>
+<div id="ref-DroppPeskowitz2012" class="csl-entry" role="listitem">
+Dropp, Kyle, and Zachary Peskowitz. 2012. <span>“Electoral Security and the Provision of Constituency Service.”</span> <em>Journal of Politics</em> 74 (1): 220–34.
+</div>
+<div id="ref-EllisWilson2013" class="csl-entry" role="listitem">
+Ellis, William Curtis, and Walter Clark Wilson. 2013. <span>“Minority Chairs and Congressional Attention to Minority Issues: The Effect of Descriptive Representation in Positions of Institutional Power.”</span> <em>Social Science Quarterly</em> 94 (5): 1207–21.
+</div>
+<div id="ref-EpsteinOHalloran1999" class="csl-entry" role="listitem">
+Epstein, David, and Sharyn O’Halloran. 1999. <em>Delegating Powers: A Transaction Cost Politics Approach to Policy Making Under Separate Powers</em>. Cambridge University Press.
+</div>
+<div id="ref-EulauKarps1977" class="csl-entry" role="listitem">
+Eulau, Heinz, and Paul Karps. 1977. <span>“The Puzzle of Representation: Specifying Components of Responsiveness.”</span> <em>Legislative Studies Quarterly</em>, 233–54.
+</div>
+<div id="ref-Fenno1973" class="csl-entry" role="listitem">
+Fenno, Richard F. 1973. <em><span class="nocase">Congressmen in Committees</span></em>. Little Brown; Company.
+</div>
+<div id="ref-Fenno1978" class="csl-entry" role="listitem">
+Fenno, Richard F. 1978. <em><span class="nocase">Home Style: House Members in their Districts</span></em>. Addison Wesley.
+</div>
+<div id="ref-Fiorina1977" class="csl-entry" role="listitem">
+Fiorina, Morris P. 1977. <em>Congress: Keystone of the Washington Establishment</em>. Yale University Press.
+</div>
+<div id="ref-Fowler2026" class="csl-entry" role="listitem">
+Fowler, Anthony. 2026. <span>“Do Party Leaders Influence Roll-Call Voting in Congress?”</span> <em>Political Science Research and Methods</em>, 1–18.
+</div>
+<div id="ref-Gamble2007" class="csl-entry" role="listitem">
+Gamble, Katrina L. 2007. <span>“Black Political Representation: An Examination of Legislative Activity Within US House Committees.”</span> <em>Legislative Studies Quarterly</em> 32 (3): 421–47.
+</div>
+<div id="ref-GroseMangumMartin2007" class="csl-entry" role="listitem">
+Grose, Christian R, Maruice Mangum, and Christopher Martin. 2007. <span>“Race, Political Empowerment, and Constituency Service: Descriptive Representation and the Hiring of African-American Congressional Staff.”</span> <em>Polity</em> 39 (4): 449–78.
+</div>
+<div id="ref-Hall1987" class="csl-entry" role="listitem">
+Hall, Richard L. 1987. <span>“Participation and Purpose in Committee Decision Making.”</span> <em>American Political Science Review</em> 81 (1): 105–27.
+</div>
+<div id="ref-Hall1996" class="csl-entry" role="listitem">
+Hall, Richard L. 1996. <em>Participation in Congress</em>. Yale University Press.
+</div>
+<div id="ref-HerdMoynihan2019" class="csl-entry" role="listitem">
+Herd, Pamela, and Donald P. Moynihan. 2019. <em><span class="nocase">Administrative Burden: Policymaking by Other Means</span></em>. Russell Sage Foundation.
+</div>
+<div id="ref-HertelFernandez2019" class="csl-entry" role="listitem">
+Hertel-Fernandez, Alexander, Matto Mildenberger, and Leah C. Stokes. 2019. <span>“Legislative Staff and Representation in Congress.”</span> <em>American Political Science Review</em> 113 (1): 1–18. <a href="https://doi.org/10.1017/S0003055418000606">https://doi.org/10.1017/S0003055418000606</a>.
+</div>
+<div id="ref-HightonRocca2005" class="csl-entry" role="listitem">
+Highton, Benjamin, and Michael S Rocca. 2005. <span>“Beyond the Roll-Call Arena: The Determinants of Position Taking in Congress.”</span> <em>Political Research Quarterly</em> 58 (2): 303–16.
+</div>
+<div id="ref-Hill02" class="csl-entry" role="listitem">
+Hill, Kim Quaile, and Patricia Hurley. 2002. <span>“Symbolic Speeches in the US Senate and Their Representational Implications.”</span> <em>The Journal of Politics</em> 64 (1): 219–31.
+</div>
+<div id="ref-Johannes1980" class="csl-entry" role="listitem">
+Johannes, John R. 1980. <span>“The Distribution of Casework in the u.s. Congress: An Uneven Burden.”</span> <em>Legislative Studies Quarterly</em> 5 (4): 517–44.
+</div>
+<div id="ref-JudgeLordPowellGrimmer2026" class="csl-entry" role="listitem">
+Judge-Lord, Devin, Eleanor Neff Powell, and Justin Grimmer. 2026. <span>“<span class="nocase">How shifting priorities and capacity affect policy work and constituency service: Evidence from a census of legislator requests to U.S. federal agencies</span>.”</span> <em>American Journal of Political Science</em> n/a (n/a): 1–19. https://doi.org/<a href="https://doi.org/10.1111/ajps.70031">https://doi.org/10.1111/ajps.70031</a>.
+</div>
+<div id="ref-Kalaf2020" class="csl-entry" role="listitem">
+Kalaf-Hughes, Nicole. 2020. <span>“Representation by the Minute: The Influence of Ethnicity, Partisanship and District Fit on Legislator One-Minute Floor Speeches.”</span> <em>Congress &amp; the Presidency</em> 47 (1): 92–129.
+</div>
+<div id="ref-KalafHughes2023" class="csl-entry" role="listitem">
+Kalaf-Hughes, Nicole. 2023. <em><span class="nocase">Policymaking Effectiveness and Inter-Branch Communications in the US House; Some Legislators are Objectively Better than Others</span></em>. Center for Effective Lawmaking Working Paper 2023-04. <a href="https://thelawmakers.org/wp-content/uploads/2023/06/K-H_FullPaper_CEL_5.3.23.pdf " class="uri">https://thelawmakers.org/wp-content/uploads/2023/06/K-H_FullPaper_CEL_5.3.23.pdf </a>. Date Accessed: February 6 2026.
+</div>
+<div id="ref-KiewietMcCubbins1991" class="csl-entry" role="listitem">
+Kiewiet, D. Roderick, and Mathew D. McCubbins. 1991. <em>The Logic of Delegation: Congressional Parties and the Appropriations Process</em>. University of Chicago Press.
+</div>
+<div id="ref-King1991" class="csl-entry" role="listitem">
+King, Gary. 1991. <span>“Constituency Service and the Incumbency Advantage.”</span> <em>British Journal of Politics</em> 21 (1): 119–28.
+</div>
+<div id="ref-Kingdon1977" class="csl-entry" role="listitem">
+Kingdon, John W. 1977. <span>“Models of Legislative Voting.”</span> <em>The Journal of Politics</em> 39 (3): 563–95.
+</div>
+<div id="ref-LandgraveWeller2020" class="csl-entry" role="listitem">
+Landgrave, Michelangelo, and Nicholas Weller. 2020. <span>“Do More Professionalized Legislatures Discriminate Less? The Role of Staffers in Constituency Service.”</span> <em>American Politics Research</em> 48 (5): 571–78.
+</div>
+<div id="ref-LaPiraDrutmanKosar2020" class="csl-entry" role="listitem">
+LaPira, Timothy M., Lee Drutman, and Kevin R. Kosar, eds. 2020. <em>Congress Overwhelmed: The Decline in Congressional Capacity and Prospects for Reform</em>. University of Chicago Press.
+</div>
+<div id="ref-LauterbachHayesWellerBishin2026" class="csl-entry" role="listitem">
+Lauterbach, Erinn, Thomas J Hayes, Nicholas Weller, and Benjamin G Bishin. 2026. <span>“Working-Class Legislators, Bill Writing, and Introduction: Limited Evidence of Substantive Representation in Congress.”</span> <em>Political Research Quarterly</em> 79 (3): 781–95.
+</div>
+<div id="ref-LauterbachRitchie2025" class="csl-entry" role="listitem">
+Lauterbach, Erinn, and Melinda N. Ritchie. 2025. <span>“Strategies of Control: Members of Congress and Policy Outcomes.”</span> <em>Legislative Studies Quarterly</em> 50 (4): e70009. https://doi.org/<a href="https://doi.org/10.1111/lsq.70009">https://doi.org/10.1111/lsq.70009</a>.
+</div>
+<div id="ref-Lazarus2013" class="csl-entry" role="listitem">
+Lazarus, Jeffrey. 2013. <span>“Issue Salience and Bill Introduction in the House and Senate.”</span> <em>Congress &amp; the Presidency</em> 40 (3): 215–29.
+</div>
+<div id="ref-Lee2009" class="csl-entry" role="listitem">
+Lee, Frances E. 2009. <em><span class="nocase">Beyond Ideology: Politics, Principles and Partisanship in the U.S. Senate</span></em>. University Of Chicago Press.
+</div>
+<div id="ref-Lowande2018APSR" class="csl-entry" role="listitem">
+Lowande, Kenneth. 2018. <span>“<span class="nocase">Who Polices the Administrative State? Evidence from 20,000 Private Communications</span>.”</span> <em>American Political Science Review</em> 112 (4): 874–90.
+</div>
+<div id="ref-Lowande2019" class="csl-entry" role="listitem">
+Lowande, Kenneth. 2019. <span>“<span class="nocase">Politicization and Responsiveness in Executive Agencies</span>.”</span> <em>Journal of Politics</em> 81 (1): 33–48.
+</div>
+<div id="ref-LowandePotter2021" class="csl-entry" role="listitem">
+Lowande, Kenneth, and Rachel Potter. 2019. <span>“<span class="nocase">Congressional Oversight Revisited: Politics and Procedure in Agency Rulemaking</span>.”</span> <em>The Journal of Politics</em> 83 (1): 401–8.
+</div>
+<div id="ref-LowandeRitchieLauterbach2019" class="csl-entry" role="listitem">
+Lowande, Kenneth, Melinda Ritchie, and Erinn Lauterbach. 2019. <span>“<span class="nocase">Descriptive and Substantive Representation in Congress: Evidence from 80,000 Congressional Inquiries</span>.”</span> <em>American Journal of Political Science</em> 63 (3): 644–59.
+</div>
+<div id="ref-MaltzmanSigelman1996" class="csl-entry" role="listitem">
+Maltzman, Forrest, and Lee Sigelman. 1996. <span>“The Politics of Talk: Unconstrained Floor Time in the US House of Representatives.”</span> <em>The Journal of Politics</em> 58 (3): 819–30.
+</div>
+<div id="ref-mann2006bbc" class="csl-entry" role="listitem">
+Mann, Thomas E., and Norman J. Ornstein. 2006. <em><span class="nocase">The Broken Branch: How Congress is Failing America and How to Get it Back on Track</span></em>. Oxford University Press.
+</div>
+<div id="ref-Mayhew1974" class="csl-entry" role="listitem">
+Mayhew, David. 1974. <em>Congress: The Electoral Connection</em>. Yale University Press.
+</div>
+<div id="ref-McCubbinsSchwartz1984" class="csl-entry" role="listitem">
+McCubbins, Mathew D., and Thomas Schwartz. 1984. <span>“<span class="nocase">Congressional Oversight Overlooked: Police Patrols versus Fire Alarms</span>.”</span> <em>American Political Science Review</em> 28 (1): 165–79.
+</div>
+<div id="ref-MillerStokes1963" class="csl-entry" role="listitem">
+Miller, Warren E., and Donald E. Stokes. 1963. <span>“Constituency Influence in Congress.”</span> <em>The American Political Science Review</em> 57 (1): pp. 45–56. <a href="http://www.jstor.org/stable/1952717">http://www.jstor.org/stable/1952717</a>.
+</div>
+<div id="ref-MillsKalafHughes2015" class="csl-entry" role="listitem">
+Mills, Russell, and Nicole Kalaf-Hughes. 2015. <span>“<span class="nocase">The Evolution of Distributive Benefits: The Rise of Letter-Marking in the United States Congress</span>.”</span> <em>The Journal of Economics and Politics</em> 22 (1): 35–58.
+</div>
+<div id="ref-Minta2011" class="csl-entry" role="listitem">
+Minta, Michael D. 2011. <em>Oversight: Representing the Interests of Blacks and Latinos in Congress</em>. Princeton University Press.
+</div>
+<div id="ref-MontgomeryNyhan2017" class="csl-entry" role="listitem">
+Montgomery, Jacob M, and Brendan Nyhan. 2017. <span>“The Effects of Congressional Staff Networks in the US House of Representatives.”</span> <em>The Journal of Politics</em> 79 (3): 745–61.
+</div>
+<div id="ref-Olson1966" class="csl-entry" role="listitem">
+Olson, Kenneth G. 1966. <span>“Serving the District.”</span> In <em>Congress: The First Branch of Government</em>, edited by Alfred de Grazia. American Enterprise Institute for Public Policy Research.
+</div>
+<div id="ref-PearsonDancey2011b" class="csl-entry" role="listitem">
+Pearson, Kathryn, and Logan Dancey. 2011a. <span>“Elevating Women’s Voices in Congress: Speech Participation in the House of Representatives.”</span> <em>Political Research Quarterly</em> 64 (4): 910–23.
+</div>
+<div id="ref-PearsonDancey2011a" class="csl-entry" role="listitem">
+Pearson, Kathryn, and Logan Dancey. 2011b. <span>“Speaking for the Underrepresented in the House of Representatives: Voicing Women’s Interests in a Partisan Era.”</span> <em>Politics &amp; Gender</em> 7 (4): 493–519.
+</div>
+<div id="ref-Pitkin67" class="csl-entry" role="listitem">
+Pitkin, Hanna. 1967. <em>The Concept of Representation</em>. University of California Press.
+</div>
+<div id="ref-poolerose1997" class="csl-entry" role="listitem">
+Poole, Keith T., and Howard Rosenthal. 1997. <em><span class="nocase">Congress: A Political-Economic History of Roll Call Voting</span></em>. Oxford University Press.
+</div>
+<div id="ref-PowellJudgeLordGrimmer2023" class="csl-entry" role="listitem">
+Powell, Eleanor Neff, Devin Judge-Lord, and Justin Grimmer. 2023. <span>“Legislator Advocacy on Behalf of Constituents and Corporate Donors: A Case Study of the Federal Energy Regulatory Commission.”</span> In <em>Accountability Reconsidered: Voters, Interests, and Information in US Policymaking</em>, edited by Charles M. Cameron, Brandeis Canes-Wrone, and Gregory A. Huber. Cambridge University Press.
+</div>
+<div id="ref-Price2022" class="csl-entry" role="listitem">
+Price, David E. 2022. <span>“Serving the District.”</span> In <em>Under the Iron Dome: Congress from the Inside</em>, edited by Paul Herrnson, Colton C. Campbell, and David A. Dulio. Taylor &amp; Francis.
+</div>
+<div id="ref-Reynolds2020" class="csl-entry" role="listitem">
+Reynolds, Molly E. 2020. <span>“The Decline in Congressional Capacity.”</span> In <em>Congress Overwhelmed: The Decline in Congressional Capacity and Prospects for Reform</em>, edited by Timothy M. LaPira, Lee Drutman, and Kevin R. Kosar. University of Chicago Press.
+</div>
+<div id="ref-Ritchie2018" class="csl-entry" role="listitem">
+Ritchie, Melinda N. 2018. <span>“<span class="nocase">Back-Channel Representation: A Study of the Strategic Communication of Senators with the US Department of Labor</span>.”</span> <em>Journal of Politics</em> 80 (1): 240--253.
+</div>
+<div id="ref-Ritchie2023" class="csl-entry" role="listitem">
+Ritchie, Melinda N. 2023. <em><span class="nocase">Backdoor Lawmaking: Evading Obstacles in the U.S. Congress</span></em>. Oxford University Press.
+</div>
+<div id="ref-RitchieYou2019" class="csl-entry" role="listitem">
+Ritchie, Melinda N., and Hye Young You. 2019. <span>“<span class="nocase">Legislators as Lobbyists</span>.”</span> <em>Legislative Studies Quarterly</em> 44 (1): 65–95. <a href="https://doi.org/10.1111/lsq.12221">https://doi.org/10.1111/lsq.12221</a>.
+</div>
+<div id="ref-Rivers1989" class="csl-entry" role="listitem">
+Rivers, Doug, and Morris Fiorina. 1989. <span>“Constituency Service, Reputation, and the Incumbency Advantage.”</span> In <em>Home Style and Washington Work</em>, edited by Morris Fiorina and David Rhode. The University of Michigan Press.
+</div>
+<div id="ref-RoccaGordon2010" class="csl-entry" role="listitem">
+Rocca, Michael S, and Stacy B Gordon. 2010. <span>“The Position-Taking Value of Bill Sponsorship in Congress.”</span> <em>Political Research Quarterly</em> 63 (2): 387–97.
+</div>
+<div id="ref-rohde1991" class="csl-entry" role="listitem">
+Rohde, David W. 1991. <em><span class="nocase">Parties and Leaders in the Postreform House</span></em>. University Of Chicago Press.
+</div>
+<div id="ref-Schiller95" class="csl-entry" role="listitem">
+Schiller, Wendy. 1995. <span>“Senators as Political Entrepreneurs: Using Bill Sponsorship to Shape Legislative Agendas.”</span> <em>American Journal of Political Science</em> 39 (1): 186–203.
+</div>
+<div id="ref-SerraCover1992" class="csl-entry" role="listitem">
+Serra, George, and Albert D. Cover. 1992. <span>“<span class="nocase">The Electoral Consequences of Perquisite Use: The Casework Case</span>.”</span> <em>Legislative Studies Quarterly</em> 17 (2): 233–46.
+</div>
+<div id="ref-SerraMoon1994" class="csl-entry" role="listitem">
+Serra, George, and David Moon. 1994. <span>“<span class="nocase">Casework, Issue Positions, and Voting in Congressional Elections: A District Analysis</span>.”</span> <em>The Journal of Politics</em> 56 (1): 200–213.
+</div>
+<div id="ref-Snyder2024" class="csl-entry" role="listitem">
+Snyder, Rochelle. 2024. <span>“Personal Ends, Partisan Means: Constituent Service and Representation in the United States Congress.”</span> PhD thesis, University of Wisconsin-Madison.
+</div>
+<div id="ref-SnyderJudgeLordPowellGrimmer2025" class="csl-entry" role="listitem">
+Snyder, Rochelle, Devin Judge-Lord, Eleanor Neff Powell, and Justin Grimmer. 2025. <em><span>Who Gets Constituent Service?</span></em>
+</div>
+<div id="ref-USDepartmentofJustice2016" class="csl-entry" role="listitem">
+U.S. Department of Justice, Bureau of Justice Assistance. 2016. <em>Justice Reinvestment Initiative Funding Opportunity</em>. BJA-2016-8975. <a href="https://www.grants.gov/search-results-detail/281428" class="uri">https://www.grants.gov/search-results-detail/281428</a>.
+</div>
+<div id="ref-VoldenWiseman2014" class="csl-entry" role="listitem">
+Volden, Craig, and Alan E. Wiseman. 2014. <em>Legislative Effectiveness in the United States Congress: The Lawmakers</em>. Cambridge University Press.
+</div>
+<div id="ref-Waggoner2019" class="csl-entry" role="listitem">
+Waggoner, Philip D. 2019. <span>“Do Constituents Influence Issue-Specific Bill Sponsorship?”</span> <em>American Politics Research</em> 47 (4): 709–38.
+</div>
+<div id="ref-Wallace2014" class="csl-entry" role="listitem">
+Wallace, Sophia J. 2014. <span>“Representing Latinos: Examining Descriptive and Substantive Representation in Congress.”</span> <em>Political Research Quarterly</em> 67 (4): 917–29.
+</div>
+<div id="ref-YoelLucasGrossmann2026" class="csl-entry" role="listitem">
+Yoel, Benjamin, Caleb Lucas, and Matt Grossmann. 2026. <span>“Drivers of Congressional Behavior: Analyzing Members, Constituents, and Committees with CongressData.”</span> <em>American Politics Research</em> 54 (4): 422–29.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>https://news.gallup.com/poll/1600/congress-public.aspx<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Other inquiries of interbranch representation could focus on interactions between the legislative and judicial branches by studying amicus briefs that legislators file in court cases. The scope of our inquiry is limited to the legislative-executive form of interbranch representation.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We filed a FOIA request for the State Department’s congressional correspondence logs in 2018 but have not yet received the data due to the department’s significant FOIA backlog.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>While it is possible to identify policy benefiting particular industries, we created a “general” category for all other policy work because we found it impossible to distinguish policy work done on behalf of individuals, nonprofits, or local governments, which might be described as “public interest” policy work.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>A report from the Congressional Research Service, dated July 8, 2022, confirms that the VA, the IRS, USCIS, the Social Security Administration, and the Centers for Medicare and Medicaid Services (CMS) are the agencies that receive the most casework requests from members of Congress.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>See, for example, “How the House Slumped to Historic Lows of Productivity in 2025” (New York Times, January 16, 2026); “Congress set records in 2025, some more dubious than others” (Washington Post, December 24, 2025); “118th Congress to be the most unproductive in decades” (NPR, December 21, 2023); “Congress on Track to be Least Productive in Modern History” (NBC News, July 21, 2014).<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>For example, in the 2020 Cooperative Congressional Election Study, 86.3% of respondents who shared their House member’s party approved of them, compared to just 36.1% of respondents who did not share their House member’s party.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>While our own estimates are somewhat lower, recent data on congressional office staffing <span class="citation" data-cites="CrossonFurnasLapiraBurgat2021 CrossonKaslovsky2024data">(<a href="references.html#ref-CrossonFurnasLapiraBurgat2021" role="doc-biblioref">Crosson et al. 2021</a>; <a href="references.html#ref-CrossonKaslovsky2024data" role="doc-biblioref">Crosson and Kaslovsky 2024</a>)</span> suggest that approximately 40% are dedicated to constituency service. A significant share of the other 60% are also engaged in interbranch representation, such as oversight investigations, hearings, and working with agencies, executive-branch policymaking, or administrative support for both interbranch representation and legislating. Given that most federal policymaking today is made through agency rulemaking, it is reasonable to estimate that at least 20% of legislators’ policy-focused staff time is engaging in inter-branch representation.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>We found this reaction to be quite common despite <span class="citation" data-cites="Johannes1980">Johannes (<a href="references.html#ref-Johannes1980" role="doc-biblioref">1980</a>)</span>’s study documenting an “uneven burden” in the distribution of casework in both the House and Senate in 1977-1979.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Contrary to the common separation of casework and legislation <span class="citation" data-cites="Reynolds2020">(e.g., <a href="references.html#ref-Reynolds2020" role="doc-biblioref">Reynolds 2020, 37</a>)</span>, we also find evidence of constituency service informing legislation.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+  /*
+    Quarto theorem-like prefixes.
+    If you only want ordinary theorems, keep only:
+      const theoremKinds = { thm: "Theorem" };
+  */
+  const theoremKinds = {
+    thm: "Hypothesis",
+    exm: "Example",
+  };
+
+  /*
+    true  = Theorem 1, Theorem 2, Lemma 1, Lemma 2, ...
+    false = Theorem 1, Lemma 2, Theorem 3, Definition 4, ...
+  */
+  const separateCountersByKind = true;
+
+  const prefixes = Object.keys(theoremKinds);
+  const theoremSelector = prefixes
+    .map(prefix => `div[id^="${prefix}-"]`)
+    .join(",");
+
+  function getPrefix(id) {
+    return prefixes.find(prefix => id.startsWith(prefix + "-"));
+  }
+
+  function pageUrlsFromSidebar() {
+    const links = Array.from(
+      document.querySelectorAll(
+        "#quarto-sidebar a[href], .sidebar-navigation a[href], nav.sidebar a[href]"
+      )
+    );
+
+    const urls = [];
+
+    for (const link of links) {
+      const url = new URL(link.getAttribute("href"), window.location.href);
+
+      if (url.origin !== window.location.origin) continue;
+
+      url.hash = "";
+
+      if (!urls.some(existing => existing.href === url.href)) {
+        urls.push(url);
+      }
+    }
+
+    if (urls.length === 0) {
+      const current = new URL(window.location.href);
+      current.hash = "";
+      urls.push(current);
+    }
+
+    return urls;
+  }
+
+  async function getDocumentForUrl(url) {
+    const current = new URL(window.location.href);
+    current.hash = "";
+
+    if (url.href === current.href) {
+      return document;
+    }
+
+    const response = await fetch(url.href, { credentials: "same-origin" });
+    const html = await response.text();
+
+    return new DOMParser().parseFromString(html, "text/html");
+  }
+
+  const counters = {};
+  const numberMap = {};
+
+  const urls = pageUrlsFromSidebar();
+
+  for (const url of urls) {
+    let doc;
+
+    try {
+      doc = await getDocumentForUrl(url);
+    } catch {
+      continue;
+    }
+
+    const blocks = Array.from(doc.querySelectorAll(theoremSelector));
+
+    for (const block of blocks) {
+      const id = block.getAttribute("id");
+      const prefix = getPrefix(id);
+
+      if (!prefix) continue;
+
+      const counterKey = separateCountersByKind ? prefix : "__all__";
+
+      counters[counterKey] = (counters[counterKey] || 0) + 1;
+
+      numberMap[id] = {
+        label: theoremKinds[prefix],
+        number: counters[counterKey]
+      };
+    }
+  }
+
+  const labelsPattern = Object.values(theoremKinds).join("|");
+  const oldNumberPattern = new RegExp(
+    `\\b(${labelsPattern})\\s+\\d+(?:\\.\\d+)*`
+  );
+
+  function updateTheoremBlock(block) {
+    const id = block.getAttribute("id");
+    const info = numberMap[id];
+
+    if (!info) return;
+
+    const title =
+      block.querySelector(".theorem-title strong") ||
+      block.querySelector(".theorem-title");
+
+    if (!title) return;
+
+    title.textContent = title.textContent.replace(
+      oldNumberPattern,
+      `${info.label} ${info.number}`
+    );
+  }
+
+  function updateTheoremReference(link) {
+    if (!link.hash) return;
+
+    const id = decodeURIComponent(link.hash.substring(1));
+    const info = numberMap[id];
+
+    if (!info) return;
+
+    link.textContent = link.textContent.replace(
+      oldNumberPattern,
+      `${info.label} ${info.number}`
+    );
+  }
+
+  document
+    .querySelectorAll(theoremSelector)
+    .forEach(updateTheoremBlock);
+
+  document
+    .querySelectorAll("a[href*='#']")
+    .forEach(updateTheoremReference);
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./acknowledgements.html" class="pagination-link" aria-label="Acknowledgements">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Acknowledgements</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch2-causes.html" class="pagination-link" aria-label="Theories of Interbranch Representation">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theories of Interbranch Representation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

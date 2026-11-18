@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; The Concept of Interbranch Representation – Interbranch Representation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch4-data.html" rel="next">
+<link href="./ch2-causes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-7d8ad657b878717df1156ab40fed854c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch3-effects.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Concept of Interbranch Representation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Interbranch Representation</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Interbranch-Representation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-causes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theories of Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-effects.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Concept of Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Studying What Congressional Offices Do Behind the Scenes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5-results-demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">How Constituent Demand Affects Interbranch Representation?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6-results-capacity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">How Congressional Capacity Affects Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch7-results-incentives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">How Strategic Incentives Affect Interbranch Representation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch8-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Summary statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Models Across Types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-types-across-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Types Across Models (Online Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-alt-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Alternative Models (Online Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-correlations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Correlations (Online Only)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-type1" id="toc-sec-type1" class="nav-link active" data-scroll-target="#sec-type1"><span class="header-section-number">3.1</span> Individual Constituency Service</a></li>
+  <li><a href="#sec-type2" id="toc-sec-type2" class="nav-link" data-scroll-target="#sec-type2"><span class="header-section-number">3.2</span> Corporate Service</a></li>
+  <li><a href="#sec-type3" id="toc-sec-type3" class="nav-link" data-scroll-target="#sec-type3"><span class="header-section-number">3.3</span> Nonprofit and Local Government Service</a></li>
+  <li><a href="#sec-casework-policy" id="toc-sec-casework-policy" class="nav-link" data-scroll-target="#sec-casework-policy"><span class="header-section-number">3.4</span> From Casework to Policy Work</a></li>
+  <li><a href="#sec-type5" id="toc-sec-type5" class="nav-link" data-scroll-target="#sec-type5"><span class="header-section-number">3.5</span> General Policy Work</a>
+  <ul class="collapse">
+  <li><a href="#sub-types-of-general-policy-work" id="toc-sub-types-of-general-policy-work" class="nav-link" data-scroll-target="#sub-types-of-general-policy-work">Sub-Types of General Policy Work</a></li>
+  <li><a href="#interbranch-representation-informs-legislating" id="toc-interbranch-representation-informs-legislating" class="nav-link" data-scroll-target="#interbranch-representation-informs-legislating">Interbranch representation informs legislating</a></li>
+  <li><a href="#oversight-investigations-inform-agency-policy" id="toc-oversight-investigations-inform-agency-policy" class="nav-link" data-scroll-target="#oversight-investigations-inform-agency-policy">Oversight investigations inform agency policy</a></li>
+  <li><a href="#interbranch-representation-informs-statutory-interpretation-and-executive-branch-policymaking" id="toc-interbranch-representation-informs-statutory-interpretation-and-executive-branch-policymaking" class="nav-link" data-scroll-target="#interbranch-representation-informs-statutory-interpretation-and-executive-branch-policymaking">Interbranch representation informs statutory interpretation and executive-branch policymaking</a></li>
+  <li><a href="#cross-cutting-dynamics" id="toc-cross-cutting-dynamics" class="nav-link" data-scroll-target="#cross-cutting-dynamics">Cross-Cutting Dynamics</a></li>
+  <li><a href="#changes-in-agencies-willingness-to-respond-to-legislators" id="toc-changes-in-agencies-willingness-to-respond-to-legislators" class="nav-link" data-scroll-target="#changes-in-agencies-willingness-to-respond-to-legislators">Changes in Agencies’ Willingness to Respond to Legislators</a></li>
+  </ul></li>
+  <li><a href="#sec-type4" id="toc-sec-type4" class="nav-link" data-scroll-target="#sec-type4"><span class="header-section-number">3.6</span> Corporate Policy Work</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.7</span> Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-effects" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Concept of Interbranch Representation</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>ABSTRACT: We have argued that interbranch representation varies along two dimensions—who is represented and how. This chapter shows what interbranch representation on behalf of different constituencies—individuals, businesses, nonprofits, and local governments—looks like. First we look at particularized service (“casework”) on behalf of each of these constituencies. Then we show what policy work looks like. Often casework and policy work are linked, with casework informing policy work.</p>
+</blockquote>
+<p>In <a href="ch2-causes.html" class="quarto-xref"><span>Chapter 2</span></a>, we argued that interbranch representation varies along two dimensions: whom legislators represent and how they represent them. This chapter shows what these two dimensions look like in practice. Drawing on the letters and correspondence logs we obtained from federal agencies (described in <a href="ch4-data.html" class="quarto-xref"><span>Chapter 4</span></a>) along with a handful of archival records, we illustrate each of our five types of interbranch representation. Our goal here is not to measure how common each type is or how much variation there is across members in interbranch representation; we save that for <a href="ch4-data.html" class="quarto-xref"><span>Chapter 4</span></a>. Instead, we examine what each type involves, where the boundaries between types blur, and how they connect.</p>
+<p>We begin with constituency service, considering, in turn, individual constituency service, corporate service, and nonprofit and local government service. We then turn to two types of policy work: (1) general policy work, which ranges from coordination before legislation is passed to oversight and agency rulemaking, and (2) corporate policy work on behalf of businesses and industries. One theme which we develop in <a href="#sec-casework-policy" class="quarto-xref"><span>Section 3.4</span></a>, and return to in <a href="ch8-conclusion.html" class="quarto-xref"><span>Chapter 8</span></a>, is that casework can inform policy work. For example, multiple constituents seeking assistance with similar issues can signal to legislators that a problem exists. Once aware of the problem, legislators can then pursue broader solutions through interbranch policy work or legislation.</p>
+<section id="sec-type1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-type1"><span class="header-section-number">3.1</span> Individual Constituency Service</h2>
+<blockquote class="blockquote">
+<p>An individual complaint or request for a favor may itself be trivial, except to the aggrieved or hopeful citizen and his family. Responding to it may tax the energy and ingenuity of an overworked member of Congress and his staff. No single request left unheeded is likely to rock the Republic. But the provision of millions of such minuscule services, in their totality, amounts to a major function of modern American government. How well these services are performed goes a long way in determining the confidence of citizens in their representatives.</p>
+<p>— <span class="citation" data-cites="Olson1966">Olson (<a href="references.html#ref-Olson1966" role="doc-biblioref">1966</a>)</span>, pg. 338.</p>
+</blockquote>
+<p>Olson’s quote about constituency service speaks to the importance of constituency service for the individuals it helps, as well as connecting how, in the aggregate, legislators’ successfully helping their constituents navigate problems with the federal government can help instill confidence in their elected representatives. Constituency service is also important for members of Congress in a number of ways, including as a major component of interbranch representation. Legislators perform a variety of tasks to help and serve individual constituents <span class="citation" data-cites="Blackwood2026">(<a href="references.html#ref-Blackwood2026" role="doc-biblioref">Blackwood 2026</a>)</span>, and the difference between a constituent request for assistance and a constituent communication about policy is not always clear <span class="citation" data-cites="Snyder2024">(<a href="references.html#ref-Snyder2024" role="doc-biblioref">Snyder 2024</a>)</span>. Because we are concerned with how legislators engage with federal agencies on behalf of constituents, we use a definition of individual constituency service that is distinct from definitions used in other studies. We conceptualize individual constituency service as actions that congressional offices have taken on behalf of individual constituents to help them navigate the federal bureaucracy, including groups of individuals and large numbers of people.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> As in the post by Rep.&nbsp;Colin Allred in <a href="#fig-allred" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>, this assistance often involves returning money to constituents from the federal government by correcting errors in benefits payments or tax refunds.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-allred" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-allred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Representative Colin Allred’s office takes credit for constituent casework and encourages constituents to ask his office for help. This is one example of many similar types of messages that have become common among members of Congress in recent years.
+</figcaption>
+<div aria-describedby="fig-allred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/1/AllredTweet.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>More generally, casework often involves help with paperwork, either because the forms themselves impose administrative burdens <span class="citation" data-cites="HerdMoynihan2019">(<a href="references.html#ref-HerdMoynihan2019" role="doc-biblioref">Herd and Moynihan 2019</a>)</span> or because bureaucratic processes or laws are a poor fit for a constituent’s circumstances. Legislators view individual constituency service as important enough to devote substantial resources to it; by one estimate, about 40% of congressional office staff work on constituency service <span class="citation" data-cites="CrossonFurnasLapiraBurgat2021">(<a href="references.html#ref-CrossonFurnasLapiraBurgat2021" role="doc-biblioref">Crosson et al. 2021</a>)</span>, a topic we return to in <a href="ch6-results-capacity.html" class="quarto-xref"><span>Chapter 6</span></a>. Legislators also regularly publicize their casework to constituents in newsletters and social media posts, as Representative Allred’s post in <a href="#fig-allred" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> illustrates.</p>
+<p>Many of the most common requests that legislators make to agencies on behalf of individuals go to the Department of Labor (DOL). Several different DOL sub-agencies, including the Occupational Safety and Health Administration (OSHA), the Office of Workers’ Compensation Programs (OWCP), and the Office of Congressional and Intergovernmental Affairs (OCIA), handle congressional requests involving on-the-job injuries, benefits claims, and workplace safety complaints. Also unsurprising is the number of communications with the Internal Revenue Service (IRS) in the Treasury Department on behalf of constituents dealing with issues involving their taxes, especially tax refunds. Hundreds of thousands of individual constituency service requests involve immigration issues with U.S. Citizenship and Immigration Services (USCIS) within the Department of Homeland Security.</p>
+<p>Beyond these “classic” examples of individual constituency service, there are also many examples of correspondence on behalf of individuals that did not involve a problem with the federal bureaucracy (at least not in the sense that the bureaucracy had made an error or the constituent had experienced some injustice). The National Archives and Records Administration (NARA), for example, received thousands of requests from legislators on behalf of constituents who were seeking copies of their family members’ military records. While NARA was instrumental in completing these requests because they held the records, constituents were not making these requests of their members of Congress because they had encountered a problem with NARA.</p>
+<p>Many legislators also forwarded unusual constituent complaints and queries to the Food and Drug Administration (FDA) within the Department of Health and Human Services. Although these concerns were broadly related to the policy work of the FDA, they often did not suggest a specific bureaucratic failure on the part of the agency. For example, Senator Arlen Specter wrote to the FDA with a request to investigate the treatment that a constituent received at a VA hospital. The constituent had an adverse reaction to a drug that included joint pain, memory loss, sleep apnea, vision loss, and stomach difficulties. The symptoms abated after the patient stopped taking the drug, at the behest of the VA physician. At issue in this case was the drug, not the VA, as the physician seemed to recognize and respond to the problem. And although the FDA had the ability to investigate the issue, the constituent was not contacting Specter about a particular bureaucratic issue with the FDA. This example illustrates how problems can sometimes appear for constituents at the intersection of several agencies, which suggests that the expertise and capacity of legislators’ offices matters for addressing these issues. Congressional staff need to have some sense of how contacting an agency may help to address a problem in a way that is appropriate for the constituent, and these ambiguous cases likely require deep knowledge of the federal bureaucracy. It is also an example of how casework has the potential to inform policy, given the strong implication that a change in policy by the FDA could prevent this problem from occurring for other constituents.</p>
+</section>
+<section id="sec-type2" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-type2"><span class="header-section-number">3.2</span> Corporate Service</h2>
+<!---
+> ABSTRACT: What explains unequal levels of constituency service on behalf of businesses? We find that selective elements of all parts of our Demand, Capacity, and Strategic Choice framework are related to the provision of corporate service. For Demand, we find that having more constituents and more demanding constituents are correlated with greater provision of corporate service.  For Capacity, we find that legislator experience is always correlated with greater provision of corporate service, and that reporting committee assignments and committee leadership positions are sometimes correlated with greater provision of corporate service. For Strategic Responses to the Political Environment, we find that in accordance with their pro-business ideological beliefs, Republicans consistently do more corporate service. We also find that ideologically extreme legislators consistently do less corporate service, and members of the president’s party who are more ideologically distant do more corporate service. We observe House Members who are electorally vulnerable doing more corporate service; these findings are limited to the cross-sectional models. Lastly, we find that corporate campaign contributions are correlated with greater corporate service in cross-sectional models, but not within-legislator models. This pattern regarding corporate campaign contributions holds at both the aggregate level, looking at all corporate contributions and all corporate service, as well as within an Energy Sector case study.  --->
+<!-- 
+Representative Tauscher of Wisconsin wrote to the Defense Commissary Agency on behalf
+of the Jelly Belly Candy Co., based in California. Jelly Belly was then “given a chance to
+resolve issues” with their contract.
+There is more in that sheet.
+
+
+
+Bartlett, Roscoe (Congressman) appears to have forwarded a letter he received from Tri-Star Mining, Inc. President George R.Beener about the closing of a site after two people did     5/30/2007           5/31/2007       
+https://miningincidents.org/controller/C12621
+
+Beener also sentenced to house arrest for Felony Tax Evasion 
+https://www.dailyamerican.com/story/news/local/2016/12/13/beeners-get-house-arrest-probation-for-tax-evasio/116659958/
+-->
+<!---Ellie: I like the idea of this anecdote, but I think we want to pick an example from our data, and a case where someone who gets a lot of corporate money then takes an action on behalf of a corporation. I also think there's way too long a time period between the action and the fundraising. Also, I know this is my fault because I had it backward in an earlier draft of the chapter, but the way we're looking at the money and representation story in this chapter is that we're looking at donations predicting future actions. I've relabeled this as corporate advocacy on behalf of donors. --->
+<p>Businesses, like individuals, are constantly encountering the federal bureaucracy: they apply for permits, licenses, grants, loans, and contracts; hire workers who need visas; pay taxes; and face inspections and fines. When these things get stuck in the dreaded “red tape” of government, or when things go wrong, business owners, too, turn to their elected representatives for help. We call this form of interbranch representation <em>corporate service</em>: constituency service in which the legislator advocates on behalf of a business, including business owners like farmers. This work on behalf of individual businesses (or business owners) is often on behalf of businesses in the legislators’ districts, but it is not necessarily geographically delimited. For example, legislators could be advocating on behalf of out-of-district campaign donors.</p>
+<p>These corporate constituency service requests span a range of issues and agencies. A common form of request is asking an agency to expedite something—in essence, to speed up whatever it is they are doing. For example, <a href="#fig-FERC" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> below shows a letter Rep.&nbsp;Mac Thornberry (R-TX13) wrote to the Federal Energy Regulatory Commission (FERC) in 2013 on behalf of the Vice President of the Panhandle Producers and Royalty Owners Association and the President of Cambridge Production, Inc.&nbsp;In the letter, Rep.&nbsp;Thornberry urges FERC to speed up its decision-making process, and he includes letters from the named corporate leaders explaining their request.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-FERC" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-FERC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Letter from Rep.&nbsp;Mac Thornberry to Federal Energy Regulatory Commission Chairman.
+</figcaption>
+<div aria-describedby="fig-FERC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/2/FERC.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>In addition to contracts and permits, the federal government distributes grants to businesses. For example, within the Department of Commerce, the National Institute of Standards and Technology Advanced Technology Program distributes grants to stimulate early-stage technology development that would otherwise not be funded. In 2007, Senator Joe Biden (D-DE) asked NIST “to extend support for Athena Biotechnologies Inc.’s application in the amount of $2 million to the Advanced Technologies Program grant.” Rep.&nbsp;Jack Kingston (R-GA1) wrote “in support of the application submitted by American Process, Inc.&nbsp;and the Georgia Institute of Technology.” Both of these were assigned NIST’s highest priority level in their correspondence tracking system.</p>
+<p>Members of Congress make thousands of such interventions every year. Because its mission is to support small businesses, the Small Business Administration (SBA) is a natural destination for these requests. Legislators sent the SBA thousands of letters helping businesses gain access to capital, government contracts, and loans, including disaster loans and disaster loan forgiveness.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Legislators also wrote on behalf of constituents seeking help with the 8(a) Business Development Program, which supports business owners who are presumed to be socially disadvantaged, including Black Americans, Hispanic Americans, Native Americans, and Asian Americans.</p>
+<p>Requests on behalf of small businesses appeared in many other agencies as well, including requests on behalf of Service-Disabled Veteran-Owned Small Businesses to several sub-agencies in the Department of Labor (DOL) and to the Department of Veterans Affairs (VA). Other requests on behalf of businesses that legislators sent to DOL agencies involved disputes over fines that businesses received and help with Trade Adjustment Assistance (TAA) benefits for displaced workers.</p>
+<p>Because companies, members of Congress, and agencies all likely have incentives to keep such interventions out of public view, the records we obtained offer a rare glimpse into legislators’ advocacy on behalf of business interests. Systematic records of this kind are even harder to find for earlier periods, but scattered archival records suggest that members of Congress advocating on behalf of business interests to federal agencies is not a new phenomenon. In 1966, Senator Strom Thurmond (R-SC) sent a Western Union telegram to Lee White, Chair of the Federal Power Commission, requesting expeditious processing of Duke Power Company’s recent license application (<a href="#fig-telegram" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>). This outreach took place before the passage of the Federal Election Campaign Act of 1971 and the advent of the modern campaign finance disclosure system, so there is no way to know whether Duke Energy was a campaign contributor to Senator Thurmond shortly before or in the years immediately following the outreach. <!--Decades later, campaign finance disclosure records indicate that the long-serving Senator Thurmond received campaign contributions from Duke Energy.^[Duke Energy gave Thurmond $6,000 in 1998 and in 2000.] --></p>
+<p><!--- DEVIN -- can you find a citation for this? 
+ Ellie: We need a citation here for these campaign contribution numbers.
+ Devin: It was Sunlight or CRP's website lookup tool, I believe 
+ Ellie: I tried finding these contributions on CRP's tool and the FEC tool, and couldn't find them. It's notable because he did almost no fundraising in those two cycles. Maybe they were in earlier years? Leaving for now in the interest of time, but if we can't find a citation, we'll eventually want to take it out. 
+ ---></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-telegram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-telegram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Telegram from Senator Thurmond to Chair of Federal Power Commission requesting the commission expedite the processing of Duke Power Company’s recent application. Source: Federal Energy Regulatory Commission e-Library.
+</figcaption>
+<div aria-describedby="fig-telegram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/2/thurmond-telegram.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>As with individual constituency service, there are examples of business-focused constituency service that are less obvious or focus less on bureaucratic problems and government benefits. For example, Senator Richard Lugar (R-IN) wrote to the Food and Drug Administration (FDA) on behalf of a constituent who owned a produce company and was concerned about how the classification of watermelons in a high-risk food safety category would affect the productivity of his business, given the extra (and in his view, unnecessary) precautions that the company would have to take. Although the business owner was technically expressing an opinion about FDA policy in this communication with Lugar, the issue at hand had a clear and tangible impact upon his business operations, and the constituent presumably wanted the FDA to reconsider the policy to mitigate these effects.</p>
+<p>As another example, Rep.&nbsp;Eddie Bernice Johnson (D-TX30) wrote to the IRS on behalf of a constituent who had submitted an application to the IRS with an error that needed to be corrected (the constituent mistakenly wrote his PIN instead of his PTIN number on the form). The constituent had contacted Johnson’s office because the paperwork had still not been processed after he resubmitted a version with the correction, and he was concerned about “losing money in lost potential business.” Both of these contacts show that legislators’ advocacy on behalf of businesses is not necessarily about fixing bureaucratic problems or obtaining special treatment for businesses at the expense of the public good.</p>
+<p>In some cases, legislators wrote on behalf of businesses seeking enforcement actions against their competitors. For example, Rep.&nbsp;Frank Kratovil (D-MD1) wrote to the FDA, “Red Bull that is made for Ireland is being mysteriously distributed in Maryland without an FDA approval noted on the package. The constituent, who is a distributor for Red Bull in Maryland, questions whether this practice is legal” (April 22, 2009). Technically, Kratovil’s letter merely sought information about what was happening, but he made the implications of potentially illegal activity for his constituent’s business interests very clear.</p>
+<!--clarify why this is not policy-->
+<p>Lastly, a more traditional example of corporate constituency service is a legislator writing to an agency seeking to change policy to benefit his business. Rep.&nbsp;Ed Whitfield (R-KY1) wrote to the FDA on behalf of a constituent who owns a tobacco outlet and “wants FDA to modify the Tobacco Control and Prevention Act to allow individuals under the age of eighteen to enter stores with self-service displays provided an adult accompanies them. The company owner does not want to make his store adult-only, and believes the FDA’s regulation will prevent families from entering the store, and will threaten the sale of other non-tobacco items.” Once again, we see a clear articulation of a business interest by the constituent, as well as a clear request to modify legislation to suit the constituent’s business interests. Rather than making such requests on behalf of a large corporation, however, Whitfield made this request on behalf of a small business owner, and the request clearly came from a single constituent acting on their own experiences.</p>
+</section>
+<section id="sec-type3" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-type3"><span class="header-section-number">3.3</span> Nonprofit and Local Government Service</h2>
+<!---
+> ABSTRACT: We examine what explains unequal levels of constituency service work on behalf of specific nonprofits and local governments. We find that inequality in work on behalf of nonprofits and local governments is mostly a story of unequal capacity across legislators. However, partisanship and ideology play a larger role in representing business interests than in other types of interbranch representation. Legislators do much more for nonprofits and local governments when they have a co-partisan in the White House, or they are ideologically aligned with the agency. This fits with research on distributive politics and presidential pork — a story in which nonprofits and local governments are disproportionately served by Democrats, who make requests of left-leaning agencies (like HUD) in Democratic administrations, and Republicans contact right-leaning organizations (like USDA) during Republican administrations.
+--->
+<p>In addition to providing constituency service to individuals and businesses in their districts, legislators provide similar types of service to nonprofit organizations and local governments. These entities often apply for competitive grants from the federal government; as part of this process, they may seek the support of their member of Congress, which involves the legislator writing to the relevant agency in support of the organization. Beyond working directly with federal agencies in this way, which is most directly relevant for our project, legislative offices also conduct grants workshops to provide resources to organizations that may wish to apply for these grants. By all accounts, this is a slightly more specialized form of constituency service that may benefit from additional knowledge and skill on the part of congressional staff.</p>
+<p>Correspondence regarding the competitive grants for which cities, counties, or other nonprofit or government organizations applied appeared across a number of different agencies for an array of purposes. For example, legislators wrote to the Department of Homeland Security (DHS) in support of local fire departments that had applied to FEMA’s Assistance to Firefighters Grants Program, which provides funding for first responders and emergency personnel. Legislators also wrote to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services on behalf of nonprofit health systems and local governments seeking to obtain grants as part of various CMS initiatives and programs, like the Pioneer Accountable Care Organization (ACO) Model and the Community-based Care Transitions Program (CCTP). Other groups sought grants from the National Institutes of Health (NIH).</p>
+<p>Some requests of this type involved matters other than competitive grants, similar to interests that businesses may have, but applicable to nonprofits like hospitals. Many letters to CMS involved legislators forwarding concerns from local health care entities about matters specific to Medicare and Medicaid, including overpayments and Graduate Medical Education (GME) affiliation agreements for teaching hospitals.</p>
+<p>Requests on behalf of nonprofits also make up a large share of interbranch representation to the IRS. Legislators’ offices inquired about why organizations had been audited, the processing time for 501 (c) (3) tax-exempt status applications, and the reasons for the cancellation of tax-exempt status. They helped with nonprofit paperwork — most frequently reinstatement of nonprofit status — and requested that certain applications be expedited.</p>
+<p>Letters on behalf of local governments appeared frequently in many subagencies within the Department of Transportation. For example, members of both the House and Senate from a number of different states wrote to the Federal Highway Administration (FHWA) in support of local transportation boards’ applications for the Transportation Investment Generating Economic Recovery (TIGER) I and II Discretionary Grant programs. While it was not uncommon for several legislators from the same state delegation to join together in support of a locality’s grant application, there are also examples of senators from different states co-authoring letters in support of grant applications submitted by multiple states. Senators Bob Bennett (R-UT) and Barbara Boxer (D-CA) wrote jointly to the FHWA to support “the multi-state Phase II application submitted to DOT’s Corridors of the Future program for the I-80 corridor,” as Interstate 80 originates in California and passes through Utah. Overall, legislators’ work on behalf of nonprofits and local governments as part of interbranch representation speaks to both demand from these organizations and congressional offices’ capacity to respond to this demand.</p>
+</section>
+<section id="sec-casework-policy" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-casework-policy"><span class="header-section-number">3.4</span> From Casework to Policy Work</h2>
+<p>Traditionally, casework and policy work have been studied separately, but they can be connected (as perhaps they should). Hearing from many constituents about the same problem—a confusing form, a poorly written rule, or agency delays, for example—provides a signal to the legislator that something is not working well. An attentive office that notices a pattern could do more than merely resolve each case—they could pursue a legislative fix, seek more funding for an understaffed agency, or urge the agency to change a rule, guidance, or practice. By carefully looking for patterns in problems constituents are having with the federal government, legislators have an opportunity to intervene before an issue escalates into a larger problem. If done proactively by attentive audiences, casework could act as an early warning system for policy problems, as <span class="citation" data-cites="Olson1966">Olson (<a href="references.html#ref-Olson1966" role="doc-biblioref">1966</a>)</span> suggested decades ago.</p>
+<p>To illustrate how this casework-to-policy feedback loop can operate, we consider an example from Senator Carl Levin (D-MI). In 1989, Senator Levin forwarded letters from several constituents to the Department of Labor about OSHA’s proposed standard on blood-borne infectious diseases (<a href="#fig-levin-constituents" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>). In his message to OSHA, Senator Levin said that his office had already responded directly to the constituents, and explained that he was writing to the agency to ensure that it considered the constituents’ concerns as it developed the proposed standard on blood-borne infectious diseases rule. This example illustrates how, after hearing constituents raise similar concerns, an attentive legislator could then attempt to change agency policy to fix the problem.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-levin-constituents" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-levin-constituents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Letter from Senator Carl Levin (D-MI) to the Department of Labor forwarding Michigan constituents’ concerns about OSHA’s proposed blood-borne pathogens standard, October 24, 1989.
+</figcaption>
+<div aria-describedby="fig-levin-constituents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/5/levin/levin-constituents.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>Contacts with the Mine Safety and Health Administration (MSHA) suggest the same link on a larger scale. Miners and their families often turn to their legislators for help with Department of Labor claims for black lung benefits; <em>lung</em> is among the most common terms in agency records of individual constituency service from 2006 to 2008 (<a href="ch4-data.html#fig-words-1" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>). When legislators contact MSHA about mine safety policy, the agency’s summaries of those contacts often describe the same problems, including <em>dust</em>, <em>exposure</em>, <em>silica</em>, <em>fibrosis</em>, and <em>disability</em>, alongside traditional oversight terms like <em>hearing</em>, <em>report</em>, and <em>inspections</em>. (We describe these records and show the most frequent terms for each type of interbranch representation in <a href="ch4-data.html" class="quarto-xref"><span>Chapter 4</span></a>.) This overlap does not show that any particular policy contact grew out of a particular case. But it does suggest that the offices doing casework for miners and the offices pressing MSHA on mine safety are often responding to the same underlying problems.</p>
+<p>These examples illustrate that the link between casework and policy work exists, but not how often legislators take advantage of it. Several structural features of how the typical member organizes their office staff may weaken the connection. Caseworkers typically work in district or state offices, while legislative staff work in Washington, and the two may rarely compare notes. Casework management systems historically have been designed to track and close individual cases for individual offices, not to identify patterns across them. <!--CITE POPVOX--> Moreover, situations where each member may only receive one or two letters about a concern that may be affecting constituents across the country are particularly likely to be missed as candidates for policy work, as it is hard for an individual member’s office to know that the problem is more widespread.</p>
+<p>Prior work often treats casework and legislating as separate activities <span class="citation" data-cites="Reynolds2020">(e.g., <a href="references.html#ref-Reynolds2020" role="doc-biblioref">Reynolds 2020</a>)</span>, and it is beyond our scope in this book to systematically trace individual cases to later policy contacts, as linking these cases is extremely difficult if not impossible given the nature of our data. The potential for casework to inform policy work, however, is clear: whether congressional offices realize that potential is an open question, and one we return to in <a href="ch8-conclusion.html" class="quarto-xref"><span>Chapter 8</span></a> when we consider how interbranch representation might be strengthened.</p>
+</section>
+<section id="sec-type5" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-type5"><span class="header-section-number">3.5</span> General Policy Work</h2>
+<!---
+> ABSTRACT: Stark differences in the amount of policy work legislators do are driven by the capacity gained through institutional positions. Like with constituency service, experience matters, independent of institutional positions of power, but institutional power drives differences in policy work to a degree much greater than any kind of constituency service. Unsurprisingly, being a committee chair, ranking member, or oversight committee member is an especially strong predictor of contacting an agency about policy. Like with constituency service, legislators are more likely to work with agencies on policy when they are ideologically aligned, reflecting how policy work is not just traditional “oversight” investigations into wrongdoing, but also includes proactive information seeking during the drafting of legislation and, most commonly, followup to make sure legislative directions result in agency rules as envisioned by the legislators. Unlike constituency service, where legislators are more likely to contact co-partisan presidents, the partisanship of the president has a less significant effect on policy work.
+--->
+<p>Scholars often describe oversight as fitful bursts of attention in response to the five-alarm fires of bureaucratic failure. Legislators’ policy work with agencies through interbranch representation looks very different. Legislative offices are in constant communication with many agencies, voicing opinions and raising problems they hear about from constituents as agencies develop policy. This work often leads not to legislation or hearings but to changes in agency rules, guidance, or enforcement practices. The meager capacity of legislative offices means that attention is limited, with some issues and agencies receiving much more attention than others. Still, congressional interventions in agency practice are far less discrete and punctuated than conventional models of interbranch relations assume <span class="citation" data-cites="Lowande2018APSR">(also see <a href="references.html#ref-Lowande2018APSR" role="doc-biblioref">Lowande 2018</a> on this point)</span>.</p>
+<section id="sub-types-of-general-policy-work" class="level3">
+<h3 class="anchored" data-anchor-id="sub-types-of-general-policy-work">Sub-Types of General Policy Work</h3>
+<p>We can group policy work into three distinct sub-types: (1) pre-legislation coordination, (2) traditional oversight (e.g., requests related to hearings, investigations, and reports), and (3) post-legislation agency policymaking (e.g., rulemaking comments and requests about how agencies distribute appropriations). Sometimes policy work is clearly driven by legislators’ policy interests. Other times it stems directly from experience with constituent casework or constituent pressures (e.g., letter-writing campaigns). Business interests are also a major driver of policy work, but we address policy work on behalf of business interests as a separate type of interbranch representation.</p>
+<p>We discuss each form in turn, beginning with work that precedes legislation, and then turn to the dynamics that cut across all three: partisanship, the constituents and interest groups who urge legislators to act, and fights over procedure.</p>
+</section>
+<section id="interbranch-representation-informs-legislating" class="level3">
+<h3 class="anchored" data-anchor-id="interbranch-representation-informs-legislating">Interbranch representation informs legislating</h3>
+<!--Rochelle 7/3: I added the paragraph about information below
+[ADD EXAMPLES OF REQUESTS FOR INFORMATION, ETC.]-->
+<p>Interbranch policy work often begins before a bill is written, as legislators gather information that shapes both their legislative agendas and the content of their legislation. For example, Rep.&nbsp;John Dingell (D-MI) and other high-ranking members of the House Committee on Energy and Commerce wrote to the FDA to request information on levels of lead in children’s lunchboxes. Rep.&nbsp;Tom Reed (R-NY) wrote to the Centers for Medicare and Medicaid Services (CMS) to ask how the competitive bidding process would affect Medicare beneficiaries’ access to insulin pumps and supplies. Legislators clearly see federal agencies as resources from which they can procure information related to policy, including information that helps them oversee its implementation.</p>
+</section>
+<section id="oversight-investigations-inform-agency-policy" class="level3">
+<h3 class="anchored" data-anchor-id="oversight-investigations-inform-agency-policy">Oversight investigations inform agency policy</h3>
+<p>Requests for information from agencies also appear in this second form of traditional oversight. Even here, the line between Congress’s formal tools and individual members’ letters is porous: the investigations Senator Levin led as chair of the Permanent Subcommittee on Investigations repeatedly reappeared in his comments on agency rules. Through hearings like those that Senator Levin conducted on U.S. Vulnerabilities to Money Laundering, Drugs, and Terrorist Financing, legislators shine a spotlight on problems that demand action from government, often federal agencies. <a href="#fig-levin-fincen" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> shows a letter from Senator Levin in support of a proposed rule from the Treasury Financial Crimes Enforcement Network, citing investigations and hearings.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-levin-fincen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-levin-fincen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Senator Levin Writes to the Treasury Department’s Financial Crimes Enforcement Network (FinCEN) on the same topic of hearings
+</figcaption>
+<div aria-describedby="fig-levin-fincen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/5/levin/rulemaking-fincen.png" class="img-fluid figure-img" style="width:55.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>This was not the only agency policy informed by Levin’s oversight investigations. <a href="#fig-levin-foreign" class="quarto-xref">Figure&nbsp;<span>3.6</span></a> shows a letter that Senator Levin wrote supporting an IRS rule, with a 1000-page hearing transcript entered into the record.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-levin-foreign" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-levin-foreign-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Senator Levin writes to the IRS, entering a Committee Report and full 1000-page hearing transcript into the record supporting an IRS rule
+</figcaption>
+<div aria-describedby="fig-levin-foreign-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/5/levin/levin-rulemaking-investigation-foreign.png" class="img-fluid figure-img" style="width:95.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>Congressional attention is not all positive. In 2013, Senator Levin wrote chastising five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading (<a href="#fig-levin-volcker" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-levin-volcker" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-levin-volcker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Senator Levin writes to chastise five agencies for being too slow to finalize the Volcker Rule limiting high-risk trading.
+</figcaption>
+<div aria-describedby="fig-levin-volcker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/5/levin/levin-volcker.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>As the most prolific author of general policy correspondence, Senator Chuck Grassley (R-IA sent a number of letters to the Centers for Medicare and Medicaid Services (CMS) within the Department of Health and Human Services that were tagged by the agency as “oversight.” These letters covered topics such as budget sequestration, the implementation of the Sunshine Act, and various rules, including the Inpatient Prospective Payment System (IPPS) rule, the Medicare Hospital Value-Based Purchasing rule, and CMS’s delay in drafting other regulations required by the Affordable Care Act. Grassley also co-authored a letter with two unidentified legislators to request information about the Patient Safety and Medical Liability Reform Demonstration and Planning grants that CMS was funding. All of the examples discussed here occurred during the Obama administration. Overall, many of Grassley’s communications with CMS seem to focus on oversight of an agency with which he was not ideologically aligned—a departure from the findings in our analysis, as we discuss in <a href="ch7-results-incentives.html" class="quarto-xref"><span>Chapter 7</span></a>.</p>
+</section>
+<section id="interbranch-representation-informs-statutory-interpretation-and-executive-branch-policymaking" class="level3">
+<h3 class="anchored" data-anchor-id="interbranch-representation-informs-statutory-interpretation-and-executive-branch-policymaking">Interbranch representation informs statutory interpretation and executive-branch policymaking</h3>
+<p>Although it receives the most attention in the congressional literature, oversight is only part of the story. Legislators writing to agencies about how they are implementing policy is much more common than public questioning in formal oversight hearings, and most legislator contacts concern this third form of general policy work: how agencies carry out laws Congress has already passed.</p>
+<p>Most legislator contacts address what scholars often call “implementation” of laws passed by Congress, mostly by commenting on draft agency rules. Sometimes this involves legislators following up on rulemaking required to give most pieces of legislation effect. (Laws passed by Congress are mostly authorizations and requirements for bureaucrats to make rules; very little legislation is self-executing.)</p>
+<p><a href="#fig-levin-statutory" class="quarto-xref">Figure&nbsp;<span>3.8</span></a> shows Senator Levin taking issue with the statutory interpretation that the Small Business Administration used in making policy. Agencies take this kind of intervention seriously. In response to Levin’s letter, the Administrator of the Small Business Administration, Maria Contreras-Sweet, replied that they were taking the senator’s perspective into account as they crafted the rules implementing the Dodd-Frank Act.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-levin-statutory" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-levin-statutory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: Senator Levin takes issue with how the Small Business Administration interpreted a statute in making rules
+</figcaption>
+<div aria-describedby="fig-levin-statutory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/5/levin/statutory-interpretation.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>Interbranch representation goes beyond technical and legal opinions. Policy fights do not end when Congress passes a law; they merely shift to the executive branch, and members of Congress are actively engaged in this arena. For example, in 2007, a group of 13 Republican legislators, including Mike Pence, wrote to Ben Bernanke and the Federal Reserve governors to “applaud [them] for not exempting any payment system from the regulations” and to oppose pressure from industry to delay rules implementing the 2006 Unlawful Internet Gambling Enforcement Act of 2006. <!--https://www.regulations.gov/comment/TREAS-DO-2007-0015-0112)--></p>
+<!--
+
+::: {.cell}
+::: {.cell-output-display}
+![A bipartisan group of 13 members of Congress](anecdotes/5/rulemaking/TREAS-DO-2007-0015-0112.png){#fig-rulemaking-pence width=100%}
+:::
+:::
+
+-->
+<!--
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![Senator Levin and others urge SSA to withdraw a proposed rule](anecdotes/5/levin/implementation-ssa.png){#fig-levin-ssa width=80%}
+:::
+:::
+
+-->
+<!--- This feels confusing and out of place --- we described other forms of grant making as constituency service and removing for now. 
+
+#### Appropriations 
+
+In addition to attempting to shape how the executive branch makes policy through rulemaking, members of Congress are active in attempting to shape the distribution of appropriated funds. This happens both for specific grant applications as discussed in @sec-type3 and in a more general sense. 
+--->
+<!--
+#### International Agreements 
+
+Human rights/labor also comes up a lot, and we could look more into who is most involved in those concerns (see USTR 6893, 7026, etc.)
+
+"TPP trade secrets with USTR and DOJ" (3941, also 4785, 5974, 6469). It's hard to tell what the motivations are here. There's also some about news stories that could be potentially damaging (Politico, 4200).
+-->
+</section>
+<section id="cross-cutting-dynamics" class="level3">
+<h3 class="anchored" data-anchor-id="cross-cutting-dynamics">Cross-Cutting Dynamics</h3>
+<p>The three sub-types of general policy work describe what legislators ask agencies to do. Across all three, we can see examples of legislators’ policy work being shaped by similar forces: partisan conflict with the administration, pressure from constituents and organized interests, and fights over procedure as well as substance.</p>
+<section id="constituencies-and-partisanship" class="level4">
+<h4 class="anchored" data-anchor-id="constituencies-and-partisanship">Constituencies and partisanship</h4>
+<p>Partisan tensions between the policy agendas of members of Congress and the president drive a great deal of policy-related interbranch representation. An opposition party can only hold hearings when they are in the majority, but individual members can always contact an agency any time. For example, Democratic legislators wrote thousands of letters opposing Trump-era policy, such as those that allow certain nonprofits not to disclose their donor contributions, <!-- https://www.regulations.gov/comment/IRS-2019-0039-8319 --> environmental deregulation, and the Consumer Financial Protection Bureau’s 2019 rule that made it easier for debt collectors to harass consumers. <!-- https://www.regulations.gov/comment/CFPB-2019-0022-12107 --> 77 Democratic members of the House and 23 Senators wrote to oppose a 2019 proposed rule by the Department of Labor’s Wage and Hour Division that permitted employers to pay fewer employees overtime.</p>
+<p>The CFPB’s 2019 proposal to roll back its payday lending rule, during President Trump’s first term, illustrates how partisan conflict plays out in rulemaking. Members of Congress, like any other member of the public, can submit comments on proposed rules, and those comments become part of the official rulemaking record that agencies must consider before issuing a final rule. Within a week of the Bureau’s February 2019 announcement that it would eliminate the rule’s underwriting requirements, every Senate Democrat (47 senators, led by Senator Jeff Merkley of Oregon) wrote to Director Kathleen Kraninger opposing the change; the Bureau entered the letter into the rulemaking docket as a public comment <span class="citation" data-cites="Merkley2019">(<a href="references.html#ref-Merkley2019" role="doc-biblioref"><span class="nocase">Merkley et al.</span> 2019</a>)</span>. The senators argued that the proposal “provides a green light to the payday lending industry to prey on vulnerable American consumers.” As members of the minority party, Senate Democrats could not call hearings on the proposal. But they could write a letter demanding that the Bureau provide and publish any research, field hearings, public comments, and economic or legal analyses supporting its decision within 30 days. They also included a warning that the absence of such evidence “may be a violation of the Administrative Procedure Act.”</p>
+<p>Individual members also commented on behalf of their own constituents. In May 2019, Rep.&nbsp;Tom Malinowski (D-NJ) submitted a comment opposing the same proposal <span class="citation" data-cites="Malinowski2019">(<a href="references.html#ref-Malinowski2019" role="doc-biblioref">Malinowski 2019</a>)</span>, framing his opposition in terms of his constituents: he represented New Jersey’s 7th District, “a state with strong rules in place to protect consumers from payday lenders,” including a 30 percent cap on annual interest rates, compared with a national average for payday loans of nearly 400 percent. But “the state in which one lives,” he argued, “should not determine whether one is protected from these sorts of risky products.” He also cast the issue as a test of the administration itself, writing that it was “about whether this Administration is committed to the principle of fairness in the marketplace,” and closed with a pointed critique of the bureau’s enforcement record:</p>
+<blockquote class="blockquote">
+<p>“The precipitous decline in the volume of enforcement actions during your tenure leads me to question whether the CFPB is indeed following through on its objective to protect consumers and aggressively enforce the law.”</p>
+<p>— Representative Tom Malinowski (D-NJ), May 15, 2019 <span class="citation" data-cites="Malinowski2019">(<a href="references.html#ref-Malinowski2019" role="doc-biblioref">Malinowski 2019</a>)</span></p>
+</blockquote>
+<!--
+During the Obama Administration, advocacy from the Senate Environment and Public Works committee in opposition to the Obama Administration's Clean Power Plan used similar language as an anonymous advocacy campaign identified with the website betterenergyfuture.org 
+-->
+<p>Members of Congress were more often than not supportive of industry when writing to the Department of the Interior’s Bureau of Safety and Environmental Enforcement. However, there is also a great deal of advocacy on behalf of broader interests. For example, many members of Congress from coastal states wrote to oppose the Trump administration’s removal of safety rules on offshore oil drilling. Florida Republican Vern Buchanan went so far as to support the environmentalist group Center for Biological Diversity.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-rulemaking-buchanan" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rulemaking-buchanan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: Florida Republican, Vern Buchanan, opposing a Trump-era rule rolling back regulations
+</figcaption>
+<div aria-describedby="fig-rulemaking-buchanan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="anecdotes/5/rulemaking/BSEE-2017-0008-0473.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<!--
+Senators from multiple states, but all coastal https://www.regulations.gov/comment/BSEE-2018-0002-19026
+https://www.regulations.gov/comment/BSEE-2018-0002-20464
+Comments from the Florida State House: https://www.regulations.gov/comment/BSEE-2018-0002-0032
+-->
+<!--
+
+
+[](https://www.regulations.gov/document/CFPB-2016-0025-148844)
+
+
+::: {.cell}
+::: {.cell-output-display}
+![Rep. Brad Sherman (D-CA) forwards astroturf campaign signatures opposing CFPB's 2016 payday loan rule.](anecdotes/5/rulemaking/CFPB-2016-0025-148844.png){width=100%}
+:::
+:::
+
+-->
+</section>
+<section id="legislator-attention-is-often-shaped-by-constituents-interest-groups" class="level4">
+<h4 class="anchored" data-anchor-id="legislator-attention-is-often-shaped-by-constituents-interest-groups">Legislator attention is often shaped by constituents &amp; interest groups</h4>
+<p>Buchanan’s alignment with an environmental group reflects a broader pattern: partisan fights over agency policy rarely involve legislators alone. The offshore drilling rollbacks, for example, were part of a campaign in which the Sierra Club advertised that “Last fall, 105 Members of Congress and 34 U.S. Senators sent letters to Trump’s Department of the Interior to protest the harmful rollbacks” <span class="citation" data-cites="SierraClub2019">(<a href="references.html#ref-SierraClub2019" role="doc-biblioref">Sierra Club 2019</a>)</span>. <!--- We should check to make sure this was about the offshore drilling rules specifically---></p>
+<p>In his classic book <strong>Bureaucracy</strong>, <span class="citation" data-cites="Wilson1989">Wilson (<a href="references.html#ref-Wilson1989" role="doc-biblioref">1989</a>)</span> describes the role of constituents and interest groups in activating interbranch representation when the Federal Trade Commission (FTC) began making rules about antitrust and fraud in the 1970s. The FTC proposed a Funeral Industry Practice rule requiring disclosure of the prices of components of funeral expenses and a Used Car Rule that required dealers to inspect each car offered for sale and post the results on the car’s window.</p>
+<blockquote class="blockquote">
+<p>“Undertakers and used-car dealers were outraged by these proposed rules. Very quickly, members of Congress discovered just how many undertakers and car dealers they had in their districts and how well-connected they were. The FTC suddenly had activated large, hostile interests who were successful in getting Congress to force the agency to back down” (Wilson 1989, 83).</p>
+</blockquote>
+</section>
+<section id="procedural-politicking" class="level4">
+<h4 class="anchored" data-anchor-id="procedural-politicking">Procedural politicking</h4>
+<p>Legislators, like the interest groups they work alongside, fight over process (procedural issues) as well as substance. The Senate Democrats’ strategy of writing a letter to the CFPB demanding that it disclose the evidence behind its payday proposal as required by the Administrative Procedure Act was an attempt to fight over following the process when unable to win on substantive grounds. There, the procedural fight was the best remedy available to Democrats who were in the minority, and thus unable to enact either a legislative fix or call for oversight hearings.</p>
+<p>As documented by <span class="citation" data-cites="LowandePotter2021">Lowande and Potter (<a href="references.html#ref-LowandePotter2021" role="doc-biblioref">2019</a>)</span> and <span class="citation" data-cites="Potter2019">Potter (<a href="references.html#ref-Potter2019" role="doc-biblioref">2019</a>)</span>, one form of proxy fight over policy is the timing of rules. Agencies may speed up or slow down rulemaking processes by, for example, extending the comment periods or refusing to do so. Thus, legislators, like others, are often attempting to intervene procedurally, especially by attempting to extend study periods or comment periods. For example, on the same Federal Reserve rule that Mike Pence and other Republican legislators pushed back on substantive grounds, a different group of legislators made a procedural argument. The gambling industry groups were requesting state-by-state surveys of gambling laws. Legislators from the Subcommittee on Administrative Law called out this ploy for regulatory delay. <!-- (https://www.regulations.gov/comment/TREAS-DO-2007-0015-0125) --></p>
+<!--
+
+::: {.cell}
+::: {.cell-output-display}
+![](anecdotes/5/rulemaking/TREAS-DO-2007-0015-0125.png){width=100%}
+:::
+:::
+
+-->
+<p>From the other side of the aisle, Democratic members of Congress attempted to slow environmental deregulation under the Trump Administration by asking that the Council on Environmental Quality and other agencies extend comment periods on their proposed rules, as the below comment from Rep.&nbsp;Peter DeFazio (D-OR) discusses.</p>
+<blockquote class="blockquote">
+<p>“That’s why I am particularly disappointed that CEQ denied my—and more than 160 Members of the House and Senate—request for an extension of the comment period. Further, CEQ simply chose not to respond to our request for additional public hearings. CEQ has proposed a massive overhaul to a set of keystone environmental regulations that have stood in place — largely unchanged for almost half a century. By providing a mere 60-day comment period and only two public hearings (in Colorado and Washington, DC), CEQ appears uninterested in obtaining broad-scale public input.” - <a href="https://www.regulations.gov/comment/CEQ-2019-0003-169768">Oregon Representative Peter DeFazio, Chairman of the Committee on Transportation and Infrastructure.</a></p>
+</blockquote>
+<!--
+
+
+
+[26 Republicans ask the Comptroller of the Currency for clarity on a 2020 proposed rule that increases regulations between banks and lenders, focusing on the rule's impact on companies.](https://www.regulations.gov/comment/OCC-2020-0026-0002)
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](anecdotes/5/rulemaking/OCC-2020-0026-0002.png){width=100%}
+:::
+:::
+
+
+
+
+[Democrats opposing the same 2020 Comptroller of the Currency rule](https://www.regulations.gov/comment/OCC-2020-0026-0277)
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](anecdotes/5/rulemaking/OCC-2020-0026-0277.png){width=100%}
+:::
+:::
+
+
+These examples illustrate how "states' rights" rhetoric is used strategically depending on which side of the substantive issue one is on.
+Here, Democrats are advocating for states' rights, while Republicans want a federal standard that would preempt state policy.
+
+-->
+<!--RELATED 
+https://www.regulations.gov/comment/FWS-HQ-ES-2018-0006-53372
+
+https://www.epw.senate.gov/public/index.cfm/2018/9/senators-carper-and-udall-lead-democratic-senators-in-raising-concerns-over-trump-administration-s-attacks-on-landmark-endangered-species-act
+-->
+</section>
+</section>
+<section id="changes-in-agencies-willingness-to-respond-to-legislators" class="level3">
+<h3 class="anchored" data-anchor-id="changes-in-agencies-willingness-to-respond-to-legislators">Changes in Agencies’ Willingness to Respond to Legislators</h3>
+<p>Much of the work described in this section comes from individual members writing to federal agencies, and it depends on agencies’ willingness to respond to them. That willingness is not guaranteed, and may be changing. The first Trump administration sought to limit congressional oversight in the first few months of taking office, suggesting that agencies should only respond to requests that come from a committee, subcommittee, or chairman authorized to conduct oversight <span class="citation" data-cites="OfficeofLegalCounsel2017">(<a href="references.html#ref-OfficeofLegalCounsel2017" role="doc-biblioref">Office of Legal Counsel 2017</a>)</span>. However, a followup memo two years later clarified that “[d]epartments and agencies … may appropriately give due weight and sympathetic consideration to requests for information from individual members of Congress not delegated such authority” <span class="citation" data-cites="OfficeofLegalCounsel2019">(<a href="references.html#ref-OfficeofLegalCounsel2019" role="doc-biblioref">Office of Legal Counsel 2019</a>)</span>. This episode underscores how much interbranch representation rests on norms of reciprocity about how agencies respond to individual members of Congress rather than formal authority possessed by those legislators. Individual members do not have the legal power or authority to compel an answer from an agency. Yet, traditionally, agencies have generally treated their requests as legitimate. We return to this question of temporal changes in agencies’ willingness to respond to legislators in <a href="ch8-conclusion.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
+</section>
+</section>
+<section id="sec-type4" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-type4"><span class="header-section-number">3.6</span> Corporate Policy Work</h2>
+<p>Some policy work concerns whole industries rather than individual businesses or the public at large. This is the domain of corporate policy work: advocacy on behalf of a class of businesses or an industry, rather than a single firm (corporate service) or a broader public (general policy work). It is the least common type of interbranch representation, as we show in <a href="ch4-data.html" class="quarto-xref"><span>Chapter 4</span></a>, but it is the type most closely associated with concerns about business influence over government. Members of Congress regularly wrote to the U.S. Trade Representative, for example, on topics including imports of Brazilian cotton, Argentinian beef, rare earth minerals, Boeing and Airbus contracts, lumber markets in Peru, and intellectual property and copyright.</p>
+<!--Here, we examine what policy work on behalf of corporations and business interests looks like. -->
+<p>Legislators often wrote to USTR and other agencies about industries with a strong presence in their state or district. The staff of Senator Mark Warner (D-VA) wrote to USTR about a proposal within the Trans-Pacific Partnership that involved tobacco, and Senator Tammy Baldwin (D-WI) wrote to USTR about beer and the Transatlantic Trade and Investment Partnership. Baldwin also wrote to the FDA with concerns about how “policies prohibiting the use of wooden boards” could negatively affect Wisconsin cheese makers.</p>
+<p>A number of legislators with a seafood industry presence in their districts contacted the FDA about matters affecting this industry. Representative Wayne Gilchrest (R-MD), for instance, wrote regarding seafood labeling, and Representatives Frank Pallone (D-NJ) and Tom Allen (D-ME) wrote regarding “Maine lobster.” Senator Bill Cassidy (R-LA) also wrote to the FDA in support of the shrimp industry, urging the Presidential Task Force on Combating Illegal, Unreported, and Unregulated Fishing and Seafood Fraud to help identify factors that negatively affect shrimp industry trade practices. A group of senators and one representative—Senators Barbara Mikulski (D-MD), Mark Warner (D-VA), and Tim Kaine (D-VA), as well as Representative Rob Wittman (R-VA)—contacted the FDA with a similar concern about “fraudulent labeling of blue crabmeat” and its effect on the livelihood of those who work in the industry in Maryland and Virginia. Interestingly, this particular request (at least as it was summarized by officials at the FDA) highlighted the connection between the health of the industry and the financial well-being of the legislators’ constituents, suggesting that legislators likely see this corporate policy work as a crucial part of representation.</p>
+<p>In addition to letters with multiple signatories from neighboring states or districts, many industry-focused letters came from entire committees. For example, Senator Tom Harkin (D-IA) and the Committee on Agriculture, Nutrition, and Forestry wrote to the FDA about a final rule prohibiting the use of brains and spinal cords from certain cows in animal feed. The committee asked that the FDA “immediately conduct meetings in Iowa and elsewhere” to hear the concerns of the rendering industry about their compliance with this rule. Several letters expressing similar sentiments were sent from other groups of legislators, including one letter from all six of Kentucky’s House members supporting the FDA’s 60-day delay of the implementation of the rule. While we have no record in our data of legislators trying to stop or change this rule before it took effect, the left-censoring of the data means that we cannot rule out the possibility that they did so at some point prior to 2007. Nevertheless, it is illuminating that legislators took these actions on behalf of a key industry at this particular stage of the policymaking process.</p>
+<!-- EOP_USTR sheet 
+Sen. Murkowski and salmon/fishing - rows 2134 and 3011
+"Buy American" requirements. WI Sen. Johnson's letters about small businesses could be interesting to look into (see 7968).
+
+Other key words: Brazil cotton, Japan whaling, rare earths, Airbus dispute, beef, Peru logging and softwood lumber, intellectual property and copyright 
+-->
+</section>
+<section id="conclusion" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.7</span> Conclusion</h2>
+<p>This chapter has illustrated each of our five types of interbranch representation. Constituency service takes three forms. <em>Individual constituency service</em> includes the familiar work of correcting benefit payment errors, resolving tax problems, and navigating immigration cases, but also requests that involve no bureaucratic failure at all, such as a family seeking a relative’s military records. <em>Corporate service</em> ranges from urging an agency to speed up a decision to supporting a company’s grant application, and <em>nonprofit and local government service</em> centers on supporting grant applications and helping organizations with paperwork. Across all three, much of this work is routine, and it often involves urging the bureaucracy to speed up its work.</p>
+<p>Before moving on to our discussion of policy work, we discussed how casework can act as a signal to legislative offices that a more systemic policy remedy (legislation, rulemaking, etc.) is needed. However, it is unclear how often offices act on that signal. We will return to that topic in <a href="ch8-conclusion.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
+<p>Policy work that occurs as part of interbranch representation also looks different from the hearings and investigations that dominate accounts of oversight. Legislators’ <em>general policy work</em> spans coordination before legislation, traditional oversight, and, most often, efforts to shape how agencies implement the law, and we see examples of how it is shaped by partisan conflict, interest groups, and fights over procedure. <em>Corporate policy work</em> shows how legislators advocate for industries, often on behalf of industries with a strong presence in their states and districts.</p>
+<p>These examples show what interbranch representation involves, but not how common each type is or which offices do the most of it. In <a href="ch4-data.html" class="quarto-xref"><span>Chapter 4</span></a>, we describe how we collected and coded these records, and then examine both questions quantitatively.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Blackwood2026" class="csl-entry" role="listitem">
+Blackwood, Megan Rickman. 2026. <span>“Why Casework? Reimagining Political Representation Through Proactive Service.”</span> Ph. D. Dissertation, University of North Carolina at Chapel Hill.
+</div>
+<div id="ref-CrossonFurnasLapiraBurgat2021" class="csl-entry" role="listitem">
+Crosson, Jesse M., Alexander C. Furnas, Timothy LaPira, and Casey Burgat. 2021. <span>“Partisan Competition and the Decline in Legislative Capacity Among Congressional Offices.”</span> <em>Legislative Studies Quarterly</em> 46 (3): 745–89.
+</div>
+<div id="ref-HerdMoynihan2019" class="csl-entry" role="listitem">
+Herd, Pamela, and Donald P. Moynihan. 2019. <em><span class="nocase">Administrative Burden: Policymaking by Other Means</span></em>. Russell Sage Foundation.
+</div>
+<div id="ref-Lowande2018APSR" class="csl-entry" role="listitem">
+Lowande, Kenneth. 2018. <span>“<span class="nocase">Who Polices the Administrative State? Evidence from 20,000 Private Communications</span>.”</span> <em>American Political Science Review</em> 112 (4): 874–90.
+</div>
+<div id="ref-LowandePotter2021" class="csl-entry" role="listitem">
+Lowande, Kenneth, and Rachel Potter. 2019. <span>“<span class="nocase">Congressional Oversight Revisited: Politics and Procedure in Agency Rulemaking</span>.”</span> <em>The Journal of Politics</em> 83 (1): 401–8.
+</div>
+<div id="ref-Malinowski2019" class="csl-entry" role="listitem">
+Malinowski, Tom. 2019. <em>Comment Submitted by Representative Tom Malinowski on the Proposal to Rescind Provisions of the Payday, Vehicle Title, and Certain High-Cost Installment Loans Rule</em>. Public comment, Consumer Financial Protection Bureau, Docket No. CFPB-2019-0006. <a href="https://www.regulations.gov/document/CFPB-2019-0006-39935">https://www.regulations.gov/document/CFPB-2019-0006-39935</a>.
+</div>
+<div id="ref-Merkley2019" class="csl-entry" role="listitem">
+<span class="nocase">Merkley, Jeffrey A. et al.</span> 2019. <em>Comment Submitted by Senator Jeffrey a. Merkley and 46 Other Senators on the Proposal to Rescind Provisions of the Payday, Vehicle Title, and Certain High-Cost Installment Loans Rule</em>. Public comment, Consumer Financial Protection Bureau, Docket No. CFPB-2019-0006. <a href="https://www.regulations.gov/document/CFPB-2019-0006-0344">https://www.regulations.gov/document/CFPB-2019-0006-0344</a>.
+</div>
+<div id="ref-OfficeofLegalCounsel2017" class="csl-entry" role="listitem">
+Office of Legal Counsel. 2017. <em>Authority of Individual Members of Congress to Conduct Oversight of the Executive Branch</em>. Letter Opinion for the Counsel to the President. <a href="https://www.justice.gov/olc/file/966326/dl?inline">https://www.justice.gov/olc/file/966326/dl?inline</a>.
+</div>
+<div id="ref-OfficeofLegalCounsel2019" class="csl-entry" role="listitem">
+Office of Legal Counsel. 2019. <em>Requests by Individual Members of Congress for Executive Branch Information</em>. Office of Legal Counsel Opinion.
+</div>
+<div id="ref-Olson1966" class="csl-entry" role="listitem">
+Olson, Kenneth G. 1966. <span>“Serving the District.”</span> In <em>Congress: The First Branch of Government</em>, edited by Alfred de Grazia. American Enterprise Institute for Public Policy Research.
+</div>
+<div id="ref-Potter2019" class="csl-entry" role="listitem">
+Potter, Rachel Augustine. 2019. <em>Bending the Rules: Procedural Politicking in the Bureaucracy</em>. University of Chicago Press.
+</div>
+<div id="ref-Reynolds2020" class="csl-entry" role="listitem">
+Reynolds, Molly E. 2020. <span>“The Decline in Congressional Capacity.”</span> In <em>Congress Overwhelmed: The Decline in Congressional Capacity and Prospects for Reform</em>, edited by Timothy M. LaPira, Lee Drutman, and Kevin R. Kosar. University of Chicago Press.
+</div>
+<div id="ref-SierraClub2019" class="csl-entry" role="listitem">
+Sierra Club. 2019. <em>Trump Extinction Plan Guts Endangered Species Act</em>. <a href="https://www.sierraclub.org/press-releases/2019/08/trump-extinction-plan-guts-endangered-species-act">https://www.sierraclub.org/press-releases/2019/08/trump-extinction-plan-guts-endangered-species-act</a>.
+</div>
+<div id="ref-Snyder2024" class="csl-entry" role="listitem">
+Snyder, Rochelle. 2024. <span>“Personal Ends, Partisan Means: Constituent Service and Representation in the United States Congress.”</span> PhD thesis, University of Wisconsin-Madison.
+</div>
+<div id="ref-Wilson1989" class="csl-entry" role="listitem">
+Wilson, James Q. 1989. <em>Bureaucracy: What Government Agencies Do and Why They Do It</em>. Basic Books.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>For example, Senator Marco Rubio wrote about people across Florida receiving FEMA disaster aid.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The SBA, not FEMA, is the primary source of federal disaster assistance for businesses, through low-interest disaster loans.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+  /*
+    Quarto theorem-like prefixes.
+    If you only want ordinary theorems, keep only:
+      const theoremKinds = { thm: "Theorem" };
+  */
+  const theoremKinds = {
+    thm: "Hypothesis",
+    exm: "Example",
+  };
+
+  /*
+    true  = Theorem 1, Theorem 2, Lemma 1, Lemma 2, ...
+    false = Theorem 1, Lemma 2, Theorem 3, Definition 4, ...
+  */
+  const separateCountersByKind = true;
+
+  const prefixes = Object.keys(theoremKinds);
+  const theoremSelector = prefixes
+    .map(prefix => `div[id^="${prefix}-"]`)
+    .join(",");
+
+  function getPrefix(id) {
+    return prefixes.find(prefix => id.startsWith(prefix + "-"));
+  }
+
+  function pageUrlsFromSidebar() {
+    const links = Array.from(
+      document.querySelectorAll(
+        "#quarto-sidebar a[href], .sidebar-navigation a[href], nav.sidebar a[href]"
+      )
+    );
+
+    const urls = [];
+
+    for (const link of links) {
+      const url = new URL(link.getAttribute("href"), window.location.href);
+
+      if (url.origin !== window.location.origin) continue;
+
+      url.hash = "";
+
+      if (!urls.some(existing => existing.href === url.href)) {
+        urls.push(url);
+      }
+    }
+
+    if (urls.length === 0) {
+      const current = new URL(window.location.href);
+      current.hash = "";
+      urls.push(current);
+    }
+
+    return urls;
+  }
+
+  async function getDocumentForUrl(url) {
+    const current = new URL(window.location.href);
+    current.hash = "";
+
+    if (url.href === current.href) {
+      return document;
+    }
+
+    const response = await fetch(url.href, { credentials: "same-origin" });
+    const html = await response.text();
+
+    return new DOMParser().parseFromString(html, "text/html");
+  }
+
+  const counters = {};
+  const numberMap = {};
+
+  const urls = pageUrlsFromSidebar();
+
+  for (const url of urls) {
+    let doc;
+
+    try {
+      doc = await getDocumentForUrl(url);
+    } catch {
+      continue;
+    }
+
+    const blocks = Array.from(doc.querySelectorAll(theoremSelector));
+
+    for (const block of blocks) {
+      const id = block.getAttribute("id");
+      const prefix = getPrefix(id);
+
+      if (!prefix) continue;
+
+      const counterKey = separateCountersByKind ? prefix : "__all__";
+
+      counters[counterKey] = (counters[counterKey] || 0) + 1;
+
+      numberMap[id] = {
+        label: theoremKinds[prefix],
+        number: counters[counterKey]
+      };
+    }
+  }
+
+  const labelsPattern = Object.values(theoremKinds).join("|");
+  const oldNumberPattern = new RegExp(
+    `\\b(${labelsPattern})\\s+\\d+(?:\\.\\d+)*`
+  );
+
+  function updateTheoremBlock(block) {
+    const id = block.getAttribute("id");
+    const info = numberMap[id];
+
+    if (!info) return;
+
+    const title =
+      block.querySelector(".theorem-title strong") ||
+      block.querySelector(".theorem-title");
+
+    if (!title) return;
+
+    title.textContent = title.textContent.replace(
+      oldNumberPattern,
+      `${info.label} ${info.number}`
+    );
+  }
+
+  function updateTheoremReference(link) {
+    if (!link.hash) return;
+
+    const id = decodeURIComponent(link.hash.substring(1));
+    const info = numberMap[id];
+
+    if (!info) return;
+
+    link.textContent = link.textContent.replace(
+      oldNumberPattern,
+      `${info.label} ${info.number}`
+    );
+  }
+
+  document
+    .querySelectorAll(theoremSelector)
+    .forEach(updateTheoremBlock);
+
+  document
+    .querySelectorAll("a[href*='#']")
+    .forEach(updateTheoremReference);
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch2-causes.html" class="pagination-link" aria-label="Theories of Interbranch Representation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theories of Interbranch Representation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch4-data.html" class="pagination-link" aria-label="Studying What Congressional Offices Do Behind the Scenes">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Studying What Congressional Offices Do Behind the Scenes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
