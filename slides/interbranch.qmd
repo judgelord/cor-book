@@ -72,7 +72,7 @@ Part of the argument of the book is that there is this set of things that we tre
 2. Preview findings & policy implications
 3. Theory: A unified framework
 4. New data: 840,000 congressional requests to 100+ agencies
-5. Design: cross-sectional & two-way fixed effect models of year-legislator-agency counts
+5. Design: cross-sectional & two-way fixed effect models of legislator-agency-year counts
 6. Findings
 
 <!--
