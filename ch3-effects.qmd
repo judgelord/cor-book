@@ -317,7 +317,7 @@ Members of Congress were more often than not supportive of industry when writing
 
 ```{r}
 #| label: fig-rulemaking-buchanan
-#| fig-caption: Florida Republican, Vern Buchanan, opposing a Trump-era rule rolling back regulations
+#| fig-cap: "Florida Republican, Vern Buchanan, opposing a Trump-era rule rolling back regulations"
 
 knitr::include_graphics(here::here("anecdotes", 5, "rulemaking", "BSEE-2017-0008-0473.png"))
 ```

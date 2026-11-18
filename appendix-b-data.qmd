@@ -2,6 +2,8 @@
 # Summary statistics   {.appendix #sec-appendix-data}
 
 ```{r, eval=TRUE}
+
+
 here::here("code", "formatting.R") |> source()
 
 
@@ -81,6 +83,7 @@ for (i in seq_len(nrow(matched))) {
 }
 ```
 
+<!--
 
 ::: {.fake-xref-table-for-caption}
 
@@ -99,7 +102,13 @@ for (i in seq_len(nrow(matched))) {
 ```
 :::
 
+--> 
+
 ```{r, eval=TRUE}
+#| label: tbl-summary-statistics
+#| tbl-cap:  Summary statistics
+
+
 data_member |>
   ungroup() |> 
   select(any_of(vars) ) |> 
@@ -113,13 +122,14 @@ data_member |>
     SD = SD,
     Histogram = function(x) "") )  |> 
   # multipage (requires fake header for caption hack)
-    tinytable::theme_latex(multipage = TRUE) |> 
+   # tinytable::theme_latex(multipage = TRUE) |> 
    # bold header, hline bottom, aligned center
   tinytable::style_tt(j = 1, align = "l") |>
   tinytable::style_tt(i = 0, bold = T, line = "b") |>
   tinytable::style_tt(fontsize = .8)
 ```
 
+<!--
 
 ::: {.fake-xref-table-for-caption}
 
@@ -137,8 +147,13 @@ data_member |>
 \endgroup\vspace{-2\baselineskip}
 ```
 :::
+--> 
 
 ```{r, eval=TRUE}
+#| label: tbl-summary-statistics-senate
+#| tbl-cap:  Summary statistics (Senate)
+
+
 data_member |>
   filter(chamber == "Senate") |> 
   ungroup() |> 
@@ -153,7 +168,7 @@ data_member |>
     SD = SD,
     Histogram = function(x) "") )  |> 
   # multipage (requires fake header for caption hack)
-    tinytable::theme_latex(multipage = TRUE) |> 
+   # tinytable::theme_latex(multipage = TRUE) |> 
    # bold header, hline bottom, aligned center
   tinytable::style_tt(j = 1, align = "l") |>
   tinytable::style_tt(i = 0, bold = T, line = "b") |>
@@ -162,7 +177,7 @@ data_member |>
 
 
 
-
+<!--
 
 ::: {.fake-xref-table-for-caption}
 
@@ -181,7 +196,13 @@ data_member |>
 ```
 :::
 
+--> 
+
 ```{r, eval=TRUE}
+#| label: tbl-summary-statistics-house
+#| tbl-cap:  Summary statistics (House)
+
+
 data_member |>
   filter(chamber == "House") |> 
   ungroup() |> 
@@ -196,7 +217,7 @@ data_member |>
     SD = SD,
     Histogram = function(x) "") )  |> 
   # multipage (requires fake header for caption hack)
-    tinytable::theme_latex(multipage = TRUE) |> 
+   # tinytable::theme_latex(multipage = TRUE) |> 
    # bold header, hline bottom, aligned center
   tinytable::style_tt(j = 1, align = "l") |>
   tinytable::style_tt(i = 0, bold = T, line = "b") |>

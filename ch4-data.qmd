@@ -1,4 +1,4 @@
-# The Challenge of Studying What Congressional Offices Do Behind the Scenes {#sec-measuring}
+# Studying What Congressional Offices Do Behind the Scenes {#sec-measuring}
 
 <!-- Measuring (Invisible) Interbranch Representation --> 
 
