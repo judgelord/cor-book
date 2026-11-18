@@ -4,6 +4,8 @@ replication-total-extra.qmd
 wordclouds_make.html
 figs
 replication-data.rmarkdown
-
 /.quarto/
 **/*.quarto_ipynb
+_archive
+test.html
+test.qmd
